@@ -1,0 +1,1123 @@
+{
+  "schema_version": 1,
+  "dataset": "anderson6_appendix_c_prandtl_meyer",
+  "source": {
+    "author": "John D. Anderson, Jr.",
+    "title": "Fundamentals of Aerodynamics",
+    "edition": "6th Edition",
+    "publisher": "McGraw-Hill",
+    "isbn": "9781259129919",
+    "appendix": "Appendix C - Prandtl-Meyer Function and Mach Angle",
+    "printed_pages": "1089-1091",
+    "source_type": "printed table in a textbook appendix",
+    "notation": "Each value is printed as a normalised mantissa below 1 with a signed base-10 exponent, e.g. '0.2638 + 02' is 26.38. The single exception is nu at M = 1, printed as a bare '0.0000'.",
+    "extracted": "2026-08-31",
+    "extraction_method": "Text extraction from the user-supplied PDF, parsed with whitespace-tolerant tokenising, screened against equation-independent physical constraints, and checked against rows read visually from the rendered pages.",
+    "note": "Numeric values and citation metadata only. No explanatory text is reproduced."
+  },
+  "gamma": 1.4,
+  "gamma_determination": "Not assumed. Established from the table's own nu column: evaluating the Prandtl-Meyer function at each of the 167 supersonic rows gives a maximum deviation of 0.049 degrees at gamma = 1.4 -- within the printed precision at high Mach -- against 26.9 degrees at gamma = 1.3, 37.5 at gamma = 1.66 and 72.4 at gamma = 1.2. The largest printed nu, 124.7 at M = 50, also sits below nu_max = 130.454 for gamma = 1.4 and above nu_max = 90.68 for gamma = 1.66, which alone excludes the latter.",
+  "angle_units": "degrees",
+  "angle_units_determination": "The sonic row prints mu = 90.00, and the Mach angle at M = 1 is a right angle. The mu column matches asin(1/M) in degrees at printed precision on all 168 rows -- a check that involves no gas dynamics and no choice of gamma.",
+  "table_convention": {
+    "columns": [
+      "M",
+      "nu",
+      "mu"
+    ],
+    "orientation": "nu is the Prandtl-Meyer function; mu is the Mach angle asin(1/M)",
+    "rocketforge_mapping": {
+      "nu": "degrees(prandtl_meyer.nu(M, gas))",
+      "mach_angle": "degrees(isentropic.mach_angle(M, gas))"
+    }
+  },
+  "printed_significant_figures": 4,
+  "tolerance_rule": "absolute, half a unit in the last printed mantissa digit scaled by the printed exponent: atol = 0.5e-4 * 10**exponent",
+  "row_count": 168,
+  "mach_min": 1.0,
+  "mach_max": 50.0,
+  "columns": [
+    "mach",
+    "nu",
+    "mach_angle"
+  ],
+  "rows": [
+    {
+      "mach": 1.0,
+      "nu": 0.0,
+      "mach_angle": 90.0,
+      "page": 1089
+    },
+    {
+      "mach": 1.02,
+      "nu": 0.1257,
+      "mach_angle": 78.64,
+      "page": 1089
+    },
+    {
+      "mach": 1.04,
+      "nu": 0.351,
+      "mach_angle": 74.06,
+      "page": 1089
+    },
+    {
+      "mach": 1.06,
+      "nu": 0.6367,
+      "mach_angle": 70.63000000000001,
+      "page": 1089
+    },
+    {
+      "mach": 1.08,
+      "nu": 0.968,
+      "mach_angle": 67.81,
+      "page": 1089
+    },
+    {
+      "mach": 1.1,
+      "nu": 1.3359999999999999,
+      "mach_angle": 65.38000000000001,
+      "page": 1089
+    },
+    {
+      "mach": 1.12,
+      "nu": 1.7349999999999999,
+      "mach_angle": 63.23,
+      "page": 1089
+    },
+    {
+      "mach": 1.1400000000000001,
+      "nu": 2.16,
+      "mach_angle": 61.309999999999995,
+      "page": 1089
+    },
+    {
+      "mach": 1.1600000000000001,
+      "nu": 2.6069999999999998,
+      "mach_angle": 59.550000000000004,
+      "page": 1089
+    },
+    {
+      "mach": 1.18,
+      "nu": 3.074,
+      "mach_angle": 57.940000000000005,
+      "page": 1089
+    },
+    {
+      "mach": 1.2,
+      "nu": 3.558,
+      "mach_angle": 56.44,
+      "page": 1089
+    },
+    {
+      "mach": 1.22,
+      "nu": 4.057,
+      "mach_angle": 55.05,
+      "page": 1089
+    },
+    {
+      "mach": 1.24,
+      "nu": 4.569,
+      "mach_angle": 53.75,
+      "page": 1089
+    },
+    {
+      "mach": 1.26,
+      "nu": 5.093,
+      "mach_angle": 52.53,
+      "page": 1089
+    },
+    {
+      "mach": 1.28,
+      "nu": 5.627,
+      "mach_angle": 51.38,
+      "page": 1089
+    },
+    {
+      "mach": 1.3,
+      "nu": 6.17,
+      "mach_angle": 50.28,
+      "page": 1089
+    },
+    {
+      "mach": 1.32,
+      "nu": 6.721,
+      "mach_angle": 49.25,
+      "page": 1089
+    },
+    {
+      "mach": 1.34,
+      "nu": 7.279,
+      "mach_angle": 48.27,
+      "page": 1089
+    },
+    {
+      "mach": 1.36,
+      "nu": 7.843999999999999,
+      "mach_angle": 47.33,
+      "page": 1089
+    },
+    {
+      "mach": 1.3800000000000001,
+      "nu": 8.413,
+      "mach_angle": 46.44,
+      "page": 1089
+    },
+    {
+      "mach": 1.4000000000000001,
+      "nu": 8.987,
+      "mach_angle": 45.58,
+      "page": 1089
+    },
+    {
+      "mach": 1.42,
+      "nu": 9.565,
+      "mach_angle": 44.769999999999996,
+      "page": 1089
+    },
+    {
+      "mach": 1.44,
+      "nu": 10.15,
+      "mach_angle": 43.980000000000004,
+      "page": 1089
+    },
+    {
+      "mach": 1.46,
+      "nu": 10.73,
+      "mach_angle": 43.230000000000004,
+      "page": 1089
+    },
+    {
+      "mach": 1.48,
+      "nu": 11.32,
+      "mach_angle": 42.51,
+      "page": 1089
+    },
+    {
+      "mach": 1.5,
+      "nu": 11.91,
+      "mach_angle": 41.81,
+      "page": 1089
+    },
+    {
+      "mach": 1.52,
+      "nu": 12.49,
+      "mach_angle": 41.14,
+      "page": 1089
+    },
+    {
+      "mach": 1.54,
+      "nu": 13.089999999999998,
+      "mach_angle": 40.489999999999995,
+      "page": 1089
+    },
+    {
+      "mach": 1.56,
+      "nu": 13.68,
+      "mach_angle": 39.87,
+      "page": 1089
+    },
+    {
+      "mach": 1.58,
+      "nu": 14.27,
+      "mach_angle": 39.269999999999996,
+      "page": 1089
+    },
+    {
+      "mach": 1.6,
+      "nu": 14.860000000000001,
+      "mach_angle": 38.68,
+      "page": 1089
+    },
+    {
+      "mach": 1.62,
+      "nu": 15.45,
+      "mach_angle": 38.12,
+      "page": 1089
+    },
+    {
+      "mach": 1.6400000000000001,
+      "nu": 16.04,
+      "mach_angle": 37.57,
+      "page": 1089
+    },
+    {
+      "mach": 1.6600000000000001,
+      "nu": 16.63,
+      "mach_angle": 37.04,
+      "page": 1089
+    },
+    {
+      "mach": 1.6800000000000002,
+      "nu": 17.22,
+      "mach_angle": 36.53,
+      "page": 1089
+    },
+    {
+      "mach": 1.7000000000000002,
+      "nu": 17.810000000000002,
+      "mach_angle": 36.03,
+      "page": 1089
+    },
+    {
+      "mach": 1.7199999999999998,
+      "nu": 18.4,
+      "mach_angle": 35.55,
+      "page": 1089
+    },
+    {
+      "mach": 1.7399999999999998,
+      "nu": 18.98,
+      "mach_angle": 35.08,
+      "page": 1089
+    },
+    {
+      "mach": 1.7599999999999998,
+      "nu": 19.56,
+      "mach_angle": 34.62,
+      "page": 1089
+    },
+    {
+      "mach": 1.7799999999999998,
+      "nu": 20.150000000000002,
+      "mach_angle": 34.18,
+      "page": 1089
+    },
+    {
+      "mach": 1.7999999999999998,
+      "nu": 20.73,
+      "mach_angle": 33.75,
+      "page": 1089
+    },
+    {
+      "mach": 1.8199999999999998,
+      "nu": 21.3,
+      "mach_angle": 33.33,
+      "page": 1089
+    },
+    {
+      "mach": 1.8399999999999999,
+      "nu": 21.88,
+      "mach_angle": 32.92,
+      "page": 1089
+    },
+    {
+      "mach": 1.8599999999999999,
+      "nu": 22.45,
+      "mach_angle": 32.519999999999996,
+      "page": 1089
+    },
+    {
+      "mach": 1.88,
+      "nu": 23.02,
+      "mach_angle": 32.129999999999995,
+      "page": 1089
+    },
+    {
+      "mach": 1.9,
+      "nu": 23.59,
+      "mach_angle": 31.759999999999998,
+      "page": 1089
+    },
+    {
+      "mach": 1.92,
+      "nu": 24.15,
+      "mach_angle": 31.39,
+      "page": 1089
+    },
+    {
+      "mach": 1.94,
+      "nu": 24.709999999999997,
+      "mach_angle": 31.03,
+      "page": 1089
+    },
+    {
+      "mach": 1.96,
+      "nu": 25.27,
+      "mach_angle": 30.680000000000003,
+      "page": 1089
+    },
+    {
+      "mach": 1.98,
+      "nu": 25.83,
+      "mach_angle": 30.330000000000002,
+      "page": 1089
+    },
+    {
+      "mach": 2.0,
+      "nu": 26.38,
+      "mach_angle": 30.0,
+      "page": 1089
+    },
+    {
+      "mach": 2.05,
+      "nu": 27.750000000000004,
+      "mach_angle": 29.2,
+      "page": 1089
+    },
+    {
+      "mach": 2.1,
+      "nu": 29.099999999999998,
+      "mach_angle": 28.439999999999998,
+      "page": 1089
+    },
+    {
+      "mach": 2.15,
+      "nu": 30.43,
+      "mach_angle": 27.72,
+      "page": 1089
+    },
+    {
+      "mach": 2.2,
+      "nu": 31.730000000000004,
+      "mach_angle": 27.04,
+      "page": 1089
+    },
+    {
+      "mach": 2.25,
+      "nu": 33.019999999999996,
+      "mach_angle": 26.39,
+      "page": 1089
+    },
+    {
+      "mach": 2.3000000000000003,
+      "nu": 34.28,
+      "mach_angle": 25.77,
+      "page": 1089
+    },
+    {
+      "mach": 2.3499999999999996,
+      "nu": 35.53,
+      "mach_angle": 25.180000000000003,
+      "page": 1089
+    },
+    {
+      "mach": 2.4,
+      "nu": 36.75,
+      "mach_angle": 24.62,
+      "page": 1089
+    },
+    {
+      "mach": 2.45,
+      "nu": 37.95,
+      "mach_angle": 24.09,
+      "page": 1089
+    },
+    {
+      "mach": 2.5,
+      "nu": 39.12,
+      "mach_angle": 23.580000000000002,
+      "page": 1090
+    },
+    {
+      "mach": 2.55,
+      "nu": 40.28,
+      "mach_angle": 23.09,
+      "page": 1090
+    },
+    {
+      "mach": 2.6,
+      "nu": 41.410000000000004,
+      "mach_angle": 22.62,
+      "page": 1090
+    },
+    {
+      "mach": 2.6500000000000004,
+      "nu": 42.53,
+      "mach_angle": 22.17,
+      "page": 1090
+    },
+    {
+      "mach": 2.7,
+      "nu": 43.62,
+      "mach_angle": 21.740000000000002,
+      "page": 1090
+    },
+    {
+      "mach": 2.75,
+      "nu": 44.690000000000005,
+      "mach_angle": 21.32,
+      "page": 1090
+    },
+    {
+      "mach": 2.8000000000000003,
+      "nu": 45.75,
+      "mach_angle": 20.919999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 2.8499999999999996,
+      "nu": 46.78,
+      "mach_angle": 20.54,
+      "page": 1090
+    },
+    {
+      "mach": 2.9,
+      "nu": 47.79,
+      "mach_angle": 20.169999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 2.9499999999999997,
+      "nu": 48.78,
+      "mach_angle": 19.81,
+      "page": 1090
+    },
+    {
+      "mach": 3.0,
+      "nu": 49.76,
+      "mach_angle": 19.470000000000002,
+      "page": 1090
+    },
+    {
+      "mach": 3.05,
+      "nu": 50.71,
+      "mach_angle": 19.139999999999997,
+      "page": 1090
+    },
+    {
+      "mach": 3.1,
+      "nu": 51.65,
+      "mach_angle": 18.82,
+      "page": 1090
+    },
+    {
+      "mach": 3.15,
+      "nu": 52.56999999999999,
+      "mach_angle": 18.509999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 3.2,
+      "nu": 53.47,
+      "mach_angle": 18.21,
+      "page": 1090
+    },
+    {
+      "mach": 3.25,
+      "nu": 54.35,
+      "mach_angle": 17.919999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 3.3000000000000003,
+      "nu": 55.22,
+      "mach_angle": 17.64,
+      "page": 1090
+    },
+    {
+      "mach": 3.35,
+      "nu": 56.07,
+      "mach_angle": 17.37,
+      "page": 1090
+    },
+    {
+      "mach": 3.4000000000000004,
+      "nu": 56.910000000000004,
+      "mach_angle": 17.1,
+      "page": 1090
+    },
+    {
+      "mach": 3.4499999999999997,
+      "nu": 57.730000000000004,
+      "mach_angle": 16.85,
+      "page": 1090
+    },
+    {
+      "mach": 3.5,
+      "nu": 58.53,
+      "mach_angle": 16.6,
+      "page": 1090
+    },
+    {
+      "mach": 3.55,
+      "nu": 59.31999999999999,
+      "mach_angle": 16.36,
+      "page": 1090
+    },
+    {
+      "mach": 3.5999999999999996,
+      "nu": 60.089999999999996,
+      "mach_angle": 16.13,
+      "page": 1090
+    },
+    {
+      "mach": 3.65,
+      "nu": 60.85,
+      "mach_angle": 15.9,
+      "page": 1090
+    },
+    {
+      "mach": 3.7,
+      "nu": 61.6,
+      "mach_angle": 15.68,
+      "page": 1090
+    },
+    {
+      "mach": 3.75,
+      "nu": 62.33,
+      "mach_angle": 15.47,
+      "page": 1090
+    },
+    {
+      "mach": 3.8,
+      "nu": 63.04,
+      "mach_angle": 15.260000000000002,
+      "page": 1090
+    },
+    {
+      "mach": 3.85,
+      "nu": 63.74999999999999,
+      "mach_angle": 15.049999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 3.9000000000000004,
+      "nu": 64.44,
+      "mach_angle": 14.860000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 3.95,
+      "nu": 65.12,
+      "mach_angle": 14.66,
+      "page": 1090
+    },
+    {
+      "mach": 4.0,
+      "nu": 65.78,
+      "mach_angle": 14.48,
+      "page": 1090
+    },
+    {
+      "mach": 4.050000000000001,
+      "nu": 66.44,
+      "mach_angle": 14.29,
+      "page": 1090
+    },
+    {
+      "mach": 4.1,
+      "nu": 67.08,
+      "mach_angle": 14.12,
+      "page": 1090
+    },
+    {
+      "mach": 4.1499999999999995,
+      "nu": 67.71000000000001,
+      "mach_angle": 13.94,
+      "page": 1090
+    },
+    {
+      "mach": 4.2,
+      "nu": 68.33,
+      "mach_angle": 13.77,
+      "page": 1090
+    },
+    {
+      "mach": 4.25,
+      "nu": 68.94,
+      "mach_angle": 13.61,
+      "page": 1090
+    },
+    {
+      "mach": 4.3,
+      "nu": 69.54,
+      "mach_angle": 13.450000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 4.35,
+      "nu": 70.13000000000001,
+      "mach_angle": 13.29,
+      "page": 1090
+    },
+    {
+      "mach": 4.4,
+      "nu": 70.71,
+      "mach_angle": 13.139999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 4.45,
+      "nu": 71.27,
+      "mach_angle": 12.989999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 4.5,
+      "nu": 71.83,
+      "mach_angle": 12.839999999999998,
+      "page": 1090
+    },
+    {
+      "mach": 4.55,
+      "nu": 72.38,
+      "mach_angle": 12.7,
+      "page": 1090
+    },
+    {
+      "mach": 4.6000000000000005,
+      "nu": 72.92,
+      "mach_angle": 12.559999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 4.65,
+      "nu": 73.45,
+      "mach_angle": 12.42,
+      "page": 1090
+    },
+    {
+      "mach": 4.699999999999999,
+      "nu": 73.97,
+      "mach_angle": 12.280000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 4.75,
+      "nu": 74.48,
+      "mach_angle": 12.15,
+      "page": 1090
+    },
+    {
+      "mach": 4.8,
+      "nu": 74.99,
+      "mach_angle": 12.02,
+      "page": 1090
+    },
+    {
+      "mach": 4.85,
+      "nu": 75.48,
+      "mach_angle": 11.899999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 4.9,
+      "nu": 75.97,
+      "mach_angle": 11.78,
+      "page": 1090
+    },
+    {
+      "mach": 4.95,
+      "nu": 76.44999999999999,
+      "mach_angle": 11.66,
+      "page": 1090
+    },
+    {
+      "mach": 5.0,
+      "nu": 76.92,
+      "mach_angle": 11.540000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 5.1,
+      "nu": 77.84,
+      "mach_angle": 11.31,
+      "page": 1090
+    },
+    {
+      "mach": 5.2,
+      "nu": 78.73,
+      "mach_angle": 11.09,
+      "page": 1090
+    },
+    {
+      "mach": 5.300000000000001,
+      "nu": 79.60000000000001,
+      "mach_angle": 10.879999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 5.4,
+      "nu": 80.43,
+      "mach_angle": 10.67,
+      "page": 1090
+    },
+    {
+      "mach": 5.5,
+      "nu": 81.24,
+      "mach_angle": 10.48,
+      "page": 1090
+    },
+    {
+      "mach": 5.6000000000000005,
+      "nu": 82.03,
+      "mach_angle": 10.290000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 5.699999999999999,
+      "nu": 82.8,
+      "mach_angle": 10.100000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 5.8,
+      "nu": 83.54,
+      "mach_angle": 9.928,
+      "page": 1090
+    },
+    {
+      "mach": 5.8999999999999995,
+      "nu": 84.26,
+      "mach_angle": 9.758,
+      "page": 1090
+    },
+    {
+      "mach": 6.0,
+      "nu": 84.96000000000001,
+      "mach_angle": 9.594000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 6.1,
+      "nu": 85.63,
+      "mach_angle": 9.435,
+      "page": 1090
+    },
+    {
+      "mach": 6.2,
+      "nu": 86.29,
+      "mach_angle": 9.282,
+      "page": 1090
+    },
+    {
+      "mach": 6.3,
+      "nu": 86.94,
+      "mach_angle": 9.133,
+      "page": 1090
+    },
+    {
+      "mach": 6.4,
+      "nu": 87.56,
+      "mach_angle": 8.989,
+      "page": 1090
+    },
+    {
+      "mach": 6.5,
+      "nu": 88.17,
+      "mach_angle": 8.85,
+      "page": 1090
+    },
+    {
+      "mach": 6.6000000000000005,
+      "nu": 88.75999999999999,
+      "mach_angle": 8.715,
+      "page": 1090
+    },
+    {
+      "mach": 6.7,
+      "nu": 89.33,
+      "mach_angle": 8.584,
+      "page": 1090
+    },
+    {
+      "mach": 6.800000000000001,
+      "nu": 89.89,
+      "mach_angle": 8.457,
+      "page": 1090
+    },
+    {
+      "mach": 6.8999999999999995,
+      "nu": 90.44,
+      "mach_angle": 8.333,
+      "page": 1090
+    },
+    {
+      "mach": 7.0,
+      "nu": 90.97,
+      "mach_angle": 8.213000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 7.1,
+      "nu": 91.49000000000001,
+      "mach_angle": 8.097,
+      "page": 1090
+    },
+    {
+      "mach": 7.199999999999999,
+      "nu": 92.0,
+      "mach_angle": 7.984,
+      "page": 1090
+    },
+    {
+      "mach": 7.3,
+      "nu": 92.49000000000001,
+      "mach_angle": 7.873,
+      "page": 1090
+    },
+    {
+      "mach": 7.4,
+      "nu": 92.97,
+      "mach_angle": 7.766,
+      "page": 1090
+    },
+    {
+      "mach": 7.5,
+      "nu": 93.44,
+      "mach_angle": 7.662,
+      "page": 1090
+    },
+    {
+      "mach": 7.6,
+      "nu": 93.89999999999999,
+      "mach_angle": 7.561,
+      "page": 1090
+    },
+    {
+      "mach": 7.7,
+      "nu": 94.34,
+      "mach_angle": 7.462,
+      "page": 1090
+    },
+    {
+      "mach": 7.800000000000001,
+      "nu": 94.78,
+      "mach_angle": 7.3660000000000005,
+      "page": 1090
+    },
+    {
+      "mach": 7.9,
+      "nu": 95.21,
+      "mach_angle": 7.271999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 8.0,
+      "nu": 95.62,
+      "mach_angle": 7.180999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 9.0,
+      "nu": 99.32,
+      "mach_angle": 6.3790000000000004,
+      "page": 1090
+    },
+    {
+      "mach": 10.0,
+      "nu": 102.3,
+      "mach_angle": 5.739,
+      "page": 1090
+    },
+    {
+      "mach": 11.0,
+      "nu": 104.80000000000001,
+      "mach_angle": 5.215999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 12.0,
+      "nu": 106.89999999999999,
+      "mach_angle": 4.779999999999999,
+      "page": 1090
+    },
+    {
+      "mach": 13.0,
+      "nu": 108.7,
+      "mach_angle": 4.412,
+      "page": 1090
+    },
+    {
+      "mach": 14.000000000000002,
+      "nu": 110.2,
+      "mach_angle": 4.096,
+      "page": 1090
+    },
+    {
+      "mach": 15.0,
+      "nu": 111.5,
+      "mach_angle": 3.8229999999999995,
+      "page": 1090
+    },
+    {
+      "mach": 16.0,
+      "nu": 112.69999999999999,
+      "mach_angle": 3.583,
+      "page": 1090
+    },
+    {
+      "mach": 17.0,
+      "nu": 113.69999999999999,
+      "mach_angle": 3.372,
+      "page": 1090
+    },
+    {
+      "mach": 18.0,
+      "nu": 114.6,
+      "mach_angle": 3.185,
+      "page": 1090
+    },
+    {
+      "mach": 19.0,
+      "nu": 115.5,
+      "mach_angle": 3.0170000000000003,
+      "page": 1090
+    },
+    {
+      "mach": 20.0,
+      "nu": 116.2,
+      "mach_angle": 2.866,
+      "page": 1090
+    },
+    {
+      "mach": 22.0,
+      "nu": 117.5,
+      "mach_angle": 2.605,
+      "page": 1090
+    },
+    {
+      "mach": 24.0,
+      "nu": 118.6,
+      "mach_angle": 2.388,
+      "page": 1090
+    },
+    {
+      "mach": 26.0,
+      "nu": 119.5,
+      "mach_angle": 2.204,
+      "page": 1090
+    },
+    {
+      "mach": 28.000000000000004,
+      "nu": 120.2,
+      "mach_angle": 2.0469999999999997,
+      "page": 1090
+    },
+    {
+      "mach": 30.0,
+      "nu": 120.89999999999999,
+      "mach_angle": 1.9100000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 32.0,
+      "nu": 121.5,
+      "mach_angle": 1.7910000000000001,
+      "page": 1090
+    },
+    {
+      "mach": 34.0,
+      "nu": 122.0,
+      "mach_angle": 1.685,
+      "page": 1090
+    },
+    {
+      "mach": 36.0,
+      "nu": 122.5,
+      "mach_angle": 1.592,
+      "page": 1091
+    },
+    {
+      "mach": 38.0,
+      "nu": 122.89999999999999,
+      "mach_angle": 1.508,
+      "page": 1091
+    },
+    {
+      "mach": 40.0,
+      "nu": 123.30000000000001,
+      "mach_angle": 1.433,
+      "page": 1091
+    },
+    {
+      "mach": 42.0,
+      "nu": 123.60000000000001,
+      "mach_angle": 1.3639999999999999,
+      "page": 1091
+    },
+    {
+      "mach": 44.0,
+      "nu": 123.89999999999999,
+      "mach_angle": 1.302,
+      "page": 1091
+    },
+    {
+      "mach": 46.0,
+      "nu": 124.2,
+      "mach_angle": 1.246,
+      "page": 1091
+    },
+    {
+      "mach": 48.0,
+      "nu": 124.5,
+      "mach_angle": 1.194,
+      "page": 1091
+    },
+    {
+      "mach": 50.0,
+      "nu": 124.7,
+      "mach_angle": 1.146,
+      "page": 1091
+    }
+  ],
+  "verified_checkpoints": [
+    {
+      "mach": 1.0,
+      "read_from_page_image": {
+        "nu": 0.0,
+        "mach_angle": 90.0
+      },
+      "printed_as_typeset": "0.1000 + 01   0.0000   0.9000 + 02",
+      "page": 1089,
+      "confirmed": true
+    },
+    {
+      "mach": 1.5,
+      "read_from_page_image": {
+        "nu": 11.91,
+        "mach_angle": 41.81
+      },
+      "printed_as_typeset": "0.1500 + 01   0.1191 + 02   0.4181 + 02",
+      "page": 1089,
+      "confirmed": true
+    },
+    {
+      "mach": 2.0,
+      "read_from_page_image": {
+        "nu": 26.38,
+        "mach_angle": 30.0
+      },
+      "printed_as_typeset": "0.2000 + 01   0.2638 + 02   0.3000 + 02",
+      "page": 1089,
+      "confirmed": true
+    },
+    {
+      "mach": 3.0,
+      "read_from_page_image": {
+        "nu": 49.76,
+        "mach_angle": 19.47
+      },
+      "printed_as_typeset": "0.3000 + 01   0.4976 + 02   0.1947 + 02",
+      "page": 1090,
+      "confirmed": true
+    },
+    {
+      "mach": 5.0,
+      "read_from_page_image": {
+        "nu": 76.92,
+        "mach_angle": 11.54
+      },
+      "printed_as_typeset": "0.5000 + 01   0.7692 + 02   0.1154 + 02",
+      "page": 1090,
+      "confirmed": true
+    }
+  ],
+  "extraction_corrections": [],
+  "screening_performed": [
+    "M >= 1 on every row",
+    "nu >= 0 on every row",
+    "0 < mu <= 90 on every row",
+    "M strictly increasing, nu non-decreasing, mu non-increasing",
+    "the sonic row prints nu = 0 and mu = 90 exactly",
+    "mu equals asin(1/M) at printed precision on all 168 rows"
+  ],
+  "expected_comparison_outcome": {
+    "rows_compared": 168,
+    "values_compared": 336,
+    "pass": 336,
+    "review": 0,
+    "review_rows": [],
+    "note": "Every printed value agrees with RocketForge at the source's own precision. No extraction correction was needed and no rounding tie was found, which is worth stating: Appendices A and B each carry one."
+  }
+}

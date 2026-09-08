@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "dataset": "nasa_cea_2002_lox_lh2_of6",
+  "kind": "thermochemistry_chamber",
+  "level": "B",
+  "level_name": "External published reference",
+  "title": "NASA CEA — LOX / LH2, O/F 6.0, 1000 psia",
+  "generated": "2026-09-04",
+  "source": {
+    "program": "NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA",
+    "header_date": "OCTOBER 18, 2002",
+    "authors": "Bonnie McBride and Sanford Gordon",
+    "documents": "NASA RP-1311 Part I (1994) and Part II (1996)",
+    "retrieved_from": "RocketCEA v1.2.3 documentation, which reproduces the program's own printed output verbatim",
+    "source_type": "printed program output",
+    "independence": "Produced by the 2002 Fortran implementation of CEA. The provider under test is the v3 re-implementation (cea 3.3.4), so neither number in this comparison produced the other. Agreement between two implementations of the same method on the same published case is meaningful evidence; it is not a claim that either is experimentally correct."
+  },
+  "conditions": {
+    "propellants": "O2(L) / H2(L)",
+    "oxidiser_fuel_ratio": 6.0,
+    "chamber_pressure": "1000.0 psia",
+    "area_ratio": "Ae/At = 40.0, supersonic",
+    "reactants": "H2(L) at 20.27 K, O2(L) at 90.18 K",
+    "chemistry": "equilibrium (shifting) throughout the expansion"
+  },
+  "case": {
+    "fuel": "LH2",
+    "oxidiser": "LOX",
+    "oxidiser_fuel_ratio": 6.0,
+    "chamber_pressure_Pa": 6894757.293168361,
+    "chamber_pressure_note": "1000.0 psia, converted with the exact definitions of the pound-force and the inch",
+    "fuel_temperature_K": 20.27,
+    "oxidiser_temperature_K": 90.17,
+    "temperature_note": "The source prints 90.18 K for O2(L) against the 90.17 K used here. The difference is immaterial and the reason is itself a Phase 5C finding: CEA models O2(L) with an assigned enthalpy, so neither value enters the calculation."
+  },
+  "published": [
+    {
+      "key": "chamber_temperature",
+      "label": "Chamber temperature  T₀",
+      "state_field": "temperature",
+      "value": 3483.35,
+      "unit": "K",
+      "significant_figures": 6,
+      "to_si": 1.0,
+      "si_unit": "K"
+    },
+    {
+      "key": "chamber_molar_mass",
+      "label": "Mean molar mass  M̄",
+      "state_field": "molar_mass",
+      "value": 13.458,
+      "unit": "kg/kmol",
+      "significant_figures": 5,
+      "to_si": 0.001,
+      "si_unit": "kg/mol"
+    }
+  ],
+  "not_compared": [
+    {
+      "label": "Characteristic velocity  c*",
+      "published_unit": "ft/s",
+      "reason": "RocketForge does not own a characteristic velocity. The source publishes one and NASA CEA returns one natively, but neither is RocketForge's answer until Phase 5E implements the equation, so no value is shown here."
+    },
+    {
+      "label": "Specific impulse  Isp",
+      "published_unit": "s",
+      "reason": "Rocket performance belongs to engineering.nozzle (ADR-15) and is not implemented. Showing the provider's native Isp in a RocketForge comparison would present a provider oracle as a RocketForge result."
+    },
+    {
+      "label": "Exit  γ",
+      "published_unit": "—",
+      "reason": "An exit-station quantity. This workspace owns the chamber state only; there is no expansion here to compare it against."
+    }
+  ],
+  "verification": {
+    "covered_by": "tests/providers/cea/test_cea_references.py (Level B), tests/application/test_thermochemistry_reference.py (this dataset)",
+    "note": "The published values above are compared against RocketForge's own pipeline output. Nothing in RocketForge reads them to produce a result; the direction is always published value -> compare -> computed value."
+  }
+}

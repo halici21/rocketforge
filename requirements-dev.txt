@@ -1,0 +1,22 @@
+# RocketForge - development and test dependencies.
+#
+# Runtime dependencies live in requirements.txt and are deliberately minimal:
+# the application needs Qt, and the engineering backend currently needs nothing
+# beyond the standard library. Nothing here is imported by rocketforge/ or by
+# main.py, and tests/test_architecture.py fails the build if that changes.
+
+# Test runner. Pure Python, no binary dependencies.
+pytest>=8.0
+
+# Cross-validation oracle ONLY, used by tests/core/test_roots_cross_validation.py
+# to check RocketForge's own Brent solver against an independent implementation.
+#
+# SciPy is NOT a runtime dependency (ADR-09 in docs/engineering/01), there is no
+# fallback path onto it, and no module under rocketforge/ may import it. If it is
+# absent the cross-validation tests skip and the rest of the suite still covers
+# solver correctness in full.
+#
+# Because SciPy is a large binary wheel, installing it into the application's
+# own virtual environment is optional; a separate environment for the oracle
+# keeps the shipped runtime unchanged.
+scipy>=1.11

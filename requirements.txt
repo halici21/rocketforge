@@ -1,0 +1,19 @@
+# RocketForge - UI foundation phase.
+# Only the Qt essentials are needed: the interface uses QtCore, QtGui, QtQml,
+# QtQuick and QtQuickControls2. Pinned to the version the UI was built against.
+PySide6-Essentials==6.10.2
+
+# Packaging only. build_exe.bat installs this on demand, so a plain
+# `pip install -r requirements.txt` stays a runtime-only install.
+# pyinstaller>=6.10
+
+# Engineering backend. NumPy is the one numerical dependency: the compressible
+# relations are vectorised so the Analysis pages can sweep thousands of Mach
+# numbers per frame without a Python-level loop (ADR-09/ADR-10 in
+# docs/engineering/01_engineering_architecture.md). Added in Phase 4B, the first
+# phase whose production code actually imports it.
+#
+# SciPy is deliberately NOT here: the bracketed root solver is RocketForge's own
+# and tests/test_architecture.py fails the build if any backend module imports
+# SciPy. Pandas is not a dependency either.
+numpy>=1.26

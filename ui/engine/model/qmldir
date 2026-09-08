@@ -1,0 +1,4 @@
+# Engine workspace model singletons.  Imported with:  import "model"
+singleton ComponentRegistry 1.0 ComponentRegistry.qml
+singleton EngineModel 1.0 EngineModel.qml
+singleton MockEngineData 1.0 MockEngineData.qml

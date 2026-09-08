@@ -1,0 +1,333 @@
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import RocketForge 1.0
+import "../../theme"
+import "../../components"
+
+/*
+ * Generated Rayleigh table.
+ *
+ * Every row is computed by RocketForge for the chosen gamma and Mach range.
+ *
+ * There is no published-table comparison here and the page says why: the
+ * supplied Anderson volume has appendices for isentropic flow, normal shocks
+ * and the Prandtl–Meyer function, and none for Rayleigh flow. Rather than
+ * invent one for visual symmetry, the validation panel names the checks that
+ * actually back these numbers.
+ *
+ * Two rows are marked, and they are marked differently on purpose. M = 1/√γ is
+ * where the *static* temperature peaks; M = 1 is where the *stagnation*
+ * temperature peaks and the flow chokes. Giving them the same label would be
+ * the single most misleading thing this table could do.
+ */
+Item {
+    id: page
+
+    property int selectedRow: -1
+    property real jumpMach: 1.0
+
+    function jumpTo(mach) {
+        var row = Rayleigh.rowNearest(mach)
+        if (row < 0)
+            return
+        page.selectedRow = row
+        Rayleigh.selectRow(row)
+        table.scrollToRow(row)
+    }
+
+    function applySettings() {
+        Rayleigh.regenerateTable()
+        page.selectedRow = -1
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: Metrics.spacing.m
+
+        RFPanel {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 108
+            contentSpacing: Metrics.spacing.s
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Metrics.spacing.m
+
+                RFBoundNumberField {
+                    Layout.preferredWidth: 118
+                    label: "γ"
+                    value: Rayleigh.tableGamma
+                    digits: 4
+                    decimals: 4
+                    step: 0.005
+                    onValueEdited: function (v) { Rayleigh.tableGamma = v }
+                }
+                RFBoundNumberField {
+                    Layout.preferredWidth: 118
+                    label: "Start M"
+                    value: Rayleigh.tableStart
+                    digits: 3
+                    decimals: 3
+                    step: 0.01
+                    onValueEdited: function (v) { Rayleigh.tableStart = v }
+                }
+                RFBoundNumberField {
+                    Layout.preferredWidth: 118
+                    label: "End M"
+                    value: Rayleigh.tableEnd
+                    digits: 3
+                    decimals: 3
+                    step: 0.1
+                    onValueEdited: function (v) { Rayleigh.tableEnd = v }
+                }
+                RFBoundNumberField {
+                    Layout.preferredWidth: 118
+                    label: "Step"
+                    value: Rayleigh.tableStep
+                    digits: 3
+                    decimals: 3
+                    step: 0.01
+                    onValueEdited: function (v) { Rayleigh.tableStep = v }
+                }
+
+                ColumnLayout {
+                    Layout.preferredWidth: 230
+                    spacing: 3
+                    RFSectionLabel { text: "Branch" }
+                    RFSegmentedControl {
+                        Layout.fillWidth: true
+                        model: ["Both", "Subsonic", "Supersonic"]
+                        currentIndex: Rayleigh.tableBranch === "both" ? 0
+                                    : Rayleigh.tableBranch === "subsonic" ? 1 : 2
+                        onSelected: function (index) {
+                            Rayleigh.tableBranch = ["both", "subsonic", "supersonic"][index]
+                            page.applySettings()
+                        }
+                    }
+                }
+
+                ColumnLayout {
+                    Layout.preferredWidth: 150
+                    spacing: 3
+                    RFSectionLabel { text: "Precision" }
+                    RFSegmentedControl {
+                        Layout.fillWidth: true
+                        model: ["4", "6", "8"]
+                        currentIndex: Rayleigh.tablePrecision === 4 ? 0
+                                    : Rayleigh.tablePrecision === 6 ? 1 : 2
+                        useMonoFont: true
+                        onSelected: function (index) {
+                            Rayleigh.tablePrecision = [4, 6, 8][index]
+                        }
+                    }
+                }
+
+                Item { Layout.fillWidth: true }
+
+                RFButton {
+                    text: "Generate"
+                    variant: "primary"
+                    onClicked: page.applySettings()
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Metrics.spacing.m
+
+                Text {
+                    Layout.fillWidth: true
+                    text: "Generated by RocketForge — T/T* peaks at M = "
+                          + Rayleigh.staticTemperatureMaxMach.toFixed(6)
+                          + " and T₀/T₀* at M = 1, so the two marked rows mean different "
+                          + "things."
+                    wrapMode: Text.WordWrap
+                    color: Theme.textMuted
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.meta
+                }
+
+                RFBoundNumberField {
+                    Layout.preferredWidth: 132
+                    label: "Jump to M"
+                    value: page.jumpMach
+                    digits: 3
+                    decimals: 3
+                    step: 0.1
+                    onValueEdited: function (v) { page.jumpMach = v }
+                }
+                RFButton {
+                    text: "Go"
+                    variant: "quiet"
+                    compact: true
+                    onClicked: page.jumpTo(page.jumpMach)
+                }
+                RFButton {
+                    text: "Copy table"
+                    variant: "quiet"
+                    compact: true
+                    onClicked: Rayleigh.copyTable()
+                }
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            spacing: Metrics.spacing.m
+
+            RFPanel {
+                title: "Rayleigh line"
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                trailing: Component {
+                    RFStatusChip {
+                        text: "RocketForge generated"
+                        tone: "success"
+                        showDot: false
+                    }
+                }
+
+                RFEngineeringTable {
+                    id: table
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    visible: Rayleigh.tableRowCount > 0
+
+                    model: Rayleigh.tableModel
+                    columns: Rayleigh.tableColumns
+                    markedRow: Rayleigh.sonicRow
+                    markedLabel: "SONIC · T₀ MAX"
+                    // The second critical row: the static-temperature maximum,
+                    // labelled as its own thing and never as the sonic state.
+                    secondaryRow: Rayleigh.staticTemperatureMaxRow
+                    secondaryLabel: "STATIC T MAX"
+                    selectedRow: page.selectedRow
+                    firstColumnWidth: 104
+                    // The sonic row separates two physical branches, so the
+                    // region edge earns its keep here.
+                    showRegionEdge: true
+                    // valueAreaWidth already excludes the first column and
+                    // the marker gutter, so every column stays in view.
+                    columnWidth: Math.min(190, Math.max(124,
+                                 valueAreaWidth / Math.max(1, columns.length - 1)))
+
+                    onRowClicked: function (row) {
+                        page.selectedRow = row
+                        Rayleigh.selectRow(row)
+                    }
+                    onRowActivated: function (row) {
+                        Rayleigh.setMachAndSolve(Rayleigh.tableModel.machAt(row))
+                        Rayleigh.requestTab(0)
+                    }
+                }
+
+                RFEmptyState {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    visible: Rayleigh.tableRowCount === 0
+                    tag: "Table"
+                    title: Rayleigh.tableMessage !== "" ? "Table not generated" : "No rows"
+                    body: Rayleigh.tableMessage !== "" ? Rayleigh.tableMessage
+                                                    : "Adjust the range and press Generate."
+                }
+
+                Text {
+                    Layout.fillWidth: true
+                    text: Rayleigh.tableFooter
+                    wrapMode: Text.WordWrap
+                    color: Theme.textMuted
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.meta
+                }
+            }
+
+            // ---- validation, not a reference-table comparison ---------------
+            RFPanel {
+                title: "Reference validation"
+                Layout.preferredWidth: 372
+                Layout.fillHeight: true
+                contentSpacing: Metrics.spacing.s
+
+                trailing: Component {
+                    RFStatusChip {
+                        text: Rayleigh.validationStatus
+                        tone: Rayleigh.validationStatus === "PASS" ? "success" : "warning"
+                        showDot: false
+                    }
+                }
+
+                Text {
+                    Layout.fillWidth: true
+                    text: Rayleigh.referenceMessage
+                    wrapMode: Text.WordWrap
+                    lineHeight: Typography.proseLineHeight
+                    lineHeightMode: Text.ProportionalHeight
+                    color: Theme.textSecondary
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.bodySmall
+                }
+
+                RFDivider {}
+
+                RFSectionLabel { text: "What backs these numbers" }
+
+                Repeater {
+                    model: Rayleigh.validationChecks
+
+                    delegate: ColumnLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        Layout.bottomMargin: Metrics.spacing.xs
+                        spacing: 2
+
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: Metrics.spacing.s
+
+                            Text {
+                                Layout.fillWidth: true
+                                text: modelData.name
+                                wrapMode: Text.WordWrap
+                                color: Theme.text
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.bodySmall
+                            }
+                            RFStatusChip {
+                                text: modelData.status
+                                tone: modelData.status === "PASS" ? "success" : "warning"
+                                showDot: false
+                            }
+                        }
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: modelData.detail
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+                    }
+                }
+
+                Item { Layout.fillHeight: true }
+
+                Text {
+                    Layout.fillWidth: true
+                    text: Rayleigh.validationCitation
+                    wrapMode: Text.WordWrap
+                    lineHeight: Typography.proseLineHeight
+                    lineHeightMode: Text.ProportionalHeight
+                    color: Theme.textMuted
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.meta
+                }
+            }
+        }
+    }
+}

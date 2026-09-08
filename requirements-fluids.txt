@@ -1,0 +1,37 @@
+# RocketForge - optional fluid-property provider profile.
+#
+# CoolProp supplies the reference multiparameter Helmholtz equations of state
+# for the cryogens this project ships. It is deliberately NOT in
+# requirements.txt, for the same reason NASA CEA is not: the whole
+# provider-independent domain in rocketforge/physics/fluids/ -- and the in-tree
+# ConstantPropertyProvider beside it -- must import, run and pass their tests
+# with no property library installed at all. tests/physics/fluids/ and
+# tests/providers/fluid_properties/ prove that on every base run.
+#
+# Install this profile to enable the provider:
+#
+#     python -m pip install -r requirements.txt -r requirements-fluids.txt
+#
+# The official RocketForge desktop executable is built from an environment that
+# has this profile AND requirements-thermochemistry.txt installed, because the
+# reactant-enthalpy coupling needs both. See packaging/RocketForge.spec.
+#
+# Version policy, unchanged from the CEA pin and for the same reason. 8.0.0 is
+# the version validated end to end on CPython 3.13 / Windows -- installation
+# from the cp312-abi3 wheel, the three production cryogens, all five
+# properties, phase and saturation behaviour, PyInstaller freezing and
+# source-versus-packaged parity -- and the version every reference comparison
+# in acceptance/fluids_foundation/ was produced against. Pinned exactly: a
+# property result is reproducible only if the code and the correlation behind
+# it are both pinned, and a minor release can legitimately change the fifth
+# digit of a density. Raising the pin is a deliberate act with a re-validation
+# run attached.
+#
+# Licence: MIT. Source: https://github.com/CoolProp/CoolProp
+#
+# Known limitation carried by this pin: CoolProp uses the Quinones-Cisneros
+# friction-theory correlation for methane viscosity, which differs from the
+# NIST reference table by 0.4-1.4%. Nothing in this phase consumes viscosity;
+# see acceptance/fluids_foundation/fluid_external_reference.json before the
+# hydraulic components do.
+CoolProp==8.0.0

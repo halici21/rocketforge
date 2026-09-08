@@ -1,0 +1,5 @@
+# Design-system singletons.  Imported with:  import "../theme"
+singleton Theme 1.0 Theme.qml
+singleton Typography 1.0 Typography.qml
+singleton Metrics 1.0 Metrics.qml
+singleton Motion 1.0 Motion.qml

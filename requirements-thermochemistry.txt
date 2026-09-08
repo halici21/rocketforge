@@ -1,0 +1,28 @@
+# RocketForge - optional thermochemistry provider profile.
+#
+# NASA CEA v3 is the production chemical-equilibrium provider (ADR-31). It is
+# deliberately NOT in requirements.txt: the base library and the whole
+# provider-independent domain in rocketforge/physics/thermochemistry/ must
+# import, run and pass their tests with no chemistry library installed at all.
+# tests/physics/thermochemistry/ proves that on every base run.
+#
+# Install this profile to enable the provider:
+#
+#     python -m pip install -r requirements.txt -r requirements-thermochemistry.txt
+#
+# The official RocketForge desktop executable is built from an environment
+# that HAS this profile installed, so an end user of the packaged application
+# never runs pip. See packaging/RocketForge.spec and build_exe.bat.
+#
+# Version policy. 3.3.4 is the version Phase 5B-0 validated end to end on
+# CPython 3.13 / Windows - installation, structured API, cryogenic reactants,
+# condensed phases, PyInstaller freezing and source-versus-frozen parity - and
+# the version every Phase 5C reference value was produced against. It is
+# pinned exactly rather than floated: a chemistry result is only reproducible
+# if the code and the thermodynamic database behind it are both pinned, and a
+# minor release can legitimately change the fourth digit of a flame
+# temperature. Raising the pin is a deliberate act with a re-validation run
+# attached (docs/engineering/10 section 9).
+#
+# Licence: Apache-2.0. Source: https://github.com/nasa/cea
+cea==3.3.4

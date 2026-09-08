@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "relation": "fanno",
+  "model": "perfect_gas_fanno_v1",
+  "gamma": 1.4,
+  "generated": "2026-08-31",
+  "provenance": "Transcribed from the printed tables and worked examples of NASA/TM-2006-214086, a public-domain NASA technical memorandum. NACA Report 1135 -- the source used for the isentropic, normal-shock and Prandtl-Meyer modules -- contains no Fanno or Rayleigh tables, so a different authority was required rather than invented. See SOURCES.md.",
+  "source": "NASA/TM-2006-214086, 'User Guide for Compressible Flow Toolbox Version 2.1 for Use With MATLAB Version 7', Kevin J. Melcher, NASA Glenn Research Center, January 2006",
+  "source_type": "printed table in a public-domain government technical report",
+  "source_url": "https://ntrs.nasa.gov/api/citations/20060008908/downloads/20060008908.pdf",
+  "accessed": "2026-08-31",
+  "friction_convention": "The report tabulates the column as 4fL*/D, which is the Fanning group RocketForge uses. Under a Darcy reading every value in that column would be four times smaller, so agreement here also confirms the convention, not just the algebra.",
+  "tolerance_rule": "absolute, half a unit in the last printed significant figure of each value",
+  "not_transcribed": {
+    "impulse_function": "Column I/I* of Table 4.2 is not implemented in RocketForge v1, so it is not transcribed. Phase 3 section 8.3 does not specify it."
+  },
+  "cases": [
+    {
+      "mach": 0.5,
+      "table": "Table 4.3 - Fanno-line Flow Properties for Gamma=1.400000",
+      "page": 38,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.3, report p.38, M = 5.00000e-01 row",
+      "values": {
+        "temperature_ratio": {
+          "printed": 1.14286,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 2.13809,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.33984,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.534522,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "friction_parameter": {
+          "printed": 1.06906,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.55,
+      "table": "Table 4.3 - Fanno-line Flow Properties for Gamma=1.400000",
+      "page": 38,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.3, report p.38, M = 5.50000e-01 row",
+      "values": {
+        "temperature_ratio": {
+          "printed": 1.13154,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.93407,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.25495,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.585057,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "friction_parameter": {
+          "printed": 0.728053,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.6,
+      "table": "Table 4.3 - Fanno-line Flow Properties for Gamma=1.400000",
+      "page": 38,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.3, report p.38, M = 6.00000e-01 row",
+      "values": {
+        "temperature_ratio": {
+          "printed": 1.1194,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.76336,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.1882,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.634811,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "friction_parameter": {
+          "printed": 0.490822,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.65,
+      "table": "Table 4.3 - Fanno-line Flow Properties for Gamma=1.400000",
+      "page": 38,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.3, report p.38, M = 6.50000e-01 row",
+      "values": {
+        "temperature_ratio": {
+          "printed": 1.1065,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.61831,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.13562,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.683737,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "friction_parameter": {
+          "printed": 0.324591,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.7,
+      "table": "Table 4.3 - Fanno-line Flow Properties for Gamma=1.400000",
+      "page": 38,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.3, report p.38, M = 7.00000e-01 row",
+      "values": {
+        "temperature_ratio": {
+          "printed": 1.0929,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.49345,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.09437,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.731792,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "friction_parameter": {
+          "printed": 0.208139,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 3.5,
+      "table": "Example 4.11 - fanno(1,3.5,1:7)",
+      "page": 28,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Example 4.11, report p.28",
+      "values": {
+        "temperature_ratio": {
+          "printed": 0.3478,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "pressure_ratio": {
+          "printed": 0.1685,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "friction_parameter": {
+          "printed": 0.5864,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 6.7896,
+          "atol": 5e-05,
+          "significant_figures": 5
+        },
+        "velocity_ratio": {
+          "printed": 2.0642,
+          "atol": 5e-05,
+          "significant_figures": 5
+        }
+      }
+    }
+  ]
+}

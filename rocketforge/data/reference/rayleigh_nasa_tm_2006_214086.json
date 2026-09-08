@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "relation": "rayleigh",
+  "model": "perfect_gas_rayleigh_v1",
+  "gamma": 1.4,
+  "generated": "2026-08-31",
+  "provenance": "Transcribed from the printed table and worked examples of NASA/TM-2006-214086, a public-domain NASA technical memorandum. See SOURCES.md.",
+  "source": "NASA/TM-2006-214086, 'User Guide for Compressible Flow Toolbox Version 2.1 for Use With MATLAB Version 7', Kevin J. Melcher, NASA Glenn Research Center, January 2006",
+  "source_type": "printed table in a public-domain government technical report",
+  "source_url": "https://ntrs.nasa.gov/api/citations/20060008908/downloads/20060008908.pdf",
+  "accessed": "2026-08-31",
+  "tolerance_rule": "absolute, half a unit in the last printed significant figure of each value",
+  "cases": [
+    {
+      "mach": 0.55,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 5.50000e-01 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.75991,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.85987,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.68599,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.09397,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.510011,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.56,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 5.60000e-01 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.772486,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.872274,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.66778,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.09011,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.523015,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.57,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 5.70000e-01 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.784675,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.884158,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.64964,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.0863,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.535969,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.58,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 5.80000e-01 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.796478,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.895523,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.63159,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.08256,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.548866,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.59,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 5.90000e-01 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.807894,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.906371,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 1.61362,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.07887,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 0.561701,
+          "atol": 5e-07,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 2.0,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 2.00000e+00 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.793388,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.528926,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 0.363636,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.5031,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 1.45455,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 2.1,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 2.10000e+00 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.774064,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.493558,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 0.334541,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.61616,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 1.47533,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 2.2,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 2.20000e+00 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.756135,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.461058,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 0.308642,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.74345,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 1.49383,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 2.3,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 2.30000e+00 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.739543,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.43122,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 0.28551,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.88602,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 1.51035,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 2.4,
+      "table": "Table 4.7 - Rayleigh-line Flow Properties for Gamma=1.400000",
+      "page": 64,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Table 4.7, report p.64, M = 2.40000e+00 row",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.724213,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "temperature_ratio": {
+          "printed": 0.403836,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "pressure_ratio": {
+          "printed": 0.264784,
+          "atol": 5e-07,
+          "significant_figures": 6
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 2.04505,
+          "atol": 5e-06,
+          "significant_figures": 6
+        },
+        "velocity_ratio": {
+          "printed": 1.52515,
+          "atol": 5e-06,
+          "significant_figures": 6
+        }
+      }
+    },
+    {
+      "mach": 0.72,
+      "table": "Example 4.24 - rayleigh(1,[0.72 2.85],2:6)",
+      "page": 54,
+      "branch": "subsonic",
+      "confirmed": "NASA/TM-2006-214086, Example 4.24, report p.54",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.9221,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "temperature_ratio": {
+          "printed": 1.0026,
+          "atol": 0.0005,
+          "significant_figures": 4
+        },
+        "pressure_ratio": {
+          "printed": 1.3907,
+          "atol": 0.0005,
+          "significant_figures": 4
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 1.0376,
+          "atol": 0.0005,
+          "significant_figures": 4
+        },
+        "velocity_ratio": {
+          "printed": 0.7209,
+          "atol": 5e-05,
+          "significant_figures": 4
+        }
+      }
+    },
+    {
+      "mach": 2.85,
+      "table": "Example 4.24 - rayleigh(1,[0.72 2.85],2:6)",
+      "page": 54,
+      "branch": "supersonic",
+      "confirmed": "NASA/TM-2006-214086, Example 4.24, report p.54",
+      "values": {
+        "stagnation_temperature_ratio": {
+          "printed": 0.6685,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "temperature_ratio": {
+          "printed": 0.3057,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "pressure_ratio": {
+          "printed": 0.194,
+          "atol": 5e-05,
+          "significant_figures": 4
+        },
+        "stagnation_pressure_ratio": {
+          "printed": 3.0014,
+          "atol": 0.0005,
+          "significant_figures": 4
+        },
+        "velocity_ratio": {
+          "printed": 1.5757,
+          "atol": 0.0005,
+          "significant_figures": 4
+        }
+      }
+    }
+  ],
+  "inverse_cases": [
+    {
+      "stagnation_temperature_ratio": 0.9,
+      "table": "Example 4.25 - rayleigh(2,TTratio,[1 5])",
+      "page": 55,
+      "confirmed": "NASA/TM-2006-214086, Example 4.25, report p.55",
+      "subsonic": {
+        "printed": 0.6884,
+        "atol": 5e-05,
+        "significant_figures": 4
+      },
+      "supersonic": {
+        "printed": 1.5368,
+        "atol": 0.0005,
+        "significant_figures": 4
+      }
+    },
+    {
+      "stagnation_temperature_ratio": 0.75,
+      "table": "Example 4.25 - rayleigh(2,TTratio,[1 5])",
+      "page": 55,
+      "confirmed": "NASA/TM-2006-214086, Example 4.25, report p.55",
+      "subsonic": {
+        "printed": 0.5423,
+        "atol": 5e-05,
+        "significant_figures": 4
+      },
+      "supersonic": {
+        "printed": 2.2361,
+        "atol": 0.0005,
+        "significant_figures": 4
+      }
+    },
+    {
+      "stagnation_temperature_ratio": 0.6,
+      "table": "Example 4.25 - rayleigh(2,TTratio,[1 5])",
+      "page": 55,
+      "confirmed": "NASA/TM-2006-214086, Example 4.25, report p.55",
+      "subsonic": {
+        "printed": 0.4415,
+        "atol": 5e-05,
+        "significant_figures": 4
+      },
+      "supersonic": {
+        "printed": 3.7749,
+        "atol": 0.0005,
+        "significant_figures": 4
+      }
+    }
+  ]
+}

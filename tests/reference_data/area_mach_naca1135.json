@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "relation": "isentropic.area_ratio",
+  "model": "perfect_gas_isentropic_v1",
+  "gamma": 1.4,
+  "generated": "2026-08-30",
+  "provenance": "Read from the printed tables of NACA Report 1135, gamma = 7/5. See SOURCES.md.",
+  "source": "NACA Report 1135, Tables I and II, gamma = 7/5",
+  "source_url": "https://www.nasa.gov/wp-content/uploads/2023/03/equations-tables-charts-compressibleflow-report-1135.pdf",
+  "accessed": "2026-08-30",
+
+  "_comment_branch_pairs": "An area ratio above 1 has a subsonic and a supersonic root. NACA prints A/A* as a function of M, not the reverse, and the two branches rarely land on the same printed value, so each pair is verified in two independent ways: the supersonic root against the exact printed area ratio at a tabulated Mach number, and the subsonic root against the interval given by two adjacent printed rows of Table I. Neither expectation is produced by RocketForge.",
+
+  "branch_pairs": [
+    {
+      "area_ratio": 1.6875,
+      "area_ratio_origin": "NACA 1135 Table II, p.634: the A/A* printed at M = 2.00",
+      "supersonic": {
+        "expected": 2.0,
+        "atol": 1e-6,
+        "confirmed": "NACA 1135 Table II, p.634, M = 2.00 row; A/A* = 1.6875 is printed exactly and is the exact rational 27/16"
+      },
+      "subsonic": {
+        "bracket": [0.37, 0.38],
+        "bracket_source": "NACA 1135 Table I, p.633: A/A* = 1.6961 at M = 0.37 and 1.6587 at M = 0.38, and the column is monotone decreasing, so the root for 1.6875 lies strictly between them",
+        "confirmed": "NACA 1135 Table I, p.633, adjacent rows M = 0.37 and M = 0.38"
+      }
+    },
+    {
+      "area_ratio": 1.3398,
+      "area_ratio_origin": "NACA 1135 Table I, p.633: the A/A* printed at M = 0.50",
+      "subsonic": {
+        "expected": 0.5,
+        "atol": 5e-5,
+        "confirmed": "NACA 1135 Table I, p.633, M = 0.50 row; the tolerance is the printed precision of the area ratio, propagated through the inverse"
+      },
+      "supersonic": {
+        "bracket": [1.7, 100.0],
+        "bracket_source": "NACA 1135 Table II, p.634 prints A/A* = 1.338 at M = 1.70. The area ratio is monotone increasing above M = 1, and 1.3398 > 1.338, so the supersonic root must lie above 1.70. Only rows actually read from the scan are cited, which is why the upper bound is the model ceiling rather than a tighter tabulated row.",
+        "confirmed": "NACA 1135 Table II, p.634, M = 1.70 row"
+      }
+    }
+  ],
+
+  "sonic": {
+    "area_ratio": 1.0,
+    "expected_mach": 1.0,
+    "confirmed": "NACA 1135, p.633: A/A* = 1.00000 is printed at M = 1.00 in both Table I and Table II",
+    "note": "Both branches must return exactly 1."
+  },
+
+  "forward_spot_checks": [
+    {"mach": 0.37, "area_ratio": 1.6961, "atol": 5e-5, "confirmed": "NACA 1135 Table I, p.633"},
+    {"mach": 0.38, "area_ratio": 1.6587, "atol": 5e-5, "confirmed": "NACA 1135 Table I, p.633"},
+    {"mach": 1.70, "area_ratio": 1.338,  "atol": 5e-4, "confirmed": "NACA 1135 Table II, p.634"}
+  ]
+}

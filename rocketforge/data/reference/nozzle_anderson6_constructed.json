@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "relation": "nozzle",
+  "model": "perfect_gas_nozzle_v1",
+  "gamma": 1.4,
+  "generated": "2026-09-01",
+  "source": {
+    "author": "John D. Anderson, Jr.",
+    "title": "Fundamentals of Aerodynamics",
+    "edition": "6th Edition",
+    "publisher": "McGraw-Hill",
+    "isbn": "9781259129919",
+    "appendices": "Appendix A - Isentropic Flow Properties (pp. 1079-1083); Appendix B - Normal Shock Properties (pp. 1085-1088)",
+    "source_type": "printed tables in a textbook appendix"
+  },
+  "construction": "The supplied volume has no nozzle appendix and no printed back-pressure regime table, so none is invented. Instead each case is CONSTRUCTED from printed rows: the geometry and the back pressure are built out of published values, and the expected answers are themselves published values from other printed rows. Every number below appears in the book. Nothing is interpolated between rows, and no RocketForge output is used as a reference.",
+  "boundary_note": "The three measure-zero regimes -- choking onset, shock at exit, ideal expansion -- cannot be reached by a back pressure assembled from rounded published values: 1/1.117 misses the first critical by 3.4e-4 because 1.117 is itself a rounding of 1.116552. Widening the regime tolerance to swallow that would make genuinely different operating points collapse into boundary regimes, so it is not widened. Those cases instead check the published value against the computed THRESHOLD, and the regime label is checked by setting the back pressure to the computed threshold -- which is exactly what the interface's preset buttons do.",
+  "limitation": "These are end-to-end nozzle cases assembled from published station values, not transcriptions of a published worked nozzle example. That distinction is stated rather than blurred: the composition is RocketForge's, the numbers are the book's. What it does establish is that the composition rediscovers published stations it was never given -- for the internal-shock case, the shock's own published area ratio, Mach number, pressure jump and exit Mach.",
+  "tolerance_rule": "Derived, not chosen. Each published input stands for a rounding interval of half a unit in its last printed figure; each case was re-solved at every corner of that interval box with an independent implementation of the relations, and the tolerance is the widest resulting departure plus half a unit in the expected value's own last figure, rounded up to one significant figure.",
+  "cases": [
+    {
+      "name": "Unchoked subsonic exit",
+      "regime": "unchoked_subsonic",
+      "check": "regime",
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 1.59,
+          "from": "Appendix A, M = 0.40 row, A/A*",
+          "page": 1079
+        },
+        "pressure_ratio_back": {
+          "value": 0.9398496240601504,
+          "from": "Appendix A, M = 0.30 row, 1/(p0/p)",
+          "page": 1079
+        }
+      },
+      "expected": {
+        "mach_exit": {
+          "published": 0.3,
+          "from": "Appendix A, M = 0.30 row",
+          "atol": 0.002
+        }
+      },
+      "note": "A subsonic exit communicates with the downstream reservoir, so pe = pb and the exit Mach follows from the published pressure ratio alone."
+    },
+    {
+      "name": "Choking onset, first critical",
+      "regime": "choked_subsonic_exit",
+      "check": "threshold",
+      "threshold": "first_critical",
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 1.59,
+          "from": "Appendix A, M = 0.40 row, A/A*",
+          "page": 1079
+        },
+        "pressure_ratio_back": {
+          "value": 0.8952551477170994,
+          "from": "Appendix A, M = 0.40 row, 1/(p0/p)",
+          "page": 1079
+        }
+      },
+      "expected": {
+        "mach_exit": {
+          "published": 0.4,
+          "from": "Appendix A, M = 0.40 row",
+          "atol": 0.002
+        },
+        "mach_throat": {
+          "published": 1.0,
+          "from": "definition of choking",
+          "atol": 0.0
+        }
+      },
+      "note": "The first critical is the exit pressure of the subsonic branch at the geometry's own area ratio, so both published numbers come from the same printed row. The tolerance covers that row's rounding on both sides at once."
+    },
+    {
+      "name": "Internal normal shock at the published M = 2.00 station",
+      "regime": "internal_normal_shock",
+      "check": "regime",
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 2.205576362879734,
+          "from": "Appendix A M = 0.40 A/A* divided by Appendix B M1 = 2.00 p02/p01: the exit area that puts a subsonic M = 0.40 exit downstream of that shock",
+          "page": "1079 and 1086"
+        },
+        "pressure_ratio_back": {
+          "value": 0.6453894359892569,
+          "from": "Appendix B M1 = 2.00 p02/p01 divided by Appendix A M = 0.40 p0/p: the exit static pressure of that state",
+          "page": "1079 and 1086"
+        }
+      },
+      "expected": {
+        "shock_area_ratio": {
+          "published": 1.687,
+          "from": "Appendix A, M = 2.00 row, A/A*",
+          "atol": 0.002
+        },
+        "mach_upstream": {
+          "published": 2.0,
+          "from": "Appendix A, M = 2.00 row, the Mach number itself",
+          "atol": 0.002
+        },
+        "mach_downstream": {
+          "published": 0.5774,
+          "from": "Appendix B, M1 = 2.00 row, M2",
+          "atol": 0.0002
+        },
+        "shock_pressure_ratio": {
+          "published": 4.5,
+          "from": "Appendix B, M1 = 2.00 row, p2/p1",
+          "atol": 0.005
+        },
+        "mach_exit": {
+          "published": 0.4,
+          "from": "Appendix A, M = 0.40 row, the Mach number itself",
+          "atol": 0.0004
+        }
+      },
+      "note": "The whole chain is closed on printed rows: geometry and back pressure are built from published values, and RocketForge must then rediscover the published shock station, the published jump and the published exit Mach. No value is interpolated and no RocketForge output is used as a reference."
+    },
+    {
+      "name": "Normal shock standing in the exit plane, second critical",
+      "regime": "shock_at_exit",
+      "check": "threshold",
+      "threshold": "second_critical",
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 2.005,
+          "from": "Appendix A, M = 2.20 row, A/A*",
+          "page": 1081
+        },
+        "pressure_ratio_back": {
+          "value": 0.5126286248830684,
+          "from": "Appendix A M = 2.20 1/(p0/p) times Appendix B M1 = 2.20 p2/p1",
+          "page": "1081 and 1086"
+        }
+      },
+      "expected": {
+        "mach_exit_supersonic": {
+          "published": 2.2,
+          "atol": 0.002,
+          "from": "Appendix A, M = 2.20 row"
+        },
+        "shock_mach_upstream": {
+          "published": 2.2,
+          "atol": 0.002,
+          "from": "Appendix A, M = 2.20 row"
+        },
+        "shock_mach_downstream": {
+          "published": 0.5471,
+          "atol": 0.001,
+          "from": "Appendix B, M1 = 2.20 row, M2"
+        },
+        "shock_pressure_ratio": {
+          "published": 5.48,
+          "atol": 0.01,
+          "from": "Appendix B, M1 = 2.20 row, p2/p1"
+        }
+      },
+      "note": "The pre-shock state must be the shock-free supersonic exit, so this case also checks that the second critical is the third critical times the published shock pressure ratio."
+    },
+    {
+      "name": "Ideally expanded",
+      "regime": "ideally_expanded",
+      "check": "threshold",
+      "threshold": "third_critical",
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 2.005,
+          "from": "Appendix A, M = 2.20 row, A/A*",
+          "page": 1081
+        },
+        "pressure_ratio_back": {
+          "value": 0.09354536950420955,
+          "from": "the published third critical for the ideal case; a back pressure inside the published interval for the other two",
+          "page": 1081
+        }
+      },
+      "expected": {
+        "mach_exit": {
+          "published": 2.2,
+          "atol": 0.002,
+          "from": "Appendix A, M = 2.20 row"
+        },
+        "pressure_ratio_exit": {
+          "published": 0.09354536950420955,
+          "atol": 5e-05,
+          "from": "Appendix A, M = 2.20 row, 1/(p0/p)"
+        }
+      },
+      "note": "pe = pb exactly, and the exit Mach is the published supersonic root."
+    },
+    {
+      "name": "Overexpanded",
+      "regime": "overexpanded",
+      "check": "regime",
+      "threshold": null,
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 2.005,
+          "from": "Appendix A, M = 2.20 row, A/A*",
+          "page": 1081
+        },
+        "pressure_ratio_back": {
+          "value": 0.30308699719363896,
+          "from": "the published third critical for the ideal case; a back pressure inside the published interval for the other two",
+          "page": 1081
+        }
+      },
+      "expected": {
+        "mach_exit": {
+          "published": 2.2,
+          "atol": 0.002,
+          "from": "Appendix A, M = 2.20 row"
+        },
+        "pressure_ratio_exit": {
+          "published": 0.09354536950420955,
+          "atol": 5e-05,
+          "from": "Appendix A, M = 2.20 row, 1/(p0/p)"
+        }
+      },
+      "note": "pe < pb, shock-free internally: the compression happens outside the exit plane."
+    },
+    {
+      "name": "Underexpanded",
+      "regime": "underexpanded",
+      "check": "regime",
+      "threshold": null,
+      "inputs": {
+        "area_ratio_exit": {
+          "value": 2.005,
+          "from": "Appendix A, M = 2.20 row, A/A*",
+          "page": 1081
+        },
+        "pressure_ratio_back": {
+          "value": 0.046772684752104776,
+          "from": "the published third critical for the ideal case; a back pressure inside the published interval for the other two",
+          "page": 1081
+        }
+      },
+      "expected": {
+        "mach_exit": {
+          "published": 2.2,
+          "atol": 0.002,
+          "from": "Appendix A, M = 2.20 row"
+        },
+        "pressure_ratio_exit": {
+          "published": 0.09354536950420955,
+          "atol": 5e-05,
+          "from": "Appendix A, M = 2.20 row, 1/(p0/p)"
+        }
+      },
+      "note": "pe > pb, shock-free internally: the expansion continues outside the exit plane."
+    }
+  ]
+}

@@ -1,0 +1,826 @@
+{
+  "contract_version": "1.0",
+  "modules": {
+    "fanno": {
+      "enums": {},
+      "exports": [
+        "FannoDuctResult",
+        "FannoState",
+        "MODEL_FANNO",
+        "darcy_to_fanning",
+        "density_ratio",
+        "downstream_mach",
+        "duct_parameter_from_geometry",
+        "fanning_to_darcy",
+        "friction_parameter",
+        "friction_parameter_limit",
+        "mach_from_friction_parameter",
+        "pressure_ratio",
+        "required_duct_parameter",
+        "stagnation_pressure_ratio",
+        "state",
+        "temperature_ratio",
+        "velocity_ratio"
+      ],
+      "functions": {
+        "darcy_to_fanning": "(darcy)",
+        "density_ratio": "(mach, gas)",
+        "downstream_mach": "(mach1, duct_parameter, gas, tolerances=DEFAULT_TOLERANCES)",
+        "duct_parameter_from_geometry": "(fanning, length, hydraulic_diameter)",
+        "fanning_to_darcy": "(fanning)",
+        "friction_parameter": "(mach, gas)",
+        "friction_parameter_limit": "(gas)",
+        "mach_from_friction_parameter": "(parameter, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "pressure_ratio": "(mach, gas)",
+        "required_duct_parameter": "(mach1, mach2, gas)",
+        "stagnation_pressure_ratio": "(mach, gas)",
+        "state": "(mach, gas)",
+        "temperature_ratio": "(mach, gas)",
+        "velocity_ratio": "(mach, gas)"
+      },
+      "records": {
+        "FannoDuctResult": {
+          "fields": [
+            "upstream",
+            "downstream",
+            "duct_parameter",
+            "remaining_to_choking",
+            "choked",
+            "pressure_ratio_12",
+            "temperature_ratio_12",
+            "stagnation_pressure_ratio_12"
+          ],
+          "frozen": true
+        },
+        "FannoState": {
+          "fields": [
+            "mach",
+            "temperature_ratio",
+            "pressure_ratio",
+            "density_ratio",
+            "stagnation_pressure_ratio",
+            "velocity_ratio",
+            "friction_parameter"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "gas": {
+      "enums": {},
+      "exports": [
+        "MODEL_PERFECT_GAS",
+        "PerfectGas",
+        "speed_of_sound"
+      ],
+      "functions": {
+        "speed_of_sound": "(temperature, gas)"
+      },
+      "records": {
+        "PerfectGas": {
+          "fields": [
+            "gamma",
+            "gas_constant"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "geometry": {
+      "enums": {},
+      "exports": [
+        "AreaDistribution",
+        "pchip_evaluate",
+        "pchip_slopes"
+      ],
+      "functions": {
+        "pchip_evaluate": "(x, y, slopes, query)",
+        "pchip_slopes": "(x, y)"
+      },
+      "records": {
+        "AreaDistribution": {
+          "fields": [
+            "x",
+            "area",
+            "throat_index"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "isentropic": {
+      "enums": {},
+      "exports": [
+        "MODEL_ISENTROPIC",
+        "area_ratio",
+        "density_ratio",
+        "density_ratio_star",
+        "mach_angle",
+        "mach_from_area_ratio",
+        "mach_from_area_ratio_array",
+        "mach_from_area_ratio_both",
+        "mach_from_density_ratio",
+        "mach_from_pressure_ratio",
+        "mach_from_temperature_ratio",
+        "pressure_ratio",
+        "pressure_ratio_star",
+        "ratios_from_mach",
+        "temperature_ratio",
+        "temperature_ratio_star"
+      ],
+      "functions": {
+        "area_ratio": "(mach, gas)",
+        "density_ratio": "(mach, gas)",
+        "density_ratio_star": "(mach, gas)",
+        "mach_angle": "(mach)",
+        "mach_from_area_ratio": "(area_ratio_value, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "mach_from_area_ratio_array": "(area_ratio_values, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "mach_from_area_ratio_both": "(area_ratio_value, gas, tolerances=DEFAULT_TOLERANCES)",
+        "mach_from_density_ratio": "(ratio, gas)",
+        "mach_from_pressure_ratio": "(ratio, gas)",
+        "mach_from_temperature_ratio": "(ratio, gas)",
+        "pressure_ratio": "(mach, gas)",
+        "pressure_ratio_star": "(mach, gas)",
+        "ratios_from_mach": "(mach, gas)",
+        "temperature_ratio": "(mach, gas)",
+        "temperature_ratio_star": "(mach, gas)"
+      },
+      "records": {}
+    },
+    "mass_flow": {
+      "enums": {},
+      "exports": [
+        "MODEL_MASS_FLOW",
+        "choked_mass_flow",
+        "choked_mass_flow_coefficient",
+        "choked_mass_flux",
+        "critical_pressure_ratio",
+        "critical_temperature_ratio",
+        "is_choked",
+        "mach_from_mass_flow_ratio",
+        "mass_flow",
+        "mass_flow_over_choked",
+        "mass_flow_parameter",
+        "mass_flux"
+      ],
+      "functions": {
+        "choked_mass_flow": "(gas, throat_area, stagnation_pressure, stagnation_temperature)",
+        "choked_mass_flow_coefficient": "(gas)",
+        "choked_mass_flux": "(gas, stagnation_pressure, stagnation_temperature)",
+        "critical_pressure_ratio": "(gas)",
+        "critical_temperature_ratio": "(gas)",
+        "is_choked": "(pressure_ratio, gas)",
+        "mach_from_mass_flow_ratio": "(ratio, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "mass_flow": "(mach, gas, area, stagnation_pressure, stagnation_temperature)",
+        "mass_flow_over_choked": "(mach, gas)",
+        "mass_flow_parameter": "(mach, gas)",
+        "mass_flux": "(mach, gas, stagnation_pressure, stagnation_temperature)"
+      },
+      "records": {}
+    },
+    "normal_shock": {
+      "enums": {},
+      "exports": [
+        "MODEL_NORMAL_SHOCK",
+        "NormalShockResult",
+        "area_star_ratio",
+        "density_ratio",
+        "density_ratio_limit",
+        "entropy_change",
+        "mach_downstream",
+        "mach_downstream_limit",
+        "mach_upstream_from_density_ratio",
+        "mach_upstream_from_downstream_mach",
+        "mach_upstream_from_pressure_ratio",
+        "mach_upstream_from_stagnation_pressure_ratio",
+        "pressure_ratio",
+        "solve",
+        "stagnation_pressure_over_upstream_static",
+        "stagnation_pressure_ratio",
+        "temperature_ratio"
+      ],
+      "functions": {
+        "area_star_ratio": "(mach1, gas)",
+        "density_ratio": "(mach1, gas)",
+        "density_ratio_limit": "(gas)",
+        "entropy_change": "(mach1, gas)",
+        "mach_downstream": "(mach1, gas)",
+        "mach_downstream_limit": "(gas)",
+        "mach_upstream_from_density_ratio": "(density_ratio_12, gas)",
+        "mach_upstream_from_downstream_mach": "(mach2, gas)",
+        "mach_upstream_from_pressure_ratio": "(pressure_ratio_12, gas)",
+        "mach_upstream_from_stagnation_pressure_ratio": "(stagnation_ratio, gas, tolerances=DEFAULT_TOLERANCES)",
+        "pressure_ratio": "(mach1, gas)",
+        "solve": "(mach1, gas)",
+        "stagnation_pressure_over_upstream_static": "(mach1, gas)",
+        "stagnation_pressure_ratio": "(mach1, gas)",
+        "temperature_ratio": "(mach1, gas)"
+      },
+      "records": {
+        "NormalShockResult": {
+          "fields": [
+            "mach1",
+            "mach2",
+            "pressure_ratio",
+            "density_ratio",
+            "temperature_ratio",
+            "stagnation_pressure_ratio",
+            "stagnation_pressure_over_upstream_static",
+            "stagnation_temperature_ratio",
+            "entropy_change",
+            "area_star_ratio",
+            "sonic_limit"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "nozzle": {
+      "enums": {
+        "NozzleRegime": [
+          "unchoked_subsonic",
+          "choked_subsonic_exit",
+          "internal_normal_shock",
+          "shock_at_exit",
+          "overexpanded",
+          "ideally_expanded",
+          "underexpanded"
+        ]
+      },
+      "exports": [
+        "CriticalPressureRatios",
+        "NozzleOperating",
+        "NozzleRegime",
+        "NozzleRegimeResult",
+        "NozzleSolution",
+        "ShockLocation",
+        "classify",
+        "critical_pressure_ratios",
+        "shock_area_ratio",
+        "solve"
+      ],
+      "functions": {
+        "classify": "(area_ratio_exit, pressure_ratio_back, gas, tolerances=DEFAULT_TOLERANCES)",
+        "critical_pressure_ratios": "(area_ratio_exit, gas, tolerances=DEFAULT_TOLERANCES)",
+        "shock_area_ratio": "(area_ratio_exit, pressure_ratio_back, gas, tolerances=DEFAULT_TOLERANCES)",
+        "solve": "(geometry, operating, gas, tolerances=DEFAULT_TOLERANCES)"
+      },
+      "records": {
+        "CriticalPressureRatios": {
+          "fields": [
+            "area_ratio_exit",
+            "first_critical",
+            "second_critical",
+            "third_critical",
+            "mach_exit_subsonic",
+            "mach_exit_supersonic"
+          ],
+          "frozen": true
+        },
+        "NozzleOperating": {
+          "fields": [
+            "stagnation_pressure",
+            "back_pressure",
+            "stagnation_temperature"
+          ],
+          "frozen": true
+        },
+        "NozzleRegimeResult": {
+          "fields": [
+            "regime",
+            "critical",
+            "pressure_ratio_back",
+            "mach_exit",
+            "pressure_ratio_exit",
+            "shock"
+          ],
+          "frozen": true
+        },
+        "NozzleSolution": {
+          "fields": [
+            "regime",
+            "critical",
+            "shock",
+            "choked",
+            "mass_flow",
+            "throat",
+            "exit",
+            "x",
+            "area",
+            "area_ratio",
+            "mach",
+            "pressure_ratio",
+            "temperature_ratio",
+            "stagnation_pressure_ratio",
+            "pressure",
+            "temperature",
+            "density",
+            "speed_of_sound",
+            "velocity",
+            "stagnation_pressure",
+            "stagnation_temperature",
+            "shock_index",
+            "throat_index"
+          ],
+          "frozen": true
+        },
+        "ShockLocation": {
+          "fields": [
+            "area_ratio_shock",
+            "x",
+            "mach_upstream",
+            "mach_downstream",
+            "pressure_ratio",
+            "stagnation_pressure_ratio",
+            "area_star_downstream_ratio"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "oblique_shock": {
+      "enums": {
+        "ShockBranch": [
+          "weak",
+          "strong",
+          "both"
+        ]
+      },
+      "exports": [
+        "MODEL_OBLIQUE_SHOCK",
+        "ObliqueShockPair",
+        "ObliqueShockResult",
+        "ShockBranch",
+        "ThetaBetaCurve",
+        "ThetaMaxResult",
+        "beta_from_theta",
+        "beta_sonic",
+        "solve",
+        "solve_both",
+        "solve_from_beta",
+        "theta_beta_curve",
+        "theta_from_beta",
+        "theta_max"
+      ],
+      "functions": {
+        "beta_from_theta": "(mach1, theta, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "beta_sonic": "(mach1, gas)",
+        "solve": "(mach1, theta, gas, branch=<ShockBranch.WEAK: 'weak'>, tolerances=DEFAULT_TOLERANCES)",
+        "solve_both": "(mach1, theta, gas, tolerances=DEFAULT_TOLERANCES)",
+        "solve_from_beta": "(mach1, beta, gas, tolerances=DEFAULT_TOLERANCES)",
+        "theta_beta_curve": "(mach1, gas, n=400, tolerances=DEFAULT_TOLERANCES)",
+        "theta_from_beta": "(beta, mach1, gas)",
+        "theta_max": "(mach1, gas, tolerances=DEFAULT_TOLERANCES)"
+      },
+      "records": {
+        "ObliqueShockPair": {
+          "fields": [
+            "weak",
+            "strong"
+          ],
+          "frozen": true
+        },
+        "ObliqueShockResult": {
+          "fields": [
+            "mach1",
+            "theta",
+            "beta",
+            "branch",
+            "mach_normal1",
+            "mach_normal2",
+            "mach2",
+            "pressure_ratio",
+            "temperature_ratio",
+            "density_ratio",
+            "stagnation_pressure_ratio",
+            "stagnation_temperature_ratio",
+            "entropy_change",
+            "downstream_flow_angle",
+            "theta_max",
+            "downstream_supersonic"
+          ],
+          "frozen": true
+        },
+        "ThetaBetaCurve": {
+          "fields": [
+            "mach1",
+            "beta",
+            "theta",
+            "theta_max",
+            "beta_at_theta_max",
+            "beta_sonic",
+            "mach_angle"
+          ],
+          "frozen": true
+        },
+        "ThetaMaxResult": {
+          "fields": [
+            "mach1",
+            "theta_max",
+            "beta_at_theta_max",
+            "mach_angle"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "prandtl_meyer": {
+      "enums": {},
+      "exports": [
+        "MODEL_PRANDTL_MEYER",
+        "PrandtlMeyerResult",
+        "compress",
+        "expand",
+        "mach_angle",
+        "mach_from_nu",
+        "mach_from_nu_array",
+        "nu",
+        "nu_max"
+      ],
+      "functions": {
+        "compress": "(mach1, turn_angle, gas, tolerances=DEFAULT_TOLERANCES)",
+        "expand": "(mach1, turn_angle, gas, tolerances=DEFAULT_TOLERANCES)",
+        "mach_angle": "(mach)",
+        "mach_from_nu": "(nu_value, gas, tolerances=DEFAULT_TOLERANCES)",
+        "mach_from_nu_array": "(nu_value, gas, tolerances=DEFAULT_TOLERANCES)",
+        "nu": "(mach, gas)",
+        "nu_max": "(gas)"
+      },
+      "records": {
+        "PrandtlMeyerResult": {
+          "fields": [
+            "mach1",
+            "mach2",
+            "nu1",
+            "nu2",
+            "turn_angle",
+            "pressure_ratio",
+            "temperature_ratio",
+            "density_ratio",
+            "mach_angle1",
+            "mach_angle2",
+            "fan_angle"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "rayleigh": {
+      "enums": {},
+      "exports": [
+        "MODEL_RAYLEIGH",
+        "RayleighDuctResult",
+        "RayleighState",
+        "density_ratio",
+        "heat_addition",
+        "mach_at_maximum_temperature",
+        "mach_from_stagnation_temperature_ratio",
+        "maximum_temperature_ratio",
+        "pressure_ratio",
+        "specific_heat_addition",
+        "stagnation_pressure_ratio",
+        "stagnation_temperature_ratio",
+        "stagnation_temperature_ratio_limit",
+        "state",
+        "temperature_ratio"
+      ],
+      "functions": {
+        "density_ratio": "(mach, gas)",
+        "heat_addition": "(mach1, stagnation_temperature_ratio_12, gas, tolerances=DEFAULT_TOLERANCES)",
+        "mach_at_maximum_temperature": "(gas)",
+        "mach_from_stagnation_temperature_ratio": "(ratio, gas, branch, tolerances=DEFAULT_TOLERANCES)",
+        "maximum_temperature_ratio": "(gas)",
+        "pressure_ratio": "(mach, gas)",
+        "specific_heat_addition": "(mach1, mach2, gas, stagnation_temperature_1)",
+        "stagnation_pressure_ratio": "(mach, gas)",
+        "stagnation_temperature_ratio": "(mach, gas)",
+        "stagnation_temperature_ratio_limit": "(gas)",
+        "state": "(mach, gas)",
+        "temperature_ratio": "(mach, gas)"
+      },
+      "records": {
+        "RayleighDuctResult": {
+          "fields": [
+            "upstream",
+            "downstream",
+            "stagnation_temperature_ratio_12",
+            "pressure_ratio_12",
+            "temperature_ratio_12",
+            "stagnation_pressure_ratio_12",
+            "thermally_choked"
+          ],
+          "frozen": true
+        },
+        "RayleighState": {
+          "fields": [
+            "mach",
+            "temperature_ratio",
+            "pressure_ratio",
+            "density_ratio",
+            "stagnation_temperature_ratio",
+            "stagnation_pressure_ratio"
+          ],
+          "frozen": true
+        }
+      }
+    },
+    "types": {
+      "enums": {
+        "FlowBranch": [
+          "subsonic",
+          "supersonic",
+          "both"
+        ],
+        "NozzleRegime": [
+          "unchoked_subsonic",
+          "choked_subsonic_exit",
+          "internal_normal_shock",
+          "shock_at_exit",
+          "overexpanded",
+          "ideally_expanded",
+          "underexpanded"
+        ],
+        "ShockBranch": [
+          "weak",
+          "strong",
+          "both"
+        ]
+      },
+      "exports": [
+        "AreaMachSolutions",
+        "CriticalPressureRatios",
+        "FannoDuctResult",
+        "FannoState",
+        "FlowBranch",
+        "FlowState",
+        "IsentropicRatios",
+        "NozzleOperating",
+        "NozzleRegime",
+        "NozzleRegimeResult",
+        "NozzleSolution",
+        "ObliqueShockPair",
+        "ObliqueShockResult",
+        "RayleighDuctResult",
+        "RayleighState",
+        "ShockBranch",
+        "ShockLocation",
+        "StagnationState",
+        "ThetaBetaCurve",
+        "ThetaMaxResult"
+      ],
+      "functions": {},
+      "records": {
+        "AreaMachSolutions": {
+          "fields": [
+            "area_ratio",
+            "subsonic",
+            "supersonic",
+            "sonic"
+          ],
+          "frozen": true
+        },
+        "CriticalPressureRatios": {
+          "fields": [
+            "area_ratio_exit",
+            "first_critical",
+            "second_critical",
+            "third_critical",
+            "mach_exit_subsonic",
+            "mach_exit_supersonic"
+          ],
+          "frozen": true
+        },
+        "FannoDuctResult": {
+          "fields": [
+            "upstream",
+            "downstream",
+            "duct_parameter",
+            "remaining_to_choking",
+            "choked",
+            "pressure_ratio_12",
+            "temperature_ratio_12",
+            "stagnation_pressure_ratio_12"
+          ],
+          "frozen": true
+        },
+        "FannoState": {
+          "fields": [
+            "mach",
+            "temperature_ratio",
+            "pressure_ratio",
+            "density_ratio",
+            "stagnation_pressure_ratio",
+            "velocity_ratio",
+            "friction_parameter"
+          ],
+          "frozen": true
+        },
+        "FlowState": {
+          "fields": [
+            "mach",
+            "gas",
+            "pressure",
+            "temperature",
+            "density",
+            "stagnation"
+          ],
+          "frozen": true
+        },
+        "IsentropicRatios": {
+          "fields": [
+            "mach",
+            "temperature_ratio",
+            "pressure_ratio",
+            "density_ratio",
+            "area_ratio",
+            "temperature_ratio_star",
+            "pressure_ratio_star",
+            "density_ratio_star",
+            "mach_angle",
+            "prandtl_meyer_angle"
+          ],
+          "frozen": true
+        },
+        "NozzleOperating": {
+          "fields": [
+            "stagnation_pressure",
+            "back_pressure",
+            "stagnation_temperature"
+          ],
+          "frozen": true
+        },
+        "NozzleRegimeResult": {
+          "fields": [
+            "regime",
+            "critical",
+            "pressure_ratio_back",
+            "mach_exit",
+            "pressure_ratio_exit",
+            "shock"
+          ],
+          "frozen": true
+        },
+        "NozzleSolution": {
+          "fields": [
+            "regime",
+            "critical",
+            "shock",
+            "choked",
+            "mass_flow",
+            "throat",
+            "exit",
+            "x",
+            "area",
+            "area_ratio",
+            "mach",
+            "pressure_ratio",
+            "temperature_ratio",
+            "stagnation_pressure_ratio",
+            "pressure",
+            "temperature",
+            "density",
+            "speed_of_sound",
+            "velocity",
+            "stagnation_pressure",
+            "stagnation_temperature",
+            "shock_index",
+            "throat_index"
+          ],
+          "frozen": true
+        },
+        "ObliqueShockPair": {
+          "fields": [
+            "weak",
+            "strong"
+          ],
+          "frozen": true
+        },
+        "ObliqueShockResult": {
+          "fields": [
+            "mach1",
+            "theta",
+            "beta",
+            "branch",
+            "mach_normal1",
+            "mach_normal2",
+            "mach2",
+            "pressure_ratio",
+            "temperature_ratio",
+            "density_ratio",
+            "stagnation_pressure_ratio",
+            "stagnation_temperature_ratio",
+            "entropy_change",
+            "downstream_flow_angle",
+            "theta_max",
+            "downstream_supersonic"
+          ],
+          "frozen": true
+        },
+        "RayleighDuctResult": {
+          "fields": [
+            "upstream",
+            "downstream",
+            "stagnation_temperature_ratio_12",
+            "pressure_ratio_12",
+            "temperature_ratio_12",
+            "stagnation_pressure_ratio_12",
+            "thermally_choked"
+          ],
+          "frozen": true
+        },
+        "RayleighState": {
+          "fields": [
+            "mach",
+            "temperature_ratio",
+            "pressure_ratio",
+            "density_ratio",
+            "stagnation_temperature_ratio",
+            "stagnation_pressure_ratio"
+          ],
+          "frozen": true
+        },
+        "ShockLocation": {
+          "fields": [
+            "area_ratio_shock",
+            "x",
+            "mach_upstream",
+            "mach_downstream",
+            "pressure_ratio",
+            "stagnation_pressure_ratio",
+            "area_star_downstream_ratio"
+          ],
+          "frozen": true
+        },
+        "StagnationState": {
+          "fields": [
+            "stagnation_pressure",
+            "stagnation_temperature",
+            "stagnation_density"
+          ],
+          "frozen": true
+        },
+        "ThetaBetaCurve": {
+          "fields": [
+            "mach1",
+            "beta",
+            "theta",
+            "theta_max",
+            "beta_at_theta_max",
+            "beta_sonic",
+            "mach_angle"
+          ],
+          "frozen": true
+        },
+        "ThetaMaxResult": {
+          "fields": [
+            "mach1",
+            "theta_max",
+            "beta_at_theta_max",
+            "mach_angle"
+          ],
+          "frozen": true
+        }
+      }
+    }
+  },
+  "namespace": "rocketforge.physics.compressible",
+  "note": "The public surface Phase 4G froze. A change to anything in this file is a change to the published contract and needs a version bump or an erratum, not a quiet edit.",
+  "package_exports": [
+    "AreaDistribution",
+    "AreaMachSolutions",
+    "CriticalPressureRatios",
+    "FannoDuctResult",
+    "FannoState",
+    "FlowBranch",
+    "FlowState",
+    "IsentropicRatios",
+    "NormalShockResult",
+    "NozzleOperating",
+    "NozzleRegime",
+    "NozzleRegimeResult",
+    "NozzleSolution",
+    "ObliqueShockPair",
+    "ObliqueShockResult",
+    "PerfectGas",
+    "PrandtlMeyerResult",
+    "RayleighDuctResult",
+    "RayleighState",
+    "ShockBranch",
+    "ShockLocation",
+    "StagnationState",
+    "ThetaBetaCurve",
+    "ThetaMaxResult",
+    "equations",
+    "fanno",
+    "gas",
+    "geometry",
+    "isentropic",
+    "mass_flow",
+    "normal_shock",
+    "nozzle",
+    "oblique_shock",
+    "prandtl_meyer",
+    "rayleigh",
+    "speed_of_sound"
+  ]
+}

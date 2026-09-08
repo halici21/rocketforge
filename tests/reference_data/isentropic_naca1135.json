@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "relation": "isentropic",
+  "model": "perfect_gas_isentropic_v1",
+  "gamma": 1.4,
+  "generated": "2026-08-30",
+  "provenance": "Read from the printed tables of NACA Report 1135 (Ames Research Staff, 1953), gamma = 7/5, in the scan hosted by NASA. See SOURCES.md.",
+  "source": "NACA Report 1135, Tables I and II, gamma = 7/5",
+  "source_type": "printed table in a public-domain government technical report",
+  "source_url": "https://www.nasa.gov/wp-content/uploads/2023/03/equations-tables-charts-compressibleflow-report-1135.pdf",
+  "accessed": "2026-08-30",
+  "printed_significant_figures": 4,
+  "tolerance_rule": "absolute, half a unit in the last printed digit: atol = 0.5 * 10**-printed_decimals",
+  "cases": [
+    {
+      "mach": 0.5,
+      "table": "Table I - SUBSONIC FLOW",
+      "page": 633,
+      "confirmed": "NACA 1135 Table I, p.633, M = 0.50 row",
+      "values": {
+        "pressure_ratio": {
+          "printed": 0.843,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "density_ratio": {
+          "printed": 0.8852,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "temperature_ratio": {
+          "printed": 0.9524,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "area_ratio": {
+          "printed": 1.3398,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        }
+      }
+    },
+    {
+      "mach": 1.0,
+      "table": "Table I - SUBSONIC FLOW (final row) and Table II - SUPERSONIC FLOW (first row)",
+      "page": 633,
+      "confirmed": "NACA 1135 p.633, M = 1.00 appears in both tables with identical values",
+      "values": {
+        "pressure_ratio": {
+          "printed": 0.5283,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "density_ratio": {
+          "printed": 0.6339,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "temperature_ratio": {
+          "printed": 0.8333,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "area_ratio": {
+          "printed": 1.0,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        }
+      }
+    },
+    {
+      "mach": 2.0,
+      "table": "Table II - SUPERSONIC FLOW",
+      "page": 634,
+      "confirmed": "NACA 1135 Table II, p.634, M = 2.00 row",
+      "values": {
+        "pressure_ratio": {
+          "printed": 0.1278,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "density_ratio": {
+          "printed": 0.23,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "temperature_ratio": {
+          "printed": 0.5556,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "area_ratio": {
+          "printed": 1.6875,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        }
+      }
+    },
+    {
+      "mach": 3.0,
+      "table": "Table II - SUPERSONIC FLOW",
+      "page": 635,
+      "confirmed": "NACA 1135 Table II, p.635, M = 3.00 row",
+      "note": "p/pt and rho/rhot are printed in the report's shifted-decimal notation as .2722-1 and .7623-1",
+      "values": {
+        "pressure_ratio": {
+          "printed": 0.02722,
+          "atol": 5e-06,
+          "printed_decimals": 5
+        },
+        "density_ratio": {
+          "printed": 0.07623,
+          "atol": 5e-06,
+          "printed_decimals": 5
+        },
+        "temperature_ratio": {
+          "printed": 0.3571,
+          "atol": 5e-05,
+          "printed_decimals": 4
+        },
+        "area_ratio": {
+          "printed": 4.235,
+          "atol": 0.0005,
+          "printed_decimals": 3
+        }
+      }
+    }
+  ],
+  "exact_rational_cases": [
+    {
+      "quantity": "temperature_ratio",
+      "mach": 1.0,
+      "exact": "5/6",
+      "confirmed": "algebraic identity, checked by hand",
+      "rtol": 1e-15
+    },
+    {
+      "quantity": "temperature_ratio",
+      "mach": 2.0,
+      "exact": "5/9",
+      "confirmed": "algebraic identity, checked by hand",
+      "rtol": 1e-15
+    },
+    {
+      "quantity": "temperature_ratio",
+      "mach": 3.0,
+      "exact": "5/14",
+      "confirmed": "algebraic identity, checked by hand",
+      "rtol": 1e-15
+    },
+    {
+      "quantity": "temperature_ratio",
+      "mach": 5.0,
+      "exact": "1/6",
+      "confirmed": "algebraic identity, checked by hand",
+      "rtol": 1e-15
+    },
+    {
+      "quantity": "area_ratio",
+      "mach": 2.0,
+      "exact": "27/16",
+      "confirmed": "algebraic identity, checked by hand; agrees with NACA 1135 Table II p.634",
+      "rtol": 1e-15
+    },
+    {
+      "quantity": "area_ratio",
+      "mach": 5.0,
+      "exact": "25",
+      "confirmed": "algebraic identity, checked by hand",
+      "rtol": 1e-15
+    }
+  ]
+}

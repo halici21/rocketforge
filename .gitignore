@@ -1,0 +1,28 @@
+.venv/
+.venv-cea/
+.venv-fluids-spike/
+__pycache__/
+*.pyc
+*.qmlc
+*.jsc
+.qmlls.ini
+.pytest_cache/
+
+# Packaging output. The build is reproducible from build_exe.bat, so the
+# 150 MB of Qt runtime it produces does not belong in the source tree.
+build/
+dist/
+*.ico
+
+# Generated smoke-test / acceptance screenshots and packaged self-test
+# output. Reproducible from the scripts that made them, not source.
+packaged_out/
+packaged_selftest*/
+acceptance/
+shell_smoke/
+perf_smoke/
+study_smoke/
+ui_smoke/
+line_smoke/
+fluid_smoke/
+coupling_smoke/

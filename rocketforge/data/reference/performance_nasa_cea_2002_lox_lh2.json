@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "dataset": "performance_nasa_cea_2002_lox_lh2_of6",
+  "kind": "rocket_performance",
+  "level": "B",
+  "level_name": "External published reference",
+  "title": "NASA CEA — LOX / LH2 performance, O/F 6.0, 1000 psia, Ae/At 40",
+  "generated": "2026-09-05",
+  "source": {
+    "program": "NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA",
+    "header_date": "OCTOBER 18, 2002",
+    "authors": "Bonnie McBride and Sanford Gordon",
+    "documents": "NASA RP-1311 Part I (1994) and Part II (1996)",
+    "retrieved_from": "RocketCEA v1.2.3 documentation, which reproduces the program's own printed output verbatim",
+    "source_type": "printed program output",
+    "independence": "Produced by the 2002 Fortran implementation of CEA. The provider under test is the v3 re-implementation (cea 3.3.4), so neither number in the oracle comparison produced the other."
+  },
+  "conditions": {
+    "propellants": "O2(L) / H2(L)",
+    "oxidiser_fuel_ratio": 6.0,
+    "chamber_pressure": "1000.0 psia",
+    "area_ratio": "Ae/At = 40.0, supersonic",
+    "reactants": "H2(L) at 20.27 K, O2(L) at 90.18 K",
+    "chemistry": "equilibrium (shifting) throughout the expansion",
+    "reference_condition": "optimum expansion, pe = pa"
+  },
+  "reference_condition_note": "CEA's printed Cf and Isp columns are the optimum-expansion values: the momentum term alone, with the exit pressure matched by the ambient. Measured on the v3 provider across all three chemistry modes, Cf_printed + (pe/pc)*Ae/At equals Ivac/c* to between 6e-09 and 4e-07, which is what establishes it. A vacuum figure compared against these would be high by the whole pressure term — 5.6 % on this class of case.",
+  "case": {
+    "fuel": "LH2",
+    "oxidiser": "LOX",
+    "oxidiser_fuel_ratio": 6.0,
+    "chamber_pressure_Pa": 6894757.293168361,
+    "chamber_pressure_note": "1000.0 psia, converted with the exact definitions of the pound-force and the inch",
+    "area_ratio": 40.0,
+    "fuel_temperature_K": 20.27,
+    "oxidiser_temperature_K": 90.17,
+    "temperature_note": "The source prints 90.18 K for O2(L) against the 90.17 K used here. Immaterial, and the reason is itself a Phase 5C finding: CEA models O2(L) with an assigned enthalpy, so neither value enters the calculation."
+  },
+  "published": [
+    {
+      "key": "characteristic_velocity",
+      "label": "Characteristic velocity  c*",
+      "oracle_field": "c_star",
+      "value": 7560.0,
+      "unit": "ft/s",
+      "significant_figures": 5,
+      "to_si": 0.3048,
+      "si_unit": "m/s",
+      "conversion_note": "The international foot is exactly 0.3048 m."
+    },
+    {
+      "key": "specific_impulse",
+      "label": "Specific impulse  Isp",
+      "oracle_field": "specific_impulse_seconds",
+      "value": 431.2,
+      "unit": "s",
+      "significant_figures": 4,
+      "to_si": 1.0,
+      "si_unit": "s",
+      "conversion_note": "CEA v3 returns an effective exhaust velocity in m/s; seconds follow from the standard gravity 9.80665 m/s². RocketForge never labels a value in m/s as an Isp."
+    }
+  ],
+  "validates": {
+    "directly": "the NASA CEA oracle path",
+    "not_directly": "RocketForge's own ideal model",
+    "reason": "The published values were produced by a shifting-equilibrium, calorically imperfect calculation. RocketForge v1 is a constant-property, calorically perfect model. Agreement or disagreement between them is a model difference, and calling the residual a RocketForge error would be reporting a deliberate modelling choice as a defect. The oracle is validated against this source; RocketForge is then compared against the oracle, under its own stated assumptions."
+  },
+  "verification": {
+    "covered_by": "tests/application/test_performance_reference.py",
+    "note": "Direction is always published value -> compare -> computed value. Nothing in RocketForge reads these numbers to produce a result."
+  }
+}
