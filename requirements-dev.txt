@@ -6,7 +6,7 @@
 # main.py, and tests/test_architecture.py fails the build if that changes.
 
 # Test runner. Pure Python, no binary dependencies.
-pytest>=8.0
+pytest>=9.1.1
 
 # Cross-validation oracle ONLY, used by tests/core/test_roots_cross_validation.py
 # to check RocketForge's own Brent solver against an independent implementation.
