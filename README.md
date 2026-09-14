@@ -72,6 +72,15 @@ Always invoke the venv's own `python.exe`/`pytest` directly rather than a
 bare `python`/`pytest` on `PATH` — on a machine with conda/miniforge also
 installed, the bare command can silently resolve to the wrong interpreter.
 
+CI (see the badge above) runs both environments on every push, with two
+files excluded: `tests/test_qml_memory_harness.py` and
+`tests/test_performance_visual_architecture.py` assert against JSON evidence
+under `acceptance/`, which is gitignored by design (one-time output from the
+QML-memory and visual-pilot diagnostic harnesses, not meant to be
+regenerated on every run) — so they cannot pass on a fresh checkout and are
+excluded from CI for that reason, not because they are unreliable. Run them
+locally, after the relevant harness script, to re-verify.
+
 ### Building the Windows executable
 
 ```bat

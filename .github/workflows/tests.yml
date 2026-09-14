@@ -8,6 +8,17 @@ on:
 
 env:
   QT_QPA_PLATFORM: offscreen
+  # tests/test_qml_memory_harness.py and tests/test_performance_visual_architecture.py
+  # assert against JSON evidence files under acceptance/, which is gitignored
+  # by design (docs/engineering/implementation/QML_MEMORY_ROOT_CAUSE.md and
+  # ROCKET_PERFORMANCE_VISUAL_ARCHITECTURE_PILOT.md's own harnesses generate
+  # them locally, one time; they are not meant to be reproduced on every run).
+  # They cannot pass on a fresh checkout and are excluded from CI for that
+  # reason, not because they are unreliable -- run them locally after the
+  # relevant harness script to re-verify.
+  PYTEST_IGNORE_ACCEPTANCE_EVIDENCE: >-
+    --ignore=tests/test_qml_memory_harness.py
+    --ignore=tests/test_performance_visual_architecture.py
 
 jobs:
   base:
@@ -26,7 +37,7 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Run pytest
-        run: python -m pytest -q
+        run: python -m pytest -q ${{ env.PYTEST_IGNORE_ACCEPTANCE_EVIDENCE }}
 
   thermochemistry:
     name: production suite (with NASA CEA)
@@ -44,4 +55,4 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt -r requirements-thermochemistry.txt
 
       - name: Run pytest
-        run: python -m pytest -q
+        run: python -m pytest -q ${{ env.PYTEST_IGNORE_ACCEPTANCE_EVIDENCE }}
