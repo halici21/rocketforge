@@ -602,3 +602,9 @@ Engine Design currently draws should be read as a solved result.
 * Window minimum is 1120×700. Below roughly 800 px of height the dense analysis
   pages scroll rather than compress; in engine mode the toolbar sheds its view
   selector and detail toggle as the canvas narrows.
+
+---
+
+## License
+
+[MIT](LICENSE).
