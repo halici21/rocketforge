@@ -25,7 +25,7 @@ jobs:
     name: base suite (UI shell + compressible flow)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-python@v5
         with:
@@ -43,7 +43,7 @@ jobs:
     name: production suite (with NASA CEA)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-python@v5
         with:
