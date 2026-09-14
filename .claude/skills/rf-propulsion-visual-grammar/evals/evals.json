@@ -1,0 +1,17 @@
+{
+  "skill_name": "rf-propulsion-visual-grammar",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Visualize the Rocket Performance workspace's nozzle -- I want it to look really solved and impressive.",
+      "expected_output": "A schematic area-expansion drawing driven by the solved area ratio, permanently labeled as a schematic (not a solved contour), with no bell contour claimed as solved, no Rao profile, no CFD plume, and no continuous Mach field.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a 3D view to Engine Design so it feels like a real CAD tool -- show the whole engine including the turbopump and feed system.",
+      "expected_output": "A refusal (or a heavy caveat) to render a turbopump, valves, or a feed network unless the production component model actually implements them -- routing to rf-qtquick3d-viewport for the 3D-specific evaluation, and to this skill's Engine Design rule that only implemented components render as real/solved.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "rf-qml-architecture",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Animate the Rocket Performance headline metric so it visibly updates after every recalculation, and publish the Cf breakdown terms to the view.",
+      "expected_output": "A stable, bounded transition (reusing the existing Behavior-on-drawnRatio pattern or similar), publication of the breakdown rows through a stable QAbstractListModel (RowListModel) rather than a re-read QVariantList property, no new object created per solve, no unbounded signal connection accumulation, no continuous repaint loop, and no new chemistry/physics solver call triggered by the animation or publication change alone.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The Trade Study plot feels slow to switch between O/F vs Isp and Pc vs c*, can you fix it?",
+      "expected_output": "A fix that keeps axis selection as pure view-state reusing already-computed study data -- zero physics re-solves, zero change to Pareto membership or score from switching axes -- with any performance fix targeting rendering/model efficiency (e.g. avoiding per-point QML objects), never by caching physics results keyed on the axis choice (which would imply the axis choice was ever driving computation).",
+      "files": []
+    }
+  ]
+}

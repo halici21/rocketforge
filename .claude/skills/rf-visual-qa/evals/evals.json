@@ -1,0 +1,17 @@
+{
+  "skill_name": "rf-visual-qa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I edited the expansion ratio field to 60 but didn't hit Calculate. Here's a description of what's on screen: the header reads 'Ae/At 60' but the drawn nozzle still shows the previously solved Ae/At 40 shape. Is this a problem?",
+      "expected_output": "Yes, flagged as a stale-vs-solved header/drawing mismatch -- the header must be sourced from the result object, not the live input field, per rf-scientific-ui-contract's header-vs-drawing rule, which this skill exists to catch during screenshot review.",
+      "files": ["stale_header_fixture.json"]
+    },
+    {
+      "id": 2,
+      "prompt": "The scientific parity check for my Trade Study redesign passed with 0 differences across every field. I think we're done, right?",
+      "expected_output": "No -- a passing field-level parity check is not a visual PASS. The response should require actually inspecting rendered screenshots across the canonical state matrix before declaring the workspace finished, citing that this project has previously shipped a silently-empty rendered section that a field-level parity check reported as zero differences.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "purpose": "The exact fixture described in Design Skill Foundation R1 section 41: a live input changed after a result was solved, so the header and the drawing disagree. Shaped like a real capture_matrix.py snapshot so it can be fed through the same field-level comparator used elsewhere in this project, and so a reviewer's job is unambiguous: does the review flag the mismatch between 'resultHeadline' and what 'solvedRadiusRatio' actually represents?",
+  "name": "stale_header_mismatch_1920x1080",
+  "state": {
+    "hasChamber": true,
+    "hasResult": true,
+    "resultStale": true,
+    "liveAreaRatio": 60.0,
+    "resultHeadline": "LOX / LCH4 · O/F 3.4 · p_c 100 bar · Ae/At 40 · vacuum, p_a = 0 · gamma chamber/frozen",
+    "solvedRadiusRatio": 6.32455532,
+    "note_for_reviewer": "resultHeadline correctly states Ae/At 40 (the SOLVED case) here -- this is the CORRECT/fixed shape, sourced from the result object per rf-scientific-ui-contract's header-vs-drawing rule. The defective variant this fixture guards against bound the header text to the LIVE input field instead, which at this state would read 'Ae/At 60' -- the reviewer's job is to notice when the header numeral and the drawn/solved radius ratio (sqrt(40) = 6.32, not sqrt(60) = 7.75) stop agreeing, in either the JSON or the rendered image."
+  },
+  "known_bad_variant_for_calibration": {
+    "resultHeadline": "LOX / LCH4 · O/F 3.4 · p_c 100 bar · Ae/At 60 · vacuum, p_a = 0 · gamma chamber/frozen",
+    "solvedRadiusRatio": 6.32455532,
+    "defect": "header reads Ae/At 60 (the live, uncalculated input) while the drawing still shows the solved Ae/At 40 nozzle -- exactly the real defect this project shipped and caught once by looking at a screenshot, not by a field-level parity diff"
+  }
+}

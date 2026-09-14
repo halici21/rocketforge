@@ -1,0 +1,23 @@
+{
+  "skill_name": "rf-engineering-workbench",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Redesign the RocketForge home page so it feels less like a placeholder and more like a real product.",
+      "expected_output": "A composition led by the current model/engine context and semantic navigation, not a SaaS dashboard: no six equal metric cards, no news/activity widgets, no giant welcome copy, no permanent chart with nothing to show. The engineering viewport (or its equivalent on the home page) should dominate the layout.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The Fluid Properties workspace looks unfinished, can you make it look like a real engineering tool?",
+      "expected_output": "A state-centered composition (fluid identity + T/p -> state -> properties), not a row of equal density/enthalpy/cp/viscosity/conductivity cards with a giant chart below. Primary properties (density, enthalpy) distinguished from secondary transport properties, provider provenance in a quiet trace.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make the app feel more technical and precise, it currently feels a bit generic.",
+      "expected_output": "A response about hierarchy, whitespace, restrained type, selective technical labeling, and lower chrome -- not a response that adds all-caps labels everywhere, harder borders, a monospace face on body text, or more badges.",
+      "files": []
+    }
+  ]
+}
