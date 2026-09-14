@@ -16,4 +16,4 @@ PySide6-Essentials==6.10.2
 # SciPy is deliberately NOT here: the bracketed root solver is RocketForge's own
 # and tests/test_architecture.py fails the build if any backend module imports
 # SciPy. Pandas is not a dependency either.
-numpy>=1.26
+numpy>=2.5.3
