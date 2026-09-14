@@ -2,6 +2,12 @@
 
 [![tests](https://github.com/halici21/rocketforge/actions/workflows/tests.yml/badge.svg)](https://github.com/halici21/rocketforge/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/halici21/rocketforge)](https://github.com/halici21/rocketforge/releases/latest)
+
+**[Download the latest Windows build](https://github.com/halici21/rocketforge/releases/latest)**
+— self-contained, no Python install required. See
+[Known limitations](#known-limitations) before you do: Analysis mode is real
+physics, Engine Design mode is still a UI prototype.
 
 A native desktop workstation for compressible-flow analysis and liquid rocket
 engine preliminary design. The application has two working modes that share one
@@ -99,6 +105,9 @@ excluded from CI for that reason, not because they are unreliable. Run them
 locally, after the relevant harness script, to re-verify.
 
 ### Building the Windows executable
+
+Prebuilt: see [Releases](https://github.com/halici21/rocketforge/releases/latest).
+To build it yourself:
 
 ```bat
 build_exe.bat
