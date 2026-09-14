@@ -1,5 +1,8 @@
 # RocketForge — desktop workstation for compressible-flow and propulsion analysis
 
+[![tests](https://github.com/halici21/rocketforge/actions/workflows/tests.yml/badge.svg)](https://github.com/halici21/rocketforge/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A native desktop workstation for compressible-flow analysis and liquid rocket
 engine preliminary design. The application has two working modes that share one
 shell:
