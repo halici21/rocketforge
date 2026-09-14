@@ -25,6 +25,23 @@ shell:
 Python + PySide6 + Qt 6, with the entire interface written in QML / Qt Quick.
 Python does nothing but start Qt and load `ui/Main.qml`.
 
+## Screenshots
+
+Captured headlessly from the real, running application (`--selftest-*`
+diagnostics — see [Testing](#testing)), not mockups.
+
+| | |
+| --- | --- |
+| ![Thermochemistry: a solved LOX/LCH4 chamber equilibrium, NASA CEA 3.3.4, with provenance and diagnostics](docs/images/screenshots/thermochemistry.png) Thermochemistry — a real NASA CEA chamber equilibrium solve, with provenance and diagnostics shown alongside the result. | ![Rocket Performance: a solved nozzle expansion with Isp, Cf, c*, c_eff, and an overexpansion warning](docs/images/screenshots/rocket-performance.png) Rocket Performance — the chamber state expanded through a nozzle to Isp / Cf / c\* / c_eff, warning badge included when the regime calls for one. |
+| ![Isentropic Flow: a calculator result checked against a published textbook reference, with PASS badges](docs/images/screenshots/isentropic-flow.png) Isentropic Flow — every classic gas-dynamics page checks its own result against a published reference inline. | ![Trade Study: a 3050-point evaluated design space with a Pareto front](docs/images/screenshots/trade-study.png) Trade Study — a real 3,050-point evaluated design space (41 unique chamber solves) with its Pareto front. |
+
+![Engine Design: an empty canvas, honestly labelled "No solver in this build"](docs/images/screenshots/engine-design.png)
+
+Engine Design, for contrast — the mode this README is explicit about
+([Known limitations](#known-limitations)): an empty canvas, an honest
+"No solver in this build" in the status bar, and a "Load demo engine" button
+rather than a fabricated result.
+
 ---
 
 ## Running
