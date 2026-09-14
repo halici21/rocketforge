@@ -577,6 +577,10 @@ documented campaigns (`docs/engineering/implementation/`,
 | Line / transport (pressure drop, friction) | Frozen v1.0, `rocketforge.engineering.line` |
 | Chamber + nozzle performance (c*, Cf, Isp) | Frozen v1.0 — scalar-only: no geometry, no contour, no dimensions |
 
+The full paper trail — specs, implementation phases, verification
+campaigns, and the design tooling stack — is indexed in
+**[docs/README.md](docs/README.md)**.
+
 **Engine Design mode remains presentation-only.** A component-by-component
 audit against the live registry (`acceptance/cad_workbench_r1/
 engine_component_inventory.json`) found **zero** of its 16 component types
