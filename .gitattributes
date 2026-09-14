@@ -1,0 +1,20 @@
+# Normalize line endings in the repository to LF regardless of the
+# checking-out machine's core.autocrlf setting, so diffs reflect real
+# content changes rather than line-ending churn between contributors.
+* text=auto eol=lf
+
+# Windows batch scripts keep CRLF - cmd.exe's parser is more reliable with it.
+*.bat text eol=crlf
+
+# Binary assets: never touched by line-ending normalization.
+*.png binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
