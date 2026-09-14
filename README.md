@@ -1,17 +1,23 @@
-# RocketForge — desktop UI foundation
+# RocketForge — desktop workstation for compressible-flow and propulsion analysis
 
 A native desktop workstation for compressible-flow analysis and liquid rocket
 engine preliminary design. The application has two working modes that share one
 shell:
 
-* **Analysis** - one page per compressible-flow module.
+* **Analysis** - one page per compressible-flow / propulsion module, backed by
+  a real, frozen physics stack: classic gas dynamics (Fanno, Rayleigh,
+  isentropic, normal/oblique shock, Prandtl-Meyer, mass flow), NASA CEA /
+  Cantera-verified thermochemistry, fluid properties, line/transport, and a
+  chamber+nozzle performance chain (c*, Cf, Isp). Every result on these pages
+  comes from `rocketforge/physics/` and `rocketforge/engineering/` through a
+  provider adapter — nothing is a hand-authored constant. See
+  [Verification campaigns](#verification-and-freeze-status) for the evidence.
 * **Engine Design** - a canvas where an engine is built as a network of
-  physical components joined through typed ports.
-
-**Both phases so far are user interface only.** No engineering relation is
-implemented, no solver exists, nothing is propagated along a connection, and
-every number on screen is a hand-authored constant. See
-[Known limitations](#known-limitations).
+  physical components joined through typed ports. **This mode is still user
+  interface only**: no component is solved, nothing is propagated along a
+  connection, and every number it shows is a hand-authored constant in
+  `ui/engine/model/MockEngineData.qml`. See
+  [Known limitations](#known-limitations).
 
 Python + PySide6 + Qt 6, with the entire interface written in QML / Qt Quick.
 Python does nothing but start Qt and load `ui/Main.qml`.
@@ -29,8 +35,39 @@ python main.py
 
 Verified on Windows 11 with Python 3.13 and PySide6 6.10.2.
 
+`requirements.txt` covers the UI shell and the classic compressible-flow
+pages. Two more, both optional and additive, unlock more of Analysis mode:
+
+* `requirements-thermochemistry.txt` — installs NASA CEA (`cea`), enabling the
+  Thermochemistry and Rocket Performance pages. Without it those pages
+  degrade gracefully and say why. Cantera is deliberately **not** in any
+  requirements file — it is a dev-only, independently-run verification oracle
+  (see [Verification and freeze status](#verification-and-freeze-status)),
+  never a runtime dependency.
+* `requirements-fluids.txt` — installs CoolProp, enabling Fluid Properties and
+  Line.
+
+`requirements-dev.txt` adds the test/tooling dependencies for running the
+suite in [Testing](#testing) below.
+
 `run.bat` does the same thing with the project virtual environment, without
 activating it first.
+
+### Testing
+
+```bash
+.venv\Scripts\python.exe -m pytest -q
+```
+
+Runs the full suite against the base environment (UI shell + classic
+compressible-flow physics). To also exercise the CEA-backed Thermochemistry
+and Rocket Performance provider tests, create a second environment with
+`requirements-thermochemistry.txt` installed and run pytest through that
+interpreter instead — e.g. `.venv-cea\Scripts\python.exe -m pytest -q`.
+
+Always invoke the venv's own `python.exe`/`pytest` directly rather than a
+bare `python`/`pytest` on `PATH` — on a machine with conda/miniforge also
+installed, the bare command can silently resolve to the wrong interpreter.
 
 ### Building the Windows executable
 
@@ -161,9 +198,15 @@ rocket/
     └── RocketForge.ico         generated; not in version control
 ```
 
-Everything the analysis pages display comes from `ui/data/MockData.qml`, and
-everything the engine mode displays comes from `ui/engine/model/`. Replacing
-either mock layer with a real backend is a contained change.
+Analysis pages call into `rocketforge/application/analysis/` controllers,
+which are thin Qt adapters over the real, frozen physics in
+`rocketforge/physics/` and `rocketforge/engineering/` — see
+[Verification and freeze status](#verification-and-freeze-status).
+`ui/data/MockData.qml` is now vestigial (only the unbuilt Equation Library
+page still reads it). Everything the engine mode displays still comes from
+`ui/engine/model/MockEngineData.qml`; replacing that mock layer with a real
+backend is the next major phase, gated on wiring real component solvers into
+Engine Design's own workspaces.
 
 ---
 
@@ -449,17 +492,27 @@ engine from a cycle template.
 
 ## Screens
 
-**Analysis mode — fully designed**
+**Analysis mode — fully designed and solver-backed**
 
 * Application shell — top bar, navigator, workspace, status line, settings
-* Isentropic Flow — the reference analysis page
+* Isentropic Flow, Mass Flow, Normal Shock, Oblique Shock, Prandtl–Meyer,
+  Fanno Flow, Rayleigh Flow — each a thin QML/controller adapter over its own
+  frozen relation in `rocketforge.physics.compressible`
+* Thermochemistry — NASA CEA primary provider, Cantera dev-only independent
+  oracle, both verified (see
+  [Verification and freeze status](#verification-and-freeze-status))
+* Fluid Properties — `rocketforge.physics.fluids`
+* Line — pressure-drop / friction transport, `rocketforge.engineering.line`
+* Rocket Performance — chamber + nozzle scalar performance chain (c*, Cf, Isp)
+* Trade Study — visualisation over already-solved points (axes/Pareto
+  projection; it does not itself run new solves)
 * Nozzle Lab — nozzle drawing, back-pressure control, operating-band scale
 * Equation Library — reference relations as static rich text
 
-**Analysis mode — placeholders** (real page frame and header, reserved anatomy)
+**Analysis mode — placeholders** (real page frame and header, reserved anatomy,
+no backend)
 
-Mass Flow · Normal Shock · Oblique Shock · Prandtl–Meyer · Fanno Flow ·
-Rayleigh Flow · Compare · Charts · Gas Properties
+Compare · Charts · Gas Properties
 
 **Engine Design mode — fully designed**
 
@@ -480,35 +533,55 @@ list of *soon* rows in the navigator.
 
 ---
 
+## Verification and freeze status
+
+Analysis mode is backed by a real physics stack under `rocketforge/physics/`
+and `rocketforge/engineering/`, built and verified in a sequence of gated,
+documented campaigns (`docs/engineering/implementation/`,
+`docs/engineering/verification/`):
+
+| Area | Status |
+| --- | --- |
+| Classic gas dynamics (Fanno, Rayleigh, isentropic, normal/oblique shock, Prandtl-Meyer, mass flow) | Frozen, `rocketforge.physics.compressible` |
+| Thermochemistry (NASA CEA primary provider, Cantera dev-only independent oracle) | **Verified** — CEA and Cantera both confirmed correct against external published references, cross-provider consistency confirmed within an evidenced envelope; see `docs/engineering/verification/CEA_CANTERA_VERIFICATION_R1.md` |
+| Fluid properties | Frozen, `rocketforge.physics.fluids` |
+| Line / transport (pressure drop, friction) | Frozen v1.0, `rocketforge.engineering.line` |
+| Chamber + nozzle performance (c*, Cf, Isp) | Frozen v1.0 — scalar-only: no geometry, no contour, no dimensions |
+
+**Engine Design mode remains presentation-only.** A component-by-component
+audit against the live registry (`acceptance/cad_workbench_r1/
+engine_component_inventory.json`) found **zero** of its 16 component types
+solvable end to end: `injector` and `nozzle` have real physics reachable
+*elsewhere* in the app (via Rocket Performance) but are not wired into Engine
+Design's own workspaces, and the other 14 (tank, pump, valve, regulator,
+orifice, chamber, igniter, turbine, shaft, gas generator, preburner, cooling
+jacket, heat exchanger, film cooling) have no implementation at all. Nothing
+Engine Design currently draws should be read as a solved result.
+
 ## Known limitations
 
-This build is a user interface. Specifically:
+**Engine Design mode is a user interface only.** Specifically:
 
-* **No physics.** No isentropic, shock, expansion, Fanno, Rayleigh, nozzle,
-  injector, pump, turbine, cooling, feed-system, cycle-balance or
-  rocket-performance relation is implemented anywhere in the codebase.
-* **No solver and no numerical backend.** The `Solve` button is disabled, and
-  the engine mode has no solve action at all - the Results and Flow canvas
-  views are present but disabled, and say why on hover.
+* **No physics is wired into the canvas.** See the component inventory above
+  — the physics that exists elsewhere in the app is not reachable from this
+  mode.
+* **No solver and no numerical backend for the graph itself.** The `Solve`
+  button is disabled, and the engine mode has no solve action at all - the
+  Results and Flow canvas views are present but disabled, and say why on
+  hover.
 * **Nothing is transported along a connection.** Joining two components records
   an edge in the editor graph. No pressure, temperature, mass flow or enthalpy
   is propagated, balanced or checked.
 * **All results are mock data.** Every displayed quantity is a hand-authored
-  constant in `ui/data/MockData.qml` or `ui/engine/model/`. The values are
-  illustrative and are not physically authoritative. Quantities that will need
-  a solver are shown as an em dash rather than invented.
+  constant in `ui/engine/model/MockEngineData.qml`. The values are
+  illustrative and are not physically authoritative.
 * **Validation is structural only.** The problems panel checks required ports,
   orphaned components, duplicate names and one architecture-completeness rule.
   It says nothing about whether an architecture would work.
-* **Graphs are visual prototypes.** Curves are hand-authored point arrays. The
-  chart inspector snaps to the nearest stored sample — an array lookup, not an
-  evaluation.
 * **The nozzle is a drawing.** Its contour is an authored profile. Moving the
   back-pressure control hit-tests the slider position against authored bands
   and transitions to that band's authored shock station and trace. No regime is
   being determined and no shock position is being computed.
-* **No unit conversion.** The unit indicator is fixed to SI and labelled as
-  future functionality.
 * **No persistence.** Nothing is saved or loaded. The engine graph lives for the
   length of the session; New / Open / Save / Export are present for layout and
   are disabled.
@@ -516,8 +589,16 @@ This build is a user interface. Specifically:
   command history exists yet, and deleting is immediate.
 * **No nested subsystems.** The data model and the breadcrumb are shaped for
   them; grouping components into an openable subsystem is not implemented.
+
+**Across both modes:**
+
+* **No unit conversion.** The unit indicator is fixed to SI and labelled as
+  future functionality.
 * **The command palette is engine-mode only.** `Ctrl+K` does nothing in
   Analysis mode.
+* **Charts, Compare, and Gas Properties are planned, unbuilt modules** — they
+  render the shared "not yet built" skeleton (`ModulePlaceholderPage.qml`),
+  not results.
 * Window minimum is 1120×700. Below roughly 800 px of height the dense analysis
   pages scroll rather than compress; in engine mode the toolbar sheds its view
   selector and detail toggle as the canvas narrows.
