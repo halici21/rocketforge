@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    # CEA and CoolProp versions are pinned deliberately (see
+    # requirements-thermochemistry.txt, requirements-fluids.txt) - raising
+    # either is a re-validation decision, not a routine bump. Dependabot will
+    # still open the PR; it is not expected to be merged without re-running
+    # the relevant verification campaign under docs/engineering/verification/.
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "ci"

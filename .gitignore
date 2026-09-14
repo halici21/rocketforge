@@ -26,3 +26,16 @@ ui_smoke/
 line_smoke/
 fluid_smoke/
 coupling_smoke/
+
+# OS / editor junk - never project-relevant, easy to drop in by accident.
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
