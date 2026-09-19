@@ -56,6 +56,19 @@ QtObject {
     readonly property real configRailWidth: 272
     readonly property real configRailMin: 236
 
+    // ---- analysis mode: model browser --------------------------------
+    // Slimmer than Engine Design's project panel by design (the
+    // shell-prototype decision, docs/design/CAD_WORKBENCH_R1_DESIGN_DECISION.md):
+    // the Analysis-mode viewport stays as dominant as it already was, so
+    // this rail costs less width, both resting and at its floor.
+    // Analysis Experience R2: the rail is a narrow, always-visible family
+    // strip now, not a permanent page list -- the contextual module
+    // drawer floats over the workspace instead of reserving width, so the
+    // resting panel only needs to fit the rail itself.
+    readonly property real browserPanelWidth: 64
+    readonly property real browserPanelMin: 64
+    readonly property real browserPanelMax: 200
+
     // ---- controls ---------------------------------------------------------
     readonly property real controlHeight: 34
     readonly property real controlHeightSmall: 26

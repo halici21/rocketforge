@@ -1,3 +1,5 @@
 # Static content singletons.  Imported with:  import "../data"
 singleton Navigation 1.0 Navigation.qml
 singleton MockData 1.0 MockData.qml
+singleton ShellContext 1.0 ShellContext.qml
+singleton WorkspaceState 1.0 WorkspaceState.qml

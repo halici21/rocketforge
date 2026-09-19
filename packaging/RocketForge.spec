@@ -123,6 +123,11 @@ a = Analysis(
     datas=[
         # The whole interface, kept as readable QML inside the bundle.
         (UI_DIR, "ui"),
+        # The product mark. main.py resolves it through resource_root() for
+        # QGuiApplication.setWindowIcon, so the frozen window, Alt-Tab entry
+        # and taskbar button carry the same icon the executable does.
+        (os.path.join(ROOT, "assets", "branding"),
+         os.path.join("assets", "branding")),
         # Published reference tables. Read at run time by the analysis pages;
         # the path is resolved relative to the package, so it must land in the
         # same place inside the bundle as it sits in the source tree.

@@ -23,6 +23,7 @@ Item {
     signal toggleNav()
     signal themeModeRequested(string mode)
     signal modeRequested(string mode)
+    signal homeRequested()
 
     implicitHeight: Metrics.topBarHeight
 
@@ -47,8 +48,12 @@ Item {
             onClicked: root.toggleNav()
         }
 
-        // ---- product mark ------------------------------------------------
+        // ---- product mark --------------------------------------------------
+        // Clickable: the one affordance that returns to the workbench
+        // overview from anywhere, the same convention as returning to a
+        // desktop application's own home view.
         RowLayout {
+            id: productMark
             spacing: Metrics.spacing.s
 
             RFIcon {
@@ -68,15 +73,14 @@ Item {
                 font.letterSpacing: 0.2
             }
 
-            Text {
-                text: App.stage
-                color: Theme.textMuted
-                font.family: Typography.sans
-                font.pixelSize: Typography.meta
-                font.letterSpacing: 0.4
-                font.capitalization: Font.AllUppercase
-                Layout.topMargin: 1
-            }
+            // The stage badge ("UI PREVIEW") sat beside the product name on
+            // every screen in every capture. It belongs with the version in
+            // the settings panel, which is where a reader goes to ask what
+            // build this is -- not stamped across a workspace computing
+            // verified physics. App.stage is unchanged and still shown there.
+
+            HoverHandler { id: markHover; cursorShape: Qt.PointingHandCursor }
+            TapHandler { onTapped: root.homeRequested() }
         }
 
         Rectangle {
@@ -133,94 +137,13 @@ Item {
             }
         }
 
-        Item {
-            visible: root.appMode === "analysis"
-            Layout.preferredWidth: visible ? workspaceRow.implicitWidth + Metrics.spacing.m : 0
-            Layout.preferredHeight: Metrics.controlHeightSmall
-
-            Rectangle {
-                anchors.fill: parent
-                radius: Metrics.radius.m
-                color: fileMenu.opened || workspaceHover.hovered ? Theme.surfaceHover : "transparent"
-                Behavior on color { ColorAnimation { duration: Motion.fast } }
-            }
-
-            RowLayout {
-                id: workspaceRow
-                anchors.centerIn: parent
-                spacing: Metrics.spacing.s
-
-                Text {
-                    text: MockData.workspaceName
-                    color: Theme.textSecondary
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.bodySmall
-                }
-
-                RFIcon {
-                    name: "chevron-down"
-                    width: 12
-                    height: 12
-                    color: Theme.textMuted
-                }
-            }
-
-            HoverHandler { id: workspaceHover; cursorShape: Qt.PointingHandCursor }
-            TapHandler { onTapped: fileMenu.open() }
-
-            RFMenu {
-                id: fileMenu
-                y: parent.height + 6
-                width: 260
-
-                Column {
-                    width: parent.width
-
-                    RFMenuItem {
-                        width: parent.width
-                        label: "New case"
-                        available: false
-                        note: "later phase"
-                    }
-                    RFMenuItem {
-                        width: parent.width
-                        label: "Open…"
-                        available: false
-                        note: "later phase"
-                    }
-                    RFMenuItem {
-                        width: parent.width
-                        label: "Save"
-                        available: false
-                        note: "later phase"
-                    }
-                    RFMenuItem {
-                        width: parent.width
-                        label: "Export results…"
-                        available: false
-                        note: "later phase"
-                    }
-
-                    Rectangle {
-                        width: parent.width
-                        height: Metrics.hairline
-                        color: Theme.divider
-                    }
-
-                    Text {
-                        width: parent.width - Metrics.spacing.m
-                        x: Metrics.spacing.s
-                        topPadding: Metrics.spacing.s
-                        bottomPadding: Metrics.spacing.xs
-                        text: "Project handling arrives with the first solver module."
-                        wrapMode: Text.WordWrap
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
-                }
-            }
-        }
+        // The workspace name and its file menu are gone until there is a
+        // workspace to name. Every item in that menu was available: false
+        // with the note "later phase", so the centre of the application bar
+        // carried a control that did nothing on every screen, under the
+        // label "Untitled workspace" -- a promise rather than a feature
+        // (rf-engineering-workbench: no chrome without a reason). It comes
+        // back with project handling, which is what it was waiting for.
 
         Item { Layout.fillWidth: true }
 

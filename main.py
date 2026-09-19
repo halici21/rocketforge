@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 from PySide6.QtCore import Property, QObject, QUrl, Qt, Signal, Slot
-from PySide6.QtGui import QGuiApplication
+from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonInstance
 from PySide6.QtQuickControls2 import QQuickStyle
 
@@ -81,6 +81,10 @@ def resource_root() -> Path:
 
 
 UI_DIR = resource_root() / "ui"
+# The product mark, resolved the same way as ui/ so the window, the task
+# switcher and the taskbar all get it in both a source run and a frozen
+# one (packaging/RocketForge.spec carries it into the bundle's datas).
+BRAND_ICON = resource_root() / "assets" / "branding" / "rocketforge.ico"
 
 
 class AppEnvironment(QObject):
@@ -235,6 +239,16 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     # chamber and not a nozzle.
     line = LineController(parent)
     qmlRegisterSingletonInstance(LineController, QML_URI, 1, 0, "Line", line)
+
+    # The application icon is global rather than per-window, so one call
+    # covers the QML window, the Alt-Tab entry and the taskbar button. It
+    # must happen after the QGuiApplication exists -- setWindowIcon is a
+    # static on the instance, and calling it from configure_application()
+    # (which by contract runs before the application is constructed)
+    # aborts the process rather than failing softly. A missing file is not
+    # an error: the interface still runs, just without a custom icon.
+    if QGuiApplication.instance() is not None and BRAND_ICON.exists():
+        QGuiApplication.setWindowIcon(QIcon(str(BRAND_ICON)))
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(str(UI_DIR))

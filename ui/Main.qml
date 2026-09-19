@@ -8,6 +8,7 @@ import "shell"
 import "engine"
 import "engine/model"
 import "data"
+import "pages/tradestudy"
 
 /*
  * RocketForge - application shell.
@@ -31,11 +32,26 @@ ApplicationWindow {
     title: App.name
     color: Theme.background
 
-    // Shell state. Kept as plain root properties so it stays inspectable.
+    // Shell state. Kept as plain root properties so it stays inspectable,
+    // and so it stays the stable, script-settable surface the packaged
+    // headless diagnostics under rocketforge/application/ already depend on
+    // (several call window.setProperty on these two by name) -- renaming or
+    // relocating them would break that production infrastructure, so they
+    // stay exactly where and what they were.
+    // ShellContext (ui/data/) mirrors both one-way (see the Binding elements
+    // below) so shell primitives defined in their own files (AnalysisDock,
+    // InspectorDrawer, and anything added later) have one shared,
+    // semantically-named place to read current selection/panel state from,
+    // without every one of them needing this property prop-drilled in --
+    // the same role EngineModel already plays for Engine Design mode.
+    // `window` stays the sole place that WRITES it.
     property string appMode: "analysis"   // analysis | engine
     property int currentPageIndex: 0
     property string themeMode: "dark"     // light | dark | system
     property bool navCollapsed: false
+
+    readonly property bool isTradeStudyPage:
+        currentPageIndex === Navigation.indexOfKey("tradestudy")
 
     readonly property var themeModes: ["light", "dark", "system"]
 
@@ -61,6 +77,20 @@ ApplicationWindow {
         target: Theme
         property: "systemPrefersDark"
         value: App.systemDark
+        restoreMode: Binding.RestoreNone
+    }
+
+    Binding {
+        target: ShellContext
+        property: "currentPageIndex"
+        value: window.currentPageIndex
+        restoreMode: Binding.RestoreNone
+    }
+
+    Binding {
+        target: ShellContext
+        property: "browserCollapsed"
+        value: window.navCollapsed
         restoreMode: Binding.RestoreNone
     }
 
@@ -94,6 +124,7 @@ ApplicationWindow {
             onToggleNav: window.navCollapsed = !window.navCollapsed
             onThemeModeRequested: function (mode) { window.themeMode = mode }
             onModeRequested: function (mode) { window.appMode = mode }
+            onHomeRequested: window.showAnalysis(Navigation.indexOfKey("home"))
         }
 
         RFDivider {}
@@ -104,32 +135,147 @@ ApplicationWindow {
             currentIndex: window.appMode === "engine" ? 1 : 0
 
             // ---- analysis mode ----
-            RowLayout {
+            // Model Browser (collapsible + resizable) | Engineering Viewport,
+            // an on-demand Inspector drawer overlaying the viewport, and a
+            // collapsible + resizable Analysis Dock along the bottom -- the
+            // shell grammar accepted in the CAD/CAE Workbench R1 shell
+            // prototype decision (docs/design/CAD_WORKBENCH_R1_DESIGN_DECISION.md).
+            // `ShellContext` (ui/data/) carries the state shared across these
+            // pieces, mirroring EngineModel's role for Engine Design mode.
+            ColumnLayout {
                 spacing: 0
 
-                SideNav {
-                    id: nav
-                    Layout.preferredWidth: window.navCollapsed ? 0 : Metrics.navWidth
+                Item {
+                    Layout.fillWidth: true
                     Layout.fillHeight: true
-                    currentIndex: window.currentPageIndex
-                    engineModeActive: window.appMode === "engine"
-                    onSelected: function (index) {
-                        window.currentPageIndex = index
-                        nav.forceActiveFocus()
-                    }
-                    onEngineModeRequested: window.appMode = "engine"
 
-                    Behavior on Layout.preferredWidth {
-                        NumberAnimation { duration: Motion.base; easing.type: Motion.emphasized }
+                    RowLayout {
+                        anchors.fill: parent
+                        spacing: 0
+
+                        PanelRail {
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: Metrics.collapsedRailWidth
+                            visible: window.navCollapsed && !browserPanel.transitioning
+                            side: "left"
+                            label: "Browser"
+                            onRestore: window.navCollapsed = false
+                        }
+
+                        SplitView {
+                            id: analysisSplit
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            orientation: Qt.Horizontal
+
+                            handle: Rectangle {
+                                implicitWidth: 5
+                                color: "transparent"
+
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: Metrics.hairline
+                                    height: parent.height
+                                    color: SplitHandle.pressed ? Theme.accent
+                                         : SplitHandle.hovered ? Theme.borderStrong
+                                         : Theme.divider
+                                    Behavior on color { ColorAnimation { duration: Motion.fast } }
+                                }
+                            }
+
+                            CollapsiblePanel {
+                                id: browserPanel
+                                collapsed: window.navCollapsed
+                                expandedWidth: Metrics.browserPanelWidth
+                                minimumWidth: Metrics.browserPanelMin
+                                maximumWidth: Metrics.browserPanelMax
+
+                                SideNav {
+                                    id: nav
+                                    anchors.fill: parent
+                                    currentIndex: window.currentPageIndex
+                                    engineModeActive: window.appMode === "engine"
+                                    onSelected: function (index) {
+                                        window.currentPageIndex = index
+                                        nav.forceActiveFocus()
+                                    }
+                                    onEngineModeRequested: window.appMode = "engine"
+                                }
+                            }
+
+                            WorkspaceHost {
+                                SplitView.fillWidth: true
+                                SplitView.minimumWidth: 480
+                                currentIndex: window.currentPageIndex
+                                onWorkspaceRequested: function (index) { window.showAnalysis(index) }
+                                onEngineRequested: window.appMode = "engine"
+                            }
+                        }
+                    }
+
+                    InspectorDrawer {
+                        anchors.fill: parent
+                        open: ShellContext.inspectorOpen && window.isTradeStudyPage
+                        onCloseRequested: ShellContext.inspectorOpen = false
+
+                        // The only current consumer. Loader-instantiated by
+                        // InspectorDrawer itself, so no other workspace pays
+                        // for this tree.
+                        StudyInspector {}
                     }
                 }
 
-                RFDivider { vertical: true }
+                RFDivider {}
 
-                WorkspaceHost {
+                AnalysisDock {
+                    id: analysisDock
+                    objectName: "analysisDock"
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    currentIndex: window.currentPageIndex
+                    // Never more than half the window's vertical space, so
+                    // the engineering object above it always "stays
+                    // meaningful" (RF_WORKBENCH_GRAMMAR.md's responsive
+                    // rule) even at the 1366x768 floor with the dock
+                    // dragged open -- see the comment on
+                    // AnalysisDock.maxExpandedHeight for the capture that
+                    // found this needed a cap.
+                    maxExpandedHeight: Math.min(420, window.height * 0.5)
+                    // A fixed tab count keeps `currentTab` meaningful across
+                    // navigation; the Diagnostics tab is simply disabled
+                    // outside Trade Study rather than removed, so switching
+                    // workspaces can never leave `currentTab` pointing at a
+                    // tab that no longer exists.
+                    tabs: [
+                        { label: "Messages", available: true },
+                        { label: "Diagnostics", available: window.isTradeStudyPage }
+                    ]
+
+                    // Leaving Trade Study while the dock sits on its
+                    // (now-disabled) Diagnostics tab would otherwise show an
+                    // empty pane -- return to Messages instead.
+                    Connections {
+                        target: window
+                        function onIsTradeStudyPageChanged() {
+                            if (!window.isTradeStudyPage && analysisDock.currentTab !== 0)
+                                analysisDock.currentTab = 0
+                        }
+                    }
+
+                    StackLayout {
+                        anchors.fill: parent
+                        currentIndex: analysisDock.currentTab
+
+                        Item {
+                            Text {
+                                anchors.centerIn: parent
+                                text: "No messages"
+                                color: Theme.textMuted
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.bodySmall
+                            }
+                        }
+
+                        StudyDockDiagnostics {}
+                    }
                 }
             }
 
@@ -147,12 +293,17 @@ ApplicationWindow {
             // On a computed page the mock flow chips are dropped rather than
             // shown: "Supersonic · Case 01" beside a subsonic computed result
             // is the status bar asserting something false. The trailing text
-            // still says where the numbers came from.
+            // still says where the numbers came from. Home is neither a
+            // compressible-flow calculator nor a computed workspace -- it
+            // reports on other workspaces' own state rather than solving
+            // anything itself, so it gets neither the mock chips nor a
+            // solver sentence, both of which would misdescribe it.
             items: window.appMode === "engine" ? engineStatus
-                                               : (computed ? [] : MockData.statusChips)
+                 : isHomePage ? []
+                 : (computed ? [] : MockData.statusChips)
             trailing: window.appMode === "engine" ? "No solver in this build"
-                                                  : (computed ? solverNote
-                                                              : MockData.solverStatus)
+                    : isHomePage ? "Workbench overview"
+                    : (computed ? solverNote : MockData.solverStatus)
             computed: window.appMode === "analysis"
                       && Navigation.items[window.currentPageIndex] !== undefined
                       && Navigation.items[window.currentPageIndex].computed === true
@@ -163,6 +314,9 @@ ApplicationWindow {
             // machine with no chemistry provider that page shows nothing at
             // all, which neither default sentence describes.
             readonly property var currentItem: Navigation.items[window.currentPageIndex]
+            readonly property bool isHomePage: window.appMode === "analysis"
+                                               && currentItem !== undefined
+                                               && currentItem.key === "home"
             readonly property bool chemistryPage: window.appMode === "analysis"
                                                   && currentItem !== undefined
                                                   && currentItem.key === "thermochem"
@@ -177,6 +331,10 @@ ApplicationWindow {
             }
 
             originNote: {
+                if (window.appMode === "engine")
+                    return "Topology and structural state only, not a solve"
+                if (isHomePage)
+                    return "Each row reports that workspace's own state"
                 if (chemistryPage && !chemistryReady)
                     return "No values are shown"
                 if (currentItem !== undefined && currentItem.computedNote !== undefined)

@@ -13,10 +13,13 @@ Item {
     property string label: ""
     property string value: "-"
     property string unit: ""
-    property string scale: "medium"    // large | medium | small
+    property string scale: "medium"    // hero | large | medium | small
     property bool highlighted: false
 
-    readonly property real valueSize: scale === "large" ? Typography.readoutLarge
+    // "hero" is the one number a workspace exists to produce
+    // (rf-engineering-workbench hierarchy Level 1, Analysis Experience R2).
+    readonly property real valueSize: scale === "hero" ? Typography.readoutHero
+                                    : scale === "large" ? Typography.readoutLarge
                                     : scale === "small" ? Typography.readoutSmall
                                     : Typography.readoutMedium
 

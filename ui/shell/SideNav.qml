@@ -6,13 +6,26 @@ import "../components"
 import "../data"
 
 /*
- * The module navigator.
+ * The Browser, Analysis Experience R2: a narrow family rail plus a
+ * contextual module drawer, replacing the permanent all-pages list every
+ * capture in docs/design/ANALYSIS_EXPERIENCE_R2_CURRENT_AUDIT.md flagged
+ * as navigation noise (17 destinations shown at once, regardless of what
+ * the user is doing).
  *
- * Structure is carried by typography and indentation rather than by icons:
- * a domain heading, quiet group labels, and rows whose only decoration is the
- * accent marker on the current one. The second domain of the product is
- * present but folded away, so the shape of the roadmap is visible without
- * crowding the modules that work.
+ * Progressive disclosure, not a redesign of what each row shows: a family
+ * with exactly one module (Thermochemistry, Rocket Performance, Trade
+ * Study, Reference) opens that module directly from the rail -- there is
+ * no second click to a drawer with one row in it. A family with several
+ * modules (Compressible Flow, Fluids and Feed) opens a contextual drawer
+ * scoped to that family alone, never every family's modules at once.
+ *
+ * External API (currentIndex, engineModeActive, selected(index),
+ * engineModeRequested()) is unchanged from the pre-R2 SideNav, so Main.qml
+ * needed no edit for this swap. Engine Design's own entry point is the
+ * TopBar's Analysis/Engine Design switch, already the primary route into
+ * that mode -- this rail no longer duplicates it, and no longer shows
+ * Engine Design's own future-module roadmap, which is that mode's own
+ * concern (ui/engine/), not this one's.
  */
 Item {
     id: root
@@ -24,327 +37,333 @@ Item {
     signal selected(int index)
     signal engineModeRequested()
 
+    function stateFor(key) {
+        return WorkspaceState.stateFor(key)
+    }
+
+    // -1 = no drawer open.
+    //
+    // The drawer only ever opens from an explicit rail click. An earlier
+    // revision of this file auto-opened it whenever currentIndex moved
+    // into a drawer-owning family, on the theory that it restored context
+    // -- opening the real capture showed it instead parked a 176px panel
+    // on top of the workspace's own input rail every time the user landed
+    // on a compressible-flow module. Navigation only ever CLOSES it now.
+    property int openDrawerFamily: -1
+
+    function familyNeedsDrawer(family) {
+        return Navigation.directTargetOf(family) === -1
+    }
+
+    function syncDrawerToIndex(index) {
+        openDrawerFamily = -1
+    }
+
+    onCurrentIndexChanged: syncDrawerToIndex(currentIndex)
+    Component.onCompleted: syncDrawerToIndex(currentIndex)
+
+    function activateFamily(familyIndex) {
+        var family = Navigation.families[familyIndex]
+        var direct = Navigation.directTargetOf(family)
+        if (direct !== -1) {
+            openDrawerFamily = -1
+            root.selected(direct)
+            return
+        }
+        openDrawerFamily = (openDrawerFamily === familyIndex) ? -1 : familyIndex
+    }
+
     clip: true
     activeFocusOnTab: true
 
-    function step(delta) {
-        var next = Math.max(0, Math.min(Navigation.items.length - 1, currentIndex + delta))
-        if (next !== currentIndex)
-            root.selected(next)
+    Keys.onUpPressed: {
+        var next = Math.max(0, currentIndex - 1)
+        if (next !== currentIndex) root.selected(next)
+    }
+    Keys.onDownPressed: {
+        var next = Math.min(Navigation.items.length - 1, currentIndex + 1)
+        if (next !== currentIndex) root.selected(next)
     }
 
-    Keys.onUpPressed: step(-1)
-    Keys.onDownPressed: step(1)
-
-    // Shell chrome sits one step off the workspace so the two read as
-    // different layers without a border between them.
     Rectangle {
         anchors.fill: parent
         color: Theme.surfaceSubtle
         Behavior on color { ColorAnimation { duration: Motion.fast } }
     }
 
-    Flickable {
+    RowLayout {
         anchors.fill: parent
-        contentWidth: width
-        contentHeight: column.implicitHeight
-        boundsBehavior: Flickable.StopAtBounds
-        ScrollBar.vertical: RFScrollBar {}
+        spacing: 0
 
-        ColumnLayout {
-            id: column
-            width: root.width
-            spacing: 0
-
-            // ---- compressible flow domain --------------------------------
-            Item { Layout.preferredHeight: Metrics.spacing.m }
-
-            RFSectionLabel {
-                text: Navigation.flowDomain
-                strong: true
-                Layout.leftMargin: Metrics.spacing.m + Metrics.spacing.xs
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.fillWidth: true
-            }
-
-            Item { Layout.preferredHeight: Metrics.spacing.s }
-
-            Repeater {
-                model: Navigation.flowRows
-
-                delegate: Item {
-                    id: row
-                    required property var modelData
-
-                    readonly property bool isGroup: modelData.kind === "group"
-                    readonly property int itemIndex: modelData.kind === "item" ? modelData.index : -1
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: isGroup ? Metrics.navGroupHeight + Metrics.spacing.s
-                                                    : Metrics.navItemHeight
-
-                    RFSectionLabel {
-                        visible: row.isGroup
-                        text: row.isGroup ? row.modelData.label : ""
-                        font.pixelSize: Typography.navGroup
-                        font.letterSpacing: Typography.navGroupTracking
-                        x: Metrics.spacing.m + Metrics.spacing.xs
-                        anchors.bottom: parent.bottom
-                        anchors.bottomMargin: Metrics.spacing.xs + 1
-                    }
-
-                    RFNavItem {
-                        visible: !row.isGroup
-                        anchors.fill: parent
-                        label: row.itemIndex >= 0 ? Navigation.items[row.itemIndex].label : ""
-                        current: row.itemIndex === root.currentIndex
-                        onActivated: root.selected(row.itemIndex)
-                    }
-                }
-            }
-
-            // ---- thermochemistry domain ----------------------------------
-            // A second analysis domain rather than another compressible
-            // module: its numbers come from a chemistry provider, so putting
-            // it under the COMPRESSIBLE FLOW heading would misfile it.
-            Item { Layout.preferredHeight: Metrics.spacing.l }
+        // ==== the family rail: always visible, fixed width ================
+        Item {
+            id: rail
+            Layout.preferredWidth: 64
+            Layout.fillHeight: true
 
             Rectangle {
-                Layout.fillWidth: true
-                Layout.leftMargin: Metrics.spacing.m
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.preferredHeight: Metrics.hairline
+                anchors.right: parent.right
+                width: Metrics.hairline
+                height: parent.height
                 color: Theme.divider
             }
 
-            Item { Layout.preferredHeight: Metrics.spacing.m }
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.topMargin: Metrics.spacing.m
+                spacing: Metrics.spacing.xs
 
-            RFSectionLabel {
-                text: Navigation.chemistryDomain
-                strong: true
-                Layout.leftMargin: Metrics.spacing.m + Metrics.spacing.xs
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.fillWidth: true
-            }
-
-            Item { Layout.preferredHeight: Metrics.spacing.s }
-
-            Repeater {
-                model: Navigation.chemistryRows
-
-                delegate: RFNavItem {
-                    required property var modelData
-
+                RailCell {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: Metrics.navItemHeight
-                    label: Navigation.items[modelData.index].label
-                    current: modelData.index === root.currentIndex
-                    onActivated: root.selected(modelData.index)
+                    label: "HOME"
+                    icon: "home"
+                    current: root.currentIndex === 0 && !root.engineModeActive
+                    onActivated: { root.openDrawerFamily = -1; root.selected(0) }
                 }
-            }
 
-            // ---- rocket performance domain -------------------------------
-            Item { Layout.preferredHeight: Metrics.spacing.m }
-
-            RFSectionLabel {
-                text: Navigation.performanceDomain
-                strong: true
-                Layout.leftMargin: Metrics.spacing.m + Metrics.spacing.xs
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.fillWidth: true
-            }
-
-            Item { Layout.preferredHeight: Metrics.spacing.s }
-
-            Repeater {
-                model: Navigation.performanceRows
-
-                delegate: RFNavItem {
-                    required property var modelData
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Metrics.navItemHeight
-                    label: Navigation.items[modelData.index].label
-                    current: modelData.index === root.currentIndex
-                    onActivated: root.selected(modelData.index)
-                }
-            }
-
-            // ---- trade study domain --------------------------------------
-            Item { Layout.preferredHeight: Metrics.spacing.m }
-
-            RFSectionLabel {
-                text: Navigation.studyDomain
-                strong: true
-                Layout.leftMargin: Metrics.spacing.m + Metrics.spacing.xs
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.fillWidth: true
-            }
-
-            Item { Layout.preferredHeight: Metrics.spacing.s }
-
-            Repeater {
-                model: Navigation.studyRows
-
-                delegate: RFNavItem {
-                    required property var modelData
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Metrics.navItemHeight
-                    label: Navigation.items[modelData.index].label
-                    current: modelData.index === root.currentIndex
-                    onActivated: root.selected(modelData.index)
-                }
-            }
-
-            // ---- fluid properties domain ---------------------------------
-            Item { Layout.preferredHeight: Metrics.spacing.m }
-
-            RFSectionLabel {
-                text: Navigation.fluidDomain
-                strong: true
-                Layout.leftMargin: Metrics.spacing.m + Metrics.spacing.xs
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.fillWidth: true
-            }
-
-            Item { Layout.preferredHeight: Metrics.spacing.s }
-
-            Repeater {
-                model: Navigation.fluidRows
-
-                delegate: RFNavItem {
-                    required property var modelData
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Metrics.navItemHeight
-                    label: Navigation.items[modelData.index].label
-                    current: modelData.index === root.currentIndex
-                    onActivated: root.selected(modelData.index)
-                }
-            }
-
-            // ---- rocket engine domain ------------------------------------
-            Item { Layout.preferredHeight: Metrics.spacing.l }
-
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.leftMargin: Metrics.spacing.m
-                Layout.rightMargin: Metrics.spacing.m
-                Layout.preferredHeight: Metrics.hairline
-                color: Theme.divider
-            }
-
-            Item {
-                id: engineHeader
-                Layout.fillWidth: true
-                Layout.preferredHeight: Metrics.navGroupHeight + Metrics.spacing.s
-
-                RFSectionLabel {
-                    id: engineLabel
-                    text: Navigation.engineDomain
-                    strong: true
-                    x: Metrics.spacing.m + Metrics.spacing.xs
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: 2
-                }
-            }
-
-            // The workspace for the second domain of the product.
-            RFNavItem {
-                Layout.fillWidth: true
-                label: "Engine Design"
-                current: root.engineModeActive
-                onActivated: root.engineModeRequested()
-            }
-
-            // The component design modules that will live inside it.
-            Item {
-                id: plannedHeader
-                Layout.fillWidth: true
-                Layout.preferredHeight: Metrics.navGroupHeight + Metrics.spacing.xs
+                Item { Layout.preferredHeight: Metrics.spacing.s }
 
                 Rectangle {
-                    anchors.fill: parent
-                    anchors.leftMargin: Metrics.spacing.s
-                    anchors.rightMargin: Metrics.spacing.s
-                    radius: Metrics.radius.m
-                    color: engineHover.hovered ? Theme.surface : "transparent"
-                    Behavior on color { ColorAnimation { duration: Motion.fast } }
+                    Layout.fillWidth: true
+                    Layout.leftMargin: Metrics.spacing.s
+                    Layout.rightMargin: Metrics.spacing.s
+                    Layout.preferredHeight: Metrics.hairline
+                    color: Theme.divider
                 }
 
-                RFSectionLabel {
-                    id: plannedLabel
-                    text: "Modules"
-                    x: Metrics.spacing.m + Metrics.spacing.l
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: Typography.navGroup
-                    font.letterSpacing: Typography.navGroupTracking
-                }
+                Item { Layout.preferredHeight: Metrics.spacing.s }
 
-                Text {
-                    anchors.left: plannedLabel.right
-                    anchors.leftMargin: Metrics.spacing.s
-                    anchors.baseline: plannedLabel.baseline
-                    text: Navigation.engineItems.length + " planned"
-                    color: Theme.textDisabled
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.meta
-                }
+                Repeater {
+                    model: Navigation.families
 
-                RFIcon {
-                    anchors.right: parent.right
-                    anchors.rightMargin: Metrics.spacing.m + Metrics.spacing.xs
-                    anchors.verticalCenter: parent.verticalCenter
-                    name: "chevron-down"
-                    width: 13
-                    height: 13
-                    color: Theme.textMuted
-                    rotation: root.engineSectionExpanded ? 0 : -90
+                    delegate: RailCell {
+                        required property var modelData
+                        required property int index
 
-                    Behavior on rotation {
-                        NumberAnimation { duration: Motion.base; easing.type: Motion.standard }
+                        Layout.fillWidth: true
+                        label: modelData.short
+                        icon: modelData.icon !== undefined ? modelData.icon : ""
+                        current: !root.engineModeActive && (
+                                     root.openDrawerFamily === index
+                                     || Navigation.familyOfIndex(root.currentIndex) === index)
+                        onActivated: root.activateFamily(index)
                     }
                 }
 
-                HoverHandler { id: engineHover; cursorShape: Qt.PointingHandCursor }
-                TapHandler { onTapped: root.engineSectionExpanded = !root.engineSectionExpanded }
+                Item { Layout.fillHeight: true }
             }
+        }
 
-            // Folded away by default; the rows exist so the roadmap is legible.
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: root.engineSectionExpanded
-                                        ? engineColumn.implicitHeight : 0
-                clip: true
 
-                Behavior on Layout.preferredHeight {
-                    NumberAnimation { duration: Motion.base; easing.type: Motion.standard }
+    }
+
+    // ==== the contextual module drawer: a floating popup, not a layout
+    // participant -- it must not permanently reserve width the way the
+    // old permanent rail did, so it overlays the workspace instead of
+    // pushing it. Opens only for a multi-module family (Compressible
+    // Flow, Fluids and Feed); every other rail entry navigates directly
+    // and this stays closed.
+    Popup {
+        id: drawerPopup
+        parent: root
+        x: 64
+        y: 0
+        width: 176
+        height: root.height
+        visible: root.openDrawerFamily !== -1
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+
+        background: Rectangle {
+            color: Theme.surfaceElevated
+            border.width: Metrics.hairline
+            border.color: Theme.border
+        }
+
+        Flickable {
+            anchors.fill: parent
+            contentWidth: width
+            contentHeight: drawerColumn.implicitHeight
+            boundsBehavior: Flickable.StopAtBounds
+            ScrollBar.vertical: RFScrollBar {}
+
+            ColumnLayout {
+                id: drawerColumn
+                width: parent.width
+                spacing: 0
+
+                readonly property var family: root.openDrawerFamily !== -1
+                    ? Navigation.families[root.openDrawerFamily] : null
+
+                Item { Layout.preferredHeight: Metrics.spacing.m }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: Metrics.spacing.m
+                    Layout.rightMargin: Metrics.spacing.m
+
+                    Text {
+                        Layout.fillWidth: true
+                        text: drawerColumn.family ? drawerColumn.family.label : ""
+                        elide: Text.ElideRight
+                        color: Theme.text
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.groupLabel + 1
+                        font.weight: Typography.medium
+                    }
+
+                    RFIconButton {
+                        icon: "close"
+                        size: 22
+                        iconSize: 12
+                        onClicked: root.openDrawerFamily = -1
+                    }
                 }
 
-                Column {
-                    id: engineColumn
-                    width: parent.width
-                    opacity: root.engineSectionExpanded ? 1 : 0
+                Item { Layout.preferredHeight: Metrics.spacing.m }
 
-                    Behavior on opacity { NumberAnimation { duration: Motion.base } }
+                Repeater {
+                    model: drawerColumn.family ? drawerColumn.family.groups : []
 
-                    Repeater {
-                        model: Navigation.engineItems
+                    delegate: ColumnLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: 0
 
-                        delegate: RFNavItem {
-                            required property var modelData
-                            width: engineColumn.width
-                            indent: Metrics.spacing.h1
-                            label: modelData
-                            available: false
-                            badge: "soon"
+                        RFSectionLabel {
+                            visible: modelData.label !== ""
+                            text: modelData.label
+                            Layout.leftMargin: Metrics.spacing.m
+                            Layout.rightMargin: Metrics.spacing.m
+                            Layout.topMargin: Metrics.spacing.s
+                            Layout.bottomMargin: Metrics.spacing.xs
+                        }
+
+                        Repeater {
+                            model: modelData.items
+
+                            delegate: Loader {
+                                required property var modelData
+                                Layout.fillWidth: true
+                                readonly property var itemData: Navigation.items[modelData]
+                                readonly property bool hasStatus:
+                                    drawerColumn.family ? drawerColumn.family.hasStatus : false
+                                sourceComponent: hasStatus ? statusRow : plainRow
+
+                                Component {
+                                    id: plainRow
+                                    RFNavItem {
+                                        width: parent ? parent.width : 200
+                                        label: itemData ? itemData.label : ""
+                                        current: modelData === root.currentIndex
+                                        onActivated: {
+                                            root.selected(modelData)
+                                            root.openDrawerFamily = -1
+                                        }
+                                    }
+                                }
+                                Component {
+                                    id: statusRow
+                                    RFBrowserItem {
+                                        width: parent ? parent.width : 200
+                                        readonly property var state: root.stateFor(itemData ? itemData.key : "")
+                                        label: itemData ? itemData.label : ""
+                                        stateText: state.text
+                                        stale: state.stale
+                                        current: modelData === root.currentIndex
+                                        onActivated: {
+                                            root.selected(modelData)
+                                            root.openDrawerFamily = -1
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
+
+                Item { Layout.preferredHeight: Metrics.spacing.l }
+            }
+        }
+    }
+
+    // One rail cell: a short label, current-state marker, hover. The
+    // family-rail analogue of RFNavItem, sized for a 64px column instead
+    // of a full-width row.
+    component RailCell: Item {
+        id: cell
+        property string label: ""
+        property string icon: ""
+        property bool current: false
+        signal activated()
+
+        implicitHeight: 56
+
+        Rectangle {
+            anchors.fill: parent
+            anchors.leftMargin: Metrics.spacing.xs
+            anchors.rightMargin: Metrics.spacing.xs
+            radius: Metrics.radius.m
+            color: cell.current ? Theme.surfaceHover
+                 : cellMouse.containsMouse ? Theme.surface : "transparent"
+            Behavior on color { ColorAnimation { duration: Motion.fast } }
+        }
+
+        Rectangle {
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            width: 2
+            height: cell.current ? 22 : 0
+            radius: 1
+            color: Theme.accent
+            opacity: cell.current ? 1 : 0
+            Behavior on height { NumberAnimation { duration: Motion.base; easing.type: Motion.standard } }
+        }
+
+        // The mark and the word together. The rail was seven uppercase
+        // abbreviations (FLOW / CHEM / PROP / TRADE / FLUID / REF), which is
+        // a vocabulary a new reader has to learn before the rail is usable.
+        // The label stays: an icon on its own would replace one guessing
+        // game with another, and this interface navigates by typography
+        // first (RFIcon's own note).
+        Column {
+            anchors.centerIn: parent
+            spacing: 3
+
+            RFIcon {
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: cell.icon !== ""
+                name: cell.icon
+                width: 17
+                height: 17
+                strokeWidth: cell.current ? 1.6 : 1.4
+                color: cell.current ? Theme.text
+                     : cellMouse.containsMouse ? Theme.textSecondary : Theme.textMuted
+
+                Behavior on color { ColorAnimation { duration: Motion.fast } }
             }
 
-            Item { Layout.preferredHeight: Metrics.spacing.l }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: cell.label
+                color: cell.current ? Theme.text
+                     : cellMouse.containsMouse ? Theme.textSecondary : Theme.textMuted
+                font.family: Typography.sans
+                font.pixelSize: Typography.meta - 0.5
+                font.weight: cell.current ? Typography.semibold : Typography.medium
+                font.letterSpacing: 0.5
+                font.capitalization: Font.AllUppercase
+
+                Behavior on color { ColorAnimation { duration: Motion.fast } }
+            }
+        }
+
+        MouseArea {
+            id: cellMouse
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: cell.activated()
         }
     }
 }

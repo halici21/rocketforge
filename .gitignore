@@ -27,6 +27,11 @@ line_smoke/
 fluid_smoke/
 coupling_smoke/
 
+# Scratch produced while investigating: a run log, and the pre-edit copies a
+# refactor leaves behind. Both are reproducible and neither is source.
+*.log
+*.bak
+
 # OS / editor junk - never project-relevant, easy to drop in by accident.
 .DS_Store
 .DS_Store?

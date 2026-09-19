@@ -33,9 +33,26 @@ QtObject {
     readonly property real bodySmall: 12
     readonly property real inputLabel: 11.5
     readonly property real inputValue: 15          // mono
+    // Analysis Experience R2: the one hero number a workspace exists to
+    // produce (rf-engineering-workbench's hierarchy Level 1). A golden-
+    // ratio step above readoutLarge (20 * 1.618 ~= 32), chosen pragmatically
+    // rather than by rebuilding the whole scale -- qt-ui-design's own
+    // guidance for a small, surgical addition to an already-shipped scale.
+    readonly property real readoutHero: 32         // mono
     readonly property real readoutLarge: 20        // mono
     readonly property real readoutMedium: 15       // mono
     readonly property real readoutSmall: 12.5      // mono
+    // ---- chart scale ------------------------------------------------------
+    // A plot carries its own type scale rather than borrowing `meta`.
+    // `meta` is sized for a caption sitting inside a dense rail; a 620px-tall
+    // scientific plot at 1920 is a different reading task at a different
+    // distance from the eye's focus, and the audit captures showed 10.5px
+    // tick labels reading as noise against it. These three are the only
+    // sizes any chart may use, so every plot in the application agrees.
+    readonly property real axisTick: 11.5      // mono, tabular figures
+    readonly property real axisTitle: 12       // sans, carries the unit
+    readonly property real chartAnnotation: 11 // sans, guide/marker labels
+
     readonly property real navItem: 12.5
     readonly property real navGroup: 10
     readonly property real status: 11

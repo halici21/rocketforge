@@ -124,8 +124,23 @@ Item {
     // gutter can never push the last column out of view.
     readonly property real valueAreaWidth: Math.max(0, width - firstColumnWidth - markerGutter)
 
+    // `columnWidth` is the FLOOR, which is what its own comment always said
+    // and what widthFor() never did: it returned the floor as the exact
+    // width, so seven 132px columns used 1020 of 1800 available pixels while
+    // "Chamber temperature T_c" elided to "Chamber temperatur..." -- a table
+    // truncating its own headers beside 800px of empty space (captured in
+    // acceptance/analysis_experience_r2_implementation/trade_study/).
+    //
+    // Leftover width is now shared out across the value columns. When the
+    // columns genuinely do not fit, the floor wins and the table scrolls
+    // horizontally exactly as before.
+    readonly property int valueColumnCount: Math.max(0, columnCount - 1)
+    readonly property real distributedColumnWidth:
+        valueColumnCount <= 0 ? columnWidth
+                              : Math.max(columnWidth, valueAreaWidth / valueColumnCount)
+
     function widthFor(column) {
-        return column === 0 ? firstColumnWidth : columnWidth
+        return column === 0 ? firstColumnWidth : distributedColumnWidth
     }
 
     // The model returns undefined between a reset and the delegate rebuild,
