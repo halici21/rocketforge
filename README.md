@@ -7,25 +7,42 @@
 **[Download the latest Windows build](https://github.com/halici21/rocketforge/releases/latest)**
 — self-contained, no Python install required. See
 [Known limitations](#known-limitations) before you do: Analysis mode is real
-physics, Engine Design mode is still a UI prototype.
+physics, Engine Design mode is a real topology editor with no physics wired
+into it yet.
+
+![Oblique Shock in Study mode: the theta-beta-M relation for M1 = 2.00, the
+weak and strong branches drawn from the same solver the calculator uses, and
+the current solved point marked on the weak branch](docs/images/screenshots/oblique-shock-study.png)
+
+*Oblique Shock, Study mode — the θ–β–M relation at M₁ = 2.00 with the solved
+operating point marked on the weak branch. Every curve here comes from the
+same solver that produces the numbers on the Calculator tab.*
 
 A native desktop workstation for compressible-flow analysis and liquid rocket
-engine preliminary design. The application has two working modes that share one
-shell:
+engine preliminary design, built around one shell: a narrow family rail
+(Compressible Flow, Thermochemistry, Rocket Performance, Trade Study, Fluids
+and Feed, Reference) that opens a module directly or, for a family with
+several, a contextual drawer scoped to that family alone; a context-sensitive
+Inspector drawer; a collapsible Analysis Dock; and two working modes:
 
-* **Analysis** - one page per compressible-flow / propulsion module, backed by
-  a real, frozen physics stack: classic gas dynamics (Fanno, Rayleigh,
-  isentropic, normal/oblique shock, Prandtl-Meyer, mass flow), NASA CEA /
-  Cantera-verified thermochemistry, fluid properties, line/transport, and a
-  chamber+nozzle performance chain (c*, Cf, Isp). Every result on these pages
-  comes from `rocketforge/physics/` and `rocketforge/engineering/` through a
-  provider adapter — nothing is a hand-authored constant. See
+* **Analysis** - one workspace per compressible-flow / propulsion module,
+  backed by a real, frozen physics stack: classic gas dynamics (Fanno,
+  Rayleigh, isentropic, normal/oblique shock, Prandtl-Meyer, mass flow), NASA
+  CEA / Cantera-verified thermochemistry, fluid properties, line/transport, a
+  chamber+nozzle performance chain (c*, Cf, Isp), and a Trade Study workspace
+  (parametric sweep as the primary view, with a generic-axis design-space/
+  Pareto projection alongside it) over already-solved points. Every result on
+  these pages comes from `rocketforge/physics/` and `rocketforge/engineering/`
+  through a provider adapter — nothing is a hand-authored constant. See
   [Verification campaigns](#verification-and-freeze-status) for the evidence.
 * **Engine Design** - a canvas where an engine is built as a network of
-  physical components joined through typed ports. **This mode is still user
-  interface only**: no component is solved, nothing is propagated along a
-  connection, and every number it shows is a hand-authored constant in
-  `ui/engine/model/MockEngineData.qml`. See
+  physical components joined through typed ports. The topology-editing layer
+  is real: add, move, connect, rename, duplicate and delete components, real
+  port-direction/type compatibility validation, and structural-problem
+  detection (missing required connections, duplicate names, orphaned
+  components). **No component in this mode is solved**: nothing is
+  propagated along a connection, and every quantitative readout is an
+  explicit em-dash placeholder rather than a fabricated number. See
   [Known limitations](#known-limitations).
 
 Python + PySide6 + Qt 6, with the entire interface written in QML / Qt Quick.
@@ -33,20 +50,29 @@ Python does nothing but start Qt and load `ui/Main.qml`.
 
 ## Screenshots
 
-Captured headlessly from the real, running application (`--selftest-*`
-diagnostics — see [Testing](#testing)), not mockups.
+Captured headlessly from the real, running application, with real solves — not
+mockups and not mock data. The chemistry-backed screens require the production
+profile (NASA CEA installed); the rest run on the frozen perfect-gas stack.
+
+### Analysis
 
 | | |
 | --- | --- |
-| ![Thermochemistry: a solved LOX/LCH4 chamber equilibrium, NASA CEA 3.3.4, with provenance and diagnostics](docs/images/screenshots/thermochemistry.png) Thermochemistry — a real NASA CEA chamber equilibrium solve, with provenance and diagnostics shown alongside the result. | ![Rocket Performance: a solved nozzle expansion with Isp, Cf, c*, c_eff, and an overexpansion warning](docs/images/screenshots/rocket-performance.png) Rocket Performance — the chamber state expanded through a nozzle to Isp / Cf / c\* / c_eff, warning badge included when the regime calls for one. |
-| ![Isentropic Flow: a calculator result checked against a published textbook reference, with PASS badges](docs/images/screenshots/isentropic-flow.png) Isentropic Flow — every classic gas-dynamics page checks its own result against a published reference inline. | ![Trade Study: a 3050-point evaluated design space with a Pareto front](docs/images/screenshots/trade-study.png) Trade Study — a real 3,050-point evaluated design space (41 unique chamber solves) with its Pareto front. |
+| ![Thermochemistry: a solved LOX/LCH4 chamber equilibrium from NASA CEA 3.3.4, chamber temperature 3598.29 K, with provenance chips and diagnostics](docs/images/screenshots/thermochemistry.png) **Thermochemistry** — a real NASA CEA 3.3.4 chamber equilibrium, with the equilibrium-state schematic labelled for what it is and provenance shown beside the result. | ![Rocket Performance: a solved nozzle expansion showing Isp 348.658 s, Cf, c*, c_eff and the signed Cf pressure term](docs/images/screenshots/rocket-performance.png) **Rocket Performance** — the chamber state expanded through a nozzle to Isp / Cf / c\* / c_eff, over a schematic drawn from the solved area ratio and nothing else. |
+| ![Nozzle Lab: the operating point for an internal normal shock, with the shock station as the hero result and the nozzle drawn to scale from the solved area distribution](docs/images/screenshots/nozzle-lab.png) **Nozzle Lab** — converging–diverging operation with an internal normal shock. The nozzle is drawn to scale from the solved area distribution, with the throat and the shock at their own solved stations. | ![Isentropic Flow: the p0/p relation against Mach number on a logarithmic axis, with the sonic point marked](docs/images/screenshots/isentropic-flow.png) **Isentropic Flow** — every classic gas-dynamics module opens on its relation, not on a form. The calculator and the reference-checked table are a click away. |
+| ![Trade Study sweep: specific impulse against mixture ratio across nine evaluated design points](docs/images/screenshots/trade-study.png) **Trade Study, sweep** — the response of one metric as a single design variable is swept, over points the study actually evaluated. | ![Trade Study design space: thirty evaluated designs plotted as thrust coefficient against specific impulse, with the Pareto-efficient front marked](docs/images/screenshots/trade-study-design-space.png) **Trade Study, design space** — a projection of the evaluated space. Pareto membership is decided using every objective the study defines, not just the two plotted. |
+| ![Fluid Properties: liquid oxygen at 90.17 K and 300 kPa evaluated by CoolProp, density 1141.7 kg/m3, with the full provenance of the equation of state](docs/images/screenshots/fluid-properties.png) **Fluid Properties** — a single state from a reference equation of state, with the provider, its version and its enthalpy datum stated rather than assumed. | ![The same Nozzle Lab workspace in the light theme](docs/images/screenshots/nozzle-lab-light.png) **Light theme** — the same workspace. Both themes are first-class; neither is a filter applied to the other. |
 
-![Engine Design: an empty canvas, honestly labelled "No solver in this build"](docs/images/screenshots/engine-design.png)
+### System design
 
-Engine Design, for contrast — the mode this README is explicit about
-([Known limitations](#known-limitations)): an empty canvas, an honest
-"No solver in this build" in the status bar, and a "Load demo engine" button
-rather than a fabricated result.
+![Engine Design: a seven-component gas-generator topology with the Main Chamber selected, its inspector open, and every quantitative readout shown as an em dash](docs/images/screenshots/engine-design.png)
+
+**Engine Design** — a seven-component LOX/CH₄ gas-generator topology with the
+Main Chamber selected and its inspector open. This is the mode this README is
+explicit about ([Known limitations](#known-limitations)): the topology editing
+is real, and **no component is solved**. Every quantitative readout is an
+em-dash placeholder, the inspector says so in words, and the status bar reads
+"No solver in this build · Topology and structural state only, not a solve".
 
 ---
 
@@ -405,9 +431,16 @@ rhythm. The family is resolved at runtime from what is installed.
 | body / secondary | 13 / 12 | sans |
 | input label | 11.5 | sans |
 | input value | 15 medium | mono |
-| readout large / medium / small | 20 / 15 / 12.5 | mono |
+| readout hero / large / medium / small | 32 / 20 / 15 / 12.5 | mono |
+| axis tick | 11.5 | mono |
+| axis title / chart annotation | 12 / 11 | sans |
 | nav item / nav group | 12.5 / 10 | sans |
 | status / meta | 11 / 10.5 | sans |
+
+A plot carries its own three sizes rather than borrowing `meta`: a tick label
+sitting beside a 600px-tall scientific chart is a different reading task from
+a caption inside a dense rail, and the chart scale is what keeps every plot in
+the application agreeing with every other.
 
 ### Spacing, radii, motion
 
@@ -532,7 +565,11 @@ engine from a cycle template.
 
 **Analysis mode — fully designed and solver-backed**
 
-* Application shell — top bar, navigator, workspace, status line, settings
+* Application shell — top bar, a narrow family rail with a contextual
+  module drawer, a context-sensitive Inspector drawer, a collapsible Analysis
+  Dock, status line, settings
+* Home — the workbench overview: every workspace's own current state
+  (solved / evaluated / not configured), in one place
 * Isentropic Flow, Mass Flow, Normal Shock, Oblique Shock, Prandtl–Meyer,
   Fanno Flow, Rayleigh Flow — each a thin QML/controller adapter over its own
   frozen relation in `rocketforge.physics.compressible`
@@ -542,8 +579,11 @@ engine from a cycle template.
 * Fluid Properties — `rocketforge.physics.fluids`
 * Line — pressure-drop / friction transport, `rocketforge.engineering.line`
 * Rocket Performance — chamber + nozzle scalar performance chain (c*, Cf, Isp)
-* Trade Study — visualisation over already-solved points (axes/Pareto
-  projection; it does not itself run new solves)
+* Trade Study — a parametric sweep (the primary grammar: response curves
+  against the swept variable) or, once two or more variables are varied, a
+  generic-axis design-space/Pareto projection — both views over
+  already-solved points; the workspace itself runs no new solves beyond the
+  study evaluation the user explicitly requests
 * Nozzle Lab — nozzle drawing, back-pressure control, operating-band scale
 * Equation Library — reference relations as static rich text
 
@@ -552,12 +592,15 @@ no backend)
 
 Compare · Charts · Gas Properties
 
-**Engine Design mode — fully designed**
+**Engine Design mode — a real topology editor, zero component physics**
 
-* Engine workspace — sidebar, canvas, inspector, bottom panel, document tabs,
-  with both side panels collapsible to a rail
+* Engine workspace — project panel (subsystem-grouped tree), canvas,
+  inspector, bottom panel, document tabs, both side panels collapsible to a
+  rail
 * Component palette — 16 component types with schematic glyphs
-* Engine layout canvas — the demo gas-generator architecture, 7 components
+* Engine layout canvas — real pan/zoom/grid/marquee-select, port-typed
+  connection drawing with real compatibility validation, structural-problem
+  detection; the demo gas-generator architecture loads 7 components
 * Main Injector workspace — configuration, pintle section drawing, summary
 * Main Nozzle workspace — geometry, contour drawing, summary
 * New-engine dialog — six cycle templates with schematic previews
@@ -602,7 +645,8 @@ Engine Design currently draws should be read as a solved result.
 
 ## Known limitations
 
-**Engine Design mode is a user interface only.** Specifically:
+**Engine Design mode's topology-editing layer is real; nothing past it is.**
+Specifically:
 
 * **No physics is wired into the canvas.** See the component inventory above
   — the physics that exists elsewhere in the app is not reachable from this
@@ -614,9 +658,14 @@ Engine Design currently draws should be read as a solved result.
 * **Nothing is transported along a connection.** Joining two components records
   an edge in the editor graph. No pressure, temperature, mass flow or enthalpy
   is propagated, balanced or checked.
-* **All results are mock data.** Every displayed quantity is a hand-authored
-  constant in `ui/engine/model/MockEngineData.qml`. The values are
-  illustrative and are not physically authoritative.
+* **Every quantitative canvas value is an explicit placeholder, not a
+  fabricated number.** Each component type's registry-declared readout rows
+  (`ui/engine/model/ComponentRegistry.qml`) and the demo engine's own data
+  (`ui/engine/model/MockEngineData.qml`) render as an em dash on both the
+  canvas node and the Inspector — the two used to disagree (the canvas
+  showed an unqualified static number where the Inspector already correctly
+  dimmed and labelled the same data as a placeholder); both now show the
+  same honest "not yet computed" state.
 * **Validation is structural only.** The problems panel checks required ports,
   orphaned components, duplicate names and one architecture-completeness rule.
   It says nothing about whether an architecture would work.
