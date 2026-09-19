@@ -103,8 +103,14 @@ def test_the_navigation_no_longer_advertises_performance_as_planned():
 
 def test_the_sidebar_renders_the_performance_domain():
     sidenav = (UI / "shell" / "SideNav.qml").read_text(encoding="utf-8")
-    assert "Navigation.performanceRows" in sidenav
-    assert "Navigation.performanceDomain" in sidenav
+    # Analysis Experience R2: the rail renders progressive-disclosure
+    # families rather than one always-visible row array per domain. Same
+    # guard, current mechanism.
+    assert "Navigation.families" in sidenav
+    navigation = (UI / "data" / "Navigation.qml").read_text(encoding="utf-8")
+    families = navigation[navigation.index("readonly property var families:"):]
+    assert 'key: "propulsion"' in families
+    assert "RocketPerformancePage.qml" in navigation
 
 
 def test_the_controller_is_registered_as_a_singleton():

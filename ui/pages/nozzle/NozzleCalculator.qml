@@ -22,12 +22,64 @@ import "../../components"
 Item {
     id: page
 
-    readonly property var columns: [["Regime", "Flow"], ["Exit state", "Thresholds"]]
+    // TIER 1 is the hero below. TIER 2 (Regime, Flow) and TIER 3 (Exit
+    // state, Thresholds) are the four groups here.
+    //
+    // Roomy: two columns of two groups, which is the approved 1920/2560
+    // composition and is unchanged.
+    //
+    // Compact: the same four groups, side by side. At 1366x768 the Solution
+    // panel is 241px tall and the 2x2 arrangement needs ~301px, so Mass flow,
+    // Throat Mach, Exit Mach and all four Thresholds were clipped. Laying the
+    // groups out in one row halves the stack height and spends the 935px of
+    // width the workspace already has. No quantity is removed, nothing is
+    // scrolled, and no type size changes.
+    readonly property var columns: page.compact
+        ? [["Regime"], ["Flow"], ["Exit state"], ["Thresholds"]]
+        : [["Regime", "Flow"], ["Exit state", "Thresholds"]]
+
+    // At the 1366x768 floor the object row, the solution grid and the shock
+    // strip ask for more height than the workspace has, and a ColumnLayout
+    // handed less than its children's minimums lets them overlap rather than
+    // shrinking them -- the capture showed the shock strip printed straight
+    // across the REGIME and EXIT STATE columns. Reflow, not shrink: the
+    // numbers are what this tab is for, and the nozzle is drawn full size on
+    // the Charts tab, so the object is what yields.
+    readonly property bool compact: page.height < 620
+
+    // ---- result hierarchy ----------------------------------------------
+    // The audit captured this page as 22 numbers at one weight, which is the
+    // same as no answer at all. The rows are frozen scientific output
+    // (nozzle_service._rows_for) and are untouched -- this only decides which
+    // of them is read FIRST, and which regime it belongs to.
+    //
+    // Read straight off the raw rows, never through rowsIn(): rowsIn filters
+    // BY heroKey, so asking it would make this depend on itself.
+    readonly property bool shockPresent: {
+        for (var i = 0; i < Nozzle.results.length; ++i)
+            if (Nozzle.results[i].group === "Shock")
+                return true
+        return false
+    }
+
+    // With a shock inside the diverging section the whole subject is where it
+    // stands. Without one, nothing is happening inside the nozzle and the
+    // answer is what comes out of it.
+    readonly property string heroKey:
+        page.shockPresent ? "shock_area_ratio" : "mach_exit"
+
+    readonly property var heroRow: {
+        for (var i = 0; i < Nozzle.results.length; ++i)
+            if (Nozzle.results[i].key === page.heroKey)
+                return Nozzle.results[i]
+        return null
+    }
 
     function rowsIn(group) {
         var out = []
         for (var i = 0; i < Nozzle.results.length; ++i)
-            if (Nozzle.results[i].group === group)
+            if (Nozzle.results[i].group === group
+                    && Nozzle.results[i].key !== page.heroKey)
                 out.push(Nozzle.results[i])
         return out
     }
@@ -205,50 +257,95 @@ Item {
             Layout.fillHeight: true
             spacing: Metrics.spacing.l
 
-            RFPanel {
-                title: "Flow regime"
+            // Drawn to scale this nozzle is short and wide, so the object
+            // occupies a modest box however much room it is given -- and a
+            // to-scale drawing centred in a 1480px panel is just the dead
+            // space this phase removes. The regime sentence and the object it
+            // describes share one row: two statements about the same thing.
+            RowLayout {
                 Layout.fillWidth: true
-                contentSpacing: Metrics.spacing.s
+                spacing: Metrics.spacing.m
 
-                trailing: Component {
-                    RFStatusChip {
-                        text: Nozzle.regimeLabel
-                        tone: Nozzle.regimeTone
+                RFPanel {
+                        title: "Flow regime"
+                        Layout.fillWidth: true
+                        // Only stretches to match the object beside it; alone at
+                        // the floor it takes the height its sentence needs.
+                        Layout.fillHeight: !page.compact
+                        contentSpacing: Metrics.spacing.s
+
+                    trailing: Component {
+                        RFStatusChip {
+                            text: Nozzle.regimeLabel
+                            tone: Nozzle.regimeTone
+                        }
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        text: Nozzle.regimeNote
+                        wrapMode: Text.WordWrap
+                        lineHeight: Typography.proseLineHeight
+                        lineHeightMode: Text.ProportionalHeight
+                        color: Nozzle.valid ? Theme.textSecondary : Theme.warning
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.bodySmall
+                    }
+
+                    // Only where a jet actually needs adjusting outside the exit.
+                    Text {
+                        Layout.fillWidth: true
+                        visible: Nozzle.externalContext !== ""
+                        text: Nozzle.externalContext
+                        wrapMode: Text.WordWrap
+                        lineHeight: Typography.proseLineHeight
+                        lineHeightMode: Text.ProportionalHeight
+                        color: Theme.textMuted
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.meta
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        visible: !Nozzle.valid
+                        text: Nozzle.statusMessage
+                        wrapMode: Text.WordWrap
+                        color: Theme.warning
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.bodySmall
                     }
                 }
 
-                Text {
-                    Layout.fillWidth: true
-                    text: Nozzle.regimeNote
-                    wrapMode: Text.WordWrap
-                    lineHeight: Typography.proseLineHeight
-                    lineHeightMode: Text.ProportionalHeight
-                    color: Nozzle.valid ? Theme.textSecondary : Theme.warning
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.bodySmall
-                }
+                // The object this workspace computes. The audit's finding on
+                // this page was that it analyses a converging-diverging
+                // nozzle and an internal shock and never shows either one --
+                // 22 numbers and no nozzle. Everything drawn is solver output
+                // (contourSeries is r(x) from the station distribution,
+                // markers are the throat and shock at their own axial
+                // stations), so the drawing claims nothing the module has not
+                // computed.
+                RFPanel {
+                    title: "Nozzle"
+                    Layout.preferredWidth: page.compact ? 0 : 420
+                    Layout.preferredHeight: page.compact ? 0 : 250
+                    visible: Nozzle.valid && !page.compact
+                    chromeless: true
 
-                // Only where a jet actually needs adjusting outside the exit.
-                Text {
-                    Layout.fillWidth: true
-                    visible: Nozzle.externalContext !== ""
-                    text: Nozzle.externalContext
-                    wrapMode: Text.WordWrap
-                    lineHeight: Typography.proseLineHeight
-                    lineHeightMode: Text.ProportionalHeight
-                    color: Theme.textMuted
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.meta
-                }
+                    NozzleObject {
+                        id: nozzleObject
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
 
-                Text {
-                    Layout.fillWidth: true
-                    visible: !Nozzle.valid
-                    text: Nozzle.statusMessage
-                    wrapMode: Text.WordWrap
-                    color: Theme.warning
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.bodySmall
+                        hasResult: Nozzle.valid
+                        wall: {
+                            var parts = Nozzle.contourSeries()
+                            for (var i = 0; i < parts.length; ++i)
+                                if (parts[i].label === "wall")
+                                    return parts[i].points
+                            return []
+                        }
+                        stations: Nozzle.markers()
+                    }
                 }
             }
 
@@ -258,10 +355,63 @@ Item {
                 Layout.fillHeight: true
                 visible: Nozzle.valid
 
+                // Tier 1: the one number this operating point exists to
+                // produce, at the hero size, above the grid rather than
+                // inside it.
+                GridLayout {
+                    Layout.fillWidth: true
+                    Layout.bottomMargin: page.compact ? Metrics.spacing.xs
+                                                      : Metrics.spacing.s
+                    // Stacked when there is height for it; on one line when
+                    // there is not. Either way it leads the panel.
+                    columns: page.compact ? 2 : 1
+                    columnSpacing: Metrics.spacing.m
+                    rowSpacing: 2
+                    visible: page.heroRow !== null
+
+                    Text {
+                        Layout.alignment: Qt.AlignVCenter
+                        text: page.heroRow ? page.heroRow.label : ""
+                        color: Theme.textSecondary
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.bodySmall
+                    }
+
+                    RowLayout {
+                        Layout.alignment: Qt.AlignVCenter
+                        spacing: Metrics.spacing.xs
+
+                        Text {
+                            text: page.heroRow ? page.heroRow.value : ""
+                            color: Theme.text
+                            font.family: Typography.mono
+                            font.pixelSize: page.compact
+                                ? Typography.readoutLarge
+                                : Typography.readoutHero
+                            font.weight: Typography.medium
+
+                            TapHandler {
+                                onSingleTapped: Nozzle.copyText(page.heroRow.value)
+                            }
+                        }
+
+                        Text {
+                            Layout.alignment: Qt.AlignBottom
+                            Layout.bottomMargin: 5
+                            visible: page.heroRow && page.heroRow.unit !== ""
+                            text: page.heroRow ? page.heroRow.unit : ""
+                            color: Theme.textMuted
+                            font.family: Typography.mono
+                            font.pixelSize: Typography.readoutSmall
+                        }
+                    }
+                }
+
                 RowLayout {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignTop
-                    spacing: Metrics.spacing.xl
+                    spacing: page.compact ? Metrics.spacing.m
+                                          : Metrics.spacing.xl
 
                     Repeater {
                         model: page.columns
@@ -283,7 +433,8 @@ Item {
                                     readonly property var groupRows: page.rowsIn(modelData)
 
                                     Layout.fillWidth: true
-                                    spacing: Metrics.spacing.xs
+                                    spacing: page.compact ? 0
+                                                          : Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
                                     RFSectionLabel { text: group.modelData }
@@ -291,36 +442,55 @@ Item {
                                     Repeater {
                                         model: group.groupRows
 
-                                        delegate: RowLayout {
+                                        delegate: GridLayout {
+                                            id: cell
+
                                             required property var modelData
+
                                             Layout.fillWidth: true
-                                            Layout.preferredHeight: 24
-                                            spacing: Metrics.spacing.m
+                                            // Explicit so four groups abreast
+                                            // land inside the measured 209px
+                                            // of content height rather than
+                                            // near it.
+                                            Layout.preferredHeight:
+                                                page.compact ? 32 : 24
+                                            // Side by side when there is room
+                                            // for both on one line; stacked
+                                            // when there is not.
+                                            columns: page.compact ? 1 : 2
+                                            columnSpacing: Metrics.spacing.m
+                                            rowSpacing: 0
 
                                             Text {
-                                                Layout.preferredWidth: 190
-                                                text: modelData.label
+                                                Layout.preferredWidth:
+                                                    page.compact ? -1 : 190
+                                                Layout.fillWidth: page.compact
+                                                text: cell.modelData.label
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
-                                                font.pixelSize: Typography.body
+                                                font.pixelSize: page.compact
+                                                    ? Typography.inputLabel
+                                                    : Typography.body
                                             }
 
                                             Text {
                                                 Layout.fillWidth: true
-                                                text: modelData.value
-                                                      + (modelData.unit ? " " + modelData.unit : "")
-                                                color: modelData.available ? Theme.text
-                                                                           : Theme.textMuted
+                                                text: cell.modelData.value
+                                                      + (cell.modelData.unit
+                                                         ? " " + cell.modelData.unit : "")
+                                                color: cell.modelData.available
+                                                    ? Theme.text : Theme.textMuted
                                                 font.family: Typography.mono
-                                                font.pixelSize: modelData.emphasis
+                                                font.pixelSize: cell.modelData.emphasis
                                                     ? Typography.readoutMedium
                                                     : Typography.readoutSmall
-                                                font.weight: modelData.emphasis
+                                                font.weight: cell.modelData.emphasis
                                                     ? Typography.medium : Typography.regular
 
                                                 TapHandler {
-                                                    onSingleTapped: Nozzle.copyText(modelData.value)
+                                                    onSingleTapped:
+                                                        Nozzle.copyText(cell.modelData.value)
                                                 }
                                             }
                                         }
@@ -349,8 +519,14 @@ Item {
                 }
 
                 GridLayout {
+                    // Four columns need ~250px each to hold a 160px label and
+                    // its value; at 1366 the workspace gives about 215, and a
+                    // GridLayout cell smaller than its content does not shrink
+                    // it -- the capture showed "0.0481882 Upstream M1" and
+                    // "0.603072 p2/p1" printed into each other. The column
+                    // count comes from the width actually available.
                     Layout.fillWidth: true
-                    columns: 4
+                    columns: Math.max(1, Math.min(4, Math.floor(width / 250)))
                     columnSpacing: Metrics.spacing.xl
                     rowSpacing: Metrics.spacing.xs
 
@@ -364,6 +540,7 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 160
+                                Layout.maximumWidth: 160
                                 text: modelData.label
                                 elide: Text.ElideRight
                                 color: Theme.textSecondary

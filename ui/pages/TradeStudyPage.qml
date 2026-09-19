@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../theme"
 import "../components"
+import "../data"
 import "tradestudy"
 
 /*
@@ -35,9 +36,45 @@ Item {
 
     property int section: 0
 
+    // A finished study lands on its results, not back on the form that
+    // produced them. Setup stays the landing view while there is nothing to
+    // show -- configuring IS the task then -- but once a run completes, the
+    // answer is what the reader came back for. The capture of a completed
+    // 30-point study opening on the Setup tab is the argument: the study had
+    // run, and the workspace still showed the questionnaire.
+    //
+    // It moves the view once per completed run and never fights the user: a
+    // later manual return to Setup stays put, because this only fires on the
+    // transition into a completed state.
+    function landOnResults() {
+        if (TradeStudy.hasResult && page.section === 0)
+            page.section = 1
+    }
+
+    Connections {
+        target: TradeStudy
+        function onResultChanged() { page.landOnResults() }
+    }
+
+    // Also on arrival, not only on the signal: the workspace is created the
+    // first time it is opened, so a study run before that -- or one left
+    // complete while the reader worked elsewhere and came back -- would
+    // otherwise still open on the form. The page is built fresh each time it
+    // is reached, so this is the arrival case, not a duplicate of the signal.
+    Component.onCompleted: page.landOnResults()
+
     Connections {
         target: TradeStudy
         function onRequestTab(index) { page.section = index }
+        // Selecting a design (from the plot or the best-points list) is
+        // the point of opening the Inspector; this only opens it on the
+        // way from zero selected to one, so a person who deliberately
+        // closes it while comparing several designs is not fought with it
+        // reopening on every further tap.
+        function onSelectionChanged() {
+            if (TradeStudy.selectedIndices.length === 1)
+                ShellContext.inspectorOpen = true
+        }
     }
 
     ColumnLayout {
@@ -74,7 +111,7 @@ Item {
 
         RFSegmentedControl {
             Layout.preferredWidth: 460
-            model: ["Setup", "Results", "Pareto", "Compare"]
+            model: ["Setup", "Results", "Trade", "Compare"]
             currentIndex: page.section
             onSelected: function (index) { page.section = index }
         }
@@ -86,7 +123,7 @@ Item {
 
             StudySetup {}
             StudyResults {}
-            StudyPareto {}
+            StudyTrade {}
             StudyCompare {}
         }
     }

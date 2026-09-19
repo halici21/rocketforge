@@ -25,6 +25,18 @@ import "../../components"
 Item {
     id: page
 
+    // At the 1366x768 floor the hero, the two result columns and a 220px
+    // minimum diagram add up to more height than the workspace has, and a
+    // Layout given less than its children's minimums does not shrink them --
+    // it lets them overlap. The 1366 capture showed the diagram's title and
+    // curve printed straight across the FLOW and TOTAL columns.
+    //
+    // Reflow rather than shrink, the same rule the Study view already
+    // follows: the numbers are what the Calculator is for, and the full
+    // theta-beta-M relation is one click away in Study, so the inline
+    // diagram is what yields.
+    readonly property bool compact: page.height < 640
+
     readonly property var modes: ObliqueShock.solveModes
 
     function indexOfMode(key) {
@@ -36,10 +48,34 @@ Item {
 
     function rowsIn(group) {
         var out = []
-        for (var i = 0; i < ObliqueShock.results.length; ++i)
-            if (ObliqueShock.results[i].group === group)
-                out.push(ObliqueShock.results[i])
+        for (var i = 0; i < ObliqueShock.results.length; ++i) {
+            var row = ObliqueShock.results[i]
+            if (row.group === group && !page.isHeroKey(row.key))
+                out.push(row)
+        }
         return out
+    }
+
+    // Analysis Experience R2: the one number this workspace exists to
+    // produce is the shock angle. It is pulled out of the uniform row grid
+    // and given hierarchy Level 1 (rf-engineering-workbench), instead of
+    // rendering at the same size and weight as nine secondary ratios --
+    // the defect docs/design/ANALYSIS_EXPERIENCE_R2_CURRENT_AUDIT.md
+    // recorded against the pre-R2 capture. Both-branches mode genuinely
+    // has two answers, so it gets two heroes rather than an invented
+    // single one.
+    readonly property var heroRows: {
+        var out = []
+        for (var i = 0; i < ObliqueShock.results.length; ++i) {
+            var row = ObliqueShock.results[i]
+            if (row.key === "beta" || row.key === "weak_beta" || row.key === "strong_beta")
+                out.push(row)
+        }
+        return out
+    }
+
+    function isHeroKey(key) {
+        return key === "beta" || key === "weak_beta" || key === "strong_beta"
     }
 
     // The groups come from the controller, because they differ between the
@@ -54,9 +90,13 @@ Item {
         spacing: Metrics.spacing.l
 
         // ---- input rail ---------------------------------------------------
+        // Chrome discipline (section 25): the rail is grouped by its own
+        // position, spacing and dividers -- a border around it repeats a
+        // boundary the workspace edge already draws.
         RFPanel {
             title: "Solve from"
-            Layout.preferredWidth: Metrics.railWidth - 20
+            chromeless: true
+            Layout.preferredWidth: 290
             Layout.minimumWidth: 250
             Layout.fillHeight: true
             contentSpacing: Metrics.spacing.m
@@ -237,6 +277,7 @@ Item {
 
             RFPanel {
                 title: "Results"
+                chromeless: true
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 contentSpacing: Metrics.spacing.m
@@ -260,6 +301,60 @@ Item {
                     color: ObliqueShock.valid ? Theme.textMuted : Theme.warning
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
+                }
+
+                // ---- the answer, at hierarchy Level 1 ---------------------
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.topMargin: Metrics.spacing.s
+                    spacing: Metrics.spacing.h1
+                    visible: ObliqueShock.valid && page.heroRows.length > 0
+
+                    Repeater {
+                        model: page.heroRows
+
+                        delegate: ColumnLayout {
+                            required property var modelData
+                            spacing: 0
+
+                            Text {
+                                text: page.heroRows.length > 1
+                                      ? modelData.label + "   ("
+                                        + (modelData.key === "weak_beta" ? "weak" : "strong") + ")"
+                                      : modelData.label
+                                color: Theme.textSecondary
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.bodySmall
+                            }
+
+                            RowLayout {
+                                spacing: Metrics.spacing.xs
+                                Text {
+                                    text: modelData.value
+                                    color: modelData.available ? Theme.text : Theme.textMuted
+                                    font.family: Typography.mono
+                                    font.pixelSize: Typography.readoutHero
+                                    font.weight: Typography.medium
+                                }
+                                Text {
+                                    Layout.alignment: Qt.AlignBottom
+                                    Layout.bottomMargin: 6
+                                    text: modelData.unit
+                                    color: Theme.textMuted
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.body
+                                }
+                            }
+                        }
+                    }
+
+                    Item { Layout.fillWidth: true }
+                }
+
+                RFDivider {
+                    Layout.fillWidth: true
+                    Layout.topMargin: Metrics.spacing.s
+                    visible: ObliqueShock.valid && page.heroRows.length > 0
                 }
 
                 RowLayout {
@@ -426,8 +521,11 @@ Item {
             // ---- the diagram, alongside the numbers -----------------------
             RFPanel {
                 title: "θ–β–M"
+                chromeless: true
+                visible: !page.compact
                 Layout.fillWidth: true
-                Layout.preferredHeight: 236
+                Layout.preferredHeight: visible ? 320 : 0
+                Layout.minimumHeight: visible ? 220 : 0
                 contentSpacing: Metrics.spacing.xs
 
                 trailing: Component {

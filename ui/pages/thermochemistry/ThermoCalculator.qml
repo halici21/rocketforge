@@ -47,6 +47,25 @@ Item {
         return parts.join(" · ")
     }
 
+    // Reads the SOLVED case's own condition snapshot (Thermochemistry.
+    // resultConditions, notify=resultChanged) -- never the live input form --
+    // so the schematic's annotations can never relabel an unsolved edit as
+    // though it were the result. Pure presentation lookup, not physics.
+    function conditionValue(label) {
+        var rows = Thermochemistry.resultConditions
+        for (var i = 0; i < rows.length; ++i)
+            if (rows[i].label === label)
+                return rows[i].value
+        return ""
+    }
+
+    // The emphasized primary rows (temperature, molar_mass, gamma) get a
+    // tiered hero display above; everything else stays in the grid below.
+    // Filtering by key, not removing them from the controller's own model.
+    function isHeroRow(key) {
+        return key === "temperature" || key === "molar_mass" || key === "gamma"
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: Metrics.spacing.l
@@ -298,6 +317,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 title: "Chamber state"
+                chromeless: true
                 contentSpacing: Metrics.spacing.m
 
                 trailing: Component {
@@ -319,14 +339,60 @@ Item {
                 }
 
                 // ---- nothing calculated yet ------------------------------
-                RFEmptyState {
+                //
+                // Analysis Experience R2, section 37: the unsolved state is
+                // not a void with a sentence in it. ThermoChamberSchematic
+                // already renders an honest, dimmed, unannotated structure
+                // when hasResult is false -- it was simply never shown,
+                // because the whole result column was gated behind
+                // hasResult. It is shown here instead, so the workspace
+                // reads as an instrument waiting for an input. No solved
+                // value is invented: every annotation inside the schematic
+                // stays hidden until there is a real result to annotate.
+                ColumnLayout {
                     Layout.fillWidth: true
-                    Layout.topMargin: Metrics.spacing.h1
+                    Layout.fillHeight: true
                     visible: Thermochemistry.statusKind === "empty"
-                    tag: "NO RESULT"
-                    title: "No result yet"
-                    body: "Set the reactants and operating conditions, then press Calculate. "
-                          + "Nothing is shown until a chamber equilibrium has actually been solved."
+                    spacing: Metrics.spacing.l
+
+                    ThermoChamberSchematic {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 210
+                        Layout.minimumHeight: 150
+                        Layout.topMargin: Metrics.spacing.l
+                        hasResult: false
+                        stale: false
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Metrics.spacing.xl
+                        spacing: Metrics.spacing.xs
+
+                        Text {
+                            text: "Not solved yet"
+                            color: Theme.textSecondary
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.body + 1
+                            font.weight: Typography.medium
+                        }
+
+                        Text {
+                            Layout.fillWidth: true
+                            Layout.maximumWidth: 560
+                            text: "The chamber above is the structure this workspace solves, "
+                                  + "not a result. Set the reactants and operating conditions, "
+                                  + "then press Calculate."
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.bodySmall
+                        }
+                    }
+
+                    Item { Layout.fillHeight: true }
                 }
 
                 // ---- a refusal, with no numbers --------------------------
@@ -387,6 +453,54 @@ Item {
                     visible: Thermochemistry.hasResult
                     spacing: Metrics.spacing.m
 
+                    // ---- the object: reactants -> equilibrium chamber -> products
+                    ThermoChamberSchematic {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 210
+                        Layout.minimumHeight: 150
+                        hasResult: Thermochemistry.hasResult
+                        stale: Thermochemistry.resultStale
+                        oxidiserLabel: view.conditionValue("Oxidiser")
+                        fuelLabel: view.conditionValue("Fuel")
+                        ofText: "O/F " + view.conditionValue("O/F")
+                        chamberPressureText: "p_c " + view.conditionValue("Chamber pressure")
+                        productsSummary: Thermochemistry.condensed.headline
+                    }
+
+                    // ---- the primary hero: Tc, then the two secondary
+                    // emphasized quantities (mean molar mass, gamma) -- the
+                    // same three rows the controller already marks
+                    // `emphasis: true`, given an actual size tier instead of
+                    // three equally-large numbers with no single lead.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: Metrics.spacing.xl
+
+                        Repeater {
+                            model: Thermochemistry.resultRows.filter(
+                                       function (r) { return view.isHeroRow(r.key) })
+
+                            delegate: RFResultValue {
+                                required property var modelData
+                                label: modelData.label
+                                value: modelData.value
+                                unit: modelData.unit
+                                scale: modelData.key === "temperature" ? "hero" : "medium"
+                                highlighted: modelData.key === "temperature"
+
+                                HoverHandler { id: heroHover }
+                                RFTooltip {
+                                    visible: heroHover.hovered && modelData.help !== ""
+                                    text: modelData.help
+                                }
+                            }
+                        }
+
+                        Item { Layout.fillWidth: true }
+                    }
+
+                    RFDivider {}
+
                     ThermoResultHeader { Layout.fillWidth: true }
 
                     ThermoWarnings { Layout.fillWidth: true }
@@ -412,7 +526,12 @@ Item {
                                 rowSpacing: Metrics.spacing.l
 
                                 Repeater {
-                                    model: Thermochemistry.resultRows
+                                    // The three hero rows (temperature,
+                                    // molar_mass, gamma) already have their
+                                    // own tiered display above -- shown here
+                                    // too would be the same number twice.
+                                    model: Thermochemistry.resultRows.filter(
+                                               function (r) { return !view.isHeroRow(r.key) })
 
                                     delegate: ColumnLayout {
                                         required property var modelData
@@ -424,8 +543,8 @@ Item {
                                             label: modelData.label
                                             value: modelData.value
                                             unit: modelData.unit
-                                            scale: modelData.emphasis ? "large" : "medium"
-                                            highlighted: modelData.emphasis
+                                            scale: "medium"
+                                            highlighted: false
 
                                             HoverHandler { id: rowHover }
                                             RFTooltip {

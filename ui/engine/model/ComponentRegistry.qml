@@ -57,8 +57,8 @@ QtObject {
             type: "tank", displayName: "Tank", category: "fluid", glyph: "tank",
             defaultName: "Tank", subtitle: "Propellant", workspace: "placeholder",
             readout: [
-                { label: "P", value: "4.20", unit: "MPa" },
-                { label: "T", value: "92", unit: "K" }
+                { label: "P", value: "—", unit: "MPa" },
+                { label: "T", value: "—", unit: "K" }
             ],
             ports: [
                 { id: "out", label: "Outlet", type: "fluid", direction: "out",
@@ -69,8 +69,8 @@ QtObject {
             type: "pump", displayName: "Pump", category: "fluid", glyph: "pump",
             defaultName: "Pump", subtitle: "Centrifugal", workspace: "placeholder",
             readout: [
-                { label: "Δp", value: "8.40", unit: "MPa" },
-                { label: "η", value: "0.71", unit: "" }
+                { label: "Δp", value: "—", unit: "MPa" },
+                { label: "η", value: "—", unit: "" }
             ],
             ports: [
                 { id: "in", label: "Inlet", type: "fluid", direction: "in",
@@ -85,7 +85,7 @@ QtObject {
             type: "valve", displayName: "Valve", category: "fluid", glyph: "valve",
             defaultName: "Valve", subtitle: "Shut-off", workspace: "placeholder",
             readout: [
-                { label: "Cv", value: "12.5", unit: "" },
+                { label: "Cv", value: "—", unit: "" },
                 { label: "State", value: "Open", unit: "" }
             ],
             ports: [
@@ -99,7 +99,7 @@ QtObject {
             type: "regulator", displayName: "Regulator", category: "fluid", glyph: "regulator",
             defaultName: "Regulator", subtitle: "Dome loaded", workspace: "placeholder",
             readout: [
-                { label: "p set", value: "5.60", unit: "MPa" }
+                { label: "p set", value: "—", unit: "MPa" }
             ],
             ports: [
                 { id: "in", label: "Inlet", type: "fluid", direction: "in",
@@ -112,7 +112,7 @@ QtObject {
             type: "orifice", displayName: "Orifice", category: "fluid", glyph: "orifice",
             defaultName: "Orifice", subtitle: "Fixed", workspace: "placeholder",
             readout: [
-                { label: "d", value: "3.20", unit: "mm" }
+                { label: "d", value: "—", unit: "mm" }
             ],
             ports: [
                 { id: "in", label: "Inlet", type: "fluid", direction: "in",
@@ -168,7 +168,7 @@ QtObject {
             type: "nozzle", displayName: "Nozzle", category: "expansion", glyph: "nozzle",
             defaultName: "Nozzle", subtitle: "Bell", workspace: "nozzle",
             readout: [
-                { label: "ε", value: "12.40", unit: "" },
+                { label: "ε", value: "—", unit: "" },
                 { label: "pe", value: "—", unit: "" }
             ],
             ports: [
@@ -182,7 +182,7 @@ QtObject {
             type: "turbine", displayName: "Turbine", category: "power", glyph: "turbine",
             defaultName: "Turbine", subtitle: "Single stage", workspace: "placeholder",
             readout: [
-                { label: "PR", value: "1.85", unit: "" },
+                { label: "PR", value: "—", unit: "" },
                 { label: "P", value: "—", unit: "" }
             ],
             ports: [
@@ -198,7 +198,7 @@ QtObject {
             type: "shaft", displayName: "Shaft", category: "power", glyph: "shaft",
             defaultName: "Shaft", subtitle: "Direct drive", workspace: "placeholder",
             readout: [
-                { label: "N", value: "36 000", unit: "rpm" }
+                { label: "N", value: "—", unit: "rpm" }
             ],
             ports: [
                 { id: "in", label: "Power in", type: "mechanical", direction: "in",
@@ -211,8 +211,8 @@ QtObject {
             type: "gasgenerator", displayName: "Gas Generator", category: "power", glyph: "gasgenerator",
             defaultName: "Gas Generator", subtitle: "Fuel rich", workspace: "placeholder",
             readout: [
-                { label: "MR", value: "0.35", unit: "" },
-                { label: "Tg", value: "900", unit: "K" }
+                { label: "MR", value: "—", unit: "" },
+                { label: "Tg", value: "—", unit: "K" }
             ],
             ports: [
                 { id: "fuel", label: "Fuel inlet", type: "fluid", direction: "in",
@@ -227,8 +227,8 @@ QtObject {
             type: "preburner", displayName: "Preburner", category: "power", glyph: "preburner",
             defaultName: "Preburner", subtitle: "Ox rich", workspace: "placeholder",
             readout: [
-                { label: "MR", value: "0.60", unit: "" },
-                { label: "Tg", value: "780", unit: "K" }
+                { label: "MR", value: "—", unit: "" },
+                { label: "Tg", value: "—", unit: "K" }
             ],
             ports: [
                 { id: "fuel", label: "Fuel inlet", type: "fluid", direction: "in",
@@ -243,7 +243,7 @@ QtObject {
             type: "coolingjacket", displayName: "Cooling Jacket", category: "thermal", glyph: "coolingjacket",
             defaultName: "Cooling Jacket", subtitle: "Milled channel", workspace: "placeholder",
             readout: [
-                { label: "Channels", value: "120", unit: "" },
+                { label: "Channels", value: "—", unit: "" },
                 { label: "Δp", value: "—", unit: "" }
             ],
             ports: [
@@ -276,7 +276,7 @@ QtObject {
             type: "filmcooling", displayName: "Film Cooling", category: "thermal", glyph: "filmcooling",
             defaultName: "Film Cooling", subtitle: "Wall film", workspace: "placeholder",
             readout: [
-                { label: "Fraction", value: "3.0", unit: "%" }
+                { label: "Fraction", value: "—", unit: "%" }
             ],
             ports: [
                 { id: "in", label: "Coolant inlet", type: "fluid", direction: "in",

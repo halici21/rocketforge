@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../theme"
 import "../components"
+import "line"
 
 /*
  * Line - distributed wall friction in a straight circular liquid line.
@@ -28,6 +29,38 @@ import "../components"
 Item {
     id: page
 
+    // Line.statusTone returns "positive"/"caution"/"negative"/"neutral"
+    // (rocketforge/application/analysis/line_service.py's LineOutcome.status_tone),
+    // but RFStatusChip only recognizes "success"/"warning"/"error"/"accent"/
+    // "neutral" -- every existing chip on this page silently fell through to
+    // the neutral/muted dot regardless of actual state. Presentation-only
+    // fix (a string mapping in QML, no Python touched): translated here
+    // rather than left to keep failing quietly.
+    function chipTone(statusTone) {
+        switch (statusTone) {
+        case "positive": return "success"
+        case "caution": return "warning"
+        case "negative": return "error"
+        default: return "neutral"
+        }
+    }
+
+    readonly property var heroLabels: ["Friction pressure drop  Δp",
+                                       "Reynolds number  Re",
+                                       "Darcy friction factor  f_D"]
+
+    function isHeroRow(label) {
+        return page.heroLabels.indexOf(label) !== -1
+    }
+
+    function rowByLabel(label) {
+        var rows = Line.resultRows
+        for (var i = 0; i < rows.length; ++i)
+            if (rows[i].label === label)
+                return rows[i]
+        return null
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: Metrics.pagePadding
@@ -44,7 +77,7 @@ Item {
                 RFStatusChip {
                     text: Line.providerAvailable ? Line.providerLabel
                                                  : "Provider unavailable"
-                    tone: Line.providerAvailable ? "positive" : "neutral"
+                    tone: Line.providerAvailable ? "success" : "neutral"
                 }
             }
         }
@@ -186,6 +219,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 title: "Result"
+                chromeless: true
 
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -199,21 +233,52 @@ Item {
 
                         RFStatusChip {
                             text: Line.statusLabel
-                            tone: Line.statusTone
+                            tone: page.chipTone(Line.statusTone)
                         }
                         RFStatusChip {
                             visible: Line.flowRegime !== ""
                             text: Line.flowRegime
-                            tone: Line.isTransitional ? "caution" : "neutral"
+                            tone: Line.isTransitional ? "warning" : "neutral"
                         }
                         RFStatusChip {
                             visible: Line.hasResult
                             text: Line.transportValidated
                                   ? "Viscosity validated"
                                   : "Viscosity not validated here"
-                            tone: Line.transportValidated ? "positive" : "caution"
+                            tone: Line.transportValidated ? "success" : "warning"
+                        }
+                        RFStatusChip {
+                            visible: Line.hasResult && Line.resultStale
+                            text: "Stale — recalculate"
+                            tone: "warning"
                         }
                         Item { Layout.fillWidth: true }
+                    }
+
+                    // ---- the object: inlet -> straight line -> outlet ------
+                    LineSchematic {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 150
+                        // Found by opening the 1366x768 capture: below this,
+                        // the regime/velocity label (below the pipe) and the
+                        // honesty label (bottom-right) crowd into the same
+                        // row. 140 keeps them apart at every floor width.
+                        Layout.minimumHeight: 140
+                        hasResult: Line.hasResult
+                        stale: Line.resultStale
+                        hasFriction: {
+                            var f = page.rowByLabel("Darcy friction factor  f_D")
+                            return f !== null && f.available
+                        }
+                        regime: Line.flowRegime
+                        inletPressureText: {
+                            var r = page.rowByLabel("Line inlet pressure")
+                            return r !== null ? (r.value + " " + r.unit) : ""
+                        }
+                        outletPressureText: {
+                            var r = page.rowByLabel("Predicted outlet pressure")
+                            return r !== null ? (r.value + " " + r.unit) : ""
+                        }
                     }
 
                     RFEmptyState {
@@ -227,6 +292,40 @@ Item {
                                 + "geometry, then solve."
                     }
 
+                    // ---- the primary hero: Δp, Re, Darcy f_D ---------------
+                    // The three quantities that tell the engineering story
+                    // (brief's own suggested primary trio), given an actual
+                    // size tier instead of thirteen equally-weighted rows.
+                    // In the transitional regime, Re still solves and stays
+                    // full-weight; Δp and f_D show the withheld em-dash with
+                    // a warning tone, never a fabricated interpolation.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: false
+                        visible: Line.hasResult
+                        spacing: Metrics.spacing.xl
+
+                        Repeater {
+                            model: Line.resultRows.filter(
+                                       function (r) { return page.isHeroRow(r.label) })
+
+                            delegate: RFResultValue {
+                                required property var modelData
+                                label: modelData.label
+                                value: modelData.value
+                                unit: modelData.unit
+                                scale: modelData.label.indexOf("Δp") !== -1
+                                       ? "large" : "medium"
+                                highlighted: modelData.label.indexOf("Δp") !== -1
+                                             && modelData.available
+                            }
+                        }
+
+                        Item { Layout.fillWidth: true }
+                    }
+
+                    RFDivider { visible: Line.hasResult }
+
                     Text {
                         Layout.fillWidth: true
                         visible: Line.isTransitional
@@ -237,8 +336,14 @@ Item {
                         wrapMode: Text.WordWrap
                     }
 
+                    RFSectionLabel { visible: Line.hasResult; text: "State" }
+
                     Repeater {
-                        model: Line.hasResult ? Line.resultRows : []
+                        model: Line.hasResult
+                               ? Line.resultRows.filter(
+                                     function (r) { return !page.isHeroRow(r.label)
+                                                           && r.label !== "Flow regime" })
+                               : []
                         delegate: RowLayout {
                             id: resultRow
                             required property var modelData

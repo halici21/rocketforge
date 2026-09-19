@@ -61,9 +61,14 @@ def test_the_workspace_qml_exists_and_is_reachable():
     assert len(WORKSPACE_QML) >= 10, [p.name for p in WORKSPACE_QML]
     navigation = (UI / "data" / "Navigation.qml").read_text(encoding="utf-8")
     assert "ThermochemistryPage.qml" in navigation
-    assert "chemistryRows" in navigation
+    # Analysis Experience R2 replaced the flat per-domain row arrays with
+    # progressive-disclosure families. The guard is unchanged in intent --
+    # a page nobody can navigate to is not a workspace -- but the
+    # mechanism it checks is the families array the rail actually renders.
+    families = navigation[navigation.index("readonly property var families:"):]
+    assert 'key: "thermochem"' in families
     sidenav = (UI / "shell" / "SideNav.qml").read_text(encoding="utf-8")
-    assert "Navigation.chemistryRows" in sidenav
+    assert "Navigation.families" in sidenav
 
 
 def test_the_workspace_has_its_four_views():

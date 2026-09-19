@@ -62,7 +62,7 @@ Item {
 
         RFSegmentedControl {
             Layout.preferredWidth: 420
-            model: ["Calculator", "Regimes", "Distribution", "Charts"]
+            model: ["Regime map", "Operating point", "Distribution", "Charts"]
             currentIndex: page.section
             onSelected: function (index) { page.section = index }
         }
@@ -72,8 +72,8 @@ Item {
             Layout.fillHeight: true
             currentIndex: page.section
 
-            NozzleCalculator {}
             NozzleRegimes {}
+            NozzleCalculator {}
             NozzleDistribution {}
             NozzleCharts {}
         }

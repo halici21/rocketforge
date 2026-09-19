@@ -64,7 +64,7 @@ Item {
 
         RFSegmentedControl {
             Layout.preferredWidth: 340
-            model: ["Calculator", "Table", "Charts"]
+            model: ["Relation", "Calculator", "Table"]
             currentIndex: page.section
             onSelected: function (index) { page.section = index }
         }
@@ -74,9 +74,9 @@ Item {
             Layout.fillHeight: true
             currentIndex: page.section
 
+            PrandtlMeyerCharts {}
             PrandtlMeyerCalculator {}
             PrandtlMeyerTable {}
-            PrandtlMeyerCharts {}
         }
     }
 }

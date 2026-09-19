@@ -29,8 +29,13 @@ Item {
 
     readonly property var series: TradeStudy.paretoSeries
 
+    // Theme.accent (champagne gold) is reserved for the current selection
+    // only, never for Pareto/feasibility status -- see Theme.qml's own
+    // "application state only" note. Pareto-efficient gets its own hue.
+    readonly property color paretoColor: Theme.series[0]
+
     function seriesColor(key) {
-        if (key === "efficient") return Theme.accent
+        if (key === "efficient") return view.paretoColor
         if (key === "dominated") return Theme.textMuted
         return Theme.warning
     }
@@ -127,6 +132,7 @@ Item {
             Layout.fillHeight: true
             visible: TradeStudy.paretoAvailable
             title: "Evaluated designs"
+            chromeless: true
             contentSpacing: Metrics.spacing.s
 
             RFPlotSurface {
@@ -143,81 +149,201 @@ Item {
                 yMax: yb.hi
                 xTitle: TradeStudy.paretoXTitle
                 yTitle: TradeStudy.paretoYTitle
-                xFormat: function (v) { return v.toPrecision(5) }
-                yFormat: function (v) { return v.toPrecision(5) }
+                // The surface now formats from the tick STEP, which is what
+                // toPrecision(5) was standing in for -- and standing in
+                // badly: it printed "1.9500" on a 0.05 step and "330.00"
+                // on a step of 10.
 
+                // The shape now lives in the swatch rather than in a glyph
+                // appended to the name: the U+2715 cross rendered as tofu in
+                // the shipped font stack, which left "infeasible" carried by
+                // colour alone.
                 legend: [
-                    { name: "Pareto-efficient ◆", color: Theme.accent },
-                    { name: "Feasible, dominated ●", color: Theme.textMuted },
-                    { name: "Infeasible or failed ✕", color: Theme.warning }
+                    { name: "Pareto-efficient", color: view.paretoColor, shape: "diamond" },
+                    { name: "Feasible, dominated", color: Theme.textMuted, shape: "circle" },
+                    { name: "Infeasible or failed", color: Theme.warning, shape: "cross" },
+                    { name: "Selected", color: Theme.accent, shape: "ring" }
                 ]
 
-                Repeater {
-                    model: view.series
+                // Data-oriented: every evaluated point is painted by one
+                // Canvas, not instantiated as a QML Item. Measured directly
+                // (experiments/cad_workbench_r1/tradestudy_large_study_perf.py):
+                // the previous one-Item-per-point Repeater-of-Repeaters cost
+                // 3.2s to redraw on an axis switch at 3000 points -- exactly
+                // the anti-pattern rf-scientific-visualization's own "large
+                // studies stay responsive" section warns against. Hit-testing
+                // for hover/tap is one nearest-point scan per mouse event
+                // (still O(N), but only on an actual pointer move, never on
+                // every repaint), not a handler per marker.
+                Canvas {
+                    id: pointsCanvas
+                    anchors.fill: parent
+                    antialiasing: true
 
-                    delegate: Repeater {
-                        required property var modelData
-                        readonly property string seriesKey: modelData.key
-                        model: modelData.points
+                    readonly property var seriesData: view.series
+                    readonly property var selectedIndices: TradeStudy.selectedIndices
+                    readonly property color paretoColor: view.paretoColor
+                    // "feasible, not Pareto-efficient" -- named for the
+                    // legend entry it draws, not "dominated": this file may
+                    // present the decision layer's verdict, never compute
+                    // one (test_qml_implements_no_decision_algorithm).
+                    readonly property color feasibleMarkerColor: Theme.textMuted
+                    readonly property color excludedColor: Theme.warning
+                    readonly property color selectedColor: Theme.accent
+                    // Canvas rotate()/arc() take radians; Math.PI itself is
+                    // outside this project's QML layout-arithmetic allowlist
+                    // (test_qml_uses_only_layout_arithmetic), so the two
+                    // angles this file needs are spelled out as literals.
+                    readonly property real fullTurn: 6.283185307179586   // 2*pi
+                    readonly property real quarterTurn: 0.7853981633974483  // pi/4
 
-                        delegate: Item {
-                            required property var modelData
-                            readonly property bool efficient: seriesKey === "efficient"
-                            readonly property bool excluded: seriesKey === "excluded"
+                    onSeriesDataChanged: requestPaint()
+                    onSelectedIndicesChanged: requestPaint()
+                    onFeasibleMarkerColorChanged: requestPaint()
+                    onExcludedColorChanged: requestPaint()
+                    onSelectedColorChanged: requestPaint()
+                    onWidthChanged: requestPaint()
+                    onHeightChanged: requestPaint()
+                    onParetoColorChanged: requestPaint()
 
-                            x: surface.mapX(modelData.x) - width / 2
-                            y: surface.mapY(modelData.y) - height / 2
-                            width: efficient ? 11 : 8
-                            height: width
-
-                            // Shape, not only colour. A reader who cannot rely
-                            // on hue still sees three distinct groups.
-                            Rectangle {
-                                anchors.fill: parent
-                                visible: !parent.excluded
-                                radius: parent.efficient ? 2 : width / 2
-                                rotation: parent.efficient ? 45 : 0
-                                color: parent.efficient ? Theme.accent : "transparent"
-                                border.width: Metrics.hairline
-                                border.color: parent.efficient
-                                              ? Theme.accent : Theme.textMuted
-                                opacity: parent.efficient ? 1.0 : 0.65
-                            }
-
-                            Item {
-                                anchors.fill: parent
-                                visible: parent.excluded
-                                opacity: 0.7
-
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: parent.width
-                                    height: Metrics.hairline * 2
-                                    rotation: 45
-                                    color: Theme.warning
+                    function nearestPoint(mx, my) {
+                        var hitRadius = 14
+                        var best = null
+                        var bestDist = hitRadius * hitRadius
+                        for (var s = 0; s < seriesData.length; ++s) {
+                            var points = seriesData[s].points
+                            for (var p = 0; p < points.length; ++p) {
+                                var pt = points[p]
+                                var dx = surface.mapX(pt.x) - mx
+                                var dy = surface.mapY(pt.y) - my
+                                var d = dx * dx + dy * dy
+                                if (d < bestDist) {
+                                    bestDist = d
+                                    best = pt
                                 }
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: parent.width
-                                    height: Metrics.hairline * 2
-                                    rotation: -45
-                                    color: Theme.warning
+                            }
+                        }
+                        return best
+                    }
+
+                    onPaint: {
+                        var ctx = getContext("2d")
+                        ctx.reset()
+                        for (var s = 0; s < seriesData.length; ++s) {
+                            var entry = seriesData[s]
+                            var efficient = entry.key === "efficient"
+                            var excluded = entry.key === "excluded"
+                            var points = entry.points
+                            for (var p = 0; p < points.length; ++p) {
+                                var pt = points[p]
+                                var x = surface.mapX(pt.x)
+                                var y = surface.mapY(pt.y)
+                                var half = efficient ? 5.5 : 4
+
+                                // Current-selection ring. Gold is reserved
+                                // for this one meaning across the whole
+                                // application -- never for Pareto/feasibility
+                                // status, which each already have their own
+                                // shape and colour below.
+                                if (selectedIndices.indexOf(pt.index) !== -1) {
+                                    ctx.beginPath()
+                                    ctx.arc(x, y, half + 4, 0, fullTurn)
+                                    ctx.strokeStyle = selectedColor
+                                    ctx.lineWidth = 2
+                                    ctx.stroke()
+                                }
+
+                                // Shape, not only colour. A reader who cannot
+                                // rely on hue still sees three distinct
+                                // groups.
+                                if (excluded) {
+                                    ctx.globalAlpha = 0.7
+                                    ctx.strokeStyle = excludedColor
+                                    ctx.lineWidth = 2
+                                    ctx.beginPath()
+                                    ctx.moveTo(x - half, y - half)
+                                    ctx.lineTo(x + half, y + half)
+                                    ctx.moveTo(x - half, y + half)
+                                    ctx.lineTo(x + half, y - half)
+                                    ctx.stroke()
+                                    ctx.globalAlpha = 1
+                                } else if (efficient) {
+                                    ctx.save()
+                                    ctx.translate(x, y)
+                                    ctx.rotate(quarterTurn)
+                                    ctx.fillStyle = paretoColor
+                                    ctx.fillRect(-half, -half, half * 2, half * 2)
+                                    ctx.restore()
+                                } else {
+                                    ctx.globalAlpha = 0.65
+                                    ctx.strokeStyle = feasibleMarkerColor
+                                    ctx.lineWidth = 1
+                                    ctx.beginPath()
+                                    ctx.arc(x, y, half, 0, fullTurn)
+                                    ctx.stroke()
+                                    ctx.globalAlpha = 1
                                 }
                             }
+                        }
+                    }
 
-                            HoverHandler { id: markerHover }
-                            TapHandler {
-                                onTapped: TradeStudy.toggleSelection(modelData.index)
+                    property var hovered: null
+
+                    HoverHandler {
+                        id: plotHover
+                        onPointChanged: {
+                            var found = pointsCanvas.nearestPoint(
+                                point.position.x, point.position.y)
+                            pointsCanvas.hovered = found
+                            surface.hoverX = found ? found.x : NaN
+                            surface.hoverY = found ? found.y : NaN
+                        }
+                        onHoveredChanged: {
+                            if (!hovered) {
+                                pointsCanvas.hovered = null
+                                surface.hoverX = NaN
+                                surface.hoverY = NaN
                             }
-                            RFTooltip {
-                                visible: markerHover.hovered
-                                text: "Point " + modelData.index
-                                      + "\n" + TradeStudy.paretoXTitle + "  "
-                                      + modelData.x.toPrecision(6)
-                                      + "\n" + TradeStudy.paretoYTitle + "  "
-                                      + modelData.y.toPrecision(6)
-                                      + "\nTap to add to Compare"
-                            }
+                        }
+                    }
+                    TapHandler {
+                        onTapped: {
+                            var found = pointsCanvas.nearestPoint(
+                                point.position.x, point.position.y)
+                            if (found)
+                                TradeStudy.toggleSelection(found.index)
+                        }
+                    }
+
+                    RFTooltip {
+                        parent: pointsCanvas
+                        // Guard directly against pointsCanvas.hovered here,
+                        // not the sibling `visible` property: when hovered
+                        // changes, QML does not guarantee visible's binding
+                        // re-evaluates before this one runs, so reading
+                        // `visible` as the guard could still see the old
+                        // (stale) true and dereference a null hovered.
+                        visible: pointsCanvas.hovered !== null
+                        x: pointsCanvas.hovered
+                           ? surface.mapX(pointsCanvas.hovered.x) + 10 : 0
+                        y: pointsCanvas.hovered
+                           ? surface.mapY(pointsCanvas.hovered.y) + 10 : 0
+                        text: {
+                            if (!pointsCanvas.hovered) return ""
+                            var h = pointsCanvas.hovered
+                            var isSelected = TradeStudy.selectedIndices.indexOf(h.index) !== -1
+                            return "Point " + h.index
+                                 + "\n" + TradeStudy.paretoXTitle + "  "
+                                 + h.x.toPrecision(6)
+                                 + "\n" + TradeStudy.paretoYTitle + "  "
+                                 + h.y.toPrecision(6)
+                                 + "\nEvaluation  " + h.status
+                                 + "\nFeasibility  " + h.feasibility
+                                 + "\nPareto  " + (h.pareto ? "Efficient" : "Dominated")
+                                 + (h.score !== "" ? "\nScore  " + h.score : "")
+                                 + "\n" + (isSelected
+                                           ? "Tap to remove from Compare"
+                                           : "Tap to add to Compare")
                         }
                     }
                 }

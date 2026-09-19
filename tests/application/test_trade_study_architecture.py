@@ -232,7 +232,10 @@ def test_the_workspace_qml_exists_and_is_registered():
     assert '"TradeStudyPage.qml"' in navigation
     assert 'key: "tradestudy"' in navigation
     sidenav = (UI / "shell" / "SideNav.qml").read_text(encoding="utf-8")
-    assert "Navigation.studyRows" in sidenav
+    # Analysis Experience R2: families replaced the per-domain row arrays.
+    assert "Navigation.families" in sidenav
+    families = navigation[navigation.index("readonly property var families:"):]
+    assert 'key: "tradestudy"' in families
     main = (PROJECT_ROOT / "main.py").read_text(encoding="utf-8")
     assert '"TradeStudy"' in main
 

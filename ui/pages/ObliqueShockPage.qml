@@ -63,8 +63,8 @@ Item {
         }
 
         RFSegmentedControl {
-            Layout.preferredWidth: 340
-            model: ["Calculator", "Study", "θ–β–M"]
+            Layout.preferredWidth: 240
+            model: ["Calculator", "Study"]
             currentIndex: page.section
             onSelected: function (index) { page.section = index }
         }
@@ -75,7 +75,6 @@ Item {
             currentIndex: page.section
 
             ObliqueShockCalculator {}
-            ObliqueShockStudy {}
             ObliqueShockCharts {}
         }
     }

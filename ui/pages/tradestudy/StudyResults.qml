@@ -66,14 +66,14 @@ Item {
                 font.pixelSize: Typography.meta
             }
 
-            Item { Layout.fillWidth: true }
-
             RFStatusChip {
                 Layout.alignment: Qt.AlignVCenter
                 visible: TradeStudy.resultStale
                 text: "Setup changed"
                 tone: "warning"
             }
+
+            Item { Layout.fillWidth: true }
         }
 
         Text {
@@ -89,13 +89,41 @@ Item {
         }
 
         RFEngineeringTable {
+            id: resultsTable
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            // Grows with the study and stops at what it actually holds. A
+            // six-point study in a full-height table framed ~370px of empty
+            // grid under six rows (the audit's dead-space finding on this
+            // view); a thirty-point study still fills the viewport and
+            // scrolls, because fillHeight stays on until the rows exceed the
+            // room available.
+            // Asks for exactly its rows and no more. When the study is
+            // larger than the view the layout clamps this to the room
+            // available and the table scrolls internally, which is what it
+            // did before; when the study is small the leftover goes to the
+            // spacer below instead of to an empty grid.
+            //
+            // Deliberately NOT expressed as `fillHeight: contentHeight >=
+            // height`: that reads `height` to decide what sets `height`, and
+            // a binding that feeds itself is a loop waiting for the one
+            // state that trips it.
+            Layout.fillHeight: false
+            Layout.preferredHeight: rowCount * rowHeight + headerHeight
             visible: TradeStudy.hasResult
             model: TradeStudy.resultsModel
             columns: TradeStudy.resultColumns
             firstColumnWidth: 56
             columnWidth: 142
+
+            readonly property int rowCount: model ? model.rowCount() : 0
+        }
+
+        // Takes the slack when the table is shorter than the view, so the
+        // summary strip below stays at the bottom instead of floating up
+        // against the last row.
+        Item {
+            Layout.fillHeight: true
+            visible: TradeStudy.hasResult
         }
 
         // ---- summary, provenance and aggregated diagnostics -------------

@@ -21,20 +21,20 @@ QtObject {
         "nodes": [
             { key: "fuelTank", type: "tank", name: "Fuel Tank", x: 20, y: 40,
               subtitle: "CH₄",
-              readout: [ { label: "P", value: "4.20", unit: "MPa" },
-                         { label: "T", value: "111", unit: "K" } ] },
+              readout: [ { label: "P", value: "—", unit: "MPa" },
+                         { label: "T", value: "—", unit: "K" } ] },
             { key: "fuelPump", type: "pump", name: "Fuel Pump", x: 232, y: 40,
               subtitle: "Centrifugal",
-              readout: [ { label: "Δp", value: "8.40", unit: "MPa" },
-                         { label: "η", value: "0.71", unit: "" } ] },
+              readout: [ { label: "Δp", value: "—", unit: "MPa" },
+                         { label: "η", value: "—", unit: "" } ] },
             { key: "oxTank", type: "tank", name: "Oxidiser Tank", x: 20, y: 296,
               subtitle: "LOX",
-              readout: [ { label: "P", value: "4.60", unit: "MPa" },
-                         { label: "T", value: "92", unit: "K" } ] },
+              readout: [ { label: "P", value: "—", unit: "MPa" },
+                         { label: "T", value: "—", unit: "K" } ] },
             { key: "oxPump", type: "pump", name: "Oxidiser Pump", x: 232, y: 296,
               subtitle: "Centrifugal",
-              readout: [ { label: "Δp", value: "9.10", unit: "MPa" },
-                         { label: "η", value: "0.74", unit: "" } ] },
+              readout: [ { label: "Δp", value: "—", unit: "MPa" },
+                         { label: "η", value: "—", unit: "" } ] },
             { key: "injector", type: "injector", name: "Main Injector", x: 452, y: 164,
               subtitle: "Pintle",
               readout: [ { label: "Type", value: "Pintle", unit: "" },
@@ -45,7 +45,7 @@ QtObject {
                          { label: "L*", value: "—", unit: "" } ] },
             { key: "nozzle", type: "nozzle", name: "Main Nozzle", x: 876, y: 164,
               subtitle: "Bell",
-              readout: [ { label: "ε", value: "12.40", unit: "" },
+              readout: [ { label: "ε", value: "—", unit: "" },
                          { label: "pe", value: "—", unit: "" } ] }
         ],
         "connections": [
@@ -109,7 +109,7 @@ QtObject {
         { kind: "number", label: "Divergence half-angle", value: "15.00", unit: "deg", step: 0.5 }
     ]
     readonly property var nozzleSummary: [
-        { label: "Exit diameter", value: "422.5", unit: "mm" },
+        { label: "Exit diameter", value: "—", unit: "mm" },
         { label: "Length", value: "—", unit: "" },
         { label: "Exit Mach", value: "—", unit: "" },
         { label: "Exit pressure", value: "—", unit: "" },

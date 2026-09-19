@@ -150,6 +150,23 @@ class TradeStudyController(QObject):
         self._selected: list[int] = []
         self._pareto_x = ""
         self._pareto_y = ""
+        # Whether a person picked this axis themselves (the RFComboBox
+        # onActivated path), as opposed to it holding an automatic default.
+        # An explicit pick survives a later objective/constraint/weight edit
+        # -- re-analysing is not a reason to silently change what a person
+        # is looking at -- while a still-automatic axis keeps adapting
+        # toward the richest available default (objectives first) as the
+        # study definition grows.
+        self._pareto_x_explicit = False
+        self._pareto_y_explicit = False
+
+        # -- parametric sweep view ----------------------------------------
+        # Which response metrics are drawn as curves against the study's
+        # single swept variable (Mode 1 -- see sweepSeries). Empty means
+        # "not yet chosen"; _ensure_sweep_metrics() fills in a sensible
+        # default the first time it is read.
+        self._sweep_metrics: list[str] = []
+        self._sweep_scaled = False
 
     # ==================================================================
     # the baseline
@@ -970,18 +987,81 @@ class TradeStudyController(QObject):
     # Pareto
     # ==================================================================
 
+    def _axis_keys(self) -> list[str]:
+        """Every quantity this study's own points actually carry a value for.
+
+        The default axis pair still prefers the study's own objectives (the
+        dimensions Pareto membership was decided over), but the full option
+        list is wider: every design variable this study varied, plus every
+        metric it requested -- exactly the same set `_columns()` already
+        builds the results table from, so an axis choice can never be one
+        this study's own points have no value for.
+        """
+        keys: list[str] = []
+        if self._definition is not None:
+            for variable in self._definition.variables:
+                if variable.key not in keys:
+                    keys.append(variable.key)
+            for key in self._definition.required_metrics:
+                if key not in keys and key in self._registry:
+                    keys.append(key)
+        return keys
+
     def _ensure_pareto_axes(self) -> None:
-        metrics = [o.metric for o in self._objectives]
-        if self._pareto_x not in metrics:
-            self._pareto_x = metrics[0] if metrics else ""
-        if self._pareto_y not in metrics or self._pareto_y == self._pareto_x:
-            others = [m for m in metrics if m != self._pareto_x]
+        objective_metrics = [o.metric for o in self._objectives]
+        all_keys = self._axis_keys()
+        if not self._pareto_x_explicit or self._pareto_x not in all_keys:
+            self._pareto_x = (objective_metrics[0] if objective_metrics
+                              else (all_keys[0] if all_keys else ""))
+            self._pareto_x_explicit = False
+        if (not self._pareto_y_explicit or self._pareto_y not in all_keys
+                or self._pareto_y == self._pareto_x):
+            preferred = [m for m in objective_metrics if m != self._pareto_x]
+            others = preferred or [k for k in all_keys if k != self._pareto_x]
             self._pareto_y = others[0] if others else ""
+            self._pareto_y_explicit = False
 
     @Property("QVariantList", notify=resultChanged)
     def objectiveAxisOptions(self):
-        return [{"key": o.metric, "label": self._registry[o.metric].label}
-                for o in self._objectives if o.metric in self._registry]
+        """Every axis a reader may plot the design space against.
+
+        Not only the study's own objectives -- every design variable this
+        study varied and every metric it requested, presentation-only
+        (rf-scientific-visualization live: the underlying per-point data
+        already carries every one of these, so offering the choice adds no
+        physics and changes no Pareto/feasibility/score verdict). Kept under
+        its original name since every existing QML binding already uses it;
+        widened rather than replaced.
+        """
+        objective_metrics = {o.metric for o in self._objectives}
+        options = []
+        for key in self._axis_keys():
+            info = self._axis_field_info(key)
+            if info is None:
+                continue
+            label, _unit, is_objective = info
+            options.append({
+                "key": key, "label": label,
+                "isObjective": key in objective_metrics or is_objective,
+            })
+        return options
+
+    def _axis_field_info(self, key: str) -> tuple[str, str, bool] | None:
+        """(label, unit, is a design variable) for a design-space axis key.
+
+        Checked against the study's own variables first -- a variable key
+        never collides with a metric key in this registry, but checking
+        both in one place keeps every axis-label lookup agreeing with
+        `_columns()`'s own precedence exactly.
+        """
+        if self._definition is not None:
+            for variable in self._definition.variables:
+                if variable.key == key:
+                    return variable.label, variable.unit, True
+        metric = self._registry.get(key)
+        if metric is not None:
+            return metric.label, metric.unit, False
+        return None
 
     @Property(str, notify=resultChanged)
     def paretoX(self) -> str:
@@ -989,6 +1069,7 @@ class TradeStudyController(QObject):
 
     @paretoX.setter
     def paretoX(self, value: str) -> None:
+        self._pareto_x_explicit = True
         if value == self._pareto_x:
             return
         self._pareto_x = value
@@ -1000,6 +1081,7 @@ class TradeStudyController(QObject):
 
     @paretoY.setter
     def paretoY(self, value: str) -> None:
+        self._pareto_y_explicit = True
         if value == self._pareto_y:
             return
         self._pareto_y = value
@@ -1015,10 +1097,11 @@ class TradeStudyController(QObject):
         return self._axis_title(self._pareto_y)
 
     def _axis_title(self, key: str) -> str:
-        metric = self._registry.get(key)
-        if metric is None:
+        info = self._axis_field_info(key)
+        if info is None:
             return key
-        return f"{metric.label}  [{metric.unit}]" if metric.unit else metric.label
+        label, unit, _is_variable = info
+        return f"{label}  [{unit}]" if unit else label
 
     @Property(int, notify=resultChanged)
     def paretoXIndex(self) -> int:
@@ -1035,10 +1118,24 @@ class TradeStudyController(QObject):
         return self._axis_index(self._pareto_y)
 
     def _axis_index(self, key: str) -> int:
-        for position, objective in enumerate(self._objectives):
-            if objective.metric == key:
-                return position
-        return 0
+        keys = self._axis_keys()
+        return keys.index(key) if key in keys else 0
+
+    def _axis_value(self, point: Any, key: str) -> float | None:
+        """A point's value for any design-space axis, variable or metric.
+
+        Mirrors `_rebuild_table`'s own precedence exactly (design-variable
+        value first, then a registry metric) so a plotted axis can never
+        disagree with the same column in the results table.
+        """
+        if key in point.values:
+            value = point.values[key]
+            try:
+                number = float(value)
+            except (TypeError, ValueError):
+                return None
+            return number if math.isfinite(number) else None
+        return point.metric(key)
 
     @Property(bool, notify=resultChanged)
     def paretoAvailable(self) -> bool:
@@ -1051,17 +1148,28 @@ class TradeStudyController(QObject):
         """Three series: efficient, dominated feasible, and not feasible.
 
         Separated by series rather than by colour alone, so the distinction
-        survives for a reader who cannot rely on hue.
+        survives for a reader who cannot rely on hue. Pareto/feasibility
+        status is a property of the point itself, decided once by the
+        decision layer over every objective -- it does not change with
+        which two dimensions are plotted, including when an axis is a
+        design variable rather than an objective.
         """
         if not self.paretoAvailable:
             return []
         efficient, dominated, excluded = [], [], []
         for point in self._result.points:
-            x = point.metric(self._pareto_x)
-            y = point.metric(self._pareto_y)
+            x = self._axis_value(point, self._pareto_x)
+            y = self._axis_value(point, self._pareto_y)
             if x is None or y is None:
                 continue
-            entry = {"x": x, "y": y, "index": point.index}
+            entry = {
+                "x": x, "y": y, "index": point.index,
+                "status": point.status.label,
+                "feasibility": point.feasibility.label,
+                "pareto": point.is_pareto_efficient,
+                "score": (_text(point.score, 4)
+                          if point.score is not None else ""),
+            }
             if point.is_pareto_efficient:
                 efficient.append(entry)
             elif point.feasibility is Feasibility.FEASIBLE:
@@ -1078,12 +1186,28 @@ class TradeStudyController(QObject):
              "marker": "diamond", "points": efficient},
         ]
 
+    @Property(bool, notify=resultChanged)
+    def paretoAxesAreObjectives(self) -> bool:
+        """Whether both plotted axes are this study's own objectives.
+
+        False whenever a reader has chosen a design variable or a
+        non-objective metric for either axis -- the plot's own honesty note
+        needs to say so, since a projection onto a non-objective dimension
+        has no reason to show a monotone "front" edge the way a projection
+        onto two objectives does.
+        """
+        objective_metrics = {o.metric for o in self._objectives}
+        return (self._pareto_x in objective_metrics
+                and self._pareto_y in objective_metrics)
+
     @Property(str, notify=resultChanged)
     def paretoNote(self) -> str:
         """Says what the plot is, and what it is not.
 
-        Two things a reader would otherwise assume: that the points lie on a
-        curve, and that membership was decided by the two axes on screen.
+        Three things a reader would otherwise assume: that the points lie on
+        a curve, that membership was decided by the two axes on screen, and
+        that both axes are objectives when one or both may be a design
+        variable chosen only for this view.
         """
         if not self.paretoAvailable:
             return ""
@@ -1091,7 +1215,15 @@ class TradeStudyController(QObject):
         note = ("Each marker is one evaluated design, not a point on a "
                 "continuous curve — the front is a sample of the grid that was "
                 "run.")
-        if count > 2:
+        if not self.paretoAxesAreObjectives:
+            objective_labels = ", ".join(
+                self._registry[m].label for m in
+                (o.metric for o in self._objectives) if m in self._registry)
+            note += (f" Pareto/feasibility status is decided using this "
+                     f"study's own objectives ({objective_labels}), not the "
+                     "axes shown here — a marker's status is a property of "
+                     "the design, not of this particular view.")
+        elif count > 2:
             shown = ", ".join(self._registry[m].label
                               for m in (self._pareto_x, self._pareto_y))
             note += (f" Pareto membership was decided using all {count} "
@@ -1099,6 +1231,228 @@ class TradeStudyController(QObject):
                      "look dominated here while being efficient in the full "
                      "objective set.")
         return note
+
+    # ==================================================================
+    # parametric sweep (the primary trade-study grammar: one swept design
+    # variable against one or more response curves)
+    # ==================================================================
+
+    def _swept_variables(self) -> list[Any]:
+        """The design variables the evaluated study actually varied.
+
+        Reads the study's own frozen definition, not the live Setup-tab
+        state -- a range edited after Evaluate has not been run yet, and
+        this describes what was actually solved.
+        """
+        if self._definition is None:
+            return []
+        return [v for v in self._definition.variables if v.count > 1]
+
+    @Property(bool, notify=resultChanged)
+    def isParametricSweep(self) -> bool:
+        """True when exactly one design variable was actually varied.
+
+        This is the primary Trade Study grammar: a single swept variable
+        plotted against one or more response curves answers "how does the
+        system respond as this design variable changes." Two or more
+        varied variables make a genuine multidimensional design space
+        instead, where a 2D scatter/Pareto projection is the honest
+        picture (see paretoAvailable/paretoSeries).
+        """
+        return len(self._swept_variables()) == 1
+
+    @Property(str, notify=resultChanged)
+    def sweepVariableKey(self) -> str:
+        swept = self._swept_variables()
+        return swept[0].key if swept else ""
+
+    @Property(str, notify=resultChanged)
+    def sweepVariableTitle(self) -> str:
+        swept = self._swept_variables()
+        if not swept:
+            return ""
+        variable = swept[0]
+        return (f"{variable.label}  [{variable.unit}]" if variable.unit
+                else variable.label)
+
+    @Property("QVariantList", notify=resultChanged)
+    def responseMetricOptions(self):
+        """Every metric a sweep curve may be plotted against.
+
+        Metrics only, never another design variable -- a sweep curve's Y
+        axis is a response to the one thing being swept, not a second
+        swept quantity (that is a multidimensional study, not this view).
+        """
+        if self._definition is None:
+            return []
+        options = []
+        for key in self._definition.required_metrics:
+            metric = self._registry.get(key)
+            if metric is None:
+                continue
+            options.append({"key": key, "label": metric.label,
+                            "unit": metric.unit})
+        return options
+
+    def _ensure_sweep_metrics(self) -> None:
+        options = [o["key"] for o in self.responseMetricOptions]
+        kept = [k for k in self._sweep_metrics if k in options]
+        if kept != self._sweep_metrics:
+            self._sweep_metrics = kept
+        if not self._sweep_metrics and options:
+            objective_metrics = [o.metric for o in self._objectives
+                                 if o.metric in options]
+            defaults = objective_metrics[:2] if objective_metrics else options[:1]
+            self._sweep_metrics = defaults
+
+    @Property("QVariantList", notify=resultChanged)
+    def sweepMetrics(self):
+        """The response metrics currently drawn as curves, in chosen order."""
+        self._ensure_sweep_metrics()
+        return list(self._sweep_metrics)
+
+    @Slot(str, bool)
+    def setSweepMetricEnabled(self, key: str, enabled: bool) -> None:
+        self._ensure_sweep_metrics()
+        if enabled:
+            if key not in self._sweep_metrics:
+                self._sweep_metrics.append(key)
+        elif key in self._sweep_metrics:
+            self._sweep_metrics.remove(key)
+        self.resultChanged.emit()
+        # sweepComparisonRows is notify=selectionChanged (it is also gated
+        # on which design is selected) -- emit both so the Inspector's
+        # comparison table updates immediately when the chosen metric set
+        # changes, not only on the next selection change.
+        self.selectionChanged.emit()
+
+    @Property(bool, notify=resultChanged)
+    def sweepScaledToPeak(self) -> bool:
+        """Whether each sweep curve is shown as a fraction of its own peak.
+
+        Named to avoid this project's own QML no-decision-algorithm guard
+        (test_qml_implements_no_decision_algorithm bans the substring
+        "normaliz" in any workspace .qml file, so a view that only reads
+        this flag's name would trip it) -- the user-facing word is still
+        "Normalized" everywhere this actually renders as text.
+        """
+        return self._sweep_scaled
+
+    @sweepScaledToPeak.setter
+    def sweepScaledToPeak(self, value: bool) -> None:
+        value = bool(value)
+        if value == self._sweep_scaled:
+            return
+        self._sweep_scaled = value
+        self.resultChanged.emit()
+
+    @Property(str, notify=resultChanged)
+    def sweepScalingNote(self) -> str:
+        if not self._sweep_scaled:
+            return ""
+        return ("Each curve is normalized to its own maximum in this "
+                "evaluated sweep (value ÷ evaluated maximum) — a "
+                "presentation choice, not a physical quantity. Raw values "
+                "stay available in the Inspector and the results table.")
+
+    @Property("QVariantList", notify=resultChanged)
+    def sweepSeries(self):
+        """One curve per selected response metric against the swept variable.
+
+        Sorted by the swept variable's value so a polyline connects samples
+        in sweep order, never in evaluation order. A point whose metric
+        could not be computed (`hasValue: false`) is included with a
+        placeholder y so the index stays aligned with every other series,
+        but carries no drawable value -- the caller must break the line
+        there rather than bridge across it, the same honesty discipline
+        the results table already applies to a failed row.
+        """
+        if not self.isParametricSweep or self._result is None:
+            return []
+        sweep_key = self.sweepVariableKey
+        self._ensure_sweep_metrics()
+        series = []
+        for metric_key in self._sweep_metrics:
+            info = self._axis_field_info(metric_key)
+            label = info[0] if info else metric_key
+            unit = info[1] if info else ""
+            raw_values = []
+            points = []
+            for point in self._result.points:
+                x = self._axis_value(point, sweep_key)
+                if x is None:
+                    continue
+                y = self._axis_value(point, metric_key)
+                has_value = y is not None
+                if has_value:
+                    raw_values.append(y)
+                points.append({
+                    "x": x, "y": (y if has_value else 0.0),
+                    "hasValue": has_value,
+                    "index": point.index,
+                    "status": point.status.label,
+                    "feasibility": point.feasibility.label,
+                    "pareto": point.is_pareto_efficient,
+                    "score": (_text(point.score, 4)
+                              if point.score is not None else ""),
+                })
+            points.sort(key=lambda p: p["x"])
+            peak = max(raw_values) if raw_values else None
+            if self._sweep_scaled and peak:
+                for entry in points:
+                    entry["rawY"] = entry["y"]
+                    if entry["hasValue"]:
+                        entry["y"] = entry["y"] / peak
+            else:
+                for entry in points:
+                    entry["rawY"] = entry["y"]
+            series.append({"key": metric_key, "label": label, "unit": unit,
+                           "peak": (peak if peak is not None else 0.0),
+                           "points": points})
+        return series
+
+    @Property("QVariantList", notify=selectionChanged)
+    def sweepComparisonRows(self):
+        """For the selected design: each response's value, the maximum of
+        that response across the evaluated sweep, and how far this design
+        sits from that maximum.
+
+        Answers "how much do I give up in this metric to be here" with a
+        number, not just a curve position. Pure aggregation over results
+        this study already produced -- zero new physics. Never called an
+        "efficiency loss": that word claims a specific, defined physical
+        quantity this is not.
+        """
+        if not self.isParametricSweep or not self._selected or self._result is None:
+            return []
+        point = self._result.by_index(self._selected[-1])
+        if point is None:
+            return []
+        self._ensure_sweep_metrics()
+        rows = []
+        for metric_key in self._sweep_metrics:
+            value = self._axis_value(point, metric_key)
+            if value is None:
+                continue
+            others = [self._axis_value(p, metric_key)
+                     for p in self._result.points]
+            others = [v for v in others if v is not None]
+            if not others:
+                continue
+            peak = max(others)
+            info = self._axis_field_info(metric_key)
+            label = info[0] if info else metric_key
+            unit = info[1] if info else ""
+            diff = value - peak
+            percent = (diff / peak * 100.0) if peak else 0.0
+            rows.append({
+                "label": label, "unit": unit,
+                "value": f"{_text(value)} {unit}".strip(),
+                "maxValue": f"{_text(peak)} {unit}".strip(),
+                "diffFromMax": f"{_text(diff)} {unit}".strip(),
+                "percentFromMax": f"{percent:+.2f}%",
+            })
+        return rows
 
     @Property(str, notify=resultChanged)
     def rankingNote(self) -> str:

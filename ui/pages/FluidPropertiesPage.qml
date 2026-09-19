@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../theme"
 import "../components"
+import "fluidproperties"
 
 /*
  * Fluid Properties - what a substance is doing at a temperature and a pressure.
@@ -16,17 +17,72 @@ import "../components"
  * size a line, a valve or an orifice, and it computes nothing itself -- every
  * number and every string below came from the controller.
  *
- * Two things it insists on, because both are easy to get wrong:
+ * Three things it insists on, because all three are easy to get wrong:
  *
  *   - Pressure is an input, never a default. The field starts at a value, that
  *     value is visible, and it travels into the request. Oxygen at 95 K is a
  *     liquid at 3 bar and a gas at 1 atm, so a page that supplied a pressure
  *     would be choosing the answer.
  *   - An unavailable property is a row with a reason, not an empty cell. A
- *     blank reads as zero, and a missing viscosity is not 0 Pa s.
+ *     blank reads as zero, and a missing viscosity is not 0 Pa s. Every one of
+ *     the seven reasons the property vocabulary defines keeps its own exact
+ *     wording -- the row dims uniformly, but the reason text is never
+ *     shortened to a generic "unavailable".
+ *   - This page's specific enthalpy is CoolProp's own value on CoolProp's own
+ *     datum. It is not, and is never presented as, NASA CEA's assigned
+ *     reactant enthalpy -- the two differ by hundreds of kJ/kg per
+ *     REACTANT_ENTHALPY_COUPLING_CONTRACT.md, and the Provenance panel below
+ *     says so on every evaluated state, not only on hover.
  */
 Item {
     id: page
+
+    // FluidProperties.statusTone returns "positive"/"caution"/"negative"/
+    // "neutral" (fluid_property_service.py's FluidOutcome.status_tone), but
+    // RFStatusChip only recognizes "success"/"warning"/"error"/"accent"/
+    // "neutral" -- both chips on this page silently fell through to the
+    // neutral/muted dot regardless of actual state. Presentation-only fix
+    // (a string mapping in QML, no Python touched), same as Line's.
+    function chipTone(statusTone) {
+        switch (statusTone) {
+        case "positive": return "success"
+        case "caution": return "warning"
+        case "negative": return "error"
+        default: return "neutral"
+        }
+    }
+
+    // Density leads: it is the property a feed-system or tank calculation
+    // reaches for first at a stated (T, p), and it is the one number that
+    // changes the design rather than describing it. The audit captured this
+    // page with density and specific enthalpy at the same weight inside a
+    // block called "Primary", which names a hierarchy without showing one.
+    readonly property var heroLabels: ["Density"]
+    readonly property var primaryLabels: ["Specific enthalpy"]
+    readonly property var thermodynamicLabels: ["Specific heat, cp"]
+
+    function rowTier(label) {
+        if (page.heroLabels.indexOf(label) !== -1) return "hero"
+        if (page.primaryLabels.indexOf(label) !== -1) return "primary"
+        if (page.thermodynamicLabels.indexOf(label) !== -1) return "thermodynamic"
+        return "transport"
+    }
+
+    function rowsForTier(tier) {
+        if (!FluidProperties.hasResult)
+            return []
+        return FluidProperties.resultRows.filter(function (r) {
+            return page.rowTier(r.label) === tier
+        })
+    }
+
+    function provenanceValue(label) {
+        var rows = FluidProperties.provenanceRows
+        for (var i = 0; i < rows.length; ++i)
+            if (rows[i].label === label)
+                return rows[i].value
+        return ""
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -44,7 +100,7 @@ Item {
                     text: FluidProperties.providerAvailable
                           ? FluidProperties.providerLabel
                           : "Provider unavailable"
-                    tone: FluidProperties.providerAvailable ? "positive" : "neutral"
+                    tone: FluidProperties.providerAvailable ? "success" : "neutral"
                 }
             }
         }
@@ -127,20 +183,30 @@ Item {
         }
 
         // ---- results -----------------------------------------------------
+        // A single (T, p) query has no sweep and no analytical question
+        // beyond "what is this state", so this page genuinely has little to
+        // show -- and stretching two panels to the full viewport height to
+        // hide that produced the ~40% framed void the audit measured. Both
+        // panels size to their own content and sit at the top instead: the
+        // leftover is honest page background rather than a frame drawn
+        // around nothing. The filler below keeps them there.
         RowLayout {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            Layout.fillHeight: false
+            Layout.alignment: Qt.AlignTop
             visible: FluidProperties.providerAvailable
             spacing: Metrics.spacing.m
 
             RFPanel {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+                Layout.fillHeight: false
+                Layout.alignment: Qt.AlignTop
                 title: "Properties"
+                chromeless: true
 
                 ColumnLayout {
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    Layout.fillHeight: false
                     spacing: Metrics.spacing.s
 
                     RowLayout {
@@ -150,14 +216,25 @@ Item {
 
                         RFStatusChip {
                             text: FluidProperties.statusLabel
-                            tone: FluidProperties.statusTone
+                            tone: page.chipTone(FluidProperties.statusTone)
                         }
                         RFStatusChip {
-                            visible: FluidProperties.phase !== ""
-                            text: "Phase: " + FluidProperties.phase
-                            tone: "neutral"
+                            visible: FluidProperties.hasResult && FluidProperties.resultStale
+                            text: "Stale — recalculate"
+                            tone: "warning"
                         }
                         Item { Layout.fillWidth: true }
+                    }
+
+                    // ---- the object: the fluid state itself -----------------
+                    FluidStateBlock {
+                        Layout.fillWidth: true
+                        hasResult: FluidProperties.hasResult
+                        stale: FluidProperties.resultStale
+                        fluidLabel: page.provenanceValue("Fluid")
+                        phase: FluidProperties.phase
+                        temperatureText: page.provenanceValue("Temperature")
+                        pressureText: page.provenanceValue("Pressure")
                     }
 
                     RFEmptyState {
@@ -171,50 +248,57 @@ Item {
                                 + "then evaluate."
                     }
 
-                    Repeater {
-                        model: FluidProperties.hasResult
-                               ? FluidProperties.resultRows : []
-                        delegate: RowLayout {
-                            id: propertyRow
-                            required property var modelData
-                            Layout.fillWidth: true
-                            Layout.fillHeight: false
-                            spacing: Metrics.spacing.s
+                    RFDivider { visible: FluidProperties.hasResult }
 
-                            Text {
-                                Layout.preferredWidth: 190
-                                text: propertyRow.modelData.label
-                                color: Theme.textMuted
-                                font.family: Typography.sans
-                                font.pixelSize: Typography.body
-                                elide: Text.ElideRight
-                            }
-                            Text {
-                                Layout.preferredWidth: 150
-                                horizontalAlignment: Text.AlignRight
-                                text: propertyRow.modelData.value
-                                color: propertyRow.modelData.available
-                                       ? Theme.text : Theme.textMuted
-                                font.family: Typography.mono
-                                font.pixelSize: Typography.body
-                                elide: Text.ElideRight
-                            }
-                            Text {
-                                Layout.preferredWidth: 96
-                                text: propertyRow.modelData.unit
-                                color: Theme.textMuted
-                                font.family: Typography.mono
-                                font.pixelSize: Typography.meta
-                                elide: Text.ElideRight
-                            }
-                            Text {
+                    // Tier 1. Six properties stacked in one 460px-wide
+                    // column left roughly 40% of this workspace empty in the
+                    // audit capture while the column itself stayed cramped.
+                    // The hero leads, and the three supporting groups sit
+                    // side by side across the width the page already has.
+                    Repeater {
+                        model: page.rowsForTier("hero")
+                        delegate: PropertyRow {
+                            required property var modelData
+                            row: modelData
+                            tier: "hero"
+                        }
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Metrics.spacing.m
+                        spacing: Metrics.spacing.xl
+                        visible: FluidProperties.hasResult
+
+                        Repeater {
+                            model: [
+                                { tier: "primary", label: "Primary" },
+                                { tier: "thermodynamic", label: "Thermodynamic" },
+                                { tier: "transport", label: "Transport" }
+                            ]
+
+                            delegate: ColumnLayout {
+                                id: tierColumn
+                                required property var modelData
+                                readonly property var tierRows: page.rowsForTier(modelData.tier)
+
                                 Layout.fillWidth: true
-                                visible: !propertyRow.modelData.available
-                                text: propertyRow.modelData.status
-                                color: Theme.textMuted
-                                font.family: Typography.sans
-                                font.pixelSize: Typography.meta
-                                elide: Text.ElideRight
+                                Layout.alignment: Qt.AlignTop
+                                spacing: Metrics.spacing.xs
+                                visible: tierRows.length > 0
+
+                                RFSectionLabel { text: tierColumn.modelData.label }
+
+                                Repeater {
+                                    model: tierColumn.tierRows
+                                    delegate: PropertyRow {
+                                        required property var modelData
+                                        row: modelData
+                                        tier: tierColumn.modelData.tier
+                                    }
+                                }
+
+                                Item { Layout.fillHeight: true }
                             }
                         }
                     }
@@ -225,7 +309,8 @@ Item {
 
             RFPanel {
                 Layout.preferredWidth: 380
-                Layout.fillHeight: true
+                Layout.fillHeight: false
+                Layout.alignment: Qt.AlignTop
                 title: "Provenance"
 
                 ColumnLayout {
@@ -261,6 +346,38 @@ Item {
                         }
                     }
 
+                    // Not a hover-only tooltip: the same always-visible
+                    // treatment Line gives its Darcy/Fanning distinction.
+                    // This page's enthalpy is CoolProp's own datum, never
+                    // NASA CEA's assigned reactant enthalpy -- see
+                    // REACTANT_ENTHALPY_COUPLING_CONTRACT.md.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: false
+                        visible: FluidProperties.hasResult
+                        spacing: Metrics.spacing.s
+
+                        Text {
+                            Layout.preferredWidth: 140
+                            text: "Enthalpy datum"
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                            elide: Text.ElideRight
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            text: "This provider's own reference state, not "
+                                  + "NASA CEA's assigned reactant enthalpy. "
+                                  + "The two differ by hundreds of kJ/kg and "
+                                  + "are never interchangeable."
+                            color: Theme.text
+                            font.family: Typography.mono
+                            font.pixelSize: Typography.meta
+                            wrapMode: Text.WordWrap
+                        }
+                    }
+
                     RFDivider {
                         Layout.fillWidth: true
                         visible: FluidProperties.diagnosticRows.length > 0
@@ -284,5 +401,7 @@ Item {
                 }
             }
         }
+
+        Item { Layout.fillHeight: true }
     }
 }

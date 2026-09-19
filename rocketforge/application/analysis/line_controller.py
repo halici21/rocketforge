@@ -40,6 +40,13 @@ class LineController(QObject):
         self._case = service.DEFAULT_CASE
         self._outcome = service.EMPTY
         self._availability: Any | None = None
+        # Mirrors ThermochemistryController's own resultStale pattern
+        # exactly: a plain flag, set whenever an input moves while a result
+        # already exists, cleared only when a new result is adopted. Not a
+        # case-equality comparison -- the same simpler mechanism the
+        # accepted Thermochemistry controller already uses for the same
+        # purpose (dirty input != solved result).
+        self._stale = False
 
     # -- availability ------------------------------------------------------
 
@@ -98,40 +105,54 @@ class LineController(QObject):
     def absoluteRoughness(self) -> float:
         return float(self._case.absolute_roughness)
 
+    def _mark_dirty(self) -> None:
+        """An input that defines the calculation moved.
+
+        Only marks stale if a result already exists -- editing the form
+        before the first solve is not staleness, it is the normal act of
+        setting up a case (identical guard to
+        ThermochemistryController._on_input_changed).
+        """
+        if self._outcome.result is not None or self._outcome.kind not in (
+                "empty", "unavailable"):
+            self._stale = True
+        self.inputsChanged.emit()
+        self.resultChanged.emit()
+
     @Slot(str)
     def setFluid(self, name: str) -> None:
         self._case = self._case.replace(fluid_name=str(name))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setTemperature(self, value: float) -> None:
         self._case = self._case.replace(temperature=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setPressure(self, value: float) -> None:
         self._case = self._case.replace(pressure=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setMassFlow(self, value: float) -> None:
         self._case = self._case.replace(mass_flow=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setLength(self, value: float) -> None:
         self._case = self._case.replace(length=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setInnerDiameter(self, value: float) -> None:
         self._case = self._case.replace(inner_diameter=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     @Slot(float)
     def setAbsoluteRoughness(self, value: float) -> None:
         self._case = self._case.replace(absolute_roughness=float(value))
-        self.inputsChanged.emit()
+        self._mark_dirty()
 
     # -- the calculation ---------------------------------------------------
 
@@ -139,12 +160,19 @@ class LineController(QObject):
     def calculate(self) -> None:
         """Solve the current case. Never raises."""
         self._outcome = service.solve_case(self._case)
+        self._stale = False
         self.resultChanged.emit()
 
     @Slot()
     def clear(self) -> None:
         self._outcome = service.EMPTY
+        self._stale = False
         self.resultChanged.emit()
+
+    @Property(bool, notify=resultChanged)
+    def resultStale(self) -> bool:
+        """Whether the inputs have moved since this result was produced."""
+        return self._stale
 
     # -- results -----------------------------------------------------------
 
