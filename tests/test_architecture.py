@@ -37,7 +37,8 @@ PACKAGE_NAME = "rocketforge"
 PACKAGE_ROOT = PROJECT_ROOT / PACKAGE_NAME
 
 #: The layers, lowest first.
-LAYERS = ("core", "physics", "engineering", "engine", "providers", "application")
+LAYERS = ("core", "physics", "engineering", "engine", "providers", "comparison",
+          "application")
 
 #: Which layers each layer may import from, transcribed from the table in
 #: ``01_engineering_architecture.md`` section 2. A layer may always import
@@ -53,6 +54,9 @@ ALLOWED_IMPORTS: dict[str, frozenset[str]] = {
     "engineering": frozenset({"core", "physics", "engineering"}),
     "engine": frozenset({"core", "physics", "engineering", "engine"}),
     "providers": frozenset({"core", "physics", "providers"}),
+    # Compares results it is handed; it may not reach a solver or a provider,
+    # so a comparison can never quietly produce the number it is checking.
+    "comparison": frozenset({"core", "physics", "comparison"}),
     "application": frozenset(LAYERS),
 }
 
@@ -446,6 +450,10 @@ def test_type_checking_import_still_violates_the_layer_rule():
         ("rocketforge.engineering.pump", "from ..application import controllers"),
         ("rocketforge.engine.cycle", "from rocketforge.application import formatting"),
         ("rocketforge.physics.gas", "from ..engine.balances import mass"),
+        # the comparison layer must not reach a solver, nor be reached from below
+        ("rocketforge.comparison.compare", "from rocketforge.providers.cea_solid import cstar"),
+        ("rocketforge.comparison.compare", "from ..application import controllers"),
+        ("rocketforge.physics.gas", "from rocketforge.comparison import compare"),
     ],
 )
 def test_checker_detects_synthetic_layer_violations(module, statement):

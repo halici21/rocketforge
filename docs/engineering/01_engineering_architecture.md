@@ -48,8 +48,9 @@ be preserved:
 
 ## 2. Layer model
 
-Seven layers. Each has one sentence of responsibility and an explicit list of
-what it is allowed to import.
+Eight layers. Each has one sentence of responsibility and an explicit list of
+what it is allowed to import. `comparison` sits beside `providers`: both build
+on `physics` and `core`, and only `application` may use either.
 
 ```
   L6  ui/                QML. No Python. No arithmetic beyond layout.
@@ -57,6 +58,7 @@ what it is allowed to import.
   L5  application/       Composition root, controllers, view models, formatting.
        ^
   L4  providers/         Adapters onto external libraries (CoolProp, CEA, ...).
+      comparison/        Reference-case comparison. Never runs a solver.
        ^            (implements interfaces declared in L1 - see section 5)
   L3  engine/            Whole-engine assembly, balances, cycle iteration.
        ^
@@ -74,6 +76,7 @@ what it is allowed to import.
 | `engineering` | Design and sizing of one physical component, using L1 relations | `physics`, `core` |
 | `engine` | Assembly of components into a cycle: mass balance, pressure network, shaft power balance, iteration | `engineering`, `physics`, `core` |
 | `providers` | Concrete adapters that satisfy L1 interfaces using external libraries | `physics`, `core`, external libs |
+| `comparison` | Compares RocketForge results with reference cases (direct CEA, NASA printouts, independent codes, experiments) and reports the differences; draws a verdict only where the source kind permits one | `physics`, `core` |
 | `application` | The only place that wires providers to services and exposes QObjects to QML | everything below |
 | `ui` | Presentation | nothing Python |
 
@@ -87,6 +90,10 @@ what it is allowed to import.
   import or to run. This is an acceptance criterion, not a preference (task §89).
 * External engineering libraries (CoolProp, RocketCEA, Cantera) are imported in
   `providers/` **and nowhere else**.
+* `comparison` must never import `providers` or `application`. It compares
+  values it is handed; if it could run a solver, a comparison could produce
+  the very number it is checking. Added with Solid Propellant Thermochemistry
+  Phase 1.
 
 ---
 
