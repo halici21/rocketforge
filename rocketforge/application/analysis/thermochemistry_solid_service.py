@@ -31,6 +31,7 @@ from .thermochemistry_provider import (
     solid_omit_species,
     solid_validated_pressures,
     solve_solid_chamber_state,
+    solve_solid_equilibrium_cstar,
 )
 from .thermochemistry_service import (
     OUTCOME_INVALID_INPUT,
@@ -57,6 +58,7 @@ __all__ = [
     "solid_case_headline",
     "solid_conditions",
     "MODEL_BOUNDARY_NOTE",
+    "CSTAR_LIMITATIONS",
 ]
 
 #: The boundary every solid result carries (section 26). Stated as a boundary,
@@ -65,6 +67,14 @@ __all__ = [
 MODEL_BOUNDARY_NOTE = (
     "Chamber thermochemistry only. Motor/internal-ballistics and delivered "
     "performance are not modelled."
+)
+
+#: What the CEA equilibrium c* is not, shown every time it is (decision D2).
+CSTAR_LIMITATIONS = (
+    "Not a motor specific impulse.",
+    "No nozzle expansion is modelled.",
+    "No internal-ballistic effects: burn rate, grain geometry and erosive "
+    "burning are not part of it.",
 )
 
 
@@ -409,10 +419,16 @@ def solve_solid_case(case: SolidCase) -> ChamberOutcome:
         return ChamberOutcome(kind=OUTCOME_INVALID_INPUT, case=case,
                               message=str(exc), field="mass_fraction")
 
+    # c* is a second CEA solve with its own validity checks. It never fails
+    # the chamber result: a refused c* is reported as refused, beside a
+    # chamber state that is still valid.
+    cstar = solve_solid_equilibrium_cstar(request, state)
+
     kind = OUTCOME_WARNING if diagnostics else OUTCOME_OK
     return ChamberOutcome(kind=kind, case=case, state=state,
                           diagnostics=tuple(diagnostics),
-                          provenance=state.provenance or base)
+                          provenance=state.provenance or base,
+                          characteristic_velocity=cstar)
 
 
 # ---------------------------------------------------------------------------

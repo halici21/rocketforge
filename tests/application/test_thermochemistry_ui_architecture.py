@@ -226,13 +226,32 @@ def test_the_wording_audit_would_catch_a_real_claim():
     assert any("optimal" in literal.lower() for literal in _qml_strings(text))
 
 
+#: The one c* this workspace may show: the solid-mode CEA equilibrium
+#: characteristic velocity (Solid Propellant Phase 1, decision D2). It must sit
+#: under its qualifying title, so it can never read as a bare performance
+#: figure. Isp stays banned without exception.
+PERMITTED_CSTAR = {("ThermoCalculator.qml", "c*")}
+CSTAR_TITLE = "CEA equilibrium characteristic velocity"
+
+
 def test_no_qml_names_isp_or_cstar_even_in_a_string():
-    """The only permitted occurrences come from the reference dataset."""
+    """Isp never; c* only as the qualified solid-mode readout."""
     for path in WORKSPACE_QML:
-        for literal in _qml_strings(path.read_text(encoding="utf-8")):
+        source = path.read_text(encoding="utf-8")
+        for literal in _qml_strings(source):
             lowered = literal.lower()
             assert "isp" not in lowered.split(), f"{path.name}: {literal!r}"
-            assert "c*" not in lowered, f"{path.name}: {literal!r}"
+            if "c*" in lowered:
+                assert (path.name, literal) in PERMITTED_CSTAR, (
+                    f"{path.name}: {literal!r}")
+                assert CSTAR_TITLE in source, (
+                    f"{path.name} shows c* without its qualifying title")
+
+
+def test_the_cstar_guard_can_still_fail():
+    """Negative control: an unqualified c* elsewhere is still refused."""
+    assert ("ThermoResultHeader.qml", "c*") not in PERMITTED_CSTAR
+    assert ("ThermoCalculator.qml", "c* (ideal)") not in PERMITTED_CSTAR
 
 
 def test_the_chamber_state_still_carries_no_performance_field():

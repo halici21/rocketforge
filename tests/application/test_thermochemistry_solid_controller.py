@@ -32,7 +32,9 @@ SOLID_BINDINGS = (
     "solidIsReferenceCase", "solidFormulationOptions", "solidIngredients",
     "solidAddableIngredients", "solidMassTotalPercent", "solidMassTotalText",
     "solidMassBalanced", "solidEdited", "solidChamberPressureDisplay",
-    "solidGrainTemperature", "solidConditions",
+    "solidGrainTemperature", "solidConditions", "solidCStarShown",
+    "solidCStarAvailable", "solidCStarText", "solidCStarRefusal",
+    "solidCStarCondensedNote", "solidCStarLimitations",
 )
 
 #: Properties the result surfaces bind, shared by both modes. These are the
@@ -482,3 +484,81 @@ def test_rocket_performance_refuses_a_solid_chamber(live):
                                      perf.DEFAULT_PERFORMANCE_CASE)
     assert outcome.result is None
     assert "solid" in outcome.message.lower()
+
+
+# ===========================================================================
+# CEA equilibrium characteristic velocity (decisions D2 and D4)
+# ===========================================================================
+
+
+@requires_cea
+def test_cstar_is_shown_for_a_solid_result_and_not_for_a_bipropellant(live):
+    live.calculate()
+    assert live.solidCStarShown is False           # its c* lives elsewhere
+    live.formulationKind = "solid"
+    live.calculate()
+    assert live.solidCStarShown is True
+    assert live.solidCStarAvailable is True
+    assert live.solidCStarText == "1525.68"
+
+
+@requires_cea
+def test_cstar_never_shows_more_than_six_significant_figures(live):
+    """CEA's solver-path sensitivity is 2.1e-06; a seventh figure is noise."""
+    live.formulationKind = "solid"
+    live.calculate()
+    live.precision = 12
+    assert live.solidCStarText == "1525.68"
+
+
+@requires_cea
+def test_cstar_carries_its_limitations_and_the_condensed_assumption(live):
+    live.formulationKind = "solid"
+    live.calculate()
+    limits = " ".join(live.solidCStarLimitations).lower()
+    assert "not a motor specific impulse" in limits
+    assert "no nozzle expansion" in limits
+    assert "internal-ballistic" in limits
+    note = live.solidCStarCondensedNote
+    assert "no particle lag" in note
+    assert "16.8 %" in note
+
+
+@requires_cea
+def test_cstar_is_not_presented_as_performance(live):
+    """D2: never under a generic "Performance" heading or wording."""
+    live.formulationKind = "solid"
+    live.calculate()
+    for text in (live.solidCStarRefusal, live.solidCStarCondensedNote,
+                 *live.solidCStarLimitations):
+        assert "performance" not in text.lower()
+
+
+@requires_cea
+def test_a_refused_cstar_is_shown_as_refused_never_as_a_number(live, monkeypatch):
+    """D4. The provider-level test drives CEA's real non-converged solve; this
+    one checks the interface: dash, reason, and no number anywhere."""
+    from rocketforge.application.analysis import thermochemistry_solid_service as svc
+    from rocketforge.providers.cea_solid import SolidCharacteristicVelocity
+
+    refusal = ("NASA CEA did not converge the c* solve (converged=False, error "
+               "code 8). It returns a number regardless; that number is not used.")
+    monkeypatch.setattr(svc, "solve_solid_equilibrium_cstar",
+                        lambda request, chamber: SolidCharacteristicVelocity(
+                            value=None, refusal=refusal,
+                            condensed_mass_fraction=chamber.condensed_mass_fraction))
+    live.formulationKind = "solid"
+    live.calculate()
+    assert live.hasResult is True                  # the chamber result stands
+    assert live.solidCStarAvailable is False
+    assert live.solidCStarText == "—"
+    assert live.solidCStarRefusal == refusal
+
+
+@requires_cea
+def test_a_stale_result_keeps_the_cstar_of_the_case_that_produced_it(live):
+    live.formulationKind = "solid"
+    live.calculate()
+    live.setSolidMassPercent(2, 12.0)
+    assert live.resultStale is True
+    assert live.solidCStarText == "1525.68"

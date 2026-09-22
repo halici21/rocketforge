@@ -48,6 +48,7 @@ __all__ = [
     "solid_ingredient_catalogue",
     "solid_phase_label",
     "solid_validated_pressures",
+    "solve_solid_equilibrium_cstar",
     "solid_assigned_enthalpy_diagnostics",
 ]
 
@@ -368,6 +369,19 @@ def solve_solid_chamber_state(request: Any, provenance: Any) -> Any:
     from rocketforge.providers.cea_solid import solve_solid_chamber
 
     return solve_solid_chamber(module, request, provenance=provenance)
+
+
+def solve_solid_equilibrium_cstar(request: Any, chamber: Any) -> Any:
+    """CEA equilibrium c* for a solved solid chamber, or its refusal.
+
+    Never raises for a solve that fails; the result says why there is no value.
+    """
+    module = _cea_module()
+    from rocketforge.providers.cea_solid import (
+        solve_solid_equilibrium_cstar as _solve,
+    )
+
+    return _solve(module, request, chamber)
 
 
 def solid_species_table(names: tuple[str, ...], *, database: str = "",

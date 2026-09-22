@@ -177,6 +177,11 @@ class ChamberOutcome:
     provenance: Any = None
     message: str = ""
     field: str = ""
+    #: The CEA equilibrium c* for a solid result, or its refusal; ``None`` for
+    #: a bipropellant result, whose c* belongs to the Rocket Performance
+    #: workspace. Held here, beside the state it was computed from, so a stale
+    #: result keeps the c* of the case that produced it.
+    characteristic_velocity: Any = None
 
     @property
     def ok(self) -> bool:

@@ -166,7 +166,23 @@ def capture(window, nav, thermo, settle, warnings) -> int:
     print(f"320 K status       : {thermo.property('statusKind')}")
     shoot("solid_assigned_enthalpy_warning", 1920, 1080, "dark")
 
-    # 7. an added ingredient, at 0 %.
+    # 7. a refused c*, from CEA's real non-converged frozen solve: the
+    #    chamber result stands, and c* says "Not available" with the reason.
+    from rocketforge.application.analysis import thermochemistry_solid_service as svc
+    original = svc.solve_solid_equilibrium_cstar
+    svc.solve_solid_equilibrium_cstar = _refused_cstar
+    try:
+        call(thermo, "resetSolidFormulation")
+        settle()
+        call(thermo, "calculate")
+        settle()
+        print(f"refused c*         : available="
+              f"{thermo.property('solidCStarAvailable')}")
+        shoot("solid_cstar_refused", 1920, 1080, "dark")
+    finally:
+        svc.solve_solid_equilibrium_cstar = original
+
+    # 8. an added ingredient, at 0 %.
     call(thermo, "resetSolidFormulation")
     settle()
     call(thermo, "addSolidIngredient", "B(b)")
@@ -184,6 +200,34 @@ def capture(window, nav, thermo, settle, warnings) -> int:
         print("   !", w)
     print(f"\n{len(shots)} captures -> {OUT}")
     return 0
+
+
+def _refused_cstar(request, chamber):
+    """The real refusal: CEA forced frozen from the chamber, which for this
+    grain does not converge yet still returns a number."""
+    import cea
+
+    from rocketforge.providers.cea_solid import solve_solid_equilibrium_cstar
+
+    class Frozen:
+        def __init__(self, real):
+            self.real = real
+
+        def solve(self, *a, **kw):
+            kw["n_frz"] = 1
+            return self.real.solve(*a, **kw)
+
+    class FreezingCEA:
+        def __getattr__(self, name):
+            return getattr(cea, name)
+
+        def RocketSolver(self, *a, **kw):  # noqa: N802
+            return Frozen(cea.RocketSolver(*a, **kw))
+
+        def RocketSolution(self, solver):  # noqa: N802
+            return cea.RocketSolution(solver.real)
+
+    return solve_solid_equilibrium_cstar(FreezingCEA(), request, chamber)
 
 
 def call(obj, name, *args):

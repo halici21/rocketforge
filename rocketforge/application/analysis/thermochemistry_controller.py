@@ -66,6 +66,7 @@ from .thermochemistry_service import (
     species_set,
 )
 from .thermochemistry_solid_service import (
+    CSTAR_LIMITATIONS,
     MODEL_BOUNDARY_NOTE,
     SolidCase,
     default_solid_case,
@@ -736,6 +737,63 @@ class ThermochemistryController(QObject):
             return []
         return [dict(row) for row in solid_conditions(case)]
 
+
+
+    # -- CEA equilibrium characteristic velocity -------------------------
+    #
+    # Read from the outcome, like every other result: a stale result keeps the
+    # c* of the case that produced it. Shown only when every validity check
+    # passed; a refused c* is shown as refused, with the reason, never as a
+    # number. Not placed under any "performance" heading, because it is not a
+    # motor performance figure.
+
+    def _solid_cstar(self):
+        if not is_solid_case(self._outcome.case) or self._outcome.state is None:
+            return None
+        return self._outcome.characteristic_velocity
+
+    @Property(bool, notify=resultChanged)
+    def solidCStarShown(self) -> bool:
+        return self._solid_cstar() is not None
+
+    @Property(bool, notify=resultChanged)
+    def solidCStarAvailable(self) -> bool:
+        cstar = self._solid_cstar()
+        return bool(cstar is not None and cstar.available)
+
+    @Property(str, notify=resultChanged)
+    def solidCStarText(self) -> str:
+        """At most six significant figures, whatever the precision setting.
+
+        Measured: starting CEA from a different condensed phase moves Example
+        5's c* by 2.1e-06 relative. A seventh figure would be solver noise.
+        """
+        cstar = self._solid_cstar()
+        if cstar is None or not cstar.available:
+            return EM_DASH
+        return format_engineering(cstar.value, min(self._precision, 6))
+
+    @Property(str, notify=resultChanged)
+    def solidCStarRefusal(self) -> str:
+        cstar = self._solid_cstar()
+        return cstar.refusal if cstar is not None else ""
+
+    @Property(str, notify=resultChanged)
+    def solidCStarCondensedNote(self) -> str:
+        """The condensed-phase assumption, with the mass it applies to."""
+        cstar = self._solid_cstar()
+        if cstar is None:
+            return ""
+        fraction = cstar.condensed_mass_fraction
+        share = ("" if fraction is None else
+                 f" Condensed products are {fraction * 100.0:.1f} % of the "
+                 "mass here.")
+        return cstar.condensed_assumption + share
+
+    @Property("QVariantList", constant=True)
+    def solidCStarLimitations(self):
+        """What this number is not. Stated every time it is shown."""
+        return list(CSTAR_LIMITATIONS)
 
     # ==================================================================
     # calculate

@@ -788,6 +788,77 @@ Item {
                             width: parent.width
                             spacing: Metrics.spacing.l
 
+                            // ---- CEA equilibrium characteristic velocity.
+                            // Solid results only. Its own block, deliberately
+                            // not under any "performance" heading: it is a
+                            // chamber-and-throat figure from NASA CEA, not a
+                            // motor figure. Its limitations are stated every
+                            // time it is shown, and a refused c* is shown as
+                            // refused -- in words -- never as a number.
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                visible: Thermochemistry.solidCStarShown
+                                spacing: Metrics.spacing.s
+
+                                RFSectionLabel {
+                                    text: "CEA equilibrium characteristic velocity"
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: Metrics.spacing.xl
+
+                                    RFResultValue {
+                                        Layout.alignment: Qt.AlignTop
+                                        label: "c*"
+                                        value: Thermochemistry.solidCStarText
+                                        unit: Thermochemistry.solidCStarAvailable
+                                              ? "m/s" : ""
+                                        scale: "medium"
+                                    }
+
+                                    ColumnLayout {
+                                        Layout.fillWidth: true
+                                        spacing: 2
+
+                                        Text {
+                                            Layout.fillWidth: true
+                                            visible: !Thermochemistry.solidCStarAvailable
+                                            text: "Not available. "
+                                                  + Thermochemistry.solidCStarRefusal
+                                            wrapMode: Text.WordWrap
+                                            color: Theme.warning
+                                            font.family: Typography.sans
+                                            font.pixelSize: Typography.meta
+                                        }
+
+                                        Repeater {
+                                            model: Thermochemistry.solidCStarLimitations
+                                            delegate: Text {
+                                                required property string modelData
+                                                Layout.fillWidth: true
+                                                text: modelData
+                                                wrapMode: Text.WordWrap
+                                                color: Theme.textMuted
+                                                font.family: Typography.sans
+                                                font.pixelSize: Typography.meta
+                                            }
+                                        }
+
+                                        Text {
+                                            Layout.fillWidth: true
+                                            text: Thermochemistry.solidCStarCondensedNote
+                                            wrapMode: Text.WordWrap
+                                            color: Theme.textMuted
+                                            font.family: Typography.sans
+                                            font.pixelSize: Typography.meta
+                                        }
+                                    }
+                                }
+
+                                RFDivider { Layout.fillWidth: true }
+                            }
+
                             GridLayout {
                                 Layout.fillWidth: true
                                 columns: Math.max(2, Math.floor(width / 220))
