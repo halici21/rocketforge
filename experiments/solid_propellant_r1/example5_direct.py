@@ -46,9 +46,9 @@ def build_reactants() -> list[object]:
                 name=item.name,
                 formula=dict(item.custom.formula),
                 molecular_weight=item.custom.molecular_weight,
-                enthalpy=item.custom.enthalpy,
-                enthalpy_units=item.custom.enthalpy_units,
-                temperature=item.custom.temperature,
+                enthalpy=item.custom.heat_of_formation,
+                enthalpy_units=item.custom.heat_of_formation_units,
+                temperature=item.custom.reference_temperature,
             ))
     return out
 

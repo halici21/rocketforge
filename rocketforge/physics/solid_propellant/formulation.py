@@ -44,6 +44,8 @@ __all__ = [
     "SolidFormulation",
     "SolidFormulationEquilibriumRequest",
     "MASS_FRACTION_SUM_TOL",
+    "MW_PROVIDED",
+    "MW_DERIVED",
 ]
 
 #: How far a formulation's mass fractions may sum from 1.0 before it is refused.
@@ -81,46 +83,60 @@ def _finite(value: object, what: str) -> float:
     return number
 
 
+#: Where a custom reactant's molecular weight came from.
+MW_PROVIDED = "provided"
+MW_DERIVED = "derived"
+
+
 @dataclass(frozen=True, slots=True)
 class CustomReactant:
-    """An ingredient defined by its elemental formula and assigned enthalpy.
+    """An ingredient defined by its formula and heat of formation.
 
-    NASA's own solid examples define their binder this way, because a real
-    polymer binder is not a library species and has no tabulated thermodynamic
-    record. CEA accepts it as a reactant given a formula, a molecular weight,
-    and a heat of formation assigned at a stated temperature.
+    Polymer binders are not library species and have no tabulated record, so
+    CEA accepts them as custom reactants. What such a reactant *must* carry is
+    fixed here: a chemical formula, a heat of formation, the reference
+    temperature it is stated at, and where those numbers come from. Nothing
+    else is required, and there is no preset for any real binder -- a
+    definition exists only when someone supplies it with a source.
 
     Attributes:
         formula: Element symbol -> atoms per formula unit. Fractional counts are
-            normal here and not an error: a binder's formula is an average over
-            a polymer, so ``H: 1.86955`` is meaningful.
-        molecular_weight: g/mol of that formula unit.
-        enthalpy: The assigned enthalpy, in :attr:`enthalpy_units`. Negative for
-            almost every real ingredient and not checked for sign.
-        enthalpy_units: The units ``enthalpy`` is stated in. Recorded rather
-            than converted, because CEA takes the units alongside the value and
-            converting here would add a rounding step nobody asked for.
-        temperature: K. The temperature the enthalpy is assigned at. CEA uses
-            the enthalpy at this temperature whatever reactant temperature a
-            solve requests -- verified: a binder-only mixture returns the same
-            enthalpy at 250, 298.15 and 320 K -- so a request at any other
-            temperature is reported, never silently accepted.
-        source: Where the definition comes from. Required: a custom reactant is
-            thermochemical data RocketForge did not compute, and a result built
-            on it is only as traceable as this string.
+            normal: a binder's formula is an average over a polymer, so
+            ``H: 1.86955`` is meaningful.
+        heat_of_formation: Standard-datum enthalpy of the reactant at
+            :attr:`reference_temperature`, in :attr:`heat_of_formation_units`.
+            At 298.15 K this is the standard heat of formation. Not checked for
+            sign; negative for almost every real ingredient.
+        heat_of_formation_units: Recorded rather than converted: CEA takes the
+            units alongside the value, and converting here would add a rounding
+            step nobody asked for.
+        reference_temperature: K. CEA holds the reactant at this enthalpy
+            whatever temperature a solve requests -- measured: a binder-only
+            mixture has the same enthalpy at 250, 298.15 and 320 K -- so a
+            request at any other temperature is reported, never absorbed.
+        source: Where the definition comes from. Required: this is data
+            RocketForge did not compute, and a result built on it is only as
+            traceable as this string.
+        molecular_weight: g/mol of the formula unit, **when the source states
+            one**; otherwise ``None`` and CEA derives it from the formula with
+            its own atomic weights. Optional, because a source that gives a
+            formula and a heat of formation is complete without it. Not
+            cosmetic when present: for NASA's Example 5 binder the stated value
+            moves the mass-basis enthalpy by 2.0e-05 relative against CEA's
+            derivation, so reproducing a published case needs it.
     """
 
     formula: Mapping[str, float]
-    molecular_weight: float
-    enthalpy: float
-    enthalpy_units: str
-    temperature: float
+    heat_of_formation: float
+    heat_of_formation_units: str
+    reference_temperature: float
     source: str
+    molecular_weight: float | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.formula, Mapping) or not self.formula:
             raise SolidFormulationError(
-                "a custom reactant needs a non-empty elemental formula; without "
+                "a custom reactant needs a non-empty chemical formula; without "
                 "one CEA has no way to balance the reaction")
         cleaned: dict[str, float] = {}
         for element, count in self.formula.items():
@@ -136,31 +152,40 @@ class CustomReactant:
             cleaned[element.strip()] = atoms
         object.__setattr__(self, "formula", MappingProxyType(cleaned))
 
-        mw = _finite(self.molecular_weight, "molecular weight")
-        if mw <= 0.0:
+        object.__setattr__(self, "heat_of_formation",
+                           _finite(self.heat_of_formation, "heat of formation"))
+        if self.heat_of_formation_units not in _ENTHALPY_UNITS:
             raise SolidFormulationError(
-                f"molecular weight must be strictly positive, got {mw!r} g/mol")
-        object.__setattr__(self, "molecular_weight", mw)
-        object.__setattr__(self, "enthalpy", _finite(self.enthalpy, "enthalpy"))
+                f"heat_of_formation_units must be one of {_ENTHALPY_UNITS}, got "
+                f"{self.heat_of_formation_units!r}")
 
-        if self.enthalpy_units not in _ENTHALPY_UNITS:
-            raise SolidFormulationError(
-                f"enthalpy_units must be one of {_ENTHALPY_UNITS}, got "
-                f"{self.enthalpy_units!r}")
-
-        temperature = _finite(self.temperature, "assigned-enthalpy temperature")
+        temperature = _finite(self.reference_temperature, "reference temperature")
         if temperature <= 0.0:
             raise SolidFormulationError(
-                f"assigned-enthalpy temperature must be strictly positive, got "
+                f"reference temperature must be strictly positive, got "
                 f"{temperature!r} K")
-        object.__setattr__(self, "temperature", temperature)
+        object.__setattr__(self, "reference_temperature", temperature)
 
         if not isinstance(self.source, str) or not self.source.strip():
             raise SolidFormulationError(
-                "a custom reactant must name its source. Its formula and "
-                "assigned enthalpy are data RocketForge did not compute; "
-                "without a source they cannot be checked or reproduced.")
+                "a custom reactant must name its source. Its formula and heat "
+                "of formation are data RocketForge did not compute; without a "
+                "source they cannot be checked or reproduced.")
         object.__setattr__(self, "source", self.source.strip())
+
+        if self.molecular_weight is not None:
+            mw = _finite(self.molecular_weight, "molecular weight")
+            if mw <= 0.0:
+                raise SolidFormulationError(
+                    f"molecular weight must be strictly positive when given, "
+                    f"got {mw!r} g/mol. Omit it to let CEA derive it from the "
+                    "formula.")
+            object.__setattr__(self, "molecular_weight", mw)
+
+    @property
+    def molecular_weight_origin(self) -> str:
+        """``"provided"`` by the source, or ``"derived"`` by CEA from the formula."""
+        return MW_PROVIDED if self.molecular_weight is not None else MW_DERIVED
 
 
 @dataclass(frozen=True, slots=True)

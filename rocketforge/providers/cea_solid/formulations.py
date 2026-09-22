@@ -36,10 +36,12 @@ __all__ = [
 #: is assigned at 298.15 K in cal/mol because that is how the source states it.
 RP1311_EXAMPLE5_BINDER = CustomReactant(
     formula={"C": 1.0, "H": 1.86955, "O": 0.031256, "S": 0.008415},
+    heat_of_formation=-2999.082,
+    heat_of_formation_units="cal/mol",
+    reference_temperature=298.15,
+    # Stated by the source, and needed: CEA's own derivation from the formula
+    # shifts the mass-basis enthalpy by 2.0e-05 relative.
     molecular_weight=14.6652984484,
-    enthalpy=-2999.082,
-    enthalpy_units="cal/mol",
-    temperature=298.15,
     source=("NASA RP-1311 Example 5 input, as shipped with cea 3.3.4 in "
             "cea/samples/rp1311/example5.py (chos_binder_h_cal_per_mol)"),
 )

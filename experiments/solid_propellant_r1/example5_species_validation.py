@@ -101,10 +101,11 @@ def main() -> int:
              "temperature_K": RP1311_EXAMPLE5.initial_temperature,
              "custom": (None if i.custom is None else {
                  "formula": dict(i.custom.formula),
+                 "heat_of_formation": i.custom.heat_of_formation,
+                 "heat_of_formation_units": i.custom.heat_of_formation_units,
+                 "reference_temperature": i.custom.reference_temperature,
                  "molecular_weight": i.custom.molecular_weight,
-                 "enthalpy": i.custom.enthalpy,
-                 "enthalpy_units": i.custom.enthalpy_units,
-                 "temperature": i.custom.temperature,
+                 "molecular_weight_origin": i.custom.molecular_weight_origin,
                  "source": i.custom.source})}
             for i in RP1311_EXAMPLE5.ingredients],
         "pressure_bar": RP1311_EXAMPLE5_PRESSURES_BAR[0],

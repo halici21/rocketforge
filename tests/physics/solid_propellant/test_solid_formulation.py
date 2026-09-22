@@ -96,8 +96,8 @@ def test_a_custom_reactant_must_name_its_source():
     for source in ("", "   "):
         with pytest.raises(SolidFormulationError) as excinfo:
             CustomReactant(formula={"C": 1.0}, molecular_weight=12.0,
-                           enthalpy=-1.0, enthalpy_units="cal/mol",
-                           temperature=298.15, source=source)
+                           heat_of_formation=-1.0, heat_of_formation_units="cal/mol",
+                           reference_temperature=298.15, source=source)
         assert "source" in str(excinfo.value)
 
 
@@ -127,9 +127,9 @@ def test_a_custom_reactant_accepts_a_fractional_atom_count():
     binder = CustomReactant(
         formula={"C": 1.0, "H": 1.86955},
         molecular_weight=14.665,
-        enthalpy=-2999.082,
-        enthalpy_units="cal/mol",
-        temperature=298.15,
+        heat_of_formation=-2999.082,
+        heat_of_formation_units="cal/mol",
+        reference_temperature=298.15,
         source="test fixture",
     )
     assert binder.formula["H"] == pytest.approx(1.86955)
@@ -137,29 +137,29 @@ def test_a_custom_reactant_accepts_a_fractional_atom_count():
 
 def test_a_custom_reactant_needs_a_formula():
     with pytest.raises(SolidFormulationError):
-        CustomReactant(formula={}, molecular_weight=14.0, enthalpy=-1.0,
-                       enthalpy_units="cal/mol", temperature=298.15, source="test fixture")
+        CustomReactant(formula={}, molecular_weight=14.0, heat_of_formation=-1.0,
+                       heat_of_formation_units="cal/mol", reference_temperature=298.15, source="test fixture")
 
 
 def test_an_unknown_enthalpy_unit_is_refused_rather_than_assumed():
     """Guessing cal/mol when the caller meant kJ/mol is a factor-of-4 error."""
     with pytest.raises(SolidFormulationError):
         CustomReactant(formula={"C": 1.0}, molecular_weight=12.0,
-                       enthalpy=-1.0, enthalpy_units="BTU/lb",
-                       temperature=298.15, source="test fixture")
+                       heat_of_formation=-1.0, heat_of_formation_units="BTU/lb",
+                       reference_temperature=298.15, source="test fixture")
 
 
 def test_a_negative_assigned_enthalpy_is_normal_and_accepted():
     binder = CustomReactant(formula={"C": 1.0}, molecular_weight=12.0,
-                            enthalpy=-2999.082, enthalpy_units="cal/mol",
-                            temperature=298.15, source="test fixture")
-    assert binder.enthalpy < 0.0
+                            heat_of_formation=-2999.082, heat_of_formation_units="cal/mol",
+                            reference_temperature=298.15, source="test fixture")
+    assert binder.heat_of_formation < 0.0
 
 
 def test_custom_ingredients_are_reported_separately():
     binder = CustomReactant(formula={"C": 1.0}, molecular_weight=12.0,
-                            enthalpy=-1.0, enthalpy_units="cal/mol",
-                            temperature=298.15, source="test fixture")
+                            heat_of_formation=-1.0, heat_of_formation_units="cal/mol",
+                            reference_temperature=298.15, source="test fixture")
     formulation = SolidFormulation(name="mixed", ingredients=(
         SolidIngredient("AL(cr)", 0.5),
         SolidIngredient("binder", 0.5, custom=binder),
@@ -222,3 +222,61 @@ def test_an_empty_product_species_tuple_is_refused():
         SolidFormulationEquilibriumRequest(
             formulation=a_formulation(), chamber_pressure=3.4e6,
             product_species=())
+
+
+# ---------------------------------------------------------------------------
+# the custom-reactant contract: what is required, and what is not
+# ---------------------------------------------------------------------------
+
+
+def _binder(**overrides):
+    base = dict(formula={"C": 1.0, "H": 1.86955},
+                heat_of_formation=-2999.082,
+                heat_of_formation_units="cal/mol",
+                reference_temperature=298.15,
+                source="test fixture")
+    base.update(overrides)
+    return CustomReactant(**base)
+
+
+@pytest.mark.parametrize("missing", ["formula", "heat_of_formation",
+                                     "heat_of_formation_units",
+                                     "reference_temperature", "source"])
+def test_each_required_field_is_required(missing):
+    """Formula, heat of formation (with its units), reference temperature and
+    source. Leaving any of them out is a construction error, not a default."""
+    fields = dict(formula={"C": 1.0}, heat_of_formation=-1.0,
+                  heat_of_formation_units="cal/mol",
+                  reference_temperature=298.15, source="test fixture")
+    del fields[missing]
+    with pytest.raises(TypeError):
+        CustomReactant(**fields)
+
+
+def test_molecular_weight_is_optional_and_its_absence_is_recorded():
+    """A source that states a formula and a heat of formation is complete.
+
+    The reactant is not refused for lacking a molecular weight; CEA derives
+    one from the formula, and the origin says so.
+    """
+    binder = _binder()
+    assert binder.molecular_weight is None
+    assert binder.molecular_weight_origin == "derived"
+
+
+def test_a_stated_molecular_weight_is_kept_and_marked_provided():
+    binder = _binder(molecular_weight=14.6652984484)
+    assert binder.molecular_weight == 14.6652984484
+    assert binder.molecular_weight_origin == "provided"
+
+
+@pytest.mark.parametrize("bad", [0.0, -14.0, float("nan"), float("inf")])
+def test_a_stated_molecular_weight_must_be_physical(bad):
+    """Optional is not the same as unchecked: when given, it must be real."""
+    with pytest.raises(SolidFormulationError):
+        _binder(molecular_weight=bad)
+
+
+def test_the_reference_temperature_must_be_positive():
+    with pytest.raises(SolidFormulationError):
+        _binder(reference_temperature=0.0)

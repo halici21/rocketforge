@@ -118,8 +118,8 @@ def solid_ingredient_options() -> tuple[SolidIngredientOption, ...]:
             phase=template_phase(template),
             source=(custom.source if custom is not None
                     else "NASA CEA thermo.lib"),
-            assigned_temperature=(custom.temperature if custom is not None
-                                  else None),
+            assigned_temperature=(custom.reference_temperature
+                                  if custom is not None else None),
         ))
     return tuple(out)
 

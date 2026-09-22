@@ -98,9 +98,9 @@ def solve_directly(cea, request) -> dict:
                 name=item.name,
                 formula=dict(item.custom.formula),
                 molecular_weight=item.custom.molecular_weight,
-                enthalpy=item.custom.enthalpy,
-                enthalpy_units=item.custom.enthalpy_units,
-                temperature=item.custom.temperature))
+                enthalpy=item.custom.heat_of_formation,
+                enthalpy_units=item.custom.heat_of_formation_units,
+                temperature=item.custom.reference_temperature))
 
     weights = np.asarray(formulation.mass_fractions, dtype=np.float64)
     temps = np.asarray([formulation.initial_temperature] * len(weights),
@@ -147,8 +147,10 @@ def test_the_example5_formulation_matches_the_published_input():
     assert dict(binder.formula) == {
         "C": 1.0, "H": 1.86955, "O": 0.031256, "S": 0.008415}
     assert binder.molecular_weight == 14.6652984484
-    assert binder.enthalpy == -2999.082
-    assert binder.enthalpy_units == "cal/mol"
+    assert binder.molecular_weight_origin == "provided"
+    assert binder.heat_of_formation == -2999.082
+    assert binder.heat_of_formation_units == "cal/mol"
+    assert binder.reference_temperature == 298.15
 
 
 def test_the_binder_is_not_relabelled_as_a_real_binder():
@@ -369,3 +371,45 @@ def test_repeating_the_solid_solve_is_deterministic(
     assert first.temperature == second.temperature
     assert first.molar_mass == second.molar_mass
     assert first.condensed_mass_fraction == second.condensed_mass_fraction
+
+
+# ---------------------------------------------------------------------------
+# molecular weight: provided by the source, or derived by CEA
+# ---------------------------------------------------------------------------
+
+
+@requires_cea
+def test_a_custom_reactant_without_a_molecular_weight_still_solves(
+        cea_module, request_example5, base_provenance):
+    """Not refused for lacking a molecular weight: CEA derives one.
+
+    The answer moves, and should: CEA's derivation from the formula is not
+    NASA's stated 14.6652984484 g/mol, and the chamber state inherits that
+    difference. Provenance records which of the two was used.
+    """
+    import dataclasses
+    import json as _json
+
+    provided = solve_solid_chamber(cea_module, request_example5,
+                                   provenance=base_provenance)
+
+    ingredients = list(RP1311_EXAMPLE5.ingredients)
+    binder = ingredients[1]
+    ingredients[1] = dataclasses.replace(
+        binder, custom=dataclasses.replace(binder.custom, molecular_weight=None))
+    derived_request = dataclasses.replace(
+        request_example5,
+        formulation=dataclasses.replace(RP1311_EXAMPLE5,
+                                        ingredients=tuple(ingredients)))
+    derived = solve_solid_chamber(cea_module, derived_request,
+                                  provenance=base_provenance)
+
+    assert derived.temperature != provided.temperature
+    assert derived.temperature == pytest.approx(provided.temperature, rel=1e-3)
+
+    def origin(gas):
+        record = gas.provenance.options["solid_custom_reactant:CHOS-Binder"]
+        return record
+    assert "'molecular_weight_origin': 'provided'" in origin(provided)
+    assert "'molecular_weight_origin': 'derived'" in origin(derived)
+    assert "'molecular_weight': None" in origin(derived)

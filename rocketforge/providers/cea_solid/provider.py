@@ -275,14 +275,19 @@ def _materialise_reactants(cea_module: ModuleType,
         if item.custom is None:
             out.append(item.name)
             continue
-        out.append(cea_module.Reactant(
+        custom = item.custom
+        kwargs = dict(
             name=item.name,
-            formula=dict(item.custom.formula),
-            molecular_weight=item.custom.molecular_weight,
-            enthalpy=item.custom.enthalpy,
-            enthalpy_units=item.custom.enthalpy_units,
-            temperature=item.custom.temperature,
-        ))
+            formula=dict(custom.formula),
+            enthalpy=custom.heat_of_formation,
+            enthalpy_units=custom.heat_of_formation_units,
+            temperature=custom.reference_temperature,
+        )
+        # Passed only when the source states it. Absent, CEA derives it from
+        # the formula -- and provenance records which of the two happened.
+        if custom.molecular_weight is not None:
+            kwargs["molecular_weight"] = custom.molecular_weight
+        out.append(cea_module.Reactant(**kwargs))
     return out
 
 
@@ -481,10 +486,11 @@ def solve_solid_chamber(cea_module: ModuleType,
         custom = item.custom
         options[f"solid_custom_reactant:{item.name}"] = repr({
             "formula": dict(custom.formula),
+            "heat_of_formation": custom.heat_of_formation,
+            "heat_of_formation_units": custom.heat_of_formation_units,
+            "reference_temperature": custom.reference_temperature,
             "molecular_weight": custom.molecular_weight,
-            "enthalpy": custom.enthalpy,
-            "enthalpy_units": custom.enthalpy_units,
-            "temperature": custom.temperature,
+            "molecular_weight_origin": custom.molecular_weight_origin,
         })
         options[f"solid_custom_reactant_source:{item.name}"] = custom.source
     options["solid_omit_species_count"] = str(len(chamber_input.omit_species))
@@ -560,7 +566,7 @@ def solid_assigned_enthalpy_diagnostics(
     for item, temperature in zip(chamber_input.formulation.ingredients,
                                  chamber_input.reactant_temperatures):
         if item.custom is not None:
-            assigned = item.custom.temperature
+            assigned = item.custom.reference_temperature
             origin = "its source assigns its enthalpy"
         else:
             assigned = assigned_enthalpy_temperature(cea_module, item.name)

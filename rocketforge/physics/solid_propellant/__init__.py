@@ -20,6 +20,8 @@ from __future__ import annotations
 
 from .formulation import (
     MASS_FRACTION_SUM_TOL,
+    MW_DERIVED,
+    MW_PROVIDED,
     CustomReactant,
     MassFractionSumError,
     SolidFormulation,
@@ -36,4 +38,6 @@ __all__ = [
     "SolidFormulation",
     "SolidFormulationEquilibriumRequest",
     "MASS_FRACTION_SUM_TOL",
+    "MW_PROVIDED",
+    "MW_DERIVED",
 ]
