@@ -6,7 +6,7 @@ What was checked, against what, and what the differences actually are.
 
 | Term | What it is |
 | --- | --- |
-| **official** | NASA's shipped `cea/samples/rp1311/example5.py`, run unmodified, at the precision it prints. Archived verbatim as `acceptance/solid_propellant_r1/rp1311_example5_official_output.txt`. The RP-1311 printed table itself was not available offline in this workspace; the shipped example is NASA's own executable reproduction of it, and that limit is stated rather than papered over. |
+| **official** | NASA's shipped `cea/samples/rp1311/example5.py`, run unmodified, at the precision it prints. Written verbatim to `acceptance/solid_propellant_r1/rp1311_example5_official_output.txt` by `example5_species_validation.py` (that directory is gitignored; the committed record of the printed values is the generated `rocketforge/comparison/rp1311.py`). The RP-1311 printed table itself was not available offline in this workspace; the shipped example is NASA's own executable reproduction of it, and that limit is stated rather than papered over. |
 | **direct CEA** | What the installed `cea` 3.3.4 returns, full precision, solved with no RocketForge code in the solve. |
 | **RocketForge** | What `rocketforge.providers.cea_solid.solve_solid_chamber` returns. |
 
@@ -185,7 +185,9 @@ is carried by the provider, though RocketForge reports `MW`.
 
 ## The `n_frz` hazard, recorded before R1.1 can trip on it
 
-R1 calls no rocket solver, so nothing here depends on this. It is pinned now
+R1 calls no rocket solver, so nothing here depends on this. (Phase 1 added the
+equilibrium c\*, which is fixed at the throat and so is unaffected; the hazard
+still belongs to any future expansion work.) It is pinned now
 because it is cheap to pin and expensive to discover later.
 
 `n_frz=2` in Example 12 means "frozen from the throat". CEA numbers stations

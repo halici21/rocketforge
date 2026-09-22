@@ -6,6 +6,26 @@ project does not yet follow strict Semantic Versioning (Engine Design mode
 is not feature-complete, so a 1.0.0 would overstate it — see
 [Known limitations](README.md#known-limitations)).
 
+## [Unreleased]
+
+### Added
+- Solid propellant thermochemistry: multi-component solid formulations
+  solved to NASA CEA HP chamber equilibrium, with gas and condensed products
+  and full provenance. Custom reactants require a formula, a heat of
+  formation, a reference temperature and a source; no binder presets are
+  shipped. NASA RP-1311 Example 5 is included as the reference case. See
+  [docs/engineering/design/SOLID_PROPELLANT_PHASE1.md](docs/engineering/design/SOLID_PROPELLANT_PHASE1.md).
+- CEA equilibrium characteristic velocity (c*) for solid formulations,
+  shown with its limitations. It is not a motor Isp. Frozen c* is refused.
+- `rocketforge/comparison`: comparison against reference cases. Direct CEA
+  and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
+  experiments get differences only.
+
+### Not included
+- Solid motor performance: Isp, thrust, thrust curve, Pc(t), nozzle
+  expansion and internal ballistics. Rocket Performance refuses a solid
+  chamber.
+
 ## [v0.1.0] — 2026-09-14
 
 First downloadable build.

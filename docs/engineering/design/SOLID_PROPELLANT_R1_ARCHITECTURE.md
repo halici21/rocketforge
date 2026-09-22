@@ -163,10 +163,11 @@ The dataclasses live in `formulation.py`.
 class CustomReactant:
     """A NASA-style ingredient defined by formula + assigned enthalpy."""
     formula: Mapping[str, float]      # element -> atoms per formula unit
-    molecular_weight: float           # g/mol, of that formula unit
-    enthalpy: float                   # assigned enthalpy, as given
-    enthalpy_units: str               # "cal/mol" | "kJ/mol" | "J/mol"
-    temperature: float                # K, the assigned-enthalpy temperature
+    # Field names as of Phase 1 (commit 7825c27); R1 called these
+    # enthalpy / enthalpy_units / temperature, and required molecular_weight.
+    heat_of_formation: float          # at reference_temperature, as given
+    heat_of_formation_units: str      # "cal/mol" | "kcal/mol" | "J/mol" | "kJ/mol"
+    reference_temperature: float      # K
     source: str                       # required: where the data comes from
 
 @dataclass(frozen=True)
@@ -248,9 +249,9 @@ Per section 16, R1 represents it **exactly as the official example does**:
 | name | `CHOS-Binder` |
 | formula | C 1.0, H 1.86955, O 0.031256, S 0.008415 |
 | molecular_weight | 14.6652984484 |
-| enthalpy | -2999.082 |
-| enthalpy_units | `cal/mol` |
-| temperature | 298.15 K |
+| heat_of_formation | -2999.082 |
+| heat_of_formation_units | `cal/mol` |
+| reference_temperature | 298.15 K |
 
 It is **not** relabelled HTPB, PBAN, or any other real binder. The name in the
 UI is the name in the source document, so a reader comparing RocketForge's
@@ -300,6 +301,12 @@ Reporting rules, carried over from the accepted condensed-phase semantics:
   threshold" stay distinct states, as `rf-scientific-ui-contract` requires.
 
 ## CEA reference performance — explicitly out of scope
+
+> **Updated in Phase 1 (2026-09-22).** The CEA *equilibrium characteristic
+> velocity* was added, and nothing else: the rocket solver is confined to
+> `rocketforge/providers/cea_solid/cstar.py`, which may read only the chamber
+> temperature, c\* and the convergence signals. Isp, C_f, expansion and the
+> rest of this section still stand. See `SOLID_PROPELLANT_PHASE1.md`.
 
 `cea.RocketSolver` is **not called anywhere in R1**. No c\*, Cf, ceff, Isp,
 equilibrium expansion, or frozen expansion is computed, stored, serialised, or

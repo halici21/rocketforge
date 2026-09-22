@@ -210,7 +210,9 @@ and 1366×768, dark and light, covering unsolved, solved, composition, stale,
 unbalanced, refused, assigned-enthalpy warning, an added ingredient, and the
 bipropellant workspace for comparison.
 
-Archived for reproduction, in `acceptance/solid_propellant_r1/`:
+Regenerated locally, in `acceptance/solid_propellant_r1/` — a directory the
+repository gitignores, so these files are produced by the committed scripts
+under `experiments/solid_propellant_r1/` rather than committed themselves:
 `rp1311_example5_input.json` (the exact direct-CEA input),
 `rp1311_example5_official_output.txt` (NASA's example, stdout verbatim),
 `example5_validation.json` (every difference) and `opening_baseline.json` (the
