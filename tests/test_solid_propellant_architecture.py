@@ -58,33 +58,96 @@ def test_the_solid_packages_actually_exist():
         assert path.read_text(encoding="utf-8").strip()
 
 
-@pytest.mark.parametrize("path", SOLID_SOURCES, ids=lambda p: p.name)
-def test_no_solid_module_reaches_for_the_rocket_solver(path):
-    """Section 7: no reference performance in R1.
+#: The one module allowed to call the rocket solver, because CEA reports c*
+#: only from it. Everywhere else it stays forbidden.
+CSTAR_MODULE = "cstar.py"
 
-    ``RocketSolver`` would solve an expansion nobody asked for and would make
-    the chamber state a by-product of a nozzle calculation R1 does not own.
+
+@pytest.mark.parametrize("path", SOLID_SOURCES, ids=lambda p: p.name)
+def test_only_the_cstar_module_reaches_for_the_rocket_solver(path):
+    """c* is allowed; nothing else the rocket solver computes is.
+
+    CEA reports c* only from ``RocketSolver``, which will also return Isp, a
+    thrust coefficient and exit conditions for whatever exit it is handed. So
+    the solver is confined to one module, and the next test forbids that module
+    from reading anything but the chamber and c*.
     """
     code = code_only(path)
-    assert "RocketSolver" not in code
+    if path.name != CSTAR_MODULE:
+        assert "RocketSolver" not in code, path.name
     assert "FROZEN" not in code
+
+
+#: What the rocket solver exposes and no solid module may read. Matched as
+#: attribute accesses in executable code, so the docstrings stay free to name
+#: what the modules deliberately do not do.
+FORBIDDEN_SOLUTION_ATTRIBUTES = (
+    "Isp", "Isp_vacuum", "coefficient_of_thrust", "ae_at", "Mach",
+    "sonic_velocity",
+)
+
+
+def reads_attribute(code: str, name: str) -> bool:
+    """Whether tokenised code reads ``.name``.
+
+    :func:`code_only` joins every token with one space, so ``solution.Isp[0]``
+    arrives as ``solution . Isp [ 0 ]``. A pattern written for the raw source
+    -- ``".Isp["`` -- never matches that, which is exactly the vacuous guard
+    the negative control below was written to catch, and did.
+    """
+    import re
+
+    return re.search(rf"\. {name}\b", code) is not None
+
+#: Identifiers that would mean a motor or nozzle claim, anywhere in solid code.
+FORBIDDEN_IDENTIFIERS = (
+    "specific_impulse", "thrust_coefficient", "def isp", "expansion_ratio",
+    "area_ratio", "thrust_curve", "burn_rate",
+)
 
 
 @pytest.mark.parametrize("path", SOLID_SOURCES, ids=lambda p: p.name)
 def test_no_solid_module_computes_a_performance_quantity(path):
-    """Section 24: no performance panel, and nothing behind one either.
+    """c* yes; Isp, thrust coefficient, thrust, expansion, internal ballistics no.
 
-    Checked on identifiers rather than prose, so the modules stay free to
-    explain in their docstrings exactly what they do not do -- which they do.
+    Those belong to later phases and need nozzle and internal-ballistic
+    modelling this one does not have.
     """
-    code = code_only(path).lower()
+    code = code_only(path)
+    for attribute in FORBIDDEN_SOLUTION_ATTRIBUTES:
+        assert not reads_attribute(code, attribute), (
+            f"{path.name} reads {attribute!r} from a CEA rocket solution")
+    lowered = code.lower()
+    for identifier in FORBIDDEN_IDENTIFIERS:
+        assert identifier not in lowered, (
+            f"{path.name} names {identifier!r}; not part of this phase")
 
-    for forbidden in ("c_star", "cstar", "characteristic_velocity",
-                      "specific_impulse", "thrust_coefficient",
-                      "def isp", "expansion_ratio", "area_ratio"):
-        assert forbidden not in code, (
-            f"{path.name} names {forbidden!r}; solid reference performance is "
-            "deferred to R1.1")
+
+def test_the_cstar_module_reads_only_the_chamber_and_cstar():
+    """A positive statement of what may come out of the rocket solve."""
+    import re
+
+    path = next(p for p in SOLID_SOURCES if p.name == CSTAR_MODULE)
+    code = code_only(path)
+    read = set(re.findall(r"solution \. ([A-Za-z_]+)", code))
+    # The chamber temperature (cross-checked against the HP solve), c* itself,
+    # and the two convergence signals. Nothing at the throat or exit.
+    assert read == {"T", "c_star", "converged", "last_error"}, read
+
+
+def test_the_architecture_guards_can_fail():
+    """A negative control on the performance guard itself."""
+    import io
+    import tokenize
+
+    offending = "value = solution.Isp[0]" + chr(10)
+    tokens = [tok.string for tok in tokenize.generate_tokens(
+        io.StringIO(offending).readline)
+        if tok.type not in (tokenize.COMMENT, tokenize.STRING)]
+    code = " ".join(tokens)
+    assert reads_attribute(code, "Isp")
+    assert not reads_attribute(code, "Isp_vacuum")   # whole name, not prefix
+    assert not reads_attribute("solution . c_star [ 0 ]", "Isp")
 
 
 def test_the_solid_work_added_nothing_inside_a_frozen_package():

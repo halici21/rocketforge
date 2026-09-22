@@ -16,6 +16,12 @@ not be reused and why.
 
 from __future__ import annotations
 
+from .cstar import (
+    CONDENSED_ASSUMPTION,
+    CSTAR_BASIS,
+    SolidCharacteristicVelocity,
+    solve_solid_equilibrium_cstar,
+)
 from .formulations import (
     RP1311_EXAMPLE5,
     RP1311_EXAMPLE5_BINDER,
@@ -48,6 +54,10 @@ __all__ = [
     "solid_assigned_enthalpy_diagnostics",
     "check_condensed_count",
     "library_species_available",
+    "SolidCharacteristicVelocity",
+    "solve_solid_equilibrium_cstar",
+    "CSTAR_BASIS",
+    "CONDENSED_ASSUMPTION",
     "RP1311_EXAMPLE5",
     "RP1311_EXAMPLE5_BINDER",
     "RP1311_EXAMPLE5_OMIT",
