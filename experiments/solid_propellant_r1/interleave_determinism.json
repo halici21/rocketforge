@@ -1,0 +1,10 @@
+{
+  "A_equals_A_prime": true,
+  "A_equals_opening_baseline": true,
+  "digest_A": "2ae9f38f36292b4a02b8a8bea97f531c0933ed5233d6cb3b2940a52cf5100854",
+  "digest_A_after_solid": "2ae9f38f36292b4a02b8a8bea97f531c0933ed5233d6cb3b2940a52cf5100854",
+  "negative_control_detects_change": true,
+  "opening_baseline_digest": "2ae9f38f36292b4a02b8a8bea97f531c0933ed5233d6cb3b2940a52cf5100854",
+  "solid_temperature_k": 2723.0209993067942,
+  "verdict": "PASS"
+}

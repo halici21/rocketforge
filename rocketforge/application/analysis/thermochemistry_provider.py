@@ -40,6 +40,15 @@ __all__ = [
     "CHEMISTRY_MODE_LABEL",
     "CONSTRAINT_LABEL",
     "NOT_INSTALLED_REMEDY",
+    "solid_formulation_templates",
+    "solid_omit_species",
+    "solid_species_table",
+    "solve_solid_chamber_state",
+    "provider_provenance",
+    "solid_ingredient_catalogue",
+    "solid_phase_label",
+    "solid_validated_pressures",
+    "solid_assigned_enthalpy_diagnostics",
 ]
 
 #: What the interface calls the provider. The machine id stays ``"cea"``.
@@ -138,10 +147,11 @@ def reset_provider_state() -> None:
     Exists for tests, which need to simulate a machine with and without the
     library inside one process. Nothing in the application calls it.
     """
-    global _availability, _provider, _options
+    global _availability, _provider, _options, _solid_catalogue
     _availability = None
     _provider = None
     _options = None
+    _solid_catalogue = None
 
 
 def availability(*, refresh: bool = False) -> ProviderAvailability:
@@ -274,3 +284,170 @@ def provider_temperature_range(key: str) -> tuple[float, float] | None:
     """The provider's declared stream-temperature range for a reactant."""
     option = propellant_named(key)
     return None if option is None else option.temperature_range
+
+
+# ---------------------------------------------------------------------------
+# the solid path
+# ---------------------------------------------------------------------------
+#
+# These sit here, in the gateway, for the same reason everything else provider-
+# shaped does: this module is the one door to ``rocketforge.providers``, so
+# there is one place to change when the provider changes. The solid service
+# above calls these and never names the provider package itself.
+
+
+def solid_formulation_templates() -> dict[str, Any]:
+    """The reference solid formulations this build offers, by key.
+
+    R1 ships exactly one, and it is a published validation case rather than a
+    design starting point. Imported lazily, like every other provider import in
+    this module.
+    """
+    from rocketforge.providers.cea_solid import RP1311_EXAMPLE5
+
+    return {"rp1311-example5": RP1311_EXAMPLE5}
+
+
+def solid_omit_species(formulation_key: str | None) -> tuple[str, ...]:
+    """Products a reference case excludes, verbatim from its published input.
+
+    Reproducing a published number requires reproducing its omissions. A
+    formulation that is not a published case carries none.
+    """
+    if formulation_key != "rp1311-example5":
+        return ()
+    from rocketforge.providers.cea_solid import RP1311_EXAMPLE5_OMIT
+
+    return RP1311_EXAMPLE5_OMIT
+
+
+def solid_validated_pressures(formulation_key: str | None) -> tuple[float, ...]:
+    """Pa. The chamber pressures a reference case publishes results at."""
+    if formulation_key != "rp1311-example5":
+        return ()
+    from rocketforge.providers.cea.units import pressure_from_bar
+    from rocketforge.providers.cea_solid import RP1311_EXAMPLE5_PRESSURES_BAR
+
+    return tuple(pressure_from_bar(p) for p in RP1311_EXAMPLE5_PRESSURES_BAR)
+
+
+def provider_provenance() -> Any:
+    """The provider's own base provenance record, or ``None``.
+
+    Who solved this, with which library and database -- available before
+    anything is solved. The solid path enriches it with the formulation.
+    """
+    provider = chamber_provider()
+    return provider.provenance() if provider is not None else None
+
+
+def _cea_module() -> Any:
+    """The imported CEA module the provider is actually using, or ``None``.
+
+    Taken from the live provider rather than imported afresh, so the solid path
+    and the bipropellant path are demonstrably driving the same library
+    instance -- which is the premise the A/solid/A determinism check rests on.
+    """
+    provider = chamber_provider()
+    if provider is None:
+        return None
+    # The provider imports CEA lazily, on its first solve. ``load_cea`` is the
+    # frozen adapter's own single import point, and a module is a singleton,
+    # so this is the same object the provider solves with -- loaded now rather
+    # than left as ``None`` until something happens to have solved first.
+    from rocketforge.providers.cea.availability import load_cea
+
+    return load_cea()
+
+
+def solve_solid_chamber_state(request: Any, provenance: Any) -> Any:
+    """Run one solid chamber equilibrium. Raises; the service packages errors."""
+    module = _cea_module()
+    if module is None:
+        raise RuntimeError("no NASA CEA module is loaded")
+    from rocketforge.providers.cea_solid import solve_solid_chamber
+
+    return solve_solid_chamber(module, request, provenance=provenance)
+
+
+def solid_species_table(names: tuple[str, ...], *, database: str = "",
+                        database_version: str = "") -> dict[str, Any]:
+    """``Species`` records for a solid result's product set.
+
+    Not the provider's own table, which refuses any species without a curated
+    elemental formula and curates 33 C/H/O species. An aluminised perchlorate
+    grain returns around 205 products spanning Al, Cl, N, Mg and S, so that
+    table would refuse the entire result.
+    """
+    module = _cea_module()
+    if module is None:
+        return {}
+    from rocketforge.providers.cea_solid import build_solid_species_table
+
+    return build_solid_species_table(module, names, database=database,
+                                     database_version=database_version)
+
+
+#: Library ingredients the solid editor may offer, in display order. Each is
+#: offered only if the installed ``thermo.lib`` actually holds it; the provider
+#: package does the probing, because this layer touches no CEA object.
+_SOLID_LIBRARY_CANDIDATES = (
+    "NH4CLO4(I)", "NH4NO3(I)", "AL(cr)", "Mg(cr)", "MgO(cr)",
+    "B(b)", "C(gr)", "H2O(L)",
+)
+
+_solid_catalogue: dict[str, Any] | None = None
+
+
+def solid_ingredient_catalogue() -> dict[str, Any]:
+    """Every ingredient a grain may contain, keyed as a ``SolidCase`` keys them.
+
+    Library species by CEA name; custom reactants as ``custom:<name>``, taken
+    only from sourced reference formulations. Cached: the probe is a CEA call
+    per species and the answer cannot change within a process.
+    """
+    global _solid_catalogue
+    if _solid_catalogue is not None:
+        return _solid_catalogue
+    from rocketforge.physics.solid_propellant import SolidIngredient
+
+    catalogue: dict[str, Any] = {}
+    module = _cea_module()
+    if module is not None:
+        from rocketforge.providers.cea_solid import library_species_available
+
+        for name in library_species_available(module, _SOLID_LIBRARY_CANDIDATES):
+            catalogue[name] = SolidIngredient(name, 0.0)
+    for formulation in solid_formulation_templates().values():
+        for item in formulation.ingredients:
+            if item.custom is not None:
+                catalogue.setdefault(
+                    f"custom:{item.name}",
+                    SolidIngredient(item.name, 0.0, custom=item.custom))
+            elif module is None:
+                catalogue.setdefault(item.name, SolidIngredient(item.name, 0.0))
+    _solid_catalogue = catalogue
+    return catalogue
+
+
+def solid_phase_label(name: str) -> str:
+    """The phase a CEA name declares, as a word, or empty if unrecognised."""
+    from rocketforge.providers.cea_solid import solid_phase_of_cea_name
+
+    try:
+        return solid_phase_of_cea_name(name).value
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def solid_assigned_enthalpy_diagnostics(request: Any) -> tuple[Any, ...]:
+    """Ingredients whose temperature could not enter the solve."""
+    module = _cea_module()
+    if module is None:
+        return ()
+    from rocketforge.providers.cea_solid import (
+        build_solid_chamber_input,
+        solid_assigned_enthalpy_diagnostics as _diagnostics,
+    )
+
+    return _diagnostics(module, build_solid_chamber_input(request))

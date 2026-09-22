@@ -35,6 +35,13 @@ Item {
     property string oxidiserLabel: ""
     property string fuelLabel: ""
     property string ofText: ""
+
+    // A solid grain is one pre-mixed material, not two streams meeting. Drawing
+    // an oxidiser inlet and a fuel inlet for one would claim a feed topology the
+    // propellant does not have -- and CEA reports o/f = 0.000 for a solid case,
+    // so there is no ratio to annotate either.
+    property bool singleStream: false
+    property string streamLabel: ""
     property string chamberPressureText: ""
     property string providerLabel: ""
     property string productsSummary: ""
@@ -84,16 +91,25 @@ Item {
             var active = root.hasResult && !root.stale
 
             // ---- reactant inlet lines ----------------------------------
+            // Two streams for a bipropellant; one for a solid grain, on the
+            // axis, because the grain is a single pre-mixed charge.
             ctx.strokeStyle = canvas.wallColor
             ctx.lineWidth = 1.4
-            ctx.beginPath()
-            ctx.moveTo(leftX, inletTopY)
-            ctx.lineTo(chamberLeft, inletTopY)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.moveTo(leftX, inletBottomY)
-            ctx.lineTo(chamberLeft, inletBottomY)
-            ctx.stroke()
+            if (root.singleStream) {
+                ctx.beginPath()
+                ctx.moveTo(leftX, axis)
+                ctx.lineTo(chamberLeft, axis)
+                ctx.stroke()
+            } else {
+                ctx.beginPath()
+                ctx.moveTo(leftX, inletTopY)
+                ctx.lineTo(chamberLeft, inletTopY)
+                ctx.stroke()
+                ctx.beginPath()
+                ctx.moveTo(leftX, inletBottomY)
+                ctx.lineTo(chamberLeft, inletBottomY)
+                ctx.stroke()
+            }
 
             // ---- chamber box --------------------------------------------
             ctx.beginPath()
@@ -130,19 +146,17 @@ Item {
                 ctx.closePath()
                 ctx.fill()
 
-                // small arrowheads on the two reactant inlets too
-                ctx.beginPath()
-                ctx.moveTo(chamberLeft - 1, inletTopY)
-                ctx.lineTo(chamberLeft - 11, inletTopY - 4.5)
-                ctx.lineTo(chamberLeft - 11, inletTopY + 4.5)
-                ctx.closePath()
-                ctx.fill()
-                ctx.beginPath()
-                ctx.moveTo(chamberLeft - 1, inletBottomY)
-                ctx.lineTo(chamberLeft - 11, inletBottomY - 4.5)
-                ctx.lineTo(chamberLeft - 11, inletBottomY + 4.5)
-                ctx.closePath()
-                ctx.fill()
+                // small arrowheads on the reactant inlets too
+                var inletYs = root.singleStream
+                    ? [axis] : [inletTopY, inletBottomY]
+                for (var i = 0; i < inletYs.length; ++i) {
+                    ctx.beginPath()
+                    ctx.moveTo(chamberLeft - 1, inletYs[i])
+                    ctx.lineTo(chamberLeft - 11, inletYs[i] - 4.5)
+                    ctx.lineTo(chamberLeft - 11, inletYs[i] + 4.5)
+                    ctx.closePath()
+                    ctx.fill()
+                }
             }
         }
     }
@@ -157,10 +171,34 @@ Item {
         readonly property real chamberHalf: Math.min(height * 0.22, 52)
         readonly property real axis: height * 0.5
 
+        // The grain: one inlet, one label, and no ratio.
         Column {
             x: 4
             y: stations.axis - stations.chamberHalf * 0.55 - implicitHeight - 6
             spacing: 1
+            visible: root.singleStream
+            Text {
+                text: "GRAIN"
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.sectionLabel
+                font.letterSpacing: Typography.sectionTracking
+                font.weight: Typography.medium
+            }
+            Text {
+                visible: root.hasResult
+                text: root.streamLabel
+                color: Theme.textSecondary
+                font.family: Typography.mono
+                font.pixelSize: Typography.readoutSmall
+            }
+        }
+
+        Column {
+            x: 4
+            y: stations.axis - stations.chamberHalf * 0.55 - implicitHeight - 6
+            spacing: 1
+            visible: !root.singleStream
             Text {
                 text: "OXIDIZER"
                 color: Theme.textSecondary
@@ -182,6 +220,7 @@ Item {
             x: 4
             y: stations.axis + stations.chamberHalf * 0.55 + 6
             spacing: 1
+            visible: !root.singleStream
             Text {
                 text: "FUEL"
                 color: Theme.textSecondary

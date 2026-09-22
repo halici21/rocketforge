@@ -277,6 +277,7 @@ def test_the_new_modules_exist():
     assert names == {
         "thermochemistry_provider.py",
         "thermochemistry_service.py",
+        "thermochemistry_solid_service.py",
         "thermochemistry_sweep.py",
         "thermochemistry_reference.py",
         "thermochemistry_controller.py",

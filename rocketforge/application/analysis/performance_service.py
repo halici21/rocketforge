@@ -331,6 +331,21 @@ def solve_performance(chamber: ChamberOutcome | None,
                     "equilibrium. Solve one on the Thermochemistry tab first "
                     "- nothing here is estimated in its place.")
 
+    if getattr(chamber.case, "propellant_kind", "") == "solid":
+        # A solid formulation's chamber state. Refused here, explicitly, and not
+        # left to the reduction's condensed-phase gate: that gate stops an
+        # aluminised grain, but a non-metalised one arrives with no condensed
+        # mass at all and would otherwise pass straight through and publish an
+        # ideal-rocket result for a solid propellant. Solid reference
+        # performance is deferred to R1.1, pending an authoritative solid
+        # expansion benchmark; until then there is no validated claim to make.
+        return PerformanceOutcome(
+            kind=OUTCOME_NOZZLE_REFUSED, case=case, chamber=chamber,
+            message="The current chamber state is a solid-propellant "
+                    "formulation. Solid rocket performance is not part of "
+                    "this build: only its chamber thermochemistry is "
+                    "validated. Nothing is estimated in its place.")
+
     reduction = reduce_chamber_gas(
         chamber.state, case.gamma_strategy, case.gamma_basis,
         chamber_pressure=chamber.case.chamber_pressure if chamber.case else None)

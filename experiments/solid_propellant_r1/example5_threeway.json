@@ -1,0 +1,94 @@
+{
+  "al2o3_mass_fraction": 0.16798697793216655,
+  "al2o3_mole_fraction": 0.036724020599401566,
+  "bitwise_identical": true,
+  "condensed_mass_fraction": 0.16798697793216655,
+  "direct": {
+    "MW": 22.290074372803055,
+    "T_K": 2723.0209993067942,
+    "density_g_per_cc": 0.0035233876650271126,
+    "gamma_s": 1.1928007719171934
+  },
+  "official": {
+    "AL2O3(L)_mole_fraction": 0.036724,
+    "MW": 22.29,
+    "M_1_over_n": 23.14,
+    "P_atm": 34.023,
+    "T_K": 2723.021,
+    "density_g_per_cc": 0.003523,
+    "gamma_s": 1.1928,
+    "of_ratio": 0.0
+  },
+  "rocketforge": {
+    "MW": 22.290074372803055,
+    "T_K": 2723.0209993067942,
+    "density_g_per_cc": 0.0035233876650271126,
+    "gamma_s": 1.1928007719171934
+  },
+  "rows": [
+    {
+      "direct_vs_rocketforge": {
+        "abs_diff": 0.0,
+        "official": 2723.0209993067942,
+        "quantity": "T_K",
+        "rel_diff": 0.0,
+        "value": 2723.0209993067942
+      },
+      "official_vs_direct": {
+        "abs_diff": -6.932059477549046e-07,
+        "official": 2723.021,
+        "quantity": "T_K",
+        "rel_diff": -2.545723840377671e-10,
+        "value": 2723.0209993067942
+      }
+    },
+    {
+      "direct_vs_rocketforge": {
+        "abs_diff": 0.0,
+        "official": 22.290074372803055,
+        "quantity": "MW",
+        "rel_diff": 0.0,
+        "value": 22.290074372803055
+      },
+      "official_vs_direct": {
+        "abs_diff": 7.437280305566674e-05,
+        "official": 22.29,
+        "quantity": "MW",
+        "rel_diff": 3.3365995090025455e-06,
+        "value": 22.290074372803055
+      }
+    },
+    {
+      "direct_vs_rocketforge": {
+        "abs_diff": 0.0,
+        "official": 1.1928007719171934,
+        "quantity": "gamma_s",
+        "rel_diff": 0.0,
+        "value": 1.1928007719171934
+      },
+      "official_vs_direct": {
+        "abs_diff": 7.719171932762947e-07,
+        "official": 1.1928,
+        "quantity": "gamma_s",
+        "rel_diff": 6.471472109962229e-07,
+        "value": 1.1928007719171934
+      }
+    },
+    {
+      "direct_vs_rocketforge": {
+        "abs_diff": 0.0,
+        "official": 0.0035233876650271126,
+        "quantity": "density_g_per_cc",
+        "rel_diff": 0.0,
+        "value": 0.0035233876650271126
+      },
+      "official_vs_direct": {
+        "abs_diff": 3.8766502711250206e-07,
+        "official": 0.003523,
+        "quantity": "density_g_per_cc",
+        "rel_diff": 0.00011003832730982176,
+        "value": 0.0035233876650271126
+      }
+    }
+  ]
+}

@@ -92,13 +92,34 @@ Item {
                     width: parent.width
                     spacing: Metrics.spacing.m
 
-                    RFSectionLabel { text: "Reactants" }
+                    // Which kind of propellant is in the chamber. Both modes
+                    // answer the same question -- the equilibrium state of the
+                    // chamber -- so they share every result surface below and
+                    // differ only in what goes in.
+                    RFComboBox {
+                        Layout.fillWidth: true
+                        label: "Propellant"
+                        model: ["Bipropellant", "Solid"]
+                        currentIndex: Thermochemistry.isSolid ? 1 : 0
+                        onCurrentIndexChanged: {
+                            Thermochemistry.formulationKind =
+                                currentIndex === 1 ? "solid" : "bipropellant"
+                        }
+                    }
+
+                    RFDivider {}
+
+                    RFSectionLabel {
+                        text: "Reactants"
+                        visible: !Thermochemistry.isSolid
+                    }
 
                     // Substance and its actual stream temperature on one line.
                     // The temperature is never hidden -- not even for a reactant
                     // whose temperature the provider will ignore, because the
                     // user has to be able to set it and see what happened to it.
                     RowLayout {
+                        visible: !Thermochemistry.isSolid
                         Layout.fillWidth: true
                         spacing: Metrics.spacing.s
 
@@ -129,6 +150,7 @@ Item {
                     }
 
                     Text {
+                        visible: !Thermochemistry.isSolid
                         Layout.fillWidth: true
                         text: view.reactantNote(Thermochemistry.oxidiserProviderName,
                                                 Thermochemistry.oxidiserRangeText)
@@ -139,6 +161,7 @@ Item {
                     }
 
                     RowLayout {
+                        visible: !Thermochemistry.isSolid
                         Layout.fillWidth: true
                         spacing: Metrics.spacing.s
 
@@ -169,6 +192,7 @@ Item {
                     }
 
                     Text {
+                        visible: !Thermochemistry.isSolid
                         Layout.fillWidth: true
                         text: view.reactantNote(Thermochemistry.fuelProviderName,
                                                 Thermochemistry.fuelRangeText)
@@ -178,12 +202,223 @@ Item {
                         font.pixelSize: Typography.meta
                     }
 
-                    RFDivider {}
+                    RFDivider { visible: !Thermochemistry.isSolid }
+
+                    // ---- solid formulation ----------------------------
+                    //
+                    // Mass percent is what a propellant chemist writes, so it
+                    // is what the editor shows. The division by 100 happens
+                    // once, at the controller boundary; no percent reaches a
+                    // solver.
+
+                    RFSectionLabel {
+                        text: "Formulation"
+                        visible: Thermochemistry.isSolid
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: Thermochemistry.isSolid
+                        spacing: Metrics.spacing.xs
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: Thermochemistry.solidFormulationLabel
+                            wrapMode: Text.WordWrap
+                            color: Theme.text
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.body
+                        }
+
+                        // A validation case and a design starting point are
+                        // different things, and a reader who mistakes one for
+                        // the other will draw the wrong conclusion from
+                        // editing it. So the reference is stated, not implied.
+                        Text {
+                            Layout.fillWidth: true
+                            visible: Thermochemistry.solidReferenceNote !== ""
+                            text: Thermochemistry.solidReferenceNote
+                            wrapMode: Text.WordWrap
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+                    }
+
+                    // The grain, as editable mass percents. Editing one row
+                    // does not rescale the others -- that would silently change
+                    // inputs the user did not touch. The running total is shown
+                    // instead, and a grain that does not close refuses to solve.
+                    Repeater {
+                        model: Thermochemistry.isSolid
+                               ? Thermochemistry.solidIngredients : []
+
+                        delegate: RowLayout {
+                            id: ingredientRow
+
+                            required property var modelData
+
+                            Layout.fillWidth: true
+                            spacing: Metrics.spacing.s
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 0
+
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: ingredientRow.modelData.name
+                                    elide: Text.ElideRight
+                                    color: Theme.text
+                                    font.family: Typography.mono
+                                    font.pixelSize: Typography.meta
+                                }
+
+                                // Where the thermochemistry comes from: a
+                                // thermo.lib record, or a custom definition
+                                // carried verbatim from its source.
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: ingredientRow.modelData.representation
+                                    elide: Text.ElideRight
+                                    color: Theme.textMuted
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.meta
+                                }
+
+                                // The temperature CEA is given for this
+                                // reactant -- and, for an assigned-enthalpy
+                                // reactant, the one it actually uses. Stated in
+                                // words, not only by colour.
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: ingredientRow.modelData.temperatureIgnored
+                                          ? "T " + ingredientRow.modelData.temperatureText
+                                            + " · held at "
+                                            + ingredientRow.modelData.assignedTemperatureText
+                                          : "T " + ingredientRow.modelData.temperatureText
+                                    wrapMode: Text.WordWrap
+                                    color: ingredientRow.modelData.temperatureIgnored
+                                           ? Theme.warning : Theme.textMuted
+                                    font.family: Typography.mono
+                                    font.pixelSize: Typography.meta
+                                }
+                            }
+
+                            RFBoundNumberField {
+                                Layout.preferredWidth: 92
+                                label: "mass %"
+                                value: ingredientRow.modelData.percent
+                                digits: 3
+                                decimals: 3
+                                step: 0.1
+                                onValueEdited: function (v) {
+                                    Thermochemistry.setSolidMassPercent(
+                                        ingredientRow.modelData.index, v)
+                                }
+                            }
+
+                            RFIconButton {
+                                Layout.alignment: Qt.AlignBottom
+                                icon: "close"
+                                iconSize: 12
+                                tooltip: "Remove " + ingredientRow.modelData.name
+                                enabled: Thermochemistry.solidIngredients.length > 1
+                                onClicked: Thermochemistry.removeSolidIngredient(
+                                               ingredientRow.modelData.index)
+                            }
+                        }
+                    }
+
+                    // Add an ingredient from what this build can actually
+                    // model: thermo.lib records it holds, and sourced custom
+                    // definitions. Added at 0 %, so the total never moves by
+                    // itself.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        visible: Thermochemistry.isSolid
+                                 && Thermochemistry.solidAddableIngredients.length > 0
+                        spacing: Metrics.spacing.s
+
+                        RFComboBox {
+                            id: addBox
+                            Layout.fillWidth: true
+                            label: "Add ingredient"
+                            model: Thermochemistry.solidAddableIngredients.map(
+                                       function (o) { return o.label })
+                        }
+
+                        RFIconButton {
+                            Layout.alignment: Qt.AlignBottom
+                            icon: "plus"
+                            tooltip: "Add at 0 %"
+                            onClicked: {
+                                var options = Thermochemistry.solidAddableIngredients
+                                if (addBox.currentIndex >= 0
+                                        && addBox.currentIndex < options.length)
+                                    Thermochemistry.addSolidIngredient(
+                                        options[addBox.currentIndex].key)
+                            }
+                        }
+                    }
+
+                    // Total mass, always visible. An unbalanced grain is
+                    // refused rather than normalised, so the number that
+                    // decides that is not hidden behind a validation message.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        visible: Thermochemistry.isSolid
+                        spacing: Metrics.spacing.s
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: "Total mass"
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+
+                        Text {
+                            text: Thermochemistry.solidMassTotalText
+                            color: Thermochemistry.solidMassBalanced
+                                   ? Theme.text : Theme.warning
+                            font.family: Typography.mono
+                            font.pixelSize: Typography.body
+                        }
+                    }
+
+                    // Colour is never the only carrier: the state is spelled
+                    // out in words as well.
+                    Text {
+                        Layout.fillWidth: true
+                        visible: Thermochemistry.isSolid
+                                 && !Thermochemistry.solidMassBalanced
+                        text: "Does not close at 100 %. Refused rather than "
+                              + "normalised: a grain that does not sum to one "
+                              + "is more often a missing ingredient than a "
+                              + "deliberate basis."
+                        wrapMode: Text.WordWrap
+                        color: Theme.warning
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.meta
+                    }
+
+                    RFButton {
+                        Layout.alignment: Qt.AlignLeft
+                        visible: Thermochemistry.isSolid
+                                 && Thermochemistry.solidEdited
+                        text: "Restore published composition"
+                        variant: "quiet"
+                        onClicked: Thermochemistry.resetSolidFormulation()
+                    }
+
+                    RFDivider { visible: Thermochemistry.isSolid }
 
                     RFSectionLabel { text: "Operating conditions" }
 
                     RFBoundNumberField {
                         id: ofField
+                        visible: !Thermochemistry.isSolid
                         Layout.fillWidth: true
                         label: "Mixture ratio  O/F"
                         value: Thermochemistry.mixtureRatio
@@ -203,15 +438,23 @@ Item {
                         Layout.fillWidth: true
                         spacing: Metrics.spacing.s
 
+                        // One field, both modes. The unit selector beside it
+                        // is shared too, so a pressure unit chosen in one mode
+                        // still means the same thing in the other.
                         RFBoundNumberField {
                             Layout.fillWidth: true
                             label: "Chamber pressure  p_c"
-                            value: Thermochemistry.chamberPressureDisplay
+                            value: Thermochemistry.isSolid
+                                   ? Thermochemistry.solidChamberPressureDisplay
+                                   : Thermochemistry.chamberPressureDisplay
                             digits: Thermochemistry.pressureUnitInfo.decimals
                             decimals: Thermochemistry.pressureUnitInfo.decimals
                             step: Thermochemistry.pressureUnitInfo.step
                             onValueEdited: function (v) {
-                                Thermochemistry.chamberPressureDisplay = v
+                                if (Thermochemistry.isSolid)
+                                    Thermochemistry.solidChamberPressureDisplay = v
+                                else
+                                    Thermochemistry.chamberPressureDisplay = v
                             }
                         }
 
@@ -226,6 +469,23 @@ Item {
                                 if (currentIndex >= 0 && currentIndex < units.length)
                                     Thermochemistry.pressureUnit = units[currentIndex].key
                             }
+                        }
+                    }
+
+                    // The grain's bulk temperature before ignition, which
+                    // sets the reactant enthalpy the chamber balance starts
+                    // from. Not hidden at a default 298 K: a conditioned motor
+                    // is a different case and the user has to be able to say so.
+                    RFBoundNumberField {
+                        Layout.fillWidth: true
+                        visible: Thermochemistry.isSolid
+                        label: "Grain temperature  T_grain"
+                        value: Thermochemistry.solidGrainTemperature
+                        digits: 4
+                        decimals: 2
+                        step: 5.0
+                        onValueEdited: function (v) {
+                            Thermochemistry.solidGrainTemperature = v
                         }
                     }
 
@@ -362,6 +622,9 @@ Item {
                         Layout.topMargin: Metrics.spacing.l
                         hasResult: false
                         stale: false
+                        // The unsolved outline must not claim a feed topology
+                        // either: a grain is one charge, not two streams.
+                        singleStream: Thermochemistry.isSolid
                     }
 
                     ColumnLayout {
@@ -460,9 +723,15 @@ Item {
                         Layout.minimumHeight: 150
                         hasResult: Thermochemistry.hasResult
                         stale: Thermochemistry.resultStale
+                        singleStream: Thermochemistry.isSolid
+                        streamLabel: Thermochemistry.isSolid
+                                     ? view.conditionValue("Formulation") : ""
                         oxidiserLabel: view.conditionValue("Oxidiser")
                         fuelLabel: view.conditionValue("Fuel")
-                        ofText: "O/F " + view.conditionValue("O/F")
+                        // No O/F for a solid: CEA reports 0.000, and the
+                        // absence of a ratio is the honest representation.
+                        ofText: Thermochemistry.isSolid
+                                ? "" : "O/F " + view.conditionValue("O/F")
                         chamberPressureText: "p_c " + view.conditionValue("Chamber pressure")
                         productsSummary: Thermochemistry.condensed.headline
                     }

@@ -35,6 +35,7 @@ from .thermochemistry_provider import (
     availability,
     chamber_provider,
     propellant_named,
+    solid_species_table,
 )
 
 __all__ = [
@@ -481,6 +482,16 @@ class SpeciesRow:
         return self.display_name or self.name
 
 
+def _is_solid_case(case: Any) -> bool:
+    """Whether this outcome came from a solid formulation.
+
+    Read from the case's own ``propellant_kind`` marker rather than by
+    importing ``SolidCase``, because the solid service imports *this* module
+    and a direct import would close the loop.
+    """
+    return getattr(case, "propellant_kind", "") == "solid"
+
+
 def species_table(outcome: ChamberOutcome) -> dict[str, Any]:
     """The provider's ``Species`` records for this result's composition.
 
@@ -494,7 +505,20 @@ def species_table(outcome: ChamberOutcome) -> dict[str, Any]:
     provider = chamber_provider()
     if provider is None:
         return {}
-    return provider.species_table(state.composition.species_names)
+    names = state.composition.species_names
+    if _is_solid_case(outcome.case):
+        # The provider's own table refuses any species without a curated
+        # elemental formula, and it curates 33 C/H/O species. An aluminised
+        # perchlorate grain returns 205 products spanning Al, Cl, N, Mg and S,
+        # so that table would refuse the whole result. The solid builder takes
+        # molar mass and phase from CEA itself and leaves the formula empty
+        # where the provider API does not expose one.
+        provenance = outcome.provenance
+        return solid_species_table(
+            tuple(names),
+            database=provenance.database if provenance else "",
+            database_version=provenance.database_version if provenance else "")
+    return provider.species_table(names)
 
 
 def species_rows(outcome: ChamberOutcome) -> tuple[SpeciesRow, ...]:
@@ -781,7 +805,9 @@ def provenance_details(outcome: ChamberOutcome) -> tuple[dict[str, str], ...]:
         {"label": "Product species",
          "value": f"{len(provenance.species_set)} species"},
     ]
-    if case is not None:
+    if _is_solid_case(case):
+        rows.append({"label": "Formulation kind", "value": "Solid"})
+    elif case is not None:
         fuel = propellant_named(case.fuel)
         oxidiser = propellant_named(case.oxidiser)
         rows.append({"label": "Fuel (provider name)",
@@ -814,6 +840,10 @@ def case_headline(case: ChamberCase | None) -> str:
     """
     if case is None:
         return ""
+    if _is_solid_case(case):
+        from .thermochemistry_solid_service import solid_case_headline
+
+        return solid_case_headline(case)
     fuel = propellant_named(case.fuel)
     oxidiser = propellant_named(case.oxidiser)
     names = f"{oxidiser.key if oxidiser else case.oxidiser} / " \

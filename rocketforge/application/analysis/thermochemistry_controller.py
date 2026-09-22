@@ -65,6 +65,18 @@ from .thermochemistry_service import (
     species_rows,
     species_set,
 )
+from .thermochemistry_solid_service import (
+    MODEL_BOUNDARY_NOTE,
+    SolidCase,
+    default_solid_case,
+    is_solid_case,
+    solid_conditions,
+    solid_formulation_named,
+    solid_formulation_options,
+    solid_ingredient_named,
+    solid_ingredient_options,
+    solve_solid_case,
+)
 from .thermochemistry_table_model import ThermoTableModel
 
 __all__ = ["ThermochemistryController"]
@@ -120,11 +132,18 @@ class ThermochemistryController(QObject):
     sweepChanged = Signal()
     referenceChanged = Signal()
     requestTab = Signal(int)
+    formulationKindChanged = Signal()
+    solidInputsChanged = Signal()
 
     def __init__(self, parent: QObject | None = None) -> None:
         QObject.__init__(self, parent)
 
         self._case = DEFAULT_CASE
+        #: "bipropellant" or "solid". The workspace computes the same kind of
+        #: answer either way -- an equilibrium chamber state -- so the two share
+        #: every result surface and differ only in what goes in.
+        self._formulation_kind = "bipropellant"
+        self._solid_case: SolidCase | None = None
         self._pressure_unit = "MPa"
         self._precision = 6
 
@@ -447,6 +466,277 @@ class ThermochemistryController(QObject):
         self._clear_sweep()
         self.inputsChanged.emit()
 
+
+    # ==================================================================
+    # solid formulations
+    # ==================================================================
+    #
+    # The workspace answers the same question for a solid grain that it answers
+    # for a bipropellant: what is the equilibrium state of the chamber. So the
+    # two modes share every result surface -- readouts, species table, condensed
+    # summary, provenance -- and differ only in what goes in.
+    #
+    # Deliberately absent: burn rate, grain geometry, motor performance and
+    # every reference-performance quantity (c*, Cf, Isp) -- R1.1 and beyond.
+    # No disabled control or "coming soon" panel stands in for them.
+
+    @Property(str, notify=formulationKindChanged)
+    def formulationKind(self) -> str:
+        return self._formulation_kind
+
+    @formulationKind.setter
+    def formulationKind(self, value: str) -> None:
+        kind = str(value).strip().lower()
+        if kind not in ("bipropellant", "solid") or kind == self._formulation_kind:
+            return
+        self._formulation_kind = kind
+        # A result belongs to the mode that produced it: switching neither
+        # relabels it nor leaves it on screen under the other mode's inputs.
+        self._clear_result()
+        self._clear_sweep()
+        self.formulationKindChanged.emit()
+        self.inputsChanged.emit()
+        self.solidInputsChanged.emit()
+
+    @Property(bool, notify=formulationKindChanged)
+    def isSolid(self) -> bool:
+        return self._formulation_kind == "solid"
+
+    @Property(str, constant=True)
+    def modelBoundaryNote(self) -> str:
+        """What a solid result does and does not claim."""
+        return MODEL_BOUNDARY_NOTE
+
+    def solid_case(self) -> SolidCase:
+        if self._solid_case is None:
+            self._solid_case = default_solid_case()
+        return self._solid_case
+
+    def _set_solid_case(self, case: SolidCase) -> None:
+        if case == self._solid_case:
+            return
+        self._solid_case = case
+        # An edit after a solve marks the displayed result stale. It is kept on
+        # screen, dimmed, still labelled with the case that produced it --
+        # never deleted, never silently refreshed.
+        if self._outcome.state is not None:
+            self._stale = True
+        self.solidInputsChanged.emit()
+        self.resultChanged.emit()
+
+    # -- reference formulations ------------------------------------------
+
+    @Property("QVariantList", constant=True)
+    def solidFormulationOptions(self):
+        return [{"key": o.key, "label": o.label, "reference": o.reference,
+                 "isReferenceCase": o.is_reference_case}
+                for o in solid_formulation_options()]
+
+    @Property(str, notify=solidInputsChanged)
+    def solidFormulationLabel(self) -> str:
+        case = self.solid_case()
+        option = case.reference()
+        if case.is_published_composition:
+            return option.label
+        if option is not None:
+            return f"Edited from {option.label}"
+        return "Custom formulation"
+
+    @Property(str, notify=solidInputsChanged)
+    def solidFormulationReference(self) -> str:
+        option = self.solid_case().reference()
+        return option.reference if option else ""
+
+    @Property(bool, notify=solidInputsChanged)
+    def solidIsReferenceCase(self) -> bool:
+        """The published grain at a published operating point, exactly."""
+        return self.solid_case().is_validated_operating_point
+
+    @Property(str, notify=solidInputsChanged)
+    def solidReferenceNote(self) -> str:
+        """What the published source does and does not vouch for here."""
+        case = self.solid_case()
+        option = case.reference()
+        if option is None:
+            return ""
+        if case.is_validated_operating_point:
+            return f"Reference / validation case · {option.reference}"
+        if case.is_published_composition:
+            return (f"Published composition · {option.reference} · this "
+                    "operating point differs from the published one")
+        return ""
+
+    @Property(bool, notify=solidInputsChanged)
+    def solidEdited(self) -> bool:
+        case = self.solid_case()
+        return case.reference_key is not None and not case.is_published_composition
+
+    @Slot(str)
+    def loadSolidFormulation(self, key: str) -> None:
+        option = solid_formulation_named(str(key))
+        if option is None:
+            return
+        self._set_solid_case(SolidCase(
+            ingredients=option.ingredients,
+            chamber_pressure=option.chamber_pressure,
+            initial_temperature=option.initial_temperature,
+            reference_key=option.key))
+
+    @Slot()
+    def resetSolidFormulation(self) -> None:
+        """Return the grain to its published composition."""
+        self._solid_case = default_solid_case()
+        self._clear_result()
+        self.solidInputsChanged.emit()
+
+    # -- the grain -------------------------------------------------------
+
+    @Property("QVariantList", notify=solidInputsChanged)
+    def solidIngredients(self):
+        """The grain, as editable rows.
+
+        ``percent`` is what the editor shows and what a propellant chemist
+        writes; ``fraction`` is what the physics layer is given. The division
+        by 100 happens once, here. ``temperature`` is the temperature CEA is
+        given for that reactant; ``assignedTemperature`` is non-empty when the
+        reactant's enthalpy is fixed at another one and the grain temperature
+        therefore cannot reach it.
+        """
+        case = self.solid_case()
+        rows = []
+        for index, (key, fraction) in enumerate(case.ingredients):
+            option = solid_ingredient_named(key)
+            custom = option is not None and option.representation == "custom"
+            assigned = option.assigned_temperature if option else None
+            if custom:
+                representation = "custom · assigned enthalpy"
+            elif option is not None and option.phase:
+                representation = f"thermo.lib · {option.phase}"
+            else:
+                representation = "thermo.lib"
+            rows.append({
+                "index": index,
+                "key": key,
+                "name": option.name if option else key,
+                "fraction": fraction,
+                "percent": fraction * 100.0,
+                "percentText": f"{fraction * 100.0:.3f}",
+                "isCustom": custom,
+                "representation": representation,
+                "source": option.source if option else "",
+                "temperatureText": f"{case.initial_temperature:g} K",
+                "assignedTemperatureText": (
+                    f"{assigned:g} K" if assigned is not None else ""),
+                "temperatureIgnored": (
+                    assigned is not None
+                    and abs(assigned - case.initial_temperature) > 1e-9),
+            })
+        return rows
+
+    @Property("QVariantList", notify=solidInputsChanged)
+    def solidAddableIngredients(self):
+        """Catalogue ingredients not already in the grain."""
+        present = set(self.solid_case().keys)
+        return [{"key": o.key, "name": o.name,
+                 "label": (f"{o.name}  (custom)" if o.representation == "custom"
+                           else o.name)}
+                for o in solid_ingredient_options() if o.key not in present]
+
+    @Slot(str)
+    def addSolidIngredient(self, key: str) -> None:
+        """Add an ingredient at 0 %, so the total does not move by itself."""
+        key = str(key)
+        case = self.solid_case()
+        if solid_ingredient_named(key) is None or key in case.keys:
+            return
+        self._set_solid_case(case.replace(
+            ingredients=case.ingredients + ((key, 0.0),)))
+
+    @Slot(int)
+    def removeSolidIngredient(self, index: int) -> None:
+        """Remove one ingredient. The others are not rescaled to compensate."""
+        case = self.solid_case()
+        if not 0 <= index < len(case.ingredients) or len(case.ingredients) <= 1:
+            return
+        ingredients = case.ingredients[:index] + case.ingredients[index + 1:]
+        self._set_solid_case(case.replace(ingredients=ingredients))
+
+    @Slot(int, float)
+    def setSolidMassPercent(self, index: int, percent: float) -> None:
+        """Set one ingredient's mass percent, in [0, 100].
+
+        The total is **not** renormalised afterwards. Silently rescaling the
+        others would change inputs the user did not touch; instead the running
+        total is shown and a grain that does not close refuses to solve.
+        """
+        case = self.solid_case()
+        if not 0 <= index < len(case.ingredients):
+            return
+        try:
+            number = float(percent)
+        except (TypeError, ValueError):
+            return
+        if not math.isfinite(number) or number < 0.0 or number > 100.0:
+            return
+        key, old = case.ingredients[index]
+        fraction = number / 100.0
+        if fraction == old:
+            return
+        ingredients = list(case.ingredients)
+        ingredients[index] = (key, fraction)
+        self._set_solid_case(case.replace(ingredients=tuple(ingredients)))
+
+    @Property(float, notify=solidInputsChanged)
+    def solidMassTotalPercent(self) -> float:
+        return self.solid_case().mass_fraction_sum * 100.0
+
+    @Property(str, notify=solidInputsChanged)
+    def solidMassTotalText(self) -> str:
+        return f"{self.solidMassTotalPercent:.3f} %"
+
+    @Property(bool, notify=solidInputsChanged)
+    def solidMassBalanced(self) -> bool:
+        """Whether the grain closes at 100 %, within the domain's tolerance."""
+        return self.solid_case().is_balanced
+
+    # -- operating point -------------------------------------------------
+
+    @Property(float, notify=solidInputsChanged)
+    def solidChamberPressureDisplay(self) -> float:
+        return self.solid_case().chamber_pressure / self._pressure_factor()
+
+    @solidChamberPressureDisplay.setter
+    def solidChamberPressureDisplay(self, value: float) -> None:
+        number = self._positive(value)
+        if number is None:
+            return
+        self._set_solid_case(self.solid_case().replace(
+            chamber_pressure=number * self._pressure_factor()))
+
+    @Property(float, notify=solidInputsChanged)
+    def solidGrainTemperature(self) -> float:
+        return self.solid_case().initial_temperature
+
+    @solidGrainTemperature.setter
+    def solidGrainTemperature(self, value: float) -> None:
+        number = self._positive(value)
+        if number is None:
+            return
+        self._set_solid_case(self.solid_case().replace(initial_temperature=number))
+
+    @Property("QVariantList", notify=resultChanged)
+    def solidConditions(self):
+        """The condition snapshot behind the **displayed** solid result.
+
+        Read from the outcome's own case, so editing the form cannot relabel an
+        existing result -- the same rule the bipropellant path follows.
+        """
+        case = self._outcome.case
+        if not is_solid_case(case):
+            return []
+        return [dict(row) for row in solid_conditions(case)]
+
+
     # ==================================================================
     # calculate
     # ==================================================================
@@ -474,7 +764,8 @@ class ThermochemistryController(QObject):
             return                      # no double submit
         self._set_busy(True)
         try:
-            outcome = solve_case(self._case)
+            outcome = (solve_solid_case(self.solid_case())
+                       if self.isSolid else solve_case(self._case))
         finally:
             self._set_busy(False)
         self._adopt(outcome)
@@ -570,6 +861,10 @@ class ThermochemistryController(QObject):
         case = self._outcome.case
         if case is None:
             return []
+        if is_solid_case(case):
+            # A solid result. Its conditions are a formulation, not a pair of
+            # streams and a ratio, so they are built by the solid service.
+            return [dict(row) for row in solid_conditions(case)]
         fuel = propellant_named(case.fuel)
         oxidiser = propellant_named(case.oxidiser)
         factor = self._pressure_factor()
