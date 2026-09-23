@@ -10,7 +10,9 @@ REM ===========================================================================
 setlocal
 cd /d "%~dp0"
 
-set "PY=%~dp0.venv\Scripts\pythonw.exe"
+set "PY=%~dp0.venv-cea\Scripts\pythonw.exe"
+if not exist "%PY%" set "PY=%~dp0.venv-cea\Scripts\python.exe"
+if not exist "%PY%" set "PY=%~dp0.venv\Scripts\pythonw.exe"
 if not exist "%PY%" set "PY=%~dp0.venv\Scripts\python.exe"
 if not exist "%PY%" set "PY=python"
 
