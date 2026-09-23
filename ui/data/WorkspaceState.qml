@@ -50,4 +50,60 @@ QtObject {
             return { text: "", stale: false, hasResult: false }
         }
     }
+
+    // Per-family status for the navigation rail's status dots and tooltips.
+    // Unlike stateFor() which is keyed to a single workspace, this is keyed
+    // to a Navigation.families entry and returns the aggregate state the
+    // rail needs: does this family have any solved result, is it stale, and
+    // what is a one-line summary suitable for a tooltip?
+    //
+    // Compressible flow and reference are stateless calculators -- they
+    // compute on every keystroke and carry no persistent result, so they
+    // never show a status dot and that is correct.
+    function familyState(familyKey) {
+        switch (familyKey) {
+        case "thermochem":
+            return {
+                hasResult: Thermochemistry.hasResult,
+                stale: Thermochemistry.resultStale,
+                summary: Thermochemistry.hasResult
+                    ? Thermochemistry.statusLabel
+                    : ""
+            }
+        case "propulsion":
+            return {
+                hasResult: RocketPerformance.hasResult,
+                stale: RocketPerformance.resultStale,
+                summary: RocketPerformance.hasResult
+                    ? RocketPerformance.statusLabel
+                    : ""
+            }
+        case "tradestudy":
+            return {
+                hasResult: TradeStudy.hasResult,
+                stale: TradeStudy.resultStale,
+                summary: TradeStudy.hasResult
+                    ? TradeStudy.visibleRowCount + " point"
+                      + (TradeStudy.visibleRowCount === 1 ? "" : "s")
+                      + " evaluated"
+                    : ""
+            }
+        case "fluids": {
+            var fHas = FluidProperties.hasResult || Line.hasResult
+            var fStale = (FluidProperties.hasResult && FluidProperties.resultStale)
+                      || (Line.hasResult && Line.resultStale)
+            var parts = []
+            if (FluidProperties.hasResult) parts.push(FluidProperties.statusLabel)
+            if (Line.hasResult) parts.push(Line.statusLabel)
+            return {
+                hasResult: fHas,
+                stale: fStale,
+                summary: parts.join(" \u00b7 ")
+            }
+        }
+        default:
+            // compressible, reference -- stateless calculators, no dot.
+            return { hasResult: false, stale: false, summary: "" }
+        }
+    }
 }

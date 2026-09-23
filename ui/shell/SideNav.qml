@@ -143,6 +143,7 @@ Item {
                         Layout.fillWidth: true
                         label: modelData.short
                         icon: modelData.icon !== undefined ? modelData.icon : ""
+                        familyKey: modelData.key !== undefined ? modelData.key : ""
                         current: !root.engineModeActive && (
                                      root.openDrawerFamily === index
                                      || Navigation.familyOfIndex(root.currentIndex) === index)
@@ -287,15 +288,23 @@ Item {
         }
     }
 
-    // One rail cell: a short label, current-state marker, hover. The
-    // family-rail analogue of RFNavItem, sized for a 64px column instead
-    // of a full-width row.
+    // One rail cell: icon, label, status dot, hover tooltip. The
+    // family-rail analogue of RFNavItem, sized for a 64px column.
+    // Phase 1: aerospace-grade status indicators and refined ergonomics.
     component RailCell: Item {
         id: cell
         property string label: ""
         property string icon: ""
+        property string familyKey: ""
         property bool current: false
         signal activated()
+
+        // Live family state from WorkspaceState -- drives the status dot
+        // and the tooltip summary line. Re-evaluated reactively whenever
+        // a controller emits resultsChanged, so no polling and no cost.
+        readonly property var familyStatus: cell.familyKey !== ""
+            ? WorkspaceState.familyState(cell.familyKey)
+            : { hasResult: false, stale: false, summary: "" }
 
         implicitHeight: 56
 
@@ -309,38 +318,52 @@ Item {
             Behavior on color { ColorAnimation { duration: Motion.fast } }
         }
 
+        // Active indicator bar -- wider and rounded for aerospace-console feel.
         Rectangle {
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            width: 2
+            width: 3
             height: cell.current ? 22 : 0
-            radius: 1
+            radius: 1.5
             color: Theme.accent
             opacity: cell.current ? 1 : 0
             Behavior on height { NumberAnimation { duration: Motion.base; easing.type: Motion.standard } }
+            Behavior on opacity { NumberAnimation { duration: Motion.base } }
         }
 
-        // The mark and the word together. The rail was seven uppercase
-        // abbreviations (FLOW / CHEM / PROP / TRADE / FLUID / REF), which is
-        // a vocabulary a new reader has to learn before the rail is usable.
-        // The label stays: an icon on its own would replace one guessing
-        // game with another, and this interface navigates by typography
-        // first (RFIcon's own note).
         Column {
             anchors.centerIn: parent
             spacing: 3
 
-            RFIcon {
+            // Icon + status dot overlay
+            Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 visible: cell.icon !== ""
-                name: cell.icon
-                width: 17
-                height: 17
-                strokeWidth: cell.current ? 1.6 : 1.4
-                color: cell.current ? Theme.text
-                     : cellMouse.containsMouse ? Theme.textSecondary : Theme.textMuted
+                width: 20
+                height: 20
 
-                Behavior on color { ColorAnimation { duration: Motion.fast } }
+                RFIcon {
+                    anchors.centerIn: parent
+                    name: cell.icon
+                    width: 20
+                    height: 20
+                    strokeWidth: cell.current ? 1.8 : 1.5
+                    color: cell.current ? Theme.text
+                         : cellMouse.containsMouse ? Theme.textSecondary : Theme.textMuted
+
+                    Behavior on color { ColorAnimation { duration: Motion.fast } }
+                }
+
+                // Status dot: top-right corner of the icon, 5px diameter.
+                // Visible only when a family has a persistent solved result.
+                Rectangle {
+                    width: 5; height: 5; radius: 2.5
+                    x: parent.width - 1
+                    y: -1
+                    visible: cell.familyStatus.hasResult
+                    color: cell.familyStatus.stale ? Theme.warning : Theme.success
+                    Behavior on color { ColorAnimation { duration: Motion.base } }
+                }
             }
 
             Text {
@@ -349,9 +372,9 @@ Item {
                 color: cell.current ? Theme.text
                      : cellMouse.containsMouse ? Theme.textSecondary : Theme.textMuted
                 font.family: Typography.sans
-                font.pixelSize: Typography.meta - 0.5
+                font.pixelSize: Typography.meta
                 font.weight: cell.current ? Typography.semibold : Typography.medium
-                font.letterSpacing: 0.5
+                font.letterSpacing: 0.6
                 font.capitalization: Font.AllUppercase
 
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
@@ -364,6 +387,19 @@ Item {
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
             onClicked: cell.activated()
+        }
+
+        // Tooltip: family name and live solve summary on hover.
+        RFTooltip {
+            text: {
+                var t = cell.label
+                if (cell.familyStatus.hasResult && cell.familyStatus.summary !== "")
+                    t += " \u2014 " + cell.familyStatus.summary
+                return t
+            }
+            visible: cellMouse.containsMouse
+            x: cell.width + Metrics.spacing.xs
+            y: (cell.height - height) / 2
         }
     }
 }
