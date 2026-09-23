@@ -29,7 +29,9 @@ ApplicationWindow {
     minimumWidth: 1120
     minimumHeight: 700
     visible: true
-    title: App.name
+    // A production package is titled with the product name alone; a source run
+    // or any other build says which one it is (build_identity.window_title).
+    title: App.windowTitle
     color: Theme.background
 
     // Shell state. Kept as plain root properties so it stays inspectable,

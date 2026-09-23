@@ -26,6 +26,8 @@ own modules are built.
 
 from __future__ import annotations
 
+import functools
+import json
 import os
 import sys
 from pathlib import Path
@@ -56,6 +58,7 @@ from rocketforge.application.analysis.trade_study_controller import (
 from rocketforge.application.analysis.thermochemistry_controller import (
     ThermochemistryController,
 )
+from rocketforge.application import build_identity
 
 # The product name is provisional; it is referenced from QML through the App
 # singleton so that renaming it is a one-line change.
@@ -87,6 +90,25 @@ UI_DIR = resource_root() / "ui"
 # one (packaging/RocketForge.spec carries it into the bundle's datas).
 BRAND_ICON = resource_root() / "assets" / "branding" / "rocketforge.ico"
 
+#: Diagnostic: write this process's build identity as JSON and exit.
+BUILD_INFO_FLAG = "--build-info"
+
+
+@functools.lru_cache(maxsize=1)
+def current_build() -> build_identity.BuildIdentity:
+    """Which RocketForge this process is, established once.
+
+    A packaged build reads the manifest beside its executable and never looks
+    for a repository; a source run asks git. See
+    rocketforge/application/build_identity.py and
+    docs/engineering/release/BUILD_AND_LAUNCH.md.
+    """
+    frozen = bool(getattr(sys, "frozen", False))
+    return build_identity.identity_for_process(
+        product=APP_NAME, version=APP_VERSION, frozen=frozen,
+        executable_dir=Path(sys.executable).resolve().parent,
+        source_root=Path(__file__).resolve().parent)
+
 
 class AppEnvironment(QObject):
     """Application-level facts exposed to QML as the ``App`` singleton."""
@@ -115,6 +137,48 @@ class AppEnvironment(QObject):
     @Property(str, constant=True)
     def stage(self) -> str:
         return APP_STAGE
+
+    # ---- build identity: which RocketForge this is ------------------------
+
+    @Property(str, constant=True)
+    def buildId(self) -> str:
+        return current_build().build_id
+
+    @Property(str, constant=True)
+    def buildChannel(self) -> str:
+        return current_build().channel
+
+    @Property(str, constant=True)
+    def buildMode(self) -> str:
+        return current_build().mode
+
+    @Property(str, constant=True)
+    def buildCommit(self) -> str:
+        return current_build().commit
+
+    @Property(str, constant=True)
+    def buildTimestamp(self) -> str:
+        return current_build().build_timestamp_utc
+
+    @Property(str, constant=True)
+    def runtimeVersions(self) -> str:
+        build = current_build()
+        return f"Qt {build.qt} · PySide6 {build.pyside6} · Python {build.python}"
+
+    @Property(str, constant=True)
+    def buildSummary(self) -> str:
+        return current_build().summary()
+
+    @Property(str, constant=True)
+    def windowTitle(self) -> str:
+        return current_build().window_title(APP_NAME)
+
+    @Slot()
+    def copyBuildInfo(self) -> None:
+        """Put the build summary on the clipboard, for a bug report."""
+        clipboard = QGuiApplication.clipboard()
+        if clipboard is not None:
+            clipboard.setText(current_build().summary())
 
     # ---- platform colour scheme -----------------------------------------
 
@@ -290,12 +354,12 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    # Two non-interactive diagnostics, dispatched before the interface starts.
+    # Non-interactive diagnostics, dispatched before the interface starts.
     # They exist so that claims about the *packaged* application are checkable
     # rather than assumed: that the bundled provider can load its native
     # library and find its thermodynamic database, and that the bundled
     # interface loads, navigates and shows the same numbers the source build
-    # shows. Neither has a window that outlives it, a menu entry or any other
+    # shows. None has a window that outlives it, a menu entry or any other
     # user-facing surface.
     from rocketforge.application.selftest import (
         SELFTEST_FLAG,
@@ -324,7 +388,35 @@ if __name__ == "__main__":
         run_line_smoke,
     )
     from rocketforge.application.uismoke import UI_SMOKE_FLAG, run_ui_smoke
+    from rocketforge.application.navsmoke import (
+        NAVIGATION_SMOKE_FLAG,
+        run_navigation_smoke,
+    )
+    from rocketforge.application.sciencedigest import (
+        SCIENCE_DIGEST_FLAG,
+        run_science_digest,
+    )
 
+    if BUILD_INFO_FLAG in sys.argv:
+        # A packaged build has no console, so the answer goes to a file.
+        position = sys.argv.index(BUILD_INFO_FLAG)
+        target = Path(sys.argv[position + 1]) if len(sys.argv) > position + 1 \
+            else Path.cwd() / "rocketforge_build_info.json"
+        build = current_build()
+        target.write_text(json.dumps({**build.to_dict(),
+                                      "window_title": build.window_title(APP_NAME),
+                                      "summary": build.summary()}, indent=2),
+                          encoding="utf-8")
+        sys.exit(0)
+    if NAVIGATION_SMOKE_FLAG in sys.argv:
+        position = sys.argv.index(NAVIGATION_SMOKE_FLAG)
+        sys.exit(run_navigation_smoke(sys.argv[position + 1:],
+                                      configure_application, build_engine, UI_DIR))
+    if SCIENCE_DIGEST_FLAG in sys.argv:
+        position = sys.argv.index(SCIENCE_DIGEST_FLAG)
+        configure_application()
+        sys.exit(run_science_digest(sys.argv[position + 1:],
+                                    current_build().to_dict()))
     if SELFTEST_FLAG in sys.argv:
         sys.exit(run_thermochemistry_selftest())
     if UI_SMOKE_FLAG in sys.argv:

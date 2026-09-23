@@ -85,5 +85,46 @@ RFMenu {
                 font.letterSpacing: 0.4
             }
         }
+
+        // Which build this is: the token a bug report quotes, whether it is a
+        // packaged build or a source run, and what it runs on. Read from the
+        // build identity (main.current_build), never composed here.
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 2
+
+            Text {
+                Layout.fillWidth: true
+                text: "Build " + App.buildId
+                color: Theme.textSecondary
+                font.family: Typography.mono
+                font.pixelSize: Typography.meta
+                elide: Text.ElideRight
+            }
+            Text {
+                Layout.fillWidth: true
+                text: App.buildChannel + " · " + App.buildMode
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.meta
+                elide: Text.ElideRight
+            }
+            Text {
+                Layout.fillWidth: true
+                text: App.runtimeVersions
+                color: Theme.textMuted
+                font.family: Typography.sans
+                font.pixelSize: Typography.meta
+                elide: Text.ElideRight
+            }
+        }
+
+        RFButton {
+            Layout.alignment: Qt.AlignLeft
+            text: "Copy build info"
+            variant: "quiet"
+            compact: true
+            onClicked: App.copyBuildInfo()
+        }
     }
 }
