@@ -1,0 +1,32 @@
+# Graphify input scope for RocketForge (gitignore syntax).
+#
+# .gitignore is already honoured, so virtualenvs, build/, dist/, and the
+# smoke/acceptance/packaged-selftest output never reach the graph. This file
+# only drops *tracked* content that is noise for an architecture graph.
+
+# One-off capture / soak / parity harnesses. They import the real stack but
+# are not part of it; indexing them inflates hub counts and adds clusters for
+# scripts that are run once and then kept only as evidence.
+experiments/
+
+# Agent tooling (skills, evals, a lint script) - not RocketForge architecture.
+# CLAUDE.md names core symbols in backticks as examples; indexing it would add
+# spurious doc->code edges to exactly the nodes impact queries start from.
+.claude/
+CLAUDE.md
+
+# Repository meta, community files, and issue/PR templates.
+.github/
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+SECURITY.md
+LICENSE
+
+# Binary assets and the packaging spec.
+assets/
+docs/images/
+packaging/
+
+# Qualification paper trail for the agent design skills, not the application.
+docs/design/skills/
