@@ -85,7 +85,8 @@ Item {
                         color: chart.palette[index % chart.palette.length]
                     }
                     Text {
-                        text: modelData.name
+                        text: Notation.species(modelData.name)
+                        textFormat: Notation.speciesFormat(modelData.name)
                         color: Theme.textSecondary
                         font.family: Typography.mono
                         font.pixelSize: Typography.meta

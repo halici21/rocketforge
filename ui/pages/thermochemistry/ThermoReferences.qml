@@ -199,8 +199,10 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 196
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             elide: Text.ElideRight
+                            clip: true              // RichText does not elide
                             color: Theme.text
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall
@@ -301,14 +303,17 @@ Item {
                         Text {
                             Layout.preferredWidth: 196
                             Layout.alignment: Qt.AlignTop
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall
                         }
                         Text {
                             Layout.fillWidth: true
-                            text: modelData.reason
+                            readonly property string plainText: modelData.reason
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             lineHeight: Typography.proseLineHeight
                             lineHeightMode: Text.ProportionalHeight
@@ -337,14 +342,17 @@ Item {
                         Text {
                             Layout.preferredWidth: 176
                             Layout.alignment: Qt.AlignTop
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textMuted
                             font.family: Typography.sans
                             font.pixelSize: Typography.meta
                         }
                         Text {
                             Layout.fillWidth: true
-                            text: modelData.value
+                            readonly property string plainText: modelData.value
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             lineHeight: Typography.proseLineHeight
                             lineHeightMode: Text.ProportionalHeight

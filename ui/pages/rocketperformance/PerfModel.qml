@@ -80,11 +80,13 @@ Item {
                         Layout.topMargin: Metrics.spacing.s
                         spacing: Metrics.spacing.xs
 
-                        RFSectionLabel { text: modelData.title }
+                        RFSectionLabel { text: Notation.sectionRich(modelData.title); textFormat: Notation.textFormat(modelData.title) }
 
                         Text {
                             Layout.fillWidth: true
-                            text: modelData.note
+                            readonly property string plainText: modelData.note
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             color: Theme.textDisabled
                             font.family: Typography.sans
@@ -110,7 +112,9 @@ Item {
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: modelData
+                                    readonly property string plainText: modelData
+                                    text: Notation.rich(plainText)
+                                    textFormat: Notation.textFormat(plainText)
                                     wrapMode: Text.WordWrap
                                     lineHeight: Typography.proseLineHeight
                                     lineHeightMode: Text.ProportionalHeight
@@ -158,15 +162,19 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 268
-                            text: reductionRow.label
+                            text: Notation.rich(reductionRow.label)
+                            textFormat: Notation.textFormat(reductionRow.label)
                             elide: Text.ElideRight
+                            clip: true              // RichText does not elide
                             color: Theme.textMuted
                             font.family: Typography.sans
                             font.pixelSize: Typography.meta
                         }
                         Text {
                             Layout.fillWidth: true
-                            text: reductionRow.value
+                            readonly property string plainText: reductionRow.value
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             color: Theme.textSecondary
                             font.family: Typography.mono
@@ -217,8 +225,10 @@ Item {
 
                         Text {
                             Layout.fillWidth: true
-                            text: identityRow.name
+                            text: Notation.rich(identityRow.name)
+                            textFormat: Notation.textFormat(identityRow.name)
                             elide: Text.ElideRight
+                            clip: true              // RichText does not elide
                             color: Theme.textMuted
                             font.family: Typography.sans
                             font.pixelSize: Typography.meta
@@ -280,7 +290,10 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: provRow.role
+                                readonly property string plainText: provRow.role
+                                text: Notation.rich(plainText)
+                                textFormat: Notation.textFormat(plainText)
+                                clip: true              // RichText does not elide
                                 elide: Text.ElideRight
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
@@ -294,7 +307,9 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: provRow.model !== ""
-                            text: provRow.model
+                            readonly property string plainText: provRow.model
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             lineHeight: Typography.proseLineHeight
                             lineHeightMode: Text.ProportionalHeight
@@ -305,7 +320,9 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: provRow.detail !== ""
-                            text: provRow.detail
+                            readonly property string plainText: provRow.detail
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             wrapMode: Text.WordWrap
                             color: Theme.textDisabled
                             font.family: Typography.mono

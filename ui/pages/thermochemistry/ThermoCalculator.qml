@@ -223,7 +223,8 @@ Item {
 
                         Text {
                             Layout.fillWidth: true
-                            text: Thermochemistry.solidFormulationLabel
+                            text: Notation.rich(Thermochemistry.solidFormulationLabel)
+                            textFormat: Notation.textFormat(Thermochemistry.solidFormulationLabel)
                             wrapMode: Text.WordWrap
                             color: Theme.text
                             font.family: Typography.sans
@@ -267,8 +268,10 @@ Item {
 
                                 Text {
                                     Layout.fillWidth: true
-                                    text: ingredientRow.modelData.name
+                                    text: Notation.species(ingredientRow.modelData.name)
+                                    textFormat: Notation.speciesFormat(ingredientRow.modelData.name)
                                     elide: Text.ElideRight
+                                    clip: true              // RichText does not elide
                                     color: Theme.text
                                     font.family: Typography.mono
                                     font.pixelSize: Typography.meta
@@ -443,7 +446,7 @@ Item {
                         // still means the same thing in the other.
                         RFBoundNumberField {
                             Layout.fillWidth: true
-                            label: "Chamber pressure  p_c"
+                            label: "Chamber pressure  <i>p</i><sub>c</sub>"
                             value: Thermochemistry.isSolid
                                    ? Thermochemistry.solidChamberPressureDisplay
                                    : Thermochemistry.chamberPressureDisplay
@@ -512,7 +515,8 @@ Item {
 
                                 Text {
                                     Layout.preferredWidth: 76
-                                    text: modelData.label
+                                    text: Notation.rich(modelData.label)
+                                    textFormat: Notation.textFormat(modelData.label)
                                     color: Theme.textMuted
                                     font.family: Typography.sans
                                     font.pixelSize: Typography.meta
@@ -676,7 +680,8 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: Thermochemistry.statusLabel
+                                text: Notation.rich(Thermochemistry.statusLabel)
+                                textFormat: Notation.textFormat(Thermochemistry.statusLabel)
                                 horizontalAlignment: Text.AlignHCenter
                                 color: Theme.warning
                                 font.family: Typography.sans
@@ -686,7 +691,9 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: Thermochemistry.statusMessage
+                                readonly property string plainText: Thermochemistry.statusMessage
+                                text: Notation.rich(plainText)
+                                textFormat: Notation.textFormat(plainText)
                                 horizontalAlignment: Text.AlignHCenter
                                 wrapMode: Text.WordWrap
                                 lineHeight: Typography.proseLineHeight
@@ -732,7 +739,7 @@ Item {
                         // absence of a ratio is the honest representation.
                         ofText: Thermochemistry.isSolid
                                 ? "" : "O/F " + view.conditionValue("O/F")
-                        chamberPressureText: "p_c " + view.conditionValue("Chamber pressure")
+                        chamberPressureText: "<i>p</i><sub>c</sub> = " + view.conditionValue("Chamber pressure")
                         productsSummary: Thermochemistry.condensed.headline
                     }
 
@@ -895,7 +902,9 @@ Item {
 
                                         Text {
                                             visible: modelData.qualifier !== ""
-                                            text: modelData.qualifier
+                                            readonly property string plainText: modelData.qualifier
+                                            text: Notation.rich(plainText)
+                                            textFormat: Notation.textFormat(plainText)
                                             color: Theme.textMuted
                                             font.family: Typography.sans
                                             font.pixelSize: Typography.meta
@@ -951,7 +960,9 @@ Item {
 
                                         Text {
                                             visible: modelData.qualifier !== ""
-                                            text: modelData.qualifier
+                                            readonly property string plainText: modelData.qualifier
+                                            text: Notation.rich(plainText)
+                                            textFormat: Notation.textFormat(plainText)
                                             color: Theme.textMuted
                                             font.family: Typography.sans
                                             font.pixelSize: Typography.meta

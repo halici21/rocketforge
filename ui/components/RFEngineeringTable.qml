@@ -33,6 +33,11 @@ Item {
         return column >= 0 && column < columns.length
                && columns[column].align === "left"
     }
+
+    function isSpeciesColumn(column) {
+        return column >= 0 && column < columns.length
+               && columns[column].key === "species"
+    }
     // Row index to mark as physically special, or -1.
     property int markedRow: -1
     property string markedLabel: "SONIC"
@@ -211,7 +216,11 @@ Item {
                                                  ? Text.AlignLeft
                                                  : Text.AlignRight
                             elide: Text.ElideRight
-                            text: modelData.label
+                            // RichText does not elide; a label carrying notation is clipped
+                            // to its width instead of running into its neighbour.
+                            clip: true
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall
@@ -307,7 +316,13 @@ Item {
                                     anchors.rightMargin: Metrics.spacing.m
                                     anchors.leftMargin: Metrics.spacing.m
                                     anchors.verticalCenter: parent.verticalCenter
-                                    text: root.cellText(line.index, index)
+                                    // Only a species column gets formula
+                                    // subscripts; every other cell is a number
+                                    // or a word and is shown exactly as given.
+                                    readonly property bool speciesCell: root.isSpeciesColumn(index)
+                                    readonly property string raw: root.cellText(line.index, index)
+                                    text: speciesCell ? Notation.species(raw) : raw
+                                    textFormat: speciesCell ? Notation.speciesFormat(raw) : Text.PlainText
                                     color: (line.isMarked || line.isSecondary)
                                            ? Theme.text : Theme.textSecondary
                                     // Tabular figures: digits share a width, so
@@ -326,7 +341,8 @@ Item {
                         anchors.left: parent.left
                         anchors.leftMargin: Metrics.spacing.s
                         anchors.verticalCenter: parent.verticalCenter
-                        text: line.isMarked ? root.markedLabel : root.secondaryLabel
+                        text: Notation.rich(line.isMarked ? root.markedLabel : root.secondaryLabel)
+                        textFormat: Notation.textFormat(line.isMarked ? root.markedLabel : root.secondaryLabel)
                         color: line.isMarked ? Theme.accent : Theme.textSecondary
                         font.family: Typography.sans
                         font.pixelSize: Typography.meta

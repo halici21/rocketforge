@@ -187,7 +187,8 @@ Item {
             }
             Text {
                 visible: root.hasResult
-                text: root.streamLabel
+                text: Notation.rich(root.streamLabel)
+                textFormat: Notation.textFormat(root.streamLabel)
                 color: Theme.textSecondary
                 font.family: Typography.mono
                 font.pixelSize: Typography.readoutSmall
@@ -209,7 +210,8 @@ Item {
             }
             Text {
                 visible: root.hasResult
-                text: root.oxidiserLabel
+                text: Notation.rich(root.oxidiserLabel)
+                textFormat: Notation.textFormat(root.oxidiserLabel)
                 color: Theme.textSecondary
                 font.family: Typography.mono
                 font.pixelSize: Typography.readoutSmall
@@ -231,7 +233,8 @@ Item {
             }
             Text {
                 visible: root.hasResult
-                text: root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : "")
+                text: Notation.rich(root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : ""))
+                textFormat: Notation.textFormat(root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : ""))
                 color: Theme.textSecondary
                 font.family: Typography.mono
                 font.pixelSize: Typography.readoutSmall
@@ -241,8 +244,8 @@ Item {
         Column {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.horizontalCenterOffset: (stations.chamberLeft + stations.chamberRight) / 2 - stations.width / 2
-            y: stations.axis - 11
-            spacing: 1
+            y: stations.axis - 14
+            spacing: 4
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "EQUILIBRIUM CHAMBER"
@@ -256,6 +259,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 visible: root.hasResult && root.chamberPressureText !== ""
                 text: root.chamberPressureText
+                textFormat: Text.RichText
                 color: Theme.textSecondary
                 font.family: Typography.mono
                 font.pixelSize: Typography.readoutSmall
@@ -304,6 +308,6 @@ Item {
         color: Theme.textSecondary
         font.family: Typography.sans
         font.pixelSize: Typography.meta
-        font.letterSpacing: Typography.sectionTracking
+        font.letterSpacing: 0.7
     }
 }

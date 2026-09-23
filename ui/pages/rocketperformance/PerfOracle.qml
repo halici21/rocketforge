@@ -85,10 +85,12 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
-                    text: "The provider computes c*, Cf and Isp itself. Those values "
+                    readonly property string plainText: "The provider computes c*, Cf and Isp itself. Those values "
                           + "are shown here to compare against — nothing on the "
                           + "Performance tab is derived from them, and running this "
                           + "does not change a single number there."
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -200,8 +202,10 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 260
-                            text: oracleRow.label
+                            text: Notation.rich(oracleRow.label)
+                            textFormat: Notation.textFormat(oracleRow.label)
                             elide: Text.ElideRight
+                            clip: true              // RichText does not elide
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.body
@@ -318,8 +322,10 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 236
-                                text: cmpRow.label
+                                text: Notation.rich(cmpRow.label)
+                                textFormat: Notation.textFormat(cmpRow.label)
                                 elide: Text.ElideRight
+                                clip: true              // RichText does not elide
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.body

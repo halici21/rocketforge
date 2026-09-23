@@ -78,7 +78,8 @@ Item {
 
                 Text {
                     anchors.centerIn: parent
-                    text: segment.modelData
+                    text: Notation.rich(segment.modelData)
+                    textFormat: Notation.textFormat(segment.modelData)
                     color: !segment.available ? Theme.textDisabled
                          : segment.isCurrent ? Theme.text
                          : hover.hovered ? Theme.textSecondary

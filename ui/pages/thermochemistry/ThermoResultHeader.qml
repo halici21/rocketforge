@@ -26,7 +26,8 @@ ColumnLayout {
         spacing: Metrics.spacing.s
 
         Text {
-            text: Thermochemistry.resultHeadline
+            text: Notation.rich(Thermochemistry.resultHeadline)
+            textFormat: Notation.textFormat(Thermochemistry.resultHeadline)
             color: Theme.text
             font.family: Typography.sans
             font.pixelSize: Typography.groupLabel + 2
@@ -72,7 +73,8 @@ ColumnLayout {
                 spacing: Metrics.spacing.xs
 
                 Text {
-                    text: modelData.label
+                    text: Notation.rich(modelData.label)
+                    textFormat: Notation.textFormat(modelData.label)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

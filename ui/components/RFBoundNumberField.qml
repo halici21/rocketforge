@@ -24,6 +24,9 @@ RFNumberField {
     // Bound by the caller to the backing property. Never assigned from here.
     property real value: 0
     property int digits: 4
+    property int decimals: -1
+
+    readonly property int effectiveDecimals: decimals >= 0 ? decimals : digits
 
     signal valueEdited(real newValue)
 
@@ -34,7 +37,7 @@ RFNumberField {
         if (shown === v)
             return
         _guard = true
-        control.text = v.toFixed(control.digits)
+        control.text = v.toFixed(control.effectiveDecimals)
         _guard = false
     }
 
@@ -53,7 +56,7 @@ RFNumberField {
 
     Component.onCompleted: {
         _guard = true
-        control.text = control.value.toFixed(control.digits)
+        control.text = control.value.toFixed(control.effectiveDecimals)
         _guard = false
     }
 }

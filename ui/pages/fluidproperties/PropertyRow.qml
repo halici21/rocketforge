@@ -34,11 +34,13 @@ RowLayout {
 
     Text {
         Layout.preferredWidth: 190
-        text: root.row ? root.row.label : ""
+        text: Notation.rich(root.row ? root.row.label : "")
+        textFormat: Notation.textFormat(root.row ? root.row.label : "")
         color: Theme.textMuted
         font.family: Typography.sans
         font.pixelSize: root.labelSize
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
     }
     Text {
         Layout.preferredWidth: 170

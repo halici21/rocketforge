@@ -152,7 +152,8 @@ Item {
                             spacing: Metrics.spacing.xs
 
                             Text {
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
@@ -243,7 +244,8 @@ Item {
 
                                 Text {
                                     Layout.preferredWidth: 152
-                                    text: modelData.label
+                                    text: Notation.rich(modelData.label)
+                                    textFormat: Notation.textFormat(modelData.label)
                                     wrapMode: Text.WordWrap
                                     color: Theme.textMuted
                                     font.family: Typography.sans

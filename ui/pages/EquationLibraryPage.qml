@@ -68,14 +68,17 @@ Item {
 
                             RFSectionLabel {
                                 visible: parent.startsGroup
-                                text: modelData.group
+                                readonly property string plainText: modelData.group
+                                text: Notation.sectionRich(plainText)
+                                textFormat: Notation.textFormat(plainText)
                                 Layout.topMargin: index === 0 ? 0 : Metrics.spacing.l
                                 Layout.bottomMargin: Metrics.spacing.xs
                             }
 
                             Text {
                                 Layout.fillWidth: true
-                                text: modelData.name
+                                text: Notation.rich(modelData.name)
+                                textFormat: Notation.textFormat(modelData.name)
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.bodySmall

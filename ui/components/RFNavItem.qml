@@ -65,8 +65,10 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         x: Metrics.spacing.s + root.indent
         width: parent.width - x - Metrics.spacing.s - (badgeItem.visible ? badgeItem.width + Metrics.spacing.s : 0)
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
         font.family: Typography.sans
         font.pixelSize: Typography.navItem
         font.weight: root.current ? Typography.semibold : Typography.regular

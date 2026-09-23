@@ -71,8 +71,10 @@ Item {
 
         Text {
             width: parent.width
-            text: root.label
+            text: Notation.rich(root.label)
+            textFormat: Notation.textFormat(root.label)
             elide: Text.ElideRight
+            clip: true              // RichText does not elide
             font.family: Typography.sans
             font.pixelSize: Typography.navItem
             font.weight: root.current ? Typography.semibold : Typography.regular

@@ -224,7 +224,9 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
-                    text: PrandtlMeyer.tableFooter
+                    readonly property string plainText: PrandtlMeyer.tableFooter
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     color: Theme.textMuted
                     font.family: Typography.sans
@@ -287,9 +289,11 @@ Item {
                 RFDivider {}
 
                 RFSectionLabel {
-                    text: page.selectedRow >= 0
+                    readonly property string plainText: page.selectedRow >= 0
                           ? "Row · M = " + PrandtlMeyer.tableModel.machAt(page.selectedRow).toFixed(4)
                           : "Select a row"
+                    text: Notation.sectionRich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                 }
 
                 Text {
@@ -315,7 +319,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 52
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall

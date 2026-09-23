@@ -85,7 +85,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + MassFlow.inputHint
+                readonly property string plainText: "Valid range: " + MassFlow.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 color: Theme.textMuted
                 font.family: Typography.sans
                 font.pixelSize: Typography.meta
@@ -202,7 +204,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: MassFlow.assumptions.join(" · ")
+                readonly property string plainText: MassFlow.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -234,7 +238,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: MassFlow.statusMessage !== ""
-                    text: MassFlow.statusMessage
+                    readonly property string plainText: MassFlow.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -254,7 +260,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 176
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.body
@@ -299,12 +306,14 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Text {
                                         Layout.fillWidth: true
                                         visible: group.dimensional && !MassFlow.dimensionalAvailable
-                                        text: MassFlow.dimensionalMessage
+                                        readonly property string plainText: MassFlow.dimensionalMessage
+                                        text: Notation.rich(plainText)
+                                        textFormat: Notation.textFormat(plainText)
                                         wrapMode: Text.WordWrap
                                         lineHeight: Typography.proseLineHeight
                                         lineHeightMode: Text.ProportionalHeight
@@ -324,7 +333,8 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 176
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -405,7 +415,9 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignVCenter
-                        text: choke.check.message !== undefined ? choke.check.message : ""
+                        readonly property string plainText: choke.check.message !== undefined ? choke.check.message : ""
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         wrapMode: Text.WordWrap
                         lineHeight: Typography.proseLineHeight
                         lineHeightMode: Text.ProportionalHeight

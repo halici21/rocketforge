@@ -28,7 +28,8 @@ ColumnLayout {
         spacing: Metrics.spacing.m
 
         Text {
-            text: root.regimeLabel
+            text: Notation.rich(root.regimeLabel)
+            textFormat: Notation.textFormat(root.regimeLabel)
             color: Theme.textSecondary
             font.family: Typography.sans
             font.pixelSize: Typography.groupLabel
@@ -43,7 +44,8 @@ ColumnLayout {
         }
 
         Text {
-            text: root.ambientLabel
+            text: Notation.rich(root.ambientLabel)
+            textFormat: Notation.textFormat(root.ambientLabel)
             color: Theme.textSecondary
             font.family: Typography.sans
             font.pixelSize: Typography.meta
@@ -66,7 +68,8 @@ ColumnLayout {
                 spacing: Metrics.spacing.xs
 
                 Text {
-                    text: exitItem.symbol
+                    text: Notation.rich(exitItem.symbol)
+                    textFormat: Notation.textFormat(exitItem.symbol)
                     color: Theme.textSecondary
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

@@ -45,7 +45,8 @@ Rectangle {
         Text {
             width: parent.width
             visible: root.caption !== ""
-            text: root.caption
+            text: Notation.rich(root.caption)
+            textFormat: Notation.textFormat(root.caption)
             horizontalAlignment: Text.AlignHCenter
             color: Theme.textMuted
             font.family: Typography.sans

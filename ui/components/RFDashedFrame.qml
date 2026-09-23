@@ -52,7 +52,8 @@ Item {
     Text {
         anchors.centerIn: parent
         visible: root.label !== ""
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.meta

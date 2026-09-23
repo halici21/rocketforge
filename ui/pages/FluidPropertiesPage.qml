@@ -287,7 +287,7 @@ Item {
                                 spacing: Metrics.spacing.xs
                                 visible: tierRows.length > 0
 
-                                RFSectionLabel { text: tierColumn.modelData.label }
+                                RFSectionLabel { text: Notation.sectionRich(tierColumn.modelData.label); textFormat: Notation.textFormat(tierColumn.modelData.label) }
 
                                 Repeater {
                                     model: tierColumn.tierRows
@@ -329,11 +329,13 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 140
-                                text: provenanceRow.modelData.label
+                                text: Notation.rich(provenanceRow.modelData.label)
+                                textFormat: Notation.textFormat(provenanceRow.modelData.label)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
                                 elide: Text.ElideRight
+                                clip: true              // RichText does not elide
                             }
                             Text {
                                 Layout.fillWidth: true

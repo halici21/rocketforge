@@ -86,7 +86,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + PrandtlMeyer.inputHint
+                readonly property string plainText: "Valid range: " + PrandtlMeyer.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans
@@ -200,7 +202,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: PrandtlMeyer.assumptions.join(" · ")
+                readonly property string plainText: PrandtlMeyer.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -232,7 +236,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: PrandtlMeyer.statusMessage !== ""
-                    text: PrandtlMeyer.statusMessage
+                    readonly property string plainText: PrandtlMeyer.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -269,7 +275,7 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Repeater {
                                         model: group.groupRows
@@ -282,8 +288,10 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 186
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
+                                                clip: true              // RichText does not elide
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
                                                 font.pixelSize: Typography.body
@@ -379,7 +387,7 @@ Item {
                                         spacing: 2
                                         visible: groupRows.length > 0
 
-                                        RFSectionLabel { text: expansionGroup.modelData }
+                                        RFSectionLabel { text: Notation.sectionRich(expansionGroup.modelData); textFormat: Notation.textFormat(expansionGroup.modelData) }
 
                                         Repeater {
                                             model: expansionGroup.groupRows
@@ -392,8 +400,10 @@ Item {
 
                                                 Text {
                                                     Layout.preferredWidth: 150
-                                                    text: modelData.label
+                                                    text: Notation.rich(modelData.label)
+                                                    textFormat: Notation.textFormat(modelData.label)
                                                     elide: Text.ElideRight
+                                                    clip: true              // RichText does not elide
                                                     color: Theme.textSecondary
                                                     font.family: Typography.sans
                                                     font.pixelSize: Typography.bodySmall
@@ -519,7 +529,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 70
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall

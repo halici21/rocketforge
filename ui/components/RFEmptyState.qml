@@ -26,7 +26,8 @@ Column {
 
     Text {
         width: parent.width
-        text: root.title
+        text: Notation.rich(root.title)
+        textFormat: Notation.textFormat(root.title)
         horizontalAlignment: Text.AlignHCenter
         color: Theme.text
         font.family: Typography.sans

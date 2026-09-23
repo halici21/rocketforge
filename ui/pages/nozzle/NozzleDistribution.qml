@@ -189,7 +189,8 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 92
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.bodySmall
@@ -231,7 +232,8 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.bodySmall

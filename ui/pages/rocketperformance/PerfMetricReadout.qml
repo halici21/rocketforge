@@ -27,13 +27,15 @@ ColumnLayout {
 
     Text {
         Layout.fillWidth: true
-        text: root.symbol
+        text: Notation.rich(root.symbol)
+        textFormat: Notation.textFormat(root.symbol)
         color: Theme.textSecondary
         font.family: Typography.sans
         font.pixelSize: Typography.sectionLabel
         font.letterSpacing: Typography.sectionTracking
         font.weight: Typography.medium
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
     }
 
     RowLayout {
@@ -72,10 +74,12 @@ ColumnLayout {
 
     Text {
         Layout.fillWidth: true
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: Theme.textSecondary
         font.family: Typography.sans
         font.pixelSize: Typography.bodySmall
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
     }
 }

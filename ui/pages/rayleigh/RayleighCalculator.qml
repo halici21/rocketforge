@@ -87,7 +87,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + Rayleigh.inputHint
+                readonly property string plainText: "Valid range: " + Rayleigh.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans
@@ -222,8 +224,10 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: Rayleigh.heatInput === "heat" && Rayleigh.heatEnabled
-                text: "q = cp (T₀₂ − T₀₁), with cp taken from the gas model. Imposed heat "
+                readonly property string plainText: "q = cp (T₀₂ − T₀₁), with cp taken from the gas model. Imposed heat "
                       + "transfer only: no combustion, no chemistry, no species."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -246,7 +250,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: Rayleigh.assumptions.join(" · ")
+                readonly property string plainText: Rayleigh.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -278,7 +284,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: Rayleigh.statusMessage !== ""
-                    text: Rayleigh.statusMessage
+                    readonly property string plainText: Rayleigh.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -316,7 +324,7 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Repeater {
                                         model: group.groupRows
@@ -329,7 +337,8 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 226
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -367,12 +376,14 @@ Item {
                     Layout.fillWidth: true
                     Layout.topMargin: Metrics.spacing.s
                     visible: Rayleigh.valid
-                    text: "Two different maxima at two different Mach numbers: the static "
+                    readonly property string plainText: "Two different maxima at two different Mach numbers: the static "
                           + "temperature peaks at M = 1/√γ = "
                           + Rayleigh.staticTemperatureMaxMach.toFixed(6)
                           + " and the stagnation temperature at M = 1. Between them the static "
                           + "temperature falls while heat is still being added — the flow is "
                           + "accelerating fast enough that the kinetic-energy rise outruns it."
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -412,7 +423,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: Rayleigh.heatMessage !== ""
-                    text: Rayleigh.heatMessage
+                    readonly property string plainText: Rayleigh.heatMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -452,7 +465,7 @@ Item {
                                     spacing: 2
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: heatGroup.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(heatGroup.modelData); textFormat: Notation.textFormat(heatGroup.modelData) }
 
                                     Repeater {
                                         model: heatGroup.groupRows
@@ -465,8 +478,10 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 214
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
+                                                clip: true              // RichText does not elide
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
                                                 font.pixelSize: Typography.bodySmall

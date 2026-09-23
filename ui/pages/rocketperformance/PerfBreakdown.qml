@@ -23,7 +23,8 @@ ColumnLayout {
 
     Text {
         Layout.fillWidth: true
-        text: root.title
+        text: Notation.rich(root.title)
+        textFormat: Notation.textFormat(root.title)
         color: Theme.textMuted
         font.family: Typography.sans
         font.pixelSize: Typography.sectionLabel
@@ -43,11 +44,13 @@ ColumnLayout {
 
             Text {
                 Layout.fillWidth: true
-                text: term.label
+                text: Notation.rich(term.label)
+                textFormat: Notation.textFormat(term.label)
                 color: Theme.textMuted
                 font.family: Typography.sans
                 font.pixelSize: Typography.bodySmall
                 elide: Text.ElideRight
+                clip: true              // RichText does not elide
             }
             Text {
                 text: term.sign

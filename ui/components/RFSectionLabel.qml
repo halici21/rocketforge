@@ -13,8 +13,12 @@ Text {
     font.pixelSize: Typography.sectionLabel
     font.weight: Typography.semibold
     font.letterSpacing: Typography.sectionTracking
-    font.capitalization: Font.AllUppercase
+    // A label carrying notation arrives from Notation.sectionRich already
+    // uppercased where it may be: uppercasing a symbol changes it (p -> P).
+    font.capitalization: textFormat === Text.RichText ? Font.MixedCase
+                                                      : Font.AllUppercase
     elide: Text.ElideRight
+    clip: textFormat === Text.RichText          // RichText does not elide
 
     Behavior on color {
         ColorAnimation { duration: Motion.fast }

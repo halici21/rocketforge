@@ -57,24 +57,28 @@ Item {
 
         Text {
             Layout.fillWidth: true
-            text: root.hasResult ? root.fluidLabel : "No state evaluated"
+            text: Notation.rich(root.hasResult ? root.fluidLabel : "No state evaluated")
+            textFormat: Notation.textFormat(root.hasResult ? root.fluidLabel : "No state evaluated")
             color: root.activeColor
             font.family: Typography.sans
             font.pixelSize: Typography.readoutSmall
             font.weight: Typography.medium
             elide: Text.ElideRight
+            clip: true              // RichText does not elide
 
             Behavior on color { ColorAnimation { duration: Motion.base } }
         }
 
         Text {
             Layout.fillWidth: true
-            text: root.hasResult ? root.phaseLabel(root.phase) : "—"
+            text: Notation.rich(root.hasResult ? root.phaseLabel(root.phase) : "—")
+            textFormat: Notation.textFormat(root.hasResult ? root.phaseLabel(root.phase) : "—")
             color: root.secondaryColor
             font.family: Typography.sans
             font.pixelSize: Typography.body
             font.letterSpacing: Typography.sectionTracking
             elide: Text.ElideRight
+            clip: true              // RichText does not elide
 
             Behavior on color { ColorAnimation { duration: Motion.base } }
         }

@@ -173,7 +173,9 @@ Item {
                 }
 
                 RFSectionLabel {
-                    text: modelData.label
+                    readonly property string plainText: modelData.label
+                    text: Notation.sectionRich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     x: modelData.x > 0.9 ? -implicitWidth - 6 : (modelData.x < 0.2 ? 0 : 6)
                     y: 0
                 }

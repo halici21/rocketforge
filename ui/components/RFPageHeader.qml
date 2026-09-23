@@ -17,7 +17,8 @@ Item {
 
     Text {
         id: titleText
-        text: root.title
+        text: Notation.rich(root.title)
+        textFormat: Notation.textFormat(root.title)
         color: Theme.text
         font.family: Typography.sans
         font.pixelSize: Typography.pageTitle

@@ -25,13 +25,13 @@ QtObject {
     readonly property string mono: firstAvailable(monoCandidates)
 
     // ---- sizes ------------------------------------------------------------
-    readonly property real pageTitle: 21
-    readonly property real pageSubtitle: 12.5
-    readonly property real sectionLabel: 10.5      // uppercase, tracked
+    readonly property real pageTitle: 22
+    readonly property real pageSubtitle: 13
+    readonly property real sectionLabel: 11      // uppercase, tracked
     readonly property real groupLabel: 12
     readonly property real body: 13
     readonly property real bodySmall: 12
-    readonly property real inputLabel: 11.5
+    readonly property real inputLabel: 12
     readonly property real inputValue: 15          // mono
     // Analysis Experience R2: the one hero number a workspace exists to
     // produce (rf-engineering-workbench's hierarchy Level 1). A golden-
@@ -41,7 +41,7 @@ QtObject {
     readonly property real readoutHero: 32         // mono
     readonly property real readoutLarge: 20        // mono
     readonly property real readoutMedium: 15       // mono
-    readonly property real readoutSmall: 12.5      // mono
+    readonly property real readoutSmall: 13      // mono
     // ---- chart scale ------------------------------------------------------
     // A plot carries its own type scale rather than borrowing `meta`.
     // `meta` is sized for a caption sitting inside a dense rail; a 620px-tall
@@ -49,14 +49,14 @@ QtObject {
     // distance from the eye's focus, and the audit captures showed 10.5px
     // tick labels reading as noise against it. These three are the only
     // sizes any chart may use, so every plot in the application agrees.
-    readonly property real axisTick: 11.5      // mono, tabular figures
+    readonly property real axisTick: 11      // mono, tabular figures
     readonly property real axisTitle: 12       // sans, carries the unit
     readonly property real chartAnnotation: 11 // sans, guide/marker labels
 
-    readonly property real navItem: 12.5
+    readonly property real navItem: 13
     readonly property real navGroup: 10
     readonly property real status: 11
-    readonly property real meta: 10.5
+    readonly property real meta: 11
 
     // ---- weights ----------------------------------------------------------
     readonly property int regular: Font.Normal
@@ -64,8 +64,8 @@ QtObject {
     readonly property int semibold: Font.DemiBold
 
     // ---- tracking ---------------------------------------------------------
-    readonly property real sectionTracking: 1.1
-    readonly property real navGroupTracking: 1.0
+    readonly property real sectionTracking: 0.8
+    readonly property real navGroupTracking: 0.8
     readonly property real titleTracking: -0.2
 
     // ---- rhythm -----------------------------------------------------------

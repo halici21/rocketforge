@@ -117,7 +117,8 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 180
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.text
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.body + 1
@@ -254,7 +255,8 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 180
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: famHover.hovered ? Theme.text : Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.body

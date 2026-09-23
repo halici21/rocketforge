@@ -17,7 +17,8 @@ Column {
     spacing: 2
 
     Text {
-        text: root.title
+        text: Notation.rich(root.title)
+        textFormat: Notation.textFormat(root.title)
         color: Theme.textSecondary
         font.family: Typography.sans
         font.pixelSize: Typography.sectionLabel
@@ -27,7 +28,9 @@ Column {
 
     Text {
         visible: root.detail !== ""
-        text: root.detail
+        readonly property string plainText: root.detail
+        text: Notation.rich(plainText)
+        textFormat: Notation.textFormat(plainText)
         color: Theme.textSecondary
         font.family: Typography.mono
         font.pixelSize: Typography.readoutSmall

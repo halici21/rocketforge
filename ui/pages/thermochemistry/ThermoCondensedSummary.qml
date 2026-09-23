@@ -53,7 +53,8 @@ RowLayout {
 
         Text {
             Layout.fillWidth: true
-            text: summary.condensed.headline
+            text: Notation.rich(summary.condensed.headline)
+            textFormat: Notation.textFormat(summary.condensed.headline)
             wrapMode: Text.WordWrap
             color: Theme.text
             font.family: Typography.sans

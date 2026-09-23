@@ -29,20 +29,24 @@ Item {
     Text {
         id: labelText
         width: root.width
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: Theme.textMuted
         font.family: Typography.sans
         font.pixelSize: Typography.meta
         font.weight: Typography.medium
         font.letterSpacing: 0.6
         elide: Text.ElideRight
+        // RichText does not elide; a label carrying notation is clipped
+        // to its width instead of running into its neighbour.
+        clip: true
     }
 
     RowLayout {
         id: valueRow
         anchors.top: labelText.bottom
         anchors.topMargin: Metrics.spacing.xs
-        spacing: 4
+        spacing: 6
 
         Text {
             text: root.value

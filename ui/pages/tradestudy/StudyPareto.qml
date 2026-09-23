@@ -393,7 +393,10 @@ Item {
 
                     Text {
                         Layout.preferredWidth: 240
-                        text: modelData.objective
+                        readonly property string plainText: modelData.objective
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
+                        clip: true              // RichText does not elide
                         elide: Text.ElideRight
                         color: Theme.textMuted
                         font.family: Typography.sans
@@ -408,7 +411,10 @@ Item {
                     }
                     Text {
                         Layout.fillWidth: true
-                        text: modelData.point
+                        readonly property string plainText: modelData.point
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
+                        clip: true              // RichText does not elide
                         elide: Text.ElideRight
                         color: Theme.textSecondary
                         font.family: Typography.sans

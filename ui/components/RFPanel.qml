@@ -53,7 +53,9 @@ Rectangle {
             spacing: Metrics.spacing.s
 
             RFSectionLabel {
-                text: root.title
+                readonly property string plainText: root.title
+                text: Notation.sectionRich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
             }

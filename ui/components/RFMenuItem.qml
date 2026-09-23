@@ -41,7 +41,8 @@ Item {
         id: labelText
         anchors.verticalCenter: parent.verticalCenter
         x: Metrics.spacing.s + 20
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: root.available ? Theme.text : Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.body

@@ -55,7 +55,7 @@ ColumnLayout {
         Layout.fillWidth: true
         spacing: Metrics.spacing.s
 
-        RFSectionLabel { text: "Largest " + bars.leaders.length + " by " + bars.basisLabel }
+        RFSectionLabel { text: Notation.sectionRich("Largest " + bars.leaders.length + " by " + bars.basisLabel); textFormat: Notation.textFormat("Largest " + bars.leaders.length + " by " + bars.basisLabel) }
         Item { Layout.fillWidth: true }
         Text {
             text: "Bars are linear and relative to the largest. The table below is the "
@@ -76,8 +76,10 @@ ColumnLayout {
 
             Text {
                 Layout.preferredWidth: 76
-                text: modelData.name
+                text: Notation.species(modelData.name)
+                textFormat: Notation.speciesFormat(modelData.name)
                 elide: Text.ElideRight
+                clip: true              // RichText does not elide
                 color: Theme.textSecondary
                 font.family: Typography.mono
                 font.pixelSize: Typography.meta

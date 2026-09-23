@@ -55,7 +55,9 @@ Item {
                     }
                     Text {
                         anchors.baseline: value.baseline
-                        text: "p₀"
+                        readonly property string plainText: "p₀"
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         color: Theme.textMuted
                         font.family: Typography.sans
                         font.pixelSize: Typography.bodySmall
@@ -168,7 +170,8 @@ Item {
                         spacing: 1
 
                         Text {
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall
@@ -181,7 +184,9 @@ Item {
                             font.weight: Typography.medium
                         }
                         Text {
-                            text: modelData.hint
+                            readonly property string plainText: modelData.hint
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
                             color: Theme.textMuted
                             font.family: Typography.sans
                             font.pixelSize: Typography.meta
@@ -193,10 +198,12 @@ Item {
             Text {
                 Layout.fillWidth: true
                 Layout.topMargin: Metrics.spacing.xs
-                text: "Every edge above is computed from A_e/A_t and γ — there is no "
+                readonly property string plainText: "Every edge above is computed from A_e/A_t and γ — there is no "
                       + "hard-coded pressure anywhere in the classifier. Ideal expansion "
                       + "is a single point rather than a band, which is why the presets "
                       + "exist."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight

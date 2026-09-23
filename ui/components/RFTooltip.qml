@@ -20,7 +20,8 @@ ToolTip {
     }
 
     contentItem: Text {
-        text: root.text
+        text: Notation.rich(root.text)
+        textFormat: Notation.textFormat(root.text)
         color: Theme.textSecondary
         font.family: Typography.sans
         font.pixelSize: Typography.bodySmall

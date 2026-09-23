@@ -73,7 +73,8 @@ ColumnLayout {
                 Text {
                     Layout.preferredWidth: 176
                     Layout.alignment: Qt.AlignTop
-                    text: modelData.label
+                    text: Notation.rich(modelData.label)
+                    textFormat: Notation.textFormat(modelData.label)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

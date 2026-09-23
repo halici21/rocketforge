@@ -91,7 +91,8 @@ Item {
 
                     Text {
                         Layout.preferredWidth: 180
-                        text: modelData.label
+                        text: Notation.rich(modelData.label)
+                        textFormat: Notation.textFormat(modelData.label)
                         wrapMode: Text.WordWrap
                         color: Theme.textMuted
                         font.family: Typography.sans

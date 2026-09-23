@@ -86,7 +86,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + Fanno.inputHint
+                readonly property string plainText: "Valid range: " + Fanno.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans
@@ -214,9 +216,11 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
-                    text: Fanno.frictionRelation
+                    readonly property string plainText: Fanno.frictionRelation
                           + " — switching convention keeps the same physical duct, so the "
                           + "number in the field changes and the answer does not."
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -265,9 +269,11 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: Fanno.ductSource === "geometry" && Fanno.segmentEnabled
-                text: "4 f_F L/D = " + Fanno.effectiveDuctParameter.toFixed(6)
+                readonly property string plainText: "4 f_F L/D = " + Fanno.effectiveDuctParameter.toFixed(6)
                       + "   ·   the friction factor is supplied, not correlated: no "
                       + "Colebrook, no Moody chart, no Reynolds number."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -290,7 +296,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: Fanno.assumptions.join(" · ")
+                readonly property string plainText: Fanno.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -322,7 +330,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: Fanno.statusMessage !== ""
-                    text: Fanno.statusMessage
+                    readonly property string plainText: Fanno.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -360,7 +370,7 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Repeater {
                                         model: group.groupRows
@@ -373,7 +383,8 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 210
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -438,7 +449,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: Fanno.segmentMessage !== ""
-                    text: Fanno.segmentMessage
+                    readonly property string plainText: Fanno.segmentMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -478,7 +491,7 @@ Item {
                                     spacing: 2
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: segmentGroup.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(segmentGroup.modelData); textFormat: Notation.textFormat(segmentGroup.modelData) }
 
                                     Repeater {
                                         model: segmentGroup.groupRows
@@ -491,8 +504,10 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 205
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
+                                                clip: true              // RichText does not elide
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
                                                 font.pixelSize: Typography.bodySmall

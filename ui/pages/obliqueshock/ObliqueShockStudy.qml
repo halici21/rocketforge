@@ -213,7 +213,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: ObliqueShock.tableFooter
+                readonly property string plainText: ObliqueShock.tableFooter
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans

@@ -30,11 +30,13 @@ Item {
     Text {
         id: labelText
         visible: root.label !== ""
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: root.enabled ? Theme.textSecondary : Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.inputLabel
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
         width: root.width
     }
 

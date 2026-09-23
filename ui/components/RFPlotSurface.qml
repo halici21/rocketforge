@@ -125,7 +125,8 @@ Item {
     Text {
         id: yTitleText
         visible: root.yTitle !== ""
-        text: root.yTitle
+        text: Notation.rich(root.yTitle)
+        textFormat: Notation.textFormat(root.yTitle)
         rotation: -90
         transformOrigin: Item.Center
         // Rotating about the centre swaps the visual extents, so the left edge
@@ -174,7 +175,8 @@ Item {
 
     Text {
         visible: root.xTitle !== ""
-        text: root.xTitle
+        text: Notation.rich(root.xTitle)
+        textFormat: Notation.textFormat(root.xTitle)
         x: area.x + (area.width - width) / 2
         y: area.y + area.height + 28
         color: Theme.textMuted
@@ -267,7 +269,8 @@ Item {
 
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: modelData.name
+                    text: Notation.rich(modelData.name)
+                    textFormat: Notation.textFormat(modelData.name)
                     color: Theme.textSecondary
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

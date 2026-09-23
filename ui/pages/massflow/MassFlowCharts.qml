@@ -63,7 +63,9 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: page.points.length + " points · γ = " + MassFlow.tableGamma.toFixed(3)
+                    readonly property string plainText: page.points.length + " points · γ = " + MassFlow.tableGamma.toFixed(3)
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

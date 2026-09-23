@@ -116,9 +116,11 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: "γ = " + Rayleigh.tableGamma.toFixed(3)
+                    readonly property string plainText: "γ = " + Rayleigh.tableGamma.toFixed(3)
                           + "  ·  T₀/T₀* floor as M → ∞ = "
                           + Rayleigh.supersonicT0Floor.toFixed(6)
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
@@ -148,7 +150,9 @@ Item {
                                 color: modelData.swatch
                             }
                             Text {
-                                text: modelData.text
+                                readonly property string plainText: modelData.text
+                                text: Notation.rich(plainText)
+                                textFormat: Notation.textFormat(plainText)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
@@ -182,7 +186,7 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: page.isComparison
-                text: "The two curves peak in different places, and that is the whole point. "
+                readonly property string plainText: "The two curves peak in different places, and that is the whole point. "
                       + "T/T* is greatest at M = 1/√γ = "
                       + Rayleigh.staticTemperatureMaxMach.toFixed(6)
                       + " with a value of "
@@ -192,6 +196,8 @@ Item {
                       + "flow is accelerating fast enough that the kinetic-energy rise "
                       + "outruns the heat put in. Heat addition drives either branch towards "
                       + "M = 1, and the sonic state is the thermal choking limit."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -203,10 +209,12 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: !page.isComparison
-                text: "Subsonic and supersonic are drawn as separate series because their "
+                readonly property string plainText: "Subsonic and supersonic are drawn as separate series because their "
                       + "scales differ enough that one autoscale would hide the other. Both "
                       + "meet at the sonic state, which is where heat addition takes either "
                       + "of them."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight

@@ -142,7 +142,10 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
-                    text: MassFlow.referenceMessage
+                    readonly property string plainText: MassFlow.referenceMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
+                    clip: true              // RichText does not elide
                     elide: Text.ElideRight
                     color: Theme.textMuted
                     font.family: Typography.sans
@@ -226,7 +229,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: MassFlow.tableFooter
+                readonly property string plainText: MassFlow.tableFooter
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans

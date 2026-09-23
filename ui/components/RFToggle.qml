@@ -49,7 +49,8 @@ Switch {
     }
 
     contentItem: Text {
-        text: control.text
+        text: Notation.rich(control.text)
+        textFormat: Notation.textFormat(control.text)
         color: control.enabled ? Theme.text : Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.body

@@ -72,7 +72,9 @@ Item {
         }
 
         Text {
-            text: root.text
+            readonly property string plainText: root.text
+            text: Notation.rich(plainText)
+            textFormat: Notation.textFormat(plainText)
             anchors.verticalCenter: parent.verticalCenter
             font.family: Typography.sans
             font.pixelSize: Typography.body

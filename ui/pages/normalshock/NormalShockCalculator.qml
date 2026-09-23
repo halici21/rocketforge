@@ -81,7 +81,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + NormalShock.inputHint
+                readonly property string plainText: "Valid range: " + NormalShock.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans
@@ -186,7 +188,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: NormalShock.assumptions.join(" · ")
+                readonly property string plainText: NormalShock.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -218,7 +222,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: NormalShock.statusMessage !== ""
-                    text: NormalShock.statusMessage
+                    readonly property string plainText: NormalShock.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -256,12 +262,14 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Text {
                                         Layout.fillWidth: true
                                         visible: group.downstream && !NormalShock.dimensionalAvailable
-                                        text: NormalShock.dimensionalMessage
+                                        readonly property string plainText: NormalShock.dimensionalMessage
+                                        text: Notation.rich(plainText)
+                                        textFormat: Notation.textFormat(plainText)
                                         wrapMode: Text.WordWrap
                                         lineHeight: Typography.proseLineHeight
                                         lineHeightMode: Text.ProportionalHeight
@@ -281,7 +289,8 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 164
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -318,8 +327,10 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     Layout.topMargin: Metrics.spacing.s
-                    text: NormalShock.strongShockLimits.caption !== undefined
+                    readonly property string plainText: NormalShock.strongShockLimits.caption !== undefined
                           ? NormalShock.strongShockLimits.caption : ""
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -428,7 +439,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 70
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall

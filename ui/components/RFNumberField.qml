@@ -42,11 +42,15 @@ Item {
 
     Text {
         id: labelText
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         color: root.enabled ? Theme.textSecondary : Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.inputLabel
         elide: Text.ElideRight
+        // RichText does not elide; a label carrying notation is clipped
+        // to its width instead of running into its neighbour.
+        clip: true
         width: root.width
     }
 

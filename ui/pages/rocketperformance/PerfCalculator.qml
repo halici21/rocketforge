@@ -152,7 +152,8 @@ Item {
 
                     Text {
                         Layout.fillWidth: true
-                        text: RocketPerformance.chamberHeadline
+                        text: Notation.rich(RocketPerformance.chamberHeadline)
+                        textFormat: Notation.textFormat(RocketPerformance.chamberHeadline)
                         color: Theme.textSecondary
                         font.family: Typography.sans
                         font.pixelSize: Typography.bodySmall
@@ -172,14 +173,18 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: chamberRow.label
+                                text: Notation.rich(chamberRow.label)
+                                textFormat: Notation.textFormat(chamberRow.label)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
                                 elide: Text.ElideRight
+                                clip: true              // RichText does not elide
                             }
                             Text {
-                                text: chamberRow.value
+                                readonly property string plainText: chamberRow.value
+                                text: Notation.rich(plainText)
+                                textFormat: Notation.textFormat(plainText)
                                 color: Theme.textSecondary
                                 font.family: Typography.mono
                                 font.pixelSize: Typography.meta
@@ -246,7 +251,7 @@ Item {
                     RFBoundNumberField {
                         id: areaRatioField
                         Layout.fillWidth: true
-                        label: "Expansion ratio  Ae/At"
+                        label: "Expansion ratio  <i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>"
                         value: RocketPerformance.areaRatio
                         digits: 3
                         step: 1
@@ -283,7 +288,7 @@ Item {
                     RFBoundNumberField {
                         Layout.fillWidth: true
                         visible: RocketPerformance.ambientMode === "custom"
-                        label: "Ambient pressure  p_a  [Pa]"
+                        label: "Ambient pressure  <i>p</i><sub>a</sub>  [Pa]"
                         value: RocketPerformance.ambientPressure
                         digits: 1
                         step: 1000
@@ -293,8 +298,10 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         visible: !view.compact
-                        text: view.noteForKey(RocketPerformance.ambientOptions,
+                        readonly property string plainText: view.noteForKey(RocketPerformance.ambientOptions,
                                               RocketPerformance.ambientMode)
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         wrapMode: Text.WordWrap
                         lineHeight: Typography.proseLineHeight
                         lineHeightMode: Text.ProportionalHeight
@@ -414,11 +421,13 @@ Item {
                     visible: RocketPerformance.hasResult
                     // The result's own case, not the live form. Editing an
                     // input must not relabel the drawing beneath this line.
-                    text: RocketPerformance.resultHeadline
+                    text: Notation.rich(RocketPerformance.resultHeadline)
+                    textFormat: Notation.textFormat(RocketPerformance.resultHeadline)
                     color: Theme.textSecondary
                     font.family: Typography.mono
                     font.pixelSize: Typography.meta
                     elide: Text.ElideRight
+                    clip: true              // RichText does not elide
                 }
 
                 PerfNozzleCanvas {
@@ -556,14 +565,17 @@ Item {
                     spacing: Metrics.spacing.xs
 
                     Text {
-                        text: traceItem.label
+                        text: Notation.rich(traceItem.label)
+                        textFormat: Notation.textFormat(traceItem.label)
                         color: Theme.textDisabled
                         font.family: Typography.sans
                         font.pixelSize: Typography.meta
                         font.letterSpacing: Typography.sectionTracking
                     }
                     Text {
-                        text: traceItem.value
+                        readonly property string plainText: traceItem.value
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         color: Theme.textMuted
                         font.family: Typography.sans
                         font.pixelSize: Typography.meta

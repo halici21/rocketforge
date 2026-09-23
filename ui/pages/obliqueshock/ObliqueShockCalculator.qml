@@ -136,7 +136,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Valid range: " + ObliqueShock.inputHint
+                readonly property string plainText: "Valid range: " + ObliqueShock.inputHint
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 color: Theme.textMuted
                 font.family: Typography.sans
@@ -205,7 +207,9 @@ Item {
 
                     Text {
                         Layout.fillWidth: true
-                        text: modelData.k
+                        readonly property string plainText: modelData.k
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         color: Theme.textSecondary
                         font.family: Typography.sans
                         font.pixelSize: Typography.bodySmall
@@ -259,7 +263,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: ObliqueShock.assumptions.join(" · ")
+                readonly property string plainText: ObliqueShock.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -294,7 +300,9 @@ Item {
                     // The detached block below states the same thing at length,
                     // so saying it twice here would just be noise.
                     visible: ObliqueShock.statusMessage !== "" && !ObliqueShock.detached
-                    text: ObliqueShock.statusMessage
+                    readonly property string plainText: ObliqueShock.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -319,9 +327,10 @@ Item {
 
                             Text {
                                 text: page.heroRows.length > 1
-                                      ? modelData.label + "   ("
+                                      ? Notation.rich(modelData.label) + "   ("
                                         + (modelData.key === "weak_beta" ? "weak" : "strong") + ")"
-                                      : modelData.label
+                                      : Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.bodySmall
@@ -386,7 +395,7 @@ Item {
                                     spacing: Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Repeater {
                                         model: group.groupRows
@@ -399,7 +408,8 @@ Item {
 
                                             Text {
                                                 Layout.preferredWidth: 176
-                                                text: modelData.label
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -452,7 +462,9 @@ Item {
 
                     Text {
                         Layout.fillWidth: true
-                        text: ObliqueShock.statusMessage
+                        readonly property string plainText: ObliqueShock.statusMessage
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         wrapMode: Text.WordWrap
                         lineHeight: Typography.proseLineHeight
                         lineHeightMode: Text.ProportionalHeight
@@ -467,7 +479,7 @@ Item {
 
                         ColumnLayout {
                             spacing: 2
-                            RFSectionLabel { text: "Requested θ" }
+                            RFSectionLabel { text: Notation.sectionRich("Requested θ"); textFormat: Notation.textFormat("Requested θ") }
                             Text {
                                 text: ObliqueShock.inputValue.toFixed(4) + "°"
                                 color: Theme.warning
@@ -478,7 +490,7 @@ Item {
 
                         ColumnLayout {
                             spacing: 2
-                            RFSectionLabel { text: "Maximum attached θ_max" }
+                            RFSectionLabel { text: Notation.sectionRich("Maximum attached θ_max"); textFormat: Notation.textFormat("Maximum attached θ_max") }
                             Text {
                                 text: ObliqueShock.limits.thetaMax !== undefined
                                       ? ObliqueShock.limits.thetaMax.toFixed(4) + "°" : "—"

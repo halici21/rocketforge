@@ -76,7 +76,9 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: page.points.length + " points · γ = " + PrandtlMeyer.tableGamma.toFixed(3)
+                    readonly property string plainText: page.points.length + " points · γ = " + PrandtlMeyer.tableGamma.toFixed(3)
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
@@ -130,9 +132,11 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: page.isNu
-                text: "ν rises from zero at Mach 1 towards a finite ceiling: for γ = 1.4 no "
+                readonly property string plainText: "ν rises from zero at Mach 1 towards a finite ceiling: for γ = 1.4 no "
                       + "expansion can turn a flow further than "
                       + PrandtlMeyer.nuMax.toFixed(4) + "°, however fast it ends up going."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -144,9 +148,11 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: page.isMu
-                text: "μ falls from a right angle at Mach 1: the faster the flow, the further "
+                readonly property string plainText: "μ falls from a right angle at Mach 1: the faster the flow, the further "
                       + "back its Mach lines sweep. This curve is pure geometry — arcsin(1/M) "
                       + "— and does not depend on γ at all."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight

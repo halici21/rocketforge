@@ -231,7 +231,7 @@ Item {
             x: parent.width * 0.38 - 20
             y: parent.height * 0.5 + parent.exitR + 18
             title: "THROAT"
-            detail: root.hasResult ? "M = 1" : ""
+            detail: root.hasResult ? "<i>M</i> = 1" : ""
             visible: root.hasResult
         }
 

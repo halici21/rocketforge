@@ -92,9 +92,11 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: "γ = " + Fanno.tableGamma.toFixed(3)
+                    readonly property string plainText: "γ = " + Fanno.tableGamma.toFixed(3)
                           + "  ·  supersonic ceiling 4f_F L*/D = "
                           + Fanno.supersonicLimit.toFixed(6)
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
@@ -158,11 +160,13 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: page.isFriction
-                text: "This is the duct still available before the flow chokes, so it falls to "
+                readonly property string plainText: "This is the duct still available before the flow chokes, so it falls to "
                       + "zero at M = 1 from both sides: friction drives a subsonic duct up "
                       + "towards sonic and a supersonic duct down towards it. The supersonic "
                       + "branch is bounded — no supersonic Fanno duct longer than 4f_F L*/D = "
                       + Fanno.supersonicLimit.toFixed(6) + " can be run without a shock."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight

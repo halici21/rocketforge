@@ -199,7 +199,8 @@ ColumnLayout {
 
                 Text {
                     Layout.fillWidth: true
-                    text: modelData.title
+                    text: Notation.rich(modelData.title)
+                    textFormat: Notation.textFormat(modelData.title)
                     color: Theme.text
                     font.family: Typography.sans
                     font.pixelSize: Typography.bodySmall

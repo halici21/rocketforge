@@ -96,7 +96,8 @@ ColumnLayout {
                         spacing: Metrics.spacing.xs
 
                         Text {
-                            text: modelData.title
+                            text: Notation.rich(modelData.title)
+                            textFormat: Notation.textFormat(modelData.title)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.meta

@@ -71,7 +71,8 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: view.design ? view.design.title : ""
+                text: Notation.rich(view.design ? view.design.title : "")
+                textFormat: Notation.textFormat(view.design ? view.design.title : "")
                 color: Theme.text
                 font.family: Typography.sans
                 font.pixelSize: Typography.groupLabel
@@ -123,7 +124,8 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 wrapMode: Text.WordWrap
                                 color: Theme.textMuted
                                 font.family: Typography.sans
@@ -168,7 +170,8 @@ Item {
 
                             Text {
                                 Layout.fillWidth: true
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 wrapMode: Text.WordWrap
                                 color: Theme.textMuted
                                 font.family: Typography.sans

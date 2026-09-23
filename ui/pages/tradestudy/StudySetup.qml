@@ -78,7 +78,8 @@ Item {
 
                     Text {
                         Layout.fillWidth: true
-                        text: TradeStudy.baselineHeadline
+                        text: Notation.rich(TradeStudy.baselineHeadline)
+                        textFormat: Notation.textFormat(TradeStudy.baselineHeadline)
                         wrapMode: Text.WordWrap
                         color: Theme.textSecondary
                         font.family: Typography.sans
@@ -96,7 +97,8 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 118
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 wrapMode: Text.WordWrap
                                 color: Theme.textMuted
                                 font.family: Typography.sans
@@ -127,7 +129,8 @@ Item {
                             spacing: 1
 
                             Text {
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
@@ -265,8 +268,10 @@ Item {
 
                                 Text {
                                     Layout.fillWidth: true
-                                    text: modelData.label
+                                    text: Notation.rich(modelData.label)
+                                    textFormat: Notation.textFormat(modelData.label)
                                     elide: Text.ElideRight
+                                    clip: true              // RichText does not elide
                                     color: Theme.textSecondary
                                     font.family: Typography.sans
                                     font.pixelSize: Typography.body
@@ -470,8 +475,10 @@ Item {
 
                                 Text {
                                     Layout.fillWidth: true
-                                    text: modelData.label
+                                    text: Notation.rich(modelData.label)
+                                    textFormat: Notation.textFormat(modelData.label)
                                     elide: Text.ElideRight
+                                    clip: true              // RichText does not elide
                                     color: Theme.textSecondary
                                     font.family: Typography.sans
                                     font.pixelSize: Typography.body

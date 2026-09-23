@@ -81,9 +81,11 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: ObliqueShock.limits.thetaMax !== undefined
+                    readonly property string plainText: ObliqueShock.limits.thetaMax !== undefined
                           ? "θ_max = " + ObliqueShock.limits.thetaMax.toFixed(4) + "°"
                           : ""
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
@@ -131,10 +133,12 @@ Item {
             Text {
                 Layout.fillWidth: true
                 visible: !page.compact && !page.tableOpen
-                text: "The curve rises from a Mach wave at β = μ to the maximum deflection and "
+                readonly property string plainText: "The curve rises from a Mach wave at β = μ to the maximum deflection and "
                       + "falls back to a normal shock at β = 90°, which is why every attainable "
                       + "deflection has two wave angles. Past θ_max the body cannot turn the "
                       + "flow at all and the shock detaches."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight

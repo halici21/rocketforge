@@ -124,6 +124,47 @@ Item {
         return out.length >= 2 ? out : [lo, hi]
     }
 
+    // ---- notation on a Canvas ----------------------------------------------
+    // A Canvas cannot render markup, so a label with notation ("Isp",
+    // "p_b/p0") is drawn one run at a time: italic for a quantity symbol, a
+    // smaller font lowered by a fixed share of the size for a subscript. The
+    // runs come from Notation, the same rules every Text label uses.
+    function notationFont(size, family, run) {
+        var px = (run.sub || run.sup) ? Math.round(size * 0.72) : size
+        return (run.italic ? "italic " : "") + px + 'px "' + family + '"'
+    }
+
+    function measureNotation(ctx, text, size, family) {
+        var runs = Notation.runs(text)
+        var width = 0
+        for (var i = 0; i < runs.length; ++i) {
+            ctx.font = root.notationFont(size, family, runs[i])
+            width += ctx.measureText(runs[i].text).width
+        }
+        ctx.font = size + 'px "' + family + '"'
+        return width
+    }
+
+    function drawNotation(ctx, text, x, y, align, size, family) {
+        var runs = Notation.runs(text)
+        var width = root.measureNotation(ctx, text, size, family)
+        var left = align === "center" ? x - width / 2
+                 : align === "right" ? x - width : x
+        var saved = ctx.textAlign
+        ctx.textAlign = "left"
+        for (var i = 0; i < runs.length; ++i) {
+            var run = runs[i]
+            ctx.font = root.notationFont(size, family, run)
+            var dy = run.sub ? Math.round(size * 0.28)
+                   : run.sup ? -Math.round(size * 0.38) : 0
+            ctx.fillText(run.text, left, y + dy)
+            left += ctx.measureText(run.text).width
+        }
+        ctx.textAlign = saved
+        ctx.font = size + 'px "' + family + '"'
+        return width
+    }
+
     // A tick label, formatted from the STEP between ticks rather than the
     // value magnitude, so adjacent labels always differ and never carry
     // decimals the step cannot justify.
@@ -294,6 +335,82 @@ Item {
             function tx(v) {
                 return x0 + (v - xmin) / (xmax - xmin || 1) * (x1 - x0)
             }
+
+            // Does any curve pass through this pixel box? Labels use it to
+            // find clear space instead of being drawn under the data.
+            function segmentHits(box) {
+                for (var si = 0; si < all.length; ++si) {
+                    var pts = all[si].points
+                    for (var pi = 1; pts && pi < pts.length; ++pi) {
+                        var ax = tx(pts[pi - 1].x), ay = ty(pts[pi - 1].y)
+                        var bx = tx(pts[pi].x), by = ty(pts[pi].y)
+                        var lo = Math.max(Math.min(ax, bx), box.x0)
+                        var hi = Math.min(Math.max(ax, bx), box.x1)
+                        if (lo > hi || !isFinite(ay) || !isFinite(by))
+                            continue
+                        // A straight segment's y over [lo, hi] spans the
+                        // values at its two ends.
+                        var span = bx - ax
+                        var ya = span === 0 ? ay : ay + (by - ay) * (lo - ax) / span
+                        var yb = span === 0 ? by : ay + (by - ay) * (hi - ax) / span
+                        if (Math.max(ya, yb) >= box.y0 && Math.min(ya, yb) <= box.y1)
+                            return true
+                    }
+                }
+                return false
+            }
+
+            // Plot area background
+            ctx.fillStyle = Theme.surfaceSubtle
+            ctx.fillRect(x0, y0, x1 - x0, y1 - y0)
+
+            // Flow regime background shading when M=1 falls within range
+            if (!isNaN(root.markerX) && xmin < root.markerX && xmax > root.markerX) {
+                var smx = tx(root.markerX)
+                // Subsonic zone tint
+                ctx.fillStyle = "rgba(56, 139, 253, 0.035)"
+                ctx.fillRect(x0, y0, smx - x0, y1 - y0)
+                // Supersonic zone tint
+                ctx.fillStyle = "rgba(240, 136, 62, 0.035)"
+                ctx.fillRect(smx, y0, x1 - smx, y1 - y0)
+
+                // Zone labels. Each goes where no curve passes -- the top of
+                // its zone, else the bottom -- and is left out rather than
+                // drawn under a curve: a label the data runs through is noise.
+                var zoneSize = 9
+                var markerBox = null
+                if (root.markerLabel !== "") {
+                    var mlx = smx + 4
+                    markerBox = { x0: mlx - 2,
+                                  x1: mlx + root.measureNotation(ctx, root.markerLabel,
+                                                                 Typography.chartAnnotation,
+                                                                 Typography.sans) + 2,
+                                  y0: y0, y1: y0 + 16 }
+                }
+                function overlaps(a, b) {
+                    return b !== null && a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1
+                }
+                function placeZoneLabel(label, left, right, alignLeft) {
+                    var w = root.measureNotation(ctx, label, zoneSize, Typography.sans)
+                    if (w + 20 > right - left)
+                        return
+                    var lx = alignLeft ? left + 10 : right - 10 - w
+                    var baselines = [y0 + 14, y1 - 8]
+                    for (var bi = 0; bi < baselines.length; ++bi) {
+                        var box = { x0: lx - 4, x1: lx + w + 4,
+                                    y0: baselines[bi] - zoneSize - 3, y1: baselines[bi] + 4 }
+                        if (segmentHits(box) || overlaps(box, markerBox))
+                            continue
+                        ctx.fillStyle = Theme.textMuted
+                        root.drawNotation(ctx, label, lx, baselines[bi], "left",
+                                          zoneSize, Typography.sans)
+                        return
+                    }
+                }
+                placeZoneLabel("SUBSONIC (<i>M</i> &lt; 1)", x0, smx, true)
+                placeZoneLabel("SUPERSONIC (<i>M</i> &gt; 1)", smx, x1, false)
+            }
+
             // grid, at nice-number tick positions inside the data range.
             // More divisions across than down: the plot is wider than it is
             // tall in every consumer, and the eye reads a curve along x.
@@ -349,8 +466,8 @@ Item {
                 ctx.stroke()
                 ctx.setLineDash([]); ctx.globalAlpha = 1
                 ctx.fillStyle = Theme.accent
-                ctx.textAlign = "left"
-                ctx.fillText(root.markerLabel, tx(root.markerX) + 4, y0 + 11)
+                root.drawNotation(ctx, root.markerLabel, tx(root.markerX) + 4, y0 + 11,
+                                  "left", Typography.chartAnnotation, Typography.sans)
             }
 
             // named guide lines
@@ -409,12 +526,25 @@ Item {
                     if (horizontal) {
                         var placedY = claimBand(at - 6, 12, y0 + 2, y1 - 2)
                         if (!isNaN(placedY)) {
-                            ctx.textAlign = "right"
-                            ctx.fillText(guide.label, x1 - 4, placedY + 4)
+                            // The right end, else the left end if a curve runs
+                            // through the right. A guide label carries a value,
+                            // so it is kept even when neither end is clear.
+                            var gw = root.measureNotation(ctx, guide.label,
+                                                          Typography.chartAnnotation,
+                                                          Typography.sans)
+                            var gbox = { x0: x1 - 8 - gw, x1: x1 - 2,
+                                         y0: placedY - 6, y1: placedY + 8 }
+                            var onLeft = segmentHits(gbox)
+                                         && !segmentHits({ x0: x0 + 2, x1: x0 + 8 + gw,
+                                                           y0: gbox.y0, y1: gbox.y1 })
+                            root.drawNotation(ctx, guide.label,
+                                              onLeft ? x0 + 6 : x1 - 4, placedY + 4,
+                                              onLeft ? "left" : "right",
+                                              Typography.chartAnnotation, Typography.sans)
                         }
                     } else {
-                        ctx.textAlign = "center"
-                        ctx.fillText(guide.label, at, y0 + 11)
+                        root.drawNotation(ctx, guide.label, at, y0 + 11,
+                                          "center", Typography.chartAnnotation, Typography.sans)
                     }
                 }
             }
@@ -422,8 +552,28 @@ Item {
             // the curves
             for (var si = 0; si < all.length; ++si) {
                 var line = all[si]
+                if (line.points.length > 1 && !line.dashed) {
+                    // Soft gradient fill under curve
+                    ctx.save()
+                    ctx.beginPath()
+                    ctx.moveTo(tx(line.points[0].x), y1)
+                    for (var gpi = 0; gpi < line.points.length; ++gpi) {
+                        ctx.lineTo(tx(line.points[gpi].x), ty(line.points[gpi].y))
+                    }
+                    ctx.lineTo(tx(line.points[line.points.length - 1].x), y1)
+                    ctx.closePath()
+                    var grad = ctx.createLinearGradient(0, y0, 0, y1)
+                    grad.addColorStop(0, Qt.rgba(line.color.r, line.color.g, line.color.b, 0.14))
+                    grad.addColorStop(1, Qt.rgba(line.color.r, line.color.g, line.color.b, 0.0))
+                    ctx.fillStyle = grad
+                    ctx.fill()
+                    ctx.restore()
+                }
+
                 ctx.strokeStyle = line.color
-                ctx.lineWidth = line.width
+                ctx.lineWidth = Math.max(line.width, 2.0)
+                ctx.lineJoin = "round"
+                ctx.lineCap = "round"
                 if (line.dashed) ctx.setLineDash([6, 4])
                 ctx.beginPath()
                 ctx.moveTo(tx(line.points[0].x), ty(line.points[0].y))
@@ -432,6 +582,11 @@ Item {
                 ctx.stroke()
                 ctx.setLineDash([])
             }
+
+            // Crisp plot frame border
+            ctx.strokeStyle = Theme.border
+            ctx.lineWidth = 1
+            ctx.strokeRect(x0, y0, x1 - x0, y1 - y0)
 
             // the sampled points themselves, so a discrete sweep never reads
             // as a continuous function
@@ -479,7 +634,6 @@ Item {
                     // claims a band there too rather than overdrawing one.
                     ctx.fillStyle = Theme.accent
                     var flip = mx > x1 - 90
-                    ctx.textAlign = flip ? "right" : "left"
                     var markerY = my - 6
                     if (flip) {
                         var claimed = claimBand(my - 6, 12, y0 + 2, y1 - 2)
@@ -487,7 +641,8 @@ Item {
                             continue
                         markerY = claimed + 4
                     }
-                    ctx.fillText(mk.label, mx + (flip ? -8 : 8), markerY)
+                    root.drawNotation(ctx, mk.label, mx + (flip ? -8 : 8), markerY,
+                                      flip ? "right" : "left", Typography.chartAnnotation, Typography.sans)
                 }
             }
 
@@ -495,14 +650,14 @@ Item {
             // they sit one step above the in-plot annotations.
             ctx.font = Typography.axisTitle + 'px "' + Typography.sans + '"'
             ctx.fillStyle = Theme.textMuted
-            ctx.textAlign = "center"
-            ctx.fillText(root.xLabel, (x0 + x1) / 2, height - 8)
+            root.drawNotation(ctx, root.xLabel, (x0 + x1) / 2, height - 8, "center",
+                              Typography.axisTitle, Typography.sans)
             if (root.yLabel) {
                 ctx.save()
                 ctx.translate(14, (y0 + y1) / 2)
                 ctx.rotate(-Math.PI / 2)
-                ctx.textAlign = "center"
-                ctx.fillText(root.yLabel, 0, 0)
+                root.drawNotation(ctx, root.yLabel, 0, 0, "center",
+                                  Typography.axisTitle, Typography.sans)
                 ctx.restore()
             }
         }
@@ -545,14 +700,32 @@ Item {
             var span = extent.xmax - extent.xmin
             var px = x0 + (root.hoverPoint.x - extent.xmin) / (span || 1) * (x1 - x0)
 
-            ctx.strokeStyle = Theme.textMuted
-            ctx.globalAlpha = 0.5
+            var useLog = root.logScale && extent.ymin > 0 && (extent.ymax / extent.ymin) > 20
+            var py = useLog ? (y1 - (Math.log(root.hoverPoint.y) - Math.log(extent.ymin)) / (Math.log(extent.ymax) - Math.log(extent.ymin) || 1) * (y1 - y0))
+                            : (y1 - (root.hoverPoint.y - extent.ymin) / (extent.ymax - extent.ymin || 1) * (y1 - y0))
+
+            // Crosshair lines
+            ctx.strokeStyle = Theme.borderStrong
+            ctx.lineWidth = 1
             ctx.setLineDash([3, 3])
             ctx.beginPath()
             ctx.moveTo(px, y0); ctx.lineTo(px, y1)
+            ctx.moveTo(x0, py); ctx.lineTo(x1, py)
             ctx.stroke()
             ctx.setLineDash([])
-            ctx.globalAlpha = 1
+
+            // Target marker on curve
+            ctx.beginPath()
+            ctx.arc(px, py, 6, 0, 2 * Math.PI)
+            ctx.fillStyle = Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.25)
+            ctx.fill()
+            ctx.beginPath()
+            ctx.arc(px, py, 3.5, 0, 2 * Math.PI)
+            ctx.fillStyle = Theme.accent
+            ctx.fill()
+            ctx.strokeStyle = "#FFFFFF"
+            ctx.lineWidth = 1.2
+            ctx.stroke()
 
             // Fixed in the plot's own top-right corner rather than
             // following the cursor: a box that tracks the mouse can drift
@@ -563,9 +736,9 @@ Item {
             // cursor-adjacent, data-driven annotations.
             var text = root.xLabel + " " + root.hoverPoint.x.toPrecision(4)
                      + (root.yLabel ? "   " + root.yLabel + " " + root.hoverPoint.y.toPrecision(4) : "")
-            ctx.font = Typography.axisTick + 'px "' + Typography.mono + '"'
-            var metrics = ctx.measureText(text)
-            var boxW = metrics.width + 12, boxH = 18
+            // Measured with the same runs it is drawn with, so the box fits.
+            var textW = root.measureNotation(ctx, text, Typography.axisTick, Typography.mono)
+            var boxW = textW + 12, boxH = 18
             var boxX = x1 - boxW
             var boxY = y0 + 4
 
@@ -577,9 +750,9 @@ Item {
             ctx.fill(); ctx.stroke()
 
             ctx.fillStyle = Theme.text
-            ctx.textAlign = "center"
             ctx.textBaseline = "middle"
-            ctx.fillText(text, boxX + boxW / 2, boxY + boxH / 2 + 1)
+            root.drawNotation(ctx, text, boxX + boxW / 2, boxY + boxH / 2 + 1, "center",
+                              Typography.axisTick, Typography.mono)
         }
     }
 

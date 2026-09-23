@@ -88,8 +88,10 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: Nozzle.regimeLabel + "  ·  p_b/p₀ = "
+                    readonly property string plainText: Nozzle.regimeLabel + "  ·  p_b/p₀ = "
                           + Nozzle.backPressureRatio.toFixed(5)
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     color: Theme.textMuted
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta

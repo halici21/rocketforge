@@ -146,7 +146,7 @@ Item {
 
             RFSegmentedControl {
                 Layout.fillWidth: true
-                model: ["A_t and A_e/A_t", "A_t and A_e"]
+                model: ["<i>A</i><sub>t</sub> & <i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>", "<i>A</i><sub>t</sub> & <i>A</i><sub>e</sub>"]
                 currentIndex: Nozzle.areaMode === "ratio" ? 0 : 1
                 onSelected: function (index) {
                     Nozzle.areaMode = index === 0 ? "ratio" : "areas"
@@ -155,7 +155,7 @@ Item {
 
             RFBoundNumberField {
                 Layout.fillWidth: true
-                label: "Throat area  A_t   [m²]"
+                label: "Throat area  <i>A</i><sub>t</sub>   [m²]"
                 value: Nozzle.throatArea
                 digits: 8
                 decimals: 5
@@ -166,7 +166,7 @@ Item {
             RFBoundNumberField {
                 Layout.fillWidth: true
                 visible: Nozzle.areaMode === "ratio"
-                label: "Area ratio  A_e/A_t"
+                label: "Area ratio  <i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>"
                 value: Nozzle.areaRatio
                 digits: 6
                 decimals: 4
@@ -177,7 +177,7 @@ Item {
             RFBoundNumberField {
                 Layout.fillWidth: true
                 visible: Nozzle.areaMode === "areas"
-                label: "Exit area  A_e   [m²]"
+                label: "Exit area  <i>A</i><sub>e</sub>   [m²]"
                 value: Nozzle.exitArea
                 digits: 8
                 decimals: 5
@@ -190,7 +190,7 @@ Item {
 
             RFSegmentedControl {
                 Layout.fillWidth: true
-                model: ["p_b/p₀", "p_b   [Pa]"]
+                model: ["<i>p</i><sub>b</sub>/<i>p</i>₀", "<i>p</i><sub>b</sub>   [Pa]"]
                 currentIndex: Nozzle.pressureMode === "ratio" ? 0 : 1
                 onSelected: function (index) {
                     Nozzle.pressureMode = index === 0 ? "ratio" : "absolute"
@@ -200,7 +200,7 @@ Item {
             RFBoundNumberField {
                 Layout.fillWidth: true
                 visible: Nozzle.pressureMode === "ratio"
-                label: "Back pressure  p_b/p₀"
+                label: "Back pressure  <i>p</i><sub>b</sub>/<i>p</i>₀"
                 value: Nozzle.backPressureRatio
                 digits: 6
                 decimals: 6
@@ -211,7 +211,7 @@ Item {
             RFBoundNumberField {
                 Layout.fillWidth: true
                 visible: Nozzle.pressureMode === "absolute"
-                label: "Back pressure  p_b   [Pa]"
+                label: "Back pressure  <i>p</i><sub>b</sub>   [Pa]"
                 value: Nozzle.backPressure
                 digits: 9
                 decimals: 0
@@ -238,10 +238,12 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: "Steady · Quasi-one-dimensional · Inviscid · Adiabatic · "
+                readonly property string plainText: "Steady · Quasi-one-dimensional · Inviscid · Adiabatic · "
                       + "Isentropic except across an infinitely thin normal shock · "
                       + "Calorically perfect gas: constant γ, constant R. No thrust, "
                       + "no performance coefficients, no plume."
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -308,7 +310,9 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         visible: !Nozzle.valid
-                        text: Nozzle.statusMessage
+                        readonly property string plainText: Nozzle.statusMessage
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         wrapMode: Text.WordWrap
                         color: Theme.warning
                         font.family: Typography.sans
@@ -371,7 +375,8 @@ Item {
 
                     Text {
                         Layout.alignment: Qt.AlignVCenter
-                        text: page.heroRow ? page.heroRow.label : ""
+                        text: page.heroRow ? Notation.rich(page.heroRow.label) : ""
+                        textFormat: page.heroRow ? Notation.textFormat(page.heroRow.label) : Text.PlainText
                         color: Theme.textSecondary
                         font.family: Typography.sans
                         font.pixelSize: Typography.bodySmall
@@ -437,7 +442,7 @@ Item {
                                                           : Metrics.spacing.xs
                                     visible: groupRows.length > 0
 
-                                    RFSectionLabel { text: group.modelData }
+                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
 
                                     Repeater {
                                         model: group.groupRows
@@ -465,7 +470,8 @@ Item {
                                                 Layout.preferredWidth:
                                                     page.compact ? -1 : 190
                                                 Layout.fillWidth: page.compact
-                                                text: cell.modelData.label
+                                                text: Notation.rich(cell.modelData.label)
+                                                textFormat: Notation.textFormat(cell.modelData.label)
                                                 elide: Text.ElideRight
                                                 color: Theme.textSecondary
                                                 font.family: Typography.sans
@@ -541,7 +547,8 @@ Item {
                             Text {
                                 Layout.preferredWidth: 160
                                 Layout.maximumWidth: 160
-                                text: modelData.label
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
                                 elide: Text.ElideRight
                                 color: Theme.textSecondary
                                 font.family: Typography.sans

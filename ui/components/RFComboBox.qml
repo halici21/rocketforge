@@ -30,12 +30,14 @@ Item {
 
     Text {
         id: labelText
-        text: root.label
+        text: Notation.rich(root.label)
+        textFormat: Notation.textFormat(root.label)
         visible: root.label !== ""
         color: root.enabled ? Theme.textSecondary : Theme.textDisabled
         font.family: Typography.sans
         font.pixelSize: Typography.inputLabel
         elide: Text.ElideRight
+        clip: true              // RichText does not elide
         width: root.width
     }
 
@@ -54,7 +56,11 @@ Item {
         background: Item {}
 
         contentItem: Text {
-            text: box.displayText
+            // The selected option can be a quantity ("Specific impulse  Isp"),
+            // so it gets the same notation as the list below.
+            text: Notation.rich(box.displayText)
+            textFormat: Notation.textFormat(box.displayText)
+            clip: true
             color: root.enabled ? Theme.text : Theme.textDisabled
             font: box.font
             verticalAlignment: Text.AlignVCenter
@@ -122,7 +128,9 @@ Item {
 
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: modelData
+                    text: Notation.rich(modelData)
+                    textFormat: Notation.textFormat(modelData)
+                    clip: true
                     color: box.currentIndex === index ? Theme.text : Theme.textSecondary
                     font.family: Typography.sans
                     font.pixelSize: Typography.body

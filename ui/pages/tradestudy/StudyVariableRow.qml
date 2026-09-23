@@ -35,8 +35,10 @@ ColumnLayout {
 
         Text {
             Layout.preferredWidth: 188
-            text: row.spec.label
+            text: Notation.rich(row.spec.label)
+            textFormat: Notation.textFormat(row.spec.label)
             elide: Text.ElideRight
+            clip: true              // RichText does not elide
             color: row.spec.enabled ? Theme.text : Theme.textMuted
             font.family: Typography.sans
             font.pixelSize: Typography.body

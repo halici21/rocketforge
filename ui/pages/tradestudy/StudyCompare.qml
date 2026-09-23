@@ -151,7 +151,8 @@ Item {
 
                                     Text {
                                         Layout.fillWidth: true
-                                        text: modelData.label
+                                        text: Notation.rich(modelData.label)
+                                        textFormat: Notation.textFormat(modelData.label)
                                         wrapMode: Text.WordWrap
                                         color: Theme.textMuted
                                         font.family: Typography.sans

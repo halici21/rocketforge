@@ -353,11 +353,13 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 230
-                                text: resultRow.modelData.label
+                                text: Notation.rich(resultRow.modelData.label)
+                                textFormat: Notation.textFormat(resultRow.modelData.label)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.body
                                 elide: Text.ElideRight
+                                clip: true              // RichText does not elide
                             }
                             Text {
                                 Layout.preferredWidth: 150
@@ -405,11 +407,13 @@ Item {
 
                             Text {
                                 Layout.preferredWidth: 140
-                                text: provenanceRow.modelData.label
+                                text: Notation.rich(provenanceRow.modelData.label)
+                                textFormat: Notation.textFormat(provenanceRow.modelData.label)
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
                                 elide: Text.ElideRight
+                                clip: true              // RichText does not elide
                             }
                             Text {
                                 Layout.fillWidth: true

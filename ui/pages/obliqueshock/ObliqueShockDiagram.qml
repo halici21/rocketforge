@@ -167,8 +167,10 @@ Item {
             Item { Layout.fillWidth: true }
 
             Text {
-                text: "M₁ = " + ObliqueShock.mach1.toFixed(2) + " · γ = "
+                readonly property string plainText: "M₁ = " + ObliqueShock.mach1.toFixed(2) + " · γ = "
                       + ObliqueShock.gamma.toFixed(3)
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 color: Theme.textMuted
                 font.family: Typography.sans
                 font.pixelSize: Typography.meta
