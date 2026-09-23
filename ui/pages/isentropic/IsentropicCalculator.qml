@@ -29,6 +29,10 @@ Item {
     // Groups in the order an engineer reads them: what the flow is doing, then
     // the state ratios, then geometry.
     readonly property var groups: ["Flow", "Static / stagnation", "Sonic reference", "Geometric"]
+    // Two columns of the same groups, named exactly as the service names them:
+    // a group missing from here would silently vanish from the readout.
+    readonly property var columns: [["Flow", "Geometric"],
+                                    ["Static / stagnation", "Sonic reference"]]
 
     function rowsIn(group) {
         var out = []
@@ -83,7 +87,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: page.activeMode ? "Valid range: " + page.activeMode.hint : ""
+                readonly property string plainText: page.activeMode ? "Valid range: " + page.activeMode.hint : ""
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 color: Theme.textMuted
                 font.family: Typography.sans
                 font.pixelSize: Typography.meta
@@ -173,7 +179,9 @@ Item {
 
             Text {
                 Layout.fillWidth: true
-                text: Isentropic.assumptions.join(" · ")
+                readonly property string plainText: Isentropic.assumptions.join(" · ")
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
                 wrapMode: Text.WordWrap
                 lineHeight: Typography.proseLineHeight
                 lineHeightMode: Text.ProportionalHeight
@@ -210,7 +218,9 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: Isentropic.statusMessage !== ""
-                    text: Isentropic.statusMessage
+                    readonly property string plainText: Isentropic.statusMessage
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
                     wrapMode: Text.WordWrap
                     lineHeight: Typography.proseLineHeight
                     lineHeightMode: Text.ProportionalHeight
@@ -230,7 +240,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 170
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.body
@@ -246,60 +257,114 @@ Item {
                     }
                 }
 
-                Repeater {
-                    model: page.groups
+                // Flow regime, as the controller classifies the solved Mach
+                // number. Nothing about the regime is decided here.
+                Rectangle {
+                    visible: Isentropic.flowRegime !== ""
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 48
+                    radius: Metrics.radius.m
+                    color: Theme.surfaceSubtle
+                    border.width: Metrics.hairline
+                    border.color: Theme.border
 
-                    delegate: ColumnLayout {
-                        required property var modelData
-                        readonly property var groupRows: page.rowsIn(modelData)
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.leftMargin: Metrics.spacing.m
+                        anchors.rightMargin: Metrics.spacing.m
+                        spacing: Metrics.spacing.m
 
-                        Layout.fillWidth: true
-                        Layout.topMargin: Metrics.spacing.s
-                        spacing: Metrics.spacing.xs
-                        visible: groupRows.length > 0
+                        RFStatusChip {
+                            text: Isentropic.flowRegime
+                            tone: Isentropic.flowRegimeTone
+                        }
 
-                        RFSectionLabel { text: modelData }
+                        Text {
+                            Layout.fillWidth: true
+                            text: Notation.rich(Isentropic.flowRegimeNote)
+                            textFormat: Notation.textFormat(Isentropic.flowRegimeNote)
+                            color: Theme.textSecondary
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.bodySmall
+                            elide: Text.ElideRight
+                        }
+                    }
+                }
 
-                        Repeater {
-                            model: groupRows
+                // Two-column balanced results layout eliminating widescreen void
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Metrics.spacing.xl
+                    Layout.alignment: Qt.AlignTop
 
-                            delegate: RowLayout {
-                                required property var modelData
-                                Layout.fillWidth: true
-                                Layout.preferredHeight: 26
-                                spacing: Metrics.spacing.m
+                    Repeater {
+                        model: page.columns
 
-                                Text {
-                                    Layout.preferredWidth: 170
-                                    text: modelData.label
-                                    color: Theme.textSecondary
-                                    font.family: Typography.sans
-                                    font.pixelSize: Typography.body
-                                }
+                        delegate: ColumnLayout {
+                            id: colLayout
+                            required property var modelData
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignTop
+                            spacing: Metrics.spacing.m
 
-                                Text {
+                            Repeater {
+                                model: colLayout.modelData
+
+                                delegate: ColumnLayout {
+                                    id: grpLayout
+                                    required property var modelData
+                                    readonly property var groupRows: page.rowsIn(modelData)
+
                                     Layout.fillWidth: true
-                                    text: modelData.value + (modelData.unit ? " " + modelData.unit : "")
-                                    color: modelData.available ? Theme.text : Theme.textMuted
-                                    font.family: Typography.mono
-                                    font.pixelSize: modelData.emphasis ? Typography.readoutMedium
-                                                                       : Typography.readoutSmall
-                                    font.weight: modelData.emphasis ? Typography.medium
-                                                                    : Typography.regular
+                                    spacing: Metrics.spacing.xs
+                                    visible: groupRows.length > 0
 
-                                    TapHandler {
-                                        onSingleTapped: Isentropic.copyText(modelData.value)
+                                    RFSectionLabel { text: Notation.sectionRich(grpLayout.modelData); textFormat: Notation.textFormat(grpLayout.modelData) }
+
+                                    Repeater {
+                                        model: grpLayout.groupRows
+
+                                        delegate: RowLayout {
+                                            required property var modelData
+                                            Layout.fillWidth: true
+                                            Layout.preferredHeight: 26
+                                            spacing: Metrics.spacing.m
+
+                                            Text {
+                                                Layout.preferredWidth: 170
+                                                text: Notation.rich(modelData.label)
+                                                textFormat: Notation.textFormat(modelData.label)
+                                                color: Theme.textSecondary
+                                                font.family: Typography.sans
+                                                font.pixelSize: Typography.body
+                                            }
+
+                                            Text {
+                                                Layout.fillWidth: true
+                                                text: modelData.value + (modelData.unit ? " " + modelData.unit : "")
+                                                color: modelData.available ? Theme.text : Theme.textMuted
+                                                font.family: Typography.mono
+                                                font.pixelSize: modelData.emphasis ? Typography.readoutMedium
+                                                                                   : Typography.readoutSmall
+                                                font.weight: modelData.emphasis ? Typography.medium
+                                                                                : Typography.regular
+
+                                                TapHandler {
+                                                    onSingleTapped: Isentropic.copyText(modelData.value)
+                                                }
+                                                HoverHandler { id: valueHover }
+                                            }
+
+                                            Text {
+                                                text: "copy"
+                                                opacity: valueHover.hovered ? 1 : 0
+                                                color: Theme.textMuted
+                                                font.family: Typography.sans
+                                                font.pixelSize: Typography.meta
+                                                Behavior on opacity { NumberAnimation { duration: 90 } }
+                                            }
+                                        }
                                     }
-                                    HoverHandler { id: valueHover }
-                                }
-
-                                Text {
-                                    text: "copy"
-                                    opacity: valueHover.hovered ? 1 : 0
-                                    color: Theme.textMuted
-                                    font.family: Typography.sans
-                                    font.pixelSize: Typography.meta
-                                    Behavior on opacity { NumberAnimation { duration: 90 } }
                                 }
                             }
                         }
@@ -368,7 +433,8 @@ Item {
 
                         Text {
                             Layout.preferredWidth: 70
-                            text: modelData.label
+                            text: Notation.rich(modelData.label)
+                            textFormat: Notation.textFormat(modelData.label)
                             color: Theme.textSecondary
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall

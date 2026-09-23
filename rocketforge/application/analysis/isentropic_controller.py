@@ -210,6 +210,45 @@ class IsentropicController(QObject):
     def statusMessage(self) -> str:
         return "" if self._result is None else self._result.message
 
+    # -- flow regime -------------------------------------------------------
+    #
+    # Decided here from the solved Mach number, never in QML. Only the three
+    # regimes the model itself distinguishes: M < 1, M = 1, M > 1. "Transonic"
+    # and "hypersonic" are conventions with no boundary in this model, so they
+    # are not offered.
+
+    def _regime(self) -> str:
+        if self._result is None or not self._result.ok or self._result.mach is None:
+            return ""
+        if self._result.status == "Sonic":
+            return "Sonic"
+        return "Subsonic" if self._result.mach < 1.0 else "Supersonic"
+
+    @Property(str, notify=resultsChanged)
+    def flowRegime(self) -> str:
+        return self._regime()
+
+    @Property(str, notify=resultsChanged)
+    def flowRegimeTone(self) -> str:
+        return {"Subsonic": "success", "Sonic": "accent",
+                "Supersonic": "accent"}.get(self._regime(), "neutral")
+
+    @Property(str, notify=resultsChanged)
+    def flowRegimeNote(self) -> str:
+        """One line on what the regime means here, from values already solved."""
+        regime = self._regime()
+        if regime == "Subsonic":
+            return "M < 1: no Mach wave; area and velocity change in opposite senses."
+        if regime == "Sonic":
+            return "M = 1: the sonic condition; the area is a minimum here."
+        if regime == "Supersonic":
+            angle = next((r for r in self._result.rows if r.key == "mach_angle"), None)
+            if angle is not None and angle.value is not None:
+                return (f"M > 1: Mach angle μ = "
+                        f"{format_engineering(angle.value, self._precision)}°.")
+            return "M > 1."
+        return ""
+
     @Property(str, notify=resultsChanged)
     def statusTone(self) -> str:
         """Maps onto the existing chip tones; no new visual vocabulary."""
