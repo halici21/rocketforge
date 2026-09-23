@@ -1,8 +1,8 @@
 """Freeze manifest for LINE API v1.0.
 
 Same algorithm as every other contract in this repository,
-``rocketforge-freeze-manifest/1``, unchanged. Production ``.py`` only: no test,
-no harness, no artifact, no QML.
+``rocketforge.core.freeze``'s current one (``rocketforge-freeze-manifest/2``).
+Production ``.py`` only: no test, no harness, no artifact, no QML.
 
 This script freezes exactly one contract and touches no other, which is the
 lesson from the transport/line opening gates, where running an older
@@ -21,11 +21,13 @@ sys.path.insert(0, str(ROOT))
 from rocketforge.core.freeze import (  # noqa: E402
     MANIFEST_ALGORITHM,
     FrozenFile,
+    file_digest,
     manifest_text,
     overall_digest,
 )
 
-OUT = ROOT / "acceptance" / "transport_line"
+#: Tracked beside the tests that verify it (it was the untracked acceptance/).
+OUT = ROOT / "tests" / "acceptance" / "freeze" / "transport_line"
 OUT.mkdir(parents=True, exist_ok=True)
 ROOTS = ["rocketforge/engineering/line"]
 
@@ -36,7 +38,7 @@ for relative in ROOTS:
             continue
         files.append(FrozenFile(
             path=path.relative_to(ROOT).as_posix(),
-            sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+            sha256=file_digest(path)))      # the one implementation of the rule
 
 digest = overall_digest(files)
 record = {
@@ -56,7 +58,7 @@ record = {
 (OUT / "freeze_line_api_v1.json").write_text(json.dumps(record, indent=2),
                                              encoding="utf-8")
 (OUT / "freeze_line_api_v1.sha256").write_text(manifest_text(files),
-                                               encoding="utf-8")
+                                               encoding="utf-8", newline="")
 (OUT / "freeze_manifest.json").write_text(json.dumps({
     "purpose": "the line freeze boundary",
     "algorithm": MANIFEST_ALGORITHM,

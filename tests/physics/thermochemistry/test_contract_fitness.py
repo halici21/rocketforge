@@ -2,16 +2,18 @@
 
 This is the check Phase 5B spec sections 202-204 ask for, done against the
 **recorded output of the real libraries** rather than against a hypothetical.
-The numbers come from ``acceptance/phase_5b0/``, captured in Phase 5B-0 by
-driving NASA CEA 3.3.4 and Cantera 3.2.0 on a matched common case.
+The numbers come from ``tests/acceptance/records/phase_5b0/``, captured in
+Phase 5B-0 by driving NASA CEA 3.3.4 and Cantera 3.2.0 on a matched common
+case, and tracked so this check runs in every checkout and in CI.
 
 No provider is installed and none is imported. These tests read a JSON artifact
 and prove the domain records can carry what it contains, without losing
 composition, phase, provenance or units, and without a provider-specific
 dumping ground.
 
-If the artifacts are absent the tests skip with a reason, following the SciPy
-oracle precedent already in this repository.
+A missing record fails: it is tracked, so its absence is a broken checkout,
+not an optional oracle. (These tests once skipped when the records lived in the
+untracked ``acceptance/`` evidence, and so never ran outside one machine.)
 """
 
 from __future__ import annotations
@@ -38,14 +40,15 @@ from rocketforge.physics.thermochemistry import (
     validate_chamber_gas,
 )
 
-ARTIFACTS = pathlib.Path(__file__).resolve().parents[3] / "acceptance" / "phase_5b0"
+ARTIFACTS = (pathlib.Path(__file__).resolve().parents[3]
+             / "tests" / "acceptance" / "records" / "phase_5b0")
 MOLE = CompositionBasis.MOLE_FRACTION
 
 
 def load(name: str) -> dict:
     path = ARTIFACTS / name
     if not path.exists():
-        pytest.skip(f"Phase 5B-0 artifact {name} is not present")
+        pytest.fail(f"Phase 5B-0 record {name} is missing from {ARTIFACTS.name}")
     return json.loads(path.read_text(encoding="utf-8"))
 
 

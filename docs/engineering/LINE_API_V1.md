@@ -7,6 +7,7 @@
 | Package | `rocketforge.engineering.line` |
 | Layer | L2, component. Depends on `core` and `physics.fluids` |
 | Roadmap | `06_future_module_dependency_map.md` §8 **step 2** |
+| Manifest | `tests/acceptance/freeze/transport_line/freeze_line_api_v1.json`, 7 files, digest `3de3a979b7ce7ea2…` |
 
 The first hydraulic component in this project, and the first consumer of a
 transport property. It exists only because

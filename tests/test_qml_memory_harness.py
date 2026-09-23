@@ -24,6 +24,23 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 ACCEPTANCE = ROOT / "acceptance" / "qml_memory"
 
 
+def local_evidence(name: str) -> pathlib.Path:
+    """A measurement recorded on a developer machine, or an explicit skip.
+
+    The calibration, criterion, root-cause and soak records are written by
+    experiments/qml_memory/ on the machine that ran them and stay in the
+    untracked acceptance/ folder: they describe that machine, not a contract.
+    A fresh clone and CI skip only the tests that read them; the probe and
+    harness self-tests in this file run everywhere.
+    """
+    path = ACCEPTANCE / name
+    if not path.exists():
+        pytest.skip(f"local evidence acceptance/qml_memory/{name} is not present: "
+                    "recorded on a developer machine by experiments/qml_memory/ "
+                    "and deliberately not tracked")
+    return path
+
+
 def harness():
     path = ROOT / "experiments" / "qml_memory" / "harness.py"
     spec = importlib.util.spec_from_file_location("qml_harness", path)
@@ -90,7 +107,7 @@ def test_every_measurement_script_dispatches_deferred_deletion():
 
 
 def test_the_recorded_calibration_passed_all_five_controls():
-    report = json.loads((ACCEPTANCE / "harness_calibration.json").read_text(
+    report = json.loads(local_evidence("harness_calibration.json").read_text(
         encoding="utf-8"))
     assert report["verdict"] == "PASS"
     for key in ("control_a_known_allocation", "control_b_released_allocation",
@@ -99,7 +116,7 @@ def test_the_recorded_calibration_passed_all_five_controls():
 
 
 def test_the_acceptance_criterion_was_registered_before_the_result():
-    criterion = json.loads((ACCEPTANCE / "acceptance_criterion.json").read_text(
+    criterion = json.loads(local_evidence("acceptance_criterion.json").read_text(
         encoding="utf-8"))
     assert criterion["registered_before_any_fix_measurement"] is True
     assert {c["id"] for c in criterion["criteria"]} == {
@@ -109,7 +126,7 @@ def test_the_acceptance_criterion_was_registered_before_the_result():
 def test_the_root_cause_record_states_the_artifact():
     """The reported defect was a measurement artifact. The record must say so
     rather than claim a leak was fixed."""
-    record = json.loads((ACCEPTANCE / "root_cause.json").read_text(
+    record = json.loads(local_evidence("root_cause.json").read_text(
         encoding="utf-8"))
     assert "ARTIFACT" in record["verdict"].upper()
     assert record["change_kept"]["not_claimed"]
@@ -118,7 +135,7 @@ def test_the_root_cause_record_states_the_artifact():
 
 def test_recalculation_is_bounded_on_both_trees():
     for label in ("baseline", "current"):
-        report = json.loads((ACCEPTANCE / f"final_1000_{label}.json").read_text(
+        report = json.loads(local_evidence(f"final_1000_{label}.json").read_text(
             encoding="utf-8"))
         series = [row["private_mb"] for row in report["series"]]
         half = len(series) // 2
@@ -127,17 +144,18 @@ def test_recalculation_is_bounded_on_both_trees():
 
 
 def test_the_row_models_lowered_the_plateau():
-    before = json.loads((ACCEPTANCE / "final_1000_baseline.json").read_text(
+    before = json.loads(local_evidence("final_1000_baseline.json").read_text(
         encoding="utf-8"))["private_total_mb"]
-    after = json.loads((ACCEPTANCE / "final_1000_current.json").read_text(
+    after = json.loads(local_evidence("final_1000_current.json").read_text(
         encoding="utf-8"))["private_total_mb"]
     assert after < before, (after, before)
 
 
 @pytest.mark.parametrize("mode", ["lifecycle", "session"])
 def test_the_soaks_retain_no_page_instances(mode):
-    report = json.loads((ACCEPTANCE / f"soak_{mode}.json").read_text(
+    report = json.loads(local_evidence(f"soak_{mode}.json").read_text(
         encoding="utf-8"))
     assert report["page_instance_delta"] == 0, report["page_instance_series"]
     assert report["canonical_result_unchanged"] is True
     assert report["qt_warnings"] == []
+

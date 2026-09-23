@@ -1,0 +1,49 @@
+{
+  "contract": "FLUID PROPERTIES API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/physics/fluids"
+  ],
+  "note": "the fluid-property domain: identity, phase, request, state, capabilities, provenance, provider protocol",
+  "file_count": 8,
+  "digest": "8703a6e26cbb5f6e21422d51e7e46ce398ad2b988569dc50a0fbf5b0ef2b5cb8",
+  "files": [
+    {
+      "path": "rocketforge/physics/fluids/__init__.py",
+      "sha256": "30a8da28cb99c8183beb8d0d213c0e40b1022dd273a7e970ee5602689ee6e15d"
+    },
+    {
+      "path": "rocketforge/physics/fluids/errors.py",
+      "sha256": "92e9465c09f3e9617c8fefd6188fa5f8694071c17c9345c689a792adde11f6ae"
+    },
+    {
+      "path": "rocketforge/physics/fluids/identity.py",
+      "sha256": "f6da8ea264c882798b9d8022596af29ee7ffe3008b56039aa42b8a65d9be4801"
+    },
+    {
+      "path": "rocketforge/physics/fluids/protocols.py",
+      "sha256": "d8f21804e98e81718b223df7588ce712d53c6cc445e10b95679fd7f032e5c8a5"
+    },
+    {
+      "path": "rocketforge/physics/fluids/provenance.py",
+      "sha256": "e94fd2fc76b2ef404ed6cc67f4df2edfedc54dacfbeaa9e2d659d99bdddad1de"
+    },
+    {
+      "path": "rocketforge/physics/fluids/requests.py",
+      "sha256": "bf1ad72845277e493d0e414b426d6fa3ad050ef540b8893303584fb9d67c0c4c"
+    },
+    {
+      "path": "rocketforge/physics/fluids/states.py",
+      "sha256": "a148f935a733019b1f35dfdc1b758e7f245e74486ab09f556e414e6baec1f47f"
+    },
+    {
+      "path": "rocketforge/physics/fluids/types.py",
+      "sha256": "a067b7644f052410af4e6084884192e2531e80585337534fa4037193863459bf"
+    }
+  ],
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "306ec275df25f850d03cc4bfc90112712b10d2916459f0856635b03b1911f004"
+  }
+}

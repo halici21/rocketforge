@@ -1,0 +1,58 @@
+{
+  "contract": "NASA CEA PROVIDER",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/1",
+  "roots": [
+    "rocketforge/providers/cea"
+  ],
+  "note": "the provider as accepted at the Phase 5G propulsion freeze",
+  "file_count": 11,
+  "digest": "0a46b5f089a9cc7a47278eecd0868b8d68730aa1abbf9c5775e35cb70eb9285a",
+  "restored": "This file was overwritten in error during the transport/line work by running the Phase 5G generator against a v1.1 tree, and restored by inverting the v1.1 edits. The restoration was accepted only because it reproduces the digest published in PHASE_5G_INTEGRATED_PROPULSION_ACCEPTANCE.md, CEA_PROVIDER_CONTRACT.md and two checkpoints -- a SHA-256 over all eleven files, which cannot be matched by accident.",
+  "files": [
+    {
+      "path": "rocketforge/providers/cea/__init__.py",
+      "sha256": "38722f543055a7d2beeb1b4036b21106a077dada985d7a9439ca37b199b91ca7"
+    },
+    {
+      "path": "rocketforge/providers/cea/availability.py",
+      "sha256": "3bafc890ff6c0ad4b919e06bca09b0b4fa250348ba5de031ce1f3d5b128f1edb"
+    },
+    {
+      "path": "rocketforge/providers/cea/errors.py",
+      "sha256": "19d13a97f7f439dae5dc5bc76ee30f7ba25388fe90d9680479a179cfb20698d6"
+    },
+    {
+      "path": "rocketforge/providers/cea/mapping.py",
+      "sha256": "4728a2ffd66e7b29979fe35eda4ae45f1213c59f156a52bc8476667fcec883cd"
+    },
+    {
+      "path": "rocketforge/providers/cea/naming.py",
+      "sha256": "d99c03e727da940751a19219d9199d25ee9fcfc31e9a17d758100c8eeeb247fd"
+    },
+    {
+      "path": "rocketforge/providers/cea/oracle.py",
+      "sha256": "39b57f1318453e50cc60f2b16e37254e6a68a48a2e6d74f22b19c34e8f9203f0"
+    },
+    {
+      "path": "rocketforge/providers/cea/propellants.py",
+      "sha256": "c17704f7360b8acb8b8826452a7ee784d9092000a374f8a0b9f9b3cac7f0580c"
+    },
+    {
+      "path": "rocketforge/providers/cea/provider.py",
+      "sha256": "6b92acad97b03cdce92479a9e0bb663569912aade79e5fd28b4ab8339efb621a"
+    },
+    {
+      "path": "rocketforge/providers/cea/resources.py",
+      "sha256": "a6afca7bd97d56b9697218ab2e642d4974acfe1dbac08e0660e428aee06873d2"
+    },
+    {
+      "path": "rocketforge/providers/cea/species.py",
+      "sha256": "b92e0f4861b197f21e54b3fbf4f383ab2a6e3c21c43c7872d2aea5a8818390f1"
+    },
+    {
+      "path": "rocketforge/providers/cea/units.py",
+      "sha256": "979420be2106e08f86f0d859c833a779398ddd39ff2638b9e15d7c8b447050cb"
+    }
+  ]
+}

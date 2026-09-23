@@ -7,7 +7,7 @@
 | Package | `rocketforge.physics.fluids` |
 | Layer | L1, fundamental. Depends on `rocketforge.core` and nothing else in the project |
 | Files | 8 |
-| Digest | `306ec275df25f850…` — full value in `acceptance/fluids_foundation/freeze_manifest.json` |
+| Digest | `8703a6e26cbb5f6e…` (algorithm 2, canonical text; frozen as `306ec275df25f850…` under algorithm 1) — full value in `tests/acceptance/freeze/fluids_foundation/freeze_fluid_properties_api_v1.json` |
 | Roadmap | `06_future_module_dependency_map.md` §8 **step 1** |
 
 ---

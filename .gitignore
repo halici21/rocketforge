@@ -16,9 +16,12 @@ dist/
 
 # Generated smoke-test / acceptance screenshots and packaged self-test
 # output. Reproducible from the scripts that made them, not source.
+# `/acceptance/` is anchored to the repository root: an unanchored pattern
+# also matched tests/acceptance/, and the freeze-manifest tests were never
+# committed or run in CI because of it.
 packaged_out/
 packaged_selftest*/
-acceptance/
+/acceptance/
 shell_smoke/
 perf_smoke/
 study_smoke/

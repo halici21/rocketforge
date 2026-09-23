@@ -1,9 +1,11 @@
 """Level C -- the Cantera cross-provider oracle.
 
 Reads the comparison recorded by ``experiments/phase_5c/cantera_oracle.py``,
-which runs Cantera in a **separate** environment. Cantera is deliberately not
-installed in ``.venv-cea``: the official executable is built from that
-environment, and an oracle must not be bundled into the product.
+which runs Cantera in a **separate** environment, and is tracked in
+``tests/acceptance/records/phase_5c/`` so it is checked in every checkout.
+Cantera is deliberately not installed in ``.venv-cea``: the official
+executable is built from that environment, and an oracle must not be bundled
+into the product.
 
 The interpretation matters as much as the numbers. Two providers with
 independent thermodynamic databases are expected to agree closely on bulk
@@ -19,16 +21,17 @@ import pathlib
 
 import pytest
 
-ARTIFACTS = pathlib.Path(__file__).resolve().parents[3] / "acceptance" / "phase_5c"
+ARTIFACTS = (pathlib.Path(__file__).resolve().parents[3]
+             / "tests" / "acceptance" / "records" / "phase_5c")
 COMPARISON = ARTIFACTS / "cantera_oracle_comparison.json"
 
 
 def load() -> dict:
     if not COMPARISON.exists():
-        pytest.skip(
-            "optional Cantera oracle unavailable: no recorded comparison at "
-            f"{COMPARISON.name}. Regenerate with "
-            "experiments/phase_5c/cantera_oracle.py in a Cantera environment.")
+        pytest.fail(
+            f"the recorded Cantera comparison {COMPARISON.name} is missing; it is "
+            "tracked, and regenerated with experiments/phase_5c/cantera_oracle.py "
+            "in a Cantera environment")
     return json.loads(COMPARISON.read_text(encoding="utf-8"))
 
 

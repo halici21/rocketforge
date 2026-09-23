@@ -1,0 +1,29 @@
+{
+  "contract": "PROPELLANT METRICS API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/engineering/propellants"
+  ],
+  "note": "propellant-to-fluid binding, validated stream density, additive-volume bulk density, density impulse",
+  "file_count": 3,
+  "digest": "cf97293ff5071c6ace38d43155b6b13c6e975fec9aabb8e609f763ea8d21061d",
+  "files": [
+    {
+      "path": "rocketforge/engineering/propellants/__init__.py",
+      "sha256": "dbd5ffba5d09cff4e7ba31307625f5c1f67218e7f0833f5485dd7f9b2f4b7499"
+    },
+    {
+      "path": "rocketforge/engineering/propellants/density.py",
+      "sha256": "7d7cfe3ed316227195dbc09385b91c0fc41c5c5ba4be279c75dd2852f20a3932"
+    },
+    {
+      "path": "rocketforge/engineering/propellants/mapping.py",
+      "sha256": "5f25dd31166567ce8aa9955cff69c23b537ad116053b8155e467aef18204bd3c"
+    }
+  ],
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "cf97293ff5071c6ace38d43155b6b13c6e975fec9aabb8e609f763ea8d21061d"
+  }
+}

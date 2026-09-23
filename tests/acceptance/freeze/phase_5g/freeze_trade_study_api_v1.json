@@ -1,0 +1,62 @@
+{
+  "contract": "TRADE STUDY API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "note": "The generic design-space engine: design variables, metric registry, point enumeration and stage keys, study definition and validation, constraints, objectives, Pareto, optional weighted scoring, results and execution. It imports no physics, no provider and no Qt, and is exercised by synthetic evaluators.",
+  "file_count": 12,
+  "files": [
+    {
+      "path": "rocketforge/engine/studies/__init__.py",
+      "sha256": "0ef87dc57e129b5a28746385668287473541e3850767e1f9f7cb6107450d20f4"
+    },
+    {
+      "path": "rocketforge/engine/studies/analysis.py",
+      "sha256": "9de10ebb72bebaba1ba74e1c281eb53e28726ff31bfe849fce0b6f8cf96b4f57"
+    },
+    {
+      "path": "rocketforge/engine/studies/constraints.py",
+      "sha256": "0c0f97498016199ed271a87c0887d7b9c4470cfcc45b56458b9767bed3ebc7d7"
+    },
+    {
+      "path": "rocketforge/engine/studies/definition.py",
+      "sha256": "6be62de636a44522fed20d6088a82fe4fa0996d6bcf2a0586fd1d484c01da47f"
+    },
+    {
+      "path": "rocketforge/engine/studies/enumeration.py",
+      "sha256": "8a15a0b7b6e47e0e6df85cef574038aa92116b6950f760000cdf6752a7a71283"
+    },
+    {
+      "path": "rocketforge/engine/studies/execution.py",
+      "sha256": "8d6279c8bb9473bdd56c3840baf715955c665350c8da36590c0a02640bfcd567"
+    },
+    {
+      "path": "rocketforge/engine/studies/metrics.py",
+      "sha256": "d14fc6bb14fe24ec497b0dfe6344ed7d9470b9ff7eeadb4f41dd35b2407f2348"
+    },
+    {
+      "path": "rocketforge/engine/studies/objectives.py",
+      "sha256": "781fd4f7a3a01e77307256dead7f51f6c42e8f3288efb7f56145ee1d7f35fab2"
+    },
+    {
+      "path": "rocketforge/engine/studies/pareto.py",
+      "sha256": "3e93f3efb2fea43b5e955b6face4dd4253ab856e4c1ce63ea45a5da2db859bd6"
+    },
+    {
+      "path": "rocketforge/engine/studies/results.py",
+      "sha256": "0de53af509a1fc64b331206fc81512468d0e0532ad0921aef655d3ad87a31817"
+    },
+    {
+      "path": "rocketforge/engine/studies/scoring.py",
+      "sha256": "9e5b518173e6f0c95523b9075edcf203ee528d4332084cfa1f79e49155e3d0a6"
+    },
+    {
+      "path": "rocketforge/engine/studies/variables.py",
+      "sha256": "60f7b61e190d146a5716bd0ac9a216c74948a688bc712045f16e74790d2b4d66"
+    }
+  ],
+  "digest": "5c334dae192c6ecf0cdf32cad6fc5bb99727950541787c079ea2492d4939fd8f",
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "912065266fccc6d54776de3ebcac33f83ea7c209378b4a87e3e900061b8c409d"
+  }
+}

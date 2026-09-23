@@ -1,0 +1,66 @@
+{
+  "contract": "THERMOCHEMISTRY API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "note": "The provider-independent thermochemistry domain: the chamber state record, the provider protocol, composition and species semantics, propellant records, requests, provenance, validation and tolerances. No provider is named here; the arrow points from an adapter down to this contract and never back.",
+  "file_count": 13,
+  "files": [
+    {
+      "path": "rocketforge/physics/thermochemistry/__init__.py",
+      "sha256": "83538e3af023de5fe2afd8ed0265e14ef2c470e1c580f61ebea9ce88fe532a1e"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/composition.py",
+      "sha256": "f714a346038fa944c99503b88f1c7bfb4bff7c0f85c672880adfba78da028083"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/errors.py",
+      "sha256": "b73729f1e49a5ab3364938c9f8854ec5660df31e6d0f0db321237d9f14266241"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/propellants.py",
+      "sha256": "934e2b5c12eb9bfbdca787fdd74081d325e91e41273a88a3b28f3cee59cd4faa"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/protocols.py",
+      "sha256": "34c99c561279aafedbf2c0102efa8e4ebb551f6c06b6b74e47e3e8ec99512d81"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/provenance.py",
+      "sha256": "cf5e0e9c19a8216c9d6bba4a7cc57efcb7db9fcb28ddfd15376ee62cc09ceabb"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/requests.py",
+      "sha256": "2a0d74419e50c5ccf6b5d2bbbfb4cb15f745179f718512e6abd9c765b1e8b981"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/serialization.py",
+      "sha256": "ccf0aab253517a677b7872a1896fd8e8696928df0a6dc0c0aae4fe4f2b04b8fd"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/species.py",
+      "sha256": "8a96c751834f72cd9f18b6e8248c0b15dcabe76edf44f4b4d6b5621f170ce9c0"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/states.py",
+      "sha256": "c953caa2d229f4da92e91b4857a112c72302ee9af406c32eabf9a4d02d786fa5"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/tolerances.py",
+      "sha256": "ac8622d0143a03cf96592c9024013fbe1d47acdea24bb3441c11f18d3209b845"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/types.py",
+      "sha256": "aa737efa0d75ae1bf273ac61bb68df1cca41df718eba3326691672601afbd3b9"
+    },
+    {
+      "path": "rocketforge/physics/thermochemistry/validation.py",
+      "sha256": "b42356ed2ea649fbc018fe8a43c41435d74e706690a88c8bd7b6b4d43f6111ad"
+    }
+  ],
+  "digest": "aa7857573f3e6fb04f77e56aed3cd2c55f1ede047cd80bcc8b04d586fb90f184",
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "44312c23c71cfd527f8ac621e62c69e50d7c63354fbb4b3b8de2096fd2e93453"
+  }
+}

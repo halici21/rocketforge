@@ -1,0 +1,69 @@
+{
+  "case": {
+    "reactants": "CH4 + O2 (gas)",
+    "of_mass": 3.4,
+    "T_reac_K": 298.15,
+    "P_Pa": 10000000.0,
+    "species": [
+      "CO",
+      "CO2",
+      "H",
+      "H2",
+      "H2O",
+      "O",
+      "O2",
+      "OH",
+      "CH4"
+    ],
+    "problem": "HP equilibrium"
+  },
+  "provider": "Cantera",
+  "version": "3.2.0",
+  "gas_constant_used_by_provider": 8314.46261815324,
+  "converged": true,
+  "Tc_K": 3677.007652227085,
+  "P_Pa": 10000000.00465079,
+  "M_kg_per_kmol": 21.47347618216424,
+  "density_kg_per_m3": 7.023824252907542,
+  "gamma_s_equilibrium": 1.1334726368599715,
+  "cp_frozen_J_per_kgK": 2339.5431990007205,
+  "cp_equilibrium_J_per_kgK": null,
+  "cv_frozen_J_per_kgK": 1952.3463358743309,
+  "gamma_frozen_cp_over_cv": 1.1983238608906903,
+  "entropy_J_per_kgK": 12186.208312968049,
+  "enthalpy_J_per_kg": -1056812.8614302543,
+  "X": {
+    "CO": 0.18349263224462098,
+    "CO2": 0.120710789190178,
+    "H": 0.025345448390611237,
+    "H2": 0.08468039422238809,
+    "H2O": 0.4751382460074892,
+    "O": 0.012350365019062408,
+    "O2": 0.02645116768529939,
+    "OH": 0.0718309568731814,
+    "CH4": 3.671690084621298e-10
+  },
+  "Y": {
+    "CO": 0.23934776957262197,
+    "CO2": 0.24739176258210877,
+    "H": 0.0011897566915111929,
+    "H2": 0.007950071674661132,
+    "H2O": 0.3986134070334868,
+    "O": 0.009201746762552568,
+    "O2": 0.0394153446053235,
+    "OH": 0.05689014080341939,
+    "CH4": 2.7431480365766584e-10
+  },
+  "sum_X": 0.9999999999999996,
+  "native_units": {
+    "P": "Pa",
+    "cp": "J/(kg K)",
+    "M": "kg/kmol",
+    "density": "kg/m3",
+    "h": "J/kg",
+    "s": "J/(kg K)"
+  },
+  "gamma_s_note": "NOT native - computed by finite difference on an SP path",
+  "cp_equilibrium_note": "NOT native - Cantera exposes only frozen cp",
+  "R_specific_J_per_kgK": 387.19686312638987
+}

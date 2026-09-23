@@ -1,0 +1,74 @@
+{
+  "contract": "NASA CEA PROVIDER",
+  "version": "1.1",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/providers/cea"
+  ],
+  "note": "v1.0 plus the reactant sensible-enthalpy correction. Additive: the v1.0 native policy is the default and reproduces every v1.0 result bit for bit.",
+  "file_count": 12,
+  "digest": "52893952ad1cbea471ec001e22b24f11b652ba07890617f88e2ebe522eaa996c",
+  "files": [
+    {
+      "path": "rocketforge/providers/cea/__init__.py",
+      "sha256": "38722f543055a7d2beeb1b4036b21106a077dada985d7a9439ca37b199b91ca7"
+    },
+    {
+      "path": "rocketforge/providers/cea/availability.py",
+      "sha256": "3bafc890ff6c0ad4b919e06bca09b0b4fa250348ba5de031ce1f3d5b128f1edb"
+    },
+    {
+      "path": "rocketforge/providers/cea/enthalpy_coupling.py",
+      "sha256": "ce280ec85f8c0a85f363ff314da3f4a2c1be4c8e7386355734fd523122c855c6"
+    },
+    {
+      "path": "rocketforge/providers/cea/errors.py",
+      "sha256": "19d13a97f7f439dae5dc5bc76ee30f7ba25388fe90d9680479a179cfb20698d6"
+    },
+    {
+      "path": "rocketforge/providers/cea/mapping.py",
+      "sha256": "ca1672c0f6744d88204a9c48ba0702504b8207225b46507182b11e650e535b0c"
+    },
+    {
+      "path": "rocketforge/providers/cea/naming.py",
+      "sha256": "d99c03e727da940751a19219d9199d25ee9fcfc31e9a17d758100c8eeeb247fd"
+    },
+    {
+      "path": "rocketforge/providers/cea/oracle.py",
+      "sha256": "39b57f1318453e50cc60f2b16e37254e6a68a48a2e6d74f22b19c34e8f9203f0"
+    },
+    {
+      "path": "rocketforge/providers/cea/propellants.py",
+      "sha256": "84a7e8e887b59afea5db7e7435c799ad9813357f1acca67508b8ab954f12215c"
+    },
+    {
+      "path": "rocketforge/providers/cea/provider.py",
+      "sha256": "6eb98d59a6ef8836d07d4f1883a55b99fd3bbb3b2d893960129bfccafe0b2ae0"
+    },
+    {
+      "path": "rocketforge/providers/cea/resources.py",
+      "sha256": "a6afca7bd97d56b9697218ab2e642d4974acfe1dbac08e0660e428aee06873d2"
+    },
+    {
+      "path": "rocketforge/providers/cea/species.py",
+      "sha256": "b1aa194500b762275a5f75c6d58e5f2fc9cfdbeadfa03f4401643f3b30d88c05"
+    },
+    {
+      "path": "rocketforge/providers/cea/units.py",
+      "sha256": "979420be2106e08f86f0d859c833a779398ddd39ff2638b9e15d7c8b447050cb"
+    }
+  ],
+  "supersedes": "freeze_cea_provider_v1",
+  "change": [
+    "added rocketforge/providers/cea/enthalpy_coupling.py",
+    "CEAChamberInput gained a defaulted `enthalpy_correction` field, appended last so v1.0 field order is unchanged",
+    "solve_chamber_raw adds that correction to CEA's own mixture enthalpy before the HP constraint is formed",
+    "build_chamber_input gained a defaulted keyword argument",
+    "solve_chamber gained three defaulted keyword arguments",
+    "provenance always records the reactant enthalpy policy"
+  ],
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "7ca6aadb6610f9c64a516116eafe1dbb6016d276fc8ccb770d5545306f932e47"
+  }
+}

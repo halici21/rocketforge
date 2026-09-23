@@ -5,7 +5,9 @@ an input to the frozen Compressible v1 API without touching it.
 
 **Status:** specification. The frozen compressible API is an input to this
 document and is not modified by it. Manifest digest
-`8f0d1cf5685e0c52b6083b9a5f77196b25a1f987b85acadb4d7094ba385a3502`.
+`8f0d1cf5685e0c52b6083b9a5f77196b25a1f987b85acadb4d7094ba385a3502` (Phase 4G);
+the reproducible manifest is
+`tests/acceptance/freeze/phase_4g/freeze_compressible_api_v1.json`.
 
 ---
 

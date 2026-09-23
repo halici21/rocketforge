@@ -16,6 +16,22 @@ UI = ROOT / "ui"
 PAGE_DIR = UI / "pages" / "rocketperformance"
 PAGE = UI / "pages" / "RocketPerformancePage.qml"
 
+#: Measurements and captures recorded on a developer machine by the pilot's own
+#: harnesses (experiments/ui_visual_pilot/). They are evidence about that
+#: machine, not contracts, so they stay in the untracked acceptance/ folder. A
+#: fresh clone and CI do not have them: the tests that read them skip with that
+#: reason, and every other test in this file still runs everywhere.
+EVIDENCE = ROOT / "acceptance" / "ui_visual_pilot"
+
+
+def local_evidence(name: str) -> pathlib.Path:
+    path = EVIDENCE / name
+    if not path.exists():
+        pytest.skip(f"local evidence acceptance/ui_visual_pilot/{name} is not present: "
+                    "recorded on a developer machine by experiments/ui_visual_pilot/ "
+                    "and deliberately not tracked")
+    return path
+
 
 def performance_qml():
     files = [PAGE] if PAGE.is_file() else []
@@ -391,8 +407,7 @@ def test_the_parity_check_would_notice_a_dropped_row():
 def test_the_parity_result_on_record_is_a_pass_over_real_captures():
     import json
 
-    report = json.loads((ROOT / "acceptance" / "ui_visual_pilot"
-                         / "scientific_parity.json").read_text(
+    report = json.loads(local_evidence("scientific_parity.json").read_text(
                              encoding="utf-8"))
     assert report["verdict"] == "PASS"
     assert report["differences"] == []
@@ -436,8 +451,7 @@ def test_a_stale_value_is_still_a_readable_value():
 def test_the_accessibility_result_on_record_is_clean_for_the_pilot():
     import json
 
-    report = json.loads((ROOT / "acceptance" / "ui_visual_pilot"
-                         / "accessibility.json").read_text(encoding="utf-8"))
+    report = json.loads(local_evidence("accessibility.json").read_text(encoding="utf-8"))
     assert report["pilot_owned_failures"] == []
     assert report["pilot_scope_verdict"] == "PASS"
     # every remaining shortfall is the one shared token, and it is on record
@@ -456,8 +470,7 @@ def test_the_accessibility_result_on_record_is_clean_for_the_pilot():
 def _perf(label: str) -> dict:
     import json
 
-    path = (ROOT / "acceptance" / "ui_visual_pilot"
-            / f"performance_{label}.json")
+    path = local_evidence(f"performance_{label}.json")
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -502,8 +515,7 @@ def test_the_redesign_publishes_a_result_faster_than_the_old_one():
 def test_the_packaged_workspace_matches_the_source_build():
     import json
 
-    report = json.loads((ROOT / "acceptance" / "ui_visual_pilot"
-                         / "source_packaged_parity.json").read_text(
+    report = json.loads(local_evidence("source_packaged_parity.json").read_text(
                              encoding="utf-8"))
     assert report["verdict"] == "PASS"
     assert report["differences"] == []
@@ -518,16 +530,16 @@ def test_the_before_baseline_is_marked_unreproducible():
     as a record; saying it could be re-derived would be false."""
     import json
 
-    report = json.loads((ROOT / "acceptance" / "ui_visual_pilot"
-                         / "performance_before.json").read_text(
+    report = json.loads(local_evidence("performance_before.json").read_text(
                              encoding="utf-8"))
     assert report["reproducible"] is False
     assert "cannot be regenerated" in report["provenance"].lower()
 
 
 def test_the_scientific_baseline_survived_that_rebuild():
-    """The captures the parity claim rests on are in the repository, not in
-    dist/, and are untouched by it."""
-    before = ROOT / "acceptance" / "ui_visual_pilot" / "before"
+    """The captures the parity claim rests on survived the clean rebuild: they
+    live in the local acceptance/ evidence, not in dist/, so the rebuild could
+    not touch them. They are not tracked; see local_evidence()."""
+    before = local_evidence("before")
     assert (before / "capture_matrix.json").is_file()
     assert len(list(before.glob("*.png"))) == 27

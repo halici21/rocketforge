@@ -1,0 +1,106 @@
+{
+  "contract": "COMPRESSIBLE FLOW API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/physics/compressible",
+    "rocketforge/core"
+  ],
+  "note": "Compressible v1 as frozen by Phase 4G. That record held 16-hex prefixes of raw-byte SHA-256 in a Markdown table; each was proven against the file before this full manifest replaced it.",
+  "file_count": 22,
+  "files": [
+    {
+      "path": "rocketforge/core/__init__.py",
+      "sha256": "bb8bc6d5034621b496d27a776ba84274ab9f83a36bca879d827a2a24af4eddd7"
+    },
+    {
+      "path": "rocketforge/core/constants.py",
+      "sha256": "a47887378b501ea2aafc9bf7ee9945e38a0a18f4cc02da2befe25e6784c94ed0"
+    },
+    {
+      "path": "rocketforge/core/errors.py",
+      "sha256": "6240fe2a75efcfcca9576cb01c9b1c9117e8f4744f544b0a49abc4fb88f41d7a"
+    },
+    {
+      "path": "rocketforge/core/numerics/__init__.py",
+      "sha256": "e16a3b31831069ba5a45ff6f979f58f16651eb14d39ad11a27719c30dcf5e412"
+    },
+    {
+      "path": "rocketforge/core/numerics/arrays.py",
+      "sha256": "9f354277cd739e4b1715800eeaf096d8a82352bcb6f2c9bb9bcd3bb13db3031f"
+    },
+    {
+      "path": "rocketforge/core/numerics/roots.py",
+      "sha256": "db67136383ebb5d5ab04b60d28fd0b0bbf50f5ed5c202763483adb66acfbfe62"
+    },
+    {
+      "path": "rocketforge/core/provenance.py",
+      "sha256": "cf147f6c085b584cd9db57a3c893d7752832a32bd5b3642992b322b3cc887eab"
+    },
+    {
+      "path": "rocketforge/core/result.py",
+      "sha256": "9d1469a9001a8553380b59b9d4dcbe351cac83783ec9327b757b7e2b16b14814"
+    },
+    {
+      "path": "rocketforge/core/tolerances.py",
+      "sha256": "e5e66f541aefd0f25a830692c56c2e77516bb12b38fdc6d8d65a63b5959dfa20"
+    },
+    {
+      "path": "rocketforge/physics/compressible/__init__.py",
+      "sha256": "3fc8af3df7c3c46a2c5df9a66398c8ccc6482db3b5d55769eaf78bd54b595fbd"
+    },
+    {
+      "path": "rocketforge/physics/compressible/equations.py",
+      "sha256": "54e212bf981682b1658ffc544e4c5ab13bd96d89d58bf2a2a48cad16d144eabf"
+    },
+    {
+      "path": "rocketforge/physics/compressible/fanno.py",
+      "sha256": "142a50a05f389bcd1a0114c435316eb4f6509753a87a75e60bed84ab1a408d0a"
+    },
+    {
+      "path": "rocketforge/physics/compressible/gas.py",
+      "sha256": "13f9c87dc64dc693ef89df2291395b9d114cf6ccccda2eb4f9b86f26cf576118"
+    },
+    {
+      "path": "rocketforge/physics/compressible/geometry.py",
+      "sha256": "b4e0cf7923721628366c2b88d0ced0452d86e55f48afb675b9aff5ca950b54a9"
+    },
+    {
+      "path": "rocketforge/physics/compressible/isentropic.py",
+      "sha256": "e5a23abdf788089ccf219beda89036199ccc6606623ffbc5e03a2fc8072c9b0f"
+    },
+    {
+      "path": "rocketforge/physics/compressible/mass_flow.py",
+      "sha256": "11be0db20bba4567544a4605d9fcb80d7cd279022d896e8828155854cae4048b"
+    },
+    {
+      "path": "rocketforge/physics/compressible/normal_shock.py",
+      "sha256": "084f3a9d0295c88c1d5b48e4d3ac7bc375798bbfa13d09a13c6340171df05500"
+    },
+    {
+      "path": "rocketforge/physics/compressible/nozzle.py",
+      "sha256": "469fef28d5c71eb69a66b017a8cb35af30a5791c5d642c2510efd33503114b4b"
+    },
+    {
+      "path": "rocketforge/physics/compressible/oblique_shock.py",
+      "sha256": "6815070894fbf3f8cb8d53de5e3e084cc41434f6f3d1c2eca6fd658ad385915f"
+    },
+    {
+      "path": "rocketforge/physics/compressible/prandtl_meyer.py",
+      "sha256": "35488b55a1e0c304db705109e76c3fb034bdd5ed60227f1b83dc4739b4fe2fa3"
+    },
+    {
+      "path": "rocketforge/physics/compressible/rayleigh.py",
+      "sha256": "b7adc8936d24f8ba75f9a3386cdf50ff3782405f9295c7011571d4c4e29d9c7d"
+    },
+    {
+      "path": "rocketforge/physics/compressible/types.py",
+      "sha256": "a8be89f9fee29618d7bd4c779f48673f88668cebf9e5c9ff0c42b1746e64acaf"
+    }
+  ],
+  "digest": "1467d94b1dfc36f8dc2228418ece9b837d99802713601c050858fc569cd2196b",
+  "migrated_from": {
+    "record": "acceptance/phase_4g/ACCEPTANCE_MANIFEST.md",
+    "algorithm": "first 16 hex digits of SHA-256 over raw bytes"
+  }
+}

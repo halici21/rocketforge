@@ -1,0 +1,159 @@
+{
+  "parity_tier": 2,
+  "parity_tier_note": "Tier 2. The two providers use INDEPENDENT thermodynamic databases -- NASA CEA's thermo.lib and Cantera's nasa_gas.yaml -- so exact agreement is neither expected nor required. Neither is treated as ground truth. Agreement on bulk properties with larger differences in trace radicals is the expected signature of independent data, not a defect in either provider.",
+  "case": {
+    "reactants": "CH4 + O2 (gas)",
+    "of_mass": 3.4,
+    "T_reac_K": 298.15,
+    "P_Pa": 10000000.0,
+    "problem": "HP equilibrium",
+    "species": [
+      "CO",
+      "CO2",
+      "H",
+      "H2",
+      "H2O",
+      "HO2",
+      "H2O2",
+      "O",
+      "O2",
+      "OH",
+      "CH4",
+      "C(gr)",
+      "C",
+      "CH",
+      "CH2",
+      "CH3",
+      "CH2OH",
+      "CH3O",
+      "CH3OH",
+      "HCO",
+      "COOH",
+      "HCOOH",
+      "HCHO,formaldehy",
+      "O3",
+      "C2H",
+      "C2H2,acetylene",
+      "C2O",
+      "HCCO"
+    ]
+  },
+  "cea_version": "3.3.4",
+  "cea_thermo_sha256": "8e5df1cca92d4a48663d1ee5a1372e6508c59cddc2247ceeca32f041a03ec52a",
+  "cantera_version": "3.2.0",
+  "cantera_mechanism": "nasa_gas.yaml",
+  "species_missing_from_cantera": [
+    "HCCO"
+  ],
+  "bulk_properties": {
+    "Tc_K": {
+      "cea": 3673.2173924652443,
+      "cantera": 3676.6073045410544,
+      "relative_difference": 0.000922021797547746
+    },
+    "M_kg_per_mol": {
+      "cea": 0.021466611956683448,
+      "cantera": 0.021475682636834876,
+      "relative_difference": 0.00042236981728674855
+    },
+    "R_J_per_kgK": {
+      "cea": 387.3206743071816,
+      "cantera": 387.1570817447431,
+      "relative_difference": 0.00042236981728676135
+    },
+    "density": {
+      "cea": 7.028784266891378,
+      "cantera": 7.025310872042525,
+      "relative_difference": 0.0004941672296324229
+    },
+    "gamma_s": {
+      "cea": 1.1333607402528578,
+      "cantera": 1.1332395679070921,
+      "relative_difference": 0.00010691419021507882
+    },
+    "gamma_frozen": {
+      "cea": 1.1985072897786533,
+      "cantera": 1.1983008866902194,
+      "relative_difference": 0.00017221679850776094
+    },
+    "cp_frozen": {
+      "cea": 2338.499999387491,
+      "cantera": 2339.5289959941765,
+      "relative_difference": 0.0004398306703817765
+    },
+    "cv_frozen": {
+      "cea": 1951.1771178457973,
+      "cantera": 1952.371914249433,
+      "relative_difference": 0.0006119717226597769
+    }
+  },
+  "major_species": {
+    "CO": {
+      "cea": 0.18348418284731127,
+      "cantera": 0.18351307106430126,
+      "relative_difference": 0.00015741776224683236
+    },
+    "CO2": {
+      "cea": 0.12058783062253862,
+      "cantera": 0.1206773055880567,
+      "relative_difference": 0.000741439867935944
+    },
+    "COOH": {
+      "cea": 2.0397905989334656e-05,
+      "cantera": 2.035032266791747e-05,
+      "relative_difference": 0.0023327552074249524
+    },
+    "H": {
+      "cea": 0.024997069438129824,
+      "cantera": 0.02532893623385404,
+      "relative_difference": 0.013102279253269653
+    },
+    "H2": {
+      "cea": 0.08453122900015214,
+      "cantera": 0.08470942531499466,
+      "relative_difference": 0.0021036185073843913
+    },
+    "H2O": {
+      "cea": 0.47340567053767374,
+      "cantera": 0.47508705942089724,
+      "relative_difference": 0.0035391174099185375
+    },
+    "H2O2": {
+      "cea": 3.0341172467316493e-05,
+      "cantera": 3.120910585753755e-05,
+      "relative_difference": 0.027810261344332506
+    },
+    "HCO": {
+      "cea": 1.982065699810143e-05,
+      "cantera": 1.9985566750140307e-05,
+      "relative_difference": 0.008251442358406927
+    },
+    "HCOOH": {
+      "cea": 3.397957681588142e-06,
+      "cantera": 3.313907582179683e-06,
+      "relative_difference": 0.024735475625221864
+    },
+    "HO2": {
+      "cea": 0.00016691266357422914,
+      "cantera": 0.00016852169286637165,
+      "relative_difference": 0.009547906057520946
+    },
+    "O": {
+      "cea": 0.011935531782488436,
+      "cantera": 0.012322429026568908,
+      "relative_difference": 0.031397806653726004
+    },
+    "O2": {
+      "cea": 0.025497790538213244,
+      "cantera": 0.026379925137548926,
+      "relative_difference": 0.033439617236823004
+    },
+    "OH": {
+      "cea": 0.07531883423533955,
+      "cantera": 0.07173760351130179,
+      "relative_difference": 0.04754761223265792
+    }
+  },
+  "max_bulk_relative_difference": 0.000922021797547746,
+  "max_species_relative_difference": 0.04754761223265792
+}

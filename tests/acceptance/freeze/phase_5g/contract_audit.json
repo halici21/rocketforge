@@ -1,0 +1,380 @@
+{
+  "units": {
+    "purpose": "canonical SI internally; conversion at the application boundary only",
+    "metric_units": [
+      {
+        "metric": "chamber_temperature",
+        "declared": "K",
+        "expected": "K",
+        "agrees": true
+      },
+      {
+        "metric": "mean_molar_mass",
+        "declared": "kg/mol",
+        "expected": "kg/mol",
+        "agrees": true
+      },
+      {
+        "metric": "gas_constant",
+        "declared": "J/(kg\u00b7K)",
+        "expected": "J/(kg K)",
+        "agrees": true
+      },
+      {
+        "metric": "gamma_equilibrium",
+        "declared": "",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "gamma_frozen",
+        "declared": "",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "condensed_mass_fraction",
+        "declared": "",
+        "expected": "-",
+        "agrees": true
+      },
+      {
+        "metric": "characteristic_velocity",
+        "declared": "m/s",
+        "expected": "m/s",
+        "agrees": true
+      },
+      {
+        "metric": "thrust_coefficient",
+        "declared": "",
+        "expected": "-",
+        "agrees": true
+      },
+      {
+        "metric": "effective_exhaust_velocity",
+        "declared": "m/s",
+        "expected": "m/s",
+        "agrees": true
+      },
+      {
+        "metric": "specific_impulse",
+        "declared": "s",
+        "expected": "s",
+        "agrees": true
+      },
+      {
+        "metric": "exit_mach",
+        "declared": "",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "exit_pressure",
+        "declared": "Pa",
+        "expected": "Pa",
+        "agrees": true
+      },
+      {
+        "metric": "exit_temperature",
+        "declared": "K",
+        "expected": "K",
+        "agrees": true
+      },
+      {
+        "metric": "exit_velocity",
+        "declared": "m/s",
+        "expected": "m/s",
+        "agrees": true
+      },
+      {
+        "metric": "total_thrust",
+        "declared": "N",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "momentum_thrust",
+        "declared": "N",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "pressure_thrust",
+        "declared": "N",
+        "expected": null,
+        "agrees": true
+      },
+      {
+        "metric": "mass_flow",
+        "declared": "kg/s",
+        "expected": "kg/s",
+        "agrees": true
+      }
+    ],
+    "metric_unit_disagreements": [],
+    "fields_without_their_unit_in_the_owning_module": [
+      {
+        "file": "validation.py",
+        "field": "pressure",
+        "unit": "Pa"
+      },
+      {
+        "file": "validation.py",
+        "field": "molar_mass",
+        "unit": "kg/mol"
+      },
+      {
+        "file": "validation.py",
+        "field": "gas_constant",
+        "unit": "J/(kg K)"
+      },
+      {
+        "file": "validation.py",
+        "field": "cp",
+        "unit": "J/(kg K)"
+      },
+      {
+        "file": "validation.py",
+        "field": "cv",
+        "unit": "J/(kg K)"
+      },
+      {
+        "file": "validation.py",
+        "field": "density",
+        "unit": "kg/m3"
+      },
+      {
+        "file": "types.py",
+        "field": "throat_area",
+        "unit": "m2"
+      },
+      {
+        "file": "types.py",
+        "field": "exit_area",
+        "unit": "m2"
+      }
+    ]
+  },
+  "oxidiser_fuel_ratio": {
+    "canonical": "O/F = oxidiser mass / fuel mass",
+    "modules_using_it": [
+      {
+        "file": "rocketforge/physics/thermochemistry/propellants.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/protocols.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/requests.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/providers/cea/mapping.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/providers/cea/oracle.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/providers/cea/provider.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/analysis/thermochemistry_controller.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/application/analysis/thermochemistry_reference.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/analysis/thermochemistry_service.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/application/analysis/thermochemistry_sweep.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/analysis/trade_study_controller.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/analysis/trade_study_domain.py",
+        "states_orientation": true
+      },
+      {
+        "file": "rocketforge/application/analysis/trade_study_service.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/selftest.py",
+        "states_orientation": false
+      },
+      {
+        "file": "rocketforge/application/studysmoke.py",
+        "states_orientation": false
+      }
+    ],
+    "modules_that_state_the_orientation": [
+      "rocketforge/physics/thermochemistry/propellants.py",
+      "rocketforge/providers/cea/mapping.py",
+      "rocketforge/providers/cea/oracle.py",
+      "rocketforge/application/analysis/thermochemistry_controller.py",
+      "rocketforge/application/analysis/thermochemistry_service.py",
+      "rocketforge/application/analysis/trade_study_domain.py"
+    ],
+    "trade_study_variable_key": "oxidiser_fuel_ratio",
+    "trade_study_variable_note": "Oxidiser mass divided by fuel mass \u2014 RocketForge's orientation throughout, and CEA's.",
+    "bare_mixture_ratio_in_scientific_names": [
+      {
+        "file": "rocketforge/physics/thermochemistry/__init__.py",
+        "name": "mixture_ratio_from_streams"
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/propellants.py",
+        "name": "mixture_ratio_from_streams"
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/protocols.py",
+        "name": "mixture_ratio_range"
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/protocols.py",
+        "name": "mixture_ratio_range"
+      },
+      {
+        "file": "rocketforge/physics/thermochemistry/protocols.py",
+        "name": "mixture_ratio_is_in_range"
+      },
+      {
+        "file": "rocketforge/providers/cea/provider.py",
+        "name": "mixture_ratio_range"
+      }
+    ],
+    "note": "the UI property `mixtureRatio` on the thermochemistry controller is a display name whose tooltip states the orientation; the scientific key everywhere is `oxidiser_fuel_ratio`"
+  },
+  "gamma": {
+    "rule": "a chamber state carries two isentropic exponents several per cent apart; no public name may be an unqualified 'gamma'",
+    "chamber_state_fields": [
+      "gamma",
+      "cp",
+      "cv",
+      "cp_frozen",
+      "cp_equilibrium",
+      "gamma_frozen",
+      "gamma_equilibrium"
+    ],
+    "trade_study_gamma_metrics": [
+      "gamma_equilibrium",
+      "gamma_frozen"
+    ],
+    "bare_gamma_metric_present": false,
+    "gamma_strategy_members": [
+      "CHAMBER",
+      "THROAT",
+      "EXIT",
+      "CHAMBER_EXIT_MEAN",
+      "EFFECTIVE_ISENTROPIC"
+    ],
+    "gamma_basis_members": [
+      "EQUILIBRIUM",
+      "FROZEN"
+    ],
+    "reduction_is_explicit": "reduce_chamber_gas requires both a strategy and a basis positionally; neither has a default",
+    "cp_cv_semantics": {
+      "cp_frozen": "constant-composition specific heat",
+      "cp_equilibrium": "shifting-equilibrium specific heat",
+      "gamma_frozen": "cp_frozen / cv",
+      "gamma_equilibrium": "the isentropic exponent of a shifting expansion, not a cp/cv ratio"
+    }
+  },
+  "thresholds": {
+    "presentation_threshold": {
+      "name": "CONDENSED_REPORTING_THRESHOLD",
+      "value": 1e-06,
+      "owner": "rocketforge/application/analysis/thermochemistry_service.py",
+      "role": "how small a condensed fraction may be before the interface stops printing it as a separate row"
+    },
+    "physics_threshold": {
+      "name": "SINGLE_PHASE_CONDENSED_LIMIT",
+      "value": 1e-06,
+      "owner": "rocketforge/engineering/chamber/handshake.py",
+      "role": "above this the ideal single-gas reduction refuses rather than averaging a condensed phase into the gas"
+    },
+    "same_value": true,
+    "same_object": false,
+    "separate_layers": true,
+    "presentation_threshold_used_below_application": [],
+    "verdict": "PASS",
+    "note": "the two happen to share a numeric value; they are separate constants in separate layers, and changing one must not change the other"
+  },
+  "compressible_contract": {
+    "purpose": "the dependency contract Phase 5 has on frozen Compressible v1",
+    "compressible_public_exports": [
+      "AreaDistribution",
+      "AreaMachSolutions",
+      "CriticalPressureRatios",
+      "FannoDuctResult",
+      "FannoState",
+      "FlowBranch",
+      "FlowState",
+      "IsentropicRatios",
+      "NormalShockResult",
+      "NozzleOperating",
+      "NozzleRegime",
+      "NozzleRegimeResult",
+      "NozzleSolution",
+      "ObliqueShockPair",
+      "ObliqueShockResult",
+      "PerfectGas",
+      "PrandtlMeyerResult",
+      "RayleighDuctResult",
+      "RayleighState",
+      "ShockBranch",
+      "ShockLocation",
+      "StagnationState",
+      "ThetaBetaCurve",
+      "ThetaMaxResult",
+      "equations",
+      "fanno",
+      "gas",
+      "geometry",
+      "isentropic",
+      "mass_flow",
+      "normal_shock",
+      "nozzle",
+      "oblique_shock",
+      "prandtl_meyer",
+      "rayleigh",
+      "speed_of_sound"
+    ],
+    "consumed_by_phase_5": {
+      "rocketforge/engineering/chamber/handshake.py": [
+        "PerfectGas"
+      ],
+      "rocketforge/engineering/nozzle/performance.py": [
+        "isentropic",
+        "mass_flow",
+        "nozzle",
+        "types.NozzleRegime"
+      ]
+    },
+    "attribute_uses": [
+      "NozzleRegime.IDEALLY_EXPANDED",
+      "NozzleRegime.OVEREXPANDED",
+      "NozzleRegime.UNCHOKED_SUBSONIC",
+      "NozzleRegime.UNDEREXPANDED",
+      "isentropic.temperature_ratio",
+      "mass_flow.choked_mass_flow",
+      "mass_flow.choked_mass_flow_coefficient",
+      "nozzle.classify",
+      "nozzle.critical_pressure_ratios"
+    ],
+    "private_symbol_uses": [],
+    "verdict": "PASS"
+  }
+}

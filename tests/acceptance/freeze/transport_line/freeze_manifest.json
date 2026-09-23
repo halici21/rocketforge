@@ -1,0 +1,16 @@
+{
+  "purpose": "the line freeze boundary",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "reproducible_without_this_code": true,
+  "checkable_with": "sha256sum -c freeze_line_api_v1.sha256",
+  "python": "3.13.2",
+  "contracts": [
+    {
+      "contract": "LINE API",
+      "version": "1.0",
+      "file_count": 7,
+      "digest": "3de3a979b7ce7ea2acd37a20e1a028671411506bbea5d3f97bb290713c5cca4d"
+    }
+  ],
+  "algorithm_history": "rocketforge-freeze-manifest/1 hashed raw bytes, so a CRLF working copy and a fresh LF checkout disagreed; replaced by rocketforge-freeze-manifest/2 without re-freezing anything (tests/acceptance/freeze/MIGRATION_V1_TO_V2.json)"
+}

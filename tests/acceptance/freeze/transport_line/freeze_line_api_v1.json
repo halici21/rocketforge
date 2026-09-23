@@ -1,0 +1,52 @@
+{
+  "contract": "LINE API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/engineering/line"
+  ],
+  "note": "straight circular single-phase liquid line: Darcy friction factor and distributed wall friction. Gated on the methane transport validation.",
+  "excluded": [
+    "tests",
+    "acceptance harnesses",
+    "QML",
+    "artifacts",
+    "__pycache__"
+  ],
+  "file_count": 7,
+  "digest": "3de3a979b7ce7ea2acd37a20e1a028671411506bbea5d3f97bb290713c5cca4d",
+  "files": [
+    {
+      "path": "rocketforge/engineering/line/__init__.py",
+      "sha256": "52595803f491ed545e13ad4f8a7cba3085180b16e719823fb002906c940cdb32"
+    },
+    {
+      "path": "rocketforge/engineering/line/friction.py",
+      "sha256": "cfa186fa63817f34b7c5f5ea2dced59a91ea802c716c31bb5ac21f3c92a54d08"
+    },
+    {
+      "path": "rocketforge/engineering/line/relations.py",
+      "sha256": "45876a91967a44d5c14a522927b28df9e1f5ecca4043a0a333b617cad9f93ced"
+    },
+    {
+      "path": "rocketforge/engineering/line/requests.py",
+      "sha256": "675b50181b80e1d9cdcc5e3a293bbb2ed002eb78021700a4a623f2dee1afc272"
+    },
+    {
+      "path": "rocketforge/engineering/line/results.py",
+      "sha256": "7f0dfe4274136ba9bcbd0ad3c3b006b8611277adb8198d4e6c0196da6eeace2f"
+    },
+    {
+      "path": "rocketforge/engineering/line/solve.py",
+      "sha256": "00f4d61587c57f2452c5163682dce091a45cc8eec7b5bc1b323bc851af1a5bd0"
+    },
+    {
+      "path": "rocketforge/engineering/line/types.py",
+      "sha256": "2f45e2fced4b9614e604e606138791c56a77719e8bad5e7eb5f65bca395fa8e9"
+    }
+  ],
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "3de3a979b7ce7ea2acd37a20e1a028671411506bbea5d3f97bb290713c5cca4d"
+  }
+}

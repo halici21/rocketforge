@@ -8,15 +8,25 @@
 | Version | 1.0 |
 | Scope | `rocketforge.engine.studies` — the generic design-space engine: design variables, metric registry, point enumeration and stage keys, study definition and validation, constraints, objectives, Pareto, optional weighted scoring, results and execution. |
 | Files | 12 |
-| Manifest | `acceptance/phase_5g/freeze_trade_study_api_v1.json` |
-| Digest | `912065266fccc6d54776de3ebcac33f83ea7c209378b4a87e3e900061b8c409d` |
-| Algorithm | `rocketforge-freeze-manifest/1` |
+| Manifest | `tests/acceptance/freeze/phase_5g/freeze_trade_study_api_v1.json` |
+| Digest | `5c334dae192c6ecf0cdf32cad6fc5bb99727950541787c079ea2492d4939fd8f` |
+| Algorithm | `rocketforge-freeze-manifest/2` |
 
 The digest is reproducible without this project's code: sort the relative
-POSIX paths, SHA-256 each file's exact bytes, write one
+POSIX paths, SHA-256 each file's canonical text (its bytes with every CRLF
+replaced by LF, nothing else changed), write one
 `"<hex><two spaces><path>\n"` line per file, encode as UTF-8, and take the
-SHA-256 of those bytes. `acceptance/phase_5g/freeze_trade_study_api_v1.sha256` is that text, and
-`sha256sum -c` checks it.
+SHA-256 of those bytes. `tests/acceptance/freeze/phase_5g/freeze_trade_study_api_v1.sha256` is
+that text, and `sha256sum -c` checks it in a fresh clone, which holds the
+canonical LF text.
+
+The digest protects the source text, not a working copy's line endings. The
+contract was frozen under algorithm 1, which hashed raw bytes, at digest
+`912065266fccc6d5…`; those bytes carried a Windows working copy's CRLF line
+endings, so no fresh clone could reproduce it. Algorithm 2 records the same
+content again, every file proven identical to its committed blob
+(`tests/acceptance/freeze/MIGRATION_V1_TO_V2.json`). The contract did not
+change.
 
 ## What freezing means here
 

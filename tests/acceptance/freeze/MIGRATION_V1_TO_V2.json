@@ -1,0 +1,590 @@
+{
+  "from": "rocketforge-freeze-manifest/1",
+  "to": "rocketforge-freeze-manifest/2",
+  "manifests": [
+    {
+      "stem": "freeze_cea_provider_v1",
+      "kept": "rocketforge-freeze-manifest/1",
+      "reason": "superseded history, copied unmodified"
+    },
+    {
+      "stem": "freeze_rocket_performance_api_v1",
+      "algorithm_1_digest": "d07f4ff9017efdfe0340bfb5514dea9774498500262e3212aa68d51a22756787",
+      "algorithm_2_digest": "98958ef324041381e730825ec7d1756d961a5f382fa52ece78b6f042a6f58e27",
+      "files": [
+        {
+          "path": "rocketforge/engineering/chamber/__init__.py",
+          "algorithm_1": "e5419d7a30ef0a3815087ca28c0d5a1d7a9858110b4694c6e02cc1b9a12520ad",
+          "algorithm_2": "4dd86ce7c2864120d4a4842797b30d241cc248680fec88c7baa322a4dd6f5a27",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engineering/chamber/handshake.py",
+          "algorithm_1": "c09c5b95aefb37b1c36ebde752c234ed2607086a56143cb308737c7adbee1384",
+          "algorithm_2": "f1f80d1566776ffa1120e742448390a12c489b6088d3b4da8ac7bf86ed38b88d",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engineering/nozzle/__init__.py",
+          "algorithm_1": "74872fee681fba5243fb77d8efc7b103f3ff2832e115ae5904761af76d8b8d66",
+          "algorithm_2": "a66faf31cbcfc9627ff01960df38ec587fc2e09ce5dc757b8fda06b7d9ab32ca",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engineering/nozzle/performance.py",
+          "algorithm_1": "c186ce9d36c78d89ad5e5fa7bf6106869700e6bb7d22e708204c309ec09c0a4c",
+          "algorithm_2": "f6b9fcad4befa3247ab7d8d813447f8f8bc2afc6da688e65c027d6f0657193e0",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engineering/nozzle/types.py",
+          "algorithm_1": "1092a3f835a946bc05495dc3a29cf0bf33d88ba399bafeba02e723228b32fc59",
+          "algorithm_2": "74e9363f8d529e78472c30ade5cf9ad35485ea71da1bdcb6676c9632c8135aad",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engineering/nozzle/validation.py",
+          "algorithm_1": "ccb9bad749e8a290d8742ce0db8ca4a254a46a15c79544b64df096a6bce394d0",
+          "algorithm_2": "174bf39ddfde3ef9262af9d38461639c3585d8d41cbba1103e7f82cf3bf7276b",
+          "crlf_on_disk": true
+        }
+      ]
+    },
+    {
+      "stem": "freeze_thermochemistry_api_v1",
+      "algorithm_1_digest": "44312c23c71cfd527f8ac621e62c69e50d7c63354fbb4b3b8de2096fd2e93453",
+      "algorithm_2_digest": "aa7857573f3e6fb04f77e56aed3cd2c55f1ede047cd80bcc8b04d586fb90f184",
+      "files": [
+        {
+          "path": "rocketforge/physics/thermochemistry/__init__.py",
+          "algorithm_1": "83538e3af023de5fe2afd8ed0265e14ef2c470e1c580f61ebea9ce88fe532a1e",
+          "algorithm_2": "83538e3af023de5fe2afd8ed0265e14ef2c470e1c580f61ebea9ce88fe532a1e",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/composition.py",
+          "algorithm_1": "a32ee8885dd523451b53b7b77bd0559a62c1d4b06653bdb8f0c1a1e9c8cc2a0d",
+          "algorithm_2": "f714a346038fa944c99503b88f1c7bfb4bff7c0f85c672880adfba78da028083",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/errors.py",
+          "algorithm_1": "b73729f1e49a5ab3364938c9f8854ec5660df31e6d0f0db321237d9f14266241",
+          "algorithm_2": "b73729f1e49a5ab3364938c9f8854ec5660df31e6d0f0db321237d9f14266241",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/propellants.py",
+          "algorithm_1": "bc68577128c814609aa0748a4aae4c3ad0edb11571ac13598eeb4bf68da94540",
+          "algorithm_2": "934e2b5c12eb9bfbdca787fdd74081d325e91e41273a88a3b28f3cee59cd4faa",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/protocols.py",
+          "algorithm_1": "34c99c561279aafedbf2c0102efa8e4ebb551f6c06b6b74e47e3e8ec99512d81",
+          "algorithm_2": "34c99c561279aafedbf2c0102efa8e4ebb551f6c06b6b74e47e3e8ec99512d81",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/provenance.py",
+          "algorithm_1": "cf5e0e9c19a8216c9d6bba4a7cc57efcb7db9fcb28ddfd15376ee62cc09ceabb",
+          "algorithm_2": "cf5e0e9c19a8216c9d6bba4a7cc57efcb7db9fcb28ddfd15376ee62cc09ceabb",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/requests.py",
+          "algorithm_1": "2a0d74419e50c5ccf6b5d2bbbfb4cb15f745179f718512e6abd9c765b1e8b981",
+          "algorithm_2": "2a0d74419e50c5ccf6b5d2bbbfb4cb15f745179f718512e6abd9c765b1e8b981",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/serialization.py",
+          "algorithm_1": "ccf0aab253517a677b7872a1896fd8e8696928df0a6dc0c0aae4fe4f2b04b8fd",
+          "algorithm_2": "ccf0aab253517a677b7872a1896fd8e8696928df0a6dc0c0aae4fe4f2b04b8fd",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/species.py",
+          "algorithm_1": "53e276aed181fcf2ca2d18f3444da90231a0dcebd516f920723493bcd3262e30",
+          "algorithm_2": "8a96c751834f72cd9f18b6e8248c0b15dcabe76edf44f4b4d6b5621f170ce9c0",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/states.py",
+          "algorithm_1": "c953caa2d229f4da92e91b4857a112c72302ee9af406c32eabf9a4d02d786fa5",
+          "algorithm_2": "c953caa2d229f4da92e91b4857a112c72302ee9af406c32eabf9a4d02d786fa5",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/tolerances.py",
+          "algorithm_1": "176c7a23a67f295a91cf9d04a9911f94d7770f4fb6ef69733fc6df4f0982d4b5",
+          "algorithm_2": "ac8622d0143a03cf96592c9024013fbe1d47acdea24bb3441c11f18d3209b845",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/types.py",
+          "algorithm_1": "aa737efa0d75ae1bf273ac61bb68df1cca41df718eba3326691672601afbd3b9",
+          "algorithm_2": "aa737efa0d75ae1bf273ac61bb68df1cca41df718eba3326691672601afbd3b9",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/thermochemistry/validation.py",
+          "algorithm_1": "b48bef6e64d83efdf57cf8068ff3011515c63e3d64c93513a113db55cf507360",
+          "algorithm_2": "b42356ed2ea649fbc018fe8a43c41435d74e706690a88c8bd7b6b4d43f6111ad",
+          "crlf_on_disk": true
+        }
+      ]
+    },
+    {
+      "stem": "freeze_trade_study_api_v1",
+      "algorithm_1_digest": "912065266fccc6d54776de3ebcac33f83ea7c209378b4a87e3e900061b8c409d",
+      "algorithm_2_digest": "5c334dae192c6ecf0cdf32cad6fc5bb99727950541787c079ea2492d4939fd8f",
+      "files": [
+        {
+          "path": "rocketforge/engine/studies/__init__.py",
+          "algorithm_1": "de8d0c8978a4b186348d63ad2773bb7573d6d056335194620c2e2d014873fad9",
+          "algorithm_2": "0ef87dc57e129b5a28746385668287473541e3850767e1f9f7cb6107450d20f4",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engine/studies/analysis.py",
+          "algorithm_1": "9de10ebb72bebaba1ba74e1c281eb53e28726ff31bfe849fce0b6f8cf96b4f57",
+          "algorithm_2": "9de10ebb72bebaba1ba74e1c281eb53e28726ff31bfe849fce0b6f8cf96b4f57",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/constraints.py",
+          "algorithm_1": "0c0f97498016199ed271a87c0887d7b9c4470cfcc45b56458b9767bed3ebc7d7",
+          "algorithm_2": "0c0f97498016199ed271a87c0887d7b9c4470cfcc45b56458b9767bed3ebc7d7",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/definition.py",
+          "algorithm_1": "afa8083e7c101200d3eb1764ad849f8fcc9d0d049d25442b959c01184d52b8a7",
+          "algorithm_2": "6be62de636a44522fed20d6088a82fe4fa0996d6bcf2a0586fd1d484c01da47f",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/engine/studies/enumeration.py",
+          "algorithm_1": "8a15a0b7b6e47e0e6df85cef574038aa92116b6950f760000cdf6752a7a71283",
+          "algorithm_2": "8a15a0b7b6e47e0e6df85cef574038aa92116b6950f760000cdf6752a7a71283",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/execution.py",
+          "algorithm_1": "8d6279c8bb9473bdd56c3840baf715955c665350c8da36590c0a02640bfcd567",
+          "algorithm_2": "8d6279c8bb9473bdd56c3840baf715955c665350c8da36590c0a02640bfcd567",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/metrics.py",
+          "algorithm_1": "d14fc6bb14fe24ec497b0dfe6344ed7d9470b9ff7eeadb4f41dd35b2407f2348",
+          "algorithm_2": "d14fc6bb14fe24ec497b0dfe6344ed7d9470b9ff7eeadb4f41dd35b2407f2348",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/objectives.py",
+          "algorithm_1": "781fd4f7a3a01e77307256dead7f51f6c42e8f3288efb7f56145ee1d7f35fab2",
+          "algorithm_2": "781fd4f7a3a01e77307256dead7f51f6c42e8f3288efb7f56145ee1d7f35fab2",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/pareto.py",
+          "algorithm_1": "3e93f3efb2fea43b5e955b6face4dd4253ab856e4c1ce63ea45a5da2db859bd6",
+          "algorithm_2": "3e93f3efb2fea43b5e955b6face4dd4253ab856e4c1ce63ea45a5da2db859bd6",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/results.py",
+          "algorithm_1": "0de53af509a1fc64b331206fc81512468d0e0532ad0921aef655d3ad87a31817",
+          "algorithm_2": "0de53af509a1fc64b331206fc81512468d0e0532ad0921aef655d3ad87a31817",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/scoring.py",
+          "algorithm_1": "9e5b518173e6f0c95523b9075edcf203ee528d4332084cfa1f79e49155e3d0a6",
+          "algorithm_2": "9e5b518173e6f0c95523b9075edcf203ee528d4332084cfa1f79e49155e3d0a6",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engine/studies/variables.py",
+          "algorithm_1": "60f7b61e190d146a5716bd0ac9a216c74948a688bc712045f16e74790d2b4d66",
+          "algorithm_2": "60f7b61e190d146a5716bd0ac9a216c74948a688bc712045f16e74790d2b4d66",
+          "crlf_on_disk": false
+        }
+      ]
+    },
+    {
+      "stem": "freeze_cea_provider_v1_1",
+      "algorithm_1_digest": "7ca6aadb6610f9c64a516116eafe1dbb6016d276fc8ccb770d5545306f932e47",
+      "algorithm_2_digest": "52893952ad1cbea471ec001e22b24f11b652ba07890617f88e2ebe522eaa996c",
+      "files": [
+        {
+          "path": "rocketforge/providers/cea/__init__.py",
+          "algorithm_1": "38722f543055a7d2beeb1b4036b21106a077dada985d7a9439ca37b199b91ca7",
+          "algorithm_2": "38722f543055a7d2beeb1b4036b21106a077dada985d7a9439ca37b199b91ca7",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/availability.py",
+          "algorithm_1": "3bafc890ff6c0ad4b919e06bca09b0b4fa250348ba5de031ce1f3d5b128f1edb",
+          "algorithm_2": "3bafc890ff6c0ad4b919e06bca09b0b4fa250348ba5de031ce1f3d5b128f1edb",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/enthalpy_coupling.py",
+          "algorithm_1": "ce280ec85f8c0a85f363ff314da3f4a2c1be4c8e7386355734fd523122c855c6",
+          "algorithm_2": "ce280ec85f8c0a85f363ff314da3f4a2c1be4c8e7386355734fd523122c855c6",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/errors.py",
+          "algorithm_1": "19d13a97f7f439dae5dc5bc76ee30f7ba25388fe90d9680479a179cfb20698d6",
+          "algorithm_2": "19d13a97f7f439dae5dc5bc76ee30f7ba25388fe90d9680479a179cfb20698d6",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/mapping.py",
+          "algorithm_1": "e5bb02af34ea01b49b91053aa00253109ce23212c02085f1de75b226a07dd479",
+          "algorithm_2": "ca1672c0f6744d88204a9c48ba0702504b8207225b46507182b11e650e535b0c",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/providers/cea/naming.py",
+          "algorithm_1": "d99c03e727da940751a19219d9199d25ee9fcfc31e9a17d758100c8eeeb247fd",
+          "algorithm_2": "d99c03e727da940751a19219d9199d25ee9fcfc31e9a17d758100c8eeeb247fd",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/oracle.py",
+          "algorithm_1": "39b57f1318453e50cc60f2b16e37254e6a68a48a2e6d74f22b19c34e8f9203f0",
+          "algorithm_2": "39b57f1318453e50cc60f2b16e37254e6a68a48a2e6d74f22b19c34e8f9203f0",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/propellants.py",
+          "algorithm_1": "c17704f7360b8acb8b8826452a7ee784d9092000a374f8a0b9f9b3cac7f0580c",
+          "algorithm_2": "84a7e8e887b59afea5db7e7435c799ad9813357f1acca67508b8ab954f12215c",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/providers/cea/provider.py",
+          "algorithm_1": "4121a365ebd9bc859c16403ef018dc54d4773ff2c020ce689219390714d635ba",
+          "algorithm_2": "6eb98d59a6ef8836d07d4f1883a55b99fd3bbb3b2d893960129bfccafe0b2ae0",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/providers/cea/resources.py",
+          "algorithm_1": "a6afca7bd97d56b9697218ab2e642d4974acfe1dbac08e0660e428aee06873d2",
+          "algorithm_2": "a6afca7bd97d56b9697218ab2e642d4974acfe1dbac08e0660e428aee06873d2",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/cea/species.py",
+          "algorithm_1": "b92e0f4861b197f21e54b3fbf4f383ab2a6e3c21c43c7872d2aea5a8818390f1",
+          "algorithm_2": "b1aa194500b762275a5f75c6d58e5f2fc9cfdbeadfa03f4401643f3b30d88c05",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/providers/cea/units.py",
+          "algorithm_1": "979420be2106e08f86f0d859c833a779398ddd39ff2638b9e15d7c8b447050cb",
+          "algorithm_2": "979420be2106e08f86f0d859c833a779398ddd39ff2638b9e15d7c8b447050cb",
+          "crlf_on_disk": false
+        }
+      ]
+    },
+    {
+      "stem": "freeze_coolprop_provider_v1",
+      "algorithm_1_digest": "2db6e240b8a4b5399260737ab9130241b8c07883b6c88b896e2939605fd94fd7",
+      "algorithm_2_digest": "f6bb7bb5021504cd7469f26cf090482596427924d149004216de57097af71cc5",
+      "files": [
+        {
+          "path": "rocketforge/providers/fluid_properties/__init__.py",
+          "algorithm_1": "7f403723ad6eb890878fe7eb204a1b9a5df7cdfc5d41231f102dab0e897fbfb9",
+          "algorithm_2": "7f403723ad6eb890878fe7eb204a1b9a5df7cdfc5d41231f102dab0e897fbfb9",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/providers/fluid_properties/constant.py",
+          "algorithm_1": "6af60b6a7abd1291c8630a398786c34f31d0049543d119fdb8fa6544a35a6bdb",
+          "algorithm_2": "ffeebd8eedcd7e64d2f2fa9e76e5730525309efedbf51e8ac0ee1c2440d898bb",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/providers/fluid_properties/coolprop.py",
+          "algorithm_1": "e0c658abf476aaee2ffe4dfe583e13519909ea682acf58839c36eafd90ed0265",
+          "algorithm_2": "0d7e0d35f5be693a914497423fe9771c3555ae1b2e7e504f1b09ac9daea2a845",
+          "crlf_on_disk": true
+        }
+      ]
+    },
+    {
+      "stem": "freeze_fluid_properties_api_v1",
+      "algorithm_1_digest": "306ec275df25f850d03cc4bfc90112712b10d2916459f0856635b03b1911f004",
+      "algorithm_2_digest": "8703a6e26cbb5f6e21422d51e7e46ce398ad2b988569dc50a0fbf5b0ef2b5cb8",
+      "files": [
+        {
+          "path": "rocketforge/physics/fluids/__init__.py",
+          "algorithm_1": "30a8da28cb99c8183beb8d0d213c0e40b1022dd273a7e970ee5602689ee6e15d",
+          "algorithm_2": "30a8da28cb99c8183beb8d0d213c0e40b1022dd273a7e970ee5602689ee6e15d",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/errors.py",
+          "algorithm_1": "92e9465c09f3e9617c8fefd6188fa5f8694071c17c9345c689a792adde11f6ae",
+          "algorithm_2": "92e9465c09f3e9617c8fefd6188fa5f8694071c17c9345c689a792adde11f6ae",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/identity.py",
+          "algorithm_1": "f6da8ea264c882798b9d8022596af29ee7ffe3008b56039aa42b8a65d9be4801",
+          "algorithm_2": "f6da8ea264c882798b9d8022596af29ee7ffe3008b56039aa42b8a65d9be4801",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/protocols.py",
+          "algorithm_1": "d8f21804e98e81718b223df7588ce712d53c6cc445e10b95679fd7f032e5c8a5",
+          "algorithm_2": "d8f21804e98e81718b223df7588ce712d53c6cc445e10b95679fd7f032e5c8a5",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/provenance.py",
+          "algorithm_1": "e94fd2fc76b2ef404ed6cc67f4df2edfedc54dacfbeaa9e2d659d99bdddad1de",
+          "algorithm_2": "e94fd2fc76b2ef404ed6cc67f4df2edfedc54dacfbeaa9e2d659d99bdddad1de",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/requests.py",
+          "algorithm_1": "bf1ad72845277e493d0e414b426d6fa3ad050ef540b8893303584fb9d67c0c4c",
+          "algorithm_2": "bf1ad72845277e493d0e414b426d6fa3ad050ef540b8893303584fb9d67c0c4c",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/states.py",
+          "algorithm_1": "a148f935a733019b1f35dfdc1b758e7f245e74486ab09f556e414e6baec1f47f",
+          "algorithm_2": "a148f935a733019b1f35dfdc1b758e7f245e74486ab09f556e414e6baec1f47f",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/fluids/types.py",
+          "algorithm_1": "c1d69a64b9c70a40e73f2b57f32eebd1a2fd58a9515a16b415a77b31a9dbbee9",
+          "algorithm_2": "a067b7644f052410af4e6084884192e2531e80585337534fa4037193863459bf",
+          "crlf_on_disk": true
+        }
+      ]
+    },
+    {
+      "stem": "freeze_propellant_metrics_api_v1",
+      "algorithm_1_digest": "cf97293ff5071c6ace38d43155b6b13c6e975fec9aabb8e609f763ea8d21061d",
+      "algorithm_2_digest": "cf97293ff5071c6ace38d43155b6b13c6e975fec9aabb8e609f763ea8d21061d",
+      "files": [
+        {
+          "path": "rocketforge/engineering/propellants/__init__.py",
+          "algorithm_1": "dbd5ffba5d09cff4e7ba31307625f5c1f67218e7f0833f5485dd7f9b2f4b7499",
+          "algorithm_2": "dbd5ffba5d09cff4e7ba31307625f5c1f67218e7f0833f5485dd7f9b2f4b7499",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/propellants/density.py",
+          "algorithm_1": "7d7cfe3ed316227195dbc09385b91c0fc41c5c5ba4be279c75dd2852f20a3932",
+          "algorithm_2": "7d7cfe3ed316227195dbc09385b91c0fc41c5c5ba4be279c75dd2852f20a3932",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/propellants/mapping.py",
+          "algorithm_1": "5f25dd31166567ce8aa9955cff69c23b537ad116053b8155e467aef18204bd3c",
+          "algorithm_2": "5f25dd31166567ce8aa9955cff69c23b537ad116053b8155e467aef18204bd3c",
+          "crlf_on_disk": false
+        }
+      ]
+    },
+    {
+      "stem": "freeze_line_api_v1",
+      "algorithm_1_digest": "3de3a979b7ce7ea2acd37a20e1a028671411506bbea5d3f97bb290713c5cca4d",
+      "algorithm_2_digest": "3de3a979b7ce7ea2acd37a20e1a028671411506bbea5d3f97bb290713c5cca4d",
+      "files": [
+        {
+          "path": "rocketforge/engineering/line/__init__.py",
+          "algorithm_1": "52595803f491ed545e13ad4f8a7cba3085180b16e719823fb002906c940cdb32",
+          "algorithm_2": "52595803f491ed545e13ad4f8a7cba3085180b16e719823fb002906c940cdb32",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/friction.py",
+          "algorithm_1": "cfa186fa63817f34b7c5f5ea2dced59a91ea802c716c31bb5ac21f3c92a54d08",
+          "algorithm_2": "cfa186fa63817f34b7c5f5ea2dced59a91ea802c716c31bb5ac21f3c92a54d08",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/relations.py",
+          "algorithm_1": "45876a91967a44d5c14a522927b28df9e1f5ecca4043a0a333b617cad9f93ced",
+          "algorithm_2": "45876a91967a44d5c14a522927b28df9e1f5ecca4043a0a333b617cad9f93ced",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/requests.py",
+          "algorithm_1": "675b50181b80e1d9cdcc5e3a293bbb2ed002eb78021700a4a623f2dee1afc272",
+          "algorithm_2": "675b50181b80e1d9cdcc5e3a293bbb2ed002eb78021700a4a623f2dee1afc272",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/results.py",
+          "algorithm_1": "7f0dfe4274136ba9bcbd0ad3c3b006b8611277adb8198d4e6c0196da6eeace2f",
+          "algorithm_2": "7f0dfe4274136ba9bcbd0ad3c3b006b8611277adb8198d4e6c0196da6eeace2f",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/solve.py",
+          "algorithm_1": "00f4d61587c57f2452c5163682dce091a45cc8eec7b5bc1b323bc851af1a5bd0",
+          "algorithm_2": "00f4d61587c57f2452c5163682dce091a45cc8eec7b5bc1b323bc851af1a5bd0",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/engineering/line/types.py",
+          "algorithm_1": "2f45e2fced4b9614e604e606138791c56a77719e8bad5e7eb5f65bca395fa8e9",
+          "algorithm_2": "2f45e2fced4b9614e604e606138791c56a77719e8bad5e7eb5f65bca395fa8e9",
+          "crlf_on_disk": false
+        }
+      ]
+    },
+    {
+      "stem": "freeze_compressible_api_v1",
+      "algorithm_1_digest": null,
+      "algorithm_2_digest": "1467d94b1dfc36f8dc2228418ece9b837d99802713601c050858fc569cd2196b",
+      "files": [
+        {
+          "path": "rocketforge/physics/compressible/__init__.py",
+          "algorithm_1": "89259333b050e587",
+          "algorithm_2": "3fc8af3df7c3c46a2c5df9a66398c8ccc6482db3b5d55769eaf78bd54b595fbd",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/equations.py",
+          "algorithm_1": "f17c28cf142dbd97",
+          "algorithm_2": "54e212bf981682b1658ffc544e4c5ab13bd96d89d58bf2a2a48cad16d144eabf",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/fanno.py",
+          "algorithm_1": "142a50a05f389bcd",
+          "algorithm_2": "142a50a05f389bcd1a0114c435316eb4f6509753a87a75e60bed84ab1a408d0a",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/compressible/gas.py",
+          "algorithm_1": "13f9c87dc64dc693",
+          "algorithm_2": "13f9c87dc64dc693ef89df2291395b9d114cf6ccccda2eb4f9b86f26cf576118",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/compressible/geometry.py",
+          "algorithm_1": "9705fbd5a998f15b",
+          "algorithm_2": "b4e0cf7923721628366c2b88d0ced0452d86e55f48afb675b9aff5ca950b54a9",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/isentropic.py",
+          "algorithm_1": "5d2b5b694d8adc42",
+          "algorithm_2": "e5a23abdf788089ccf219beda89036199ccc6606623ffbc5e03a2fc8072c9b0f",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/mass_flow.py",
+          "algorithm_1": "ece3a677252f04ea",
+          "algorithm_2": "11be0db20bba4567544a4605d9fcb80d7cd279022d896e8828155854cae4048b",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/normal_shock.py",
+          "algorithm_1": "51a5085914432e29",
+          "algorithm_2": "084f3a9d0295c88c1d5b48e4d3ac7bc375798bbfa13d09a13c6340171df05500",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/nozzle.py",
+          "algorithm_1": "8c14c0c1ecbfc97d",
+          "algorithm_2": "469fef28d5c71eb69a66b017a8cb35af30a5791c5d642c2510efd33503114b4b",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/oblique_shock.py",
+          "algorithm_1": "30fd000d636dacdb",
+          "algorithm_2": "6815070894fbf3f8cb8d53de5e3e084cc41434f6f3d1c2eca6fd658ad385915f",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/physics/compressible/prandtl_meyer.py",
+          "algorithm_1": "35488b55a1e0c304",
+          "algorithm_2": "35488b55a1e0c304db705109e76c3fb034bdd5ed60227f1b83dc4739b4fe2fa3",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/compressible/rayleigh.py",
+          "algorithm_1": "b7adc8936d24f8ba",
+          "algorithm_2": "b7adc8936d24f8ba75f9a3386cdf50ff3782405f9295c7011571d4c4e29d9c7d",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/physics/compressible/types.py",
+          "algorithm_1": "3907153085d2d1a0",
+          "algorithm_2": "a8be89f9fee29618d7bd4c779f48673f88668cebf9e5c9ff0c42b1746e64acaf",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/core/__init__.py",
+          "algorithm_1": "bb8bc6d5034621b4",
+          "algorithm_2": "bb8bc6d5034621b496d27a776ba84274ab9f83a36bca879d827a2a24af4eddd7",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/core/constants.py",
+          "algorithm_1": "a47887378b501ea2",
+          "algorithm_2": "a47887378b501ea2aafc9bf7ee9945e38a0a18f4cc02da2befe25e6784c94ed0",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/core/errors.py",
+          "algorithm_1": "d6a18240f40dab3f",
+          "algorithm_2": "6240fe2a75efcfcca9576cb01c9b1c9117e8f4744f544b0a49abc4fb88f41d7a",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/core/numerics/__init__.py",
+          "algorithm_1": "e16a3b31831069ba",
+          "algorithm_2": "e16a3b31831069ba5a45ff6f979f58f16651eb14d39ad11a27719c30dcf5e412",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/core/numerics/arrays.py",
+          "algorithm_1": "dc40588299939bc0",
+          "algorithm_2": "9f354277cd739e4b1715800eeaf096d8a82352bcb6f2c9bb9bcd3bb13db3031f",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/core/numerics/roots.py",
+          "algorithm_1": "2e7d144d61d93e3f",
+          "algorithm_2": "db67136383ebb5d5ab04b60d28fd0b0bbf50f5ed5c202763483adb66acfbfe62",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/core/provenance.py",
+          "algorithm_1": "cf147f6c085b584c",
+          "algorithm_2": "cf147f6c085b584cd9db57a3c893d7752832a32bd5b3642992b322b3cc887eab",
+          "crlf_on_disk": false
+        },
+        {
+          "path": "rocketforge/core/result.py",
+          "algorithm_1": "77cda1b64aaa6d53",
+          "algorithm_2": "9d1469a9001a8553380b59b9d4dcbe351cac83783ec9327b757b7e2b16b14814",
+          "crlf_on_disk": true
+        },
+        {
+          "path": "rocketforge/core/tolerances.py",
+          "algorithm_1": "f2fe093fb36396be",
+          "algorithm_2": "e5e66f541aefd0f25a830692c56c2e77516bb12b38fdc6d8d65a63b5959dfa20",
+          "crlf_on_disk": true
+        }
+      ]
+    }
+  ]
+}

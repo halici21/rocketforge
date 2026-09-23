@@ -41,7 +41,11 @@ that implements it.
 | NASA CEA Provider | 1.0 | 11 | [CEA_PROVIDER_CONTRACT.md](CEA_PROVIDER_CONTRACT.md) |
 | Compressible Flow API | 1.0 | 22 | [COMPRESSIBLE_FLOW_API_V1.md](COMPRESSIBLE_FLOW_API_V1.md) |
 
-Manifests and digests: `acceptance/phase_5g/freeze_manifest.json`.
+Manifests and digests: `tests/acceptance/freeze/phase_5g/freeze_manifest.json`,
+and `tests/acceptance/freeze/phase_4g/` for Compressible Flow. Algorithm
+`rocketforge-freeze-manifest/2`, defined in `rocketforge/core/freeze.py`: a
+digest covers each file's canonical text (CRLF replaced by LF), so a fresh
+clone reproduces it on any platform.
 
 ---
 

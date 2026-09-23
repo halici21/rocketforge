@@ -1,0 +1,38 @@
+{
+  "contract": "IDEAL ROCKET PERFORMANCE API",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "note": "The single-gamma chamber handshake and RocketForge's own ideal rocket model: c*, Cf, thrust, c_eff and Isp, computed over frozen Compressible v1. A provider's own performance values are an oracle and are not part of this contract.",
+  "file_count": 6,
+  "files": [
+    {
+      "path": "rocketforge/engineering/chamber/__init__.py",
+      "sha256": "4dd86ce7c2864120d4a4842797b30d241cc248680fec88c7baa322a4dd6f5a27"
+    },
+    {
+      "path": "rocketforge/engineering/chamber/handshake.py",
+      "sha256": "f1f80d1566776ffa1120e742448390a12c489b6088d3b4da8ac7bf86ed38b88d"
+    },
+    {
+      "path": "rocketforge/engineering/nozzle/__init__.py",
+      "sha256": "a66faf31cbcfc9627ff01960df38ec587fc2e09ce5dc757b8fda06b7d9ab32ca"
+    },
+    {
+      "path": "rocketforge/engineering/nozzle/performance.py",
+      "sha256": "f6b9fcad4befa3247ab7d8d813447f8f8bc2afc6da688e65c027d6f0657193e0"
+    },
+    {
+      "path": "rocketforge/engineering/nozzle/types.py",
+      "sha256": "74e9363f8d529e78472c30ade5cf9ad35485ea71da1bdcb6676c9632c8135aad"
+    },
+    {
+      "path": "rocketforge/engineering/nozzle/validation.py",
+      "sha256": "174bf39ddfde3ef9262af9d38461639c3585d8d41cbba1103e7f82cf3bf7276b"
+    }
+  ],
+  "digest": "98958ef324041381e730825ec7d1756d961a5f382fa52ece78b6f042a6f58e27",
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "d07f4ff9017efdfe0340bfb5514dea9774498500262e3212aa68d51a22756787"
+  }
+}

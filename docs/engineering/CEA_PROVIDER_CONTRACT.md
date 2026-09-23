@@ -8,7 +8,11 @@ refuses, what it cannot do, and where its numbers come from.
 **Status:** **FROZEN as NASA CEA Provider v1.0** by Phase 5G, versioned
 separately from the domain it implements, so a provider fix does not reopen the
 Thermochemistry API. 11 files, digest
-`0a46b5f089a9cc7a47278eecd0868b8d68730aa1abbf9c5775e35cb70eb9285a`. The
+`0a46b5f089a9cc7a47278eecd0868b8d68730aa1abbf9c5775e35cb70eb9285a`, kept as a
+historical record in `tests/acceptance/freeze/phase_5g/freeze_cea_provider_v1.json`.
+**v1.1** (reactant-enthalpy coupling) supersedes it: 12 files,
+`tests/acceptance/freeze/fluids_foundation/freeze_cea_provider_v1_1.json`,
+digest `52893952ad1cbea4…` under algorithm 2. The
 provider-independent contract it implements is
 [THERMOCHEMISTRY_API_V1.md](THERMOCHEMISTRY_API_V1.md), also frozen.
 

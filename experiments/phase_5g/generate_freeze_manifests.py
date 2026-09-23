@@ -33,13 +33,15 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from rocketforge.core.freeze import (  # noqa: E402
+    ALGORITHM_DESCRIPTION,
     MANIFEST_ALGORITHM,
     build_manifest,
     verify_manifest,
     write_manifest,
 )
 
-OUT = ROOT / "acceptance" / "phase_5g"
+#: Tracked beside the tests that verify it (it was the untracked acceptance/).
+OUT = ROOT / "tests" / "acceptance" / "freeze" / "phase_5g"
 
 CONTRACTS = [
     {
@@ -153,15 +155,7 @@ def main() -> int:
     combined = {
         "purpose": "the Phase 5 propulsion-analysis freeze boundary",
         "algorithm": MANIFEST_ALGORITHM,
-        "algorithm_description": [
-            "1. collect the files, each relative to the repository root",
-            "2. convert each path to POSIX form",
-            "3. sort the relative paths lexicographically by UTF-8 code point",
-            "4. SHA-256 each file's exact bytes",
-            "5. one line per file: '<hex><two spaces><path>\\n'",
-            "6. encode that text as UTF-8",
-            "7. the overall digest is the SHA-256 of those bytes",
-        ],
+        "algorithm_description": list(ALGORITHM_DESCRIPTION),
         "reproducible_without_this_code": True,
         "checkable_with": "sha256sum -c <stem>.sha256",
         "python": sys.version.split()[0],

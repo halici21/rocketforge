@@ -163,9 +163,11 @@ def test_the_solid_work_added_nothing_inside_a_frozen_package():
     for root in FROZEN_ROOTS:
         stem = ("freeze_thermochemistry_api_v1"
                 if "thermochemistry" in root else "freeze_cea_provider_v1_1")
-        manifest = json.loads(
-            next((ROOT / "acceptance").rglob(f"{stem}.json")).read_text(
-                encoding="utf-8"))
+        # The tracked manifests, not the local acceptance/ evidence: this test
+        # must mean the same thing in a fresh clone and in CI.
+        found = sorted((ROOT / "tests" / "acceptance" / "freeze").rglob(f"{stem}.json"))
+        assert len(found) == 1, (stem, found)
+        manifest = json.loads(found[0].read_text(encoding="utf-8"))
         recorded = {entry["path"] for entry in manifest["files"]}
         on_disk = {
             p.relative_to(ROOT).as_posix()

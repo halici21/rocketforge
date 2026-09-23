@@ -1,0 +1,29 @@
+{
+  "contract": "COOLPROP FLUID PROVIDER",
+  "version": "1.0",
+  "algorithm": "rocketforge-freeze-manifest/2",
+  "roots": [
+    "rocketforge/providers/fluid_properties"
+  ],
+  "note": "the constant-property and CoolProp implementations of that domain, versioned separately from it",
+  "file_count": 3,
+  "digest": "f6bb7bb5021504cd7469f26cf090482596427924d149004216de57097af71cc5",
+  "files": [
+    {
+      "path": "rocketforge/providers/fluid_properties/__init__.py",
+      "sha256": "7f403723ad6eb890878fe7eb204a1b9a5df7cdfc5d41231f102dab0e897fbfb9"
+    },
+    {
+      "path": "rocketforge/providers/fluid_properties/constant.py",
+      "sha256": "ffeebd8eedcd7e64d2f2fa9e76e5730525309efedbf51e8ac0ee1c2440d898bb"
+    },
+    {
+      "path": "rocketforge/providers/fluid_properties/coolprop.py",
+      "sha256": "0d7e0d35f5be693a914497423fe9771c3555ae1b2e7e504f1b09ac9daea2a845"
+    }
+  ],
+  "migrated_from": {
+    "algorithm": "rocketforge-freeze-manifest/1",
+    "digest": "2db6e240b8a4b5399260737ab9130241b8c07883b6c88b896e2939605fd94fd7"
+  }
+}

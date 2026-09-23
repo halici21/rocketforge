@@ -1,8 +1,8 @@
 """Freeze manifests for the fluids foundation, and the CEA provider's v1.1.
 
-Same algorithm as Phase 5G -- ``rocketforge-freeze-manifest/1``, unchanged and
-restated in every file it writes. Production ``.py`` only: no test, no
-harness, no artifact, no QML.
+The algorithm is ``rocketforge.core.freeze``'s current one
+(``rocketforge-freeze-manifest/2``, canonical text), restated in every file it
+writes. Production ``.py`` only: no test, no harness, no artifact, no QML.
 
 **The CEA provider is versioned, not overwritten.** Its v1.0 manifest stays
 exactly where it is, as the historical record of what was accepted at the Phase
@@ -19,13 +19,16 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from rocketforge.core.freeze import (  # noqa: E402
+    ALGORITHM_DESCRIPTION,
     MANIFEST_ALGORITHM,
     FrozenFile,
+    file_digest,
     manifest_text,
     overall_digest,
 )
 
-OUT_DIR = ROOT / "acceptance" / "fluids_foundation"
+#: Tracked beside the tests that verify it (it was the untracked acceptance/).
+OUT_DIR = ROOT / "tests" / "acceptance" / "freeze" / "fluids_foundation"
 
 CONTRACTS = {
     "freeze_fluid_properties_api_v1": {
@@ -72,14 +75,12 @@ CONTRACTS = {
 
 
 def collect(roots: list[str]) -> list[FrozenFile]:
-    import hashlib
-
     files: list[FrozenFile] = []
     for root in roots:
         for path in sorted((ROOT / root).rglob("*.py")):
             if "__pycache__" in path.parts:
                 continue
-            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            digest = file_digest(path)      # the one implementation of the rule
             files.append(FrozenFile(path=path.relative_to(ROOT).as_posix(),
                                     sha256=digest))
     return files
@@ -89,15 +90,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 combined = {
     "purpose": "the fluids-foundation freeze boundary",
     "algorithm": MANIFEST_ALGORITHM,
-    "algorithm_description": [
-        "1. collect the files, each relative to the repository root",
-        "2. convert each path to POSIX form",
-        "3. sort the relative paths lexicographically by UTF-8 code point",
-        "4. SHA-256 each file's exact bytes",
-        "5. one line per file: '<hex><two spaces><path>\\n'",
-        "6. encode that text as UTF-8",
-        "7. the overall digest is the SHA-256 of those bytes",
-    ],
+    "algorithm_description": list(ALGORITHM_DESCRIPTION),
     "reproducible_without_this_code": True,
     "checkable_with": "sha256sum -c <stem>.sha256",
     "python": f"{sys.version_info.major}.{sys.version_info.minor}."

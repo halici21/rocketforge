@@ -80,6 +80,14 @@ Frozen 2026-09-02 at manifest digest
 `8f0d1cf5685e0c52b6083b9a5f77196b25a1f987b85acadb4d7094ba385a3502`
 (22 physics and core files, listed in `acceptance/phase_4g/ACCEPTANCE_MANIFEST.md`).
 
+That record stated its per-file hashes as 16-hex prefixes and did not state
+how the overall digest was formed, so the digest can be quoted but not rebuilt.
+The same 22 files, each proven against its Phase 4G prefix, are recorded
+reproducibly in `tests/acceptance/freeze/phase_4g/freeze_compressible_api_v1.json`:
+algorithm `rocketforge-freeze-manifest/2`, digest
+`1467d94b1dfc36f8dc2228418ece9b837d99802713601c050858fc569cd2196b`, checked by
+`tests/acceptance/test_propulsion_freeze.py` on every run.
+
 ## Known limits
 
 Documented in `COMPRESSIBLE_NUMERICAL_LIMITS.md`. In short: most of these
