@@ -27,6 +27,17 @@ import QtQuick
  *
  * Text that is already rich -- it contains <i>, <sub> or <sup> -- was authored
  * deliberately and is passed through untouched.
+ *
+ * Allocation. Every label binding in the interface calls into this object, a
+ * few hundred of them while a page is built, and most call it twice (text and
+ * textFormat). The rules are therefore compiled once, and every result is
+ * remembered by its input: a label is formatted the first time it is seen and
+ * looked up after that. This is not an optimisation for its own sake. When
+ * each call built its ~40 regular expressions afresh, the allocation it caused
+ * during a page switch let Qt 6.10's incremental garbage collector run across
+ * the switch and free objects still in use: the application crashed in Qt6Qml
+ * (Nozzle Lab -> Thermochemistry, 8 of 9 runs). See
+ * docs/engineering/implementation/NOTATION_NAVIGATION_CRASH.md.
  */
 QtObject {
     id: notation
@@ -38,17 +49,36 @@ QtObject {
     readonly property string boundaryAfter: "(?=$|[^A-Za-z0-9_<])"
     readonly property string letterClass: "[A-Za-zα-ω]"
 
+    // Any authored markup -- not only notation. A label that already carries
+    // <b> or <br> (the Equation Library does) is rich by intent and must pass
+    // through untouched rather than be escaped into visible tags. No /g flag:
+    // the expression is shared, and test() on a global one would keep state.
+    readonly property var markup: /<\/?(i|b|u|sub|sup|br|p|font|span|a|small|big)\b[^>]*>/
+
+    // The notation rules, compiled once, in the order they must run.
+    readonly property var rules: notation.compileRules()
+
+    // Results by input. Pure functions of their input, so a cached value can
+    // never be stale. Bounded, because status text carries numbers that change.
+    readonly property var memo: ({ rich: new Map(), species: new Map(),
+                                   section: new Map(), runs: new Map() })
+    readonly property int memoLimit: 4096
+
+    function remember(map, key, value) {
+        if (map.size >= notation.memoLimit)
+            map.clear()
+        map.set(key, value)
+        return value
+    }
+
     function escapeText(text) {
         return String(text).replace(/&/g, "&amp;")
                            .replace(/</g, "&lt;")
                            .replace(/>/g, "&gt;")
     }
 
-    // Any authored markup -- not only notation. A label that already carries
-    // <b> or <br> (the Equation Library does) is rich by intent and must pass
-    // through untouched rather than be escaped into visible tags.
     function hasMarkup(text) {
-        return /<\/?(i|b|u|sub|sup|br|p|font|span|a|small|big)\b[^>]*>/.test(String(text))
+        return notation.markup.test(String(text))
     }
 
     function italicSymbol(symbol) {
@@ -75,110 +105,125 @@ QtObject {
         return out
     }
 
+    // [expression, replacement] pairs, applied in this order by format().
+    function compileRules() {
+        var B = notation.boundaryBefore
+        var E = notation.boundaryAfter
+        var L = notation.letterClass
+        function g(source) { return new RegExp(source, "g") }
+        return [
+            // Area ratios and special starred quantities
+            [g(B + "A/A\\*" + E), "$1<i>A</i>/<i>A</i>*"],
+            [g(B + "T/T\\*" + E), "$1<i>T</i>/<i>T</i>*"],
+            [g(B + "p/p\\*" + E), "$1<i>p</i>/<i>p</i>*"],
+            [g(B + "ρ/ρ\\*" + E), "$1<i>ρ</i>/<i>ρ</i>*"],
+            [g(B + "u/u\\*" + E), "$1<i>u</i>/<i>u</i>*"],
+            [g(B + "p₀/p₀\\*" + E), "$1<i>p</i><sub>0</sub>/<i>p</i><sub>0</sub>*"],
+            [g(B + "T₀/T₀\\*" + E), "$1<i>T</i><sub>0</sub>/<i>T</i><sub>0</sub>*"],
+            [g(B + "p₀₂/p₁" + E), "$1<i>p</i><sub>02</sub>/<i>p</i><sub>1</sub>"],
+            [g(B + "Δs/R" + E), "$1Δ<i>s</i>/<i>R</i>"],
+            [g(B + "4f_F L\\*/D" + E), "$14 <i>f</i><sub>F</sub> <i>L</i>*/<i>D</i>"],
+            [g(B + "A\\*/A" + E), "$1<i>A</i>*/<i>A</i>"],
+            [g(B + "Ae/At" + E), "$1<i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>"],
+            [g(B + "A_e/A_t" + E), "$1<i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>"],
+            [g(B + "A_s/A_t" + E), "$1<i>A</i><sub>s</sub>/<i>A</i><sub>t</sub>"],
+            [g(B + "A₂\\*/A₁\\*" + E), "$1<i>A</i><sub>2</sub>*/<i>A</i><sub>1</sub>*"],
+
+            // Gas dynamics and shock pressure/density/temperature ratios
+            [g(B + "p₀/p" + E), "$1<i>p</i><sub>0</sub>/<i>p</i>"],
+            [g(B + "p/p₀" + E), "$1<i>p</i>/<i>p</i><sub>0</sub>"],
+            [g(B + "ρ₀/ρ" + E), "$1<i>ρ</i><sub>0</sub>/<i>ρ</i>"],
+            [g(B + "ρ/ρ₀" + E), "$1<i>ρ</i>/<i>ρ</i><sub>0</sub>"],
+            [g(B + "T₀/T" + E), "$1<i>T</i><sub>0</sub>/<i>T</i>"],
+            [g(B + "T/T₀" + E), "$1<i>T</i>/<i>T</i><sub>0</sub>"],
+            [g(B + "p_b/p₀" + E), "$1<i>p</i><sub>b</sub>/<i>p</i><sub>0</sub>"],
+            [g(B + "p_e/p₀" + E), "$1<i>p</i><sub>e</sub>/<i>p</i><sub>0</sub>"],
+            [g(B + "p_e/p_b" + E), "$1<i>p</i><sub>e</sub>/<i>p</i><sub>b</sub>"],
+            [g(B + "p₂/p₁" + E), "$1<i>p</i><sub>2</sub>/<i>p</i><sub>1</sub>"],
+            [g(B + "p₀₂/p₀₁" + E), "$1<i>p</i><sub>02</sub>/<i>p</i><sub>01</sub>"],
+
+            // Named forms first, so the generic rules never see their parts.
+            [g(B + "gamma_([A-Za-z]+)" + E),
+             function (m, pre, sub) { return pre + notation.subscripted("γ", sub) }],
+            [g(B + "cp/cv" + E), "$1<i>c</i><sub><i>p</i></sub>/<i>c</i><sub><i>v</i></sub>"],
+            [g(B + "Isp" + E), "$1<i>I</i><sub>sp</sub>"],
+            [g(B + "Cf_([A-Za-z0-9]+)" + E), "$1<i>C</i><sub>f,$2</sub>"],
+            [g(B + "Cf" + E), "$1<i>C</i><sub>f</sub>"],
+            [g(B + "gamma" + E), "$1<i>γ</i>"],
+            [g(B + "c\\*"), "$1<i>c</i>*"],
+            [g(B + "mdot" + E), "$1<i>ṁ</i>"],
+            [g(B + "ṁ" + E), "$1<i>ṁ</i>"],
+            [g(B + "L(\\*?)/D" + E), "$1<i>L</i>$2/<i>D</i>"],
+
+            // Mn₁: the normal component of a Mach number, M sub n,1.
+            [g(B + "Mn([₀-₉]+)" + E),
+             function (m, pre, digits) {
+                 return pre + "<i>M</i><sub>n," + notation.subscriptDigits(digits) + "</sub>"
+             }],
+            // (RT₀), (Ap₀): a product of two symbols written without a space.
+            [/\(([A-Za-z])([A-Za-z])([₀-₉]+)\)/g,
+             function (m, a, b, digits) {
+                 return "(<i>" + a + "</i><i>" + b + "</i><sub>"
+                        + notation.subscriptDigits(digits) + "</sub>)"
+             }],
+
+            // x_sub: a single-letter symbol with a written subscript.
+            [g(B + "(" + L + ")_([A-Za-z0-9]+(?:,[A-Za-z0-9]+)*)" + E),
+             function (m, pre, base, sub) { return pre + notation.subscripted(base, sub) }],
+
+            // x₀: a single-letter symbol with a Unicode subscript digit.
+            [g(B + "(" + L + ")([₀-₉]+)"),
+             function (m, pre, base, digits) {
+                 return pre + notation.italicSymbol(base) + "<sub>"
+                        + notation.subscriptDigits(digits) + "</sub>"
+             }],
+
+            // Δx: the difference operator stays upright, the quantity is italic.
+            [g(B + "Δ([A-Za-z])" + E), "$1Δ<i>$2</i>"],
+
+            // A lowercase Greek letter standing alone is a quantity symbol -- also
+            // after a coefficient, as in (γ+1)²/(4γ).
+            [g("(^|[^A-Za-z_>\\.])([α-ω])" + E), "$1<i>$2</i>"],
+
+            // "Description  X": the codebase writes a label's symbol after a double
+            // space. A lone letter there is the symbol. M̄ keeps its macron.
+            [/(  )([A-Za-z]̄?)(?=$| \[|  )/g, "$1<i>$2</i>"],
+
+            // Mach number alone or in input labels: "M", "Start M", "End M", "Jump to M", "M = 1".
+            [/(^| )(M)($| )/g, "$1<i>$2</i>$3"],
+            [g(B + "M(?= = )"), "$1<i>M</i>"],
+
+            // Characteristic velocity c* with superscript
+            [/(^| )c\*(?=$| )/g, "$1<i>c</i>*"]
+        ]
+    }
+
+    // rich() without the memo: the rules applied to one input.
+    function format(s) {
+        if (notation.hasMarkup(s))
+            return s
+        var out = notation.escapeText(s)
+        var rules = notation.rules
+        for (var i = 0; i < rules.length; ++i)
+            out = out.replace(rules[i][0], rules[i][1])
+        if (!notation.hasMarkup(out))
+            return s
+        // RichText collapses a newline into a space; the plain text meant a line break.
+        return out.replace(/\n/g, "<br>")
+    }
+
     /*
      * A label in notation, as RichText markup. Returns the text unchanged when
-     * it is already rich, and escaped plain text when nothing in it is notation.
+     * it is already rich, and the plain text itself when nothing in it is
+     * notation.
      */
     function rich(text) {
         if (text === undefined || text === null)
             return ""
-        var s = String(text)
-        if (notation.hasMarkup(s))
-            return s
-        s = notation.escapeText(s)
-        var B = notation.boundaryBefore
-        var E = notation.boundaryAfter
-
-        // Area ratios and special starred quantities
-        s = s.replace(new RegExp(B + "A/A\\*" + E, "g"), "$1" + "<i>A</i>/<i>A</i>*")
-        s = s.replace(new RegExp(B + "T/T\\*" + E, "g"), "$1" + "<i>T</i>/<i>T</i>*")
-        s = s.replace(new RegExp(B + "p/p\\*" + E, "g"), "$1" + "<i>p</i>/<i>p</i>*")
-        s = s.replace(new RegExp(B + "ρ/ρ\\*" + E, "g"), "$1" + "<i>ρ</i>/<i>ρ</i>*")
-        s = s.replace(new RegExp(B + "u/u\\*" + E, "g"), "$1" + "<i>u</i>/<i>u</i>*")
-        s = s.replace(new RegExp(B + "p₀/p₀\\*" + E, "g"), "$1" + "<i>p</i><sub>0</sub>/<i>p</i><sub>0</sub>*")
-        s = s.replace(new RegExp(B + "T₀/T₀\\*" + E, "g"), "$1" + "<i>T</i><sub>0</sub>/<i>T</i><sub>0</sub>*")
-        s = s.replace(new RegExp(B + "p₀₂/p₁" + E, "g"), "$1" + "<i>p</i><sub>02</sub>/<i>p</i><sub>1</sub>")
-        s = s.replace(new RegExp(B + "Δs/R" + E, "g"), "$1" + "Δ<i>s</i>/<i>R</i>")
-        s = s.replace(new RegExp(B + "4f_F L\\*/D" + E, "g"), "$1" + "4 <i>f</i><sub>F</sub> <i>L</i>*/<i>D</i>")
-        s = s.replace(new RegExp(B + "A\\*/A" + E, "g"), "$1" + "<i>A</i>*/<i>A</i>")
-        s = s.replace(new RegExp(B + "Ae/At" + E, "g"), "$1" + "<i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>")
-        s = s.replace(new RegExp(B + "A_e/A_t" + E, "g"), "$1" + "<i>A</i><sub>e</sub>/<i>A</i><sub>t</sub>")
-        s = s.replace(new RegExp(B + "A_s/A_t" + E, "g"), "$1" + "<i>A</i><sub>s</sub>/<i>A</i><sub>t</sub>")
-        s = s.replace(new RegExp(B + "A₂\\*/A₁\\*" + E, "g"), "$1" + "<i>A</i><sub>2</sub>*/<i>A</i><sub>1</sub>*")
-
-        // Gas dynamics and shock pressure/density/temperature ratios
-        s = s.replace(new RegExp(B + "p₀/p" + E, "g"), "$1" + "<i>p</i><sub>0</sub>/<i>p</i>")
-        s = s.replace(new RegExp(B + "p/p₀" + E, "g"), "$1" + "<i>p</i>/<i>p</i><sub>0</sub>")
-        s = s.replace(new RegExp(B + "ρ₀/ρ" + E, "g"), "$1" + "<i>ρ</i><sub>0</sub>/<i>ρ</i>")
-        s = s.replace(new RegExp(B + "ρ/ρ₀" + E, "g"), "$1" + "<i>ρ</i>/<i>ρ</i><sub>0</sub>")
-        s = s.replace(new RegExp(B + "T₀/T" + E, "g"), "$1" + "<i>T</i><sub>0</sub>/<i>T</i>")
-        s = s.replace(new RegExp(B + "T/T₀" + E, "g"), "$1" + "<i>T</i>/<i>T</i><sub>0</sub>")
-        s = s.replace(new RegExp(B + "p_b/p₀" + E, "g"), "$1" + "<i>p</i><sub>b</sub>/<i>p</i><sub>0</sub>")
-        s = s.replace(new RegExp(B + "p_e/p₀" + E, "g"), "$1" + "<i>p</i><sub>e</sub>/<i>p</i><sub>0</sub>")
-        s = s.replace(new RegExp(B + "p_e/p_b" + E, "g"), "$1" + "<i>p</i><sub>e</sub>/<i>p</i><sub>b</sub>")
-        s = s.replace(new RegExp(B + "p₂/p₁" + E, "g"), "$1" + "<i>p</i><sub>2</sub>/<i>p</i><sub>1</sub>")
-        s = s.replace(new RegExp(B + "p₀₂/p₀₁" + E, "g"), "$1" + "<i>p</i><sub>02</sub>/<i>p</i><sub>01</sub>")
-
-        // Named forms first, so the generic rules never see their parts.
-        s = s.replace(new RegExp(B + "gamma_([A-Za-z]+)" + E, "g"),
-                      function (m, pre, sub) { return pre + notation.subscripted("γ", sub) })
-        s = s.replace(new RegExp(B + "cp/cv" + E, "g"),
-                      "$1" + "<i>c</i><sub><i>p</i></sub>/<i>c</i><sub><i>v</i></sub>")
-        s = s.replace(new RegExp(B + "Isp" + E, "g"), "$1" + "<i>I</i><sub>sp</sub>")
-        s = s.replace(new RegExp(B + "Cf_([A-Za-z0-9]+)" + E, "g"), "$1" + "<i>C</i><sub>f,$2</sub>")
-        s = s.replace(new RegExp(B + "Cf" + E, "g"), "$1" + "<i>C</i><sub>f</sub>")
-        s = s.replace(new RegExp(B + "gamma" + E, "g"), "$1" + "<i>γ</i>")
-        s = s.replace(new RegExp(B + "c\\*", "g"), "$1" + "<i>c</i>*")
-        s = s.replace(new RegExp(B + "mdot" + E, "g"), "$1" + "<i>ṁ</i>")
-        s = s.replace(new RegExp(B + "ṁ" + E, "g"), "$1" + "<i>ṁ</i>")
-        s = s.replace(new RegExp(B + "L(\\*?)/D" + E, "g"), "$1" + "<i>L</i>$2/<i>D</i>")
-
-        // Mn₁: the normal component of a Mach number, M sub n,1.
-        s = s.replace(new RegExp(B + "Mn([₀-₉]+)" + E, "g"),
-                      function (m, pre, digits) {
-                          return pre + "<i>M</i><sub>n," + notation.subscriptDigits(digits) + "</sub>"
-                      })
-        // (RT₀), (Ap₀): a product of two symbols written without a space.
-        s = s.replace(/\(([A-Za-z])([A-Za-z])([₀-₉]+)\)/g,
-                      function (m, a, b, digits) {
-                          return "(<i>" + a + "</i><i>" + b + "</i><sub>"
-                                 + notation.subscriptDigits(digits) + "</sub>)"
-                      })
-
-        // x_sub: a single-letter symbol with a written subscript.
-        s = s.replace(new RegExp(B + "(" + notation.letterClass + ")_([A-Za-z0-9]+(?:,[A-Za-z0-9]+)*)" + E, "g"),
-                      function (m, pre, base, sub) { return pre + notation.subscripted(base, sub) })
-
-        // x₀: a single-letter symbol with a Unicode subscript digit.
-        s = s.replace(new RegExp(B + "(" + notation.letterClass + ")([₀-₉]+)", "g"),
-                      function (m, pre, base, digits) {
-                          return pre + notation.italicSymbol(base) + "<sub>"
-                                 + notation.subscriptDigits(digits) + "</sub>"
-                      })
-
-        // Δx: the difference operator stays upright, the quantity is italic.
-        s = s.replace(new RegExp(B + "Δ([A-Za-z])" + E, "g"), "$1" + "Δ<i>$2</i>")
-
-        // A lowercase Greek letter standing alone is a quantity symbol -- also
-        // after a coefficient, as in (γ+1)²/(4γ).
-        s = s.replace(new RegExp("(^|[^A-Za-z_>\\.])([α-ω])" + E, "g"), "$1" + "<i>$2</i>")
-
-        // "Description  X": the codebase writes a label's symbol after a double
-        // space. A lone letter there is the symbol. M̄ keeps its macron.
-        s = s.replace(/(  )([A-Za-z]̄?)(?=$| \[|  )/g, "$1<i>$2</i>")
-
-        // Mach number alone or in input labels: "M", "Start M", "End M", "Jump to M", "M = 1".
-        s = s.replace(/(^| )(M)($| )/g, "$1<i>$2</i>$3")
-        s = s.replace(new RegExp(B + "M(?= = )", "g"), "$1" + "<i>M</i>")
-
-        // Characteristic velocity c* with superscript
-        s = s.replace(/(^| )c\*(?=$| )/g, "$1<i>c</i>*")
-
-        if (!notation.hasMarkup(s)) {
-            return String(text)
-        }
-        // RichText collapses a newline into a space; the plain text meant a line break.
-        return s.replace(/\n/g, "<br>")
+        var key = String(text)
+        var known = notation.memo.rich.get(key)
+        return known !== undefined ? known
+                                   : notation.remember(notation.memo.rich, key, notation.format(key))
     }
 
     /*
@@ -196,13 +241,18 @@ QtObject {
     function species(name) {
         if (name === undefined || name === null)
             return ""
-        var s = String(name)
-        var m = /^(\*?)([A-Za-z0-9]+)([+-]?)((?:\(|,).*)?$/.exec(s)
-        if (m === null || !/^(?:[A-Z][A-Za-z]?[0-9]*)+$/.test(m[2]) || !/[0-9]/.test(m[2]))
-            return s
-        var formula = m[2].replace(/([A-Za-z])([0-9]+)/g, "$1<sub>$2</sub>")
-        return notation.escapeText(m[1]) + formula + notation.escapeText(m[3])
-               + notation.escapeText(m[4] === undefined ? "" : m[4])
+        var key = String(name)
+        var known = notation.memo.species.get(key)
+        if (known !== undefined)
+            return known
+        var result = key
+        var m = /^(\*?)([A-Za-z0-9]+)([+-]?)((?:\(|,).*)?$/.exec(key)
+        if (m !== null && /^(?:[A-Z][A-Za-z]?[0-9]*)+$/.test(m[2]) && /[0-9]/.test(m[2])) {
+            var formula = m[2].replace(/([A-Za-z])([0-9]+)/g, "$1<sub>$2</sub>")
+            result = notation.escapeText(m[1]) + formula + notation.escapeText(m[3])
+                     + notation.escapeText(m[4] === undefined ? "" : m[4])
+        }
+        return notation.remember(notation.memo.species, key, result)
     }
 
     function speciesFormat(name) {
@@ -219,6 +269,10 @@ QtObject {
     function sectionRich(text) {
         if (!notation.isRich(text))
             return text === undefined || text === null ? "" : String(text)
+        var key = String(text)
+        var known = notation.memo.section.get(key)
+        if (known !== undefined)
+            return known
         var parts = notation.runs(text)
         var out = ""
         for (var i = 0; i < parts.length; ++i) {
@@ -232,7 +286,7 @@ QtObject {
             if (run.sup) t = "<sup>" + t + "</sup>"
             out += t
         }
-        return out.replace(/\n/g, "<br>")
+        return notation.remember(notation.memo.section, key, out.replace(/\n/g, "<br>"))
     }
 
     function isRich(text) {
@@ -258,13 +312,18 @@ QtObject {
     /*
      * rich(text) as runs a Canvas can draw one at a time -- a Canvas cannot
      * render markup, but it can switch to an italic or a smaller font between
-     * fillText calls. Each run: { text, italic, sub, sup }.
+     * fillText calls. Each run: { text, italic, sub, sup }. The array is
+     * shared through the memo: callers read it and never modify it.
      */
     function runs(text) {
+        var key = String(text)
+        var known = notation.memo.runs.get(key)
+        if (known !== undefined)
+            return known
         var html = notation.rich(text)
-        if (!notation.hasMarkup(html)) {
-            return [{ text: String(text), italic: false, sub: false, sup: false }]
-        }
+        if (!notation.hasMarkup(html))
+            return notation.remember(notation.memo.runs, key,
+                                     [{ text: key, italic: false, sub: false, sup: false }])
         var out = []
         var italic = 0, sub = 0, sup = 0
         var re = /<(\/?)(i|sub|sup)>|([^<]+|<)/g
@@ -282,6 +341,6 @@ QtObject {
                 out.push({ text: chunk, italic: italic > 0, sub: sub > 0, sup: sup > 0 })
             }
         }
-        return out
+        return notation.remember(notation.memo.runs, key, out)
     }
 }

@@ -26,6 +26,7 @@ own modules are built.
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -167,6 +168,19 @@ def configure_application() -> None:
     # The design system styles every control itself, so pin the neutral style
     # rather than inheriting whatever QT_QUICK_CONTROLS_STYLE happens to be.
     QQuickStyle.setStyle("Basic")
+
+    # Collect the QML heap in one pass rather than incrementally. The
+    # incremental collector Qt 6.8 made the default freed objects that were
+    # still in use under Qt 6.10.2: switching Nozzle Lab to Thermochemistry
+    # crashed in Qt6Qml, and a long mixed session still showed the same
+    # warning signature after the allocation that provoked the crash was
+    # removed. Neither happens in one-pass mode, which is how Qt 6.7 and
+    # earlier always collected; a full cycle here takes about 13 ms, 21 ms at
+    # most. An explicit QV4_GC_TIMELIMIT in the environment still wins, so
+    # the incremental collector can be tested on a newer Qt. Read by the QML
+    # engine when it is created, so this must run first. See
+    # docs/engineering/implementation/NOTATION_NAVIGATION_CRASH.md.
+    os.environ.setdefault("QV4_GC_TIMELIMIT", "0")
 
 
 def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, AppEnvironment]:
