@@ -8,21 +8,15 @@ on:
 
 env:
   QT_QPA_PLATFORM: offscreen
-  # tests/test_qml_memory_harness.py and tests/test_performance_visual_architecture.py
-  # assert against JSON evidence files under acceptance/, which is gitignored
-  # by design (docs/engineering/implementation/QML_MEMORY_ROOT_CAUSE.md and
-  # ROCKET_PERFORMANCE_VISUAL_ARCHITECTURE_PILOT.md's own harnesses generate
-  # them locally, one time; they are not meant to be reproduced on every run).
-  # They cannot pass on a fresh checkout and are excluded from CI for that
-  # reason, not because they are unreliable -- run them locally after the
-  # relevant harness script to re-verify.
-  PYTEST_IGNORE_ACCEPTANCE_EVIDENCE: >-
-    --ignore=tests/test_qml_memory_harness.py
-    --ignore=tests/test_performance_visual_architecture.py
+
+# Nothing is excluded by file. The few tests that read measurements recorded on
+# a developer machine (the untracked acceptance/ folder) skip themselves, one by
+# one, with the reason, when that evidence is absent; everything else in those
+# files runs here. `-rs` prints every skip reason in the log.
 
 jobs:
   base:
-    name: base suite (UI shell + compressible flow)
+    name: base suite (no optional providers)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,10 +31,12 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Run pytest
-        run: python -m pytest -q ${{ env.PYTEST_IGNORE_ACCEPTANCE_EVIDENCE }}
+        run: python -m pytest -q -rs
 
-  thermochemistry:
-    name: production suite (with NASA CEA)
+  production:
+    # The profile the desktop executable is built from: NASA CEA and CoolProp
+    # (packaging/RocketForge.spec).
+    name: production profile suite (NASA CEA + CoolProp)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt -r requirements-dev.txt -r requirements-thermochemistry.txt
+          pip install -r requirements.txt -r requirements-dev.txt -r requirements-thermochemistry.txt -r requirements-fluids.txt
 
       - name: Run pytest
-        run: python -m pytest -q ${{ env.PYTEST_IGNORE_ACCEPTANCE_EVIDENCE }}
+        run: python -m pytest -q -rs
