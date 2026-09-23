@@ -52,3 +52,25 @@ jobs:
 
       - name: Run pytest
         run: python -m pytest -q -rs
+
+  minimum-versions:
+    # Every '>=' floor in the requirement files, installed exactly, so a floor
+    # is a version the suite has run on rather than a number in a file.
+    name: base suite at the declared minimum versions
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies at their floors
+        run: |
+          python -m pip install --upgrade pip
+          python .github/scripts/minimum_constraints.py minimum-constraints.txt requirements.txt requirements-dev.txt
+          pip install -r requirements.txt -r requirements-dev.txt -c minimum-constraints.txt
+          pip list
+
+      - name: Run pytest
+        run: python -m pytest -q -rs

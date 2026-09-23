@@ -5,6 +5,14 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
+    # Raise a requirement only when the new release falls outside it. The
+    # default for an application raises every '>=' floor to each new release,
+    # which opened pull requests for versions the old ranges already allowed
+    # and moved floors nobody had tested. The floors are the oldest versions
+    # with CPython 3.13 wheels and are held there on purpose; the
+    # minimum-versions CI job runs the suite on exactly them. Exact pins
+    # (PySide6, CEA, CoolProp) still get a pull request for every release.
+    versioning-strategy: increase-if-necessary
     # CEA and CoolProp versions are pinned deliberately (see
     # requirements-thermochemistry.txt, requirements-fluids.txt) - raising
     # either is a re-validation decision, not a routine bump. Dependabot will

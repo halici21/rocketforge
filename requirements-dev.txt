@@ -19,4 +19,8 @@ pytest>=8.0
 # Because SciPy is a large binary wheel, installing it into the application's
 # own virtual environment is optional; a separate environment for the oracle
 # keeps the shipped runtime unchanged.
-scipy>=1.11
+#
+# The floor is the oldest SciPy with CPython 3.13 wheels (1.14.0 has none). The
+# minimum-versions CI job installs exactly this floor, and pytest's, and runs
+# the suite on them.
+scipy>=1.14.1

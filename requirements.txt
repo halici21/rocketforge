@@ -16,4 +16,8 @@ PySide6-Essentials==6.10.2
 # SciPy is deliberately NOT here: the bracketed root solver is RocketForge's own
 # and tests/test_architecture.py fails the build if any backend module imports
 # SciPy. Pandas is not a dependency either.
-numpy>=1.26
+#
+# The floor is the oldest NumPy with CPython 3.13 wheels (2.0.x has none), so it
+# is the oldest version this project can install at all. The minimum-versions
+# CI job installs exactly this floor and runs the suite on it.
+numpy>=2.1
