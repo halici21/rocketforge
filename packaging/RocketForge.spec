@@ -52,6 +52,23 @@ if not os.path.isdir(UI_DIR):
 if not os.path.isdir(REFERENCE_DIR):
     raise SystemExit("reference data not found at %s" % REFERENCE_DIR)
 
+# ---------------------------------------------------------------------------
+# Build identity. Every package names the commit it was built from: the
+# canonical build (build_exe.bat -> packaging/build_release.py) writes the
+# manifest and the Windows version resource and passes them in. Run on its own,
+# this spec would produce a package nobody could identify, so it refuses.
+# docs/engineering/release/BUILD_AND_LAUNCH.md.
+# ---------------------------------------------------------------------------
+VERSION_INFO = os.environ.get("ROCKETFORGE_VERSION_INFO", "")
+BUILD_MANIFEST = os.environ.get("ROCKETFORGE_BUILD_MANIFEST", "")
+if not (os.path.isfile(VERSION_INFO) and os.path.isfile(BUILD_MANIFEST)):
+    raise SystemExit("packaging/RocketForge.spec is built through build_exe.bat, which "
+                     "records the build's identity; it will not package an "
+                     "unidentified build")
+if not os.path.isfile(ICON):
+    raise SystemExit("packaging/RocketForge.ico is missing: build_exe.bat regenerates "
+                     "it with packaging/make_brand_icon.py --icons-only")
+
 
 # ---------------------------------------------------------------------------
 # NASA CEA thermochemistry provider, collected only when it is installed.
@@ -152,6 +169,12 @@ a = Analysis(
         "pydoc_data",
         "pdb",
         "doctest",
+        # CoolProp ships its own test suite as a subpackage; collecting it pulled
+        # pytest (and with it setuptools) into the product. Nothing at run time
+        # imports either -- verify_package.py's smoke and science checks confirm.
+        "CoolProp.tests",
+        "pytest",
+        "_pytest",
     ],
     noarchive=False,
     optimize=0,
@@ -177,7 +200,10 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=ICON if os.path.exists(ICON) else None,
+    icon=ICON,
+    # ProductVersion and Comments name the commit, so even a copied .exe says
+    # which build it is (Properties > Details in Explorer).
+    version=VERSION_INFO,
 )
 
 coll = COLLECT(

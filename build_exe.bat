@@ -1,80 +1,46 @@
 @echo off
 REM ===========================================================================
-REM  RocketForge - build the Windows executable.
+REM  RocketForge - the canonical build.
 REM
-REM      build_exe.bat
+REM      build_exe.bat                 production package of the pushed master
+REM      build_exe.bat --development   package of any tree, labelled development
 REM
-REM  Produces  dist\RocketForge\RocketForge.exe  together with the Qt runtime
-REM  and the QML interface it needs. Run it from anywhere; it works out of its
-REM  own location, so a shortcut to it is fine.
+REM  Output, always and only:
+REM      dist\RocketForge\RocketForge.exe         the application
+REM      dist\RocketForge\rocketforge_build.json  its identity (commit, channel)
+REM      dist\RocketForge\BUILD.md                the build record (SHA-256, ...)
 REM
-REM  Prefers the project virtual environment in .venv, because that is where
-REM  the PySide6 version the interface was built against lives. Falls back to
-REM  whatever python is on PATH.
+REM  Everything else - preconditions, the PySide6 pin gate, identity, icons,
+REM  packaging, verification - is packaging\build_release.py. It refuses a
+REM  dirty or unpushed tree and any PySide6 other than the pinned one, and a
+REM  package that fails its checks is marked as an unknown build.
+REM  See docs\engineering\release\BUILD_AND_LAUNCH.md.
 REM ===========================================================================
 setlocal
 cd /d "%~dp0"
 
-REM  Prefers .venv-cea, the provider-enabled environment, because the official
-REM  desktop build ships with the NASA CEA thermochemistry provider inside it.
-REM  Falls back to .venv, which still builds - just without thermochemistry.
+REM  The build environment: .venv-cea, with requirements.txt,
+REM  requirements-thermochemistry.txt and requirements-fluids.txt installed.
+REM  The production package ships NASA CEA and CoolProp inside it.
 set "PY=%~dp0.venv-cea\Scripts\python.exe"
 if not exist "%PY%" (
-    echo [rocketforge] .venv-cea not found; falling back to .venv.
-    echo [rocketforge] The build will NOT include the thermochemistry provider.
-    set "PY=%~dp0.venv\Scripts\python.exe"
-)
-if not exist "%PY%" (
-    echo [rocketforge] .venv not found, falling back to python on PATH.
-    set "PY=python"
+    echo [rocketforge] .venv-cea not found. Create it first:
+    echo [rocketforge]   python -m venv .venv-cea
+    echo [rocketforge]   .venv-cea\Scripts\python.exe -m pip install -r requirements.txt -r requirements-thermochemistry.txt -r requirements-fluids.txt
+    endlocal
+    exit /b 1
 )
 
-echo [rocketforge] Python: %PY%
-"%PY%" --version || goto :fail
-
-REM ---- make sure the packager is available ---------------------------------
 "%PY%" -c "import PyInstaller" 2>nul
 if errorlevel 1 (
     echo [rocketforge] Installing PyInstaller...
     "%PY%" -m pip install "pyinstaller>=6.10" || goto :fail
 )
 
-REM ---- refresh the application icon ----------------------------------------
-if exist "packaging\make_icon.py" (
-    if not exist "packaging\RocketForge.ico" (
-        echo [rocketforge] Rendering application icon...
-        "%PY%" "packaging\make_icon.py" "packaging\RocketForge.ico" || goto :fail
-    )
-)
-
-REM ---- clean the previous build --------------------------------------------
-echo [rocketforge] Cleaning build\ and dist\...
-if exist "build\RocketForge" rmdir /s /q "build\RocketForge"
-if exist "dist\RocketForge" rmdir /s /q "dist\RocketForge"
-
-REM ---- package --------------------------------------------------------------
-echo [rocketforge] Packaging...
-"%PY%" -m PyInstaller ^
-    --noconfirm ^
-    --clean ^
-    --distpath "dist" ^
-    --workpath "build" ^
-    "packaging\RocketForge.spec" || goto :fail
-
-if not exist "dist\RocketForge\RocketForge.exe" goto :missing
-
-echo.
-echo [rocketforge] Build complete.
-echo [rocketforge]   dist\RocketForge\RocketForge.exe
-echo.
+"%PY%" "packaging\build_release.py" %*
+if errorlevel 1 goto :fail
 endlocal
 exit /b 0
-
-:missing
-echo.
-echo [rocketforge] ERROR: the packager finished but RocketForge.exe is not in dist\RocketForge.
-endlocal
-exit /b 1
 
 :fail
 echo.

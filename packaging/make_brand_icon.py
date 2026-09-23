@@ -150,18 +150,37 @@ def contact_sheet(path: Path, ground: QColor) -> None:
     sheet.save(str(path))
 
 
+#: The Windows icon sizes: 16-256, every size the shell asks for.
+ICON_SIZES = [16, 24, 32, 48, 64, 128, 256]
+
+
+def write_icons() -> list[Path]:
+    """The two .ico files, which are generated rather than tracked.
+
+    ``assets/branding/rocketforge.ico`` is the window and taskbar icon;
+    ``packaging/RocketForge.ico`` is the executable's shell icon. Both are the
+    same frames, drawn from the code above -- so the canonical build
+    (``packaging/build_release.py``) regenerates them from the commit it
+    packages, and a fresh clone gets exactly the accepted icon.
+    """
+    targets = [OUT_DIR / "rocketforge.ico", ROOT / "packaging" / "RocketForge.ico"]
+    for target in targets:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        write_ico(target, ICON_SIZES)
+    return targets
+
+
 def main() -> int:
     app = QGuiApplication(sys.argv[:1])  # noqa: F841 -- needed for QImage/QPainter
+    if "--icons-only" in sys.argv:
+        for target in write_icons():
+            print(f"wrote {target.relative_to(ROOT)} ({target.stat().st_size} bytes)")
+        return 0
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     (OUT_DIR / "rocketforge_mark.svg").write_text(SVG_MASTER, encoding="utf-8")
     render(1024).save(str(OUT_DIR / "rocketforge_icon_1024.png"))
-    sizes = [16, 24, 32, 48, 64, 128, 256]
-    write_ico(OUT_DIR / "rocketforge.ico", sizes)
-    # The packaging spec already points at packaging/RocketForge.ico for the
-    # executable's own shell icon; keep that file a copy of this master
-    # rather than a second, separately-drawn mark that could drift.
-    write_ico(ROOT / "packaging" / "RocketForge.ico", sizes)
+    write_icons()
     contact_sheet(OUT_DIR / "contact_sheet_dark.png", QColor("#101216"))
     contact_sheet(OUT_DIR / "contact_sheet_light.png", LIGHT_GROUND)
 
