@@ -19,6 +19,10 @@
   `/acceptance/` folder skip themselves one by one when it is absent; CI runs
   everything else. Tracked freeze manifests and reference records live in
   `tests/acceptance/`.
+- Packaging: `build_exe.bat` (→ `packaging/build_release.py`) is the only
+  build and `dist/RocketForge/` the only package; `run.bat` is the source
+  launcher. Build identity lives in `rocketforge/application/build_identity.py`
+  only — see `docs/engineering/release/BUILD_AND_LAUNCH.md`.
 - `main.configure_application()` sets `QV4_GC_TIMELIMIT=0` (one-pass QML
   garbage collection): Qt 6.10.2's incremental collector freed live objects
   and crashed Nozzle Lab → Thermochemistry. Keep it unless a Qt upgrade passes

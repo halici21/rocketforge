@@ -9,6 +9,14 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Build identity. Every package names the commit it was built from: in
+  `rocketforge_build.json` beside the executable, in the executable's own
+  version resource, and in Settings, which shows the build and offers **Copy
+  build info**. A source run calls itself development (`[DEV <commit>]`); a
+  package with no readable identity calls itself unknown, never current.
+  `build_exe.bat` is the one build: it refuses a dirty or unpushed tree and
+  any PySide6 other than the pin, and verifies the package by running it.
+  See [docs/engineering/release/BUILD_AND_LAUNCH.md](docs/engineering/release/BUILD_AND_LAUNCH.md).
 - Solid propellant thermochemistry: multi-component solid formulations
   solved to NASA CEA HP chamber equilibrium, with gas and condensed products
   and full provenance. Custom reactants require a formula, a heat of

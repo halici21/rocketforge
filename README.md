@@ -4,8 +4,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/halici21/rocketforge)](https://github.com/halici21/rocketforge/releases/latest)
 
-**[Download the latest Windows build](https://github.com/halici21/rocketforge/releases/latest)**
-— self-contained, no Python install required. See
+**[Download the most recent release's Windows build](https://github.com/halici21/rocketforge/releases/latest)**
+— self-contained, no Python install required. A release is a tagged version;
+`master` may be ahead of it, and a package made by `build_exe.bat` says which
+commit it is
+([which build?](docs/engineering/release/BUILD_AND_LAUNCH.md)). See
 [Known limitations](#known-limitations) before you do: Analysis mode is real
 physics, Engine Design mode is a real topology editor with no physics wired
 into it yet.
@@ -102,8 +105,12 @@ pages. Two more, both optional and additive, unlock more of Analysis mode:
 `requirements-dev.txt` adds the test/tooling dependencies for running the
 suite in [Testing](#testing) below.
 
-`run.bat` does the same thing with the project virtual environment, without
-activating it first.
+`run.bat` is the development launcher: it runs `main.py` from this tree with
+the project environment (`.venv-cea`, else `.venv`; never a `python` from
+`PATH`), and the window title says `[DEV <commit>]`. It never starts a
+packaged build. Which build is running is always one click away: Settings
+(the gear) shows the build and **Copy build info** — see
+[docs/engineering/release/BUILD_AND_LAUNCH.md](docs/engineering/release/BUILD_AND_LAUNCH.md).
 
 ### Testing
 
@@ -121,34 +128,47 @@ Always invoke the venv's own `python.exe`/`pytest` directly rather than a
 bare `python`/`pytest` on `PATH` — on a machine with conda/miniforge also
 installed, the bare command can silently resolve to the wrong interpreter.
 
-CI (see the badge above) runs both environments on every push, with two
-files excluded: `tests/test_qml_memory_harness.py` and
-`tests/test_performance_visual_architecture.py` assert against JSON evidence
-under `acceptance/`, which is gitignored by design (one-time output from the
-QML-memory and visual-pilot diagnostic harnesses, not meant to be
-regenerated on every run) — so they cannot pass on a fresh checkout and are
-excluded from CI for that reason, not because they are unreliable. Run them
-locally, after the relevant harness script, to re-verify.
+CI (see the badge above) runs three jobs on every push: the base suite, the
+production profile (NASA CEA and CoolProp), and the base suite at the
+declared minimum versions. Nothing is excluded by file. The few tests that
+read measurements recorded on a developer machine (the untracked
+`acceptance/` folder) skip themselves one by one, with the reason, when that
+evidence is absent.
 
 ### Building the Windows executable
 
-Prebuilt: see [Releases](https://github.com/halici21/rocketforge/releases/latest).
-To build it yourself:
+Prebuilt: see [Releases](https://github.com/halici21/rocketforge/releases).
+Each release names the commit it was built from.
+To build it yourself, with `.venv-cea` holding `requirements.txt`,
+`requirements-thermochemistry.txt` and `requirements-fluids.txt`:
 
 ```bat
 build_exe.bat
 ```
 
-Produces a self-contained directory build:
+The one build command. It produces the one canonical package:
 
 ```
 dist\RocketForge\RocketForge.exe
+dist\RocketForge\rocketforge_build.json   the build's identity: commit, channel, versions
+dist\RocketForge\BUILD.md                 the build record: SHA-256, size, checks
 ```
 
-The script cleans the previous build, installs PyInstaller into `.venv` if it
-is missing, renders the application icon if it is missing, and packages the
-application from `packaging/RocketForge.spec`. Copy the whole
-`dist\RocketForge` folder to run it on a machine with no Python.
+It refuses a dirty or unpushed tree, and any PySide6, NASA CEA or CoolProp
+other than the pinned versions. It regenerates the icon, packages from
+`packaging/RocketForge.spec`, and verifies the result by running the package
+itself: identity, bundled provider, the Nozzle Lab → Thermochemistry route,
+and a science self-test. A package that fails its checks is marked as an
+unknown build. `build_exe.bat --development` packages any tree, labelled
+development.
+
+To check a package later, run
+`.venv-cea\Scripts\python.exe packaging\verify_package.py --smoke`. The
+package's commit must equal HEAD, or it is reported stale. Copy the whole
+`dist\RocketForge` folder to run it on a machine with no Python. The full
+definition of source, packaged, stale and unknown builds, and of every launch
+path, is in
+[docs/engineering/release/BUILD_AND_LAUNCH.md](docs/engineering/release/BUILD_AND_LAUNCH.md).
 
 PyInstaller rather than `pyside6-deploy`, because the official tool wraps
 Nuitka and needs a C toolchain on the build machine. A directory build rather
@@ -254,12 +274,14 @@ rocket/
 ```
 
 ```
-├── build_exe.bat               one-command Windows build
-├── run.bat                     development launcher
+├── build_exe.bat               the canonical Windows build
+├── run.bat                     development launcher (source only)
 └── packaging/
+    ├── build_release.py        the build: preconditions, identity, package, verify
+    ├── verify_package.py       is dist\RocketForge the build of this commit?
     ├── RocketForge.spec        PyInstaller build description
-    ├── make_icon.py            renders the product mark to RocketForge.ico
-    └── RocketForge.ico         generated; not in version control
+    ├── make_brand_icon.py      the product mark; --icons-only writes the .ico files
+    └── RocketForge.ico         generated by the build; not in version control
 ```
 
 Analysis pages call into `rocketforge/application/analysis/` controllers,

@@ -15,6 +15,7 @@ directory is the paper trail behind its claims, not a second entry point.
 | What's real physics vs. UI mockup, right now | [README.md § Verification and freeze status](../README.md#verification-and-freeze-status) |
 | Whether NASA CEA and Cantera are actually correct | [engineering/verification/CEA_CANTERA_VERIFICATION_R1.md](engineering/verification/CEA_CANTERA_VERIFICATION_R1.md) |
 | Why Cantera exists but isn't a runtime dependency | [engineering/implementation/PHASE_5B0_CEA_CANTERA_PROVIDER_SPIKE.md](engineering/implementation/PHASE_5B0_CEA_CANTERA_PROVIDER_SPIKE.md) |
+| Which RocketForge you are running, and how to build and launch it | [engineering/release/BUILD_AND_LAUNCH.md](engineering/release/BUILD_AND_LAUNCH.md) |
 | What Engine Design mode can and can't do | [../acceptance/cad_workbench_r1/engine_component_inventory.json](../acceptance) (gitignored — regenerate locally, or see the summary in the root README) |
 | What the `.claude/skills/` design tooling is and why | [design/skills/DESIGN_SKILL_FOUNDATION_R1_REPORT.md](design/skills/DESIGN_SKILL_FOUNDATION_R1_REPORT.md) |
 
