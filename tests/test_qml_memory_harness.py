@@ -17,6 +17,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import pathlib
+import re
 
 import pytest
 
@@ -151,6 +152,48 @@ def test_the_row_models_lowered_the_plateau():
     assert after < before, (after, before)
 
 
+#: What each soak must visit. The session soak once asked for the keys
+#: "thermochemistry" and "enginedesign", which do not exist, dropped both
+#: without a word, and reported PASS having never entered either workspace.
+SOAK_ROUTES = {
+    "lifecycle": {"performance", "thermochem"},
+    "session": {"performance", "thermochem", "fluidproperties", "line",
+                "tradestudy", "isentropic", "nozzlelab", "engine-design",
+                "thermochem:bipropellant", "thermochem:composition",
+                "thermochem:solid", "thermochem:solid-cstar"},
+}
+
+
+def soak_module():
+    path = ROOT / "experiments" / "qml_memory" / "soak.py"
+    spec = importlib.util.spec_from_file_location("qml_soak", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def navigation_pages() -> dict[str, str]:
+    """Navigation key -> page type, read from the shell's own navigation model."""
+    text = (ROOT / "ui" / "data" / "Navigation.qml").read_text(encoding="utf-8")
+    return dict(re.findall(
+        r'key:\s*"(\w+)",\s*label:\s*"[^"]*",\s*page:\s*"(\w+)\.qml"', text))
+
+
+def test_every_soak_page_is_a_real_navigation_key():
+    pages = navigation_pages()
+    # The reading itself: it finds the pages, and the old keys are not among them.
+    assert {"thermochem", "performance", "nozzlelab"} <= set(pages)
+    assert "thermochemistry" not in pages and "enginedesign" not in pages
+    soak = soak_module()
+    assert set(soak.PAGES) <= set(pages), sorted(set(soak.PAGES) - set(pages))
+
+
+def test_the_soaks_require_every_route_they_claim_to_cover():
+    soak = soak_module()
+    for mode, required in SOAK_ROUTES.items():
+        assert set(soak.REQUIRED_ROUTES[mode]) == required, mode
+
+
 @pytest.mark.parametrize("mode", ["lifecycle", "session"])
 def test_the_soaks_retain_no_page_instances(mode):
     report = json.loads(local_evidence(f"soak_{mode}.json").read_text(
@@ -159,3 +202,16 @@ def test_the_soaks_retain_no_page_instances(mode):
     assert report["canonical_result_unchanged"] is True
     assert report["qt_warnings"] == []
 
+
+@pytest.mark.parametrize("mode", ["lifecycle", "session"])
+def test_the_soaks_visited_every_route(mode):
+    """A soak report that cannot say where it went is not evidence."""
+    report = json.loads(local_evidence(f"soak_{mode}.json").read_text(
+        encoding="utf-8"))
+    assert "visited_routes" in report, (
+        "soak evidence predates the route contract; re-run "
+        "experiments/qml_memory/soak.py --mode " + mode)
+    missing = SOAK_ROUTES[mode] - set(report["visited_routes"])
+    assert not missing, sorted(missing)
+    assert report["missing_routes"] == []
+    assert report["thermochemistry_result_unchanged"] is True
