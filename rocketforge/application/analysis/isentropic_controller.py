@@ -59,6 +59,7 @@ class IsentropicController(QObject):
         self._precision = 6
         self._result = None
         self._stale = False
+        self._current_comparison: list = []
 
         # table state
         self._table_model = EngineeringTableModel(self)
@@ -71,11 +72,19 @@ class IsentropicController(QObject):
         self._include_sonic = True
         self._table_message = ""
         self._sonic_row = -1
+        # The gamma the current table was generated with. tableGamma is the
+        # setting, which may be edited ahead of the next Generate; a curve
+        # must be labelled with what it was computed from.
+        self._plotted_gamma = float("nan")
 
         # reference state
         self._compare = False
         self._selected_row = -1
         self._summary: dict = {}
+        # Row -> comparison, made with the table comparison (Compare on, a
+        # regenerated table) so that selecting a row reads one instead of
+        # re-running the relations because a row was clicked.
+        self._row_comparisons: dict[int, list] = {}
 
         self._recalculate()
         self.regenerateTable()
@@ -174,6 +183,9 @@ class IsentropicController(QObject):
         # Keep the previous readout visible but marked stale rather than
         # blanking the page while someone is midway through typing.
         self._stale = self._result is not None and not self._result.ok
+        # The reference check for this result, made with it rather than when
+        # a view first reads it: opening the page must solve nothing.
+        self._current_comparison = self.comparisonForCurrentMach()
         self.resultsChanged.emit()
         self.referenceChanged.emit()
 
@@ -272,8 +284,10 @@ class IsentropicController(QObject):
             return []
         subsonic, supersonic = self._result.both
         return [
-            {"label": "Subsonic M", "value": format_engineering(subsonic, self._precision)},
-            {"label": "Supersonic M", "value": format_engineering(supersonic, self._precision)},
+            {"label": "Subsonic M", "value": format_engineering(subsonic, self._precision),
+             "raw": float(subsonic)},
+            {"label": "Supersonic M", "value": format_engineering(supersonic, self._precision),
+             "raw": float(supersonic)},
         ]
 
     @Property(float, notify=resultsChanged)
@@ -375,7 +389,9 @@ class IsentropicController(QObject):
             self._table_model.clear()
             self._table_message = str(error)
             self._sonic_row = -1
+            self._plotted_gamma = float("nan")
             self._summary = {}
+            self._row_comparisons = {}
             self.tableChanged.emit()
             self.referenceChanged.emit()
             return
@@ -387,6 +403,7 @@ class IsentropicController(QObject):
         )
         self._table_model.setPrecision(self._table_precision)
         self._sonic_row = -1 if data.sonic_row is None else int(data.sonic_row)
+        self._plotted_gamma = self._table_gamma
         self._table_message = ""
         self._selected_row = -1
         self._refresh_summary()
@@ -471,9 +488,12 @@ class IsentropicController(QObject):
                 f"Comparison is unavailable at γ = {self._table_gamma:g}.")
 
     def _refresh_summary(self) -> None:
+        self._row_comparisons = {}
         if not (self._compare and self.referenceAvailable):
             self._summary = {}
             return
+        self._row_comparisons = {row: self._compare_row(row)
+                                 for row in range(self._table_model.rowCount())}
         machs = [self._table_model.machAt(r) for r in range(self._table_model.rowCount())]
         summary = reference.compare_table(self._table_gamma, machs)
         self._summary = {
@@ -498,11 +518,19 @@ class IsentropicController(QObject):
     def comparisonForRow(self, row: int):
         """Per-quantity comparison for one generated row.
 
+        Read from the comparison made with the table while Compare is on;
+        computed only when asked outside it (a script, a test).
+
         Returns an empty list when that Mach number is not tabulated in the
         source: no interpolated reference values, ever.
         """
         if not self.referenceAvailable:
             return []
+        if row in self._row_comparisons:
+            return self._row_comparisons[row]
+        return self._compare_row(row)
+
+    def _compare_row(self, row: int) -> list:
         mach = self._table_model.machAt(row)
         comparison = reference.compare_row(mach, self._table_gamma)
         if comparison is None:
@@ -523,6 +551,11 @@ class IsentropicController(QObject):
         if not self.referenceAvailable:
             return False
         return reference.compare_row(self._table_model.machAt(row), self._table_gamma) is not None
+
+    @Property("QVariantList", notify=resultsChanged)
+    def currentMachComparison(self):
+        """:meth:`comparisonForCurrentMach` for the current result, held."""
+        return self._current_comparison
 
     @Slot(result="QVariantList")
     def comparisonForCurrentMach(self):
@@ -587,6 +620,23 @@ class IsentropicController(QObject):
         except OSError:
             return ""
         return str(target)
+
+    @Property(float, notify=tableChanged)
+    def plottedGamma(self) -> float:
+        """The gamma of the generated table, NaN when there is none."""
+        return self._plotted_gamma
+
+    @Property("QVariantMap", notify=tableChanged)
+    def chartData(self):
+        """Quantity key -> :meth:`chartSeries` for every plotted column.
+
+        A property, so a chart bound to it follows a regenerated table: a
+        binding never re-calls a slot, and the Relation view once kept the
+        previous table's curve beneath a caption naming the new gamma.
+        Read from the generated block; nothing is solved.
+        """
+        keys = [c["key"] for c in self._table_model.columns if c["key"] != "mach"]
+        return {key: self.chartSeries(key) for key in keys}
 
     @Slot(str, result="QVariantList")
     def chartSeries(self, quantity: str):

@@ -44,7 +44,7 @@ Item {
     // shrinking them -- the capture showed the shock strip printed straight
     // across the REGIME and EXIT STATE columns. Reflow, not shrink: the
     // numbers are what this tab is for, and the nozzle is drawn full size on
-    // the Charts tab, so the object is what yields.
+    // the Regime map, so the object is what yields.
     readonly property bool compact: page.height < 620
 
     // ---- result hierarchy ----------------------------------------------
@@ -324,10 +324,12 @@ Item {
                 // this page was that it analyses a converging-diverging
                 // nozzle and an internal shock and never shows either one --
                 // 22 numbers and no nozzle. Everything drawn is solver output
-                // (contourSeries is r(x) from the station distribution,
-                // markers are the throat and shock at their own axial
+                // (contour is r(x) from the station distribution,
+                // stationMarkers are the throat and shock at their own axial
                 // stations), so the drawing claims nothing the module has not
-                // computed.
+                // computed. Both are properties, so the drawing follows every
+                // solve; a slot call in a binding is never re-made, and the
+                // audit caught this drawing holding the previous shock.
                 RFPanel {
                     title: "Nozzle"
                     Layout.preferredWidth: page.compact ? 0 : 420
@@ -342,13 +344,13 @@ Item {
 
                         hasResult: Nozzle.valid
                         wall: {
-                            var parts = Nozzle.contourSeries()
+                            var parts = Nozzle.contour
                             for (var i = 0; i < parts.length; ++i)
                                 if (parts[i].label === "wall")
                                     return parts[i].points
                             return []
                         }
-                        stations: Nozzle.markers()
+                        stations: Nozzle.stationMarkers
                     }
                 }
             }

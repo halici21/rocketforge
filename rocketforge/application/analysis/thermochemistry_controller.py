@@ -112,6 +112,10 @@ TRACE_THRESHOLDS: tuple[dict, ...] = (
 #: selectable list (Phase 5D §69).
 MAX_SWEEP_SPECIES = 6
 
+#: How many species the Calculator's chamber-state view lists. The full set,
+#: every species the provider returned, stays on the Composition view.
+LEADING_SPECIES = 6
+
 _COMPOSITION_COLUMNS = (
     {"key": "species", "label": "Species", "kind": "text", "align": "left"},
     {"key": "phase", "label": "Phase", "kind": "text", "align": "left"},
@@ -1224,6 +1228,32 @@ class ThermochemistryController(QObject):
             "headline": summary["headline"],
             "detail": summary["detail"],
             "species": [row.name for row in summary["species"]],
+        }
+
+    @Property("QVariantMap", notify=compositionChanged)
+    def leadingSpecies(self):
+        """The few species that make up most of the solved mixture.
+
+        Taken from the full solved set in the service's own order -- mole
+        fraction, descending (``species_rows``) -- and independent of the
+        Composition view's threshold, filter and basis, which are display
+        settings of another view. No fraction is recomputed; the only
+        arithmetic is the sum of the fractions shown, which says how much of
+        the mixture the short list accounts for.
+        """
+        leaders = list(self._species[:LEADING_SPECIES])
+        if not leaders:
+            return {"rows": [], "shown": 0, "total": 0, "sumText": ""}
+        share = math.fsum(row.mole_fraction for row in leaders)
+        return {
+            "rows": [{"name": row.name, "label": row.label, "phase": row.phase,
+                      "condensed": row.is_condensed,
+                      "fraction": float(row.mole_fraction),
+                      "text": format_engineering(row.mole_fraction, self._precision)}
+                     for row in leaders],
+            "shown": len(leaders),
+            "total": len(self._species),
+            "sumText": format_engineering(share, self._precision),
         }
 
     @Slot(result=str)

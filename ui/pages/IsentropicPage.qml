@@ -49,10 +49,12 @@ Item {
                         text: "γ " + Isentropic.gamma.toFixed(3)
                         showDot: false
                     }
+                    // The state of the current result, not a constant: with
+                    // invalid input there is no calculated state to claim.
                     RFStatusChip {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "Calculated"
-                        tone: "success"
+                        text: Isentropic.valid ? "Calculated" : Isentropic.statusLabel
+                        tone: Isentropic.valid ? "success" : "warning"
                         showDot: false
                     }
                 }

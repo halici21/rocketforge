@@ -91,6 +91,14 @@ class RocketPerformanceController(QObject):
 
         self._outcome = service.EMPTY_OUTCOME
         self._stale = False
+        # The identity checks of one outcome, held with it: the models refresh
+        # when a result is published, and every later read -- the Model tab's
+        # summary and verdict among them -- takes these instead of re-running
+        # the checks because a view opened.
+        self._identity_outcome: Any = None
+        self._identity_rows: tuple = ()
+        self._reference_outcome: Any = None
+        self._reference_results: dict = {}
 
         self._oracle = oracle.EMPTY_ORACLE
         self._oracle_mode = "equilibrium"
@@ -731,6 +739,26 @@ class RocketPerformanceController(QObject):
         return sum(1 for row in self.diagnostics
                    if row.get("severity") in ("warning", "error"))
 
+    def _identities(self) -> tuple:
+        """``service.identity_rows`` for the current outcome, once per outcome."""
+        if self._identity_outcome is not self._outcome:
+            self._identity_rows = service.identity_rows(self._outcome)
+            self._identity_outcome = self._outcome
+        return self._identity_rows
+
+    def _reference_conditions(self) -> dict:
+        """``service.reference_condition_results`` for the current outcome, once.
+
+        The oracle table is rebuilt on every ``resultChanged`` -- including the
+        one an edited input sends to mark the result stale -- and re-solving the
+        nozzle there would be a solve nobody asked for, of a result that has
+        not changed.
+        """
+        if self._reference_outcome is not self._outcome:
+            self._reference_results = service.reference_condition_results(self._outcome)
+            self._reference_outcome = self._outcome
+        return self._reference_results
+
     @Property("QVariantList", notify=resultChanged)
     def identityRows(self):
         """The internal consistency checks, recomputed for this result."""
@@ -740,11 +768,11 @@ class RocketPerformanceController(QObject):
                  "tolerance": _text(row["tolerance"], 3),
                  "passed": row["passed"],
                  "scaled": row["scaled"]}
-                for row in service.identity_rows(self._outcome)]
+                for row in self._identities()]
 
     @Property(str, notify=resultChanged)
     def identitySummary(self) -> str:
-        rows = service.identity_rows(self._outcome)
+        rows = self._identities()
         if not rows:
             return ""
         failures = [row for row in rows if not row["passed"]]
@@ -756,7 +784,7 @@ class RocketPerformanceController(QObject):
 
     @Property(bool, notify=resultChanged)
     def identitiesPassed(self) -> bool:
-        rows = service.identity_rows(self._outcome)
+        rows = self._identities()
         return bool(rows) and all(row["passed"] for row in rows)
 
     @Property("QVariantList", notify=resultChanged)
@@ -872,7 +900,7 @@ class RocketPerformanceController(QObject):
         # re-solved for each; the gas reduction is reused untouched, so no
         # chemistry runs and both figures are demonstrably the same gas as the
         # result above.
-        reference = service.reference_condition_results(self._outcome)
+        reference = self._reference_conditions()
         vacuum = reference["vacuum"]
         optimum = reference["optimum"]
         own = {

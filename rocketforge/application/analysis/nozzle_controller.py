@@ -48,6 +48,7 @@ class NozzleController(AnalysisBehaviour, QObject):
     tableChanged = Signal()
     tableSettingsChanged = Signal()
     referenceChanged = Signal()
+    shockCurveChanged = Signal()
     requestTab = Signal(int)
 
     _export_name = "nozzle"
@@ -70,6 +71,15 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._normalized = False
 
         self._record = None
+        # What depends on the nozzle and the gas but not on the back pressure:
+        # the criticals, the regime bands and the shock-station curve. Solved
+        # with the operating point, only when one of those inputs moved, so
+        # opening a view reads them instead of solving them.
+        self._map_key = None
+        self._thresholds: dict = {}
+        self._bands: list = []
+        self._shock_curve: list = []
+        self._presented = None
         self._recalculate()
         self._regenerate_table()
 
@@ -90,9 +100,25 @@ class NozzleController(AnalysisBehaviour, QObject):
         )
 
     def _compute(self):
-        result = solve(self._inputs())
-        self._record = solve_record(self._inputs()) if result.ok else None
+        inputs = self._inputs()
+        result = solve(inputs)
+        self._record = solve_record(inputs) if result.ok else None
+        self._presented = None
+        self._solve_map(inputs)
         return result
+
+    def _solve_map(self, inputs: NozzleInputs) -> None:
+        key = (inputs.gamma, inputs.gas_constant, inputs.throat_area,
+               inputs.area_ratio_exit, inputs.resolution)
+        if key == self._map_key:
+            return
+        self._map_key = key
+        self._thresholds = thresholds(inputs)
+        self._bands = regime_bands(inputs)
+        # The same 80-point sweep shockPositionSeries() draws.
+        self._shock_curve = [{"x": p["pressure_ratio_back"], "y": p["area_ratio_shock"]}
+                             for p in shock_position_sweep(inputs, 80)]
+        self.shockCurveChanged.emit()
 
     def _build_table(self):
         return distribution_table(self._inputs(), self._normalized)
@@ -390,23 +416,23 @@ class NozzleController(AnalysisBehaviour, QObject):
 
     @Property("QVariantList", notify=inputsChanged)
     def regimeBands(self):
-        return regime_bands(self._inputs())
+        return self._bands
 
     @Property(float, notify=inputsChanged)
     def firstCritical(self) -> float:
-        return thresholds(self._inputs()).get("first_critical", float("nan"))
+        return self._thresholds.get("first_critical", float("nan"))
 
     @Property(float, notify=inputsChanged)
     def secondCritical(self) -> float:
-        return thresholds(self._inputs()).get("second_critical", float("nan"))
+        return self._thresholds.get("second_critical", float("nan"))
 
     @Property(float, notify=inputsChanged)
     def thirdCritical(self) -> float:
-        return thresholds(self._inputs()).get("third_critical", float("nan"))
+        return self._thresholds.get("third_critical", float("nan"))
 
     @Property(float, notify=inputsChanged)
     def designExitMach(self) -> float:
-        return thresholds(self._inputs()).get("mach_exit_supersonic", float("nan"))
+        return self._thresholds.get("mach_exit_supersonic", float("nan"))
 
     @Slot(str)
     def applyPreset(self, which: str) -> None:
@@ -441,6 +467,15 @@ class NozzleController(AnalysisBehaviour, QObject):
         points = shock_position_sweep(self._inputs(), 80)
         return [{"x": p["pressure_ratio_back"], "y": p["area_ratio_shock"]}
                 for p in points]
+
+    @Property("QVariantList", notify=shockCurveChanged)
+    def shockCurve(self):
+        """As/At against pb/p0 for this nozzle, solved with the operating point.
+
+        The same points :meth:`shockPositionSeries` returns, held rather than
+        re-solved, so a view that draws the curve never solves it.
+        """
+        return self._shock_curve
 
     @Slot(result="QVariantList")
     def shockAxialSeries(self):
@@ -601,6 +636,35 @@ class NozzleController(AnalysisBehaviour, QObject):
         if record.shock is not None and record.shock.x is not None:
             out.append({"value": float(record.shock.x), "axis": "x", "label": "shock"})
         return out
+
+    # -- the same readings as properties -------------------------------
+    #
+    # A binding re-reads a property when its signal fires; it never re-calls a
+    # slot. Views bind to these, so the drawing, the guides and the charts
+    # follow every solve. All of them read the solved record; none solves.
+
+    def _presentation(self) -> dict:
+        if self._presented is None:
+            self._presented = {
+                "contour": self.contourSeries(),
+                "stations": self.markers(),
+                "distribution": {q["key"]: self.series(q["key"])
+                                 for q in self.chartQuantities},
+            }
+        return self._presented
+
+    @Property("QVariantList", notify=resultsChanged)
+    def contour(self):
+        return self._presentation()["contour"]
+
+    @Property("QVariantList", notify=resultsChanged)
+    def stationMarkers(self):
+        return self._presentation()["stations"]
+
+    @Property("QVariantMap", notify=resultsChanged)
+    def distribution(self):
+        """Quantity key -> the series :meth:`series` returns for it."""
+        return self._presentation()["distribution"]
 
     @Property("QVariantList", constant=True)
     def chartQuantities(self):

@@ -186,6 +186,16 @@ Item {
     onMarkersChanged: plot.requestPaint()
     onLogScaleChanged: plot.requestPaint()
     onMarkerXChanged: plot.requestPaint()
+    onCurveColorChanged: plot.requestPaint()
+
+    // A theme change recolours every stroke and fill this canvas paints while
+    // its data stays exactly the same, so no data signal arrives to repaint
+    // it: a chart whose inputs do not mention a colour kept the previous
+    // theme's plot on screen after the toggle. Repaint on the theme itself.
+    Connections {
+        target: Theme
+        function onModeChanged() { plot.requestPaint() }
+    }
 
     // ---- hover inspection --------------------------------------------
     // The data extent and axis mapping a hover readout needs, kept in one

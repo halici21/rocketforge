@@ -30,10 +30,13 @@ Item {
                                   ? quantities[Math.min(quantityIndex, quantities.length - 1)]
                                   : null
 
+    // Read from the distribution property, not the series() slot: a binding
+    // re-reads a property when the result changes and never re-calls a slot,
+    // so the slot form kept drawing the previous operating point.
     readonly property var series: {
         if (!active)
             return []
-        var parts = Nozzle.series(active.key)
+        var parts = Nozzle.distribution[active.key] || []
         var out = []
         for (var i = 0; i < parts.length; ++i)
             out.push({
@@ -141,7 +144,7 @@ Item {
 
                 series: page.series
                 // Throat always; shock only while there is one to mark.
-                guides: Nozzle.markers()
+                guides: Nozzle.stationMarkers
                 logScale: page.logScale
                 xLabel: "axial position  x   [m]"
                 yLabel: page.active ? page.active.label : ""
@@ -173,10 +176,10 @@ Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                series: Nozzle.contourSeries().map(function (part) {
+                series: Nozzle.contour.map(function (part) {
                     return { points: part.points, color: Theme.textSecondary, width: 1.4 }
                 })
-                guides: Nozzle.markers()
+                guides: Nozzle.stationMarkers
                 logScale: false
                 xLabel: "axial position  x   [m]"
                 yLabel: "wall radius  [m]"
