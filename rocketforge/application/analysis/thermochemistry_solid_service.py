@@ -21,6 +21,7 @@ import math
 from dataclasses import dataclass
 from typing import Any, ClassVar
 
+from ..species_notation import species_label
 from .thermochemistry_provider import (
     availability,
     chamber_provider,
@@ -476,7 +477,7 @@ def solid_conditions(case: SolidCase | None) -> tuple[dict[str, str], ...]:
         note = ""
         if ingredient is not None and ingredient.representation == "custom":
             note = "custom · assigned enthalpy"
-        rows.append({"label": name, "value": f"{fraction * 100.0:.3f} %",
+        rows.append({"label": species_label(name), "value": f"{fraction * 100.0:.3f} %",
                      "note": note})
     rows.append({"label": "Total mass",
                  "value": f"{case.mass_fraction_sum * 100.0:.3f} %", "note": ""})

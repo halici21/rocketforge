@@ -150,7 +150,9 @@ def test_the_solid_condition_rail_is_not_empty(live):
     labels = [row["label"] for row in live.resultConditions]
     assert "Formulation" in labels
     assert "Total mass" in labels
-    assert "NH4CLO4(I)" in labels
+    # The row is labelled in chemical case; the ingredient's name -- its
+    # identity -- stays CEA's "NH4CLO4(I)" (see test_species_notation.py).
+    assert "NH4ClO4(I)" in labels
     assert len(live.resultConditions) >= 8
 
 
@@ -344,7 +346,7 @@ def test_editing_after_a_solve_keeps_the_result_and_marks_it_stale(live):
     assert live.solidIngredients[0]["percentText"] == "73.060"
     assert live.solidFormulationLabel == "Edited from RP-1311 Example 5"
     # ... and the result's own record does not
-    ap = [r["value"] for r in live.resultConditions if r["label"] == "NH4CLO4(I)"]
+    ap = [r["value"] for r in live.resultConditions if r["label"] == "NH4ClO4(I)"]
     assert ap == ["72.060 %"]
     formulation = [r["value"] for r in live.resultConditions
                    if r["label"] == "Formulation"]

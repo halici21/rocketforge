@@ -208,20 +208,29 @@ def test_starred_and_shock_ratios(notation, plain, expected):
     ("H2O", "H<sub>2</sub>O"),
     ("CO2", "CO<sub>2</sub>"),
     ("*CO2", "*CO<sub>2</sub>"),
-    ("AL2O3(L)", "AL<sub>2</sub>O<sub>3</sub>(L)"),
-    ("AL2O3(a)", "AL<sub>2</sub>O<sub>3</sub>(a)"),
-    ("NH4CLO4(I)", "NH<sub>4</sub>CLO<sub>4</sub>(I)"),
+    ("AL2O3(L)", "Al<sub>2</sub>O<sub>3</sub>(L)"),
+    ("AL2O3(a)", "Al<sub>2</sub>O<sub>3</sub>(a)"),
+    ("NH4CLO4(I)", "NH<sub>4</sub>ClO<sub>4</sub>(I)"),
     ("MgSO4(II)", "MgSO<sub>4</sub>(II)"),
     ("C8H18,isooctane", "C<sub>8</sub>H<sub>18</sub>,isooctane"),
 ])
-def test_a_species_name_gets_formula_subscripts_and_nothing_else(notation, name, expected):
-    """CEA's case and phase suffix are part of the species identity (R1 rule)."""
+def test_a_species_name_gets_chemical_case_and_formula_subscripts(notation, name, expected):
+    """The label is in chemical case; the phase suffix is never recased.
+
+    (Until Analysis Experience Phase 2 the label kept CEA's own case -- "AL2O3",
+    "NH4CLO4". The name still does, everywhere it is an identity; only what is
+    shown changed. See rocketforge/application/species_notation.py.)
+    """
     assert notation("species", name) == expected
 
 
-@pytest.mark.parametrize("name", ["AL(cr)", "HTPB", "HTPB R45M", "RP-1", "e-", "AP"])
+@pytest.mark.parametrize("name", ["HTPB", "HTPB R45M", "RP-1", "e-", "AP"])
 def test_a_name_that_is_not_a_counted_formula_is_unchanged(notation, name):
     assert notation("species", name) == name
+
+
+def test_an_uncounted_formula_is_recased_but_not_subscripted(notation):
+    assert notation("species", "AL(cr)") == "Al(cr)"
 
 
 @pytest.mark.parametrize("plain", [

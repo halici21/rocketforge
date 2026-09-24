@@ -231,13 +231,100 @@ QtObject {
      * general labels, where a digit after a letter is a hash ("8e5df1cc") or a
      * number ("3.44737e6"), not a stoichiometric count.
      *
-     * The name is shown exactly as CEA writes it: its case ("AL2O3", not
-     * "Al2O3") and its phase suffix ("(L)", "(cr)", "(I)", "(II)") are part of
-     * the species identity and are never rewritten. Only the counts in the
-     * formula part -- before a "(" suffix or a ",name" qualifier -- are lowered
-     * to subscripts. A name that is not a formula ("HTPB R45M", "RP-1") is
-     * returned unchanged.
+     * Shown in chemical case: CEA writes "HCL", "AL2O3(L)", "NH4CLO4(I)" and,
+     * in the same library, "MgCL2"; a chemist reads HCl, Al2O3(L), NH4ClO4(I),
+     * MgCl2. Only the LABEL changes -- the name stays the identity everywhere
+     * it is a key. The rewrite is conservative and matches
+     * rocketforge/application/species_notation.py exactly (held together by
+     * tests/application/test_species_notation.py):
+     *   - only a capital pair in speciesRecased is lowered, and never one that
+     *     also reads as two one-letter elements: CO stays carbon monoxide,
+     *     NO nitric oxide, HO2 a radical -- never cobalt, nobelium, holmium;
+     *   - the result must read as a formula of real element symbols, or the
+     *     name is shown as written ("HTPB", "RP-1", "CHOS-Binder");
+     *   - a phase qualifier ("(L)", "(cr)", "(I)", "(II)") and a ",name"
+     *     suffix are never recased.
+     * Then the counts in the formula -- after an element or a ")" group -- are
+     * lowered to subscripts. A name that is not a formula is returned as is.
      */
+    readonly property var speciesElements: notation.symbolSet(
+        "H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni "
+        + "Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I "
+        + "Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt "
+        + "Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr "
+        + "Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og")
+    readonly property var speciesRecased: notation.symbolSet(
+        "AL AR BA BE BR CA CL CR FE GA GE HE HG KR LI MG MN MO NA NE RB SE SR TI "
+        + "XE ZN ZR")
+    readonly property var speciesQualifier: /\((?:L|cr|gr|a|b|c|s|g|I|II|III|IV)\)$/
+    readonly property var speciesCore: /^[A-Za-z0-9()]+$/
+    readonly property var speciesCounted: /^(?:[A-Z][A-Za-z]?[0-9]*|\((?:[A-Z][A-Za-z]?[0-9]*)+\)[0-9]*)+$/
+    readonly property var speciesCounts: /([A-Za-z)])([0-9]+)/g
+    readonly property var speciesDigit: /[0-9]/
+
+    function symbolSet(text) {
+        var out = {}
+        var list = text.split(" ")
+        for (var i = 0; i < list.length; ++i)
+            out[list[i]] = true
+        return out
+    }
+
+    function isOneLetterElement(ch) {
+        return ch.length === 1 && notation.speciesElements[ch] === true
+    }
+
+    function speciesRecase(core) {
+        var out = ""
+        var i = 0
+        while (i < core.length) {
+            var pair = core.substr(i, 2)
+            if (pair.length === 2
+                    && pair[0] >= "A" && pair[0] <= "Z" && pair[1] >= "A" && pair[1] <= "Z"
+                    && notation.speciesRecased[pair] === true
+                    && !(notation.isOneLetterElement(pair[0])
+                         && notation.isOneLetterElement(pair[1]))) {
+                out += pair[0] + pair[1].toLowerCase()
+                i += 2
+            } else {
+                out += core[i]
+                i += 1
+            }
+        }
+        return out
+    }
+
+    function speciesReadsAsFormula(core) {
+        var depth = 0
+        var i = 0
+        while (i < core.length) {
+            var ch = core[i]
+            if (ch === "(") {
+                depth += 1
+                i += 1
+            } else if (ch === ")") {
+                depth -= 1
+                if (depth < 0)
+                    return false
+                i += 1
+            } else if (ch >= "0" && ch <= "9") {
+                i += 1
+            } else if (ch >= "A" && ch <= "Z") {
+                var two = core.substr(i, 2)
+                if (two.length === 2 && two[1] >= "a" && two[1] <= "z"
+                        && notation.speciesElements[two] === true)
+                    i += 2
+                else if (notation.speciesElements[ch] === true)
+                    i += 1
+                else
+                    return false
+            } else {
+                return false
+            }
+        }
+        return depth === 0
+    }
+
     function species(name) {
         if (name === undefined || name === null)
             return ""
@@ -246,11 +333,38 @@ QtObject {
         if (known !== undefined)
             return known
         var result = key
-        var m = /^(\*?)([A-Za-z0-9]+)([+-]?)((?:\(|,).*)?$/.exec(key)
-        if (m !== null && /^(?:[A-Z][A-Za-z]?[0-9]*)+$/.test(m[2]) && /[0-9]/.test(m[2])) {
-            var formula = m[2].replace(/([A-Za-z])([0-9]+)/g, "$1<sub>$2</sub>")
-            result = notation.escapeText(m[1]) + formula + notation.escapeText(m[3])
-                     + notation.escapeText(m[4] === undefined ? "" : m[4])
+        var text = key
+        var prefix = text.charAt(0) === "*" ? "*" : ""
+        text = text.substr(prefix.length)
+        var suffix = ""
+        var comma = text.indexOf(",")
+        if (comma >= 0) {
+            suffix = text.substr(comma)
+            text = text.substr(0, comma)
+        }
+        var qualifier = notation.speciesQualifier.exec(text)
+        if (qualifier !== null) {
+            suffix = qualifier[0] + suffix
+            text = text.substr(0, text.length - qualifier[0].length)
+        }
+        var charge = ""
+        var last = text.charAt(text.length - 1)
+        if (last === "+" || last === "-") {
+            charge = last
+            text = text.substr(0, text.length - 1)
+        }
+        if (text.length > 0 && notation.speciesCore.test(text)) {
+            var core = notation.speciesRecase(text)
+            if (core !== text && !notation.speciesReadsAsFormula(core))
+                core = text
+            if (notation.speciesDigit.test(core) && notation.speciesCounted.test(core)) {
+                notation.speciesCounts.lastIndex = 0
+                result = notation.escapeText(prefix)
+                         + core.replace(notation.speciesCounts, "$1<sub>$2</sub>")
+                         + notation.escapeText(charge) + notation.escapeText(suffix)
+            } else if (core !== text) {
+                result = prefix + core + charge + suffix
+            }
         }
         return notation.remember(notation.memo.species, key, result)
     }

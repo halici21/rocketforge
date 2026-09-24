@@ -181,7 +181,10 @@ Item {
                                 Text {
                                     id: chipText
                                     anchors.centerIn: parent
-                                    text: modelData
+                                    // The label in chemical case; the chip still
+                                    // toggles the species by its name.
+                                    text: Notation.species(modelData)
+                                    textFormat: Notation.speciesFormat(modelData)
                                     color: parent.active ? Theme.text : Theme.textMuted
                                     font.family: Typography.mono
                                     font.pixelSize: Typography.meta

@@ -36,6 +36,7 @@ from PySide6.QtCore import Property, QObject, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
 from ..formatting import EM_DASH, format_engineering
+from ..species_notation import species_label
 from . import thermochemistry_reference as reference
 from . import thermochemistry_sweep as sweep
 from .thermochemistry_provider import (
@@ -644,7 +645,7 @@ class ThermochemistryController(QObject):
         present = set(self.solid_case().keys)
         return [{"key": o.key, "name": o.name,
                  "label": (f"{o.name}  (custom)" if o.representation == "custom"
-                           else o.name)}
+                           else species_label(o.name))}
                 for o in solid_ingredient_options() if o.key not in present]
 
     @Slot(str)
@@ -1258,7 +1259,15 @@ class ThermochemistryController(QObject):
 
     @Slot(result=str)
     def copyComposition(self) -> str:
-        """Copy the visible composition table as tab-separated text."""
+        """Copy the visible composition table as tab-separated text.
+
+        For a person, not a program: species in chemical notation ("HCl",
+        "MgCl2") as the table shows them, and every number exactly as the
+        table displays it at the current precision. The provider's own
+        identifiers ("HCL", "MgCL2") are what the composition is keyed by; no
+        machine export of this table exists, so no identifier-keyed export
+        changed when the labels did.
+        """
         text = self._composition_model.tableAsText()
         self._copy(text)
         return text

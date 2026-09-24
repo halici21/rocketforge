@@ -27,6 +27,7 @@ from dataclasses import dataclass
 from dataclasses import field as _dataclass_field
 from typing import Any
 
+from ..species_notation import species_label
 from .thermochemistry_provider import (
     CHEMISTRY_MODE_LABEL,
     CONSTRAINT_LABEL,
@@ -553,7 +554,10 @@ def species_rows(outcome: ChamberOutcome) -> tuple[SpeciesRow, ...]:
             phase=str(species[name].phase.value) if name in species else "",
             mole_fraction=float(mole_fractions.get(name, 0.0)),
             mass_fraction=float(mass_fractions.get(name, 0.0)),
-            display_name=getattr(species.get(name), "display_name", "") or "",
+            # The label a person reads, in chemical case ("MgCl2" for CEA's
+            # "MgCL2"); ``name`` stays the provider's identity and the key.
+            display_name=(getattr(species.get(name), "display_name", "")
+                          or species_label(name)),
         )
         for name in mole_fractions
     ]

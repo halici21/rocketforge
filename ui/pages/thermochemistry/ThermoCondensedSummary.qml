@@ -122,7 +122,12 @@ RowLayout {
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Text {
-                    text: summary.condensed.species.join(", ")
+                    // Shown in chemical case with formula subscripts; the
+                    // list itself stays the provider's names.
+                    readonly property string rich: summary.condensed.species
+                        .map(function (name) { return Notation.species(name) }).join(", ")
+                    text: rich
+                    textFormat: Notation.hasMarkup(rich) ? Text.RichText : Text.PlainText
                     color: summary.condensed.state === "present"
                            ? Theme.textSecondary : Theme.textMuted
                     font.family: Typography.mono
