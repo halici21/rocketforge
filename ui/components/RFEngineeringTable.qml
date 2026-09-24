@@ -58,7 +58,17 @@ Item {
     signal rowClicked(int row)
     signal rowActivated(int row)
 
-    readonly property real headerHeight: 34
+    // A column may also carry `caption`: a word under its symbol ("Density
+    // ratio" under "ρ₀/ρ"). Symbols that differ by one glyph -- p and ρ in
+    // an italic at header size -- read as the same column; the word does not
+    // depend on the glyph. The header grows a line only when a column has one.
+    readonly property bool hasCaptions: {
+        for (var i = 0; i < columns.length; ++i)
+            if (columns[i].caption)
+                return true
+        return false
+    }
+    readonly property real headerHeight: hasCaptions ? 48 : 34
     readonly property int columnCount: columns.length
 
     // ---- marker gutter --------------------------------------------------
@@ -206,25 +216,42 @@ Item {
                         // renders at its natural width and a long label prints
                         // across its neighbour -- legible neither as itself nor
                         // as the header it covers.
-                        Text {
+                        Column {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.rightMargin: Metrics.spacing.m
                             anchors.leftMargin: Metrics.spacing.m
                             anchors.verticalCenter: parent.verticalCenter
-                            horizontalAlignment: modelData.align === "left"
-                                                 ? Text.AlignLeft
-                                                 : Text.AlignRight
-                            elide: Text.ElideRight
-                            // RichText does not elide; a label carrying notation is clipped
-                            // to its width instead of running into its neighbour.
-                            clip: true
-                            text: Notation.rich(modelData.label)
-                            textFormat: Notation.textFormat(modelData.label)
-                            color: Theme.textSecondary
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.bodySmall
-                            font.weight: Typography.medium
+                            spacing: 1
+
+                            Text {
+                                width: parent.width
+                                horizontalAlignment: modelData.align === "left"
+                                                     ? Text.AlignLeft
+                                                     : Text.AlignRight
+                                elide: Text.ElideRight
+                                // RichText does not elide; a label carrying notation is clipped
+                                // to its width instead of running into its neighbour.
+                                clip: true
+                                text: Notation.rich(modelData.label)
+                                textFormat: Notation.textFormat(modelData.label)
+                                color: Theme.textSecondary
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.bodySmall
+                                font.weight: Typography.medium
+                            }
+                            Text {
+                                width: parent.width
+                                visible: !!modelData.caption
+                                horizontalAlignment: modelData.align === "left"
+                                                     ? Text.AlignLeft
+                                                     : Text.AlignRight
+                                elide: Text.ElideRight
+                                text: modelData.caption ? modelData.caption : ""
+                                color: Theme.textMuted
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.meta
+                            }
                         }
                     }
                 }

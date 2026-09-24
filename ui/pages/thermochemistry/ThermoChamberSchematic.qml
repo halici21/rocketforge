@@ -1,313 +1,233 @@
 import QtQuick
+import QtQuick.Layouts
 import "../../theme"
 
 /*
- * The equilibrium-chamber schematic: reactants -> chamber -> products.
+ * The equilibrium chamber as a station band: what went in -> the equilibrium
+ * chamber -> what the solved state holds. One line of stations, not a figure.
  *
- * WHAT THIS IS. A schematic of the reaction as an equilibrium STATE, per
- * rf-propulsion-visual-grammar's per-workspace object table: "oxidizer +
- * fuel -> equilibrium chamber -> products... the chamber as an equilibrium
- * state, not a combustion process." CEA solves a 0-D equilibrium state, not
- * a flow field, so there is no derived geometry here at all (unlike the
- * Rocket Performance nozzle canvas, whose throat radius comes from a
- * solved area ratio) -- every position below is fixed, chosen for
- * legibility, and carries no physical claim beyond "this is the right kind
- * of diagram."
+ * WHAT THIS IS. A zero-dimensional state, per rf-propulsion-visual-grammar's
+ * per-workspace object table: "oxidizer + fuel -> equilibrium chamber ->
+ * products... the chamber as an equilibrium state, not a combustion process."
+ * CEA solves one equilibrium state, not a flow field, so nothing here is
+ * geometry: every position is layout, chosen for legibility, and the band is
+ * kept short so it frames the solved state beneath it instead of standing in
+ * for it. (It was a 210 px drawing of a box and two lines, which read as the
+ * answer and pushed the answer down the page.)
  *
- * WHAT THIS IS NOT. Not a flame. Not a reaction-zone geometry. Not a
- * residence time or a mixing/combustion process of any kind -- CEA does
- * not solve one, so nothing here draws one. No gradient, particle, or glow
- * standing in for a flow field (rf-propulsion-visual-grammar: "no fake
- * CFD, ever").
+ * WHAT THIS IS NOT. Not a flame, a reaction zone, a residence time or a flow.
+ * No injector, no nozzle, no gradient, no particles (rf-propulsion-visual-
+ * grammar: "no fake CFD, ever"). The honesty label says so, set directly under
+ * the chamber it qualifies rather than as a block of its own.
  *
- * NO PHYSICS. Every string/number annotated here arrives already solved
- * and formatted from the controller. The only arithmetic below is
- * presentation geometry: pixel positions for boxes and arrows.
- *
- * Repaints only on state/theme/size change -- no timer, no idle animation,
- * consistent with rf-qml-architecture's Canvas discipline.
+ * NO PHYSICS. Every string arrives solved and formatted from the controller,
+ * from the RESULT's own conditions -- never the live form. A solid grain is one
+ * stream and carries no O/F: CEA reports 0.000 for it, and the absence of a
+ * ratio is the honest representation.
  */
 Item {
     id: root
 
     property bool hasResult: false
     property bool stale: false
+    property bool singleStream: false
+    property string streamLabel: ""
     property string oxidiserLabel: ""
     property string fuelLabel: ""
     property string ofText: ""
-
-    // A solid grain is one pre-mixed material, not two streams meeting. Drawing
-    // an oxidiser inlet and a fuel inlet for one would claim a feed topology the
-    // propellant does not have -- and CEA reports o/f = 0.000 for a solid case,
-    // so there is no ratio to annotate either.
-    property bool singleStream: false
-    property string streamLabel: ""
     property string chamberPressureText: ""
-    property string providerLabel: ""
     property string productsSummary: ""
-    property bool placeholder: false
 
-    Canvas {
-        id: canvas
-        anchors.fill: parent
-        renderStrategy: Canvas.Cooperative
+    // Values are drawn only for a current result; a stale one dims with the
+    // rest of the chamber state, and an unsolved band names its stations only.
+    readonly property bool active: root.hasResult && !root.stale
+    readonly property color lineColor: root.active ? Theme.textSecondary : Theme.textMuted
 
-        property color wallColor: root.hasResult && !root.stale
-                                  ? Theme.text : Theme.textMuted
-        property color fillColor: Theme.surfaceElevated
-        property color axisColor: Theme.divider
-        property color accentColor: Theme.accent
+    implicitHeight: band.implicitHeight + Metrics.spacing.xs + honesty.implicitHeight
 
-        onWallColorChanged: requestPaint()
-        onFillColorChanged: requestPaint()
-        onAxisColorChanged: requestPaint()
+    component StationTag: Row {
+        property string tag: ""
+        property string value: ""
+        spacing: Metrics.spacing.s
+        Text {
+            anchors.baseline: valueText.baseline
+            text: parent.tag
+            color: Theme.textMuted
+            font.family: Typography.sans
+            font.pixelSize: Typography.sectionLabel
+            font.letterSpacing: Typography.sectionTracking
+            font.weight: Typography.medium
+        }
+        Text {
+            id: valueText
+            visible: root.hasResult && parent.value !== ""
+            text: parent.value
+            color: Theme.textSecondary
+            font.family: Typography.mono
+            font.pixelSize: Typography.readoutSmall
+        }
+    }
+
+    // A connector: one or two hairlines, with an arrowhead only when a solved
+    // state is showing -- direction is a claim about a result.
+    component Connector: Canvas {
+        id: connector
+        property int streams: 1
+        property color stroke: root.lineColor
+        property bool arrows: root.active
+        implicitHeight: 24
+        onStrokeChanged: requestPaint()
+        onArrowsChanged: requestPaint()
+        onStreamsChanged: requestPaint()
         onWidthChanged: requestPaint()
         onHeightChanged: requestPaint()
-
-        Connections {
-            target: root
-            function onHasResultChanged() { canvas.requestPaint() }
-            function onStaleChanged() { canvas.requestPaint() }
-        }
-
         onPaint: {
             var ctx = getContext("2d")
             ctx.reset()
-
-            var w = width
-            var h = height
-            if (w <= 0 || h <= 0)
+            if (width <= 0 || height <= 0)
                 return
-
-            var axis = h * 0.5
-            var chamberLeft = w * 0.34
-            var chamberRight = w * 0.62
-            var chamberHalf = Math.min(h * 0.22, 52)
-            var inletTopY = axis - chamberHalf * 0.55
-            var inletBottomY = axis + chamberHalf * 0.55
-            var leftX = w * 0.06
-            var outletX = w * 0.92
-
-            var active = root.hasResult && !root.stale
-
-            // ---- reactant inlet lines ----------------------------------
-            // Two streams for a bipropellant; one for a solid grain, on the
-            // axis, because the grain is a single pre-mixed charge.
-            ctx.strokeStyle = canvas.wallColor
-            ctx.lineWidth = 1.4
-            if (root.singleStream) {
+            var mid = height / 2
+            var ys = streams === 2 ? [mid - 6, mid + 6] : [mid]
+            ctx.strokeStyle = stroke
+            ctx.fillStyle = arrows ? Theme.accent : stroke
+            ctx.lineWidth = 1.2
+            for (var i = 0; i < ys.length; ++i) {
                 ctx.beginPath()
-                ctx.moveTo(leftX, axis)
-                ctx.lineTo(chamberLeft, axis)
+                ctx.moveTo(0, ys[i])
+                ctx.lineTo(width - (arrows ? 8 : 0), ys[i])
                 ctx.stroke()
-            } else {
-                ctx.beginPath()
-                ctx.moveTo(leftX, inletTopY)
-                ctx.lineTo(chamberLeft, inletTopY)
-                ctx.stroke()
-                ctx.beginPath()
-                ctx.moveTo(leftX, inletBottomY)
-                ctx.lineTo(chamberLeft, inletBottomY)
-                ctx.stroke()
-            }
-
-            // ---- chamber box --------------------------------------------
-            ctx.beginPath()
-            ctx.rect(chamberLeft, axis - chamberHalf, chamberRight - chamberLeft,
-                     chamberHalf * 2)
-            ctx.fillStyle = canvas.fillColor
-            ctx.fill()
-            ctx.strokeStyle = canvas.wallColor
-            ctx.lineWidth = 1.6
-            ctx.stroke()
-
-            // ---- outlet to products ---------------------------------------
-            ctx.strokeStyle = canvas.wallColor
-            ctx.lineWidth = 1.4
-            ctx.beginPath()
-            ctx.moveTo(chamberRight, axis)
-            ctx.lineTo(outletX, axis)
-            ctx.stroke()
-
-            // ---- flow direction, only when a real result is showing -------
-            if (active) {
-                ctx.strokeStyle = canvas.accentColor
-                ctx.fillStyle = canvas.accentColor
-                ctx.lineWidth = 1.4
-                var tip = chamberRight + (outletX - chamberRight) * 0.72
-                ctx.beginPath()
-                ctx.moveTo(chamberRight + 8, axis)
-                ctx.lineTo(tip, axis)
-                ctx.stroke()
-                ctx.beginPath()
-                ctx.moveTo(tip + 9, axis)
-                ctx.lineTo(tip - 2, axis - 4.5)
-                ctx.lineTo(tip - 2, axis + 4.5)
-                ctx.closePath()
-                ctx.fill()
-
-                // small arrowheads on the reactant inlets too
-                var inletYs = root.singleStream
-                    ? [axis] : [inletTopY, inletBottomY]
-                for (var i = 0; i < inletYs.length; ++i) {
+                if (arrows) {
                     ctx.beginPath()
-                    ctx.moveTo(chamberLeft - 1, inletYs[i])
-                    ctx.lineTo(chamberLeft - 11, inletYs[i] - 4.5)
-                    ctx.lineTo(chamberLeft - 11, inletYs[i] + 4.5)
+                    ctx.moveTo(width, ys[i])
+                    ctx.lineTo(width - 9, ys[i] - 4)
+                    ctx.lineTo(width - 9, ys[i] + 4)
                     ctx.closePath()
                     ctx.fill()
                 }
             }
         }
+        Connections {
+            target: Theme
+            function onModeChanged() { connector.requestPaint() }
+        }
     }
 
-    // ---- annotations, placed against the stations they describe -----------
-    Item {
-        id: stations
-        anchors.fill: parent
+    RowLayout {
+        id: band
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        spacing: Metrics.spacing.m
 
-        readonly property real chamberLeft: width * 0.34
-        readonly property real chamberRight: width * 0.62
-        readonly property real chamberHalf: Math.min(height * 0.22, 52)
-        readonly property real axis: height * 0.5
-
-        // The grain: one inlet, one label, and no ratio.
-        Column {
-            x: 4
-            y: stations.axis - stations.chamberHalf * 0.55 - implicitHeight - 6
-            spacing: 1
-            visible: root.singleStream
-            Text {
-                text: "GRAIN"
-                color: Theme.textSecondary
-                font.family: Typography.sans
-                font.pixelSize: Typography.sectionLabel
-                font.letterSpacing: Typography.sectionTracking
-                font.weight: Typography.medium
-            }
-            Text {
-                visible: root.hasResult
-                text: Notation.rich(root.streamLabel)
-                textFormat: Notation.textFormat(root.streamLabel)
-                color: Theme.textSecondary
-                font.family: Typography.mono
-                font.pixelSize: Typography.readoutSmall
-            }
-        }
-
-        Column {
-            x: 4
-            y: stations.axis - stations.chamberHalf * 0.55 - implicitHeight - 6
-            spacing: 1
-            visible: !root.singleStream
-            Text {
-                text: "OXIDIZER"
-                color: Theme.textSecondary
-                font.family: Typography.sans
-                font.pixelSize: Typography.sectionLabel
-                font.letterSpacing: Typography.sectionTracking
-                font.weight: Typography.medium
-            }
-            Text {
-                visible: root.hasResult
-                text: Notation.rich(root.oxidiserLabel)
-                textFormat: Notation.textFormat(root.oxidiserLabel)
-                color: Theme.textSecondary
-                font.family: Typography.mono
-                font.pixelSize: Typography.readoutSmall
-            }
-        }
-
-        Column {
-            x: 4
-            y: stations.axis + stations.chamberHalf * 0.55 + 6
-            spacing: 1
-            visible: !root.singleStream
-            Text {
-                text: "FUEL"
-                color: Theme.textSecondary
-                font.family: Typography.sans
-                font.pixelSize: Typography.sectionLabel
-                font.letterSpacing: Typography.sectionTracking
-                font.weight: Typography.medium
-            }
-            Text {
-                visible: root.hasResult
-                text: Notation.rich(root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : ""))
-                textFormat: Notation.textFormat(root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : ""))
-                color: Theme.textSecondary
-                font.family: Typography.mono
-                font.pixelSize: Typography.readoutSmall
-            }
-        }
-
-        Column {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.horizontalCenterOffset: (stations.chamberLeft + stations.chamberRight) / 2 - stations.width / 2
-            y: stations.axis - 14
+        // ---- what went in ------------------------------------------------
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: Math.max(implicitWidth, root.width * 0.24)
             spacing: 4
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "EQUILIBRIUM CHAMBER"
-                color: root.hasResult && !root.stale ? Theme.text : Theme.textMuted
-                font.family: Typography.sans
-                font.pixelSize: Typography.sectionLabel
-                font.letterSpacing: Typography.sectionTracking
-                font.weight: Typography.medium
+
+            StationTag {
+                tag: root.singleStream ? "GRAIN" : "OXIDIZER"
+                value: root.singleStream ? root.streamLabel : root.oxidiserLabel
             }
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                visible: root.hasResult && root.chamberPressureText !== ""
-                text: root.chamberPressureText
-                textFormat: Text.RichText
-                color: Theme.textSecondary
-                font.family: Typography.mono
-                font.pixelSize: Typography.readoutSmall
+            StationTag {
+                visible: !root.singleStream
+                tag: "FUEL"
+                value: root.fuelLabel + (root.ofText !== "" ? "  ·  " + root.ofText : "")
             }
         }
 
-        Column {
-            // A fixed, bounded width -- not sized from the summary text's
-            // own implicitWidth -- so a long condensed-state sentence
-            // ("No condensed phase above reporting threshold") wraps in
-            // place instead of growing the column leftward over the
-            // chamber box. Found by inspecting the 1366x768 capture, not
-            // assumed: at that width the unbounded version overlapped.
-            width: Math.min(stations.width * 0.32, 230)
-            x: stations.width * 0.96 - width
-            y: stations.axis - stations.chamberHalf * 0.55 - implicitHeight - 6
-            spacing: 1
+        Connector {
+            Layout.fillWidth: true
+            Layout.minimumWidth: 36
+            Layout.alignment: Qt.AlignVCenter
+            streams: root.singleStream ? 1 : 2
+        }
+
+        // ---- the equilibrium chamber ---------------------------------------
+        Rectangle {
+            id: chamber
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: Math.max(chamberText.implicitWidth + 2 * Metrics.spacing.l, 200)
+            Layout.preferredHeight: chamberText.implicitHeight + 2 * Metrics.spacing.s
+            color: Theme.surfaceElevated
+            border.width: 1
+            border.color: root.active ? Theme.textSecondary : Theme.textMuted
+            radius: Metrics.radius.s
+
+            Column {
+                id: chamberText
+                anchors.centerIn: parent
+                spacing: 2
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "EQUILIBRIUM CHAMBER"
+                    color: root.active ? Theme.text : Theme.textMuted
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.sectionLabel
+                    font.letterSpacing: Typography.sectionTracking
+                    font.weight: Typography.medium
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: root.hasResult && root.chamberPressureText !== ""
+                    text: root.chamberPressureText
+                    textFormat: Text.RichText
+                    color: Theme.textSecondary
+                    font.family: Typography.mono
+                    font.pixelSize: Typography.readoutSmall
+                }
+            }
+        }
+
+        Connector {
+            Layout.fillWidth: true
+            Layout.minimumWidth: 36
+            Layout.alignment: Qt.AlignVCenter
+            streams: 1
+        }
+
+        // ---- what the solved state holds -----------------------------------
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: Math.max(160, root.width * 0.26)
+            Layout.maximumWidth: Math.max(160, root.width * 0.26)
+            spacing: 2
+
             Text {
-                anchors.right: parent.right
                 text: "PRODUCTS"
-                color: Theme.textSecondary
+                color: Theme.textMuted
                 font.family: Typography.sans
                 font.pixelSize: Typography.sectionLabel
                 font.letterSpacing: Typography.sectionTracking
                 font.weight: Typography.medium
             }
             Text {
-                width: parent.width
+                Layout.fillWidth: true
                 visible: root.hasResult && root.productsSummary !== ""
                 text: root.productsSummary
                 wrapMode: Text.WordWrap
-                lineHeight: 1.15
+                maximumLineCount: 2
+                elide: Text.ElideRight
                 color: Theme.textSecondary
-                font.family: Typography.mono
-                font.pixelSize: Typography.readoutSmall
-                horizontalAlignment: Text.AlignRight
+                font.family: Typography.sans
+                font.pixelSize: Typography.bodySmall
             }
         }
     }
 
-    // The honesty label -- not negotiable, per rf-propulsion-visual-grammar.
+    // The honesty label -- not negotiable, per rf-propulsion-visual-grammar --
+    // set under the chamber it qualifies. Muted text, not the dimmest token:
+    // a statement about what the band claims, not a footnote.
     Text {
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        id: honesty
+        anchors.top: band.bottom
+        anchors.topMargin: Metrics.spacing.xs
+        x: Math.max(0, Math.min(root.width - width,
+                                chamber.x + chamber.width / 2 - width / 2))
         text: "EQUILIBRIUM STATE SCHEMATIC — NOT A REACTION-FLOW SOLUTION"
-        color: Theme.textSecondary
+        color: Theme.textMuted
         font.family: Typography.sans
         font.pixelSize: Typography.meta
-        font.letterSpacing: 0.7
+        font.letterSpacing: 0.6
     }
 }

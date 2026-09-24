@@ -34,6 +34,21 @@ Item {
         table.scrollToRow(row)
     }
 
+    // Each column with the backend's own word for its quantity, from the
+    // solve-mode registry keyed by the same column key ("Density ratio" for
+    // rho0_over_rho). Presentation only: the column model is unchanged.
+    function captionFor(key) {
+        var modes = Isentropic.solveModes
+        for (var i = 0; i < modes.length; ++i)
+            if (modes[i].key === key)
+                return modes[i].label
+        return ""
+    }
+    readonly property var captionedColumns: Isentropic.tableColumns.map(function (c) {
+        return { key: c.key, label: c.label, unit: c.unit,
+                 decimals_hint: c.decimals_hint, caption: page.captionFor(c.key) }
+    })
+
     function applySettings() {
         Isentropic.regenerateTable()
         page.selectedRow = -1
@@ -198,12 +213,14 @@ Item {
                     visible: Isentropic.tableRowCount > 0
 
                     model: Isentropic.tableModel
-                    columns: Isentropic.tableColumns
+                    columns: page.captionedColumns
                     markedRow: Isentropic.sonicRow
                     selectedRow: page.selectedRow
                     firstColumnWidth: 104
-                    // Capped: a numeric column wider than about 190 px pushes
-                    // the figures too far apart to scan across a row.
+                    // The floor for a value column. RFEngineeringTable shares
+                    // any width beyond it across the value columns, so the
+                    // table always spans the panel; the first column stays
+                    // narrow because it holds only M.
                     columnWidth: Math.min(190, Math.max(126,
                                  (width - 104) / Math.max(1, columns.length - 1)))
 
@@ -249,7 +266,9 @@ Item {
                 contentSpacing: Metrics.spacing.s
 
                 readonly property var summary: Isentropic.comparisonSummary
-                readonly property var rowDetail: page.selectedRow >= 0
+                // Only while the comparison is showing: it is made with the
+                // table then, and selecting a row just reads it.
+                readonly property var rowDetail: comparison.visible && page.selectedRow >= 0
                                                  ? Isentropic.comparisonForRow(page.selectedRow) : []
 
                 trailing: Component {

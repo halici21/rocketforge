@@ -37,6 +37,9 @@ Item {
 
     property int section: 0
 
+    // Passed up to the shell, which owns navigation (WorkspaceHost relays it).
+    signal workspaceRequested(int index)
+
     Connections {
         target: RocketPerformance
         function onRequestTab(index) { page.section = index }
@@ -84,7 +87,9 @@ Item {
             Layout.fillHeight: true
             currentIndex: page.section
 
-            PerfCalculator {}
+            PerfCalculator {
+                onWorkspaceRequested: function (index) { page.workspaceRequested(index) }
+            }
             PerfModel {}
             PerfOracle {}
         }

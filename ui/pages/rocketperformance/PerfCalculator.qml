@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
 
 /*
  * The performance workspace: an instrument, not a form.
@@ -36,6 +37,10 @@ import "../../components"
 Item {
     id: view
 
+    // Asks the shell for another workspace -- the chamber state this one
+    // needs is solved in Thermochemistry. Navigation only; nothing is solved.
+    signal workspaceRequested(int index)
+
     readonly property bool compact: width < 1250
     readonly property bool roomy: width > 1700
 
@@ -56,48 +61,14 @@ Item {
     // =====================================================================
     // no chamber state: the workspace refuses rather than estimating one
     // =====================================================================
-    // The refusal is composed, not dumped at the top of a blank page: one
-    // centred column, a measure narrow enough to read, and beneath it a dimmed
-    // unsolved outline so the workspace reads as an instrument waiting for an
-    // input. The outline carries no numbers and no annotations -- there is
-    // nothing solved to annotate, and drawing a plausible reading would be an
-    // invention.
-    Item {
-        anchors.fill: parent
-        visible: !RocketPerformance.hasChamber
-
-        Column {
-            anchors.centerIn: parent
-            width: Math.min(parent.width * 0.60, 820)
-            spacing: Metrics.spacing.h2
-
-            RFEmptyState {
-                width: parent.width
-                tag: "NO CHAMBER STATE"
-                title: "Solve a chamber equilibrium first"
-                body: RocketPerformance.chamberMissingMessage
-                bullets: [
-                    "The ideal rocket model expands a chamber state through a "
-                    + "nozzle. Without one there is nothing to expand.",
-                    "Nothing is estimated in its place."
-                ]
-            }
-
-            PerfNozzleCanvas {
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: Math.min(parent.width * 0.62, 460)
-                height: Math.min(view.height * 0.28, 190)
-                opacity: 0.20
-                placeholder: true
-                hasResult: false
-                stale: true
-            }
-        }
-    }
-
+    // Shown in the workspace itself, not a card in front of it: the input
+    // rail says where the chamber comes from and opens Thermochemistry, the
+    // canvas holds its labelled unsolved outline, the readout rail says what
+    // it will hold, and Calculate waits. No number, contour or annotation
+    // stands in for the chamber state -- there is nothing to expand, and a
+    // plausible reading would be an invention.
     ColumnLayout {
         anchors.fill: parent
-        visible: RocketPerformance.hasChamber
         spacing: Metrics.spacing.m
 
         // =================================================================
@@ -149,6 +120,38 @@ Item {
 
                     // ---- chamber source ----------------------------------
                     RFSectionLabel { text: "Chamber source" }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: !RocketPerformance.hasChamber
+                        spacing: Metrics.spacing.s
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: "No chamber state"
+                            color: Theme.warning
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.body
+                            font.weight: Typography.medium
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            text: RocketPerformance.chamberMissingMessage
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+                        RFButton {
+                            Layout.fillWidth: true
+                            Layout.topMargin: Metrics.spacing.xs
+                            text: "Open Thermochemistry"
+                            variant: "primary"
+                            onClicked: view.workspaceRequested(Navigation.indexOfKey("thermochem"))
+                        }
+                    }
 
                     Text {
                         Layout.fillWidth: true
@@ -368,7 +371,8 @@ Item {
                   RFButton {
                       Layout.fillWidth: true
                       text: "Calculate"
-                      variant: "primary"
+                      variant: RocketPerformance.hasChamber ? "primary" : "default"
+                      enabled: RocketPerformance.hasChamber
                       onClicked: RocketPerformance.calculate()
                   }
                   RFButton {
@@ -430,10 +434,17 @@ Item {
                     clip: true              // RichText does not elide
                 }
 
+                // Before the first Calculate there is a chamber and no
+                // expansion: the canvas draws its own illustrative outline,
+                // under its own weaker label, dimmed. Handing it the unsolved
+                // radius ratio (0) drew a throat wider than the chamber under
+                // the solved-schematic label.
                 PerfNozzleCanvas {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Layout.minimumHeight: 190
+                    placeholder: !RocketPerformance.hasResult
+                    opacity: RocketPerformance.hasResult ? 1 : 0.7
                     radiusRatio: RocketPerformance.solvedRadiusRatio
                     hasResult: RocketPerformance.hasResult
                     stale: RocketPerformance.resultStale
@@ -459,7 +470,15 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     visible: !RocketPerformance.hasResult
-                    text: RocketPerformance.message
+                    // A refusal speaks for itself; before the first solve
+                    // there is no message, so say what the next step is.
+                    text: RocketPerformance.message !== ""
+                          ? RocketPerformance.message
+                          : RocketPerformance.hasChamber
+                            ? "Chamber state ready. Set the nozzle and the ambient on the "
+                              + "left, then Calculate to expand it."
+                            : "No chamber state to expand. Solve one in Thermochemistry; "
+                              + "nothing is estimated in its place."
                     color: RocketPerformance.statusTone === "danger"
                            ? Theme.error : Theme.textMuted
                     font.family: Typography.sans
@@ -526,8 +545,26 @@ Item {
                         visible: RocketPerformance.cfTermsCount > 0
                     }
 
+                    // Until something is solved the rail says what it will
+                    // hold, rather than showing an empty heading.
+                    Text {
+                        Layout.fillWidth: true
+                        visible: !RocketPerformance.hasResult
+                        readonly property string plainText: "Not calculated yet. I_sp, C_f, c* and "
+                              + "c_eff appear here, with the C_f terms."
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
+                        wrapMode: Text.WordWrap
+                        lineHeight: Typography.proseLineHeight
+                        lineHeightMode: Text.ProportionalHeight
+                        color: Theme.textMuted
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.bodySmall
+                    }
+
                     PerfBreakdown {
                         Layout.fillWidth: true
+                        visible: RocketPerformance.cfTermsCount > 0
                         title: "Cf terms"
                         rowModel: RocketPerformance.cfTermsModel
                         stale: RocketPerformance.resultStale

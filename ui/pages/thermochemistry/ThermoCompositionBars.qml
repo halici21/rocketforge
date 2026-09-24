@@ -32,6 +32,7 @@ ColumnLayout {
         // method call, so naming it here is what makes this binding
         // re-evaluate when the model is rebuilt.
         var shown = Thermochemistry.speciesShown
+        var condensed = Thermochemistry.condensedRows
         var model = Thermochemistry.compositionModel
         var column = Thermochemistry.compositionBasis === "mole" ? 2 : 3
         var out = []
@@ -40,7 +41,8 @@ ColumnLayout {
             out.push({
                 name: String(model.data(model.index(i, 0), Qt.DisplayRole)),
                 text: String(model.data(model.index(i, column), Qt.DisplayRole)),
-                value: model.valueAt(i, column)
+                value: model.valueAt(i, column),
+                condensed: condensed.indexOf(i) >= 0
             })
         }
         return out
@@ -95,7 +97,10 @@ ColumnLayout {
                     height: 7
                     radius: 2
                     width: Math.max(1, parent.width * modelData.value / bars.peak)
-                    color: Theme.accent
+                    // Condensed material in the secondary tone the Calculator
+                    // uses for it too; the name's phase suffix says the same
+                    // thing in words, so the distinction is never colour alone.
+                    color: modelData.condensed ? Theme.textSecondary : Theme.accent
                     opacity: 0.8
                 }
             }

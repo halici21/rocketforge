@@ -28,6 +28,96 @@ import "../../components"
 Item {
     id: view
 
+    // 1366x768 leaves the result column about 900x500: the band and the
+    // tiers tighten there rather than pushing the species below the fold.
+    readonly property bool compact: width < 1500 || height < 640
+
+    // The hero row and its context rows, read off the result's own rows by
+    // key -- selection only; every value is the controller's, formatted.
+    function resultRow(key) {
+        var rows = Thermochemistry.resultRows
+        for (var i = 0; i < rows.length; ++i)
+            if (rows[i].key === key)
+                return rows[i]
+        return null
+    }
+    readonly property var heroRow: {
+        Thermochemistry.resultRows          // re-read when the result changes
+        return view.resultRow("temperature")
+    }
+    readonly property var contextCells: {
+        var out = []
+        var keys = ["molar_mass", "gamma"]
+        for (var i = 0; i < keys.length; ++i) {
+            var row = view.resultRow(keys[i])
+            if (row === null)
+                continue
+            out.push({ kind: "label", text: row.label })
+            out.push({ kind: "value", text: row.value })
+            out.push({ kind: "unit", text: row.unit })
+        }
+        return out
+    }
+
+    // A secondary readout: label, value, unit on one line, the qualifier
+    // beneath. For the chamber properties and the advanced quantities, so
+    // neither reads as a wall of hero-sized numbers.
+    component PropertyRow: ColumnLayout {
+        id: propertyRow
+        property var row: ({})
+        spacing: 1
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: Metrics.spacing.s
+
+            Text {
+                Layout.fillWidth: true
+                readonly property string plainText: propertyRow.row.label || ""
+                text: Notation.rich(plainText)
+                textFormat: Notation.textFormat(plainText)
+                elide: Text.ElideRight
+                clip: true                  // RichText does not elide
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.bodySmall
+            }
+            Text {
+                text: propertyRow.row.value !== undefined ? propertyRow.row.value : "—"
+                color: Theme.text
+                font.family: Typography.mono
+                font.pixelSize: Typography.readoutSmall
+                font.weight: Typography.medium
+            }
+            Text {
+                visible: text !== ""
+                text: propertyRow.row.unit || ""
+                color: Theme.textMuted
+                font.family: Typography.sans
+                font.pixelSize: Typography.meta
+            }
+        }
+
+        Text {
+            Layout.fillWidth: true
+            visible: plainText !== ""
+            readonly property string plainText: propertyRow.row.qualifier || ""
+            text: Notation.rich(plainText)
+            textFormat: Notation.textFormat(plainText)
+            elide: Text.ElideRight
+            clip: true
+            color: Theme.textMuted
+            font.family: Typography.sans
+            font.pixelSize: Typography.meta
+        }
+
+        HoverHandler { id: propertyHover }
+        RFTooltip {
+            visible: propertyHover.hovered && (propertyRow.row.help || "") !== ""
+            text: propertyRow.row.help || ""
+        }
+    }
+
     function indexOfKey(options, key) {
         for (var i = 0; i < options.length; ++i)
             if (options[i].key === key)
@@ -572,6 +662,15 @@ Item {
         }
 
         // ---- results --------------------------------------------------------
+        //
+        // The chamber state is the object, read in tiers: the station band
+        // (what went in, the equilibrium chamber, what came out), then Tc,
+        // then M̄ and γ -- and c* where this workspace carries one, a solid
+        // result's CEA equilibrium c* -- then the leading species and the
+        // condensed-phase state with the other chamber properties, and last
+        // the case, the advanced quantities, provenance and diagnostics.
+        // Every value is the result's own; an edited input dims all of it and
+        // relabels none of it.
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -604,15 +703,12 @@ Item {
 
                 // ---- nothing calculated yet ------------------------------
                 //
-                // Analysis Experience R2, section 37: the unsolved state is
-                // not a void with a sentence in it. ThermoChamberSchematic
-                // already renders an honest, dimmed, unannotated structure
-                // when hasResult is false -- it was simply never shown,
-                // because the whole result column was gated behind
-                // hasResult. It is shown here instead, so the workspace
-                // reads as an instrument waiting for an input. No solved
-                // value is invented: every annotation inside the schematic
-                // stays hidden until there is a real result to annotate.
+                // Not a void with a sentence in it, and not a borrowed answer:
+                // the one published reference this workspace ships (NASA CEA
+                // 2002, LOX/LH2) exists to check the pipeline and is never
+                // shown as a result. What is shown is the structure a solve
+                // fills -- the band, unannotated, and the tiers in the order
+                // they will be read, each holding a dash rather than a number.
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -621,9 +717,6 @@ Item {
 
                     ThermoChamberSchematic {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: 210
-                        Layout.minimumHeight: 150
-                        Layout.topMargin: Metrics.spacing.l
                         hasResult: false
                         stale: false
                         // The unsolved outline must not claim a feed topology
@@ -631,9 +724,10 @@ Item {
                         singleStream: Thermochemistry.isSolid
                     }
 
+                    RFDivider { Layout.fillWidth: true }
+
                     ColumnLayout {
                         Layout.fillWidth: true
-                        Layout.leftMargin: Metrics.spacing.xl
                         spacing: Metrics.spacing.xs
 
                         Text {
@@ -646,10 +740,10 @@ Item {
 
                         Text {
                             Layout.fillWidth: true
-                            Layout.maximumWidth: 560
-                            text: "The chamber above is the structure this workspace solves, "
+                            Layout.maximumWidth: 640
+                            text: "The band above is the structure this workspace solves, "
                                   + "not a result. Set the reactants and operating conditions, "
-                                  + "then press Calculate."
+                                  + "then press Calculate. Nothing is estimated before a solve."
                             wrapMode: Text.WordWrap
                             lineHeight: Typography.proseLineHeight
                             lineHeightMode: Text.ProportionalHeight
@@ -657,6 +751,93 @@ Item {
                             font.family: Typography.sans
                             font.pixelSize: Typography.bodySmall
                         }
+
+                        // What the form describes -- labelled as the form, so
+                        // it cannot be read as a result.
+                        Text {
+                            Layout.fillWidth: true
+                            Layout.topMargin: Metrics.spacing.xs
+                            visible: !Thermochemistry.isSolid
+                                     && Thermochemistry.caseHeadline !== ""
+                            readonly property string plainText: "Case in the form:  "
+                                                                + Thermochemistry.caseHeadline
+                            text: Notation.rich(plainText)
+                            textFormat: Notation.textFormat(plainText)
+                            elide: Text.ElideRight
+                            color: Theme.textSecondary
+                            font.family: Typography.mono
+                            font.pixelSize: Typography.meta
+                        }
+                    }
+
+                    // The tiers a solve fills, in the shape they will have:
+                    // Tc alone, its context beside it. Labels only; every
+                    // value is a dash -- unavailable, not zero.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        // A divider inside fills height, which would make this
+                        // row fill the page and sink to its bottom.
+                        Layout.fillHeight: false
+                        Layout.topMargin: Metrics.spacing.s
+                        spacing: Metrics.spacing.h1
+                        opacity: 0.55
+
+                        RFResultValue {
+                            label: "Chamber temperature  T₀"
+                            value: "—"
+                            unit: "K"
+                            scale: "hero"
+                        }
+                        RFDivider {
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: Metrics.hairline
+                            vertical: true
+                        }
+                        GridLayout {
+                            Layout.alignment: Qt.AlignVCenter
+                            columns: 2
+                            columnSpacing: Metrics.spacing.m
+                            rowSpacing: Metrics.spacing.xs
+                            Repeater {
+                                model: ["Mean molar mass  M̄", "—",
+                                        "Isentropic exponent  γ_s", "—"]
+                                delegate: Text {
+                                    required property string modelData
+                                    required property int index
+                                    text: index % 2 === 0 ? Notation.rich(modelData) : modelData
+                                    textFormat: index % 2 === 0 ? Notation.textFormat(modelData)
+                                                                : Text.PlainText
+                                    color: index % 2 === 0 ? Theme.textSecondary : Theme.text
+                                    font.family: index % 2 === 0 ? Typography.sans : Typography.mono
+                                    font.pixelSize: index % 2 === 0 ? Typography.bodySmall
+                                                                    : Typography.readoutMedium
+                                }
+                            }
+                        }
+                        // Under its qualifying title, as when solved.
+                        ColumnLayout {
+                            Layout.alignment: Qt.AlignVCenter
+                            visible: Thermochemistry.isSolid
+                            spacing: Metrics.spacing.xs
+                            RFSectionLabel { text: "CEA equilibrium characteristic velocity" }
+                            RFResultValue {
+                                label: "c*"
+                                value: "—"
+                                unit: "m/s"
+                            }
+                        }
+                        Item { Layout.fillWidth: true }
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        opacity: 0.8
+                        text: "Then the leading product species and the condensed-phase state, "
+                              + "the other chamber properties, and the provenance of the solve."
+                        wrapMode: Text.WordWrap
+                        color: Theme.textMuted
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.meta
                     }
 
                     Item { Layout.fillHeight: true }
@@ -717,268 +898,461 @@ Item {
                 }
 
                 // ---- a result --------------------------------------------
-                ColumnLayout {
+                Flickable {
+                    id: resultView
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     visible: Thermochemistry.hasResult
-                    spacing: Metrics.spacing.m
-
-                    // ---- the object: reactants -> equilibrium chamber -> products
-                    ThermoChamberSchematic {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 210
-                        Layout.minimumHeight: 150
-                        hasResult: Thermochemistry.hasResult
-                        stale: Thermochemistry.resultStale
-                        singleStream: Thermochemistry.isSolid
-                        streamLabel: Thermochemistry.isSolid
-                                     ? view.conditionValue("Formulation") : ""
-                        oxidiserLabel: view.conditionValue("Oxidiser")
-                        fuelLabel: view.conditionValue("Fuel")
-                        // No O/F for a solid: CEA reports 0.000, and the
-                        // absence of a ratio is the honest representation.
-                        ofText: Thermochemistry.isSolid
-                                ? "" : "O/F " + view.conditionValue("O/F")
-                        chamberPressureText: "<i>p</i><sub>c</sub> = " + view.conditionValue("Chamber pressure")
-                        productsSummary: Thermochemistry.condensed.headline
+                    contentWidth: width
+                    contentHeight: readouts.implicitHeight
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    // Shown whenever there is more below, so a tier cut at
+                    // the fold reads as the top of a column, not its end.
+                    ScrollBar.vertical: RFScrollBar {
+                        policy: resultView.contentHeight > resultView.height
+                                ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
                     }
 
-                    // ---- the primary hero: Tc, then the two secondary
-                    // emphasized quantities (mean molar mass, gamma) -- the
-                    // same three rows the controller already marks
-                    // `emphasis: true`, given an actual size tier instead of
-                    // three equally-large numbers with no single lead.
-                    RowLayout {
-                        Layout.fillWidth: true
-                        spacing: Metrics.spacing.xl
+                    ColumnLayout {
+                        id: readouts
+                        width: resultView.width - (resultView.contentHeight > resultView.height ? 12 : 0)
+                        spacing: view.compact ? Metrics.spacing.m : Metrics.spacing.l
 
-                        Repeater {
-                            model: Thermochemistry.resultRows.filter(
-                                       function (r) { return view.isHeroRow(r.key) })
-
-                            delegate: RFResultValue {
-                                required property var modelData
-                                label: modelData.label
-                                value: modelData.value
-                                unit: modelData.unit
-                                scale: modelData.key === "temperature" ? "hero" : "medium"
-                                highlighted: modelData.key === "temperature"
-
-                                HoverHandler { id: heroHover }
-                                RFTooltip {
-                                    visible: heroHover.hovered && modelData.help !== ""
-                                    text: modelData.help
-                                }
-                            }
+                        // ---- the object: reactants -> chamber -> products --
+                        ThermoChamberSchematic {
+                            Layout.fillWidth: true
+                            hasResult: Thermochemistry.hasResult
+                            stale: Thermochemistry.resultStale
+                            singleStream: Thermochemistry.isSolid
+                            streamLabel: Thermochemistry.isSolid
+                                         ? view.conditionValue("Formulation") : ""
+                            oxidiserLabel: view.conditionValue("Oxidiser")
+                            fuelLabel: view.conditionValue("Fuel")
+                            // No O/F for a solid: CEA reports 0.000, and the
+                            // absence of a ratio is the honest representation.
+                            ofText: Thermochemistry.isSolid
+                                    ? "" : "O/F " + view.conditionValue("O/F")
+                            chamberPressureText: "<i>p</i><sub>c</sub> = " + view.conditionValue("Chamber pressure")
+                            productsSummary: Thermochemistry.condensed.headline
                         }
 
-                        Item { Layout.fillWidth: true }
-                    }
+                        // ---- 1  the chamber temperature, and 2  its context -
+                        //
+                        // Tc alone at hero size; M̄ and γ a quiet list beside
+                        // it, never cells of the same weight; c* -- a solid
+                        // result's CEA equilibrium c*, the one c* this
+                        // workspace may show (Solid Propellant Phase 1, D2) --
+                        // under its qualifying title, with what it is not.
+                        RowLayout {
+                            Layout.fillWidth: true
+                            Layout.topMargin: view.compact ? Metrics.spacing.s : Metrics.spacing.l
+                            Layout.bottomMargin: view.compact ? Metrics.spacing.xs : Metrics.spacing.m
+                            spacing: view.compact ? Metrics.spacing.xl : Metrics.spacing.h1
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
 
-                    RFDivider {}
+                            ColumnLayout {
+                                Layout.alignment: Qt.AlignTop
+                                spacing: Metrics.spacing.xs
+                                visible: view.heroRow !== null
 
-                    ThermoResultHeader { Layout.fillWidth: true }
+                                Text {
+                                    readonly property string plainText: view.heroRow ? view.heroRow.label : ""
+                                    text: Notation.rich(plainText)
+                                    textFormat: Notation.textFormat(plainText)
+                                    color: Theme.textSecondary
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.body
+                                }
+                                Row {
+                                    spacing: Metrics.spacing.s
+                                    Text {
+                                        id: heroValue
+                                        text: view.heroRow ? view.heroRow.value : "—"
+                                        color: Theme.accent
+                                        font.family: Typography.mono
+                                        font.pixelSize: Typography.readoutHero
+                                        font.weight: Typography.medium
 
-                    ThermoWarnings { Layout.fillWidth: true }
+                                        HoverHandler { id: heroHover }
+                                        RFTooltip {
+                                            visible: heroHover.hovered && view.heroRow
+                                                     && view.heroRow.help !== ""
+                                            text: view.heroRow ? view.heroRow.help : ""
+                                        }
+                                    }
+                                    Text {
+                                        anchors.baseline: heroValue.baseline
+                                        text: view.heroRow ? view.heroRow.unit : ""
+                                        color: Theme.textMuted
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.body
+                                    }
+                                }
+                            }
 
-                    Flickable {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        contentWidth: width
-                        contentHeight: readouts.implicitHeight
-                        clip: true
-                        boundsBehavior: Flickable.StopAtBounds
-                        ScrollBar.vertical: RFScrollBar {}
+                            RFDivider {
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: Metrics.hairline
+                                vertical: true
+                            }
 
-                        ColumnLayout {
-                            id: readouts
-                            width: parent.width
-                            spacing: Metrics.spacing.l
+                            // The thermodynamic context of that temperature.
+                            GridLayout {
+                                Layout.alignment: Qt.AlignVCenter
+                                columns: 3
+                                columnSpacing: Metrics.spacing.m
+                                rowSpacing: Metrics.spacing.xs
 
-                            // ---- CEA equilibrium characteristic velocity.
-                            // Solid results only. Its own block, deliberately
-                            // not under any "performance" heading: it is a
-                            // chamber-and-throat figure from NASA CEA, not a
-                            // motor figure. Its limitations are stated every
-                            // time it is shown, and a refused c* is shown as
-                            // refused -- in words -- never as a number.
+                                Repeater {
+                                    model: view.contextCells
+                                    delegate: Text {
+                                        required property var modelData
+                                        Layout.alignment: modelData.kind === "value"
+                                                          ? Qt.AlignRight | Qt.AlignBaseline
+                                                          : Qt.AlignLeft | Qt.AlignBaseline
+                                        text: modelData.kind === "label"
+                                              ? Notation.rich(modelData.text) : modelData.text
+                                        textFormat: modelData.kind === "label"
+                                                    ? Notation.textFormat(modelData.text)
+                                                    : Text.PlainText
+                                        color: modelData.kind === "value" ? Theme.text
+                                             : modelData.kind === "label" ? Theme.textSecondary
+                                             : Theme.textMuted
+                                        font.family: modelData.kind === "value"
+                                                     ? Typography.mono : Typography.sans
+                                        font.pixelSize: modelData.kind === "value"
+                                                        ? Typography.readoutMedium
+                                                        : Typography.bodySmall
+                                        font.weight: modelData.kind === "value"
+                                                     ? Typography.medium : Typography.regular
+                                    }
+                                }
+                            }
+
+                            RFDivider {
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: Metrics.hairline
+                                vertical: true
+                                visible: Thermochemistry.solidCStarShown
+                            }
+
                             ColumnLayout {
                                 Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignTop
                                 visible: Thermochemistry.solidCStarShown
-                                spacing: Metrics.spacing.s
+                                spacing: Metrics.spacing.xs
 
                                 RFSectionLabel {
                                     text: "CEA equilibrium characteristic velocity"
                                 }
 
+                                RFResultValue {
+                                    label: "c*"
+                                    value: Thermochemistry.solidCStarText
+                                    unit: Thermochemistry.solidCStarAvailable ? "m/s" : ""
+                                    scale: "medium"
+                                }
+                            }
+
+                            Item {
+                                Layout.fillWidth: true
+                                visible: !Thermochemistry.solidCStarShown
+                            }
+                        }
+
+                        // What that c* is not, every time it is shown: a compact
+                        // row of its own under the tier it belongs to, so the
+                        // top of the page is Tc, not a strip of small print.
+                        RowLayout {
+                            Layout.fillWidth: true
+                            visible: Thermochemistry.solidCStarShown
+                            spacing: Metrics.spacing.m
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
+
+                            Text {
+                                Layout.alignment: Qt.AlignTop
+                                text: "c*"
+                                color: Theme.textSecondary
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.bodySmall
+                                font.italic: true
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 2
+
+                                Text {
+                                    Layout.fillWidth: true
+                                    visible: !Thermochemistry.solidCStarAvailable
+                                    text: "Not available. " + Thermochemistry.solidCStarRefusal
+                                    wrapMode: Text.WordWrap
+                                    color: Theme.warning
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.meta
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: Thermochemistry.solidCStarLimitations.join(" ")
+                                          + (Thermochemistry.solidCStarCondensedNote !== ""
+                                             ? " " + Thermochemistry.solidCStarCondensedNote : "")
+                                    wrapMode: Text.WordWrap
+                                    lineHeight: Typography.proseLineHeight
+                                    lineHeightMode: Text.ProportionalHeight
+                                    color: Theme.textMuted
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.meta
+                                }
+                            }
+                        }
+
+                        ThermoWarnings { Layout.fillWidth: true }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        // ---- 3  composition --------------------------------
+                        // The species that make up most of the mixture, on an
+                        // absolute 0-1 scale so a bar's length is the mole
+                        // fraction itself, beside the condensed-phase state.
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: view.compact ? Metrics.spacing.l : Metrics.spacing.xl
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
+
+                            ColumnLayout {
+                                id: leaders
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 3
+                                Layout.alignment: Qt.AlignTop
+                                spacing: Metrics.spacing.xs
+
+                                readonly property var leading: Thermochemistry.leadingSpecies
+
                                 RowLayout {
                                     Layout.fillWidth: true
-                                    spacing: Metrics.spacing.xl
-
-                                    RFResultValue {
-                                        Layout.alignment: Qt.AlignTop
-                                        label: "c*"
-                                        value: Thermochemistry.solidCStarText
-                                        unit: Thermochemistry.solidCStarAvailable
-                                              ? "m/s" : ""
-                                        scale: "medium"
+                                    RFSectionLabel { text: "Composition" }
+                                    Text {
+                                        Layout.leftMargin: Metrics.spacing.s
+                                        text: "leading species"
+                                        color: Theme.textMuted
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.meta
                                     }
+                                    Item { Layout.fillWidth: true }
+                                    Text {
+                                        readonly property string plainText: "mole fraction X"
+                                        text: Notation.rich(plainText)
+                                        textFormat: Notation.textFormat(plainText)
+                                        color: Theme.textMuted
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.meta
+                                    }
+                                }
 
-                                    ColumnLayout {
+                                Repeater {
+                                    model: leaders.leading.rows
+
+                                    delegate: RowLayout {
+                                        id: speciesRow
+                                        required property var modelData
+                                        required property int index
                                         Layout.fillWidth: true
-                                        spacing: 2
+                                        spacing: Metrics.spacing.m
 
-                                        Text {
-                                            Layout.fillWidth: true
-                                            visible: !Thermochemistry.solidCStarAvailable
-                                            text: "Not available. "
-                                                  + Thermochemistry.solidCStarRefusal
-                                            wrapMode: Text.WordWrap
-                                            color: Theme.warning
-                                            font.family: Typography.sans
-                                            font.pixelSize: Typography.meta
-                                        }
-
-                                        Repeater {
-                                            model: Thermochemistry.solidCStarLimitations
-                                            delegate: Text {
-                                                required property string modelData
-                                                Layout.fillWidth: true
-                                                text: modelData
-                                                wrapMode: Text.WordWrap
+                                        RowLayout {
+                                            Layout.preferredWidth: view.compact ? 120 : 150
+                                            Layout.maximumWidth: view.compact ? 120 : 150
+                                            spacing: Metrics.spacing.xs
+                                            Text {
+                                                text: Notation.species(speciesRow.modelData.label)
+                                                textFormat: Notation.speciesFormat(speciesRow.modelData.label)
+                                                color: Theme.text
+                                                font.family: Typography.mono
+                                                font.pixelSize: speciesRow.index === 0
+                                                                ? Typography.readoutMedium
+                                                                : Typography.readoutSmall
+                                                font.weight: speciesRow.index === 0
+                                                             ? Typography.medium : Typography.regular
+                                            }
+                                            Text {
+                                                visible: speciesRow.modelData.condensed
+                                                text: speciesRow.modelData.phase
                                                 color: Theme.textMuted
                                                 font.family: Typography.sans
                                                 font.pixelSize: Typography.meta
                                             }
                                         }
 
-                                        Text {
+                                        Item {
                                             Layout.fillWidth: true
-                                            text: Thermochemistry.solidCStarCondensedNote
-                                            wrapMode: Text.WordWrap
-                                            color: Theme.textMuted
-                                            font.family: Typography.sans
-                                            font.pixelSize: Typography.meta
-                                        }
-                                    }
-                                }
+                                            implicitHeight: 14
 
-                                RFDivider { Layout.fillWidth: true }
-                            }
-
-                            GridLayout {
-                                Layout.fillWidth: true
-                                columns: Math.max(2, Math.floor(width / 220))
-                                columnSpacing: Metrics.spacing.xl
-                                rowSpacing: Metrics.spacing.l
-
-                                Repeater {
-                                    // The three hero rows (temperature,
-                                    // molar_mass, gamma) already have their
-                                    // own tiered display above -- shown here
-                                    // too would be the same number twice.
-                                    model: Thermochemistry.resultRows.filter(
-                                               function (r) { return !view.isHeroRow(r.key) })
-
-                                    delegate: ColumnLayout {
-                                        required property var modelData
-                                        Layout.fillWidth: true
-                                        spacing: 1
-
-                                        RFResultValue {
-                                            Layout.fillWidth: true
-                                            label: modelData.label
-                                            value: modelData.value
-                                            unit: modelData.unit
-                                            scale: "medium"
-                                            highlighted: false
-
-                                            HoverHandler { id: rowHover }
-                                            RFTooltip {
-                                                visible: rowHover.hovered && modelData.help !== ""
-                                                text: modelData.help
+                                            Rectangle {
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                width: parent.width
+                                                height: 1
+                                                color: Theme.divider
+                                            }
+                                            Rectangle {
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                width: Math.max(1, parent.width
+                                                                   * Math.min(1, speciesRow.modelData.fraction))
+                                                height: speciesRow.index === 0 ? 8 : 6
+                                                radius: 1
+                                                // Condensed material in the
+                                                // secondary tone; the phase is
+                                                // also written beside the name.
+                                                color: speciesRow.modelData.condensed
+                                                       ? Theme.textSecondary : Theme.accent
+                                                opacity: 0.85
                                             }
                                         }
 
                                         Text {
-                                            visible: modelData.qualifier !== ""
-                                            readonly property string plainText: modelData.qualifier
-                                            text: Notation.rich(plainText)
-                                            textFormat: Notation.textFormat(plainText)
-                                            color: Theme.textMuted
-                                            font.family: Typography.sans
-                                            font.pixelSize: Typography.meta
+                                            Layout.preferredWidth: 96
+                                            horizontalAlignment: Text.AlignRight
+                                            text: speciesRow.modelData.text
+                                            color: Theme.text
+                                            font.family: Typography.mono
+                                            font.pixelSize: speciesRow.index === 0
+                                                            ? Typography.readoutMedium
+                                                            : Typography.readoutSmall
                                         }
                                     }
                                 }
+
+                                Text {
+                                    Layout.fillWidth: true
+                                    visible: leaders.leading.shown > 0
+                                    readonly property string plainText: leaders.leading.shown + " of "
+                                          + leaders.leading.total + " species, ΣX = "
+                                          + leaders.leading.sumText
+                                          + ". Every species, on either basis, is on Composition."
+                                    text: Notation.rich(plainText)
+                                    textFormat: Notation.textFormat(plainText)
+                                    wrapMode: Text.WordWrap
+                                    color: Theme.textMuted
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.meta
+                                }
                             }
 
-                            RFDivider {}
+                            RFDivider {
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: Metrics.hairline
+                                vertical: true
+                            }
 
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 2
+                                Layout.alignment: Qt.AlignTop
+                                spacing: Metrics.spacing.s
+
+                                RFSectionLabel { text: "Condensed products" }
+
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: Thermochemistry.condensed.headline
+                                    wrapMode: Text.WordWrap
+                                    color: Theme.text
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.body
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    visible: Thermochemistry.condensed.detail !== ""
+                                    readonly property string plainText: Thermochemistry.condensed.detail
+                                    text: Notation.rich(plainText)
+                                    textFormat: Notation.textFormat(plainText)
+                                    wrapMode: Text.WordWrap
+                                    lineHeight: Typography.proseLineHeight
+                                    lineHeightMode: Text.ProportionalHeight
+                                    color: Theme.textMuted
+                                    font.family: Typography.sans
+                                    font.pixelSize: Typography.meta
+                                }
+                            }
+                        }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        // ---- 4  chamber properties, then the rest ------------
+                        // Secondary on purpose: compact label-value rows, not
+                        // another row of hero numbers.
+                        RFSectionLabel { text: "Chamber properties" }
+
+                        GridLayout {
+                            Layout.fillWidth: true
+                            columns: view.compact ? 2 : 3
+                            columnSpacing: Metrics.spacing.xl
+                            rowSpacing: Metrics.spacing.s
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
+
+                            Repeater {
+                                // The hero and context rows are shown above;
+                                // here they would be the same number twice.
+                                model: Thermochemistry.resultRows.filter(
+                                           function (r) { return !view.isHeroRow(r.key) })
+                                delegate: PropertyRow {
+                                    required property var modelData
+                                    Layout.fillWidth: true
+                                    Layout.preferredWidth: 1
+                                    row: modelData
+                                }
+                            }
+                        }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        ThermoResultHeader {
+                            Layout.fillWidth: true
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
+                        }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: Metrics.spacing.m
                             RFSectionLabel { text: "Advanced" }
-
                             Text {
                                 Layout.fillWidth: true
-                                text: "Quantities whose meaning depends on which chemistry "
-                                      + "assumption they were taken under. They are here rather "
-                                      + "than hidden, and each says which one it is."
-                                wrapMode: Text.WordWrap
-                                lineHeight: Typography.proseLineHeight
-                                lineHeightMode: Text.ProportionalHeight
+                                text: "Quantities whose meaning depends on the chemistry assumption "
+                                      + "they were taken under; each says which one."
+                                elide: Text.ElideRight
                                 color: Theme.textMuted
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.meta
                             }
+                        }
 
-                            GridLayout {
-                                Layout.fillWidth: true
-                                columns: Math.max(2, Math.floor(width / 220))
-                                columnSpacing: Metrics.spacing.xl
-                                rowSpacing: Metrics.spacing.l
+                        GridLayout {
+                            Layout.fillWidth: true
+                            columns: view.compact ? 2 : 3
+                            columnSpacing: Metrics.spacing.xl
+                            rowSpacing: Metrics.spacing.s
+                            opacity: Thermochemistry.resultStale ? 0.55 : 1
 
-                                Repeater {
-                                    model: Thermochemistry.advancedRows
-
-                                    delegate: ColumnLayout {
-                                        required property var modelData
-                                        Layout.fillWidth: true
-                                        spacing: 1
-
-                                        RFResultValue {
-                                            Layout.fillWidth: true
-                                            label: modelData.label
-                                            value: modelData.value
-                                            unit: modelData.unit
-                                            scale: "small"
-
-                                            HoverHandler { id: advHover }
-                                            RFTooltip {
-                                                visible: advHover.hovered && modelData.help !== ""
-                                                text: modelData.help
-                                            }
-                                        }
-
-                                        Text {
-                                            visible: modelData.qualifier !== ""
-                                            readonly property string plainText: modelData.qualifier
-                                            text: Notation.rich(plainText)
-                                            textFormat: Notation.textFormat(plainText)
-                                            color: Theme.textMuted
-                                            font.family: Typography.sans
-                                            font.pixelSize: Typography.meta
-                                        }
-                                    }
+                            Repeater {
+                                model: Thermochemistry.advancedRows
+                                delegate: PropertyRow {
+                                    required property var modelData
+                                    Layout.fillWidth: true
+                                    Layout.preferredWidth: 1
+                                    row: modelData
                                 }
                             }
-
-                            RFDivider {}
-
-                            ThermoProvenance { Layout.fillWidth: true }
-
-                            RFDivider {}
-
-                            ThermoDiagnostics { Layout.fillWidth: true }
                         }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        ThermoProvenance { Layout.fillWidth: true }
+
+                        RFDivider { Layout.fillWidth: true }
+
+                        ThermoDiagnostics { Layout.fillWidth: true }
                     }
                 }
             }

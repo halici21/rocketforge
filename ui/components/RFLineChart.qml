@@ -21,7 +21,10 @@ import "../theme"
  *                     joined - a printed table is a set of values, not a
  *                     continuous function
  *   guides            { value, axis: "x"|"y", label } dashed reference lines
- *   markers           { x, y, label } a solved operating point
+ *   markers           { x, y, label } a solved operating point; an optional
+ *                     slope (+1 rising, -1 falling, the curve's direction
+ *                     through the point) puts the label on the side of the
+ *                     ring the curve does not run through
  *
  * Axis ranges are taken from the data unless xMin/xMax/yMin/yMax are set, so a
  * caller that knows the physical range (0 to 90 degrees, say) can say so and
@@ -644,9 +647,14 @@ Item {
                     // claims a band there too rather than overdrawing one.
                     ctx.fillStyle = Theme.accent
                     var flip = mx > x1 - 90
-                    var markerY = my - 6
+                    // To the right of a rising curve the clear side is below
+                    // it, to the left it is above; the reverse for a falling
+                    // one. With no slope given the label sits above, as ever.
+                    var below = mk.slope !== undefined
+                                && ((mk.slope > 0) !== flip)
+                    var markerY = below ? my + 16 : my - 6
                     if (flip) {
-                        var claimed = claimBand(my - 6, 12, y0 + 2, y1 - 2)
+                        var claimed = claimBand(below ? my + 10 : my - 6, 12, y0 + 2, y1 - 2)
                         if (isNaN(claimed))
                             continue
                         markerY = claimed + 4

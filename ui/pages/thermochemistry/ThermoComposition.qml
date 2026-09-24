@@ -32,101 +32,115 @@ Item {
         spacing: Metrics.spacing.l
 
         // ---- controls ------------------------------------------------------
-        RFPanel {
+        //
+        // A control stack sized to what it holds, with Copy table directly
+        // under the controls it acts with. It used to fill the page height,
+        // which left a tall empty column beside a tall table and the copy
+        // action stranded at the bottom of it. It scrolls only when the window
+        // is too short for the stack itself.
+        ColumnLayout {
             Layout.preferredWidth: Metrics.railWidth - 24
             Layout.minimumWidth: 248
+            Layout.maximumWidth: Metrics.railWidth - 24
             Layout.fillHeight: true
-            title: "Display"
-            contentSpacing: Metrics.spacing.m
+            spacing: 0
 
-
-            // The condensed panel gained two rows -- the exact fraction and
-            // the reporting threshold -- and at 1366x768 that pushed them
-            // below the panel. The controls scroll; the copy action stays
-            // pinned, the same arrangement the Calculator uses for Calculate.
-            Flickable {
+            RFPanel {
+                id: displayPanel
                 Layout.fillWidth: true
-                Layout.fillHeight: true
-                contentWidth: width
-                contentHeight: controls.implicitHeight
-                clip: true
-                boundsBehavior: Flickable.StopAtBounds
-                ScrollBar.vertical: RFScrollBar {}
+                Layout.preferredHeight: Math.min(implicitHeight, parent.height)
+                title: "Display"
+                contentSpacing: Metrics.spacing.m
 
-                ColumnLayout {
-                    id: controls
-                    width: parent.width
-                    spacing: Metrics.spacing.m
+                Flickable {
+                    id: controlsFlick
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.preferredHeight: controls.implicitHeight
+                    contentWidth: width
+                    contentHeight: controls.implicitHeight
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    ScrollBar.vertical: RFScrollBar {
+                        policy: controlsFlick.contentHeight > controlsFlick.height
+                                ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
+                    }
 
-                    RFSectionLabel { text: "Basis" }
+                    ColumnLayout {
+                        id: controls
+                        width: parent.width
+                        spacing: Metrics.spacing.m
 
-                    RFSegmentedControl {
-                        Layout.fillWidth: true
-                        model: ["Mole  X", "Mass  Y"]
-                        currentIndex: Thermochemistry.compositionBasis === "mole" ? 0 : 1
-                        onSelected: function (index) {
-                            Thermochemistry.compositionBasis = index === 0 ? "mole" : "mass"
+                        RFSectionLabel { text: "Basis" }
+
+                        RFSegmentedControl {
+                            Layout.fillWidth: true
+                            model: ["Mole  X", "Mass  Y"]
+                            currentIndex: Thermochemistry.compositionBasis === "mole" ? 0 : 1
+                            onSelected: function (index) {
+                                Thermochemistry.compositionBasis = index === 0 ? "mole" : "mass"
+                            }
                         }
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: "Both bases are carried on every row. Switching changes the view "
+                                  + "and the sort, never the stored composition."
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+
+                        RFDivider {}
+
+                        RFSectionLabel { text: "Display threshold" }
+
+                        RFComboBox {
+                            Layout.fillWidth: true
+                            model: Thermochemistry.traceThresholds.map(function (t) { return t.label })
+                            currentIndex: Thermochemistry.traceThresholdIndex
+                            onCurrentIndexChanged: Thermochemistry.traceThresholdIndex = currentIndex
+                        }
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: "A display filter, not a composition cutoff: hidden species stay "
+                                  + "in the result, and nothing is recalculated."
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+
+                        // Deliberately not two-way bound: binding `text` to the property
+                        // this field writes is the classic QML loop.
+                        RFTextField {
+                            Layout.fillWidth: true
+                            label: "Find species"
+                            placeholder: "OH, CO, H2O, C(gr)"
+                            onTextChanged: Thermochemistry.speciesFilter = text
+                        }
+
                     }
+                }
 
-                    Text {
-                        Layout.fillWidth: true
-                        text: "Both bases are carried on every row. Switching between them changes "
-                              + "what is shown and what the sort is on; it does not recalculate "
-                              + "anything and does not change the stored composition."
-                        wrapMode: Text.WordWrap
-                        lineHeight: Typography.proseLineHeight
-                        lineHeightMode: Text.ProportionalHeight
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
+                RFDivider { Layout.fillWidth: true }
 
-                    RFDivider {}
-
-                    RFSectionLabel { text: "Display threshold" }
-
-                    RFComboBox {
-                        Layout.fillWidth: true
-                        model: Thermochemistry.traceThresholds.map(function (t) { return t.label })
-                        currentIndex: Thermochemistry.traceThresholdIndex
-                        onCurrentIndexChanged: Thermochemistry.traceThresholdIndex = currentIndex
-                    }
-
-                    Text {
-                        Layout.fillWidth: true
-                        text: "Hides rows below the chosen fraction. The result keeps every species "
-                              + "the provider returned — this is a display filter, not a composition "
-                              + "cutoff, and nothing is recalculated when it changes."
-                        wrapMode: Text.WordWrap
-                        lineHeight: Typography.proseLineHeight
-                        lineHeightMode: Text.ProportionalHeight
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
-
-                    // Deliberately not two-way bound: binding `text` to the property
-                    // this field writes is the classic QML loop.
-                    RFTextField {
-                        Layout.fillWidth: true
-                        label: "Find species"
-                        placeholder: "OH, CO, H2O, C(gr)"
-                        onTextChanged: Thermochemistry.speciesFilter = text
-                    }
-
+                RFButton {
+                    Layout.fillWidth: true
+                    text: "Copy table"
+                    variant: "quiet"
+                    enabled: Thermochemistry.hasComposition
+                    onClicked: Thermochemistry.copyComposition()
                 }
             }
 
-            RFDivider { Layout.fillWidth: true }
-
-            RFButton {
-                Layout.fillWidth: true
-                text: "Copy table"
-                variant: "quiet"
-                enabled: Thermochemistry.hasComposition
-                onClicked: Thermochemistry.copyComposition()
-            }
+            Item { Layout.fillHeight: true }
         }
 
         // ---- table ---------------------------------------------------------
