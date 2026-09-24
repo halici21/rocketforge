@@ -338,7 +338,10 @@ def main() -> int:
 
     app = QGuiApplication(sys.argv)
     app.setApplicationName(APP_NAME)
-    app.setApplicationDisplayName(APP_NAME)
+    # The window title is the build-aware title (App.windowTitle). Qt appends the
+    # display name to any title that does not already end with it, so the two
+    # are the same string: "RocketForge", or "RocketForge [DEV 3f7836c]".
+    app.setApplicationDisplayName(current_build().window_title(APP_NAME))
     app.setApplicationVersion(APP_VERSION)
     app.setOrganizationName(ORG_NAME)
 
