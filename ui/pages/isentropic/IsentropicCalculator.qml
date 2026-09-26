@@ -175,6 +175,10 @@ Item {
             Layout.fillHeight: true
             title: "Solve from"
             summary: page.caseSummary
+            // The solved state first: closed while there is a valid result,
+            // open when there is none to show (the inputs need attention).
+            // An explicit open or close by the reader wins from then on.
+            defaultOpen: !Isentropic.valid
             drawerWidth: Math.max(250, Metrics.railWidth - 20)
 
             // Scrolls when the window is shorter than the inputs (the 1366

@@ -692,7 +692,9 @@ Item {
                 yLabel: page.active ? page.active.label : ""
 
                 // The solved state, drawn only where it lies on this curve.
-                markers: page.onCurve
+                // The row checks repeat the guard: when a solve turns invalid
+                // the rows can clear a binding turn before onCurve does.
+                markers: page.onCurve && page.activeRow !== null && page.machRow !== null
                          ? [{ x: Isentropic.mach, y: page.activeRow.raw, slope: page.slope,
                               label: "M " + page.machRow.value + "   "
                                      + page.active.label + " " + page.activeRow.value }]
@@ -809,7 +811,7 @@ Item {
                         if (!Isentropic.valid)
                             return curve + " No solved state to mark."
                         if (!page.inRange)
-                            return curve + " The solved M = " + page.machRow.value
+                            return curve + " The solved M = " + (page.machRow ? page.machRow.value : "—")
                                    + " lies outside the plotted range."
                         if (!page.sameGas)
                             return curve + " The solved state is at γ = "

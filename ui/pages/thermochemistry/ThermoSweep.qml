@@ -363,6 +363,7 @@ Item {
 
             // ---- the overview: four small multiples that fill the view -------
             GridLayout {
+                id: sweepOverview
                 objectName: "sweepOverview"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -378,6 +379,8 @@ Item {
                     Layout.minimumHeight: 180
                     quantity: "temperature"
                     peekGroup: peekGroup
+                    peekStage: view
+                    peekArea: sweepOverview
                     onFocusRequested: view.openFocus(title, "temperature")
                 }
                 ThermoSweepChart {
@@ -387,6 +390,8 @@ Item {
                     Layout.minimumHeight: 180
                     quantity: "molar_mass"
                     peekGroup: peekGroup
+                    peekStage: view
+                    peekArea: sweepOverview
                     onFocusRequested: view.openFocus(title, "molar_mass")
                 }
                 ThermoSweepChart {
@@ -396,6 +401,8 @@ Item {
                     Layout.minimumHeight: 180
                     quantity: "gamma"
                     peekGroup: peekGroup
+                    peekStage: view
+                    peekArea: sweepOverview
                     onFocusRequested: view.openFocus(title, "gamma")
                 }
                 ThermoSweepSpeciesChart {
@@ -404,6 +411,8 @@ Item {
                     Layout.fillHeight: true
                     Layout.minimumHeight: 180
                     peekGroup: peekGroup
+                    peekStage: view
+                    peekArea: sweepOverview
                     onFocusRequested: view.openFocus(title, "species")
                 }
             }

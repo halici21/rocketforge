@@ -83,14 +83,25 @@ Item {
         easing.type: Easing.InCubic
     }
 
+    function escapeFocus() {
+        var used = loader.item && loader.item.handleEscape ? loader.item.handleEscape() : false
+        if (!used)
+            root.hide()
+    }
+    // The overlay takes keyboard focus when it opens, so Esc arrives here as
+    // a key; the Shortcut covers the case where focus has moved elsewhere in
+    // the window. (After a peek had lifted and handed back a plot, the
+    // Shortcut alone was not delivered -- measured, visual_polish stress.)
+    Keys.onEscapePressed: function (event) {
+        if (root.opened) {
+            root.escapeFocus()
+            event.accepted = true
+        }
+    }
     Shortcut {
         sequence: "Esc"
-        enabled: root.opened
-        onActivated: {
-            var used = loader.item && loader.item.handleEscape ? loader.item.handleEscape() : false
-            if (!used)
-                root.hide()
-        }
+        enabled: root.opened && !root.activeFocus
+        onActivated: root.escapeFocus()
     }
 
     // The context, receded: dimmed, and not clickable through.

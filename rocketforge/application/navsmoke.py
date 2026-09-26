@@ -26,6 +26,11 @@ A route is a comma-separated list of steps:
     settings:<open|close>  the Settings menu, which shows the build identity
     view:<2d|3d>    the current page's 2D / 3D view switch, as a click on it
     expect3d:<yes|no>  a Qt Quick 3D scene exists (yes) or none does (no)
+    backpressure:<r>   Nozzle Lab's back pressure p_b/p0, as typed in its field
+    expectshock:<yes|no>  the 3D shock plane is shown (yes) or absent (no)
+    sweep           Thermochemistry runSweep()
+    peekfocus       the first plot peek on screen opens, then asks for Focus
+    expectfocus:<yes|no>  a Focus overlay is open (yes) or none is (no)
 
 A solid or biprop step fails the run unless it ends in the mode it names with a
 result -- or, with no chemistry provider, at least in that mode.
@@ -66,11 +71,12 @@ class Route:
         self._probe.setData(
             b'import QtQuick\nimport RocketForge 1.0\nimport "data" as Data\n'
             b'QtObject { property var nav: Data.Navigation;'
-            b' property var thermo: Thermochemistry; property var perf: RocketPerformance }',
+            b' property var thermo: Thermochemistry; property var perf: RocketPerformance;'
+            b' property var nozzle: Nozzle }',
             QUrl.fromLocalFile(str(ui_dir / "_navigation_smoke_probe.qml")))
         self._holder = self._probe.create()
-        self.nav, self.thermo, self.perf = (self._holder.property(name)
-                                            for name in ("nav", "thermo", "perf"))
+        self.nav, self.thermo, self.perf, self.nozzle = (
+            self._holder.property(name) for name in ("nav", "thermo", "perf", "nozzle"))
         self.specs = [spec for spec in specs if spec]
         self.steps = [(spec, self._step(spec)) for spec in self.specs]
 
@@ -168,6 +174,52 @@ class Route:
                     raise RuntimeError(f"{len(scenes)} Qt Quick 3D scene(s); expected "
                                        f"{'one' if wanted else 'none'}")
             return expect3d
+        if kind == "backpressure":
+            ratio = float(arg)
+            return lambda: self.nozzle.setProperty("backPressureRatio", ratio)
+        if kind == "expectshock":
+            if arg not in ("yes", "no"):
+                raise ValueError(f"expectshock:{arg} -- use expectshock:yes or expectshock:no")
+
+            def expectshock(wanted=arg == "yes"):
+                from PySide6.QtCore import QObject
+                planes = [child for child in window.findChildren(QObject)
+                          if child.objectName() == "station:shock-plane"]
+                if not planes:
+                    raise RuntimeError("no 3D view with a shock plane is loaded")
+                shown = any(bool(plane.property("visible")) for plane in planes)
+                if shown != wanted:
+                    raise RuntimeError(f"shock plane shown={shown}; expected "
+                                       f"{'shown' if wanted else 'absent'}")
+            return expectshock
+        if kind == "sweep":
+            return lambda: QMetaObject.invokeMethod(thermo, "runSweep")
+        if kind == "peekfocus":
+            def peekfocus():
+                from PySide6.QtCore import QObject
+                peeks = [child for child in window.findChildren(QObject)
+                         if child.metaObject().className().startswith("RFPlotPeek")
+                         and child.isVisible()]
+                if not peeks:
+                    raise RuntimeError("no plot peek on screen")
+                QMetaObject.invokeMethod(peeks[0], "startPeek")
+                if not peeks[0].property("peeking"):
+                    raise RuntimeError("the plot peek did not open")
+                QMetaObject.invokeMethod(peeks[0], "requestFocus")
+            return peekfocus
+        if kind == "expectfocus":
+            if arg not in ("yes", "no"):
+                raise ValueError(f"expectfocus:{arg} -- use expectfocus:yes or expectfocus:no")
+
+            def expectfocus(wanted=arg == "yes"):
+                from PySide6.QtCore import QObject
+                opened = [child for child in window.findChildren(QObject)
+                          if child.metaObject().className().startswith("RFFocusOverlay")
+                          and child.property("opened")]
+                if bool(opened) != wanted:
+                    raise RuntimeError(f"{len(opened)} Focus overlay(s) open; expected "
+                                       f"{'one' if wanted else 'none'}")
+            return expectfocus
         if kind == "biprop":
             def biprop():
                 thermo.setProperty("formulationKind", "bipropellant")

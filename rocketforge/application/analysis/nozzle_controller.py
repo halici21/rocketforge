@@ -100,6 +100,10 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._selection.changed.connect(self.selectionReadoutChanged)
         self.resultsChanged.connect(self.selectionReadoutChanged)
         self.playbackChanged.connect(self.selectionReadoutChanged)
+        # playbackViewport is the solved viewport outside playback: every new
+        # solve must re-publish it, or the 3D view keeps drawing the previous
+        # solution (a shock plane after the shock is gone).
+        self.resultsChanged.connect(self.playbackChanged)
         self.tableChanged.connect(self.selectionReadoutChanged)
         self._recalculate()
         self._regenerate_table()

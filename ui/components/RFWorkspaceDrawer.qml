@@ -15,11 +15,31 @@ import "../theme"
  *
  * The drawer owns `open` (one writer): the handle and the collapse button set
  * it, and an owner that must open it writes `drawer.open = true`.
+ *
+ * Default versus choice: an owner may bind `defaultOpen` (e.g. "open while
+ * there is no valid result"). Until the reader opens or closes the drawer
+ * themselves, `open` follows that default; after the first explicit choice
+ * (handle, collapse button -- `setOpenByUser`), the choice wins for the life
+ * of this drawer (the page's lifecycle). Owners that never set
+ * `defaultOpen` see no change.
  */
 Item {
     id: root
 
     property bool open: true
+    // undefined: no default policy (the owner sets `open` itself)
+    property var defaultOpen: undefined
+    property bool userChosen: false
+    function setOpenByUser(value) {
+        root.userChosen = true
+        root.open = value
+    }
+    function applyDefault() {
+        if (!root.userChosen && root.defaultOpen !== undefined && root.open !== !!root.defaultOpen)
+            root.open = !!root.defaultOpen
+    }
+    onDefaultOpenChanged: root.applyDefault()
+    Component.onCompleted: root.applyDefault()
     property string title: "Inputs"
     property string summary: ""
     property string edge: "left"            // left | right
@@ -46,7 +66,7 @@ Item {
         summary: root.summary
         edge: root.edge
         open: false
-        onToggled: root.open = true
+        onToggled: root.setOpenByUser(true)
     }
 
     Rectangle {
@@ -103,7 +123,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.edge === "left" ? "‹" : "›"
                 tooltip: "Hide " + root.title.toLowerCase() + " -- the handle keeps the case in view"
-                onClicked: root.open = false
+                onClicked: root.setOpenByUser(false)
             }
         }
 

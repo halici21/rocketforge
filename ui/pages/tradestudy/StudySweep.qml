@@ -232,12 +232,23 @@ Item {
                 Repeater {
                     model: view.allSeries
 
-                    delegate: RFPanel {
-                        id: chartPanel
+                    // The slot in the column (it never changes size) and, in
+                    // it, the curve's panel -- the item a peek lifts.
+                    delegate: Item {
+                        id: curveCell
                         required property var modelData
                         required property int index
                         Layout.fillWidth: true
                         Layout.preferredHeight: chartScroll.perChartHeight
+
+                        opacity: curvePeek.receded ? 0.45 : 1
+                        Behavior on opacity { NumberAnimation { duration: Motion.fast } }
+
+                    RFPanel {
+                        id: chartPanel
+                        readonly property var modelData: curveCell.modelData
+                        readonly property int index: curveCell.index
+                        anchors.fill: parent
                         chromeless: true
                         title: modelData.label
                               + (TradeStudy.sweepScaledToPeak
@@ -249,18 +260,6 @@ Item {
                         readonly property color curveColor:
                             Theme.series[index % Theme.series.length]
 
-                        opacity: curvePeek.receded ? 0.45 : 1
-                        Behavior on opacity { NumberAnimation { duration: Motion.fast } }
-
-                        // Over the whole panel, outside its layout.
-                        RFPlotPeek {
-                            id: curvePeek
-                            parent: chartPanel
-                            group: peekGroup
-                            onFocusRequested: focusOverlay.show(
-                                chartPanel.title, "Same evaluated study, full size · the chosen design is the crosshair",
-                                focusCurve, { series: chartPanel.modelData, color: chartPanel.curveColor })
-                        }
 
                         RFLineChart {
                             id: chart
@@ -298,6 +297,21 @@ Item {
                                         TradeStudy.toggleSelection(found.index)
                                 }
                             }
+                        }
+                    }
+
+                        // Over the whole slot: peek (the panel lifted, taller;
+                        // the column is full width, so it grows in height) and
+                        // focus.
+                        RFPlotPeek {
+                            id: curvePeek
+                            group: peekGroup
+                            content: chartPanel
+                            stage: view
+                            area: chartScroll
+                            onFocusRequested: focusOverlay.show(
+                                chartPanel.title, "Same evaluated study, full size · the chosen design is the crosshair",
+                                focusCurve, { series: chartPanel.modelData, color: chartPanel.curveColor })
                         }
                     }
                 }

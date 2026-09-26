@@ -21,6 +21,9 @@ Item {
 
     property var speciesValue: []
     property QtObject peekGroup: null
+    // where the peek may draw (the page) and the region it stays inside
+    property Item peekStage: null
+    property Item peekArea: null
     signal focusRequested()
     readonly property string title: "Species vs O/F"
     readonly property real selectedOf: Thermochemistry.sweepSelection.active
@@ -41,6 +44,7 @@ Item {
     readonly property var palette: Theme.series
 
     RFPanel {
+        id: tilePanel
         anchors.fill: parent
         title: "Species vs O/F"
         contentSpacing: Metrics.spacing.xs
@@ -127,6 +131,9 @@ Item {
     RFPlotPeek {
         id: peek
         group: chart.peekGroup
+        content: tilePanel
+        stage: chart.peekStage
+        area: chart.peekArea
         onFocusRequested: chart.focusRequested()
     }
 }

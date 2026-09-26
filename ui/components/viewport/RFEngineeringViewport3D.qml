@@ -286,9 +286,11 @@ Item {
                     pickable: true
                     position: Qt.vector3d(modelData.x, 0, 0)
                     // Selection is carried by line weight as well as colour.
+                    // The shock's ring is its perimeter: the champagne of the
+                    // shock station lives here, not in the plane's fill.
                     geometry: RFRingGeometry {
                         radius: ring.modelData.r
-                        tube: root.span * (ring.selected ? 0.0065 : 0.0038)
+                        tube: root.span * (ring.selected ? 0.0065 : ring.isShock ? 0.0042 : 0.0038)
                     }
                     materials: PrincipledMaterial {
                         baseColor: ring.selected || ring.isShock ? Theme.accent
@@ -325,14 +327,26 @@ Item {
                 source: "#Cylinder"
                 scale: Qt.vector3d(stationR / 50, root.span * 0.00002, stationR / 50)
                 opacity: root.shock !== null ? 1 : 0
-                visible: opacity > 0
+                // gone, not merely transparent, once there is no shock: no
+                // stale plane, and nothing left to pick
+                visible: opacity > 0 && (root.shock !== null || fading.running)
                 Behavior on stationX { NumberAnimation { duration: Motion.data; easing.type: Motion.standard } }
                 Behavior on stationR { NumberAnimation { duration: Motion.data; easing.type: Motion.standard } }
-                Behavior on opacity { NumberAnimation { duration: Motion.data } }
+                Behavior on opacity { NumberAnimation { id: fading; duration: Motion.data } }
+                // A station marker, not a body: a thin, faint pane whose
+                // edge (the ring above) carries the accent. The fill is a
+                // tint of the accent kept low enough that the nozzle and the
+                // flow cues read through it -- a little stronger on the light
+                // theme, where a faint warm tint on a light wall disappears --
+                // and it steps up modestly when the shock station is
+                // selected. Never an opaque disk; never a finite thickness.
+                readonly property bool stationSelected: root.selectedKey === "shock"
+                readonly property real fillOpacity: (Theme.isDark ? 0.10 : 0.16)
+                                                    + (stationSelected ? 0.06 : 0)
                 materials: PrincipledMaterial {
                     baseColor: Theme.accent
                     lighting: PrincipledMaterial.NoLighting
-                    opacity: 0.32
+                    opacity: shockPlane.fillOpacity
                     cullMode: Material.NoCulling
                 }
             }
