@@ -20,9 +20,15 @@ Checks, each a function so the tests can drive its failure cases:
                     same commit -- the identity survives a copied .exe
     runtime         the executable, asked with --build-info, reports itself as
                     that packaged build: the identity the user will see
+    3d runtime      the package carries exactly the Qt Quick 3D files the 3D view
+                    loads, and no other file of the PySide6-Addons wheel
+                    (packaging/qt3d_runtime.py)
     smoke           (--smoke) the bundled thermochemistry provider, the
                     Operating point -> Thermochemistry route that once crashed,
-                    and the science self-test, all inside the package
+                    and the science self-test, all inside the package; and,
+                    when the package carries Qt Quick 3D, Rocket Performance's
+                    3D view opened and closed on the real windows platform
+                    (the offscreen platform cannot run Qt Quick 3D)
 """
 
 from __future__ import annotations
@@ -42,6 +48,9 @@ sys.path.insert(0, str(ROOT))
 
 from rocketforge.application import build_identity  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import qt3d_runtime  # noqa: E402
+
 EXE_NAME = "RocketForge.exe"
 
 #: The route the navigation crash took, run twice through: Isentropic ->
@@ -51,6 +60,15 @@ CRASH_ROUTE = ("solve,page:isentropic,section:0,page:obliqueshock,section:0,sect
                "page:nozzlelab,section:0,section:1,page:thermochem,section:1,"
                "page:nozzlelab,section:1,page:thermochem,page:nozzlelab,section:1,"
                "page:thermochem")
+
+#: Rocket Performance solved and its 3D view opened -- a scene must exist --
+#: then, with the flow cues playing, a solid chamber that Rocket Performance
+#: refuses (the snapshot goes invalid under the live particle system: this
+#: once crashed), the bipropellant case solved again, and the view closed --
+#: the scene must be gone.
+VIEWPORT_ROUTE = ("solve,page:performance,view:3d,expect3d:yes,capture:viewport3d,"
+                  "solid:rp1311-example5,solve,expect3d:yes,biprop,solve,expect3d:yes,"
+                  "view:2d,expect3d:no")
 
 
 def git_head(repo: Path) -> str:
@@ -163,8 +181,9 @@ def check_version_resource(package: Path, manifest: dict) -> list[str]:
     return failures
 
 
-def _run_packaged(package: Path, *args: str, timeout: float = 300) -> int:
-    env = dict(os.environ, QT_QPA_PLATFORM="offscreen")
+def _run_packaged(package: Path, *args: str, timeout: float = 300,
+                  platform: str = "offscreen") -> int:
+    env = dict(os.environ, QT_QPA_PLATFORM=platform)
     env.setdefault("QT_QPA_FONTDIR", "C:/Windows/Fonts")
     done = subprocess.run([str(package / EXE_NAME), *args], cwd=package, env=env,
                           capture_output=True, timeout=timeout)
@@ -203,7 +222,18 @@ def check_smoke(package: Path) -> list[str]:
         code = _run_packaged(package, "--selftest-science", str(science))
         if code != 0:
             failures.append(f"smoke: --selftest-science exited {code}")
+        if (package / "_internal" / "PySide6" / "QtQuick3D.pyd").is_file():
+            viewport = Path(folder) / "viewport.json"
+            code = _run_packaged(package, "--selftest-navigation", str(viewport),
+                                 VIEWPORT_ROUTE, "--window", "1280x800", platform="windows")
+            if code != 0:
+                failures.append(f"smoke: the 3D view route exited {code} "
+                                f"({viewport.read_text(encoding='utf-8')[:300] if viewport.is_file() else 'no report'})")
     return failures
+
+
+def check_3d_runtime(package: Path) -> list[str]:
+    return qt3d_runtime.check_package(package / "_internal", qt3d_runtime.addons_files())
 
 
 def verify(package: Path, expected_commit: str, repo: Path, *, smoke: bool,
@@ -217,6 +247,7 @@ def verify(package: Path, expected_commit: str, repo: Path, *, smoke: bool,
     if manifest is None:
         return failures
     failures += check_pins(manifest, repo)
+    failures += check_3d_runtime(package)
     failures += check_version_resource(package, manifest)
     failures += check_runtime(package, manifest)
     if smoke:

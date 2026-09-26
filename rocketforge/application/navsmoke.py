@@ -24,6 +24,8 @@ A route is a comma-separated list of steps:
     size:<w>x<h>    resize the window, e.g. size:1366x768
     capture:<name>  save the window as <name>.png beside the report
     settings:<open|close>  the Settings menu, which shows the build identity
+    view:<2d|3d>    the current page's 2D / 3D view switch, as a click on it
+    expect3d:<yes|no>  a Qt Quick 3D scene exists (yes) or none does (no)
 
 A solid or biprop step fails the run unless it ends in the mode it names with a
 result -- or, with no chemistry provider, at least in that mode.
@@ -134,6 +136,34 @@ class Route:
                 QMetaObject.invokeMethod(thermo, "calculate")
                 self._require_result("solid")
             return solid
+        if kind == "view":
+            if arg not in ("2d", "3d"):
+                raise ValueError(f"view:{arg} -- use view:2d or view:3d")
+
+            def view(mode=arg):
+                from PySide6.QtCore import Q_ARG, QMetaObject, QObject
+                switches = [child for child in window.findChildren(QObject)
+                            if child.metaObject().indexOfSignal("modeRequested(QString)") >= 0
+                            and child.metaObject().indexOfProperty("show3D") >= 0]
+                if not switches:
+                    raise RuntimeError("no 2D / 3D view switch on this page")
+                if mode == "3d" and not switches[0].property("threeDAvailable"):
+                    raise RuntimeError("the 3D view is unavailable: "
+                                       + str(switches[0].property("unavailableReason")))
+                QMetaObject.invokeMethod(switches[0], "modeRequested", Q_ARG(str, mode))
+            return view
+        if kind == "expect3d":
+            if arg not in ("yes", "no"):
+                raise ValueError(f"expect3d:{arg} -- use expect3d:yes or expect3d:no")
+
+            def expect3d(wanted=arg == "yes"):
+                from PySide6.QtCore import QObject
+                scenes = [child for child in window.findChildren(QObject)
+                          if child.metaObject().className().startswith("QQuick3DViewport")]
+                if bool(scenes) != wanted:
+                    raise RuntimeError(f"{len(scenes)} Qt Quick 3D scene(s); expected "
+                                       f"{'one' if wanted else 'none'}")
+            return expect3d
         if kind == "biprop":
             def biprop():
                 thermo.setProperty("formulationKind", "bipropellant")
@@ -188,7 +218,12 @@ class Route:
 
 
 def run_navigation_smoke(argv, configure, build_engine, ui_dir) -> int:
-    """``<out.json> <route> [--step-ms MS]``. 0 clean; 2 with warnings; else failed."""
+    """``<out.json> <route> [--step-ms MS] [--window WxH]``. 0 clean; 2 with warnings; else failed.
+
+    ``--window`` sizes the window before it is shown (default 1920x1080). A run
+    on a real platform -- the 3D view needs one -- uses a size that fits the
+    screen, so the window manager has no geometry to correct and warn about.
+    """
     from pathlib import Path
 
     from PySide6.QtCore import QUrl, QtMsgType, qInstallMessageHandler
@@ -198,6 +233,9 @@ def run_navigation_smoke(argv, configure, build_engine, ui_dir) -> int:
         return 64
     out, specs = Path(argv[0]), argv[1].split(",")
     step_ms = int(argv[argv.index("--step-ms") + 1]) if "--step-ms" in argv else 600
+    width, height = 1920, 1080
+    if "--window" in argv:
+        width, height = (int(v) for v in argv[argv.index("--window") + 1].lower().split("x"))
 
     warnings: list[str] = []
 
@@ -215,8 +253,8 @@ def run_navigation_smoke(argv, configure, build_engine, ui_dir) -> int:
                        encoding="utf-8")
         return 3
     window = engine.rootObjects()[0]
-    window.setProperty("width", 1920)
-    window.setProperty("height", 1080)
+    window.setProperty("width", width)
+    window.setProperty("height", height)
     window.setProperty("appMode", "analysis")
     try:
         route = Route(engine, window, Path(ui_dir), specs, capture_dir=out.parent)

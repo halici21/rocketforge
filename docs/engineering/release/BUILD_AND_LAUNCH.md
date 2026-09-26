@@ -67,8 +67,12 @@ build_exe.bat
 ```
 
 The only build command. It runs `packaging\build_release.py` with
-`.venv-cea` (requirements.txt, requirements-thermochemistry.txt and
-requirements-fluids.txt installed; it installs PyInstaller if missing).
+`.venv-cea` (requirements.txt, requirements-thermochemistry.txt,
+requirements-fluids.txt and requirements-3d.txt installed; it installs
+PyInstaller if missing). Of PySide6-Addons the package keeps only the Qt Quick
+3D files the 3D view loads (`packaging/qt3d_runtime.py`, about 12 MB); the
+verifier checks that, and its smoke run opens Rocket Performance's 3D view
+inside the package on the windows platform.
 
 1. **Preconditions**, all of them, or no package:
    - a git checkout on `master`;

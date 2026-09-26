@@ -46,8 +46,16 @@ Item {
     // The drawing's own type size: the annotation token by default, the
     // axis-title step where the nozzle is the page's dominant object.
     property real labelSize: Typography.chartAnnotation
+    // The selected station ("throat", "shock", "exit"), shared with the
+    // charts and the inspector. Drawn heavier and in the accent -- weight as well
+    // as colour -- and never moves a line.
+    property string selectedKey: ""
+
+    // A click near a station line selects that station.
+    signal stationClicked(string key, real x)
 
     implicitHeight: 190
+    onSelectedKeyChanged: shape.requestPaint()
 
     onWallChanged: shape.requestPaint()
     onStationsChanged: shape.requestPaint()
@@ -98,6 +106,8 @@ Item {
         readonly property color fillColor: Theme.surfaceElevated
         readonly property color markColor: Theme.textMuted
         readonly property color axisColor: Theme.divider
+        // Where each station was drawn, for click hit-testing.
+        property var hitMarks: []
 
         onWallColorChanged: requestPaint()
         onWidthChanged: requestPaint()
@@ -245,6 +255,11 @@ Item {
             function px(v) { return g.originX + (v - xmin) * g.scale }
             function py(r) { return g.axisY - r * g.scale }
 
+            var hits = [{ key: "exit", x: px(xmax), value: xmax }]
+            for (var hm = 0; hm < marks.length; ++hm)
+                hits.push({ key: marks[hm].label, x: px(marks[hm].value), value: marks[hm].value })
+            shape.hitMarks = hits
+
             // The drawn wall's own radius at x: the same straight segments
             // the outline below is stroked with, read back so that a station
             // line meets the wall it is drawn on. Drawing, not physics.
@@ -296,10 +311,11 @@ Item {
                 var firstY = mark.second !== "" ? lastY - lineStep : lastY
                 var topY = firstY - size
 
-                ctx.strokeStyle = mark.isShock ? Theme.accent : markColor
-                ctx.globalAlpha = mark.isShock ? 0.95 : 0.6
-                ctx.lineWidth = mark.isShock ? 2 : 1
-                if (!mark.isShock)
+                var chosenMark = mark.label === root.selectedKey
+                ctx.strokeStyle = mark.isShock || chosenMark ? Theme.accent : markColor
+                ctx.globalAlpha = mark.isShock || chosenMark ? 0.95 : 0.6
+                ctx.lineWidth = chosenMark ? 3 : mark.isShock ? 2 : 1
+                if (!mark.isShock && !chosenMark)
                     ctx.setLineDash([3, 3])
                 ctx.beginPath()
                 ctx.moveTo(item.x, py(local))
@@ -318,15 +334,31 @@ Item {
                 ctx.globalAlpha = 1
 
                 var anchorX = item.side === "right" ? item.x + 6 : item.x - 6
-                ctx.font = sansFont
+                // The selected station's label is marked as well as its line:
+                // the accent and a heavier weight, so a selected throat does not
+                // read as a second shock.
+                var chosenLabel = mark.label === root.selectedKey
+                ctx.font = chosenLabel ? "600 " + sansFont : sansFont
                 ctx.textAlign = item.side === "right" ? "left" : "right"
-                ctx.fillStyle = mark.isShock ? Theme.accent : markColor
+                ctx.fillStyle = mark.isShock || chosenLabel ? Theme.accent : markColor
                 ctx.fillText(mark.label, anchorX, firstY)
+                ctx.font = sansFont
                 if (mark.second !== "") {
-                    ctx.fillStyle = mark.isShock ? Theme.accent : Theme.textSecondary
+                    ctx.fillStyle = mark.isShock || chosenLabel ? Theme.accent : Theme.textSecondary
                     root.drawNotation(ctx, mark.second, anchorX, lastY, size,
                                       Typography.mono, ctx.textAlign)
                 }
+            }
+
+            // The exit plane, when it is the selection.
+            if (root.selectedKey === "exit") {
+                var er = wallAt(xmax)
+                ctx.strokeStyle = Theme.accent
+                ctx.lineWidth = 3
+                ctx.beginPath()
+                ctx.moveTo(px(xmax), py(er))
+                ctx.lineTo(px(xmax), py(-er))
+                ctx.stroke()
             }
 
             ctx.font = sansFont
@@ -341,6 +373,20 @@ Item {
         Connections {
             target: Theme
             function onModeChanged() { shape.requestPaint() }
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        enabled: root.hasResult
+        onClicked: function (m) {
+            var best = null, bestD = 10
+            for (var i = 0; i < shape.hitMarks.length; ++i) {
+                var d = Math.abs(shape.hitMarks[i].x - m.x)
+                if (d < bestD) { bestD = d; best = shape.hitMarks[i] }
+            }
+            if (best !== null)
+                root.stationClicked(best.key, best.value)
         }
     }
 }

@@ -26,6 +26,10 @@ Item {
     property int quantityIndex: 0
     property bool logScale: false
 
+    // The shared station selection: the Regime map's drawing, these charts
+    // and the inspector read and write the same one.
+    NozzleLinks { id: links }
+
     readonly property var active: quantities.length > 0
                                   ? quantities[Math.min(quantityIndex, quantities.length - 1)]
                                   : null
@@ -136,11 +140,18 @@ Item {
                 }
             }
 
+            RFPlotToolbar {
+                interaction: interact
+            }
+
             RFLineChart {
                 id: chart
+                objectName: "nozzleDistributionChart"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.minimumHeight: 240
+                builtInHover: false
+                dataKey: page.active ? page.active.key : ""
 
                 series: page.series
                 // Throat always; shock only while there is one to mark.
@@ -153,6 +164,24 @@ Item {
                     target: Nozzle
                     function onResultsChanged() { chart.repaint() }
                     function onInputsChanged() { chart.repaint() }
+                }
+
+                // Linked: a click near a station selects the station (and the
+                // drawing highlights it); the selection draws here as a
+                // crosshair with a ring on each series' real sample.
+                RFPlotInteraction {
+                    id: interact
+                    chart: chart
+                    selectionX: links.selectedX
+                    selectionLabel: Nozzle.selection.kind === "station" ? "" : Nozzle.selection.label
+                    xSymbol: "x"
+                    quantity: page.active ? page.active.key : ""
+                    unit: page.active ? page.active.unit : ""
+                    seriesLabels: Nozzle.hasShock ? ["upstream", "downstream"] : [""]
+                    onPointSelected: function (x, y, s, label) {
+                        links.selectNear(x, y, page.active ? page.active.label : "", "chart")
+                    }
+                    onSelectionCleared: links.clear()
                 }
             }
         }
@@ -175,6 +204,7 @@ Item {
                 id: contour
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                builtInHover: false
 
                 series: Nozzle.contour.map(function (part) {
                     return { points: part.points, color: Theme.textSecondary, width: 1.4 }
@@ -188,6 +218,18 @@ Item {
                     target: Nozzle
                     function onInputsChanged() { contour.repaint() }
                     function onResultsChanged() { contour.repaint() }
+                }
+
+                RFPlotInteraction {
+                    chart: contour
+                    selectionX: links.selectedX
+                    selectionLabel: Nozzle.selection.kind === "station" ? "" : Nozzle.selection.label
+                    xSymbol: "x"
+                    quantity: "wall_radius"
+                    unit: "m"
+                    seriesLabels: ["wall", ""]
+                    onPointSelected: function (x, y, s, label) { links.selectAxial(x, "chart") }
+                    onSelectionCleared: links.clear()
                 }
             }
         }

@@ -31,6 +31,7 @@ Item {
             return
         page.selectedRow = row
         Isentropic.selectRow(row)
+        Isentropic.selectTableRow(row)
         table.scrollToRow(row)
     }
 
@@ -227,6 +228,7 @@ Item {
                     onRowClicked: function (row) {
                         page.selectedRow = row
                         Isentropic.selectRow(row)
+                        Isentropic.selectTableRow(row)
                     }
                     onRowActivated: function (row) {
                         Isentropic.setMachAndSolve(Isentropic.tableModel.machAt(row))

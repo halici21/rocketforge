@@ -180,6 +180,33 @@ a = Analysis(
     optimize=0,
 )
 
+
+# ---------------------------------------------------------------------------
+# Qt Quick 3D, and nothing else from PySide6-Addons.
+#
+# With requirements-3d.txt installed, PySide6's hooks collect the whole Addons
+# wheel's QML and runtime -- some 400 MB, almost all of it never loaded. The
+# package keeps the Qt Quick 3D files the 3D view was measured to load and
+# drops every other file that wheel owns (packaging/qt3d_runtime.py; checked
+# again by packaging/verify_package.py). Without the wheel there is nothing to
+# trim: the package runs, and the 3D choice says why it is unavailable.
+# ---------------------------------------------------------------------------
+sys.path.insert(0, SPECPATH)
+import qt3d_runtime  # noqa: E402
+
+_addons = qt3d_runtime.addons_files()
+if _addons:
+    _owned = set(_addons.values())
+    _before = len(a.binaries) + len(a.datas)
+    a.binaries = qt3d_runtime.trim(a.binaries, _owned)
+    a.datas = qt3d_runtime.trim(a.datas, _owned)
+    print("[rocketforge] Qt Quick 3D: kept %d Addons files, dropped %d others"
+          % (len(qt3d_runtime.REQUIRED_FILES),
+             _before - len(a.binaries) - len(a.datas)))
+else:
+    print("[rocketforge] PySide6-Addons not installed; building without the 3D "
+          "view. Install requirements-3d.txt for the official desktop build.")
+
 pyz = PYZ(a.pure)
 
 exe = EXE(

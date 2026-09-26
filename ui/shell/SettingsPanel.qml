@@ -32,6 +32,29 @@ RFMenu {
             onSelected: function (index) { root.themeModeRequested(root.modes[index]) }
         }
 
+        // One motion preference for the whole interface: section and drawer
+        // transitions, the analysis lens, camera presets and the flow cues.
+        // It changes how a state change looks, never what state results.
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: Metrics.spacing.xs
+
+            Text {
+                text: "Motion"
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.body
+            }
+
+            RFSegmentedControl {
+                objectName: "motionControl"
+                Layout.fillWidth: true
+                model: ["Full", "Reduced", "Off"]
+                currentIndex: Math.max(0, ["full", "reduced", "off"].indexOf(Motion.mode))
+                onSelected: function (index) { Motion.mode = ["full", "reduced", "off"][index] }
+            }
+        }
+
         RFDivider {}
 
         RowLayout {

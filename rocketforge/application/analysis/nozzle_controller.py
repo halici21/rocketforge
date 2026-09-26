@@ -13,10 +13,14 @@ subclass property notifies with a base-class signal.
 
 from __future__ import annotations
 
+import math
+
 import numpy as np
 from PySide6.QtCore import Property, QObject, Signal, Slot
 
 from ..formatting import format_engineering
+from ..visualization.selection import AnalysisSelection
+from ..visualization.viewport import nozzle_viewport
 from .analysis_behaviour import MAX_TABLE_ROWS, AnalysisBehaviour
 from .nozzle_service import (
     AREA_MODES,
@@ -49,6 +53,7 @@ class NozzleController(AnalysisBehaviour, QObject):
     tableSettingsChanged = Signal()
     referenceChanged = Signal()
     shockCurveChanged = Signal()
+    selectionReadoutChanged = Signal()
     requestTab = Signal(int)
 
     _export_name = "nozzle"
@@ -80,6 +85,15 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._bands: list = []
         self._shock_curve: list = []
         self._presented = None
+        # Which solved state the views are showing: every solve gets the next
+        # number, so a pinned snapshot or the inspector can say which one it is.
+        self._identity = 0
+        # One selection for every view of the nozzle -- the drawing's
+        # stations, the axial charts and the table -- and the inspector
+        # readout of it, read from the solved snapshot, never solved for.
+        self._selection = AnalysisSelection(self)
+        self._selection.changed.connect(self.selectionReadoutChanged)
+        self.resultsChanged.connect(self.selectionReadoutChanged)
         self._recalculate()
         self._regenerate_table()
 
@@ -104,8 +118,26 @@ class NozzleController(AnalysisBehaviour, QObject):
         result = solve(inputs)
         self._record = solve_record(inputs) if result.ok else None
         self._presented = None
+        self._identity += 1
         self._solve_map(inputs)
+        self._drop_vanished_selection()
         return result
+
+    def _drop_vanished_selection(self) -> None:
+        """A selected station the new solution no longer has is deselected.
+
+        The shock is the case: moving to a shock-free back pressure removes
+        the station, and a selection pointing at it would point at nothing.
+        """
+        selection = self._selection
+        if selection.kind != "station":
+            return
+        present = {"throat", "exit"}
+        record = self._record
+        if record is not None and record.shock is not None and record.shock.x is not None:
+            present.add("shock")
+        if record is None or selection.key not in present:
+            selection.clear()
 
     def _solve_map(self, inputs: NozzleInputs) -> None:
         key = (inputs.gamma, inputs.gas_constant, inputs.throat_area,
@@ -650,8 +682,53 @@ class NozzleController(AnalysisBehaviour, QObject):
                 "stations": self.markers(),
                 "distribution": {q["key"]: self.series(q["key"])
                                  for q in self.chartQuantities},
+                "viewport": nozzle_viewport(self._record, self._identity, self._precision),
             }
         return self._presented
+
+    @Property(int, notify=resultsChanged)
+    def resultIdentity(self) -> int:
+        """The number of the solved state every view is showing."""
+        return self._identity
+
+    @Property("QVariantMap", notify=resultsChanged)
+    def viewport(self):
+        """This solution's stations and extent (``visualization.viewport``): what
+        the drawing, the charts and the inspector select by."""
+        return self._presentation()["viewport"]
+
+    @Property(QObject, constant=True)
+    def selection(self) -> QObject:
+        return self._selection
+
+    @Property("QVariantMap", notify=selectionReadoutChanged)
+    def selectionReadout(self):
+        """The inspector's reading of the selection, from the solved snapshot.
+
+        A station reads its own solved rows; a plotted point reads back the x
+        and y the chart supplied. Nothing is recomputed to answer it.
+        """
+        selection = self._selection
+        viewport = self._presentation()["viewport"]
+        base = {"identity": self._identity, "fidelity": viewport.get("label", "")}
+        if selection.kind == "station":
+            for station in viewport.get("stations", []):
+                if station["key"] == selection.key:
+                    return dict(base, kind="station", key=station["key"],
+                                title=station["title"], note=station["note"],
+                                rows=station["rows"])
+            return {}
+        if selection.kind == "plotPoint":
+            rows = [{"label": "x", "value": format_engineering(selection.x, self._precision),
+                     "unit": "m", "raw": selection.x}]
+            if not math.isnan(selection.y):
+                rows.append({"label": selection.label,
+                             "value": format_engineering(selection.y, self._precision),
+                             "unit": "", "raw": selection.y})
+            return dict(base, kind="plotPoint", key=selection.key,
+                        title=selection.label or "Plotted point", note="a solved station of the distribution",
+                        rows=rows)
+        return {}
 
     @Property("QVariantList", notify=resultsChanged)
     def contour(self):

@@ -20,13 +20,14 @@ setlocal
 cd /d "%~dp0"
 
 REM  The build environment: .venv-cea, with requirements.txt,
-REM  requirements-thermochemistry.txt and requirements-fluids.txt installed.
-REM  The production package ships NASA CEA and CoolProp inside it.
+REM  requirements-thermochemistry.txt, requirements-fluids.txt and
+REM  requirements-3d.txt installed. The production package ships NASA CEA,
+REM  CoolProp and Qt Quick 3D (only the files the 3D view loads) inside it.
 set "PY=%~dp0.venv-cea\Scripts\python.exe"
 if not exist "%PY%" (
     echo [rocketforge] .venv-cea not found. Create it first:
     echo [rocketforge]   python -m venv .venv-cea
-    echo [rocketforge]   .venv-cea\Scripts\python.exe -m pip install -r requirements.txt -r requirements-thermochemistry.txt -r requirements-fluids.txt
+    echo [rocketforge]   .venv-cea\Scripts\python.exe -m pip install -r requirements.txt -r requirements-thermochemistry.txt -r requirements-fluids.txt -r requirements-3d.txt
     endlocal
     exit /b 1
 )

@@ -18,6 +18,7 @@ from PySide6.QtGui import QGuiApplication
 from ...core.errors import RocketForgeError
 from ...physics.compressible import FlowBranch
 from ..formatting import EM_DASH, format_engineering
+from ..visualization.selection import AnalysisSelection
 from . import reference_comparison as reference
 from .engineering_table_model import EngineeringTableModel
 from .isentropic_service import (
@@ -46,6 +47,7 @@ class IsentropicController(QObject):
     tableChanged = Signal()
     tableSettingsChanged = Signal()
     referenceChanged = Signal()
+    selectionReadoutChanged = Signal()
     requestTab = Signal(int)          # ask the page to switch section
 
     def __init__(self, parent: QObject | None = None) -> None:
@@ -85,6 +87,15 @@ class IsentropicController(QObject):
         # regenerated table) so that selecting a row reads one instead of
         # re-running the relations because a row was clicked.
         self._row_comparisons: dict[int, list] = {}
+
+        # Which solved state and which generated table the views show, and
+        # one selection shared by the chart, the table and the inspector.
+        self._identity = 0
+        self._table_identity = 0
+        self._selection = AnalysisSelection(self)
+        self._selection.changed.connect(self.selectionReadoutChanged)
+        self.tableChanged.connect(self.selectionReadoutChanged)
+        self.resultsChanged.connect(self.selectionReadoutChanged)
 
         self._recalculate()
         self.regenerateTable()
@@ -186,6 +197,7 @@ class IsentropicController(QObject):
         # The reference check for this result, made with it rather than when
         # a view first reads it: opening the page must solve nothing.
         self._current_comparison = self.comparisonForCurrentMach()
+        self._identity += 1
         self.resultsChanged.emit()
         self.referenceChanged.emit()
 
@@ -392,6 +404,8 @@ class IsentropicController(QObject):
             self._plotted_gamma = float("nan")
             self._summary = {}
             self._row_comparisons = {}
+            self._table_identity += 1
+            self._drop_table_selection()
             self.tableChanged.emit()
             self.referenceChanged.emit()
             return
@@ -407,12 +421,87 @@ class IsentropicController(QObject):
         self._table_message = ""
         self._selected_row = -1
         self._refresh_summary()
+        self._table_identity += 1
+        self._drop_table_selection()
         self.tableChanged.emit()
         self.referenceChanged.emit()
 
     @Property(int, notify=tableChanged)
     def tableRowCount(self) -> int:
         return self._table_model.rowCount()
+
+    # ------------------------------------------------------------------
+    # selection, shared by the chart, the table and the inspector
+    # ------------------------------------------------------------------
+
+    def _drop_table_selection(self) -> None:
+        """A selected sample of the previous table means nothing in the new one."""
+        if self._selection.kind in ("plotPoint", "tableRow"):
+            self._selection.clear()
+
+    @Property(int, notify=resultsChanged)
+    def resultIdentity(self) -> int:
+        return self._identity
+
+    @Property(int, notify=tableChanged)
+    def tableIdentity(self) -> int:
+        return self._table_identity
+
+    @Property(QObject, constant=True)
+    def selection(self) -> QObject:
+        return self._selection
+
+    def _row_at(self, mach: float) -> int:
+        """The generated row whose Mach number is exactly ``mach``, else -1."""
+        row = self._table_model.rowNearest(mach)
+        if row < 0 or self._table_model.machAt(row) != mach:
+            return -1
+        return row
+
+    @Slot(int)
+    def selectTableRow(self, row: int) -> None:
+        """Select a generated row: the chart and the inspector follow it."""
+        if not 0 <= row < self._table_model.rowCount():
+            return
+        mach = self._table_model.machAt(row)
+        self._selection.select("tableRow", str(row), mach, f"row {row + 1}", "table")
+
+    @Property("QVariantMap", notify=selectionReadoutChanged)
+    def selectionReadout(self):
+        """The inspector's reading of the selection -- the generated row, as shown.
+
+        A point on the curve and a table row are the same thing, a sample of
+        the generated table; both read back that row's own formatted values.
+        The solved state reads the calculator's rows. Nothing is recomputed.
+        """
+        selection = self._selection
+        model = self._table_model
+        base = {"stale": self._table_gamma != self._plotted_gamma}
+        if selection.kind in ("plotPoint", "tableRow"):
+            row = self._row_at(selection.x)
+            if row < 0:
+                return {}
+            rows = []
+            for column, spec in enumerate(model.columns):
+                rows.append({"label": spec["label"],
+                             "value": model.data(model.index(row, column)),
+                             "unit": spec.get("unit", "")})
+            return dict(base, kind=selection.kind, key=str(row),
+                        title=f"Table row {row + 1}",
+                        note=(f"A generated sample at γ = {self._plotted_gamma:g}; "
+                              "the curve is drawn through these samples."),
+                        rows=rows, identity=self._table_identity,
+                        fidelity="Calculated by RocketForge · calorically perfect gas")
+        if selection.kind == "state":
+            rows = [{"label": r["label"], "value": r["value"], "unit": r.get("unit", "")}
+                    for r in self.results]
+            if not rows:
+                return {}
+            return {"kind": "state", "key": "state", "title": "Solved state",
+                    "note": self.flowRegime, "rows": rows, "identity": self._identity,
+                    "fidelity": "Calculated by RocketForge · calorically perfect gas",
+                    "stale": False}
+        return {}
 
     @Property(str, notify=tableChanged)
     def tableMessage(self) -> str:

@@ -98,7 +98,9 @@ def preconditions(production: bool, experimental_pyside6: bool = False) -> list[
             ("requirements.txt", "PySide6-Essentials",
              ("PySide6-Essentials", "PySide6_Essentials"), True),
             ("requirements-thermochemistry.txt", "cea", ("cea",), production),
-            ("requirements-fluids.txt", "CoolProp", ("CoolProp", "coolprop"), production)):
+            ("requirements-fluids.txt", "CoolProp", ("CoolProp", "coolprop"), production),
+            ("requirements-3d.txt", "PySide6-Addons", ("PySide6-Addons", "PySide6_Addons"),
+             production)):
         wanted = verify_package.pinned(ROOT / requirements, name)
         have = installed(*dist_names)
         if not have and not required:

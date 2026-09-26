@@ -34,11 +34,15 @@ Item {
         anchors.fill: parent
         radius: Metrics.radius.l
         color: Theme.surfaceSubtle
-        border.width: Metrics.hairline
-        border.color: root.activeFocus ? Theme.accent : Theme.border
 
         Behavior on color { ColorAnimation { duration: Motion.fast } }
-        Behavior on border.color { ColorAnimation { duration: Motion.fast } }
+
+        // The shared pointer-proximity edge: a little more edge light as the
+        // pointer approaches, the accent only for keyboard focus.
+        RFProximityEdge {
+            active: root.activeFocus
+            overColor: Theme.borderStrong
+        }
     }
 
     // The moving selection.

@@ -1,0 +1,24 @@
+# RocketForge - optional 3D viewport profile.
+#
+# Qt Quick 3D draws the Rocket Performance "3D view": the solved expansion as a
+# revolved schematic, with qualitative flow cues. It ships in the PySide6-Addons
+# wheel, which is deliberately NOT in requirements.txt: the application, its
+# 2D engineering views and every test must import, run and pass without it.
+# Where it is missing -- or where the window renders with Qt Quick's software
+# renderer, which cannot run Qt Quick 3D -- the 3D choice is disabled with its
+# reason and the 2D schematic stays the view (tests/application/
+# test_viewport_fallback.py proves that on every base run).
+#
+# Install this profile to enable the 3D view:
+#
+#     python -m pip install -r requirements.txt -r requirements-3d.txt
+#
+# Version policy. Pinned exactly, and to the same version as
+# PySide6-Essentials in requirements.txt: the Addons wheel is built against one
+# Qt release, and a mismatched pair fails to load its QML plugins. Raising the
+# Qt pin raises both lines together.
+#
+# Nothing under rocketforge/ imports it at module level: the Qt Quick 3D types
+# are registered at start-up only when the module imports
+# (rocketforge/application/visualization/viewport_support.py).
+PySide6-Addons==6.10.2

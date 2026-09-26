@@ -54,6 +54,13 @@ ApplicationWindow {
 
     readonly property bool isTradeStudyPage:
         currentPageIndex === Navigation.indexOfKey("tradestudy")
+    // Workspaces with a contextual inspector: Trade Study's study inspector,
+    // and the shared selection readout of Nozzle Lab and Isentropic.
+    readonly property bool hasInspector: isTradeStudyPage
+        || currentPageIndex === Navigation.indexOfKey("nozzlelab")
+        || currentPageIndex === Navigation.indexOfKey("isentropic")
+    // The inspector belongs to the workspace that opened it.
+    onCurrentPageIndexChanged: ShellContext.inspectorOpen = false
 
     readonly property var themeModes: ["light", "dark", "system"]
 
@@ -217,13 +224,15 @@ ApplicationWindow {
 
                     InspectorDrawer {
                         anchors.fill: parent
-                        open: ShellContext.inspectorOpen && window.isTradeStudyPage
+                        open: ShellContext.inspectorOpen && window.hasInspector
                         onCloseRequested: ShellContext.inspectorOpen = false
 
-                        // The only current consumer. Loader-instantiated by
-                        // InspectorDrawer itself, so no other workspace pays
-                        // for this tree.
-                        StudyInspector {}
+                        // The open workspace's own inspector content.
+                        // Loader-instantiated by InspectorDrawer itself, so a
+                        // workspace that never opens it pays for nothing.
+                        AnalysisInspector {
+                            onCloseRequested: ShellContext.inspectorOpen = false
+                        }
                     }
                 }
 

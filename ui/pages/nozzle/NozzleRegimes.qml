@@ -38,6 +38,10 @@ Item {
     readonly property bool roomy: width > 2200 && height > 1000
     readonly property bool railChart: !page.compact && !page.roomy
 
+    // A station clicked on the drawing is the shared selection: the
+    // inspector reads it, and the Charts section marks it.
+    NozzleLinks { id: links }
+
     // Where the shock stands against back pressure: supporting evidence for
     // the regime, never the subject. Beside the regime in the rail at 1920;
     // beside the nozzle at the 1366 floor, where the rail has no height to
@@ -177,6 +181,8 @@ Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.minimumHeight: 200
+                        selectedKey: links.selectedStation
+                        onStationClicked: function (key, x) { links.selectStation(key, "drawing") }
                         hasResult: Nozzle.valid
                         wall: page.wall
                         stations: Nozzle.stationMarkers

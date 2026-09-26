@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
 
 /*
  * The relation, and where the solved state sits on it.
@@ -111,6 +112,103 @@ Item {
         return both.length === 2 ? both[0] : null      // the subsonic root
     }
 
+    // ---- analysis: focus, pinned snapshots, comparison ---------------------
+    // Focus mode gives the chart the whole width; the context column comes
+    // back on Esc or the Focus button. Units, the curve caption and the
+    // solved-state words stay -- focus removes distraction, not context.
+    property bool focusMode: false
+    // The inputs drawer. In focus mode the inputs collapse to a handle on the
+    // left edge that still names the case; the handle (or Esc) brings them
+    // back beside the chart without leaving focus mode.
+    property bool inputsOpen: false
+    onFocusModeChanged: page.inputsOpen = false
+    readonly property string caseSummary: (page.activeMode ? page.activeMode.symbol + " = "
+                                           + Number(Isentropic.inputValue).toPrecision(6) : "")
+                                          + "   γ = " + Number(Isentropic.gamma).toFixed(3)
+    // Two pinned snapshots, A and B, chosen from the strip under the chart.
+    property string compareA: ""
+    property string compareB: ""
+    readonly property var pinned: AnalysisSession.snapshots.filter(function (s) {
+        return s.source === "isentropic"
+    })
+    function snapshotById(id) {
+        for (var i = 0; i < page.pinned.length; ++i)
+            if (page.pinned[i].id === id)
+                return page.pinned[i]
+        return null
+    }
+    readonly property var verdict: page.compareA !== "" && page.compareB !== ""
+                                   ? AnalysisSession.compare(page.compareA, page.compareB) : ({})
+    // Overlays, dashed and quiet: the pinned series are what they were.
+    readonly property var overlay: {
+        var out = []
+        var ids = [page.compareA, page.compareB]
+        var styles = [Theme.textSecondary, Theme.series[2]]
+        for (var i = 0; i < ids.length; ++i) {
+            var s = page.snapshotById(ids[i])
+            if (s !== null && s.series.length > 0 && page.active && s.quantity === page.active.key)
+                out.push({ points: s.series[0].points, color: styles[i], dashed: true, width: 1.4 })
+        }
+        return out
+    }
+    readonly property real compareX: Isentropic.selection.active ? Isentropic.selection.x
+                                     : (page.inRange ? Isentropic.mach : NaN)
+    readonly property var delta: page.verdict.compatible === true && !isNaN(page.compareX)
+                                 ? AnalysisSession.compareAt(page.compareA, page.compareB, page.compareX)
+                                 : ({})
+
+    function pickSnapshot(id) {
+        if (page.compareA === id) { page.compareA = ""; return }
+        if (page.compareB === id) { page.compareB = ""; return }
+        if (page.compareA === "") page.compareA = id
+        else page.compareB = id
+    }
+
+    // The view on screen, frozen: range, quantity, units, axis mode, the
+    // samples inside the range, the table it came from and whether that
+    // table matches the current setting.
+    function pinSnapshot() {
+        if (!page.active || page.points.length < 2)
+            return ""
+        var e = plot.extent()
+        var inside = page.points.filter(function (p) { return p.x >= e.xmin && p.x <= e.xmax })
+        return AnalysisSession.pin({
+            source: "isentropic",
+            identity: Isentropic.tableIdentity,
+            quantity: page.active.key,
+            quantityLabel: page.active.label,
+            unit: page.active.unit || "",
+            xQuantity: "mach", xLabel: "Mach number", xUnit: "",
+            xRange: [e.xmin, e.xmax], yRange: [e.ymin, e.ymax],
+            axisMode: plot.logScaleActive ? "log" : "linear",
+            series: [{ label: page.active.label, points: inside }],
+            stale: Isentropic.tableGamma !== Isentropic.plottedGamma,
+            provenance: "generated table #" + Isentropic.tableIdentity + ", γ = "
+                        + Isentropic.plottedGamma.toFixed(3) + ", calculated by RocketForge",
+            lens: interact.lensActive
+        })
+    }
+
+    function copyValues() {
+        if (!page.active)
+            return
+        var e = plot.extent()
+        var lines = ["M\t" + page.active.key]
+        for (var i = 0; i < page.points.length; ++i) {
+            var p = page.points[i]
+            if (p.x >= e.xmin && p.x <= e.xmax)
+                lines.push(p.x + "\t" + p.y)
+        }
+        AnalysisSession.copyText(lines.join("\n"))
+    }
+
+    Keys.onEscapePressed: {
+        if (page.focusMode && page.inputsOpen)
+            page.inputsOpen = false
+        else if (page.focusMode)
+            page.focusMode = false
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: page.compact ? Metrics.spacing.l : Metrics.spacing.xl
@@ -118,8 +216,49 @@ Item {
         // =================================================================
         // CONTEXT — inputs, the solved state, and the numbers on the chart
         // =================================================================
+        // The inputs drawer's handle, built only in focus mode.
+        Loader {
+            active: page.focusMode
+            visible: active
+            Layout.fillHeight: true
+            Layout.preferredWidth: 34
+            sourceComponent: RFDrawerHandle {
+                objectName: "inputsDrawerHandle"
+                title: "Inputs"
+                summary: page.caseSummary
+                open: page.inputsOpen
+                onToggled: page.inputsOpen = !page.inputsOpen
+            }
+        }
+
         Flickable {
             id: rail
+            visible: !page.focusMode || page.inputsOpen
+            // The lens is the analytical view: the context recedes but stays
+            // readable, and comes back when the lens is left.
+            property real dim: interact.lensActive ? 0.42 : 1.0
+            Behavior on dim { NumberAnimation { duration: Motion.focus } }
+            // Arriving as a drawer (focus mode): from its edge, for Motion.panel.
+            property real arrive: 1.0
+            opacity: rail.dim * rail.arrive
+            transform: Translate { id: railShift }
+            onVisibleChanged: {
+                if (visible && page.focusMode && Motion.panel > 0) {
+                    railArrive.stop()
+                    rail.arrive = 0
+                    railShift.x = -Motion.panelShift
+                    railArrive.start()
+                } else {
+                    railArrive.stop()
+                    rail.arrive = 1
+                    railShift.x = 0
+                }
+            }
+            ParallelAnimation {
+                id: railArrive
+                NumberAnimation { target: rail; property: "arrive"; to: 1; duration: Motion.panel; easing.type: Motion.standard }
+                NumberAnimation { target: railShift; property: "x"; to: 0; duration: Motion.panel; easing.type: Motion.standard }
+            }
             Layout.preferredWidth: Math.max(400, Math.min(820, page.width * 0.36))
             Layout.maximumWidth: Math.max(400, Math.min(820, page.width * 0.36))
             Layout.fillHeight: true
@@ -472,6 +611,7 @@ Item {
             Layout.fillHeight: true
             Layout.preferredWidth: Metrics.hairline
             vertical: true
+            visible: !page.focusMode
         }
 
         // =================================================================
@@ -511,11 +651,36 @@ Item {
                 }
             }
 
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Metrics.spacing.s
+
+                RFPlotToolbar {
+                    interaction: interact
+                    canPin: true
+                    canCopy: true
+                    onPinRequested: page.pinSnapshot()
+                    onCopyRequested: page.copyValues()
+                }
+                Item { Layout.fillWidth: true }
+                RFToolButton {
+                    objectName: "focusButton"
+                    text: page.focusMode ? "Exit focus" : "Focus"
+                    checked: page.focusMode
+                    tooltip: "Give the chart the whole workspace (Esc to return)"
+                    onClicked: page.focusMode = !page.focusMode
+                }
+            }
+
             RFLineChart {
                 id: plot
+                objectName: "isentropicRelationChart"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.minimumHeight: 240
+                builtInHover: false
+                dataKey: page.active ? page.active.key : ""
+                series: page.overlay
 
                 points: page.points
                 logScale: page.logScale
@@ -543,6 +708,84 @@ Item {
                             && page.otherRoot.raw <= page.points[page.points.length - 1].x)
                         out.push({ value: page.otherRoot.raw, axis: "x", label: "" })
                     return out
+                }
+
+                // View, inspect, focus, pin, compare. A click reads a real
+                // table sample into the shared selection (and the inspector);
+                // a table row selected on the Table tab shows here as the
+                // same crosshair.
+                RFPlotInteraction {
+                    id: interact
+                    chart: plot
+                    selectionX: Isentropic.selection.active ? Isentropic.selection.x : NaN
+                    selectionLabel: Isentropic.selection.kind === "tableRow" ? Isentropic.selection.label : ""
+                    xSymbol: "<i>M</i>"
+                    quantity: page.active ? page.active.key : ""
+                    unit: page.active ? (page.active.unit || "") : ""
+                    seriesLabels: {
+                        var out = [page.active ? page.active.label : ""]
+                        if (page.snapshotById(page.compareA) !== null) out.push("A " + page.compareA)
+                        if (page.snapshotById(page.compareB) !== null) out.push("B " + page.compareB)
+                        return out
+                    }
+                    onPointSelected: function (x, y, s, label) {
+                        if (s === 0 && page.active) {
+                            Isentropic.selection.selectPoint("plotPoint", page.active.key, x, y,
+                                                             page.active.label, "chart")
+                            ShellContext.inspectorOpen = true
+                        }
+                    }
+                    onSelectionCleared: Isentropic.selection.clear()
+                }
+            }
+
+            // ---- pinned snapshots, and A/B comparison ----------------------
+            // Built only when there is something pinned.
+            Loader {
+                Layout.fillWidth: true
+                active: page.pinned.length > 0
+                visible: active
+                sourceComponent: RowLayout {
+                    spacing: Metrics.spacing.s
+
+                    RFSectionLabel { text: "Pinned" }
+                    Repeater {
+                        model: page.pinned
+                        delegate: RFToolButton {
+                            required property var modelData
+                            readonly property string role: modelData.id === page.compareA ? "A"
+                                                         : modelData.id === page.compareB ? "B" : ""
+                            text: (role !== "" ? role + " · " : "") + modelData.id + "  "
+                                  + modelData.quantity + "  M " + modelData.xRange[0].toFixed(3)
+                                  + "–" + modelData.xRange[1].toFixed(3)
+                                  + (modelData.stale ? "  (stale)" : "")
+                            checked: role !== ""
+                            tooltip: modelData.provenance + ". Click to compare as A, then B."
+                            onClicked: page.pickSnapshot(modelData.id)
+                        }
+                    }
+                    Item { Layout.fillWidth: true }
+                    Text {
+                        visible: page.compareA !== "" && page.compareB !== ""
+                        readonly property string plainText: page.verdict.compatible === false
+                            ? "A and B are not comparable: " + page.verdict.reason
+                            : page.delta.compatible === true && page.delta.dy !== undefined
+                              ? "At M " + page.delta.a.x.toPrecision(5) + ":  B − A = "
+                                + page.delta.dy.toPrecision(5)
+                                + (page.delta.percent !== null && page.delta.percent !== undefined
+                                   ? "  (" + page.delta.percent.toFixed(3) + " %)" : "")
+                                + (page.delta.sameStation ? "" : "  — nearest samples differ in M")
+                              : ""
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
+                        color: page.verdict.compatible === false ? Theme.warning : Theme.textSecondary
+                        font.family: Typography.mono
+                        font.pixelSize: Typography.meta
+                    }
+                    RFToolButton {
+                        text: "Clear pins"
+                        onClicked: { page.compareA = ""; page.compareB = ""; AnalysisSession.clear() }
+                    }
                 }
             }
 

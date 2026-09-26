@@ -38,6 +38,7 @@ from rocketforge.engineering.chamber import ChamberGammaBasis
 from rocketforge.engineering.nozzle import PerformanceScale, PerformanceScaleMode
 from rocketforge.physics.thermochemistry import GammaStrategy
 
+from ..visualization.viewport import EMPTY_VIEWPORT, schematic_viewport
 from . import performance_oracle as oracle
 from . import performance_service as service
 
@@ -99,6 +100,11 @@ class RocketPerformanceController(QObject):
         self._identity_rows: tuple = ()
         self._reference_outcome: Any = None
         self._reference_results: dict = {}
+        # The 3D view's snapshot of the solved expansion, made with the
+        # result; a stale or superseded result keeps the snapshot of the case
+        # that produced it.
+        self._identity = 0
+        self._viewport: dict = dict(EMPTY_VIEWPORT)
 
         self._oracle = oracle.EMPTY_ORACLE
         self._oracle_mode = "equilibrium"
@@ -567,7 +573,52 @@ class RocketPerformanceController(QObject):
             self._busy = False
         self._outcome = outcome
         self._stale = False
+        self._identity += 1
+        self._viewport = self._build_viewport(outcome, self._identity)
         self.resultChanged.emit()
+
+    @staticmethod
+    def _build_viewport(outcome, identity: int) -> dict:
+        """The schematic 3D snapshot of a solved expansion, and its flow cues.
+
+        Only presence is read: whether the reactants are liquids (their own
+        reference phase), and whether the chamber reports condensed products
+        (its condensed summary). Nothing is solved to make it.
+        """
+        result = outcome.result
+        if result is None:
+            return dict(EMPTY_VIEWPORT, identity=identity)
+        from ..species_notation import species_label
+        from .thermochemistry_provider import propellant_named
+        from .thermochemistry_service import ChamberCase, condensed_summary
+
+        chamber = outcome.chamber
+        case = chamber.case if chamber is not None else None
+        liquid = False
+        if isinstance(case, ChamberCase):
+            for key in (case.fuel, case.oxidiser):
+                option = propellant_named(key)
+                phase = getattr(getattr(option, "definition", None), "reference_phase", None)
+                if phase is not None and str(getattr(phase, "value", phase)).lower() == "liquid":
+                    liquid = True
+        fraction, label = None, ""
+        if chamber is not None and chamber.state is not None:
+            summary = condensed_summary(chamber)
+            if summary.get("present"):
+                fraction = float(summary["fraction"])
+                label = ", ".join(species_label(row.name) for row in summary["species"])
+        return schematic_viewport(float(result.exit.area_ratio), identity,
+                                  liquid_inlet=liquid, condensed_fraction=fraction,
+                                  condensed_label=label)
+
+    @Property("QVariantMap", notify=resultChanged)
+    def viewport(self):
+        """The 3D view's snapshot of the solved expansion (schematic)."""
+        return self._viewport
+
+    @Property(int, notify=resultChanged)
+    def resultIdentity(self) -> int:
+        return self._identity
 
     def current_case(self):
         """The nozzle and ambient configuration the form currently describes.
@@ -582,6 +633,7 @@ class RocketPerformanceController(QObject):
     def clearResult(self) -> None:
         self._outcome = service.EMPTY_OUTCOME
         self._stale = False
+        self._viewport = dict(EMPTY_VIEWPORT, identity=self._identity)
         self.resultChanged.emit()
 
     @Slot(int)

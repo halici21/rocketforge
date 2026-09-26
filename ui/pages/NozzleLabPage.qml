@@ -67,7 +67,12 @@ Item {
             onSelected: function (index) { page.section = index }
         }
 
+        // A section switch fades in from the side it came from (Motion).
+        RFSectionTransition { stack: sections }
+
         StackLayout {
+            id: sections
+            objectName: "sectionStack"
             Layout.fillWidth: true
             Layout.fillHeight: true
             currentIndex: page.section

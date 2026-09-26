@@ -29,6 +29,11 @@ import "../theme"
  * Axis ranges are taken from the data unless xMin/xMax/yMin/yMax are set, so a
  * caller that knows the physical range (0 to 90 degrees, say) can say so and
  * stop the axes breathing as the curve changes.
+ *
+ * Interaction is a separate layer (RFPlotInteraction) that sets the view
+ * range below: zoom, pan and the analysis lens move the axes over the same
+ * data and never change a value. The log/linear decision is made on the full
+ * data range, so zooming in never switches the axis mode under the reader.
  */
 Item {
     id: root
@@ -63,6 +68,27 @@ Item {
     property real xMax: NaN
     property real yMin: NaN
     property real yMax: NaN
+
+    // The range being looked at, set by an interaction layer (zoom, pan, the
+    // analysis lens). NaN = the full range. Presentation only.
+    property real viewXMin: NaN
+    property real viewXMax: NaN
+    property real viewYMin: NaN
+    property real viewYMax: NaN
+    readonly property bool zoomed: !isNaN(root.viewXMin) || !isNaN(root.viewYMin)
+
+    // What is plotted (a quantity key). A new solve of the same quantity on
+    // the same x grid may ease from the previous curve to the new one; the
+    // in-between frames are drawn only -- never read by a hover, an
+    // inspector or a copy, which always see the final data.
+    property string dataKey: ""
+    // The built-in hover readout. An interaction layer replaces it.
+    property bool builtInHover: true
+
+    onViewXMinChanged: plot.requestPaint()
+    onViewXMaxChanged: plot.requestPaint()
+    onViewYMinChanged: plot.requestPaint()
+    onViewYMaxChanged: plot.requestPaint()
 
     // Gutters grew with the chart type scale (Typography.axisTick): the
     // previous 74/34 were sized for 10px labels and clip an 11.5px mono
@@ -182,11 +208,11 @@ Item {
     }
 
     onShowPointsChanged: plot.requestPaint()
-    onPointsChanged: plot.requestPaint()
-    onSeriesChanged: plot.requestPaint()
+    onPointsChanged: { plot.seriesArrived(); plot.requestPaint() }
+    onSeriesChanged: { plot.seriesArrived(); plot.requestPaint() }
     onReferencePointsChanged: plot.requestPaint()
     onGuidesChanged: plot.requestPaint()
-    onMarkersChanged: plot.requestPaint()
+    onMarkersChanged: { plot.markersArrived(); plot.requestPaint() }
     onLogScaleChanged: plot.requestPaint()
     onMarkerXChanged: plot.requestPaint()
     onCurveColorChanged: plot.requestPaint()
@@ -207,6 +233,19 @@ Item {
     // refactored out of it, so the existing, already-visually-verified
     // paint path is untouched by this addition.
     function dataExtent() {
+        return root.extent()
+    }
+
+    // The data plus the caller's explicit limits: the "full range". Held as a
+    // binding -- rescanned only when the data, the markers or the limits
+    // change -- so the pixel mapping below, which a paint pass calls once per
+    // sample, costs a lookup and not a pass over every series.
+    readonly property var dataExtent: root.scanExtent()
+    function fullExtent() {
+        var d = root.dataExtent
+        return { xmin: d.xmin, xmax: d.xmax, ymin: d.ymin, ymax: d.ymax }
+    }
+    function scanExtent() {
         var xmin = Infinity, xmax = -Infinity, ymin = Infinity, ymax = -Infinity
         function widen(list) {
             for (var k = 0; list && k < list.length; ++k) {
@@ -235,6 +274,53 @@ Item {
         return { xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax }
     }
 
+    // What the axes show: the full range, narrowed by the view range.
+    function extent() {
+        var e = root.fullExtent()
+        if (!isNaN(root.viewXMin)) e.xmin = root.viewXMin
+        if (!isNaN(root.viewXMax)) e.xmax = root.viewXMax
+        if (!isNaN(root.viewYMin)) e.ymin = root.viewYMin
+        if (!isNaN(root.viewYMax)) e.ymax = root.viewYMax
+        return e
+    }
+
+    // Log applies when the whole data range spans more than a factor of 20
+    // above zero -- decided on the full range, so a zoom never flips it.
+    function useLogScale() {
+        var f = root.fullExtent()
+        var v = root.extent()
+        return root.logScale && f.ymin > 0 && (f.ymax / f.ymin) > 20 && v.ymin > 0
+    }
+
+    // Data <-> pixel, exactly as the paint pass maps it.
+    function toPixelX(v) {
+        var e = root.extent()
+        var x0 = root.padLeft, x1 = root.width - root.padRight
+        return x0 + (v - e.xmin) / ((e.xmax - e.xmin) || 1) * (x1 - x0)
+    }
+    function toPixelY(v) {
+        var e = root.extent()
+        var y0 = root.padTop, y1 = root.height - root.padBottom
+        if (root.useLogScale()) {
+            var lo = Math.log(e.ymin), hi = Math.log(e.ymax)
+            return y1 - (Math.log(v) - lo) / ((hi - lo) || 1) * (y1 - y0)
+        }
+        return y1 - (v - e.ymin) / ((e.ymax - e.ymin) || 1) * (y1 - y0)
+    }
+    function toDataX(px) {
+        var e = root.extent()
+        var x0 = root.padLeft, x1 = root.width - root.padRight
+        return e.xmin + (px - x0) / Math.max(1, x1 - x0) * (e.xmax - e.xmin)
+    }
+    function toDataY(py) {
+        var e = root.extent()
+        var y0 = root.padTop, y1 = root.height - root.padBottom
+        var f = (y1 - py) / Math.max(1, y1 - y0)
+        if (root.useLogScale())
+            return Math.exp(Math.log(e.ymin) + f * (Math.log(e.ymax) - Math.log(e.ymin)))
+        return e.ymin + f * (e.ymax - e.ymin)
+    }
+
     // The point on the primary series nearest a plot-area pixel x, for the
     // hover readout. Null when there is nothing to find one in.
     function nearestPoint(pixelX) {
@@ -257,6 +343,7 @@ Item {
     property var hoverPoint: null
 
     MouseArea {
+        visible: root.builtInHover
         x: root.padLeft
         y: root.padTop
         width: Math.max(0, root.width - root.padLeft - root.padRight)
@@ -293,6 +380,72 @@ Item {
         id: plot
         anchors.fill: parent
 
+        // Solve-to-solve continuity, presentation only.
+        property real morphT: 1
+        property var morphFrom: null
+        property var lastSeries: null
+        property string lastKey: ""
+        property real markerT: 1
+        property var markerFrom: null
+        property var lastMarkers: null
+        onMorphTChanged: requestPaint()
+        onMarkerTChanged: requestPaint()
+        NumberAnimation { id: morphAnim; target: plot; property: "morphT"; from: 0; to: 1
+                          duration: Motion.data; easing.type: Motion.standard }
+        NumberAnimation { id: markerAnim; target: plot; property: "markerT"; from: 0; to: 1
+                          duration: Motion.data; easing.type: Motion.standard }
+
+        // Ease only between compatible curves: the same quantity, the same
+        // number of series, the same x grid point for point. Anything else
+        // (a new quantity, a shock station inserted into the grid, a
+        // different range) replaces immediately.
+        function compatible(a, b) {
+            if (!a || !b || a.length !== b.length || a.length === 0)
+                return false
+            for (var s = 0; s < a.length; ++s) {
+                var pa = a[s].points, pb = b[s].points
+                if (!pa || !pb || pa.length !== pb.length)
+                    return false
+                for (var k = 0; k < pa.length; ++k)
+                    if (pa[k].x !== pb[k].x || !isFinite(pa[k].y) || !isFinite(pb[k].y))
+                        return false
+            }
+            return true
+        }
+        function seriesArrived() {
+            var now = root.allSeries
+            if (Motion.animated && root.dataKey !== "" && root.dataKey === plot.lastKey
+                    && plot.compatible(plot.lastSeries, now)) {
+                var from = []
+                for (var s = 0; s < plot.lastSeries.length; ++s)
+                    from.push(plot.lastSeries[s].points)
+                plot.morphFrom = from
+                morphAnim.restart()
+            } else {
+                morphAnim.stop()
+                plot.morphT = 1
+                plot.morphFrom = null
+            }
+            plot.lastSeries = now
+            plot.lastKey = root.dataKey
+        }
+        function markersArrived() {
+            var now = root.markers || []
+            var before = plot.lastMarkers
+            var same = !!before && before.length === now.length && now.length > 0
+            for (var m = 0; same && m < now.length; ++m)
+                same = (before[m].label || "") === (now[m].label || "")
+            if (Motion.animated && same) {
+                plot.markerFrom = before
+                markerAnim.restart()
+            } else {
+                markerAnim.stop()
+                plot.markerT = 1
+                plot.markerFrom = null
+            }
+            plot.lastMarkers = now.map(function (m) { return { x: m.x, y: m.y, label: m.label } })
+        }
+
         onPaint: {
             var ctx = getContext("2d")
             ctx.reset()
@@ -308,36 +461,27 @@ Item {
             var x0 = root.padLeft, x1 = width - root.padRight
             var y0 = root.padTop, y1 = height - root.padBottom
 
-            // Extents of the supplied points. No physics: this is the range of
-            // numbers handed to the canvas, nothing more.
-            var xmin = Infinity, xmax = -Infinity, ymin = Infinity, ymax = -Infinity
-            function widen(list) {
-                for (var k = 0; list && k < list.length; ++k) {
-                    var p = list[k]
-                    if (p.x < xmin) xmin = p.x
-                    if (p.x > xmax) xmax = p.x
-                    if (p.y < ymin) ymin = p.y
-                    if (p.y > ymax) ymax = p.y
-                }
-            }
-            for (var q = 0; q < all.length; ++q)
-                widen(all[q].points)
-            widen(root.referencePoints)
-            for (var g = 0; root.markers && g < root.markers.length; ++g) {
-                var m = root.markers[g]
-                if (m.x < xmin) xmin = m.x
-                if (m.x > xmax) xmax = m.x
-                if (m.y < ymin) ymin = m.y
-                if (m.y > ymax) ymax = m.y
-            }
+            // Extents of the supplied points, narrowed by the view range. No
+            // physics: this is the range of numbers handed to the canvas.
+            var e = root.extent()
+            var xmin = e.xmin, xmax = e.xmax, ymin = e.ymin, ymax = e.ymax
 
-            if (!isNaN(root.xMin)) xmin = root.xMin
-            if (!isNaN(root.xMax)) xmax = root.xMax
-            if (!isNaN(root.yMin)) ymin = root.yMin
-            if (!isNaN(root.yMax)) ymax = root.yMax
-
-            var useLog = root.logScale && ymin > 0 && (ymax / ymin) > 20
+            var useLog = root.useLogScale()
             root.logScaleActive = useLog
+
+            // The previous curve, eased towards the new one: drawn, never read.
+            var morphing = plot.morphT < 1 && plot.morphFrom !== null
+                           && plot.morphFrom.length === all.length
+            function drawnPoints(si) {
+                var pts = all[si].points
+                if (!morphing)
+                    return pts
+                var from = plot.morphFrom[si]
+                var out = []
+                for (var k = 0; k < pts.length; ++k)
+                    out.push({ x: pts[k].x, y: from[k].y + (pts[k].y - from[k].y) * plot.morphT })
+                return out
+            }
             function ty(v) {
                 if (useLog) {
                     var lo = Math.log(ymin), hi = Math.log(ymax)
@@ -562,9 +706,17 @@ Item {
                 }
             }
 
+            // Everything drawn from data stays inside the plot rectangle, so a
+            // zoomed view never paints a curve across the axes.
+            ctx.save()
+            ctx.beginPath()
+            ctx.rect(x0, y0, x1 - x0, y1 - y0)
+            ctx.clip()
+
             // the curves
             for (var si = 0; si < all.length; ++si) {
-                var line = all[si]
+                var line = { points: drawnPoints(si), color: all[si].color,
+                             dashed: all[si].dashed, width: all[si].width }
                 if (line.points.length > 1 && !line.dashed) {
                     // Soft gradient fill under curve
                     ctx.save()
@@ -597,6 +749,11 @@ Item {
             }
 
             // Crisp plot frame border
+            ctx.restore()
+            ctx.save()
+            ctx.beginPath()
+            ctx.rect(x0, y0, x1 - x0, y1 - y0)
+            ctx.clip()
             ctx.strokeStyle = Theme.border
             ctx.lineWidth = 1
             ctx.strokeRect(x0, y0, x1 - x0, y1 - y0)
@@ -628,12 +785,23 @@ Item {
                 }
             }
 
-            // the solved operating point
+            // the solved operating point -- between two solves it travels
+            // from the previous point to the new one, in pixels: continuity
+            // for the eye, not a trajectory
             for (var mi = 0; root.markers && mi < root.markers.length; ++mi) {
                 var mk = root.markers[mi]
                 if (isNaN(mk.x) || isNaN(mk.y))
                     continue
                 var mx = tx(mk.x), my = ty(mk.y)
+                var prev = plot.markerFrom !== null && plot.markerFrom.length === root.markers.length
+                           ? plot.markerFrom[mi] : null
+                if (prev !== null && plot.markerT < 1 && !isNaN(prev.x) && !isNaN(prev.y)) {
+                    var pxp = tx(prev.x), pyp = ty(prev.y)
+                    if (isFinite(pxp) && isFinite(pyp)) {
+                        mx = pxp + (mx - pxp) * plot.markerT
+                        my = pyp + (my - pyp) * plot.markerT
+                    }
+                }
                 ctx.strokeStyle = Theme.accent
                 ctx.fillStyle = Theme.surface
                 ctx.lineWidth = 2
@@ -663,6 +831,8 @@ Item {
                                       flip ? "right" : "left", Typography.chartAnnotation, Typography.sans)
                 }
             }
+
+            ctx.restore()
 
             // The axis titles name the whole axis and carry its unit, so
             // they sit one step above the in-plot annotations.
@@ -709,18 +879,13 @@ Item {
             var ctx = getContext("2d")
             ctx.reset()
             ctx.clearRect(0, 0, width, height)
-            if (!root.hoverActive || root.hoverPoint === null)
+            if (!root.builtInHover || !root.hoverActive || root.hoverPoint === null)
                 return
 
             var x0 = root.padLeft, x1 = width - root.padRight
             var y0 = root.padTop, y1 = height - root.padBottom
-            var extent = root.dataExtent()
-            var span = extent.xmax - extent.xmin
-            var px = x0 + (root.hoverPoint.x - extent.xmin) / (span || 1) * (x1 - x0)
-
-            var useLog = root.logScale && extent.ymin > 0 && (extent.ymax / extent.ymin) > 20
-            var py = useLog ? (y1 - (Math.log(root.hoverPoint.y) - Math.log(extent.ymin)) / (Math.log(extent.ymax) - Math.log(extent.ymin) || 1) * (y1 - y0))
-                            : (y1 - (root.hoverPoint.y - extent.ymin) / (extent.ymax - extent.ymin || 1) * (y1 - y0))
+            var px = root.toPixelX(root.hoverPoint.x)
+            var py = root.toPixelY(root.hoverPoint.y)
 
             // Crosshair lines
             ctx.strokeStyle = Theme.borderStrong

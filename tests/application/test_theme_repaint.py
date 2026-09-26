@@ -82,7 +82,7 @@ def _drive(out: pathlib.Path) -> dict:
 
     def freeze_charts():
         for item in window.findChildren(QObject):
-            if item.metaObject().className() != "QQuickCanvasItem" or not item.property("visible"):
+            if not item.metaObject().className().startswith("QQuickCanvasItem") or not item.property("visible"):
                 continue
             owner = item.parent()
             while owner is not None and not owner.metaObject().className().startswith("RFLineChart"):

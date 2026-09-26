@@ -58,6 +58,11 @@ from rocketforge.application.analysis.trade_study_controller import (
 from rocketforge.application.analysis.thermochemistry_controller import (
     ThermochemistryController,
 )
+from rocketforge.application.visualization.session import AnalysisSession
+from rocketforge.application.visualization.viewport_support import (
+    Viewport3DSupport,
+    register_viewport_types,
+)
 from rocketforge.application import build_identity
 
 # The product name is provisional; it is referenced from QML through the App
@@ -317,6 +322,18 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     # chamber and not a nozzle.
     line = LineController(parent)
     qmlRegisterSingletonInstance(LineController, QML_URI, 1, 0, "Line", line)
+
+    # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
+    # optional requirements-3d.txt profile); the QML host adds the second
+    # condition, a 3D-capable renderer, and without both the 2D engineering
+    # view stays the view. AnalysisSession keeps the session's pinned plot
+    # snapshots. Neither holds or solves physics.
+    available_3d, reason_3d = register_viewport_types()
+    viewport_3d = Viewport3DSupport(available_3d, reason_3d, parent)
+    qmlRegisterSingletonInstance(Viewport3DSupport, QML_URI, 1, 0, "Viewport3D", viewport_3d)
+    analysis_session = AnalysisSession(parent)
+    qmlRegisterSingletonInstance(AnalysisSession, QML_URI, 1, 0, "AnalysisSession",
+                                 analysis_session)
 
     # The application icon is global rather than per-window, so one call
     # covers the QML window, the Alt-Tab entry and the taskbar button. It

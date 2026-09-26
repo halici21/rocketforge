@@ -46,8 +46,9 @@ Item {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
+        // The drawer's own motion token: it says which edge it came from.
         Behavior on x {
-            NumberAnimation { duration: Motion.base; easing.type: Motion.emphasized }
+            NumberAnimation { duration: Motion.panel; easing.type: Motion.emphasized }
         }
     }
 

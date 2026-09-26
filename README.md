@@ -91,7 +91,7 @@ python main.py
 Verified on Windows 11 with Python 3.13 and PySide6 6.10.2.
 
 `requirements.txt` covers the UI shell and the classic compressible-flow
-pages. Two more, both optional and additive, unlock more of Analysis mode:
+pages. Three more, all optional and additive, unlock more of Analysis mode:
 
 * `requirements-thermochemistry.txt` — installs NASA CEA (`cea`), enabling the
   Thermochemistry and Rocket Performance pages. Without it those pages
@@ -101,6 +101,9 @@ pages. Two more, both optional and additive, unlock more of Analysis mode:
   never a runtime dependency.
 * `requirements-fluids.txt` — installs CoolProp, enabling Fluid Properties and
   Line.
+* `requirements-3d.txt` — installs PySide6-Addons for Qt Quick 3D, enabling the
+  3D view in Rocket Performance. Without it (or on a software renderer) the
+  2D schematic stays the view and the 3D choice says why.
 
 `requirements-dev.txt` adds the test/tooling dependencies for running the
 suite in [Testing](#testing) below.
@@ -140,7 +143,8 @@ evidence is absent.
 Prebuilt: see [Releases](https://github.com/halici21/rocketforge/releases).
 Each release names the commit it was built from.
 To build it yourself, with `.venv-cea` holding `requirements.txt`,
-`requirements-thermochemistry.txt` and `requirements-fluids.txt`:
+`requirements-thermochemistry.txt`, `requirements-fluids.txt` and
+`requirements-3d.txt`:
 
 ```bat
 build_exe.bat

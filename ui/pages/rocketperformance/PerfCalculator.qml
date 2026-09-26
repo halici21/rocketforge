@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../components/viewport"
 import "../../data"
 
 /*
@@ -43,6 +44,8 @@ Item {
 
     readonly property bool compact: width < 1250
     readonly property bool roomy: width > 1700
+    // The solved expansion as the 2D schematic or in 3D -- view state only.
+    property string objectView: "2d"
 
     function indexOfKey(options, key) {
         for (var i = 0; i < options.length; ++i)
@@ -403,6 +406,14 @@ Item {
                     spacing: Metrics.spacing.s
 
                     RFSectionLabel { text: "Propulsion" }
+                    RFViewSwitch {
+                        id: objectSwitch
+                        objectName: "performanceViewSwitch"
+                        implicitWidth: view.compact ? 150 : 210
+                        flatLabel: view.compact ? "2D" : "2D schematic"
+                        mode: view.objectView
+                        onModeRequested: function (mode) { view.objectView = mode }
+                    }
                     Item { Layout.fillWidth: true }
                     RFStatusChip {
                         text: RocketPerformance.statusLabel
@@ -443,6 +454,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Layout.minimumHeight: 190
+                    visible: !objectSwitch.show3D
                     placeholder: !RocketPerformance.hasResult
                     opacity: RocketPerformance.hasResult ? 1 : 0.7
                     radiusRatio: RocketPerformance.solvedRadiusRatio
@@ -452,6 +464,17 @@ Item {
                     exitMachText: RocketPerformance.solvedExitMach > 0
                                   ? RocketPerformance.solvedExitMach.toFixed(3) : ""
                     chamberPressureText: RocketPerformance.solvedChamberPressureText
+                }
+
+                // The same schematic, revolved: the result's own snapshot,
+                // loaded only while shown. Before a solve it says so rather
+                // than drawing an outline.
+                Perf3DView {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: 190
+                    visible: objectSwitch.show3D
+                    active: objectSwitch.show3D
                 }
 
                 // ---- the exit / ambient relation -------------------------

@@ -48,7 +48,7 @@ Item {
         NumberAnimation {
             target: loader
             property: "y"
-            from: 6
+            from: Motion.spatial ? 6 : 0
             to: 0
             duration: Motion.slow
             easing.type: Motion.standard
