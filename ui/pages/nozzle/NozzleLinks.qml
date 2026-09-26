@@ -13,7 +13,15 @@ QtObject {
 
     readonly property string selectedStation: Nozzle.selection.kind === "station"
                                               ? Nozzle.selection.key : ""
-    readonly property real selectedX: Nozzle.selection.active ? Nozzle.selection.x : NaN
+    readonly property real selectedX: Nozzle.selection.active && Nozzle.selection.kind !== "tableRange"
+                                      ? Nozzle.selection.x : NaN
+    // A distribution row that is a station (throat, either shock row, exit)
+    // lights that station on the drawing and in 3D.
+    readonly property int selectedRow: Nozzle.selection.kind === "tableRow"
+                                       ? parseInt(Nozzle.selection.key.slice(4)) : -1
+    readonly property string rowStation: links.selectedRow >= 0 ? Nozzle.stationForRow(links.selectedRow) : ""
+    readonly property string highlightStation: links.selectedStation !== "" ? links.selectedStation
+                                                                            : links.rowStation
 
     function station(key) {
         var list = Nozzle.viewport.stations || []
@@ -64,4 +72,26 @@ QtObject {
     }
 
     function clear() { Nozzle.selection.clear() }
+
+    // A distribution row: the drawing, the 3D view, the charts and the
+    // inspector follow it.
+    function selectRow(row, source) {
+        Nozzle.selectTableRow(row)
+        ShellContext.inspectorOpen = true
+    }
+
+    // The distribution row a selection is, when it is one: a row itself, a
+    // station's row (the pre-shock row for the shock), or a plotted sample's.
+    function rowOfSelection() {
+        var sel = Nozzle.selection
+        if (sel.kind === "tableRow")
+            return links.selectedRow
+        if (sel.kind === "station")
+            return sel.key === "throat" ? Nozzle.throatRow
+                 : sel.key === "shock" ? Nozzle.preShockRow
+                 : sel.key === "exit" ? Nozzle.exitRow : -1
+        if (sel.kind === "plotPoint")
+            return Nozzle.rowForX(sel.x)
+        return -1
+    }
 }

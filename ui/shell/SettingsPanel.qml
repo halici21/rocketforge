@@ -55,6 +55,28 @@ RFMenu {
             }
         }
 
+        // Whether resting the pointer on a small-multiple plot previews it.
+        // Focus by click works either way.
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: Metrics.spacing.xs
+
+            Text {
+                text: "Plot hover preview"
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.body
+            }
+
+            RFSegmentedControl {
+                objectName: "hoverPreviewControl"
+                Layout.fillWidth: true
+                model: ["On", "Off"]
+                currentIndex: Motion.hoverPreview ? 0 : 1
+                onSelected: function (index) { Motion.hoverPreview = index === 0 }
+            }
+        }
+
         RFDivider {}
 
         RowLayout {

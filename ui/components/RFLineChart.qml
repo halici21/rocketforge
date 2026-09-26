@@ -59,6 +59,11 @@ Item {
     property bool logScaleActive: false
     property real markerX: NaN
     property string markerLabel: ""
+    // The marker is M = 1 on a Mach axis, and the plot is tinted subsonic /
+    // supersonic either side of it. On any other axis (O/F, a design
+    // variable) the marker is only a reference line: set this false, or a
+    // selected O/F would be labelled as a sonic boundary.
+    property bool markerRegions: true
     property string xLabel: "Mach number"
     property string yLabel: ""
     property color curveColor: Theme.accent
@@ -232,9 +237,9 @@ Item {
     // -- duplicated from onPaint's own extent/log-scale logic rather than
     // refactored out of it, so the existing, already-visually-verified
     // paint path is untouched by this addition.
-    function dataExtent() {
-        return root.extent()
-    }
+    // (The function that stood here, `dataExtent()`, returned `extent()`.
+    // The full-range binding below took its name and shadowed it, so every
+    // call of it threw; the one caller, nearestPoint(), reads extent().)
 
     // The data plus the caller's explicit limits: the "full range". Held as a
     // binding -- rescanned only when the data, the markers or the limits
@@ -327,7 +332,7 @@ Item {
         var all = root.allSeries
         if (all.length === 0)
             return null
-        var extent = root.dataExtent()
+        var extent = root.extent()
         var x0 = root.padLeft, x1 = root.width - root.padRight
         var dataX = extent.xmin + (pixelX - x0) / Math.max(1, x1 - x0) * (extent.xmax - extent.xmin)
         var pts = all[0].points
@@ -522,7 +527,7 @@ Item {
             ctx.fillRect(x0, y0, x1 - x0, y1 - y0)
 
             // Flow regime background shading when M=1 falls within range
-            if (!isNaN(root.markerX) && xmin < root.markerX && xmax > root.markerX) {
+            if (root.markerRegions && !isNaN(root.markerX) && xmin < root.markerX && xmax > root.markerX) {
                 var smx = tx(root.markerX)
                 // Subsonic zone tint
                 ctx.fillStyle = "rgba(56, 139, 253, 0.035)"

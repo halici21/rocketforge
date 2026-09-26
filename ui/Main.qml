@@ -59,6 +59,7 @@ ApplicationWindow {
     readonly property bool hasInspector: isTradeStudyPage
         || currentPageIndex === Navigation.indexOfKey("nozzlelab")
         || currentPageIndex === Navigation.indexOfKey("isentropic")
+        || currentPageIndex === Navigation.indexOfKey("thermochem")
     // The inspector belongs to the workspace that opened it.
     onCurrentPageIndexChanged: ShellContext.inspectorOpen = false
 
@@ -159,7 +160,15 @@ ApplicationWindow {
                     Layout.fillHeight: true
 
                     RowLayout {
+                        objectName: "analysisWorkspaceRow"
                         anchors.fill: parent
+                        // The open Inspector pushes the workspace instead of
+                        // covering it: the table, drawing or plot the reader
+                        // is selecting from stays whole and clickable beside
+                        // the readout of what was selected. The width changes
+                        // once; only the drawer slides.
+                        anchors.rightMargin: ShellContext.inspectorOpen && window.hasInspector
+                                             ? Metrics.inspectorWidth : 0
                         spacing: 0
 
                         PanelRail {

@@ -148,6 +148,13 @@ class TradeStudyController(QObject):
         self._filter = "all"
         self._model = ThermoTableModel(self)
         self._selected: list[int] = []
+        # Which evaluated study the view shows: every finished run gets the
+        # next number, and a decision re-analysis of it (no re-solve) the
+        # next revision. A pinned design-point subset records both, so a
+        # subset of another run -- or of another analysis of this one -- is
+        # never compared as if its point indices meant the same designs.
+        self._run_identity = 0
+        self._analysis_revision = 0
         self._pareto_x = ""
         self._pareto_y = ""
         # Whether a person picked this axis themselves (the RFComboBox
@@ -586,6 +593,7 @@ class TradeStudyController(QObject):
                 try:
                     self._result = service.reanalyse(self._result, definition)
                     self._definition = definition
+                    self._analysis_revision += 1
                 except StudyValidationError:
                     pass
                 self._publish()
@@ -713,6 +721,8 @@ class TradeStudyController(QObject):
                 result = service._with_provenance(
                     result, self._definition, self._setup_snapshot)
             self._result = result
+            self._run_identity += 1
+            self._analysis_revision = 0
         self.progressChanged.emit()
         self._publish()
 
@@ -942,6 +952,99 @@ class TradeStudyController(QObject):
     @Property(int, notify=resultChanged)
     def visibleRowCount(self) -> int:
         return len(self._visible_points())
+
+    @Property(int, notify=resultChanged)
+    def totalPointCount(self) -> int:
+        """Every evaluated point, whatever the filter shows."""
+        return 0 if self._result is None else len(self._result.points)
+
+    @Property(str, notify=resultChanged)
+    def filterLabel(self) -> str:
+        for option in self.filterOptions:
+            if option["key"] == self._filter:
+                return option["label"]
+        return self._filter
+
+    @Property(str, notify=resultChanged)
+    def runIdentity(self) -> str:
+        """The evaluated study on screen: its run, and its decision revision."""
+        if self._result is None:
+            return ""
+        return (f"run {self._run_identity}"
+                + (f" · analysis {self._analysis_revision}" if self._analysis_revision else ""))
+
+    @Slot(int, result=int)
+    def pointAtRow(self, row: int) -> int:
+        """The design-point index a visible table row shows, else -1."""
+        points = self._visible_points()
+        return points[row].index if 0 <= row < len(points) else -1
+
+    @Slot(int, result=int)
+    def rowOfPoint(self, index: int) -> int:
+        """The visible table row of design point ``index``, else -1 (filtered out)."""
+        for row, point in enumerate(self._visible_points()):
+            if point.index == index:
+                return row
+        return -1
+
+    @Slot("QVariantList")
+    def setSelection(self, indices) -> None:
+        """Select exactly these design points (up to the comparison limit)."""
+        if self._result is None:
+            return
+        chosen = []
+        for value in indices:
+            index = int(value)
+            if self._result.by_index(index) is not None and index not in chosen:
+                chosen.append(index)
+        self._selected = chosen[:TradeStudyController.MAX_COMPARE]
+        self.selectionChanged.emit()
+
+    @Slot("QVariantList", result="QVariantMap")
+    def subsetSnapshot(self, indices):
+        """A ``kind: "subset"`` snapshot: these design points, as the table
+        shows them, with the filter, the visible columns and the run they
+        belong to. Read from the evaluated result; nothing is evaluated."""
+        if self._result is None or self._definition is None:
+            return {}
+        points = []
+        for value in indices:
+            point = self._result.by_index(int(value))
+            if point is not None and point.index not in [p.index for p in points]:
+                points.append(point)
+        if not points:
+            return {}
+        columns = self._columns()
+        rows = []
+        for point in points:
+            cells = []
+            for column in columns:
+                key = column["key"]
+                if key == "index":
+                    cells.append(str(point.index))
+                elif key == "status":
+                    cells.append(point.status.label)
+                elif key == "feasibility":
+                    cells.append(point.feasibility.label)
+                elif key == "pareto":
+                    cells.append("Pareto" if point.is_pareto_efficient else "")
+                elif key == "score":
+                    cells.append(_text(point.score))
+                elif key in point.values:
+                    cells.append(_text(point.values[key]))
+                else:
+                    cells.append(_text(point.metrics.get(key)))
+            rows.append(cells)
+        run = self.runIdentity
+        return {
+            "kind": "subset", "source": "tradestudy", "identity": self._run_identity,
+            "runIdentity": run, "indices": [p.index for p in points],
+            "filter": {"mode": self._filter, "label": self.filterLabel,
+                       "visible": self.visibleRowCount, "total": self.totalPointCount},
+            "columns": [{"key": c["key"], "label": c["label"], "unit": ""} for c in columns],
+            "rows": rows, "stale": bool(self._stale),
+            "label": f"{len(points)} design point{'s' if len(points) != 1 else ''} · {self.filterLabel}",
+        }
 
     # -- diagnostics and provenance --------------------------------------
 

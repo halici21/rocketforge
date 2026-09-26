@@ -17,8 +17,9 @@ from PySide6.QtCore import Property, QObject, Signal, Slot
 
 __all__ = ["AnalysisSelection", "KINDS"]
 
-#: What can be selected.
-KINDS = ("station", "plotPoint", "tableRow", "probe", "roi", "state")
+#: What can be selected. ``tableRange`` is a contiguous block of table rows:
+#: ``x`` is its first row's engineering key and ``x1`` its last.
+KINDS = ("station", "plotPoint", "tableRow", "tableRange", "probe", "roi", "state")
 
 
 class AnalysisSelection(QObject):
@@ -30,15 +31,17 @@ class AnalysisSelection(QObject):
         self._key = ""
         self._x = math.nan
         self._y = math.nan
+        self._x1 = math.nan
         self._label = ""
         self._source = ""
         self._revision = 0
 
-    def _assign(self, kind: str, key: str, x: float, y: float, label: str, source: str) -> None:
+    def _assign(self, kind: str, key: str, x: float, y: float, label: str, source: str,
+                x1: float = math.nan) -> None:
         if kind not in KINDS:
             raise ValueError(f"unknown selection kind {kind!r}")
         self._kind, self._key = kind, str(key)
-        self._x, self._y = float(x), float(y)
+        self._x, self._y, self._x1 = float(x), float(y), float(x1)
         self._label, self._source = str(label), str(source)
         self._revision += 1
         self.changed.emit()
@@ -54,12 +57,21 @@ class AnalysisSelection(QObject):
         """Select a plotted point: an x and the y read at it."""
         self._assign(kind, key, x, y, label, source)
 
+    @Slot(str, str, float, float, str, str)
+    def selectRange(self, kind: str, key: str, x0: float, x1: float, label: str,
+                    source: str) -> None:
+        """Select a contiguous range from engineering key ``x0`` to ``x1``."""
+        if not (math.isfinite(x0) and math.isfinite(x1)):
+            raise ValueError("a range needs finite ends")
+        lo, hi = min(x0, x1), max(x0, x1)
+        self._assign(kind, key, lo, math.nan, label, source, hi)
+
     @Slot()
     def clear(self) -> None:
         if self._kind == "" and self._key == "":
             return
         self._kind = self._key = self._label = self._source = ""
-        self._x = self._y = math.nan
+        self._x = self._y = self._x1 = math.nan
         self._revision += 1
         self.changed.emit()
 
@@ -78,6 +90,11 @@ class AnalysisSelection(QObject):
     @Property(float, notify=changed)
     def y(self) -> float:
         return self._y
+
+    @Property(float, notify=changed)
+    def x1(self) -> float:
+        """The far end of a range selection; NaN for anything else."""
+        return self._x1
 
     @Property(str, notify=changed)
     def label(self) -> str:

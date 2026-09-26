@@ -167,6 +167,26 @@ Item {
 
             var padX = 18, margin = 14
 
+            // Narrower than its longest clause (the 1366 floor with the
+            // inspector open): each line breaks at its comma, so every
+            // clause stays whole -- never clipped mid-qualifier.
+            if (captionW > width - 2 * padX) {
+                var broken = []
+                for (var b = 0; b < lines.length; ++b) {
+                    var at = lines[b].indexOf(", ")
+                    if (at > 0) {
+                        broken.push(lines[b].slice(0, at + 1))
+                        broken.push(lines[b].slice(at + 2))
+                    } else {
+                        broken.push(lines[b])
+                    }
+                }
+                lines = broken
+                captionW = 0
+                for (var c2 = 0; c2 < lines.length; ++c2)
+                    captionW = Math.max(captionW, ctx.measureText(lines[c2]).width)
+            }
+
             // One scale for both directions. The drawing is to scale or it
             // is not a drawing of this nozzle.
             function fit(padTop, padBottom) {

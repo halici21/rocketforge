@@ -87,6 +87,20 @@ Item {
     // out of RFLineChart, which does not expose write access to another
     // series' worth of points for a nearest-point search across a
     // segmented (gap-broken) curve.
+    // Small-multiple peek/focus (the shared RFPlotPeek contract): which
+    // response curve is peeking, and the curve opened in focus.
+    QtObject { id: peekGroup; property Item current: null }
+
+    function nearestByX(series, dataX) {
+        var best = null, bestDist = Infinity
+        for (var i = 0; i < series.points.length; ++i) {
+            if (!series.points[i].hasValue) continue
+            var dist = Math.abs(series.points[i].x - dataX)
+            if (dist < bestDist) { bestDist = dist; best = series.points[i] }
+        }
+        return best
+    }
+
     function nearestInSeries(series, chart, pixelX) {
         var x0 = chart.padLeft, x1 = chart.width - chart.padRight
         var dataX = view.xBounds.lo + (pixelX - x0) / Math.max(1, x1 - x0)
@@ -235,6 +249,19 @@ Item {
                         readonly property color curveColor:
                             Theme.series[index % Theme.series.length]
 
+                        opacity: curvePeek.receded ? 0.45 : 1
+                        Behavior on opacity { NumberAnimation { duration: Motion.fast } }
+
+                        // Over the whole panel, outside its layout.
+                        RFPlotPeek {
+                            id: curvePeek
+                            parent: chartPanel
+                            group: peekGroup
+                            onFocusRequested: focusOverlay.show(
+                                chartPanel.title, "Same evaluated study, full size · the chosen design is the crosshair",
+                                focusCurve, { series: chartPanel.modelData, color: chartPanel.curveColor })
+                        }
+
                         RFLineChart {
                             id: chart
                             Layout.fillWidth: true
@@ -254,6 +281,8 @@ Item {
                                               color: chartPanel.curveColor })
                                 return out
                             }
+                            // a design-variable axis: a reference line, no Mach regions
+                            markerRegions: false
                             markerX: chartPanel.selectedPoint ? chartPanel.selectedPoint.x : NaN
                             markerLabel: chartPanel.selectedPoint ? "Selected" : ""
                             markers: chartPanel.selectedPoint
@@ -274,5 +303,72 @@ Item {
                 }
             }
         }
+    }
+
+    // ---- focus: one response curve at full size ---------------------------
+    Component {
+        id: focusCurve
+        Item {
+            readonly property var series: focusOverlay.context.series
+            // kept between opens by the overlay: each open starts whole
+            function reopened() {
+                interact.clearProbes()
+                interact.resetView(false)
+            }
+            onSeriesChanged: reopened()
+            function handleEscape() {
+                if (interact.lensActive || plot.zoomed) {
+                    interact.resetView(true)
+                    return true
+                }
+                return false
+            }
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: Metrics.spacing.s
+                RFPlotToolbar { interaction: interact }
+                RFLineChart {
+                    id: plot
+                    objectName: "tradeFocusChart"
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    xLabel: TradeStudy.sweepVariableTitle
+                    yLabel: parent.parent.series ? parent.parent.series.unit : ""
+                    xMin: view.xBounds.lo
+                    xMax: view.xBounds.hi
+                    showPoints: true
+                    logScale: false
+                    series: {
+                        var s = parent.parent.series
+                        if (!s) return []
+                        var segments = view.segmentsFor(s.points)
+                        var out = []
+                        for (var i = 0; i < segments.length; ++i)
+                            out.push({ points: segments[i], color: focusOverlay.context.color, width: 1.8 })
+                        return out
+                    }
+                    RFPlotInteraction {
+                        id: interact
+                        chart: plot
+                        readonly property var chosen: plot.parent.parent.series
+                                                      ? view.pointInSeries(plot.parent.parent.series, view.selectedIndex) : null
+                        selectionX: chosen ? chosen.x : NaN
+                        selectionLabel: chosen ? "#" + chosen.index : ""
+                        xSymbol: TradeStudy.sweepVariableTitle
+                        onPointSelected: function (x, y, s, label) {
+                            var found = view.nearestByX(plot.parent.parent.series, x)
+                            if (found)
+                                TradeStudy.toggleSelection(found.index)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    RFFocusOverlay {
+        id: focusOverlay
+        objectName: "tradeFocusOverlay"
+        anchors.fill: parent
     }
 }

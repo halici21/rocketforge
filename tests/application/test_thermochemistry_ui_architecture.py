@@ -559,8 +559,10 @@ def test_a_left_aligned_first_column_gets_a_full_marker_gutter():
     table = (UI / "components" / "RFEngineeringTable.qml").read_text(encoding="utf-8")
     assert "if (alignsLeft(0))" in table
     assert "markerLabelWidth + Metrics.spacing.m" in table
-    # And the right-aligned branch is still the one that subtracts the column.
-    assert "- firstColumnWidth" in table
+    # And the right-aligned branch is still the one that subtracts the column
+    # -- at the table's visual zoom, which scales the first column with it.
+    assert "- root.firstWidth" in table
+    assert "firstWidth: firstColumnWidth * viewZoom" in table
 
 
 def test_the_composition_table_marks_condensed_rows_in_the_gutter():

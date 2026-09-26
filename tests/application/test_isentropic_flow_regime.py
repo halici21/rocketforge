@@ -42,15 +42,22 @@ def test_no_transonic_or_hypersonic_label_is_invented(iso):
         assert iso.flowRegime in ("Subsonic", "Supersonic")
 
 
-def test_every_readout_group_is_placed_in_a_column():
-    """A group named in one list and spelled differently in the other would
-    silently disappear from the readout."""
+@pytest.mark.parametrize("mach", [0.5, 1.0, 2.0])
+def test_every_readout_row_has_a_place_in_the_calculator(iso, mach):
+    """Every row the service returns is placed: the hero (M), the secondary
+    pair, or a ratio family. A key spelled differently in the page would
+    otherwise fall to the "Other" fallback -- shown, but out of its family --
+    so the families must name every key the service produces."""
     source = CALCULATOR.read_text(encoding="utf-8")
-    groups = re.search(r"property var groups: \[([^\]]*)\]", source).group(1)
-    columns = re.search(r"property var columns: \[(.*?)\]\s*\n", source, re.S).group(1)
-    names = set(re.findall(r'"([^"]+)"', groups))
-    placed = set(re.findall(r'"([^"]+)"', columns))
-    assert names == placed
+    secondary = re.search(r"property var secondaryKeys: \[([^\]]*)\]", source).group(1)
+    families = re.search(r"property var families: \[(.*?)\n    \]", source, re.S).group(1)
+    placed = {"mach"} | set(re.findall(r'"([^"]+)"', secondary)) | set(re.findall(r'"(\w+)"', families))
+    iso.setMachAndSolve(mach)
+    produced = {row["key"] for row in iso.results}
+    assert produced, "a solved state has rows"
+    assert produced <= placed, produced - placed
+    # and the page keeps an explicit fallback, so an unplaced row is never dropped
+    assert "otherRows" in source
 
 
 def test_the_calculator_binds_only_to_existing_regime_properties():

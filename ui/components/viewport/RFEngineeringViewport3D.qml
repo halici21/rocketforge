@@ -373,16 +373,24 @@ Item {
                     readonly property real inletR: root.valid && root.snapshot.profile.r.length > 0
                                                    ? root.snapshot.profile.r[0] * root.unit : core
 
+                    // Gas: short streaks laid along the axis (the direction
+                    // of travel), so a gas cue reads as a direction of flow
+                    // rather than as a particle. A streak is a flat sprite, so
+                    // two fixed emitters lay them in two planes that both
+                    // contain the axis (x-y and x-z): seen from any side the
+                    // streaks run along the flow, and looking down the axis
+                    // they turn edge-on, as a line along the axis does.
                     SpriteParticle3D {
                         id: gasTracer
                         maxAmount: 220
                         color: root.gasColor
-                        billboard: true
+                        billboard: false
                         fadeInDuration: 160
                         fadeOutDuration: 260
-                        sprite: Texture { source: "tracer_round.png" }
+                        sprite: Texture { source: "tracer_streak.png" }
                     }
                     ParticleEmitter3D {
+                        id: gasStreaksXY
                         particle: gasTracer
                         enabled: root.flow.gas === true
                         position: Qt.vector3d(flowSystem.inletX, 0, 0)
@@ -394,16 +402,36 @@ Item {
                             direction: Qt.vector3d(flowSystem.speed, 0, 0)
                             directionVariation: Qt.vector3d(flowSystem.speed * 0.04, 0, 0)
                         }
-                        emitRate: 220 / (flowSystem.lifeMs / 1000)
+                        particleRotation: Qt.vector3d(0, 0, 90)
+                        emitRate: 110 / (flowSystem.lifeMs / 1000)
                         lifeSpan: flowSystem.lifeMs
-                        particleScale: 0.0017
-                        particleScaleVariation: 0.0005
+                        particleScale: 0.0042
+                        particleScaleVariation: 0.0008
+                    }
+                    ParticleEmitter3D {
+                        id: gasStreaksXZ
+                        particle: gasTracer
+                        enabled: root.flow.gas === true
+                        position: Qt.vector3d(flowSystem.inletX, 0, 0)
+                        shape: ParticleShape3D {
+                            type: ParticleShape3D.Sphere
+                            extents: Qt.vector3d(0.004, flowSystem.core, flowSystem.core)
+                        }
+                        velocity: VectorDirection3D {
+                            direction: Qt.vector3d(flowSystem.speed, 0, 0)
+                            directionVariation: Qt.vector3d(flowSystem.speed * 0.04, 0, 0)
+                        }
+                        particleRotation: Qt.vector3d(90, 0, 90)
+                        emitRate: 110 / (flowSystem.lifeMs / 1000)
+                        lifeSpan: flowSystem.lifeMs
+                        particleScale: 0.0042
+                        particleScaleVariation: 0.0008
                     }
 
-                    // Condensed phase: sparse square specks mixed with the gas cues,
-                    // shown only when the solved case reports condensed products. A
-                    // different shape as well as a different tone, so the two phases
-                    // are told apart without colour.
+                    // Condensed phase: sparse, heavier square specks mixed with the
+                    // gas streaks, shown only when the solved case reports condensed
+                    // products. A different shape (a speck, not a streak) as well as a
+                    // different tone, so the two phases are told apart without colour.
                     SpriteParticle3D {
                         id: condensedTracer
                         maxAmount: 48
@@ -620,7 +648,8 @@ Item {
             spacing: Metrics.spacing.m
             Row {
                 spacing: 4
-                Rectangle { width: 6; height: 6; radius: 3; color: root.gasColor; anchors.verticalCenter: parent.verticalCenter }
+                // a streak, as the gas cues are drawn
+                Rectangle { width: 12; height: 2; radius: 1; color: root.gasColor; anchors.verticalCenter: parent.verticalCenter }
                 Text { text: "gas"; color: Theme.textMuted; font.family: Typography.sans; font.pixelSize: Typography.meta }
             }
             Row {

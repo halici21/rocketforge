@@ -172,8 +172,10 @@ Item {
                 RFPlotInteraction {
                     id: interact
                     chart: chart
-                    selectionX: links.selectedX
+                    selectionX: Nozzle.selection.kind === "tableRange" ? NaN : links.selectedX
                     selectionLabel: Nozzle.selection.kind === "station" ? "" : Nozzle.selection.label
+                    highlightX0: Nozzle.selection.kind === "tableRange" ? Nozzle.selection.x : NaN
+                    highlightX1: Nozzle.selection.kind === "tableRange" ? Nozzle.selection.x1 : NaN
                     xSymbol: "x"
                     quantity: page.active ? page.active.key : ""
                     unit: page.active ? page.active.unit : ""
@@ -222,8 +224,10 @@ Item {
 
                 RFPlotInteraction {
                     chart: contour
-                    selectionX: links.selectedX
+                    selectionX: Nozzle.selection.kind === "tableRange" ? NaN : links.selectedX
                     selectionLabel: Nozzle.selection.kind === "station" ? "" : Nozzle.selection.label
+                    highlightX0: Nozzle.selection.kind === "tableRange" ? Nozzle.selection.x : NaN
+                    highlightX1: Nozzle.selection.kind === "tableRange" ? Nozzle.selection.x1 : NaN
                     xSymbol: "x"
                     quantity: "wall_radius"
                     unit: "m"

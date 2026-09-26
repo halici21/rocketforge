@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
 
 /*
  * One quantity against O/F.
@@ -24,6 +25,16 @@ Item {
     id: chart
 
     property string quantity: "temperature"
+    // Small-multiple peek/focus (RFPlotPeek): the owner's shared group, and
+    // the request to open this plot in focus.
+    property QtObject peekGroup: null
+    signal focusRequested()
+    readonly property string title: chart.axisValue.raw + " vs O/F"
+    readonly property real selectedOf: Thermochemistry.sweepSelection.active
+                                       ? Thermochemistry.sweepSelection.x : NaN
+
+    opacity: peek.receded ? 0.45 : 1
+    Behavior on opacity { NumberAnimation { duration: Motion.fast } }
 
     // Series and axis labels come from the controller as method calls rather
     // than properties, so they are pulled once when the sweep changes rather
@@ -84,6 +95,18 @@ Item {
                      ? [{ x: chart.peakValue.of, y: chart.peakValue.value,
                           label: "max in sweep" }]
                      : []
+            // The selected point (from a plot or the table), as a crosshair.
+            markerX: chart.selectedOf
+            markerRegions: false
+            markerLabel: isNaN(chart.selectedOf) ? "" : Thermochemistry.sweepSelection.label
+
+            TapHandler {
+                // a click selects the nearest swept point -- a real sample
+                onTapped: function (point) {
+                    Thermochemistry.selectSweepNear(parent.toDataX(point.position.x))
+                    ShellContext.inspectorOpen = true
+                }
+            }
         }
 
         Text {
@@ -95,5 +118,11 @@ Item {
             font.family: Typography.sans
             font.pixelSize: Typography.meta
         }
+    }
+
+    RFPlotPeek {
+        id: peek
+        group: chart.peekGroup
+        onFocusRequested: chart.focusRequested()
     }
 }

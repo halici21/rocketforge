@@ -48,4 +48,12 @@ QtObject {
 
     readonly property int standard: Easing.OutCubic
     readonly property int emphasized: Easing.InOutCubic
+
+    // Plot hover preview (Settings > Appearance): resting the pointer on a
+    // small-multiple plot for `peekDwell` raises it and recedes its
+    // neighbours. Off, a plot is focused only by a deliberate click. Not a
+    // duration, so the motion mode does not scale it; with motion Off the
+    // peek still happens, it just does not fade.
+    property bool hoverPreview: true
+    readonly property int peekDwell: 280
 }

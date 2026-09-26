@@ -68,6 +68,9 @@ CRASH_ROUTE = ("solve,page:isentropic,section:0,page:obliqueshock,section:0,sect
 #: the scene must be gone.
 VIEWPORT_ROUTE = ("solve,page:performance,view:3d,expect3d:yes,capture:viewport3d,"
                   "solid:rp1311-example5,solve,expect3d:yes,biprop,solve,expect3d:yes,"
+                  "view:2d,expect3d:no,"
+                  # Nozzle Lab's regime map, in the same shared viewport
+                  "page:nozzlelab,section:0,view:3d,expect3d:yes,capture:nozzle3d,"
                   "view:2d,expect3d:no")
 
 

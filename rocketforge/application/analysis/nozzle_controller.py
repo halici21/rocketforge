@@ -20,7 +20,8 @@ from PySide6.QtCore import Property, QObject, Signal, Slot
 
 from ..formatting import format_engineering
 from ..visualization.selection import AnalysisSelection
-from ..visualization.viewport import nozzle_viewport
+from ..visualization.table import clamp_block, table_block
+from ..visualization.viewport import nozzle_viewport, with_sample_shock
 from .analysis_behaviour import MAX_TABLE_ROWS, AnalysisBehaviour
 from .nozzle_service import (
     AREA_MODES,
@@ -54,6 +55,7 @@ class NozzleController(AnalysisBehaviour, QObject):
     referenceChanged = Signal()
     shockCurveChanged = Signal()
     selectionReadoutChanged = Signal()
+    playbackChanged = Signal()
     requestTab = Signal(int)
 
     _export_name = "nozzle"
@@ -84,6 +86,9 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._thresholds: dict = {}
         self._bands: list = []
         self._shock_curve: list = []
+        # The same sweep, every field kept: the playback's samples.
+        self._playback: list = []
+        self._playback_index = -1
         self._presented = None
         # Which solved state the views are showing: every solve gets the next
         # number, so a pinned snapshot or the inspector can say which one it is.
@@ -94,6 +99,8 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._selection = AnalysisSelection(self)
         self._selection.changed.connect(self.selectionReadoutChanged)
         self.resultsChanged.connect(self.selectionReadoutChanged)
+        self.playbackChanged.connect(self.selectionReadoutChanged)
+        self.tableChanged.connect(self.selectionReadoutChanged)
         self._recalculate()
         self._regenerate_table()
 
@@ -130,6 +137,10 @@ class NozzleController(AnalysisBehaviour, QObject):
         the station, and a selection pointing at it would point at nothing.
         """
         selection = self._selection
+        if selection.kind in ("tableRow", "tableRange", "plotPoint", "state"):
+            # a row or a sample of the previous solution is not one of this one
+            selection.clear()
+            return
         if selection.kind != "station":
             return
         present = {"throat", "exit"}
@@ -148,8 +159,16 @@ class NozzleController(AnalysisBehaviour, QObject):
         self._thresholds = thresholds(inputs)
         self._bands = regime_bands(inputs)
         # The same 80-point sweep shockPositionSeries() draws.
+        sweep = shock_position_sweep(inputs, 80)
         self._shock_curve = [{"x": p["pressure_ratio_back"], "y": p["area_ratio_shock"]}
-                             for p in shock_position_sweep(inputs, 80)]
+                             for p in sweep]
+        # Kept whole for the playback: the solver's own x_s for every sample.
+        self._playback = [{"pb": p["pressure_ratio_back"], "areaRatio": p["area_ratio_shock"],
+                           "x": p["x"], "machUpstream": p["mach_upstream"],
+                           "stagnationRatio": p["stagnation_pressure_ratio"]} for p in sweep]
+        if self._playback_index >= 0:
+            self._playback_index = -1
+            self.playbackChanged.emit()
         self.shockCurveChanged.emit()
 
     def _build_table(self):
@@ -590,6 +609,137 @@ class NozzleController(AnalysisBehaviour, QObject):
     def selectRow(self, row: int) -> None:
         self._selected_row = row
 
+    @Slot(int, result=str)
+    def stationForRow(self, row: int) -> str:
+        """The engineering station a table row is, if it is one: throat, shock, exit."""
+        if row < 0 or row >= self._table_model.rowCount():
+            return ""
+        if row == self._throat_row:
+            return "throat"
+        if row in (self._pre_shock_row, self._post_shock_row) and row >= 0:
+            return "shock"
+        if row == self._table_model.rowCount() - 1:
+            return "exit"
+        return ""
+
+    @Slot(float, result=int)
+    def rowForX(self, x: float) -> int:
+        """The first table row at exactly axial position ``x`` (the pre-shock
+        row where two share it), else -1. No nearest-row guess."""
+        record = self._record
+        if record is None or not self._table_model.rowCount():
+            return -1
+        for index, value in enumerate(record.x):
+            if float(value) == float(x):
+                return index if index < self._table_model.rowCount() else -1
+        return -1
+
+    @Slot(int)
+    def selectTableRow(self, row: int) -> None:
+        """Select a distribution row: the drawing, the 3D view, the charts and
+        the inspector follow it. The two shock rows stay two selections."""
+        record = self._record
+        if record is None or not (0 <= row < self._table_model.rowCount()):
+            return
+        marker = self._row_markers.get(row, "")
+        label = f"Station {row + 1}" + (f" · {marker.title()}" if marker else "")
+        self._selection.select("tableRow", f"row:{row}", float(record.x[row]), label, "table")
+
+    @Slot(int, int)
+    def selectTableRange(self, first: int, last: int) -> None:
+        """Select a block of distribution rows; the charts show the interval."""
+        record = self._record
+        span = clamp_block(first, last, self._table_model.rowCount())
+        if record is None or span is None:
+            return
+        a, b = span
+        if a == b:
+            self.selectTableRow(a)
+            return
+        self._selection.selectRange("tableRange", f"rows:{a}-{b}", float(record.x[a]),
+                                    float(record.x[b]), f"stations {a + 1}–{b + 1}", "table")
+
+    @Slot(int, int, result="QVariantMap")
+    def tableSnapshot(self, first: int, last: int):
+        """Distribution rows as a table snapshot, exactly as shown."""
+        model = self._table_model
+
+        def text_at(r: int, c: int) -> str:
+            value = model.data(model.index(r, c))
+            return "" if value is None else str(value)
+
+        try:
+            return table_block(source="nozzle.distribution", identity=self._identity,
+                               columns=model.columns, values=model.values, text_at=text_at,
+                               first=first, last=last, key_symbol="x", stale=False,
+                               regime=self.regimeLabel,
+                               provenance="Calculated by RocketForge · quasi-1D supplied cone")
+        except (ValueError, IndexError):
+            return {}
+
+    # ------------------------------------------------------------------
+    # playback: cached operating-state samples of the shock curve
+    # ------------------------------------------------------------------
+    #
+    # A presentation of samples the regime map already solved: stepping
+    # through them moves the shock station along the supplied cone the way
+    # the map says it stands at other back pressures. No sample is solved
+    # here, the operating point is not changed, and a sample is a steady
+    # state, not an instant of a transient.
+
+    @Property("QVariantList", notify=shockCurveChanged)
+    def playbackSamples(self):
+        return list(self._playback)
+
+    @Property(int, notify=playbackChanged)
+    def playbackIndex(self) -> int:
+        return self._playback_index
+
+    @playbackIndex.setter
+    def playbackIndex(self, value: int) -> None:
+        index = int(value)
+        if index < 0 or index >= len(self._playback):
+            index = -1
+        if index == self._playback_index:
+            return
+        self._playback_index = index
+        self.playbackChanged.emit()
+
+    @Property("QVariantMap", notify=playbackChanged)
+    def playbackSample(self):
+        if self._playback_index < 0:
+            return {}
+        sample = self._playback[self._playback_index]
+        return dict(sample, index=self._playback_index, count=len(self._playback))
+
+    @Property("QVariantMap", notify=playbackChanged)
+    def playbackViewport(self):
+        """The solved viewport, its shock station taken from the current sample."""
+        viewport = self._presentation()["viewport"]
+        if self._playback_index < 0:
+            return viewport
+        return with_sample_shock(viewport, self._playback[self._playback_index],
+                                 self._playback_index, len(self._playback), self._precision)
+
+    def _operating_readout(self, base: dict) -> dict:
+        """The operating point, as the inspector reads it with nothing selected:
+        the regime, its words and the solved values the rail used to carry."""
+        if not self._is_valid():
+            return {}
+        rows_by_key = {r["key"]: r for r in self._result_rows()}
+        keys = (["shock_area_ratio", "shock_mach_upstream", "shock_mach_downstream",
+                 "shock_stagnation_ratio", "shock_x", "mach_exit", "mass_flow"]
+                if self.hasShock else
+                ["mach_exit", "pressure_ratio_exit", "pressure_ratio_exit_over_back",
+                 "mass_flow", "mach_throat", "velocity_exit", "pressure_exit"])
+        rows = [{"label": rows_by_key[k]["label"], "value": rows_by_key[k]["value"],
+                 "unit": rows_by_key[k].get("unit", "")} for k in keys if k in rows_by_key]
+        note = self.regimeNote
+        if self.externalContext:
+            note = note + "  " + self.externalContext
+        return dict(base, kind="state", key="operating", title=f"Operating point · {self.regimeLabel}",
+                    note=note, rows=rows, stale=False)
+
     @Slot(int, result="QVariantList")
     def stationAt(self, row: int):
         """One station, as labelled rows for the inspector."""
@@ -711,6 +861,43 @@ class NozzleController(AnalysisBehaviour, QObject):
         selection = self._selection
         viewport = self._presentation()["viewport"]
         base = {"identity": self._identity, "fidelity": viewport.get("label", "")}
+        if self._playback_index >= 0:
+            sample = self.playbackViewport
+            for station in sample.get("stations", []):
+                if station["key"] == "shock":
+                    return dict(base, kind="state", key="playback", title=station["title"],
+                                note=station["note"], rows=station["rows"], stale=False)
+        if selection.kind == "tableRange":
+            try:
+                a, b = (int(v) for v in selection.key.split(":", 1)[1].split("-"))
+            except (IndexError, ValueError):
+                return {}
+            first, last = self.stationAt(a), self.stationAt(b)
+            if not first or not last:
+                return {}
+            crosses = self._pre_shock_row >= 0 and a <= self._pre_shock_row and b >= self._post_shock_row
+            return dict(base, kind="tableRange", key=selection.key,
+                        title=f"Stations {a + 1}–{b + 1}",
+                        note=(f"{b - a + 1} solved stations; first and last row, as shown"
+                              + (" — the range crosses the shock (both rows kept)" if crosses else "")),
+                        rows=[{"label": f["label"], "value": f"{f['text']}  →  {l['text']}", "unit": f["unit"]}
+                              for f, l in zip(first, last)])
+        if selection.kind == "tableRow":
+            try:
+                row = int(selection.key.split(":", 1)[1])
+            except (IndexError, ValueError):
+                return {}
+            cells = self.stationAt(row)
+            if not cells:
+                return {}
+            marker = self._row_markers.get(row, "")
+            side = ("the state just upstream of the discontinuity" if row == self._pre_shock_row
+                    else "the state just downstream of the discontinuity"
+                    if row == self._post_shock_row else "a solved station of the distribution")
+            return dict(base, kind="tableRow", key=selection.key,
+                        title=f"Station {row + 1}" + (f" · {marker.title()}" if marker else ""),
+                        note=side, rows=[{"label": c["label"], "value": c["text"], "unit": c["unit"]}
+                                         for c in cells])
         if selection.kind == "station":
             for station in viewport.get("stations", []):
                 if station["key"] == selection.key:
@@ -728,7 +915,7 @@ class NozzleController(AnalysisBehaviour, QObject):
             return dict(base, kind="plotPoint", key=selection.key,
                         title=selection.label or "Plotted point", note="a solved station of the distribution",
                         rows=rows)
-        return {}
+        return self._operating_readout(base)
 
     @Property("QVariantList", notify=resultsChanged)
     def contour(self):

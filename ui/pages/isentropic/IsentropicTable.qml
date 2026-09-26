@@ -16,12 +16,28 @@ import "../../components"
  * orientation (p0/p, rho0/rho, T0/T) because that is what a reader has in
  * front of them; the backend computes its canonical ratios and the adapter
  * takes the reciprocal.
+ *
+ * The table is an interactive data surface (RFEngineeringTable's shared
+ * contract): a row selects the chart's exact sample and the inspector; a
+ * range draws a quiet interval on the chart (it never zooms it) and can be
+ * opened as a lens or pinned as a table snapshot in the one AnalysisSession.
  */
 Item {
     id: page
 
     property int selectedRow: -1
     property real jumpMach: 1.0
+
+    // The settings start closed on a short page (the 1366 x 768 floor), once:
+    // after that the drawer is the reader's.
+    property bool sized: false
+    onHeightChanged: {
+        if (!page.sized && page.height > 0) {
+            page.sized = true
+            if (page.height < 700)
+                settings.open = false
+        }
+    }
 
     // Numeric navigation rather than a text search: nobody looks for a string
     // in a table of numbers, they look for a Mach number.
@@ -55,14 +71,109 @@ Item {
         page.selectedRow = -1
     }
 
+    // The rows a Pin or Copy means: the range, else the lens, else the row.
+    function activeBlock() {
+        if (table.hasRange)
+            return [table.rangeFirst, table.rangeLast]
+        if (table.lensActive)
+            return [table.lensFirst, table.lensLast]
+        if (page.selectedRow >= 0)
+            return [page.selectedRow, page.selectedRow]
+        return null
+    }
+    function pinBlock() {
+        var block = page.activeBlock()
+        if (block === null)
+            return
+        var snap = Isentropic.tableSnapshot(block[0], block[1])
+        if (snap.kind === undefined)
+            return
+        var id = AnalysisSession.pin(snap)
+        page.snapMessage = id !== "" ? "Pinned " + id + " · " + snap.rangeLabel
+                                     : "Not pinned: " + AnalysisSession.lastError
+    }
+    function copyBlock() {
+        var block = page.activeBlock()
+        if (block === null)
+            Isentropic.copyTable()
+        else
+            Isentropic.copyTableRows(block[0], block[1])
+    }
+
+    // ---- pinned table snapshots (RFTableSnapshotStrip) ----------------------
+    property string snapMessage: ""
+
+    // Restore: the same rows of the current table, as a range and a lens. A
+    // snapshot from a table generated with other settings is not forced onto
+    // this one -- its rows stay in the snapshot, and the reason is said.
+    function restoreSnap(s) {
+        var a = s.identity === Isentropic.tableIdentity ? s.firstRow : Isentropic.rowExactly(s.rowKeys[0])
+        var b = s.identity === Isentropic.tableIdentity ? s.lastRow
+                                                         : Isentropic.rowExactly(s.rowKeys[s.rowKeys.length - 1])
+        if (a < 0 || b < 0 || b - a + 1 !== s.rowKeys.length) {
+            page.snapMessage = s.id + " comes from another table (γ " + s.gamma
+                               + "); generate that table to restore it. Its rows are kept in the snapshot."
+            return
+        }
+        table.selectRange(a, b)
+        table.enterLens(a, b)
+        page.snapMessage = "Restored " + s.id + " · " + s.rangeLabel
+    }
+
+    // The shared selection drives the table too: a point picked on the chart
+    // selects its row here; a range restored elsewhere shows as a range.
+    Connections {
+        target: Isentropic.selection
+        function onChanged() {
+            var sel = Isentropic.selection
+            if (sel.kind === "plotPoint" || sel.kind === "tableRow") {
+                var row = Isentropic.rowExactly(sel.x)
+                if (row >= 0 && row !== page.selectedRow) {
+                    page.selectedRow = row
+                    table.clearRange()
+                }
+            } else if (sel.kind === "") {
+                page.selectedRow = -1
+                table.clearRange()
+            }
+        }
+    }
+    Connections {
+        target: Isentropic
+        function onTableChanged() {
+            table.clearRange()
+            table.exitLens()
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: Metrics.spacing.m
 
         // ---- controls -------------------------------------------------------
-        RFPanel {
+        // The generation settings, collapsible to one line that still names
+        // the table on screen, so on a short window the rows get the room.
+        // Open by default; closed from the start below 700 px of page height.
+        RFBottomDrawer {
+            id: settings
+            objectName: "isentropicTableSettings"
             Layout.fillWidth: true
-            Layout.preferredHeight: 108
+            Layout.preferredHeight: settings.implicitHeight
+            title: "Table settings"
+            summary: "γ " + (+Number(Isentropic.plottedGamma).toPrecision(4)) + "  ·  "
+                     + Isentropic.tableRowCount + " rows  ·  "
+                     + (Isentropic.tableConvention === "anderson" ? "Anderson" : "Standard")
+                     + " format  ·  " + Isentropic.tablePrecision + " digits"
+            open: true
+            drawerHeight: settings.handleHeight + Metrics.spacing.s + controls.implicitHeight
+
+        // Sized to its two rows of controls (a fixed height clipped the
+        // Jump to M field at the foot of the panel).
+        RFPanel {
+            id: controls
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
             contentSpacing: Metrics.spacing.s
 
             RowLayout {
@@ -187,6 +298,7 @@ Item {
                 }
             }
         }
+        }
 
         // ---- table + comparison --------------------------------------------
         RowLayout {
@@ -207,11 +319,23 @@ Item {
                     }
                 }
 
+                RFTableToolbar {
+                    Layout.fillWidth: true
+                    visible: Isentropic.tableRowCount > 0
+                    table: table
+                    canPin: true
+                    canCopy: true
+                    onPinRequested: page.pinBlock()
+                    onCopyRequested: page.copyBlock()
+                }
+
                 RFEngineeringTable {
                     id: table
+                    objectName: "isentropicTable"
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     visible: Isentropic.tableRowCount > 0
+                    interactive: true
 
                     model: Isentropic.tableModel
                     columns: page.captionedColumns
@@ -230,10 +354,26 @@ Item {
                         Isentropic.selectRow(row)
                         Isentropic.selectTableRow(row)
                     }
+                    onRangeSelected: function (first, last) {
+                        page.selectedRow = -1
+                        Isentropic.selectTableRange(first, last)
+                    }
+                    onEscapePressed: Isentropic.selection.clear()
                     onRowActivated: function (row) {
                         Isentropic.setMachAndSolve(Isentropic.tableModel.machAt(row))
                         Isentropic.requestTab(0)
                     }
+                }
+
+                // Pinned table snapshots: A/B picks a pair to difference
+                // (row-aligned by M); Restore reopens the rows as a lens.
+                RFTableSnapshotStrip {
+                    objectName: "isentropicTableSnapshots"
+                    Layout.fillWidth: true
+                    source: "isentropic.table"
+                    columns: page.captionedColumns
+                    message: page.snapMessage
+                    onRestoreRequested: function (snapshot) { page.restoreSnap(snapshot) }
                 }
 
                 RFEmptyState {

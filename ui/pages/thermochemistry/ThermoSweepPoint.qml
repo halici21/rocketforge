@@ -25,13 +25,17 @@ ColumnLayout {
     }
 
     onRowChanged: refresh()
+    // `row` usually arrives as a binding (the sweep selection, in the
+    // Inspector), and a binding's first value does not fire onRowChanged.
+    Component.onCompleted: refresh()
 
     Connections {
         target: Thermochemistry
         function onSweepChanged() {
             // A new sweep invalidates the selection: point 12 of the old sweep
-            // is not point 12 of the new one.
-            inspector.row = -1
+            // is not point 12 of the new one. The sweep selection is dropped by
+            // the controller on the same signal, so a bound `row` becomes -1 by
+            // itself; assigning -1 here would sever that binding for good.
             inspector.refresh()
         }
     }

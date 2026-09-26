@@ -12,12 +12,20 @@ import "../../components"
  * already formatted; this file selects a solve mode, sends the input, and lays
  * out what comes back. There is no arithmetic in it - not a ratio, not a
  * reciprocal, not a unit conversion.
+ *
+ * Reading order: the solved state (M and its regime) first, then the two
+ * quantities that describe it geometrically (Mach angle, A/A*), then the
+ * ratios by physical family -- pressure, temperature, density -- each led by
+ * the direction the table and chart carry, its inverse quieter beneath, and
+ * the sonic-reference ratios as compact context at the foot. The inputs live
+ * in a drawer whose handle still names the case when it is closed; the
+ * Anderson check is one line that says how many rows passed, and opens.
  */
 Item {
     id: page
 
     readonly property var modes: Isentropic.solveModes
-    readonly property var activeMode: modes[modeControl.currentIndex]
+    readonly property var activeMode: modes[Math.max(0, page.indexOfMode(Isentropic.mode))]
 
     function indexOfMode(key) {
         for (var i = 0; i < modes.length; ++i)
@@ -26,34 +34,31 @@ Item {
         return 0
     }
 
-    // Groups in the order an engineer reads them: what the flow is doing, then
-    // the state ratios, then geometry.
-    readonly property var groups: ["Flow", "Static / stagnation", "Sonic reference", "Geometric"]
-    // Two columns of the same groups, named exactly as the service names them:
-    // a group missing from here would silently vanish from the readout.
-    readonly property var columns: [["Flow", "Geometric"],
-                                    ["Static / stagnation", "Sonic reference"]]
+    // ---- where every result row goes ---------------------------------------
+    // Secondary: the geometry of the solved state. Families: the ratios, by
+    // physical quantity. Each family lists its static/stagnation pair and its
+    // sonic-reference ratio. A row the service returns that is not named here
+    // is not dropped: it appears under "Other" (see otherRows).
+    readonly property var secondaryKeys: ["mach_angle", "area_ratio"]
+    readonly property var families: [
+        { name: "Pressure", pair: ["p_over_p0", "p0_over_p"], sonic: "p_over_pstar" },
+        { name: "Temperature", pair: ["T_over_T0", "T0_over_T"], sonic: "T_over_Tstar" },
+        { name: "Density", pair: ["rho_over_rho0", "rho0_over_rho"], sonic: "rho_over_rhostar" }
+    ]
 
-    // M leads on its own (the hero row); every other row stays in its group.
-    function rowsIn(group) {
-        var out = []
-        for (var i = 0; i < Isentropic.results.length; ++i)
-            if (Isentropic.results[i].group === group && Isentropic.results[i].key !== "mach")
-                out.push(Isentropic.results[i])
-        return out
-    }
-
-    readonly property var machRow: {
+    function row(key) {
         var list = Isentropic.results
         for (var i = 0; i < list.length; ++i)
-            if (list[i].key === "mach")
+            if (list[i].key === key)
                 return list[i]
         return null
     }
 
-    // The quantities the table and the chart carry are the readouts; the rest
-    // -- reciprocals, sonic-reference ratios, the Mach angle -- are quieter.
-    // Every row is still shown; only the weight changes.
+    readonly property var machRow: { Isentropic.results; return page.row("mach") }
+
+    // The direction the table and the chart carry leads its family; the
+    // inverse follows, quieter. Every row is still shown; only the weight and
+    // the order change.
     readonly property var plottedKeys: {
         var out = {}
         var cols = Isentropic.tableColumns
@@ -62,27 +67,121 @@ Item {
                 out[cols[i].key] = true
         return out
     }
+    function familyOrder(pair) {
+        return page.plottedKeys[pair[1]] === true && page.plottedKeys[pair[0]] !== true
+               ? [pair[1], pair[0]] : [pair[0], pair[1]]
+    }
+
+    readonly property var placedKeys: {
+        var out = { "mach": true }
+        for (var i = 0; i < secondaryKeys.length; ++i)
+            out[secondaryKeys[i]] = true
+        for (var f = 0; f < families.length; ++f) {
+            out[families[f].pair[0]] = true
+            out[families[f].pair[1]] = true
+            out[families[f].sonic] = true
+        }
+        return out
+    }
+    readonly property var otherRows: {
+        var list = Isentropic.results, out = []
+        for (var i = 0; i < list.length; ++i)
+            if (page.placedKeys[list[i].key] !== true)
+                out.push(list[i])
+        return out
+    }
+
+    // The Anderson check, counted: "4/4 PASS", or the failures named. Any
+    // row that is not PASS counts as a failure in the one-line summary; it is
+    // never averaged away or left for the details to reveal.
+    function summarizeCheck(rows) {
+        var passed = 0
+        for (var i = 0; i < rows.length; ++i)
+            if (rows[i].status === "PASS")
+                passed += 1
+        var all = rows.length > 0 && passed === rows.length
+        var text = rows.length === 0 ? "No exact reference row"
+                 : all ? passed + "/" + rows.length + " PASS"
+                 : passed + "/" + rows.length + " PASS  ·  " + (rows.length - passed) + " FAIL"
+        return { passed: passed, allPass: all, text: text }
+    }
+    readonly property var checkRows: Isentropic.currentMachComparison
+    readonly property var checkCount: page.summarizeCheck(page.checkRows)
+    readonly property int checkPassed: page.checkCount.passed
+    readonly property bool checkAllPass: page.checkCount.allPass
+    readonly property string checkSummary: page.checkCount.text
+    property bool checkOpen: false
+
+    // The case, in one line, for the collapsed drawer's handle.
+    readonly property string caseSummary: {
+        var symbol = page.activeMode ? page.activeMode.symbol : ""
+        return symbol + " = " + (+Number(Isentropic.inputValue).toPrecision(6))
+               + "  ·  γ " + (+Number(Isentropic.gamma).toPrecision(4))
+               + (Isentropic.branchRequired ? "  ·  " + Isentropic.branch : "")
+    }
+
+    // One ratio row: label, value, unit; click copies the value as shown.
+    component RatioRow: RowLayout {
+        id: ratio
+        property var entry: null
+        property string weight: "primary"         // primary | inverse | sonic
+        readonly property bool primary: weight === "primary"
+        Layout.fillWidth: true
+        Layout.preferredHeight: primary ? 30 : weight === "inverse" ? 24 : 21
+        spacing: Metrics.spacing.m
+        visible: entry !== null
+
+        Text {
+            Layout.preferredWidth: 150
+            text: ratio.entry ? Notation.rich(ratio.entry.label) : ""
+            textFormat: ratio.entry ? Notation.textFormat(ratio.entry.label) : Text.PlainText
+            color: ratio.primary ? Theme.text : Theme.textSecondary
+            font.family: Typography.sans
+            font.pixelSize: ratio.primary ? Typography.body : Typography.bodySmall
+            elide: Text.ElideRight
+        }
+        Text {
+            Layout.fillWidth: true
+            text: ratio.entry ? ratio.entry.value + (ratio.entry.unit ? " " + ratio.entry.unit : "") : ""
+            color: ratio.entry && !ratio.entry.available ? Theme.textMuted
+                 : ratio.primary ? Theme.text : Theme.textSecondary
+            font.family: Typography.mono
+            font.pixelSize: ratio.primary ? Typography.readoutMedium
+                          : ratio.weight === "inverse" ? Typography.readoutSmall : Typography.bodySmall
+            font.weight: ratio.primary ? Typography.medium : Typography.regular
+
+            TapHandler { onSingleTapped: if (ratio.entry) Isentropic.copyText(ratio.entry.value) }
+            HoverHandler { id: valueHover }
+        }
+        Text {
+            text: "copy"
+            opacity: valueHover.hovered ? 1 : 0
+            color: Theme.textMuted
+            font.family: Typography.sans
+            font.pixelSize: Typography.meta
+            Behavior on opacity { NumberAnimation { duration: Motion.micro } }
+        }
+    }
 
     RowLayout {
         anchors.fill: parent
         spacing: Metrics.spacing.l
 
-        // ---- input rail ---------------------------------------------------
-        RFPanel {
-            title: "Solve from"
-            Layout.preferredWidth: Metrics.railWidth - 20
-            Layout.minimumWidth: 250
+        // ---- input drawer -------------------------------------------------
+        RFWorkspaceDrawer {
+            id: inputs
+            objectName: "isentropicInputDrawer"
+            Layout.preferredWidth: inputs.implicitWidth
             Layout.fillHeight: true
-            contentSpacing: Metrics.spacing.l
+            title: "Solve from"
+            summary: page.caseSummary
+            drawerWidth: Math.max(250, Metrics.railWidth - 20)
 
-            // Scrolls when the window is shorter than the inputs and the model
-            // statement together -- the 1366 floor, or the area-ratio branch
-            // control -- so nothing is cut or runs past the panel. With room,
-            // the model statement sits at the foot of the rail.
+            // Scrolls when the window is shorter than the inputs (the 1366
+            // floor, or the area-ratio branch control): nothing is cut.
             Flickable {
                 id: inputFlick
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+                anchors.fill: parent
                 contentWidth: width
                 contentHeight: inputColumn.implicitHeight
                 clip: true
@@ -95,7 +194,6 @@ Item {
                 ColumnLayout {
                     id: inputColumn
                     width: inputFlick.width - (inputFlick.contentHeight > inputFlick.height ? 12 : 0)
-                    height: Math.max(inputFlick.height, implicitHeight)
                     spacing: Metrics.spacing.l
 
                     RFComboBox {
@@ -134,6 +232,7 @@ Item {
                         readonly property string plainText: page.activeMode ? "Valid range: " + page.activeMode.hint : ""
                         text: Notation.rich(plainText)
                         textFormat: Notation.textFormat(plainText)
+                        wrapMode: Text.WordWrap
                         color: Theme.textMuted
                         font.family: Typography.sans
                         font.pixelSize: Typography.meta
@@ -208,31 +307,6 @@ Item {
                             }
                         }
                     }
-
-                    Item { Layout.fillHeight: true }
-
-                    RFSectionLabel { text: "Model" }
-
-                    Text {
-                        Layout.fillWidth: true
-                        text: Isentropic.modelName
-                        color: Theme.textSecondary
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.bodySmall
-                    }
-
-                    Text {
-                        Layout.fillWidth: true
-                        readonly property string plainText: Isentropic.assumptions.join(" · ")
-                        text: Notation.rich(plainText)
-                        textFormat: Notation.textFormat(plainText)
-                        wrapMode: Text.WordWrap
-                        lineHeight: Typography.proseLineHeight
-                        lineHeightMode: Text.ProportionalHeight
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
                 }
             }
         }
@@ -258,22 +332,16 @@ Item {
                 width: resultsFlick.width - (resultsFlick.contentHeight > resultsFlick.height ? 12 : 0)
                 spacing: Metrics.spacing.l
 
-                // Sized to what it holds: a tall panel with nothing in its lower
-                // half is a frame around empty space.
                 RFPanel {
-                    title: "Results"
+                    objectName: "isentropicResults"
+                    title: "Solved state"
                     Layout.fillWidth: true
                     contentSpacing: Metrics.spacing.m
 
                     trailing: Component {
-                        Row {
-                            spacing: Metrics.spacing.s
-
-                            RFStatusChip {
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: Isentropic.statusLabel
-                                tone: Isentropic.statusTone
-                            }
+                        RFStatusChip {
+                            text: Isentropic.statusLabel
+                            tone: Isentropic.statusTone
                         }
                     }
 
@@ -319,14 +387,15 @@ Item {
                         }
                     }
 
-                    // The state that was solved: M, and the regime the controller
-                    // classifies it in. Everything below is a consequence of it.
+                    // Primary: M and the regime it is classified in. Secondary,
+                    // beside it: the Mach angle and the area ratio.
                     RowLayout {
                         Layout.fillWidth: true
                         visible: Isentropic.valid && page.machRow !== null
                         spacing: Metrics.spacing.xl
 
                         RFResultValue {
+                            objectName: "isentropicHeroMach"
                             Layout.alignment: Qt.AlignTop
                             label: page.machRow ? page.machRow.label + "  M" : ""
                             value: page.machRow ? page.machRow.value : "—"
@@ -334,7 +403,7 @@ Item {
                         }
 
                         ColumnLayout {
-                            Layout.fillWidth: true
+                            Layout.preferredWidth: 260
                             Layout.alignment: Qt.AlignVCenter
                             spacing: Metrics.spacing.xs
                             visible: Isentropic.flowRegime !== ""
@@ -353,6 +422,26 @@ Item {
                                 font.pixelSize: Typography.bodySmall
                             }
                         }
+
+                        Item { Layout.fillWidth: true }
+
+                        Repeater {
+                            model: page.secondaryKeys
+
+                            delegate: RFResultValue {
+                                id: secondary
+                                required property var modelData
+                                readonly property var entry: { Isentropic.results; return page.row(modelData) }
+                                objectName: "isentropicSecondary_" + modelData
+                                Layout.alignment: Qt.AlignTop
+                                visible: entry !== null
+                                label: entry ? entry.label : ""
+                                value: entry ? entry.value : "—"
+                                unit: entry && entry.unit ? entry.unit : ""
+                                scale: "medium"
+                                TapHandler { onSingleTapped: if (secondary.entry) Isentropic.copyText(secondary.entry.value) }
+                            }
+                        }
                     }
 
                     RFDivider {
@@ -360,87 +449,61 @@ Item {
                         visible: Isentropic.valid
                     }
 
-                    // Two-column balanced results layout eliminating widescreen void
-                    RowLayout {
+                    // The ratios, by physical family. One column per family at
+                    // any width this page reaches; the pair leads, the sonic
+                    // reference sits quietly at the foot of its family.
+                    GridLayout {
                         Layout.fillWidth: true
-                        spacing: Metrics.spacing.xl
-                        Layout.alignment: Qt.AlignTop
+                        visible: Isentropic.valid
+                        columns: resultsColumn.width > 760 ? 3 : 1
+                        columnSpacing: Metrics.spacing.xl
+                        rowSpacing: Metrics.spacing.l
 
                         Repeater {
-                            model: page.columns
+                            model: page.families
 
                             delegate: ColumnLayout {
-                                id: colLayout
+                                id: family
                                 required property var modelData
+                                readonly property var order: page.familyOrder(modelData.pair)
+                                objectName: "isentropicFamily_" + modelData.name
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignTop
-                                spacing: Metrics.spacing.m
+                                spacing: Metrics.spacing.xs
 
-                                Repeater {
-                                    model: colLayout.modelData
+                                RFSectionLabel { text: family.modelData.name }
 
-                                    delegate: ColumnLayout {
-                                        id: grpLayout
-                                        required property var modelData
-                                        readonly property var groupRows: page.rowsIn(modelData)
-
-                                        Layout.fillWidth: true
-                                        spacing: Metrics.spacing.xs
-                                        visible: groupRows.length > 0
-
-                                        RFSectionLabel { text: Notation.sectionRich(grpLayout.modelData); textFormat: Notation.textFormat(grpLayout.modelData) }
-
-                                        Repeater {
-                                            model: grpLayout.groupRows
-
-                                            delegate: RowLayout {
-                                                id: resultRow
-                                                required property var modelData
-                                                readonly property bool plotted:
-                                                    page.plottedKeys[modelData.key] === true
-                                                Layout.fillWidth: true
-                                                Layout.preferredHeight: plotted ? 26 : 22
-                                                spacing: Metrics.spacing.m
-
-                                                Text {
-                                                    Layout.preferredWidth: 170
-                                                    text: Notation.rich(modelData.label)
-                                                    textFormat: Notation.textFormat(modelData.label)
-                                                    color: resultRow.plotted ? Theme.text : Theme.textSecondary
-                                                    font.family: Typography.sans
-                                                    font.pixelSize: resultRow.plotted ? Typography.body
-                                                                                      : Typography.bodySmall
-                                                }
-
-                                                Text {
-                                                    Layout.fillWidth: true
-                                                    text: modelData.value + (modelData.unit ? " " + modelData.unit : "")
-                                                    color: !modelData.available ? Theme.textMuted
-                                                         : resultRow.plotted ? Theme.text : Theme.textSecondary
-                                                    font.family: Typography.mono
-                                                    font.pixelSize: resultRow.plotted ? Typography.readoutMedium
-                                                                                      : Typography.readoutSmall
-                                                    font.weight: resultRow.plotted ? Typography.medium
-                                                                                   : Typography.regular
-
-                                                    TapHandler {
-                                                        onSingleTapped: Isentropic.copyText(modelData.value)
-                                                    }
-                                                    HoverHandler { id: valueHover }
-                                                }
-
-                                                Text {
-                                                    text: "copy"
-                                                    opacity: valueHover.hovered ? 1 : 0
-                                                    color: Theme.textMuted
-                                                    font.family: Typography.sans
-                                                    font.pixelSize: Typography.meta
-                                                    Behavior on opacity { NumberAnimation { duration: 90 } }
-                                                }
-                                            }
-                                        }
-                                    }
+                                RatioRow {
+                                    entry: { Isentropic.results; return page.row(family.order[0]) }
+                                    weight: "primary"
                                 }
+                                RatioRow {
+                                    entry: { Isentropic.results; return page.row(family.order[1]) }
+                                    weight: "inverse"
+                                }
+                                Item { Layout.preferredHeight: Metrics.spacing.xs; Layout.fillWidth: true }
+                                RatioRow {
+                                    entry: { Isentropic.results; return page.row(family.modelData.sonic) }
+                                    weight: "sonic"
+                                }
+                            }
+                        }
+                    }
+
+                    // Anything the service returns that has no family here is
+                    // shown, not dropped.
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: Isentropic.valid && page.otherRows.length > 0
+                        spacing: Metrics.spacing.xs
+
+                        RFSectionLabel { text: "Other" }
+                        Repeater {
+                            model: page.otherRows
+                            delegate: RatioRow {
+                                required property var modelData
+                                entry: modelData
+                                weight: "inverse"
                             }
                         }
                     }
@@ -453,40 +516,16 @@ Item {
                         title: "No result for this input"
                         body: Isentropic.statusMessage
                     }
-                }
 
-                // ---- reference check ------------------------------------------
-                // Sized to its rows: four quantities and a citation are evidence,
-                // not a region to reserve height for.
-                RFPanel {
-                    title: "Reference check"
-                    Layout.fillWidth: true
-                    contentSpacing: Metrics.spacing.xs
-
-                    trailing: Component {
-                        RFStatusChip {
-                            text: check.rows.length > 0 ? "Published row available" : "No exact reference row"
-                            tone: check.rows.length > 0 ? "success" : "neutral"
-                            showDot: false
-                        }
-                    }
-
-                    Item {
-                        id: check
-                        // A property made with the result, so a new result brings
-                        // its own comparison and opening this view solves nothing.
-                        // (The slot form re-ran the relations whenever a view
-                        // first read it.)
-                        readonly property var rows: Isentropic.currentMachComparison
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 0
-                    }
-
+                    // The model, as the quietest line of the panel -- still in
+                    // view when the input drawer is closed.
                     Text {
                         Layout.fillWidth: true
-                        visible: check.rows.length === 0
-                        text: "Anderson Appendix A tabulates γ = 1.4 at discrete Mach numbers. "
-                              + "This Mach number is not one of them, and no value is interpolated."
+                        Layout.topMargin: Metrics.spacing.s
+                        readonly property string plainText: Isentropic.modelName
+                                                            + "  ·  " + Isentropic.assumptions.join(" · ")
+                        text: Notation.rich(plainText)
+                        textFormat: Notation.textFormat(plainText)
                         wrapMode: Text.WordWrap
                         lineHeight: Typography.proseLineHeight
                         lineHeightMode: Text.ProportionalHeight
@@ -494,89 +533,164 @@ Item {
                         font.family: Typography.sans
                         font.pixelSize: Typography.meta
                     }
+                }
 
-                    // Column headings, so each figure says what it is.
-                    RowLayout {
-                        Layout.fillWidth: true
-                        visible: check.rows.length > 0
-                        spacing: Metrics.spacing.m
+                // ---- reference check ------------------------------------------
+                // One line: how many published rows this state was checked
+                // against and how many passed. A failure is named in the line
+                // itself, never only inside the details.
+                Rectangle {
+                    objectName: "isentropicReferenceCheck"
+                    Layout.fillWidth: true
+                    implicitHeight: checkColumn.implicitHeight + 2 * Metrics.spacing.m
+                    radius: Metrics.radius.m
+                    color: Theme.surface
+                    border.width: Metrics.hairline
+                    border.color: page.checkRows.length > 0 && !page.checkAllPass ? Theme.warning : Theme.border
 
-                        Repeater {
-                            model: [
-                                { text: "Quantity", width: 70 },
-                                { text: "Calculated", width: 120 },
-                                { text: "Published", width: 120 },
-                                { text: "Difference", width: -1 },
-                                { text: "Status", width: 54 }
-                            ]
-                            delegate: Text {
-                                required property var modelData
-                                Layout.preferredWidth: modelData.width
-                                Layout.fillWidth: modelData.width < 0
-                                text: modelData.text
-                                color: Theme.textMuted
-                                font.family: Typography.sans
-                                font.pixelSize: Typography.meta
-                            }
-                        }
-                    }
+                    ColumnLayout {
+                        id: checkColumn
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.margins: Metrics.spacing.m
+                        spacing: Metrics.spacing.s
 
-                    Repeater {
-                        model: check.rows
-
-                        delegate: RowLayout {
-                            required property var modelData
+                        RowLayout {
                             Layout.fillWidth: true
                             spacing: Metrics.spacing.m
 
                             Text {
-                                Layout.preferredWidth: 70
-                                text: Notation.rich(modelData.label)
-                                textFormat: Notation.textFormat(modelData.label)
+                                text: "Reference check"
                                 color: Theme.textSecondary
                                 font.family: Typography.sans
                                 font.pixelSize: Typography.bodySmall
+                                font.weight: Typography.medium
                             }
                             Text {
-                                Layout.preferredWidth: 120
-                                text: modelData.computed
-                                color: Theme.text
-                                font.family: Typography.mono
-                                font.pixelSize: Typography.bodySmall
-                            }
-                            Text {
-                                Layout.preferredWidth: 120
-                                text: modelData.reference
-                                color: Theme.textSecondary
-                                font.family: Typography.mono
-                                font.pixelSize: Typography.bodySmall
-                            }
-                            Text {
-                                Layout.fillWidth: true
-                                text: modelData.difference
+                                text: "Anderson Appendix A"
                                 color: Theme.textMuted
-                                font.family: Typography.mono
-                                font.pixelSize: Typography.bodySmall
+                                font.family: Typography.sans
+                                font.pixelSize: Typography.meta
                             }
                             RFStatusChip {
-                                Layout.preferredWidth: 54
-                                text: modelData.status
-                                tone: modelData.status === "PASS" ? "success" : "warning"
-                                showDot: false
+                                objectName: "isentropicCheckSummary"
+                                text: page.checkSummary
+                                tone: page.checkRows.length === 0 ? "neutral"
+                                    : page.checkAllPass ? "success" : "warning"
+                                showDot: page.checkRows.length > 0
+                            }
+                            Item { Layout.fillWidth: true }
+                            RFToolButton {
+                                objectName: "isentropicCheckDetails"
+                                visible: page.checkRows.length > 0
+                                text: page.checkOpen ? "Hide details" : "Details"
+                                tooltip: "Each quantity: calculated, published, difference, status"
+                                checked: page.checkOpen
+                                onClicked: page.checkOpen = !page.checkOpen
                             }
                         }
-                    }
 
-                    Text {
-                        Layout.fillWidth: true
-                        text: Isentropic.referenceCitation + " — published reference, not an exact value."
-                        wrapMode: Text.WordWrap
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
+                        Text {
+                            Layout.fillWidth: true
+                            visible: page.checkRows.length === 0
+                            text: "Anderson Appendix A tabulates γ = 1.4 at discrete Mach numbers. "
+                                  + "This Mach number is not one of them, and no value is interpolated."
+                            wrapMode: Text.WordWrap
+                            lineHeight: Typography.proseLineHeight
+                            lineHeightMode: Text.ProportionalHeight
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
+
+                        // The details: column headings, then one row per quantity.
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            visible: page.checkOpen && page.checkRows.length > 0
+                            spacing: Metrics.spacing.xs
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: Metrics.spacing.m
+
+                                Repeater {
+                                    model: [
+                                        { text: "Quantity", width: 70 },
+                                        { text: "Calculated", width: 120 },
+                                        { text: "Published", width: 120 },
+                                        { text: "Difference", width: -1 },
+                                        { text: "Status", width: 54 }
+                                    ]
+                                    delegate: Text {
+                                        required property var modelData
+                                        Layout.preferredWidth: modelData.width
+                                        Layout.fillWidth: modelData.width < 0
+                                        text: modelData.text
+                                        color: Theme.textMuted
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.meta
+                                    }
+                                }
+                            }
+
+                            Repeater {
+                                model: page.checkRows
+
+                                delegate: RowLayout {
+                                    required property var modelData
+                                    Layout.fillWidth: true
+                                    spacing: Metrics.spacing.m
+
+                                    Text {
+                                        Layout.preferredWidth: 70
+                                        text: Notation.rich(modelData.label)
+                                        textFormat: Notation.textFormat(modelData.label)
+                                        color: Theme.textSecondary
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.bodySmall
+                                    }
+                                    Text {
+                                        Layout.preferredWidth: 120
+                                        text: modelData.computed
+                                        color: Theme.text
+                                        font.family: Typography.mono
+                                        font.pixelSize: Typography.bodySmall
+                                    }
+                                    Text {
+                                        Layout.preferredWidth: 120
+                                        text: modelData.reference
+                                        color: Theme.textSecondary
+                                        font.family: Typography.mono
+                                        font.pixelSize: Typography.bodySmall
+                                    }
+                                    Text {
+                                        Layout.fillWidth: true
+                                        text: modelData.difference
+                                        color: Theme.textMuted
+                                        font.family: Typography.mono
+                                        font.pixelSize: Typography.bodySmall
+                                    }
+                                    RFStatusChip {
+                                        Layout.preferredWidth: 54
+                                        text: modelData.status
+                                        tone: modelData.status === "PASS" ? "success" : "warning"
+                                        showDot: false
+                                    }
+                                }
+                            }
+                        }
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: Isentropic.referenceCitation + " — published reference, not an exact value."
+                            wrapMode: Text.WordWrap
+                            color: Theme.textMuted
+                            font.family: Typography.sans
+                            font.pixelSize: Typography.meta
+                        }
                     }
                 }
-
             }
         }
     }

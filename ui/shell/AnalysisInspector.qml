@@ -1,9 +1,11 @@
 import QtQuick
+import QtQuick.Layouts
 import RocketForge 1.0
 import "../theme"
 import "../components"
 import "../data"
 import "../pages/tradestudy"
+import "../pages/thermochemistry"
 
 /*
  * The contextual Inspector's content, for whichever workspace is open.
@@ -28,6 +30,7 @@ Item {
         sourceComponent: root.pageKey === "tradestudy" ? study
                        : root.pageKey === "nozzlelab" ? nozzle
                        : root.pageKey === "isentropic" ? isentropic
+                       : root.pageKey === "thermochem" ? sweepPoint
                        : null
     }
 
@@ -43,6 +46,71 @@ Item {
                        + "throat, shock or exit."
             onClearRequested: Nozzle.selection.clear()
             onCloseRequested: root.closeRequested()
+        }
+    }
+
+    // A sweep point, read from the solved sweep record (Thermochemistry
+    // .sweepPoint): the O/F solved, the state it gave, its own diagnostics.
+    Component {
+        id: sweepPoint
+        Item {
+            id: sweepHost
+            objectName: "sweepInspector"
+            readonly property int row: Thermochemistry.sweepSelection.kind === "tableRow"
+                                       ? parseInt(Thermochemistry.sweepSelection.key) : -1
+
+            RFToolButton {
+                id: sweepClose
+                anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.margins: Metrics.spacing.m
+                text: "Close"
+                onClicked: root.closeRequested()
+            }
+            Text {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.margins: Metrics.spacing.m
+                anchors.topMargin: Metrics.spacing.m + 4
+                text: "INSPECTOR  ·  O/F SWEEP"
+                color: Theme.textSecondary
+                font.family: Typography.sans
+                font.pixelSize: Typography.meta
+                font.letterSpacing: Typography.sectionTracking
+            }
+            Flickable {
+                anchors.top: sweepClose.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                anchors.margins: Metrics.spacing.m
+                contentWidth: width
+                contentHeight: pointColumn.implicitHeight
+                clip: true
+                ColumnLayout {
+                    id: pointColumn
+                    width: parent.width
+                    spacing: Metrics.spacing.s
+                    ThermoSweepPoint {
+                        Layout.fillWidth: true
+                        row: sweepHost.row
+                    }
+                    Text {
+                        Layout.fillWidth: true
+                        visible: sweepHost.row < 0
+                        text: "Click a point on a sweep plot, or a row of Sweep data, to inspect it."
+                        wrapMode: Text.WordWrap
+                        color: Theme.textMuted
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.bodySmall
+                    }
+                    RFToolButton {
+                        visible: sweepHost.row >= 0
+                        text: "Clear selection"
+                        onClicked: Thermochemistry.sweepSelection.clear()
+                    }
+                }
+            }
         }
     }
 

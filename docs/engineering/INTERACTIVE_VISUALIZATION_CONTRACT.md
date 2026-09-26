@@ -102,21 +102,27 @@ re-frames until the user zooms or pans. Standard views ease over
 
 ### Flow cues
 
-- **Gas:** round tracers enter at the chamber face inside the throat radius
+- **Gas:** short streaks enter at the chamber face inside the throat radius
   and move straight along the axis at **one uniform speed**. There is no
-  honest per-station speed mapping for a schematic, so none is claimed.
+  honest per-station speed mapping for a schematic, so none is claimed. A
+  streak reads as a direction of flow, not as a particle. Each is a flat
+  sprite laid along the axis, and two fixed emitters lay them in two planes
+  that both contain the axis (x-y and x-z). Seen from any side, the streaks
+  run along the flow. Looking down the axis, they turn edge-on, as a line
+  along the axis does. Sprite alignment to velocity was tried and rejected:
+  it points the sprite's face, not its long axis, along the flow.
 - **Liquid feed (stylized):** shown when both reactants' reference phase is
   liquid. Two short streams enter at the chamber face, inside the wall, and
   fade within the chamber. No spray, droplets, injector pattern or cone angle.
-- **Condensed phase:** sparse square specks. A different shape as well as a
-  different tone, so they are told apart without colour. Shown only when the
+- **Condensed phase:** sparse, heavier square specks. A speck, not a streak,
+  and a different tone, so the two phases are told apart without colour. Shown only when the
   solved chamber reports condensed products, and labelled with the actual
   species and the reported condensed mass fraction. In this build no Rocket
   Performance case reaches it: solid chambers are refused by Rocket
   Performance's model scope, and no liquid case in the catalogue condenses.
   The layer exists and is exercised by a performance harness only.
-- **Counts are display budgets:** at most 220 gas, 48 condensed and 60 feed
-  tracers, stated on the view ("counts are a display budget"). They are never
+- **Counts are display budgets:** at most 220 gas streaks (110 per plane),
+  48 condensed and 60 feed tracers, stated on the view ("counts are a display budget"). They are never
   a physical particle count.
 - **Speed:** 0.5× / 1× / 2× is visualization playback speed, not a physical
   time scale.
@@ -141,7 +147,8 @@ re-frames until the user zooms or pans. Standard views ease over
   - Sprites are static images, not `Texture { sourceItem: … }`.
   - Guarded by `tests/application/test_viewport_fallback.py` in the source,
     and exercised in the frozen package (`verify_package.py`
-    `VIEWPORT_ROUTE`: 3D open, a solid chamber refused, recovered, closed).
+    `VIEWPORT_ROUTE`: 3D open, a solid chamber refused, recovered, closed;
+    then Nozzle Lab's regime map in 3D, open and closed).
 
 ### Availability and fallback
 
@@ -211,9 +218,10 @@ This is presentation continuity, never a physical transient:
 ## 6. Linked selection
 
 One `AnalysisSelection` per workspace (`Nozzle.selection`,
-`Isentropic.selection`). Its kinds are `station`, `plotPoint`, `tableRow`,
-`probe`, `roi` and `state`. It is keyed by engineering coordinates, never
-pixels:
+`Isentropic.selection`, `Thermochemistry.sweepSelection`). Its kinds are
+`station`, `plotPoint`, `tableRow`, `tableRange`, `probe`, `roi` and `state`.
+A `tableRange` carries both ends: `x` is its first row's engineering key and
+`x1` its last. It is keyed by engineering coordinates, never pixels:
 
 - **Nozzle Lab.** A station clicked on the drawing, or a chart click within
   1.2 % of the axial span of a station, selects that station (throat, shock,
@@ -221,8 +229,26 @@ pixels:
   crosshair at the solved x, and the inspector reads the station's solved
   values. A click elsewhere selects the nearest real sample.
 - **Isentropic.** A table row (Table tab) is the relation chart's crosshair at
-  that row's Mach number. A chart click reads the table's sample into the
-  inspector.
+  that row's Mach number. A row range draws a quiet interval on the chart (a
+  tint and a hairline at each end) and never moves the view: no auto-zoom. A
+  chart click reads the table's sample into the inspector.
+- **Nozzle Lab distribution.** A row is a `tableRow` (`row:<i>`). A row that
+  is a station lights that station on the drawing and in 3D: the throat row
+  is the throat, either shock row is the shock, the last row is the exit. The
+  two shock rows stay two selections and two inspector readouts, pre and post.
+  The marked-station jumps select, open the inspector, move the charts'
+  crosshair and then scroll. With nothing selected, the inspector reads the
+  operating point: the regime, its explanation, the external context and the
+  readouts the right rail used to carry. A new solve drops a row, range, plot
+  point or state selection, because those do not carry over to a new
+  solution. A station selection survives while the station exists.
+- **Thermochemistry sweep.** A point clicked on any of the four plots (the
+  nearest swept O/F, a real sample) or a Sweep-data row is one selection. The
+  inspector reads that point's solved record (`sweepPoint`). Any change to
+  the sweep (run, clear, edited input) drops it.
+- **Trade Study results.** A row toggles its design point in the comparison
+  selection (up to four). The inspector (`StudyInspector`) shows the last one
+  chosen, read from the evaluated result. Nothing is evaluated.
 - **Inspector** (right drawer; it opens on a deliberate selection, never on
   hover) shows the title, the solved values, the fidelity, the stale state and
   "solved state #N".
@@ -233,18 +259,101 @@ Selecting solves nothing. `tests/application/test_interactive_analysis.py`
 checks the mapping with a negative control, an offset click that must not read
 as the throat.
 
-## 7. Drawers and focus mode
+## 7. The workspace grammar: drawers, focus and context toolbars
 
-- **Right — inspector** (`InspectorDrawer`): selected-object properties; slides
-  in over `Motion.panel`.
-- **Bottom — dock** (`AnalysisDock`): Messages and Diagnostics, collapsed by
-  default.
-- **Left — inputs** (Isentropic focus mode): the input column collapses to a
-  handle (`RFDrawerHandle`) that still names the case (`M = 2.00000 γ =
-  1.400`). The handle, Space or Return reopens it beside the chart.
-- **Focus mode** (Isentropic relation, the Focus button): the chart takes the
-  width. Units, the curve caption, the solved-state words and the stale state
-  stay. **Esc** closes the inputs drawer first, then leaves focus mode.
+Optional composition, not a page template: a workspace uses the pieces its
+task needs.
+
+- **Input drawer** (`RFWorkspaceDrawer`, left). It holds the inputs: the
+  Isentropic calculator's Solve from, the sweep setup, the Trade filter.
+  Closed, it leaves an `RFDrawerHandle` that still names the case, for example
+  `M = 2 · γ 1.4`, `O/F 2.500–4.500 · 41 points · LCH4 / LOX` or
+  `328 / 328 visible · All points`. Open, it pushes the layout. The width
+  changes once, and only the panel's opacity and 18 px of travel (Full)
+  animate over `Motion.panel`. The drawer owns `open`.
+- **Inspector** (`InspectorDrawer`, right). It shows the selected object's
+  properties and slides in over `Motion.panel`. It **pushes the workspace**
+  and has no scrim, so the table, drawing or plot the reader selects from
+  stays whole and clickable beside it. Clicking the next row updates the
+  inspector instead of closing it. It closes with its own button or a
+  workspace's own toggle.
+- **Bottom drawer** (`RFBottomDrawer`). It holds supporting data under the
+  plots it supports, such as the sweep's table. Its handle names the contents
+  and their size (`Sweep data · 41 rows · ascending O/F`). The Isentropic
+  table's generation settings use it at the top, as a one-line summary that
+  collapses on a short window. The shell's own dock (`AnalysisDock`: Messages,
+  Diagnostics) is unchanged.
+- **Focus overlay** (`RFFocusOverlay`). One plot at workspace size, rebuilt
+  from the owner's component with the same series and the full lens tools.
+  The rest recedes behind a dimmed backdrop (dim, not blur, because a blur
+  would be a second full-scene render). It is built only while open. **Esc**
+  is layered: the focused plot's lens or zoom first, then the overlay.
+- **Context toolbars**: `RFPlotToolbar` (plots) and `RFTableToolbar` (tables).
+- **Isentropic relation focus mode** is unchanged: **Esc** closes the inputs
+  drawer first, then leaves focus mode.
+
+### 7.1 The shared table contract (`RFEngineeringTable`, `interactive: true`)
+
+| Input | Action |
+| --- | --- |
+| click | select a row |
+| Shift + click, drag with the Range tool | select a range of whole rows |
+| Ctrl + wheel, Ctrl + − / + / 0 | visual zoom 0.8×–1.6× (row height, figures, column widths) |
+| middle drag | pan |
+| ↑ / ↓ (Shift) | move the row (grow the range) |
+| Return | open the lens on the range |
+| Esc | leave the lens, else clear the range, else clear the selection |
+
+- **Lens.** It shows only the chosen rows, 15 % larger, between two quiet
+  strips that count what lies outside (`▲ 80 rows above the lens · next
+  M 1.600`). `RFTableToolbar` names it in a breadcrumb (`Full table ›
+  M 1.620 – 2.420`). A row outside the lens that a jump asks for ends the
+  lens rather than hiding the row.
+- **All of it is view state.** Nothing is recomputed, reformatted or
+  re-solved. Zoom changes size, never a value (tested).
+- One pointer surface serves the whole table (no per-row handlers), so a
+  250-row table costs one MouseArea.
+- **Pin and Copy.** Pin and Copy act on the range, else the lens, else the
+  selected row. A pinned block is a `table` snapshot, and
+  `RFTableSnapshotStrip` lists them. Two blocks are differenced row by row,
+  aligned by engineering key and never by position. A key held twice, like
+  the pre- and post-shock rows, is matched occurrence by occurrence, so the
+  two sides of a shock are never merged. The strip names the largest
+  difference per column. Restore reopens the rows of the table on screen as a
+  range and a lens. A block from a table generated with other settings, or
+  from another solution, is kept but not forced onto these rows, and the
+  strip says why.
+
+### 7.2 The plot peek/focus contract (`RFPlotPeek` + `RFFocusOverlay`)
+
+For small multiples (the four sweep plots, the Trade sweep response curves):
+
+- A plot's edge lights as the pointer comes near (`RFProximityEdge`).
+- **Peek.** When the pointer rests on a plot for `Motion.peekDwell` (280 ms),
+  the plot is outlined and its neighbours recede to 45 % opacity. This needs
+  **Settings → Plot hover preview: On**, the default. A peek never starts
+  while a button is held (a drag, a pan, a selection) and ends when the
+  pointer leaves. The plot itself does not move or scale.
+- **Focus.** The Focus button, or Return on it, opens the plot in the focus
+  overlay. The focused plot uses the same selection as the overview.
+- **Species focus.** The legend isolates. Clicking species shows only those,
+  and **Show all** restores every plotted species. This is a presentation
+  filter: the sweep result keeps every species (tested).
+
+### 7.3 Snapshot kinds (one `AnalysisSession`)
+
+`plot` (the default), `table` and `subset`. Each kind has its own required
+fields and its own compatibility rule. The session never compares across
+kinds.
+
+- **`subset`.** It records the Trade design-point indices, the filter
+  (mode, visible, total), the visible columns, the rows as shown and the
+  **run identity** (`run N · analysis M`). A subset of another run, or of
+  another decision analysis of the same run, is refused ("different study
+  runs"). Restore applies the filter and re-selects the points, for this run
+  only.
+- **Bounds.** All kinds share the 6-snapshot bound and are frozen by the JSON
+  round trip.
 
 ## 8. Motion language (`ui/theme/Motion.qml`)
 
@@ -287,6 +396,8 @@ overshoot anywhere.
 | 3D view | Space | pause / resume flow cues |
 | 3D view | Esc | clear the selection |
 | plot | Esc | leave the lens, else clear probes and selection |
+| interactive table | ↑ ↓ / Shift+↑ ↓ / Return / Esc / Ctrl+wheel, Ctrl+− + 0 | row / range / lens / leave / zoom |
+| focus overlay | Esc | the plot's lens or zoom first, then close |
 | Isentropic relation | Esc | close the inputs drawer, else leave focus mode |
 | segmented tabs | ← / → | previous / next |
 | tool buttons, drawer handle | Tab, Space / Return | focus, activate |
@@ -338,16 +449,25 @@ PySide6-Essentials; `build_release.py` refuses any other version. Of the Addons
 wheel the package keeps only the 13 files the 3D view was measured to load
 (`packaging/qt3d_runtime.py`, 11.4 MB) and drops the rest (800 files, about
 400 MB). `verify_package.py` checks that. With `--smoke` it also opens Rocket
-Performance's 3D view inside the frozen executable on the windows platform
-(`view:3d` / `expect3d:yes` self-test steps).
+Performance's 3D view, then Nozzle Lab's, inside the frozen executable on the
+windows platform (`view:3d` / `expect3d:yes` self-test steps; `view:` acts on
+the switch that is on screen).
 
 ## 12. Deferred
 
-- Sweep playback through solved sweep states.
+- Sweep playback through solved sweep states. Nozzle Lab's playback is
+  different: it steps through the **cached** shock-curve samples the regime
+  map already solved (`Nozzle.playbackSamples`, the solver's own x_s per
+  sample). It solves nothing, leaves the operating point unchanged and is
+  labelled "a cached operating state of the solved shock curve, not a new
+  solve".
 - A command palette and global section shortcuts.
 - 3D ghost comparison of two cases.
 - Persistent snapshot history and report export.
 - Condensed-phase cues in a reachable product state. This needs a solid
   performance model, which is out of scope.
-- Migrating the remaining pages (Fanno, Rayleigh, Normal Shock, Prandtl–Meyer,
-  Fluid Properties, Trade Study, Home).
+- Migrating the remaining pages to the workspace grammar (Mass Flow, Normal
+  Shock, Oblique Shock, Prandtl–Meyer, Fanno, Rayleigh, Fluid Properties,
+  Line, Compare, Charts, Equation Library, Gas Properties, Home). The reason
+  for each is recorded in
+  `acceptance/workspace_consolidation/workspace_matrix.md` (local evidence).

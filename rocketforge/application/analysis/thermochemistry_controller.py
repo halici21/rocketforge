@@ -37,6 +37,7 @@ from PySide6.QtGui import QGuiApplication
 
 from ..formatting import EM_DASH, format_engineering
 from ..species_notation import species_label
+from ..visualization.selection import AnalysisSelection
 from . import thermochemistry_reference as reference
 from . import thermochemistry_sweep as sweep
 from .thermochemistry_provider import (
@@ -180,6 +181,13 @@ class ThermochemistryController(QObject):
         self._sweep_species: list[str] = []
         self._sweep_species_basis = "mole"
         self._sweep_species_series: list = []
+        # One selection for the sweep's views -- the plots, the table and the
+        # Inspector -- keyed by the point's row; the Inspector reads the
+        # solved point (sweepPoint), nothing is re-solved. Any change to the
+        # sweep (a new run, a clear, an edited input) drops it: point 12 of
+        # the old sweep is not point 12 of the new one.
+        self._sweep_selection = AnalysisSelection(self)
+        self.sweepChanged.connect(self._sweep_selection.clear)
 
         # References.
         self._reference_case = None
@@ -1624,6 +1632,30 @@ class ThermochemistryController(QObject):
                             for entry in diagnostic_rows(outcome,
                                                          include_info=False)],
         }
+
+    @Property(QObject, constant=True)
+    def sweepSelection(self) -> QObject:
+        return self._sweep_selection
+
+    @Slot(int)
+    def selectSweepPoint(self, row: int) -> None:
+        """Select a solved (or failed) sweep point by its row."""
+        result = self._sweep_result
+        if result is None or not (0 <= row < len(result.points)):
+            return
+        ratio = result.points[row].oxidiser_fuel_ratio
+        self._sweep_selection.select("tableRow", str(row), float(ratio),
+                                     f"O/F {ratio:.4g}", "sweep")
+
+    @Slot(float)
+    def selectSweepNear(self, ratio: float) -> None:
+        """Select the swept point whose O/F is nearest ``ratio`` (a real sample)."""
+        result = self._sweep_result
+        if result is None or not result.points or not math.isfinite(ratio):
+            return
+        row = min(range(len(result.points)),
+                  key=lambda i: abs(result.points[i].oxidiser_fuel_ratio - ratio))
+        self.selectSweepPoint(row)
 
     @Slot(result=str)
     def copySweep(self) -> str:

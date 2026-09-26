@@ -20,13 +20,18 @@ from .fidelity import FLOW_LABEL, Fidelity
 from .geometry import GeometryError, Profile, profile_from_area, radius_at
 
 __all__ = ["nozzle_viewport", "EMPTY_VIEWPORT", "SUPPLIED_CONE_LABEL", "SHOCK_LABEL",
-           "SCHEMATIC_LABEL", "schematic_viewport", "schematic_profile"]
+           "SCHEMATIC_LABEL", "SAMPLE_NOTE", "schematic_viewport", "schematic_profile",
+           "with_sample_shock"]
 
 SUPPLIED_CONE_LABEL = "SUPPLIED CONE, NOT A DESIGNED CONTOUR"
 SHOCK_LABEL = "QUASI-1D NORMAL SHOCK STATION, NOT A RESOLVED SHOCK"
 SCHEMATIC_LABEL = "SCHEMATIC GEOMETRY — AREA EXPANSION ONLY, NOT A SOLVED CONTOUR"
 
 EMPTY_VIEWPORT: dict = {"identity": 0, "valid": False, "stations": [], "profile": {"x": [], "r": []}}
+
+#: What a playback frame is, in the words the inspector and the view use.
+SAMPLE_NOTE = ("one cached sample of the solved shock curve (a steady operating state "
+               "at another back pressure) — not a new solve, not a time history")
 
 
 def _row(label: str, value: float | None, unit: str = "", precision: int = 6) -> dict:
@@ -98,6 +103,33 @@ def nozzle_viewport(record, identity: int, precision: int = 6) -> dict:
                  "condensedFraction": None, "condensedLabel": "",
                  "speed": "uniform", "label": FLOW_LABEL},
     }
+
+
+def with_sample_shock(viewport: dict, sample: dict, index: int, count: int,
+                      precision: int = 6) -> dict:
+    """``viewport`` with its shock station taken from one cached shock-curve sample.
+
+    The sample is a row of the shock-position sweep solved with the regime
+    map (back pressure, A_s/A_t, the solver's own x_s, M_1, p_02/p_01); this
+    only places it on the same supplied profile. Nothing is solved, and the
+    station says it is a sample. An invalid viewport is returned unchanged.
+    """
+    if not viewport.get("valid"):
+        return viewport
+    profile = Profile(tuple(viewport["profile"]["x"]), tuple(viewport["profile"]["r"]))
+    x = float(sample["x"])
+    if not (profile.x_min <= x <= profile.x_max):
+        return viewport
+    station = _station("shock", f"Shock station · sample {index + 1} of {count}", x, profile, [
+        _row("p_b/p_0", sample["pb"], "", precision),
+        _row("A_s/A_t", sample["areaRatio"], "", precision),
+        _row("M_1", sample["machUpstream"], "", precision),
+        _row("p_02/p_01", sample["stagnationRatio"], "", precision),
+        _row("x_s", x, "m", precision),
+    ], SAMPLE_NOTE)
+    stations = [s for s in viewport["stations"] if s["key"] != "shock"] + [station]
+    return dict(viewport, stations=stations, hasShock=True,
+                playback={"index": int(index), "count": int(count)})
 
 
 #: The 2D performance canvas's proportions, in exit radii: chamber from 0 to

@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
 
 /*
  * Selected species against O/F.
@@ -19,6 +20,14 @@ Item {
     id: chart
 
     property var speciesValue: []
+    property QtObject peekGroup: null
+    signal focusRequested()
+    readonly property string title: "Species vs O/F"
+    readonly property real selectedOf: Thermochemistry.sweepSelection.active
+                                       ? Thermochemistry.sweepSelection.x : NaN
+
+    opacity: peek.receded ? 0.45 : 1
+    Behavior on opacity { NumberAnimation { duration: Motion.fast } }
 
     function refresh() { speciesValue = Thermochemistry.sweepSpeciesSeries }
 
@@ -63,6 +72,16 @@ Item {
                 }
                 return out
             }
+            markerX: chart.selectedOf
+            markerRegions: false
+            markerLabel: isNaN(chart.selectedOf) ? "" : Thermochemistry.sweepSelection.label
+
+            TapHandler {
+                onTapped: function (point) {
+                    Thermochemistry.selectSweepNear(parent.toDataX(point.position.x))
+                    ShellContext.inspectorOpen = true
+                }
+            }
         }
 
         Flow {
@@ -98,10 +117,16 @@ Item {
         Text {
             Layout.fillWidth: true
             visible: chart.speciesValue.length === 0
-            text: "Choose species on the left to plot them."
+            text: "Choose species in the setup drawer to plot them."
             color: Theme.textMuted
             font.family: Typography.sans
             font.pixelSize: Typography.meta
         }
+    }
+
+    RFPlotPeek {
+        id: peek
+        group: chart.peekGroup
+        onFocusRequested: chart.focusRequested()
     }
 }

@@ -1,14 +1,17 @@
 """Session-only analysis snapshots: pin, list, compare, drop.
 
-Pinned plot snapshots live for the session and nowhere else -- this is not a
-project history. Each is frozen when pinned (see ``plot.freeze_snapshot``),
-so the live chart can be zoomed, re-solved or cleared without touching it.
+Pinned snapshots -- plot views, table blocks and design-point subsets (see
+``plot``) -- live for the session and nowhere else; this is not a project
+history. Each is frozen when pinned (see ``plot.freeze_snapshot``), so the
+live chart or table can be zoomed, re-solved or cleared without touching it.
+One session holds every kind; a comparison across kinds is refused.
 """
 from __future__ import annotations
 
 from PySide6.QtCore import Property, QObject, Signal, Slot
 
-from .plot import SnapshotError, compatibility, freeze_snapshot, probe_delta, series_delta
+from .plot import (SnapshotError, compatibility, freeze_snapshot, probe_delta, series_delta,
+                   table_delta)
 
 __all__ = ["AnalysisSession", "MAX_SNAPSHOTS"]
 
@@ -93,6 +96,14 @@ class AnalysisSession(QObject):
         if a is None or b is None:
             return {"compatible": False, "reason": "unknown snapshot"}
         return series_delta(a, b, x)
+
+    @Slot(str, str, result="QVariantMap")
+    def tableDelta(self, a_id: str, b_id: str):
+        """Two table blocks, row-aligned by engineering key (``plot.table_delta``)."""
+        a, b = self._get(a_id), self._get(b_id)
+        if a is None or b is None:
+            return {"compatible": False, "reason": "unknown snapshot"}
+        return table_delta(a, b)
 
     @Slot("QVariantMap", "QVariantMap", result="QVariantMap")
     def probeDelta(self, a, b):

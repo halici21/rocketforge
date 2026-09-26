@@ -35,6 +35,10 @@ Item {
     property var probes: []                  // [{x, y, series, label, unit, quantity}]
     property real selectionX: NaN            // linked selection (engineering x)
     property string selectionLabel: ""
+    // A linked interval (a table row range): a restrained band between two
+    // engineering x values. It never moves the view -- no auto-zoom.
+    property real highlightX0: NaN
+    property real highlightX1: NaN
     property string xSymbol: "x"             // short symbol for the breadcrumb
     property string quantity: ""             // quantity key, for probe deltas
     property string unit: ""
@@ -381,6 +385,8 @@ Item {
     Connections { target: Theme; function onModeChanged() { overlay.requestPaint() } }
     onProbesChanged: overlay.requestPaint()
     onSelectionXChanged: overlay.requestPaint()
+    onHighlightX0Changed: overlay.requestPaint()
+    onHighlightX1Changed: overlay.requestPaint()
     onLensChanged: overlay.requestPaint()
 
     Canvas {
@@ -411,6 +417,21 @@ Item {
                 ctx.strokeStyle = Theme.accent
                 ctx.lineWidth = 1
                 ctx.strokeRect(ax + 0.5, ay + 0.5, bx - ax, by - ay)
+            }
+
+            // the linked interval: a quiet band with a hairline at each end
+            if (!isNaN(plotLayer.highlightX0) && !isNaN(plotLayer.highlightX1)) {
+                var hx0 = plotLayer.chart.toPixelX(Math.min(plotLayer.highlightX0, plotLayer.highlightX1))
+                var hx1 = plotLayer.chart.toPixelX(Math.max(plotLayer.highlightX0, plotLayer.highlightX1))
+                var bx0 = Math.max(x0, hx0), bx1 = Math.min(x1, hx1)
+                if (bx1 > bx0) {
+                    ctx.fillStyle = Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.08)
+                    ctx.fillRect(bx0, y0, bx1 - bx0, y1 - y0)
+                }
+                ctx.strokeStyle = Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.55)
+                ctx.lineWidth = 1
+                if (hx0 >= x0 && hx0 <= x1) { ctx.beginPath(); ctx.moveTo(hx0 + 0.5, y0); ctx.lineTo(hx0 + 0.5, y1); ctx.stroke() }
+                if (hx1 >= x0 && hx1 <= x1) { ctx.beginPath(); ctx.moveTo(hx1 + 0.5, y0); ctx.lineTo(hx1 + 0.5, y1); ctx.stroke() }
             }
 
             // the linked selection: an accent crosshair at the selected x and

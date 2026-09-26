@@ -129,7 +129,7 @@ Item {
     property string compareA: ""
     property string compareB: ""
     readonly property var pinned: AnalysisSession.snapshots.filter(function (s) {
-        return s.source === "isentropic"
+        return s.source === "isentropic" && (s.kind === undefined || s.kind === "plot")
     })
     function snapshotById(id) {
         for (var i = 0; i < page.pinned.length; ++i)
@@ -713,12 +713,16 @@ Item {
                 // View, inspect, focus, pin, compare. A click reads a real
                 // table sample into the shared selection (and the inspector);
                 // a table row selected on the Table tab shows here as the
-                // same crosshair.
+                // same crosshair, and a row range as a quiet interval -- the
+                // view is never zoomed to it.
                 RFPlotInteraction {
                     id: interact
                     chart: plot
-                    selectionX: Isentropic.selection.active ? Isentropic.selection.x : NaN
+                    readonly property bool rangeSelected: Isentropic.selection.kind === "tableRange"
+                    selectionX: Isentropic.selection.active && !rangeSelected ? Isentropic.selection.x : NaN
                     selectionLabel: Isentropic.selection.kind === "tableRow" ? Isentropic.selection.label : ""
+                    highlightX0: rangeSelected ? Isentropic.selection.x : NaN
+                    highlightX1: rangeSelected ? Isentropic.selection.x1 : NaN
                     xSymbol: "<i>M</i>"
                     quantity: page.active ? page.active.key : ""
                     unit: page.active ? (page.active.unit || "") : ""

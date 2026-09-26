@@ -52,15 +52,10 @@ Item {
         }
     }
 
-    // Scrim: click-away closes the drawer without a modal block on the
-    // rest of the workspace -- the drawer is a contextual look-up, not a
-    // dialog the user must dismiss before continuing.
-    MouseArea {
-        anchors.fill: parent
-        anchors.rightMargin: root.drawerWidth
-        visible: root.open
-        onClicked: root.closeRequested()
-    }
+    // No scrim. The shell pushes the workspace aside while the drawer is
+    // open (Main.qml), so the workspace beside it stays live: clicking the
+    // next row or station updates the drawer instead of closing it. Close is
+    // the drawer's own button (and a workspace's own toggle).
 
     Rectangle {
         anchors.top: loader.top

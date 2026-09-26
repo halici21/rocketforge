@@ -145,6 +145,10 @@ class Route:
                 switches = [child for child in window.findChildren(QObject)
                             if child.metaObject().indexOfSignal("modeRequested(QString)") >= 0
                             and child.metaObject().indexOfProperty("show3D") >= 0]
+                # More than one page has a switch (Rocket Performance, Nozzle
+                # Lab): the one on screen is the one a click would reach.
+                shown = [s for s in switches if hasattr(s, "isVisible") and s.isVisible()]
+                switches = shown or switches
                 if not switches:
                     raise RuntimeError("no 2D / 3D view switch on this page")
                 if mode == "3d" and not switches[0].property("threeDAvailable"):

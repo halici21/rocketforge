@@ -4,6 +4,8 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
+import "../../components/viewport"
 
 /*
  * The nozzle at its operating point, and the back-pressure map around it.
@@ -28,6 +30,13 @@ import "../../components"
  * thing the map could do, so the three exact conditions are reachable by the
  * preset buttons instead -- each sets the back pressure to the threshold the
  * backend computed.
+ *
+ * The object can be drawn as the 2D engineering drawing (default) or in the
+ * shared 3D viewport, from the same solved snapshot. The right rail is a
+ * compact summary -- regime, the one number it is about, valid or not --
+ * and the rest of the operating point reads in the Inspector. The
+ * operating-state samples of the solved shock curve can be stepped through:
+ * a presentation of what the map already solved, never a new solve.
  */
 Item {
     id: page
@@ -53,13 +62,17 @@ Item {
         // changes -- the same shock solver the calculator uses -- and read
         // here, never re-solved by the view.
         series: [{ points: Nozzle.shockCurve, color: Theme.accent, width: 1.8 }]
-        // The solved operating point, while it lies on the curve.
+        // The solved operating point, while it lies on the curve, and the
+        // sample being shown while the samples are stepping.
         markers: {
+            var out = []
             var shock = page.readout("shock_area_ratio")
-            return Nozzle.hasShock && shock
-                   ? [{ x: Nozzle.backPressureRatio, y: shock.raw,
-                        label: "operating point" }]
-                   : []
+            if (Nozzle.hasShock && shock)
+                out.push({ x: Nozzle.backPressureRatio, y: shock.raw, label: "operating point" })
+            if (page.playbackOn && page.sample.pb !== undefined)
+                out.push({ x: page.sample.pb, y: page.sample.areaRatio,
+                           label: "sample " + (page.sample.index + 1) })
+            return out
         }
         logScale: false
         xLabel: "back pressure  p_b/p₀"
@@ -128,6 +141,74 @@ Item {
         return notes
     }
 
+    // ---- playback: cached operating-state samples -----------------------
+    // Steps through the shock-curve samples the regime map already solved;
+    // the operating point, the field and every solved value stay as they
+    // are. A presentation, never a solve, and not a time history.
+    readonly property var samples: Nozzle.playbackSamples
+    readonly property bool playbackOn: Nozzle.playbackIndex >= 0
+    readonly property var sample: Nozzle.playbackSample
+    property bool playing: false
+    function play() {
+        if (page.samples.length === 0)
+            return
+        if (Nozzle.playbackIndex < 0 || Nozzle.playbackIndex >= page.samples.length - 1)
+            Nozzle.playbackIndex = 0
+        page.playing = true
+    }
+    function stopPlayback() {
+        page.playing = false
+        Nozzle.playbackIndex = -1
+    }
+    Timer {
+        id: stepper
+        interval: 110
+        repeat: true
+        running: page.playing
+        onTriggered: {
+            if (Nozzle.playbackIndex >= page.samples.length - 1) {
+                page.playing = false
+                return
+            }
+            Nozzle.playbackIndex = Nozzle.playbackIndex + 1
+        }
+    }
+    // A new map (another nozzle or gas) ends the playback: its samples are
+    // of another curve.
+    Connections {
+        target: Nozzle
+        function onShockCurveChanged() { page.playing = false }
+    }
+    Component.onDestruction: if (Nozzle.playbackIndex >= 0) Nozzle.playbackIndex = -1
+
+    // The 2D drawing's stations: solved, or with the sample's shock.
+    readonly property var drawnStations: {
+        var list = Nozzle.stationMarkers
+        if (!page.playbackOn || page.sample.x === undefined)
+            return list
+        var out = []
+        for (var i = 0; i < list.length; ++i)
+            if (list[i].label !== "shock")
+                out.push(list[i])
+        out.push({ value: page.sample.x, axis: "x", label: "shock" })
+        return out
+    }
+    readonly property var drawnNotes: {
+        if (!page.playbackOn || page.sample.areaRatio === undefined)
+            return page.stationNotes
+        var notes = {}
+        var throat = page.readout("mach_throat")
+        if (throat)
+            notes["throat"] = "M_t " + throat.value
+        notes["shock"] = "A_s/A_t " + Number(page.sample.areaRatio).toPrecision(6)
+                         + "  ·  sample " + (page.sample.index + 1) + "/" + page.sample.count
+        return notes
+    }
+
+    // The view the object is drawn in: the engineering drawing (default) or
+    // the shared 3D viewport. View state only.
+    property string objectView: "2d"
+
     ColumnLayout {
         anchors.fill: parent
         spacing: page.compact ? Metrics.spacing.m : Metrics.spacing.l
@@ -135,11 +216,9 @@ Item {
         // =================================================================
         // THE NOZZLE — the object, and the state it is in
         // =================================================================
-        // Below 2560 the nozzle takes every row the map does not need. At
-        // 2560 it stops at about five eighths of the workspace height -- a
-        // proportion of this view, not a pixel cap -- and the rest goes to
-        // the map and a readable shock-position chart: more analytical area,
-        // not a larger illustration.
+        // The object takes every row the map does not need; at 2560 it stops
+        // at about five eighths of the workspace height and the rest goes to
+        // the map and a readable shock-position chart.
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: !page.roomy
@@ -151,15 +230,23 @@ Item {
                 Layout.fillHeight: true
                 spacing: Metrics.spacing.s
 
-                // The operating point is in the field below; at the 1366
-                // floor this line is what yields to the drawing.
+                // The object's own toolbar: what it is operating at, the
+                // view it is drawn in, and the sample playback.
                 RowLayout {
                     Layout.fillWidth: true
-                    visible: !page.compact
                     spacing: Metrics.spacing.s
 
                     RFSectionLabel { text: "Nozzle" }
+                    RFViewSwitch {
+                        id: objectSwitch
+                        objectName: "nozzleViewSwitch"
+                        implicitWidth: page.compact ? 150 : 230
+                        flatLabel: page.compact ? "2D" : "2D engineering"
+                        mode: page.objectView
+                        onModeRequested: function (mode) { page.objectView = mode }
+                    }
                     Text {
+                        visible: !page.compact
                         readonly property string plainText: "operating at  p_b/p₀ = "
                               + Nozzle.backPressureRatio.toFixed(6)
                         text: Notation.rich(plainText)
@@ -169,6 +256,60 @@ Item {
                         font.pixelSize: Typography.meta
                     }
                     Item { Layout.fillWidth: true }
+
+                    // Playback of the solved shock curve's samples.
+                    Row {
+                        objectName: "nozzlePlayback"
+                        visible: Nozzle.valid && page.samples.length > 0
+                        spacing: Metrics.spacing.xs
+
+                        RFToolButton {
+                            objectName: "nozzlePlaybackPlay"
+                            text: page.playing ? "Pause" : (page.playbackOn ? "Resume" : "Step samples")
+                            tooltip: "Step through the operating-state samples of the solved shock "
+                                     + "curve: where the shock stands at other back pressures. "
+                                     + "Nothing is solved; the operating point is unchanged."
+                            checked: page.playing
+                            onClicked: page.playing ? (page.playing = false) : page.play()
+                        }
+                        RFSlider {
+                            objectName: "nozzlePlaybackScrub"
+                            visible: page.playbackOn
+                            width: page.compact ? 120 : 180
+                            anchors.verticalCenter: parent.verticalCenter
+                            from: 0
+                            to: Math.max(1, page.samples.length - 1)
+                            stepSize: 1
+                            value: Math.max(0, Nozzle.playbackIndex)
+                            onMoved: { page.playing = false; Nozzle.playbackIndex = Math.round(value) }
+                        }
+                        RFToolButton {
+                            visible: page.playbackOn
+                            text: "Operating point"
+                            tooltip: "Back to the solved operating point"
+                            onClicked: page.stopPlayback()
+                        }
+                    }
+                }
+
+                // While samples are shown, say so -- in words, above the object.
+                Text {
+                    Layout.fillWidth: true
+                    visible: page.playbackOn
+                    readonly property string plainText: page.playbackOn && page.sample.pb !== undefined
+                          ? "Sample " + (page.sample.index + 1) + " of " + page.sample.count
+                            + "  ·  p_b/p₀ " + Number(page.sample.pb).toFixed(6)
+                            + "  ·  A_s/A_t " + Number(page.sample.areaRatio).toPrecision(6)
+                            + "  —  a cached operating state of the solved shock curve, not a new solve; "
+                            + "the operating point (p_b/p₀ " + Nozzle.backPressureRatio.toFixed(6) + ") is unchanged"
+                          : ""
+                    text: Notation.rich(plainText)
+                    textFormat: Notation.textFormat(plainText)
+                    elide: Text.ElideRight
+                    clip: true
+                    color: Theme.accent
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.meta
                 }
 
                 RowLayout {
@@ -181,14 +322,26 @@ Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.minimumHeight: 200
-                        selectedKey: links.selectedStation
+                        visible: !objectSwitch.show3D
+                        selectedKey: links.highlightStation
                         onStationClicked: function (key, x) { links.selectStation(key, "drawing") }
                         hasResult: Nozzle.valid
                         wall: page.wall
-                        stations: Nozzle.stationMarkers
-                        annotations: page.stationNotes
+                        stations: page.drawnStations
+                        annotations: page.drawnNotes
                         labelSize: page.compact ? Typography.chartAnnotation
                                                 : Typography.axisTitle
+                    }
+
+                    Nozzle3DView {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.minimumHeight: 200
+                        visible: objectSwitch.show3D
+                        active: objectSwitch.show3D
+                        selectedKey: links.highlightStation
+                        onStationPicked: function (key) { links.selectStation(key, "viewport") }
+                        onCleared: links.clear()
                     }
 
                     // The 1366 floor: the chart of the station the drawing
@@ -239,167 +392,103 @@ Item {
                 vertical: true
             }
 
-            // ---- the state it is in --------------------------------------
-            Flickable {
-                id: stateRail
-                Layout.preferredWidth: page.compact ? 330 : (page.roomy ? 520 : 440)
-                Layout.minimumWidth: page.compact ? 330 : (page.roomy ? 520 : 440)
-                Layout.maximumWidth: page.compact ? 330 : (page.roomy ? 520 : 440)
+            // ---- the state it is in: a compact summary ---------------------
+            // The regime, the one number it is about, and whether it is
+            // valid. Everything else the rail used to carry -- the regime's
+            // explanation, the external context, the six readouts -- is the
+            // Inspector's operating-point reading (open it, or select nothing).
+            ColumnLayout {
+                id: summary
+                objectName: "nozzleStateSummary"
+                Layout.preferredWidth: page.compact ? 280 : (page.roomy ? 440 : 340)
+                Layout.maximumWidth: page.compact ? 280 : (page.roomy ? 440 : 340)
                 Layout.fillHeight: true
-                contentWidth: width
-                contentHeight: stateColumn.implicitHeight
-                clip: true
-                boundsBehavior: Flickable.StopAtBounds
-                ScrollBar.vertical: RFScrollBar {
-                    policy: stateRail.contentHeight > stateRail.height
-                            ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
+                spacing: page.compact ? Metrics.spacing.s : Metrics.spacing.m
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Metrics.spacing.s
+                    RFSectionLabel { text: "Regime" }
+                    Item { Layout.fillWidth: true }
+                    // Valid or not (the nozzle is solved live, so it is never
+                    // stale); a model warning is counted here, never hidden.
+                    RFStatusChip {
+                        objectName: "nozzleStateStatus"
+                        text: Nozzle.valid ? "Valid" : "No solution"
+                        tone: Nozzle.valid ? "success" : "warning"
+                    }
+                    RFStatusChip {
+                        readonly property int warnings: Nozzle.diagnostics.filter(function (d) {
+                            return d.severity === "warning" }).length
+                        visible: warnings > 0
+                        text: warnings + (warnings === 1 ? " model warning" : " model warnings")
+                        tone: "warning"
+                    }
                 }
 
-                ColumnLayout {
-                    id: stateColumn
-                    width: stateRail.width - (stateRail.contentHeight > stateRail.height ? 10 : 0)
-                    // At least the rail's height, so the chart at the end can
-                    // take whatever the readouts leave; taller only when the
-                    // rail must scroll (the 1366 floor).
-                    height: Math.max(stateRail.height, implicitHeight)
-                    spacing: page.compact ? Metrics.spacing.s : Metrics.spacing.m
+                Text {
+                    Layout.fillWidth: true
+                    visible: Nozzle.valid
+                    text: Nozzle.regimeLabel
+                    color: Theme.text
+                    font.family: Typography.sans
+                    font.pixelSize: page.compact ? Typography.readoutMedium
+                                                 : Typography.readoutLarge
+                    font.weight: Typography.medium
+                    wrapMode: Text.WordWrap
+                }
 
-                    // The regime's tone is carried by the page header's chip;
-                    // here it is the headline, once.
-                    RFSectionLabel { text: "Regime" }
+                // Tier 1: the one number this operating point is about -- the
+                // solved one, also while samples are stepping.
+                RFResultValue {
+                    objectName: "nozzleHeroValue"
+                    Layout.fillWidth: true
+                    visible: page.readout(page.heroKey) !== null
+                    readonly property var row: page.readout(page.heroKey)
+                    label: row ? row.label + (page.playbackOn ? "  ·  operating point" : "") : ""
+                    value: row ? row.value : "—"
+                    unit: row ? row.unit : ""
+                    scale: page.compact ? "large" : "hero"
+                }
 
-                    Text {
-                        Layout.fillWidth: true
-                        visible: Nozzle.valid
-                        text: Nozzle.regimeLabel
-                        color: Theme.text
-                        font.family: Typography.sans
-                        font.pixelSize: page.compact ? Typography.readoutMedium
-                                                     : Typography.readoutLarge
-                        font.weight: Typography.medium
-                        wrapMode: Text.WordWrap
-                    }
+                RFToolButton {
+                    objectName: "nozzleOpenInspector"
+                    visible: Nozzle.valid
+                    text: ShellContext.inspectorOpen ? "Details in the Inspector  ›" : "Show details  ›"
+                    tooltip: "The regime's explanation, the external context and every readout "
+                             + "of this operating point, in the Inspector"
+                    checked: ShellContext.inspectorOpen
+                    onClicked: ShellContext.inspectorOpen = !ShellContext.inspectorOpen
+                }
 
-                    Text {
-                        Layout.fillWidth: true
-                        visible: Nozzle.valid
-                        readonly property string plainText: Nozzle.regimeNote
-                        text: Notation.rich(plainText)
-                        textFormat: Notation.textFormat(plainText)
-                        wrapMode: Text.WordWrap
-                        lineHeight: Typography.proseLineHeight
-                        lineHeightMode: Text.ProportionalHeight
-                        color: Theme.textSecondary
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.bodySmall
-                    }
+                // ---- supporting evidence: where the shock stands ----------
+                RFDivider {
+                    Layout.fillWidth: true
+                    Layout.topMargin: Metrics.spacing.s
+                    visible: page.railChart
+                }
 
-                    // Only where a jet actually needs adjusting outside the exit.
-                    Text {
-                        Layout.fillWidth: true
-                        visible: Nozzle.valid && !page.compact && Nozzle.externalContext !== ""
-                        text: Nozzle.externalContext
-                        wrapMode: Text.WordWrap
-                        lineHeight: Typography.proseLineHeight
-                        lineHeightMode: Text.ProportionalHeight
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
+                RFSectionLabel {
+                    visible: page.railChart
+                    text: "Shock station against back pressure"
+                }
 
-                    RFDivider {
-                        Layout.fillWidth: true
-                        Layout.topMargin: Metrics.spacing.xs
-                        visible: Nozzle.valid
-                    }
+                ShockCurveChart {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.preferredHeight: 160
+                    Layout.minimumHeight: page.railChart ? 140 : 0
+                    visible: page.railChart
+                }
 
-                    // Tier 1: the one number this operating point is about.
-                    RFResultValue {
-                        Layout.fillWidth: true
-                        visible: page.readout(page.heroKey) !== null
-                        readonly property var row: page.readout(page.heroKey)
-                        label: row ? row.label : ""
-                        value: row ? row.value : "—"
-                        unit: row ? row.unit : ""
-                        scale: page.compact ? "large" : "hero"
-                    }
+                ShockCurveCaption {
+                    Layout.fillWidth: true
+                    visible: page.railChart
+                }
 
-                    // Tier 2: what the regime is about, two abreast.
-                    GridLayout {
-                        Layout.fillWidth: true
-                        visible: Nozzle.valid
-                        columns: page.compact ? 3 : 2
-                        columnSpacing: Metrics.spacing.l
-                        rowSpacing: page.compact ? Metrics.spacing.s : Metrics.spacing.m
-
-                        Repeater {
-                            model: page.readoutKeys
-
-                            delegate: RFResultValue {
-                                id: readoutCell
-                                required property string modelData
-                                readonly property var row: page.readout(readoutCell.modelData)
-                                Layout.fillWidth: true
-                                Layout.preferredWidth: 1
-                                visible: row !== null
-                                label: row ? row.label : ""
-                                value: row ? row.value : "—"
-                                unit: row ? row.unit : ""
-                                scale: "medium"
-                            }
-                        }
-                    }
-
-                    // A pointer to the tab above; only where the rail has
-                    // height to spare for it.
-                    Text {
-                        Layout.fillWidth: true
-                        Layout.topMargin: Metrics.spacing.xs
-                        visible: Nozzle.valid && page.roomy
-                        text: "Every solved value, the exit state and the shock jump "
-                              + "are on Operating point."
-                        wrapMode: Text.WordWrap
-                        color: Theme.textMuted
-                        font.family: Typography.sans
-                        font.pixelSize: Typography.meta
-                    }
-
-                    // ---- supporting evidence: where the shock stands ------
-                    // Beside the regime it explains rather than under the
-                    // nozzle, so the nozzle keeps the height.
-                    RFDivider {
-                        Layout.fillWidth: true
-                        Layout.topMargin: Metrics.spacing.s
-                        visible: page.railChart
-                    }
-
-                    RFSectionLabel {
-                        visible: page.railChart
-                        text: "Shock station against back pressure"
-                    }
-
-                    // Fills what the readouts leave. Its floor is low enough
-                    // that the rail at 1920 fits without scrolling.
-                    ShockCurveChart {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Layout.preferredHeight: 120
-                        Layout.minimumHeight: page.railChart ? 120 : 0
-                        visible: page.railChart
-                    }
-
-                    ShockCurveCaption {
-                        Layout.fillWidth: true
-                        visible: page.railChart
-                    }
-
-                    // Where the chart is elsewhere (beside the nozzle at the
-                    // floor, in the map at 2560) the rail's groups keep their
-                    // spacing instead of spreading apart.
-                    Item {
-                        Layout.fillHeight: true
-                        visible: !page.railChart
-                    }
+                Item {
+                    Layout.fillHeight: true
+                    visible: !page.railChart
                 }
             }
         }
@@ -507,12 +596,14 @@ Item {
 
                 // The map, across the full width: every band edge a computed
                 // critical, and at this width every band carries its name.
+                // While samples step, the marker follows the sample shown (the
+                // line above the object says so); otherwise the operating point.
                 RFBandScale {
                     Layout.fillWidth: true
                     bands: page.bands
                     from: 0
                     to: 1
-                    value: page.current
+                    value: page.playbackOn && page.sample.pb !== undefined ? page.sample.pb : page.current
                 }
 
                 // The three thresholds, printed as well as drawn, under the band
