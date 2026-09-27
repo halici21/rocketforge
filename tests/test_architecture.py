@@ -37,8 +37,8 @@ PACKAGE_NAME = "rocketforge"
 PACKAGE_ROOT = PROJECT_ROOT / PACKAGE_NAME
 
 #: The layers, lowest first.
-LAYERS = ("core", "physics", "engineering", "engine", "providers", "comparison",
-          "application")
+LAYERS = ("core", "evidence", "physics", "engineering", "engine", "providers",
+          "comparison", "application")
 
 #: Which layers each layer may import from, transcribed from the table in
 #: ``01_engineering_architecture.md`` section 2. A layer may always import
@@ -50,6 +50,9 @@ LAYERS = ("core", "physics", "engineering", "engine", "providers", "comparison",
 #: ``application`` may import ``providers`` in return.
 ALLOWED_IMPORTS: dict[str, frozenset[str]] = {
     "core": frozenset({"core"}),
+    # Sourced facts and explicit absences, nothing computed: evidence sits on
+    # core alone, so browsing it can never reach physics, a provider or a solver.
+    "evidence": frozenset({"core", "evidence"}),
     "physics": frozenset({"core", "physics"}),
     "engineering": frozenset({"core", "physics", "engineering"}),
     "engine": frozenset({"core", "physics", "engineering", "engine"}),
@@ -230,6 +233,36 @@ def test_every_layer_is_present():
             f"layer package {layer} is missing; the architecture rules would "
             "silently stop covering it"
         )
+
+
+def undeclared_packages(root: pathlib.Path) -> list[str]:
+    """Packages directly under ``root`` that are not declared layers."""
+    return sorted(p.name for p in root.iterdir()
+                  if (p / "__init__.py").is_file() and p.name not in LAYERS)
+
+
+def test_every_package_is_a_declared_layer():
+    """A package the rules do not know is a package the rules do not check.
+
+    ``layer_of`` returns None for an undeclared ``rocketforge.<name>``, and the
+    layer-direction rule skips a None layer -- so a new top-level package could
+    otherwise import any layer without the dependency test noticing.
+    ``rocketforge/data`` is not a package (no ``__init__.py``) and is not a layer.
+    """
+    undeclared = undeclared_packages(PACKAGE_ROOT)
+    assert not undeclared, (
+        f"packages {undeclared} are not declared layers; add each to LAYERS and "
+        "ALLOWED_IMPORTS here and to docs/engineering/01_engineering_architecture.md "
+        "section 2")
+
+
+def test_the_undeclared_package_guard_can_fail(tmp_path):
+    """The guard must name a package it does not know, and ignore a data folder."""
+    for name in ("core", "evidence", "knowledge"):
+        (tmp_path / name).mkdir()
+        (tmp_path / name / "__init__.py").write_text("")
+    (tmp_path / "data").mkdir()
+    assert undeclared_packages(tmp_path) == ["knowledge"]
 
 
 def test_checker_discovers_the_real_modules():
@@ -454,6 +487,12 @@ def test_type_checking_import_still_violates_the_layer_rule():
         ("rocketforge.comparison.compare", "from rocketforge.providers.cea_solid import cstar"),
         ("rocketforge.comparison.compare", "from ..application import controllers"),
         ("rocketforge.physics.gas", "from rocketforge.comparison import compare"),
+        # evidence is pure data on core: no physics, provider, comparison or UI
+        ("rocketforge.evidence.records", "from rocketforge.physics.solid_propellant import formulation"),
+        ("rocketforge.evidence.records", "from ..providers.cea_solid import formulations"),
+        ("rocketforge.evidence.load", "from rocketforge.application.analysis import thermochemistry_provider"),
+        ("rocketforge.evidence.records", "from rocketforge.comparison import cases"),
+        ("rocketforge.physics.gas", "from rocketforge.evidence import records"),
     ],
 )
 def test_checker_detects_synthetic_layer_violations(module, statement):
@@ -479,6 +518,9 @@ def test_checker_detects_synthetic_layer_violations(module, statement):
         ("rocketforge.providers.coolprop", "from rocketforge.physics.fluids import interfaces"),
         ("rocketforge.application.controllers", "from rocketforge.engine import solver"),
         ("rocketforge.core.numerics.roots", "from ..errors import BracketError"),
+        ("rocketforge.evidence.values", "from rocketforge.core.errors import InputError"),
+        ("rocketforge.evidence.load", "from .records import EvidenceRecord"),
+        ("rocketforge.application.analysis.service", "from rocketforge.evidence import load"),
     ],
 )
 def test_checker_accepts_legitimate_edges(module, statement):

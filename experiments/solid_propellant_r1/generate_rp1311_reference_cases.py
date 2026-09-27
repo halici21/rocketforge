@@ -122,9 +122,12 @@ from ``cea/samples/rp1311/example{{5,12,13}}.py`` (cea {version}), run
 unmodified. Do not edit by hand; re-run the generator.
 
 Each value carries the precision it was printed at, because that is all a
-printout can vouch for. The RP-1311 printed tables themselves were not
-available offline; the shipped scripts are NASA's executable reproduction of
-them, and that is what is cited.
+printout can vouch for. What is cited is the printout of NASA's shipped
+cea {version} scripts, not the tables printed in RP-1311 Part II (1996). Those
+came from the Fortran program with the thermodynamic data of its time and need
+not agree numerically: for Example 5 the 1996 chamber temperature is 2724.46 K
+against 2723.021 K here. The 1996 Example 5 table is recorded separately, and
+compared without a verdict, in :mod:`.rp1311_historical`.
 """
 
 from __future__ import annotations
@@ -145,7 +148,8 @@ CASE = '''
     title="{title}",
     source_kind=SourceKind.NASA_PUBLISHED,
     benchmark_class="{klass}",
-    source="NASA RP-1311, Example {example}; cea/samples/rp1311/example{example}.py",
+    source=("NASA RP-1311 Example {example} as printed by the NASA-shipped "
+            "cea {version} sample cea/samples/rp1311/example{example}.py"),
     code="NASA CEA",
     code_version="{version}",
     inputs={{"example": {example}, "column": "first printed column"}},

@@ -4,30 +4,33 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../../theme"
 import "../../components"
+import "../../data"
 
 /*
- * Oblique shock charts.
+ * Oblique shock study.
  *
  * The θ–β–M diagram is the reason this section exists, so it gets the room.
- * The secondary curves below it — how the downstream Mach number and the
- * stagnation-pressure loss vary with deflection — are read from the same
- * generated study the table renders, so the three views cannot disagree.
+ * The secondary curve below it — how the downstream Mach number, the shock
+ * angle or the stagnation-pressure loss varies with deflection — is read from
+ * the same generated sweep the Table section renders (ObliqueShock.chartData),
+ * so the views cannot disagree, and it is labelled with the M₁ and branch that
+ * sweep was *generated* with, not with a setting edited since.
+ *
+ * The sweep itself is an engineering table on the Table section (it used to be
+ * a drawer here); a row or a range selected there is this curve's crosshair or
+ * quiet band, and a click here selects the exact generated sample. Nothing on
+ * this page solves: the diagram reads the curve the controller holds for the
+ * current M₁ and γ.
  */
 Item {
     id: page
 
     // At the 1366x768 floor there is not enough height for a full-size
-    // primary plot, an explanatory paragraph AND a fixed-height secondary
-    // plot. Opening the real 1366 capture showed the consequence: the
-    // primary chart collapsed to ~120px and the paragraph printed straight
-    // across it, while the secondary chart kept its full 250px. Reflow
-    // rather than shrink (section 55): the paragraph goes, the secondary
-    // chart gives up part of its allocation, and the primary plot -- the
-    // reason this view exists -- keeps a floor it cannot fall below.
+    // primary plot, an explanatory paragraph AND the secondary plot. Reflow
+    // rather than shrink: the paragraph and the secondary curve go, and the
+    // primary plot -- the reason this view exists -- keeps a floor it cannot
+    // fall below. The same quantities remain on the Table section.
     readonly property bool compact: page.height < 720
-
-    // Sweep-table drawer, closed by default (audit section 49).
-    property bool tableOpen: false
 
     readonly property var quantities: ObliqueShock.tableColumns.filter(function (c) {
         return c.key !== "theta"
@@ -35,7 +38,28 @@ Item {
     property int quantityIndex: 1
     readonly property var active: quantities.length > 0
                                   ? quantities[Math.min(quantityIndex, quantities.length - 1)] : null
-    readonly property var points: active ? ObliqueShock.chartSeries(active.key) : []
+    // A property of the controller, so a regenerated sweep redraws the curve.
+    readonly property var points: active ? (ObliqueShock.chartData[active.key] || []) : []
+
+    // What the plotted sweep is: the settings it was generated with.
+    readonly property var generated: ObliqueShock.tableGenerated
+    readonly property string sweepWords: page.generated.mach1 === undefined ? "no sweep generated"
+        : "M₁ = " + (+Number(page.generated.mach1).toPrecision(6)) + " · "
+          + (page.generated.convention === "comparison" ? "weak and strong"
+                                                          : page.generated.branch + " branch")
+
+    function copyValues() {
+        if (!page.active)
+            return
+        var e = secondary.extent()
+        var lines = ["theta\t" + page.active.key]
+        for (var i = 0; i < page.points.length; ++i) {
+            var p = page.points[i]
+            if (p.x >= e.xmin && p.x <= e.xmax)
+                lines.push(p.x + "\t" + p.y)
+        }
+        ObliqueShock.copyText(lines.join("\n"))
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -90,23 +114,21 @@ Item {
                     font.family: Typography.sans
                     font.pixelSize: Typography.meta
                 }
+
+                // The sweep's rows are on the Table section.
+                RFToolButton {
+                    objectName: "obliqueShockOpenTable"
+                    text: "Sweep table · " + ObliqueShock.tableRowCount + " rows  ›"
+                    tooltip: "Open the generated deflection sweep on the Table section"
+                    onClicked: ObliqueShock.requestTab(2)
+                }
             }
         }
 
         RFPanel {
             title: "Shock angle β versus flow deflection θ"
             Layout.fillWidth: true
-            // The relation owns the leftover height while it is the only
-            // thing being read. Opening the sweep drawer moves that claim to
-            // the drawer -- the relation stays on screen as context at a
-            // fixed height rather than competing for space it can no longer
-            // have. Opening the real capture with the drawer expanded showed
-            // what the previous arithmetic did: a 280px floor plus a 420px
-            // drawer plus a 250px secondary exceeded the viewport, and the
-            // plot's own axis labels and caption printed straight through
-            // the panel below it.
-            Layout.fillHeight: !page.tableOpen
-            Layout.preferredHeight: page.tableOpen ? 300 : -1
+            Layout.fillHeight: true
             Layout.minimumHeight: 280
 
             trailing: Component {
@@ -120,19 +142,15 @@ Item {
 
             ObliqueShockDiagram {
                 id: diagram
+                chartName: "obliqueShockStudyDiagram"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                // The diagram asks for 300px of its own; with the sweep
-                // drawer open the panel cannot grant that and still leave
-                // the drawer room to be worth opening. Same reflow rule as
-                // the 1366 floor: the relation stays whole at a smaller
-                // size rather than being allowed to overrun its panel.
-                compact: page.compact || page.tableOpen
+                compact: page.compact
             }
 
             Text {
                 Layout.fillWidth: true
-                visible: !page.compact && !page.tableOpen
+                visible: !page.compact
                 readonly property string plainText: "The curve rises from a Mach wave at β = μ to the maximum deflection and "
                       + "falls back to a normal shock at β = 90°, which is why every attainable "
                       + "deflection has two wave angles. Past θ_max the body cannot turn the "
@@ -148,76 +166,19 @@ Item {
             }
         }
 
-        // The generated sweep table used to be a peer tab of the two
-        // analysis modes, which put a 47-row grid at the same level as the
-        // relation itself. It is evidence for the chart above, so it lives
-        // here as a drawer that is closed until asked for.
-        Item {
-            Layout.fillWidth: true
-            Layout.preferredHeight: tableHeader.implicitHeight
-
-            RowLayout {
-                id: tableHeader
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                spacing: Metrics.spacing.s
-
-                RFIcon {
-                    name: "chevron-down"
-                    width: 12
-                    height: 12
-                    color: Theme.textMuted
-                    rotation: page.tableOpen ? 0 : -90
-                    Behavior on rotation {
-                        NumberAnimation { duration: Motion.base; easing.type: Motion.standard }
-                    }
-                }
-                Text {
-                    text: "Sweep table"
-                    color: page.tableOpen ? Theme.text : Theme.textSecondary
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.bodySmall
-                }
-                Text {
-                    text: ObliqueShock.tableRowCount + " rows"
-                    color: Theme.textMuted
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.meta
-                }
-            }
-
-            HoverHandler { cursorShape: Qt.PointingHandCursor }
-            TapHandler { onTapped: page.tableOpen = !page.tableOpen }
-        }
-
-        ObliqueShockStudy {
-            Layout.fillWidth: true
-            Layout.fillHeight: page.tableOpen
-            Layout.preferredHeight: page.tableOpen ? 420 : 0
-            Layout.minimumHeight: page.tableOpen ? 260 : 0
-            visible: page.tableOpen
-            clip: true
-        }
-
         RFPanel {
+            objectName: "obliqueShockSweepPanel"
             title: (page.active ? page.active.label + "  versus  θ" : "Secondary")
-                   + "   ·   M₁ = " + ObliqueShock.tableMach1.toFixed(2)
-                   + " (" + ObliqueShock.tableBranch + " branch)"
+                   + "   ·   " + page.sweepWords
             Layout.fillWidth: true
-            // At the floor this secondary curve was rendering with its own
-            // x axis clipped by the workspace edge. Secondary evidence
-            // yields entirely rather than showing half of itself: the
-            // primary theta-beta-M surface is the reason this view exists,
-            // and the same quantities remain available in the Study table.
-            // Also yields to the sweep drawer: the drawer is opened to read
-            // exact numbers, and this curve plots the same sweep the drawer
-            // is now showing in full.
-            visible: !page.compact && !page.tableOpen
-            Layout.preferredHeight: visible ? 250 : 0
+            // At the floor this secondary curve yields entirely rather than
+            // showing half of itself; the same quantities remain on Table.
+            visible: !page.compact
+            Layout.preferredHeight: visible ? 300 : 0
 
             trailing: Component {
                 RFSegmentedControl {
-                    width: 320
+                    width: 360
                     model: page.quantities.map(function (q) { return q.label })
                     currentIndex: page.quantityIndex
                     useMonoFont: true
@@ -225,19 +186,61 @@ Item {
                 }
             }
 
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Metrics.spacing.s
+
+                RFPlotToolbar {
+                    interaction: interact
+                    canCopy: true
+                    onCopyRequested: page.copyValues()
+                }
+                Item { Layout.fillWidth: true }
+                Text {
+                    visible: ObliqueShock.tableStale
+                    text: "sweep settings edited since this sweep was generated"
+                    color: Theme.warning
+                    font.family: Typography.sans
+                    font.pixelSize: Typography.meta
+                }
+            }
+
             RFLineChart {
                 id: secondary
+                objectName: "obliqueShockSweepChart"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                builtInHover: false
+                dataKey: page.active ? page.active.key : ""
 
                 points: page.points
                 logScale: false
                 xLabel: "Flow deflection  θ  [deg]"
                 yLabel: page.active ? page.active.label : ""
 
-                Connections {
-                    target: ObliqueShock
-                    function onTableChanged() { secondary.repaint() }
+                // A row selected on the Table section is this crosshair; a
+                // range is a quiet band. A click reads a real generated
+                // sample into the shared selection. Nothing is solved.
+                RFPlotInteraction {
+                    id: interact
+                    chart: secondary
+                    readonly property bool rangeSelected: ObliqueShock.selection.kind === "tableRange"
+                    selectionX: ObliqueShock.selection.active && !rangeSelected ? ObliqueShock.selection.x : NaN
+                    selectionLabel: ObliqueShock.selection.kind === "tableRow" ? ObliqueShock.selection.label : ""
+                    highlightX0: rangeSelected ? ObliqueShock.selection.x : NaN
+                    highlightX1: rangeSelected ? ObliqueShock.selection.x1 : NaN
+                    xSymbol: "θ"
+                    quantity: page.active ? page.active.key : ""
+                    unit: ""
+                    seriesLabels: [page.active ? page.active.label : ""]
+                    onPointSelected: function (x, y, s, label) {
+                        if (s === 0 && page.active) {
+                            ObliqueShock.selection.selectPoint("plotPoint", page.active.key, x, y,
+                                                               page.active.label, "chart")
+                            ShellContext.inspectorOpen = true
+                        }
+                    }
+                    onSelectionCleared: ObliqueShock.selection.clear()
                 }
             }
         }

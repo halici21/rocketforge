@@ -45,12 +45,15 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(SPECPATH))
 UI_DIR = os.path.join(ROOT, "ui")
 REFERENCE_DIR = os.path.join(ROOT, "rocketforge", "data", "reference")
+EVIDENCE_DIR = os.path.join(ROOT, "rocketforge", "data", "evidence")
 ICON = os.path.join(SPECPATH, "RocketForge.ico")
 
 if not os.path.isdir(UI_DIR):
     raise SystemExit("ui/ not found next to the spec at %s" % ROOT)
 if not os.path.isdir(REFERENCE_DIR):
     raise SystemExit("reference data not found at %s" % REFERENCE_DIR)
+if not os.path.isfile(os.path.join(EVIDENCE_DIR, "sources.json")):
+    raise SystemExit("evidence corpus not found at %s" % EVIDENCE_DIR)
 
 # ---------------------------------------------------------------------------
 # Build identity. Every package names the commit it was built from: the
@@ -149,6 +152,12 @@ a = Analysis(
         # the path is resolved relative to the package, so it must land in the
         # same place inside the bundle as it sits in the source tree.
         (REFERENCE_DIR, os.path.join("rocketforge", "data", "reference")),
+        # The shipped propulsion evidence corpus (sources.json + records/),
+        # read by the Propulsion Database. Only this folder: test fixtures live
+        # under tests/ and never reach the package. Every record in it already
+        # obeys its sources' shipping policy -- the evidence loader refuses one
+        # that does not -- and verify_package.py checks the copy again.
+        (EVIDENCE_DIR, os.path.join("rocketforge", "data", "evidence")),
     ] + cea_datas + coolprop_datas,
     hiddenimports=cea_hiddenimports + coolprop_hiddenimports,
     hookspath=[],

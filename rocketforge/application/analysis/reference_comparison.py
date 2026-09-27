@@ -25,10 +25,10 @@ from __future__ import annotations
 import json
 import math
 import pathlib
-import sys
 from dataclasses import dataclass
 from functools import lru_cache
 
+from ..data_paths import data_root
 from ...physics.compressible import PerfectGas
 from ...physics.compressible import isentropic as iso
 from ...physics.compressible import normal_shock as ns
@@ -62,12 +62,10 @@ def reference_root() -> pathlib.Path:
     frozen build unpacks its data somewhere else entirely and says where
     through ``sys._MEIPASS``. Getting this wrong would not fail the tests --
     it would fail only in the shipped executable, with the comparison feature
-    silently dead.
+    silently dead. The frozen-build rule itself is :func:`data_root`, shared
+    with the evidence corpus.
     """
-    bundled = getattr(sys, "_MEIPASS", None)
-    if bundled:
-        return pathlib.Path(bundled) / "rocketforge" / "data" / "reference"
-    return pathlib.Path(__file__).resolve().parents[2] / "data" / "reference"
+    return data_root() / "reference"
 
 
 #: Dataset keys, as each file declares itself. The file says which dataset it

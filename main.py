@@ -52,6 +52,9 @@ from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
 from rocketforge.application.analysis.line_controller import LineController
+from rocketforge.application.analysis.propulsion_evidence_controller import (
+    PropulsionEvidenceController,
+)
 from rocketforge.application.analysis.trade_study_controller import (
     TradeStudyController,
 )
@@ -322,6 +325,16 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     # chamber and not a nozzle.
     line = LineController(parent)
     qmlRegisterSingletonInstance(LineController, QML_URI, 1, 0, "Line", line)
+
+    # The Propulsion Database: the shipped evidence corpus, read-only. It
+    # loads the evidence files once, here, and browsing solves nothing -- it
+    # imports no provider, no physics and no comparison code. Only the explicit
+    # CEA compatibility check (EV-3) loads the bridge, and it probes, never
+    # solves; Open in Thermochemistry loads the case into the Thermochemistry
+    # controller below and leaves Calculate to the user.
+    propulsion_evidence = PropulsionEvidenceController(parent, thermochemistry=thermochemistry)
+    qmlRegisterSingletonInstance(PropulsionEvidenceController, QML_URI, 1, 0,
+                                 "PropulsionEvidence", propulsion_evidence)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

@@ -6,7 +6,7 @@ What was checked, against what, and what the differences actually are.
 
 | Term | What it is |
 | --- | --- |
-| **official** | NASA's shipped `cea/samples/rp1311/example5.py`, run unmodified, at the precision it prints. Written verbatim to `acceptance/solid_propellant_r1/rp1311_example5_official_output.txt` by `example5_species_validation.py` (that directory is gitignored; the committed record of the printed values is the generated `rocketforge/comparison/rp1311.py`). The RP-1311 printed table itself was not available offline in this workspace; the shipped example is NASA's own executable reproduction of it, and that limit is stated rather than papered over. |
+| **official** | NASA's shipped `cea/samples/rp1311/example5.py`, run unmodified, at the precision it prints. Written verbatim to `acceptance/solid_propellant_r1/rp1311_example5_official_output.txt` by `example5_species_validation.py` (that directory is gitignored; the committed record of the printed values is the generated `rocketforge/comparison/rp1311.py`). It is **not** the table printed in RP-1311 Part II (1996): that table, since read from the NTRS scan, gives 2724.46 K, MW 22.282 and γ_s 1.1945 at this pressure, from the Fortran program and the thermodynamic data of its time. It is recorded separately as `rocketforge/comparison/rp1311_historical.py` and compared without a verdict. |
 | **direct CEA** | What the installed `cea` 3.3.4 returns, full precision, solved with no RocketForge code in the solve. |
 | **RocketForge** | What `rocketforge.providers.cea_solid.solve_solid_chamber` returns. |
 
@@ -206,14 +206,19 @@ Stated, not hidden. None of these blocks R1; all of them bound it.
 
 - **One qualifying end-to-end solid benchmark**, RP-1311 Example 5.
 - **No simple non-metalised solid benchmark.** Still open, and not invented to
-  fill the gap. Independently: this `thermo.lib` does not contain `KNO3(cr)` or
-  `KCLO4(cr)`, so the common sugar-propellant cases could not be posed to this
-  provider even if their thermochemistry were fully published.
+  fill the gap. The common sugar-propellant cases are blocked by the sugars:
+  no sourced custom-reactant definition exists for dextrose, sorbitol or
+  sucrose. (An earlier version of this line said `KNO3` was absent; it is
+  present as `KNO3(a)`, `KNO3(b)` and `KNO3(L)` — see
+  `SOLID_PROPELLANT_MISSING_DATA.md`.)
 - **No solid nozzle-expansion or reference-performance benchmark**, and so no
   production solid performance output, no internal ballistics and no delivered
   motor performance.
-- **The RP-1311 printed table** was not consulted directly; NASA's shipped
-  executable example stands in for it, at its printed precision.
+- **The regression lock is the cea 3.3.4 sample printout**, not the RP-1311
+  Part II (1996) printed table. The 1996 table differs beyond printed
+  precision (2724.46 K against 2723.021 K) -- attributed to thermodynamic-data
+  revisions since 1996, not yet verified record by record -- and is kept as a
+  separate, verdict-free historical reference.
 
 ### Nakka and PROPEP
 

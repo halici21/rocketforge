@@ -48,6 +48,10 @@ ROUTES = {
         "page:thermochem,solid:rp1311-example5,section:1,page:nozzlelab,section:1,"
         "page:thermochem,biprop,page:nozzlelab"),
     "engine_design_and_back": "page:thermochem,mode:engine,mode:analysis,page:nozzlelab,section:1",
+    # The read-only Propulsion Database, between the workspaces around it.
+    "propulsion_database_and_back": (
+        "solve,page:evidence,page:thermochem,page:evidence,page:nozzlelab,section:1,"
+        "page:evidence,page:equations,page:evidence"),
 }
 
 

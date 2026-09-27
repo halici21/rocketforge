@@ -113,8 +113,10 @@ build time: compare builds by commit, not by checksum.
 ### What the package contains
 
 It contains the Python runtime, Qt and its QML modules, `ui/`, the brand
-icon, the reference data, NASA CEA with `thermo.lib` and `trans.lib`,
-CoolProp, and `rocketforge_build.json`.
+icon, the reference data, the shipped evidence corpus
+(`rocketforge/data/evidence`: `sources.json` and `records/`, the Propulsion
+Database's data), NASA CEA with `thermo.lib` and `trans.lib`, CoolProp, and
+`rocketforge_build.json`.
 
 It does not contain tests or pytest (CoolProp's own test suite is excluded),
 setuptools, SciPy, `acceptance/`, `.git`, Graphify output, or any path from the
@@ -137,8 +139,17 @@ This checks `dist\RocketForge` against the repository's HEAD:
 - **version resource**: the executable names the same commit;
 - **runtime**: the executable, asked with `--build-info`, reports itself as
   that packaged build;
+- **evidence**: the evidence corpus is packaged file for file as in the
+  source tree (nothing extra, so no test fixture), loads through the evidence
+  loader, holds `DS-RP1311-E5`, ships no value its source withholds, and the
+  Propulsion Database pages start no calculation themselves: "Open in
+  Thermochemistry" exists only in the record view, behind the controller's
+  post-check gate;
 - **smoke**: the bundled provider, the Nozzle Lab → Thermochemistry route that
-  once crashed, and the science self-test, all run inside the package.
+  once crashed, the Propulsion Database opened and re-entered, its explicit CEA
+  compatibility check and Open in Thermochemistry (which must arrive unsolved),
+  every Normal and Oblique Shock section, and the science self-test, all run
+  inside the package.
 
 `--expect-commit <sha>` checks against another commit.
 

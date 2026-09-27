@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "S-NASA-RP1311-P2-1996",
+      "organization": "NASA Lewis Research Center",
+      "authors": [
+        "McBride, Bonnie J.",
+        "Gordon, Sanford"
+      ],
+      "title": "Computer Program for Calculation of Complex Chemical Equilibrium Compositions and Applications II. Users Manual and Program Description",
+      "year": 1996,
+      "identifiers": {
+        "report_number": "NASA-RP-1311 Part II",
+        "performing_organization_report": "E-8017-1",
+        "ntrs_id": "19960044559"
+      },
+      "locator": "https://ntrs.nasa.gov/citations/19960044559",
+      "source_type": "NASA Reference Publication; Example 5 printed output, scanned",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "NTRS copyright determination: PUBLIC_USE_PERMITTED",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    },
+    {
+      "source_id": "S-NASA-CEA-334",
+      "organization": "NASA Glenn Research Center",
+      "authors": [],
+      "title": "NASA CEA 3.3.4, shipped worked example samples/rp1311/example5.py ('Example 5 from RP-1311')",
+      "year": 2026,
+      "identifiers": {
+        "release": "v3.3.4",
+        "thermo_lib_sha256": "8e5df1cca92d4a48663d1ee5a1372e6508c59cddc2247ceeca32f041a03ec52a"
+      },
+      "locator": "https://github.com/nasa/cea",
+      "source_type": "Software distribution with NASA's executable RP-1311 examples",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "Apache-2.0 (repository licence)",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    }
+  ]
+}

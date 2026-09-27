@@ -55,13 +55,24 @@ ApplicationWindow {
     readonly property bool isTradeStudyPage:
         currentPageIndex === Navigation.indexOfKey("tradestudy")
     // Workspaces with a contextual inspector: Trade Study's study inspector,
-    // and the shared selection readout of Nozzle Lab and Isentropic.
+    // the shared selection readout of Nozzle Lab and Isentropic, and the
+    // Propulsion Database's provenance.
     readonly property bool hasInspector: isTradeStudyPage
         || currentPageIndex === Navigation.indexOfKey("nozzlelab")
         || currentPageIndex === Navigation.indexOfKey("isentropic")
+        || currentPageIndex === Navigation.indexOfKey("normalshock")
+        || currentPageIndex === Navigation.indexOfKey("obliqueshock")
         || currentPageIndex === Navigation.indexOfKey("thermochem")
+        || currentPageIndex === Navigation.indexOfKey("evidence")
     // The inspector belongs to the workspace that opened it.
     onCurrentPageIndexChanged: ShellContext.inspectorOpen = false
+
+    // Open in Thermochemistry (Propulsion Database, EV-3): the controller has
+    // loaded the case; the shell only moves to the workspace it names.
+    Connections {
+        target: PropulsionEvidence
+        function onWorkspaceRequested(key) { window.showAnalysis(Navigation.indexOfKey(key)) }
+    }
 
     readonly property var themeModes: ["light", "dark", "system"]
 

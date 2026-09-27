@@ -23,6 +23,7 @@ headlessly, including the "nothing installed" branch.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -50,6 +51,8 @@ __all__ = [
     "solid_validated_pressures",
     "solve_solid_equilibrium_cstar",
     "solid_assigned_enthalpy_diagnostics",
+    "LibrarySpeciesProbe",
+    "probe_solid_library_species",
 ]
 
 #: What the interface calls the provider. The machine id stays ``"cea"``.
@@ -153,6 +156,7 @@ def reset_provider_state() -> None:
     _provider = None
     _options = None
     _solid_catalogue = None
+    _species_probes.clear()
 
 
 def availability(*, refresh: bool = False) -> ProviderAvailability:
@@ -465,3 +469,106 @@ def solid_assigned_enthalpy_diagnostics(request: Any) -> tuple[Any, ...]:
     )
 
     return _diagnostics(module, build_solid_chamber_input(request))
+
+
+# ---------------------------------------------------------------------------
+# library probe, for an explicit evidence compatibility check
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True, slots=True)
+class LibrarySpeciesProbe:
+    """Which of some names the installed ``thermo.lib`` holds, and which library said so.
+
+    A view model, like :class:`ProviderAvailability`: the provider's own
+    status, version and database hash are carried through, not restated. The
+    database hash travels with the answer because an absence is a fact about
+    one ``thermo.lib``, not about chemistry -- another database may hold the
+    name.
+
+    Attributes:
+        usable: A provider was usable, so every name was actually probed. When
+            False nothing was probed: ``present`` and ``absent`` are both
+            empty, and no name is called absent.
+        names: The names asked about, in order, each once.
+        present: Those the library holds, in the order asked.
+        absent: Those it does not, in the order asked.
+        status: The provider's own availability status value.
+        library_version: The chemistry library's version, when usable.
+        database: The database file the provider solves against.
+        database_sha256: Its content hash, as the provider computed it.
+        detail: Why nothing was probed, when ``usable`` is False.
+        probed: The names actually asked of the library by this call; the
+            others were answered from this process's earlier probe of the same
+            ``thermo.lib`` identity.
+    """
+
+    usable: bool
+    names: tuple[str, ...]
+    present: tuple[str, ...] = ()
+    absent: tuple[str, ...] = ()
+    provider: str = PROVIDER_LABEL
+    status: str = ""
+    library_version: str = ""
+    database: str = ""
+    database_sha256: str = ""
+    detail: str = ""
+    probed: tuple[str, ...] = ()
+
+
+#: Name lookups already made in this process, keyed by the ``thermo.lib``
+#: identity that answered (database, its sha256, library version) and the name
+#: as asked. A fact about one database, so it cannot go stale while the process
+#: holds that database; :func:`reset_provider_state` drops it with everything
+#: else. Only presence is kept -- never an assessment, never a record's answer.
+_species_probes: dict[tuple[str, str, str, str], bool] = {}
+
+
+def probe_solid_library_species(names: Sequence[str]) -> LibrarySpeciesProbe:
+    """Ask the installed ``thermo.lib`` whether it holds each name, exactly as given.
+
+    A probe, not a solve: one single-species ``cea.Mixture`` per name, through
+    the provider package's own :func:`library_species_available`, and nothing
+    else -- no chamber state, no c*. A name is looked up verbatim: no synonym,
+    phase or spelling is ever tried in its place, so ``KNO3(cr)`` is reported
+    absent even though ``KNO3(a)`` is present.
+
+    Once per process per ``thermo.lib`` identity (R1 section 7, like
+    :func:`solid_ingredient_catalogue`): a name already asked of the same
+    database, sha256 and library version is answered from :data:`_species_probes`
+    and not asked again; ``probed`` says which names this call did ask. Never
+    raises; with no usable provider, nothing is probed, nothing is cached, and
+    the result says so.
+    """
+    asked = tuple(dict.fromkeys(str(name) for name in names))
+    state = availability()
+    if not state.usable:
+        return LibrarySpeciesProbe(usable=False, names=asked, status=state.status,
+                                   detail=state.detail or state.remedy)
+    try:
+        module = _cea_module()
+        provenance = provider_provenance()
+        from rocketforge.providers.cea_solid import library_species_available
+
+        identity = ((provenance.database if provenance is not None else ""),
+                    (provenance.database_sha256 if provenance is not None else ""),
+                    state.library_version or state.version or "")
+        todo = tuple(name for name in asked if (*identity, name) not in _species_probes)
+        found = set(library_species_available(module, todo)) if todo else set()
+    except Exception as exc:  # noqa: BLE001 - reported as "nothing probed", never raised
+        return LibrarySpeciesProbe(usable=False, names=asked, status=state.status,
+                                   detail=f"{type(exc).__name__}: {exc}")
+    for name in todo:
+        _species_probes[(*identity, name)] = name in found
+    present = tuple(name for name in asked if _species_probes[(*identity, name)])
+    return LibrarySpeciesProbe(
+        usable=True,
+        names=asked,
+        present=present,
+        absent=tuple(name for name in asked if name not in present),
+        probed=todo,
+        status=state.status,
+        library_version=state.library_version or state.version,
+        database=provenance.database if provenance is not None else "",
+        database_sha256=provenance.database_sha256 if provenance is not None else "",
+    )

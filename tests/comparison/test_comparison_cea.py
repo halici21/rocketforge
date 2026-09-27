@@ -15,6 +15,7 @@ import pytest
 
 from rocketforge.comparison import (
     AGREES,
+    COMPARED,
     DIFFERS,
     ReferenceCase,
     ReferenceQuantity,
@@ -27,6 +28,7 @@ from rocketforge.comparison.rp1311 import (
     RP1311_EXAMPLE12_PUBLISHED,
     RP1311_EXAMPLE13_PUBLISHED,
 )
+from rocketforge.comparison.rp1311_historical import RP1311_EXAMPLE5_PRINT_1996
 from rocketforge.physics.solid_propellant import (
     SolidFormulation,
     SolidFormulationEquilibriumRequest,
@@ -94,6 +96,23 @@ def test_example5_agrees_with_every_quantity_nasa_prints(cea_module):
     assert result.verdict == AGREES
     assert len(result.rows) == 50
     assert not result.not_observed
+
+
+@requires_cea
+def test_example5_against_the_1996_print_reports_differences_without_a_verdict(cea_module):
+    """The same solve that agrees with the cea 3.3.4 sample differs from the
+    1996 printed table beyond its printed precision -- about -1.44 K; the table
+    comes from the 1996 Fortran program and its data. Recorded as an
+    independent code, the comparison reports that and draws no verdict."""
+    chamber, _ = solve(cea_module, RP1311_EXAMPLE5, RP1311_EXAMPLE5_PRESSURES_BAR[0],
+                       omit=RP1311_EXAMPLE5_OMIT)
+    result = compare(RP1311_EXAMPLE5_PRINT_1996, observed_from_chamber(chamber))
+    assert result.verdict == COMPARED
+    assert not result.not_observed
+    rows = {row.key: row for row in result.rows}
+    assert rows["chamber_temperature"].abs_diff == pytest.approx(-1.439, abs=5e-3)
+    assert abs(rows["chamber_temperature"].abs_diff) > 0.005     # beyond the print
+    assert all(row.bound is None for row in result.rows)
 
 
 @requires_cea

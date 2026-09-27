@@ -39,15 +39,33 @@ Example 5's chamber temperature by −0.0287 K (−1.05e−05 relative). That is
 enough to miss the published 2723.021 K, which is why the reference case keeps
 the stated value.
 
-## Ingredients absent from this `thermo.lib`
+## Potassium nitrate, potassium perchlorate and sugars in this `thermo.lib`
 
-Probed with `cea.Mixture`, so the list reflects the installed database, not an
-assumption:
+Probed with `cea.Mixture([name])` — the probe
+`rocketforge.providers.cea_solid.library_species_available` uses — against cea
+3.3.4, `thermo.lib` sha256 `8e5df1cc…`, so the list reflects the installed
+database, not an assumption:
 
-| Species | Status |
+| Name | Status |
 | --- | --- |
-| `KNO3(cr)` | absent — potassium-nitrate grains (e.g. KNDX, KNSU) cannot be posed to this provider |
-| `KCLO4(cr)` | absent |
+| `KNO3(a)`, `KNO3(b)`, `KNO3(L)` | **present** |
+| `KNO3(cr)` | absent — not a name this library uses |
+| `KCLO4(cr)`, `KClO4(cr)`, `KCLO4(a)`, `KCLO4(b)`, `KCLO4(L)` | absent |
+| `C6H12O6(cr)`, `C6H14O6(cr)`, `C12H22O11(cr)` | absent |
+
+**Correction (EV-1).** This page previously probed only `KNO3(cr)` and
+concluded that potassium-nitrate grains (KNDX, KNSU) could not be posed to this
+provider. That was wrong: potassium nitrate is in the library under CEA's own
+phase names. The same superseded statement appears in the dated
+`SOLID_PROPELLANT_R1_IMPLEMENTATION.md` report, which is left as written.
+
+It does **not** make KN/sugar propellants source-complete or solvable. No
+sourced formula, heat of formation and reference temperature for dextrose,
+sorbitol or sucrose has been accepted, and none is in the library under the
+names probed, so each sugar would have to be a custom reactant with a cited
+definition. Which `KNO3` phase applies at a given grain temperature is a
+reviewed choice recorded as data, not one the software makes. No sugar
+surrogate is provided.
 
 ## Benchmarks
 

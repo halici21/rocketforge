@@ -69,7 +69,15 @@ QtObject {
         // the provenance panel is for.
         { key: "line", label: "Line", page: "LinePage.qml",
           computed: true, solverNote: "RocketForge Darcy-Weisbach with Colebrook-White",
-          computedNote: "Straight circular liquid line, distributed wall friction only" }
+          computedNote: "Straight circular liquid line, distributed wall friction only" },
+        // Propulsion Database. Evidence, not a calculation: shipped source
+        // records read as they are stored. `computed` in this list's own sense
+        // -- its numbers come from the backend, not from MockData -- so the
+        // status bar shows the page's own notes instead of the mock chips; the
+        // notes say the numbers are the sources', and that nothing is solved.
+        { key: "evidence", label: "Propulsion Database", page: "PropulsionEvidencePage.qml",
+          computed: true, solverNote: "Shipped evidence records, read-only",
+          computedNote: "Source values as stored, with their locators; nothing is solved" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -193,7 +201,7 @@ QtObject {
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",
             hasStatus: false,
-            groups: [ { label: "", items: [11] } ]
+            groups: [ { label: "", items: [11, 18] } ]
         }
     ]
 

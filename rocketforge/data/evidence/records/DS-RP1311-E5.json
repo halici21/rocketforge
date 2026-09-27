@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-RP1311-E5",
+  "title": "NASA RP-1311 Example 5: HP chamber equilibrium of an AP / custom-binder / Al solid propellant",
+  "kind": "PROPELLANT",
+  "source_ids": [
+    "S-NASA-CEA-334",
+    "S-NASA-RP1311-P2-1996"
+  ],
+  "capabilities": {
+    "VA": "REGRESSION_LOCKED",
+    "VB": "NOT_APPLICABLE",
+    "VC": "NOT_APPLICABLE",
+    "VD": "NOT_APPLICABLE"
+  },
+  "capability_notes": {
+    "VA": "Locked against the NASA-shipped cea 3.3.4 sample printout (rp1311-example5-published). The 1996 printed table is a separate reference compared without a verdict (rp1311-example5-print-1996): it was printed by the 1996 Fortran program and differs beyond printed precision.",
+    "VB": "The source defines a chamber equilibrium only: no burn rate, no motor, no nozzle expansion.",
+    "VC": "The source defines a chamber equilibrium only: no burn rate, no motor, no nozzle expansion.",
+    "VD": "The source defines a chamber equilibrium only: no burn rate, no motor, no nozzle expansion."
+  },
+  "propellant": {
+    "propellant_id": "RP1311-E5",
+    "source_ids": [
+      "S-NASA-CEA-334"
+    ],
+    "family": "AP / custom CHOS binder / Al (metallised composite)",
+    "source_name": "Example 5 solid propellant blend",
+    "exact_formulation": true,
+    "basis": "mass_fraction",
+    "ingredients": [
+      {
+        "source_name": "NH4CLO4(I)",
+        "fraction": {
+          "value": 0.7206,
+          "unit": "mass fraction",
+          "source_id": "S-NASA-CEA-334",
+          "locator": "cea 3.3.4 samples/rp1311/example5.py, line 11 (weights, commented 'wt fractions'), in the reactant order of lines 40-53",
+          "status": "REPORTED"
+        },
+        "provider_name": "NH4CLO4(I)",
+        "custom": null
+      },
+      {
+        "source_name": "CHOS-Binder",
+        "fraction": {
+          "value": 0.1858,
+          "unit": "mass fraction",
+          "source_id": "S-NASA-CEA-334",
+          "locator": "cea 3.3.4 samples/rp1311/example5.py, line 11 (weights, commented 'wt fractions'), in the reactant order of lines 40-53",
+          "status": "REPORTED"
+        },
+        "provider_name": null,
+        "custom": {
+          "formula": {
+            "C": {
+              "value": 1.0,
+              "unit": "atoms per formula unit",
+              "source_id": "S-NASA-CEA-334",
+              "locator": "cea 3.3.4 samples/rp1311/example5.py, line 44",
+              "status": "REPORTED"
+            },
+            "H": {
+              "value": 1.86955,
+              "unit": "atoms per formula unit",
+              "source_id": "S-NASA-CEA-334",
+              "locator": "cea 3.3.4 samples/rp1311/example5.py, line 44",
+              "status": "REPORTED"
+            },
+            "O": {
+              "value": 0.031256,
+              "unit": "atoms per formula unit",
+              "source_id": "S-NASA-CEA-334",
+              "locator": "cea 3.3.4 samples/rp1311/example5.py, line 44",
+              "status": "REPORTED"
+            },
+            "S": {
+              "value": 0.008415,
+              "unit": "atoms per formula unit",
+              "source_id": "S-NASA-CEA-334",
+              "locator": "cea 3.3.4 samples/rp1311/example5.py, line 44",
+              "status": "REPORTED"
+            }
+          },
+          "enthalpy": {
+            "value": -2999.082,
+            "unit": "cal/mol",
+            "source_id": "S-NASA-CEA-334",
+            "locator": "cea 3.3.4 samples/rp1311/example5.py, lines 37-38 and 46-47 (chos_binder_h_cal_per_mol)",
+            "status": "REPORTED",
+            "note": "Comment in the sample: 'CHOS-Binder reference enthalpy from RP-1311 example input.'"
+          },
+          "reference_temperature": {
+            "value": 298.15,
+            "unit": "K",
+            "source_id": "S-NASA-CEA-334",
+            "locator": "cea 3.3.4 samples/rp1311/example5.py, line 48",
+            "status": "REPORTED"
+          },
+          "molecular_weight": {
+            "value": 14.6652984484,
+            "unit": "g/mol",
+            "source_id": "S-NASA-CEA-334",
+            "locator": "cea 3.3.4 samples/rp1311/example5.py, line 45",
+            "status": "REPORTED"
+          }
+        }
+      },
+      {
+        "source_name": "AL(cr)",
+        "fraction": {
+          "value": 0.09,
+          "unit": "mass fraction",
+          "source_id": "S-NASA-CEA-334",
+          "locator": "cea 3.3.4 samples/rp1311/example5.py, line 11 (weights, commented 'wt fractions'), in the reactant order of lines 40-53",
+          "status": "REPORTED"
+        },
+        "provider_name": "AL(cr)",
+        "custom": null
+      },
+      {
+        "source_name": "MgO(cr)",
+        "fraction": {
+          "value": 0.002,
+          "unit": "mass fraction",
+          "source_id": "S-NASA-CEA-334",
+          "locator": "cea 3.3.4 samples/rp1311/example5.py, line 11 (weights, commented 'wt fractions'), in the reactant order of lines 40-53",
+          "status": "REPORTED"
+        },
+        "provider_name": "MgO(cr)",
+        "custom": null
+      },
+      {
+        "source_name": "H2O(L)",
+        "fraction": {
+          "value": 0.0016,
+          "unit": "mass fraction",
+          "source_id": "S-NASA-CEA-334",
+          "locator": "cea 3.3.4 samples/rp1311/example5.py, line 11 (weights, commented 'wt fractions'), in the reactant order of lines 40-53",
+          "status": "REPORTED"
+        },
+        "provider_name": "H2O(L)",
+        "custom": null
+      }
+    ],
+    "density": {
+      "missing": "NOT_REPORTED",
+      "note": "An HP chamber problem needs no grain density; neither the sample nor the 1996 print states one."
+    },
+    "initial_temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "source_id": "S-NASA-CEA-334",
+      "locator": "cea 3.3.4 samples/rp1311/example5.py, line 12 (T_reac, one value per reactant)",
+      "status": "REPORTED"
+    }
+  },
+  "comparison_case_ids": [
+    "rp1311-example5-published",
+    "rp1311-example5-print-1996"
+  ],
+  "executable_key": "rp1311-example5",
+  "blockers": [],
+  "notes": "Documents rocketforge.providers.cea_solid.RP1311_EXAMPLE5, which stays the authority for execution. The binder is NASA's CHOS-Binder and is never relabelled HTPB or PBAN. The 1996 print names the magnesium oxide reactant MgO(s); the cea 3.3.4 sample, which this record transcribes, names it MgO(cr)."
+}

@@ -497,7 +497,11 @@ def test_the_ui_smoke_module_sends_no_synthetic_input():
 #: which tab to visit to set its baseline. Adding a domain here is a deliberate
 #: one-line change, and the test below refuses any widening beyond named
 #: domains.
-ANALYSIS_DOMAIN_PAGES = ("thermochemistry", "rocketperformance", "tradestudy")
+#:
+#: EV-3 added the fourth: the Propulsion Database opens an executable record's
+#: case in Thermochemistry, so its record view must name that workspace.
+ANALYSIS_DOMAIN_PAGES = ("thermochemistry", "rocketperformance", "tradestudy",
+                         "propulsionevidence")
 
 
 def _compressible_pages() -> list:

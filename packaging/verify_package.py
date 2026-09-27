@@ -20,6 +20,11 @@ Checks, each a function so the tests can drive its failure cases:
                     same commit -- the identity survives a copied .exe
     runtime         the executable, asked with --build-info, reports itself as
                     that packaged build: the identity the user will see
+    evidence        the shipped evidence corpus is in the package, file for file
+                    and byte for byte as in the source tree (no fixture, nothing
+                    extra), loads through the evidence loader, holds the required
+                    records, ships no value its source's policy withholds, and the
+                    Propulsion Database pages carry no solve or execution action
     3d runtime      the package carries exactly the Qt Quick 3D files the 3D view
                     loads, and no other file of the PySide6-Addons wheel
                     (packaging/qt3d_runtime.py)
@@ -28,7 +33,8 @@ Checks, each a function so the tests can drive its failure cases:
                     and the science self-test, all inside the package; and,
                     when the package carries Qt Quick 3D, Rocket Performance's
                     3D view opened and closed on the real windows platform
-                    (the offscreen platform cannot run Qt Quick 3D)
+                    (the offscreen platform cannot run Qt Quick 3D); and the
+                    Propulsion Database opened, left and re-entered
 """
 
 from __future__ import annotations
@@ -72,6 +78,35 @@ VIEWPORT_ROUTE = ("solve,page:performance,view:3d,expect3d:yes,capture:viewport3
                   # Nozzle Lab's regime map, in the same shared viewport
                   "page:nozzlelab,section:0,view:3d,expect3d:yes,capture:nozzle3d,"
                   "view:2d,expect3d:no")
+
+
+#: The Propulsion Database opened, left for another workspace and re-entered.
+EVIDENCE_ROUTE = "page:evidence,page:thermochem,page:evidence,page:home,page:evidence"
+
+#: EV-3 inside the package: the explicit CEA compatibility check, Open in
+#: Thermochemistry, which must reach that workspace and must not solve, then
+#: back. The package ships NASA CEA, so the check can pass and Open exists.
+EVIDENCE_CEA_ROUTE = ("page:evidence,evcheck,evopen,expectthermo:unsolved,"
+                      "page:evidence,page:home,page:evidence")
+
+#: Normal and Oblique Shock, every section of each, and back.
+SHOCK_ROUTE = ("page:normalshock,section:0,section:1,section:2,"
+               "page:obliqueshock,section:0,section:1,section:2,"
+               "page:normalshock,page:obliqueshock")
+
+#: Records the package must carry: the regression-locked RP-1311 Example 5.
+EVIDENCE_REQUIRED = ("DS-RP1311-E5",)
+
+#: Words that would make the evidence pages an execution surface. None of them
+#: belongs on a page: the explicit check and Open go through the controller.
+EVIDENCE_FORBIDDEN = ("CEA compatible", "CEA ready",
+                      "evidence_cea_bridge", "runSweep", "calculate(", "loadSolidFormulation")
+
+#: EV-3's one action. It may exist only in the record view, and only behind the
+#: controller's post-check gate, so no page can show it before a check passed.
+EVIDENCE_OPEN_ACTION = "Open in Thermochemistry"
+EVIDENCE_OPEN_PAGE = "EvidenceRecord.qml"
+EVIDENCE_OPEN_GATE = "active: PropulsionEvidence.canOpenInThermochemistry"
 
 
 def git_head(repo: Path) -> str:
@@ -221,6 +256,19 @@ def check_smoke(package: Path) -> list[str]:
         if code != 0 or not nav.is_file():
             failures.append(f"smoke: the navigation crash route exited {code} "
                             f"({nav.read_text(encoding='utf-8')[:300] if nav.is_file() else 'no report'})")
+        evidence = Path(folder) / "evidence.json"
+        code = _run_packaged(package, "--selftest-navigation", str(evidence), EVIDENCE_ROUTE)
+        if code != 0:
+            failures.append(f"smoke: the Propulsion Database route exited {code} "
+                            f"({evidence.read_text(encoding='utf-8')[:300] if evidence.is_file() else 'no report'})")
+        for name, route, label in (("evidence_cea.json", EVIDENCE_CEA_ROUTE,
+                                    "the CEA compatibility route"),
+                                   ("shock.json", SHOCK_ROUTE, "the shock workspaces route")):
+            report = Path(folder) / name
+            code = _run_packaged(package, "--selftest-navigation", str(report), route)
+            if code != 0:
+                failures.append(f"smoke: {label} exited {code} "
+                                f"({report.read_text(encoding='utf-8')[:300] if report.is_file() else 'no report'})")
         science = Path(folder) / "science.json"
         code = _run_packaged(package, "--selftest-science", str(science))
         if code != 0:
@@ -232,6 +280,57 @@ def check_smoke(package: Path) -> list[str]:
             if code != 0:
                 failures.append(f"smoke: the 3D view route exited {code} "
                                 f"({viewport.read_text(encoding='utf-8')[:300] if viewport.is_file() else 'no report'})")
+    return failures
+
+
+def check_evidence(package: Path, repo: Path) -> list[str]:
+    """The evidence corpus in the package is the source corpus, and nothing more."""
+    from rocketforge.application.analysis.propulsion_evidence_service import load_corpus
+    from rocketforge.evidence import EvidenceError, reported_values
+
+    internal = package / "_internal"
+    shipped = internal / "rocketforge" / "data" / "evidence"
+    source = repo / "rocketforge" / "data" / "evidence"
+    if not (shipped / "sources.json").is_file():
+        return [f"evidence: no corpus at {shipped.relative_to(package)}"]
+
+    def files(root: Path) -> dict[str, Path]:
+        return {p.relative_to(root).as_posix(): p for p in root.rglob("*") if p.is_file()}
+
+    have, want = files(shipped), files(source)
+    failures = [f"evidence: {name} is missing from the package" for name in sorted(set(want) - set(have))]
+    failures += [f"evidence: {name} is packaged but is not shipped evidence (a fixture?)"
+                 for name in sorted(set(have) - set(want))]
+    failures += [f"evidence: {name} differs from the source tree"
+                 for name in sorted(set(have) & set(want))
+                 if have[name].read_bytes() != want[name].read_bytes()]
+    if (internal / "tests").exists():
+        failures.append("evidence: a tests/ folder was packaged")
+    try:
+        corpus = load_corpus(shipped)
+    except EvidenceError as error:
+        return failures + [f"evidence: the packaged corpus does not load: {error}"]
+    ids = {record.record_id for record in corpus.records}
+    failures += [f"evidence: required record {rid} is not in the package"
+                 for rid in EVIDENCE_REQUIRED if rid not in ids]
+    for record in corpus.records:
+        for value in reported_values(record):
+            if not corpus.sources[value.source_id].values_may_ship:
+                failures.append(f"evidence: {record.record_id} ships a value from "
+                                f"{value.source_id}, whose policy withholds values")
+    pages = [internal / "ui" / "pages" / "PropulsionEvidencePage.qml"]
+    pages += sorted((internal / "ui" / "pages" / "propulsionevidence").glob("*.qml"))
+    for page in pages:
+        if not page.is_file():
+            failures.append(f"evidence: {page.relative_to(package)} is missing")
+            continue
+        text = page.read_text(encoding="utf-8")
+        failures += [f"evidence: {page.name} carries {word!r}"
+                     for word in EVIDENCE_FORBIDDEN if word in text]
+        if EVIDENCE_OPEN_ACTION in text and (page.name != EVIDENCE_OPEN_PAGE
+                                             or EVIDENCE_OPEN_GATE not in text):
+            failures.append(f"evidence: {page.name} carries {EVIDENCE_OPEN_ACTION!r} "
+                            "outside the post-check gate")
     return failures
 
 
@@ -251,6 +350,7 @@ def verify(package: Path, expected_commit: str, repo: Path, *, smoke: bool,
         return failures
     failures += check_pins(manifest, repo)
     failures += check_3d_runtime(package)
+    failures += check_evidence(package, repo)
     failures += check_version_resource(package, manifest)
     failures += check_runtime(package, manifest)
     if smoke:

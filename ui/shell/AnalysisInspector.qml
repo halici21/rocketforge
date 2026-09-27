@@ -6,13 +6,15 @@ import "../components"
 import "../data"
 import "../pages/tradestudy"
 import "../pages/thermochemistry"
+import "../pages/propulsionevidence"
 
 /*
  * The contextual Inspector's content, for whichever workspace is open.
  *
  * One shell drawer (InspectorDrawer), one content per workspace: Trade Study
- * keeps its own study inspector; Nozzle Lab and Isentropic show the shared
- * selection readout their controllers publish. A workspace that has no
+ * keeps its own study inspector; Nozzle Lab, Isentropic, Normal Shock and
+ * Oblique Shock show the shared selection readout their controllers publish; the Propulsion Database shows
+ * the provenance of the record or stored field in view. A workspace that has no
  * inspector never opens the drawer.
  */
 Item {
@@ -30,11 +32,19 @@ Item {
         sourceComponent: root.pageKey === "tradestudy" ? study
                        : root.pageKey === "nozzlelab" ? nozzle
                        : root.pageKey === "isentropic" ? isentropic
+                       : root.pageKey === "normalshock" ? normalShock
+                       : root.pageKey === "obliqueshock" ? obliqueShock
                        : root.pageKey === "thermochem" ? sweepPoint
+                       : root.pageKey === "evidence" ? evidence
                        : null
     }
 
     Component { id: study; StudyInspector {} }
+
+    Component {
+        id: evidence
+        EvidenceInspector { onCloseRequested: root.closeRequested() }
+    }
 
     Component {
         id: nozzle
@@ -122,6 +132,32 @@ Item {
             sourceName: "Isentropic Flow"
             emptyHint: "Click a point on the curve, or a row of the table, to inspect it."
             onClearRequested: Isentropic.selection.clear()
+            onCloseRequested: root.closeRequested()
+        }
+    }
+
+    // Normal and Oblique Shock: the generated row (or range) the table and
+    // the relation / sweep curve share, read back as shown.
+    Component {
+        id: normalShock
+        RFInspectorPanel {
+            objectName: "normalShockInspector"
+            readout: NormalShock.selectionReadout
+            sourceName: "Normal Shock"
+            emptyHint: "Click a point on the relation, or a row of the table, to inspect it."
+            onClearRequested: NormalShock.selection.clear()
+            onCloseRequested: root.closeRequested()
+        }
+    }
+
+    Component {
+        id: obliqueShock
+        RFInspectorPanel {
+            objectName: "obliqueShockInspector"
+            readout: ObliqueShock.selectionReadout
+            sourceName: "Oblique Shock"
+            emptyHint: "Click a point on the sweep curve, or a row of the table, to inspect it."
+            onClearRequested: ObliqueShock.selection.clear()
             onCloseRequested: root.closeRequested()
         }
     }

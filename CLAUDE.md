@@ -99,12 +99,13 @@ Edges marked `INFERRED` (mostly doc→code) are hints, not facts.
   controller member, Grep `ui/` with glob `*.qml` for `TradeStudy.hasResult`
   (singleton names are in `main.py:build_engine()`).
 - **Aliased-module calls made inside methods or lambdas are dropped.** The
-  `RocketPerformance`, `TradeStudy`, `FluidProperties`, and `Line` controllers
-  call their service as `service.x()`, and `ThermochemistryController` calls
-  `sweep.x()`/`reference.x()`, so the controller→service hop is missing for
-  them; the eight classic compressible controllers import service functions
-  directly and are linked. Start from the service function (for example
-  `solve_performance()`) or read the controller's `service.` calls.
+  `RocketPerformance`, `TradeStudy`, `FluidProperties`, `Line`, and
+  `PropulsionEvidence` controllers call their service as `service.x()`, and
+  `ThermochemistryController` calls `sweep.x()`/`reference.x()`, so the
+  controller→service hop is missing for them; the eight classic compressible
+  controllers import service functions directly and are linked. Start from
+  the service function (for example `solve_performance()`) or read the
+  controller's `service.` calls.
 - **Controller-to-controller wiring is duck-typed.**
   `RocketPerformanceController` reads the chamber via
   `chamber_source.chamber_outcome()` and `TradeStudyController` takes both

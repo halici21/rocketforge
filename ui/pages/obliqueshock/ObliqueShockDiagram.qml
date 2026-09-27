@@ -9,11 +9,13 @@ import "../../components"
  * The θ–β–M diagram.
  *
  * A real engineering chart, not a sketch: every point comes from
- * `ObliqueShock.curve()`, which is the same service call the calculator makes.
- * The two therefore cannot disagree about what the physics said, and clicking
- * the chart is deliberately *not* a way to solve anything — a chart that
- * answered questions by interpolating its own pixels would be a second,
- * unvalidated solver.
+ * `ObliqueShock.curveData`, which is the same service call the calculator
+ * makes, held by the controller for the M₁ and γ it was made from. The two
+ * therefore cannot disagree about what the physics said, a diagram opened a
+ * second time reads the curve already made, and clicking the chart is
+ * deliberately *not* a way to solve anything — a chart that answered
+ * questions by interpolating its own pixels would be a second, unvalidated
+ * solver.
  *
  * What it shows, for the selected M₁:
  *
@@ -32,28 +34,28 @@ Item {
     property bool compact: false
     property bool showComparison: false
     property bool showSonicGuide: true
+    // The chart's objectName: two diagrams are alive at once (Calculator and
+    // Study), so each owner names its own.
+    property string chartName: "obliqueShockDiagram"
 
-    // `curve()` is a slot, so reading it alone creates no dependency and the
-    // diagram would keep drawing the last Mach number's curve under a header
-    // showing a new one. Naming mach1 and gamma in the binding is what makes
-    // the curve follow them.
-    readonly property var curve: (ObliqueShock.mach1 > 0 && ObliqueShock.gamma > 0)
-                                 ? ObliqueShock.curve() : ({})
+    // A property of the controller (notify: M₁, γ, branch), so the curve
+    // follows the inputs; empty when the service refuses the state (a
+    // subsonic M₁), so no previous curve is left on screen.
+    readonly property var curve: ObliqueShock.curveData
     readonly property var point: ObliqueShock.operatingPoint
 
+    // The overlay curves are made the first time they are asked for, at the
+    // current γ, and held; the one at the current M₁ is the curve itself.
     readonly property var comparisonSeries: {
         if (!showComparison)
             return []
         var out = []
-        var machs = ObliqueShock.comparisonMachs
-        var current = ObliqueShock.mach1        // a real dependency, as above
-        for (var i = 0; i < machs.length; ++i) {
-            if (Math.abs(machs[i] - current) < 1e-9)
+        var curves = ObliqueShock.comparisonCurves
+        var current = ObliqueShock.mach1
+        for (var i = 0; i < curves.length; ++i) {
+            if (Math.abs(curves[i].mach1 - current) < 1e-9)
                 continue
-            var other = ObliqueShock.curveFor(machs[i])
-            if (!other || !other.weak)
-                continue
-            out.push({ points: other.weak.concat(other.strong),
+            out.push({ points: curves[i].weak.concat(curves[i].strong),
                        color: Theme.textDisabled, dashed: false, width: 1.0 })
         }
         return out
@@ -109,6 +111,7 @@ Item {
 
         RFLineChart {
             id: chart
+            objectName: root.chartName
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.minimumHeight: root.compact ? 150 : 300
@@ -175,6 +178,19 @@ Item {
                 font.family: Typography.sans
                 font.pixelSize: Typography.meta
             }
+        }
+
+        // A state the diagram cannot draw says so rather than showing an
+        // empty frame.
+        Text {
+            Layout.fillWidth: true
+            visible: !root.curve || root.curve.weak === undefined
+            text: "No θ–β–M curve for M₁ = " + ObliqueShock.mach1.toFixed(3)
+                  + ": an oblique shock needs a supersonic upstream flow and a valid γ."
+            wrapMode: Text.WordWrap
+            color: Theme.textMuted
+            font.family: Typography.sans
+            font.pixelSize: Typography.meta
         }
     }
 }

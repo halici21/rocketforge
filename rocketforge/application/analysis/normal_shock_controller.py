@@ -8,13 +8,23 @@ is compared against, never read for an answer.
 The behaviour is shared with the other analysis pages through
 :class:`AnalysisBehaviour`; the Qt surface is declared here rather than
 inherited, for the reason that module's docstring sets out.
+
+The view state -- one selection shared by the table, the relation chart and
+the inspector, table blocks for pinning and copying, and the view data made
+*with* a result or a table (the reference check of the solved M₁, the chart
+series) -- is presentation over values that already exist. Nothing a view
+reads here solves anything; only an input edit or Generate does.
 """
 
 from __future__ import annotations
 
+import math
+
 from PySide6.QtCore import Property, QObject, Signal, Slot
 
 from ..formatting import format_engineering
+from ..visualization.selection import AnalysisSelection
+from ..visualization.table import block_text, clamp_block, table_block
 from . import reference_comparison as reference
 from .analysis_behaviour import MAX_TABLE_ROWS, AnalysisBehaviour
 from .normal_shock_service import (
@@ -40,6 +50,8 @@ class NormalShockController(AnalysisBehaviour, QObject):
     tableChanged = Signal()
     tableSettingsChanged = Signal()
     referenceChanged = Signal()
+    selectionReadoutChanged = Signal()
+    tableStaleChanged = Signal()
     requestTab = Signal(int)
 
     _export_name = "normal_shock"
@@ -66,6 +78,25 @@ class NormalShockController(AnalysisBehaviour, QObject):
         # reference state
         self._compare = False
         self._summary: dict = {}
+        # Row -> comparison, made with the table comparison (Compare on, a
+        # regenerated table) so that selecting a row reads one instead of
+        # re-running the relations because a row was clicked.
+        self._row_comparisons: dict[int, list] = {}
+
+        # view state: which solved state and which generated table the views
+        # show, the settings that table was generated with, and one selection
+        # shared by the table, the chart and the inspector.
+        self._identity = 0
+        self._table_identity = 0
+        self._generated: dict = {}
+        self._current_comparison: list = []
+        self._limits_memo: tuple | None = None
+        self._selection = AnalysisSelection(self)
+        self._selection.changed.connect(self.selectionReadoutChanged)
+        self.tableChanged.connect(self.selectionReadoutChanged)
+        self.resultsChanged.connect(self.selectionReadoutChanged)
+        self.tableChanged.connect(self.tableStaleChanged)
+        self.tableSettingsChanged.connect(self.tableStaleChanged)
 
         self._recalculate()
         self.regenerateTable()
@@ -193,6 +224,25 @@ class NormalShockController(AnalysisBehaviour, QObject):
     def _compute(self):
         return solve(self._mode, self._input, self._gamma, self._upstream())
 
+    def _recalculate(self) -> None:
+        """The shared recalculation, plus the view data made with the result.
+
+        The same four steps as :meth:`AnalysisBehaviour._recalculate`; the
+        reference check of the solved M₁ and the strong-shock limits are made
+        here, with the result, rather than when a view first reads them:
+        opening the page, or coming back to it, must solve nothing.
+        """
+        self._result = self._compute()
+        self._stale = self._result is not None and not self._result.ok
+        try:
+            self._current_comparison = self.comparisonForCurrentMach()
+        except OSError:                      # the appendix could not be read
+            self._current_comparison = []
+        self._identity += 1
+        self._strong_shock_limits(quiet=True)
+        self.resultsChanged.emit()
+        self.referenceChanged.emit()
+
     def _get_precision(self) -> int:
         return self._precision
 
@@ -238,11 +288,22 @@ class NormalShockController(AnalysisBehaviour, QObject):
     def resultValue(self, key: str) -> float:
         return self._raw_result_value(key)
 
-    @Property("QVariantMap", notify=inputsChanged)
-    def strongShockLimits(self):
-        """The two ceilings a strong shock approaches but never reaches."""
-        density, mach = limits_for(self._gamma)
-        return {
+    def _strong_shock_limits(self, quiet: bool = False):
+        """The limits for the current gamma, held until gamma changes.
+
+        A refused gamma is not held: reading it raises exactly as before, and
+        ``quiet`` (the recalculation warming it) only swallows that refusal.
+        """
+        memo = self._limits_memo
+        if memo is not None and memo[0] == self._gamma:
+            return memo[1]
+        try:
+            density, mach = limits_for(self._gamma)
+        except Exception:
+            if quiet:
+                return None
+            raise
+        value = {
             "densityRatio": format_engineering(density, 6),
             "machDownstream": format_engineering(mach, 6),
             "caption": (
@@ -251,6 +312,13 @@ class NormalShockController(AnalysisBehaviour, QObject):
                 f"{format_engineering(mach, 4)} for γ = {self._gamma:g}."
             ),
         }
+        self._limits_memo = (self._gamma, value)
+        return value
+
+    @Property("QVariantMap", notify=inputsChanged)
+    def strongShockLimits(self):
+        """The two ceilings a strong shock approaches but never reaches."""
+        return dict(self._strong_shock_limits())
 
     @Property("QVariantList", constant=True)
     def assumptions(self):
@@ -345,10 +413,19 @@ class NormalShockController(AnalysisBehaviour, QObject):
         return "M₁ = 1"
 
     def _on_table_built(self, data) -> None:
+        self._generated = {"gamma": float(self._table_gamma), "start": float(self._table_start),
+                           "end": float(self._table_end), "step": float(self._table_step),
+                           "convention": str(self._table_convention)}
         self._refresh_summary()
+        self._table_identity += 1
+        self._drop_table_selection()
 
     def _on_table_cleared(self) -> None:
         self._summary = {}
+        self._row_comparisons = {}
+        self._generated = {}
+        self._table_identity += 1
+        self._drop_table_selection()
 
     @Slot()
     def regenerateTable(self) -> None:
@@ -377,6 +454,214 @@ class NormalShockController(AnalysisBehaviour, QObject):
     @Property(str, notify=tableChanged)
     def tableFooter(self) -> str:
         return self._table_caption()
+
+    @Property("QVariantMap", notify=tableChanged)
+    def tableGenerated(self):
+        """The settings the table on screen was generated with; empty when none.
+
+        The settings fields may be edited ahead of the next Generate; anything
+        that names the table on screen (a drawer summary, a chart caption, a
+        pinned block) names it from here.
+        """
+        return dict(self._generated)
+
+    @Property(str, notify=tableChanged)
+    def generatedCaption(self) -> str:
+        """The line under the table, from the settings it was generated with.
+
+        :attr:`tableFooter` reads the settings fields, which may have been
+        edited since; a view opened again after such an edit must still name
+        the table it shows.
+        """
+        rows = self._table_model.rowCount()
+        if not rows or not self._generated:
+            return ""
+        return (f"{rows:,} rows · γ = {self._generated['gamma']:g} · calorically perfect gas · "
+                "calculated by RocketForge")
+
+    @Property(float, notify=tableChanged)
+    def plottedGamma(self) -> float:
+        """The gamma of the generated table, NaN when there is none."""
+        return float(self._generated.get("gamma", math.nan))
+
+    def _settings_now(self) -> dict:
+        return {"gamma": float(self._table_gamma), "start": float(self._table_start),
+                "end": float(self._table_end), "step": float(self._table_step),
+                "convention": str(self._table_convention)}
+
+    @Property(bool, notify=tableStaleChanged)
+    def tableStale(self) -> bool:
+        """A setting was edited since the table on screen was generated."""
+        return bool(self._generated) and self._settings_now() != self._generated
+
+    @Property("QVariantMap", notify=tableChanged)
+    def chartData(self):
+        """Quantity key -> :meth:`chartSeries` for every plotted column.
+
+        A property, so a chart bound to it follows a regenerated table. Read
+        from the generated block; nothing is solved.
+        """
+        keys = [c["key"] for c in self._table_model.columns[1:]]
+        return {key: self._chart_series(key) for key in keys}
+
+    # ------------------------------------------------------------------
+    # selection, shared by the table, the chart and the inspector
+    # ------------------------------------------------------------------
+
+    def _drop_table_selection(self) -> None:
+        """A selected sample of the previous table means nothing in the new one."""
+        if self._selection.kind in ("plotPoint", "tableRow", "tableRange"):
+            self._selection.clear()
+
+    @Property(int, notify=resultsChanged)
+    def resultIdentity(self) -> int:
+        return self._identity
+
+    @Property(int, notify=tableChanged)
+    def tableIdentity(self) -> int:
+        return self._table_identity
+
+    @Property(QObject, constant=True)
+    def selection(self) -> QObject:
+        return self._selection
+
+    def _row_at(self, mach: float) -> int:
+        """The generated row whose M₁ is exactly ``mach``, else -1."""
+        row = self._table_model.rowNearest(mach)
+        if row < 0 or self._table_model.machAt(row) != mach:
+            return -1
+        return row
+
+    def _cell_text(self, row: int, column: int) -> str:
+        value = self._table_model.data(self._table_model.index(row, column))
+        return "" if value is None else str(value)
+
+    @Slot(int)
+    def selectTableRow(self, row: int) -> None:
+        """Select a generated row: the chart and the inspector follow it."""
+        if not 0 <= row < self._table_model.rowCount():
+            return
+        mach = self._table_model.machAt(row)
+        self._selection.select("tableRow", str(row), mach, f"row {row + 1}", "table")
+
+    @Slot(int, int)
+    def selectTableRange(self, first: int, last: int) -> None:
+        """Select a contiguous block of generated rows (the chart shows the interval)."""
+        span = clamp_block(first, last, self._table_model.rowCount())
+        if span is None:
+            return
+        a, b = span
+        if a == b:
+            self.selectTableRow(a)
+            return
+        label = f"M₁ {self._cell_text(a, 0)}–{self._cell_text(b, 0)}"
+        self._selection.selectRange("tableRange", f"rows:{a}-{b}", self._table_model.machAt(a),
+                                    self._table_model.machAt(b), label, "table")
+
+    @Slot(float, result=int)
+    def rowExactly(self, mach: float) -> int:
+        """The row generated at exactly ``mach``, else -1 (no nearest-row guess)."""
+        return self._row_at(mach)
+
+    @Slot(int, int, result="QVariantMap")
+    def tableSnapshot(self, first: int, last: int):
+        """Rows ``first``..``last`` as a table snapshot, exactly as shown."""
+        model = self._table_model
+        if not self._generated:
+            return {}
+        gamma = self._generated["gamma"]
+        try:
+            return table_block(source="normal_shock.table", identity=self._table_identity,
+                               columns=model.columns, values=model.values,
+                               text_at=self._cell_text, first=first, last=last,
+                               key_symbol="M₁", stale=self.tableStale, gamma=gamma,
+                               convention=self._generated["convention"],
+                               precision=self._table_precision,
+                               provenance=f"Generated by RocketForge at γ = {gamma:g}")
+        except (ValueError, IndexError):
+            return {}
+
+    @Slot("QVariantMap", result="QVariantList")
+    def restorableRange(self, snapshot):
+        """The rows of the table on screen a pinned block names, else [].
+
+        The block's own rows when it was pinned from this very table; else the
+        rows generated at exactly its keys -- but only when the table on screen
+        was generated with the same gamma and columns. Never a nearest row.
+        """
+        try:
+            keys = [float(k) for k in snapshot.get("rowKeys", [])]
+            if not keys or not self._generated:
+                return []
+            if int(snapshot.get("identity", -1)) == self._table_identity:
+                a, b = int(snapshot["firstRow"]), int(snapshot["lastRow"])
+            else:
+                if (float(snapshot.get("gamma", math.nan)) != self._generated["gamma"]
+                        or snapshot.get("convention") != self._generated["convention"]):
+                    return []
+                a, b = self._row_at(keys[0]), self._row_at(keys[-1])
+        except (TypeError, ValueError, KeyError):
+            return []
+        if a < 0 or b < 0 or b - a + 1 != len(keys):
+            return []
+        return [a, b]
+
+    @Slot(int, int)
+    def copyTableRows(self, first: int, last: int) -> None:
+        span = clamp_block(first, last, self._table_model.rowCount())
+        if span is None:
+            return
+        header = [c["label"] for c in self._table_model.columns]
+        self._copy_text(block_text(header, self._cell_text, span[0], span[1], len(header)))
+
+    @Property("QVariantMap", notify=selectionReadoutChanged)
+    def selectionReadout(self):
+        """The inspector's reading of the selection -- the generated row, as shown.
+
+        A point on the relation and a table row are the same thing, a sample
+        of the generated table; both read back that row's own formatted
+        values, upstream M₁ and every jump across the shock together. The
+        solved state reads the calculator's rows. Nothing is recomputed.
+        """
+        selection = self._selection
+        model = self._table_model
+        fidelity = "Calculated by RocketForge · calorically perfect gas"
+        base = {"stale": self.tableStale}
+        gamma = self._generated.get("gamma", math.nan)
+        if selection.kind in ("plotPoint", "tableRow"):
+            row = self._row_at(selection.x)
+            if row < 0:
+                return {}
+            rows = [{"label": spec["label"], "value": self._cell_text(row, column),
+                     "unit": spec.get("unit", "")}
+                    for column, spec in enumerate(model.columns)]
+            note = f"A generated sample at γ = {gamma:g}; the curve is drawn through these samples."
+            if row == self._marker_row:
+                note += " M₁ = 1 is the vanishing shock: every ratio is 1."
+            return dict(base, kind=selection.kind, key=str(row), title=f"Table row {row + 1}",
+                        note=note, rows=rows, identity=self._table_identity, fidelity=fidelity)
+        if selection.kind == "tableRange":
+            a, b = self._row_at(selection.x), self._row_at(selection.x1)
+            if a < 0 or b < 0:
+                return {}
+            rows = [{"label": spec["label"],
+                     "value": f"{self._cell_text(a, c)}  →  {self._cell_text(b, c)}",
+                     "unit": spec.get("unit", "")}
+                    for c, spec in enumerate(model.columns)]
+            return dict(base, kind="tableRange", key=selection.key,
+                        title=f"Rows {a + 1}–{b + 1}  ·  {selection.label}",
+                        note=(f"{b - a + 1} generated samples at γ = {gamma:g}; "
+                              "first and last row of the range, as shown in the table."),
+                        rows=rows, identity=self._table_identity, fidelity=fidelity)
+        if selection.kind == "state":
+            rows = [{"label": r["label"], "value": r["value"], "unit": r.get("unit", "")}
+                    for r in self._result_rows()]
+            if not rows:
+                return {}
+            return {"kind": "state", "key": "state", "title": "Solved shock",
+                    "note": self._status_label(), "rows": rows, "identity": self._identity,
+                    "fidelity": fidelity, "stale": False}
+        return {}
 
     # ==================================================================
     # actions
@@ -468,9 +753,12 @@ class NormalShockController(AnalysisBehaviour, QObject):
                 f"Comparison is unavailable at γ = {self._table_gamma:g}.")
 
     def _refresh_summary(self) -> None:
+        self._row_comparisons = {}
         if not (self._compare and self.referenceAvailable):
             self._summary = {}
             return
+        self._row_comparisons = {row: self._compare_row(row)
+                                 for row in range(self._table_model.rowCount())}
         machs = [self._table_model.machAt(r) for r in range(self._table_model.rowCount())]
         summary = reference.compare_table(self._table_gamma, machs, self._reference_table())
         self._summary = {
@@ -495,11 +783,19 @@ class NormalShockController(AnalysisBehaviour, QObject):
     def comparisonForRow(self, row: int):
         """Per-quantity comparison for one generated row.
 
+        Read from the comparison made with the table while Compare is on;
+        computed only when asked outside it (a script, a test).
+
         Empty when that Mach number is not tabulated in the source: no
         interpolated reference values, ever.
         """
         if not self.referenceAvailable:
             return []
+        if row in self._row_comparisons:
+            return self._row_comparisons[row]
+        return self._compare_row(row)
+
+    def _compare_row(self, row: int) -> list:
         mach = self._table_model.machAt(row)
         comparison = reference.compare_row(mach, self._table_gamma, self._reference_table())
         if comparison is None:
@@ -513,6 +809,11 @@ class NormalShockController(AnalysisBehaviour, QObject):
         mach = self._table_model.machAt(row)
         return reference.compare_row(mach, self._table_gamma,
                                      self._reference_table()) is not None
+
+    @Property("QVariantList", notify=resultsChanged)
+    def currentMachComparison(self):
+        """:meth:`comparisonForCurrentMach` for the current result, held."""
+        return self._current_comparison
 
     @Slot(result="QVariantList")
     def comparisonForCurrentMach(self):

@@ -31,6 +31,9 @@ A route is a comma-separated list of steps:
     sweep           Thermochemistry runSweep()
     peekfocus       the first plot peek on screen opens, then asks for Focus
     expectfocus:<yes|no>  a Focus overlay is open (yes) or none is (no)
+    evcheck         Propulsion Database: the explicit CEA compatibility check
+    evopen          Propulsion Database: Open in Thermochemistry (must not solve)
+    expectthermo:<solved|unsolved>  Thermochemistry holds a result, or none
 
 A solid or biprop step fails the run unless it ends in the mode it names with a
 result -- or, with no chemistry provider, at least in that mode.
@@ -72,11 +75,12 @@ class Route:
             b'import QtQuick\nimport RocketForge 1.0\nimport "data" as Data\n'
             b'QtObject { property var nav: Data.Navigation;'
             b' property var thermo: Thermochemistry; property var perf: RocketPerformance;'
-            b' property var nozzle: Nozzle }',
+            b' property var nozzle: Nozzle; property var evidence: PropulsionEvidence }',
             QUrl.fromLocalFile(str(ui_dir / "_navigation_smoke_probe.qml")))
         self._holder = self._probe.create()
-        self.nav, self.thermo, self.perf, self.nozzle = (
-            self._holder.property(name) for name in ("nav", "thermo", "perf", "nozzle"))
+        self.nav, self.thermo, self.perf, self.nozzle, self.evidence = (
+            self._holder.property(name)
+            for name in ("nav", "thermo", "perf", "nozzle", "evidence"))
         self.specs = [spec for spec in specs if spec]
         self.steps = [(spec, self._step(spec)) for spec in self.specs]
 
@@ -220,6 +224,27 @@ class Route:
                     raise RuntimeError(f"{len(opened)} Focus overlay(s) open; expected "
                                        f"{'one' if wanted else 'none'}")
             return expectfocus
+        if kind in ("evcheck", "evopen"):
+            slot = "checkCompatibility" if kind == "evcheck" else "openInThermochemistry"
+
+            def evidence_action(slot=slot):
+                if not QMetaObject.invokeMethod(self.evidence, slot):
+                    raise RuntimeError(f"PropulsionEvidence has no {slot}()")
+                if slot == "openInThermochemistry":
+                    wanted = int(self.nav.indexOfKey("thermochem"))
+                    if int(window.property("currentPageIndex")) != wanted:
+                        raise RuntimeError("Open in Thermochemistry did not reach the "
+                                           "Thermochemistry workspace")
+            return evidence_action
+        if kind == "expectthermo":
+            if arg not in ("solved", "unsolved"):
+                raise ValueError(f"expectthermo:{arg} -- use solved or unsolved")
+
+            def expectthermo(wanted=arg == "solved"):
+                if bool(thermo.property("hasResult")) != wanted:
+                    raise RuntimeError(f"Thermochemistry hasResult={thermo.property('hasResult')}; "
+                                       f"expected {'a result' if wanted else 'no result'}")
+            return expectthermo
         if kind == "biprop":
             def biprop():
                 thermo.setProperty("formulationKind", "bipropellant")
