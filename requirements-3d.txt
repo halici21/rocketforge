@@ -21,4 +21,4 @@
 # Nothing under rocketforge/ imports it at module level: the Qt Quick 3D types
 # are registered at start-up only when the module imports
 # (rocketforge/application/visualization/viewport_support.py).
-PySide6-Addons==6.10.2
+PySide6-Addons==6.11.2
