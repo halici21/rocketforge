@@ -20,6 +20,13 @@ decides what a comparison may conclude:
 Separately, :attr:`ReferenceCase.benchmark_class` records *what* a case
 validates: ``"A"`` for a solid-propellant end-to-end benchmark, ``"B"`` for a
 mechanism check that is not itself a solid propellant.
+
+Two provenance fields say where the numbers came from, and neither is folded
+into the notes: :attr:`ReferenceCase.database_version` -- the thermodynamic
+database behind them, as stated or measured, or ``"not stated"`` -- is not the
+code's version; and :attr:`ReferenceCase.origin` says whether the values were
+transcribed from a source (:attr:`CaseOrigin.IMPORTED`) or produced by running
+the code in the comparing process (:attr:`CaseOrigin.LIVE`).
 """
 
 from __future__ import annotations
@@ -37,6 +44,7 @@ from .units import to_canonical
 
 __all__ = [
     "SourceKind",
+    "CaseOrigin",
     "ReferenceQuantity",
     "ReferenceCase",
     "ReferenceCaseError",
@@ -55,6 +63,18 @@ class SourceKind(Enum):
     NASA_PUBLISHED = "nasa_published"
     INDEPENDENT_CODE = "independent_code"
     EXPERIMENT = "experiment"
+
+
+class CaseOrigin(Enum):
+    """How a case's values reached RocketForge.
+
+    ``IMPORTED``: transcribed from a printout, a paper or another program's
+    output and held as data. ``LIVE``: produced by running the code itself in
+    the process that compares -- only a direct CEA run can be that.
+    """
+
+    IMPORTED = "imported"
+    LIVE = "live"
 
 
 #: The only kinds a pass/fail verdict may be drawn against.
@@ -138,6 +158,11 @@ class ReferenceCase:
             ``"PROPEP"``, ``"EXPLO5"``); empty for an experiment.
         code_version: As stated by the source, or ``"not stated"`` -- never
             left blank, so an unknown version reads as unknown.
+        database_version: The thermodynamic database behind the values, as
+            the source states it or as measured for a run (a ``thermo.lib``
+            hash), or ``"not stated"``. Never inferred from the code version:
+            one code release can run against different databases.
+        origin: :class:`CaseOrigin` -- imported data, or a live run.
         inputs: What was solved, as the source states it.
         quantities: The values it reports.
         missing: What the source does *not* give that a full reproduction would
@@ -153,6 +178,8 @@ class ReferenceCase:
     source: str
     code: str
     code_version: str
+    database_version: str
+    origin: CaseOrigin
     inputs: Mapping[str, Any]
     quantities: tuple[ReferenceQuantity, ...]
     missing: tuple[str, ...] = ()
@@ -177,6 +204,16 @@ class ReferenceCase:
         if not self.code_version.strip():
             raise ReferenceCaseError(
                 f"{self.case_id}: state the code version, or 'not stated'")
+        if not isinstance(self.database_version, str) or not self.database_version.strip():
+            raise ReferenceCaseError(
+                f"{self.case_id}: state the database version, or 'not stated'")
+        if not isinstance(self.origin, CaseOrigin):
+            raise ReferenceCaseError(
+                f"{self.case_id}: origin must be a CaseOrigin, got {self.origin!r}")
+        if self.origin is CaseOrigin.LIVE and self.source_kind is not SourceKind.CEA_DIRECT:
+            raise ReferenceCaseError(
+                f"{self.case_id}: only a direct CEA run is produced live; a printout, "
+                "another program's output or a measurement is imported")
         if self.source_kind is SourceKind.CEA_DIRECT:
             if self.tolerance_rel is None or self.tolerance_rel < 0.0:
                 raise ReferenceCaseError(
@@ -207,8 +244,8 @@ class ReferenceCase:
 
 #: The fields an imported case must carry. Everything else defaults.
 REQUIRED_CASE_FIELDS = ("case_id", "title", "source_kind", "benchmark_class",
-                        "source", "code", "code_version", "inputs",
-                        "quantities")
+                        "source", "code", "code_version", "database_version",
+                        "origin", "inputs", "quantities")
 
 
 def case_from_mapping(data: Mapping[str, Any]) -> ReferenceCase:
@@ -229,6 +266,12 @@ def case_from_mapping(data: Mapping[str, Any]) -> ReferenceCase:
         raise ReferenceCaseError(
             f"unknown source_kind {data['source_kind']!r}; one of "
             f"{[k.value for k in SourceKind]}") from None
+    try:
+        origin = CaseOrigin(data["origin"])
+    except ValueError:
+        raise ReferenceCaseError(
+            f"unknown origin {data['origin']!r}; one of "
+            f"{[o.value for o in CaseOrigin]}") from None
     quantities = []
     for item in data["quantities"]:
         unknown = set(item) - {"key", "value", "unit", "decimals",
@@ -240,6 +283,7 @@ def case_from_mapping(data: Mapping[str, Any]) -> ReferenceCase:
         case_id=data["case_id"], title=data["title"], source_kind=kind,
         benchmark_class=data["benchmark_class"], source=data["source"],
         code=data["code"], code_version=data["code_version"],
+        database_version=data["database_version"], origin=origin,
         inputs=data["inputs"], quantities=tuple(quantities),
         missing=tuple(data.get("missing", ())),
         tolerance_rel=data.get("tolerance_rel"),

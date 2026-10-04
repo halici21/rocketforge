@@ -38,6 +38,7 @@ from PySide6.QtGui import QGuiApplication
 from ..formatting import EM_DASH, format_engineering
 from ..species_notation import species_label
 from ..visualization.selection import AnalysisSelection
+from . import thermochemistry_presets as presets
 from . import thermochemistry_reference as reference
 from . import thermochemistry_sweep as sweep
 from .thermochemistry_provider import (
@@ -293,6 +294,69 @@ class ThermochemistryController(QObject):
             "rangeText": option.range_text,
             "source": option.source,
         }
+
+    # -- presets ---------------------------------------------------------
+    #
+    # A preset sets the pair, its O/F and each stream's reference temperature,
+    # and nothing else: it does not solve, and it carries no result. The
+    # catalogue and its source live in ``thermochemistry_presets``.
+
+    @Property("QVariantList", constant=True)
+    def presetOptions(self):
+        """The executable source combinations, in source order."""
+        return [{"key": preset.key, "label": preset.label,
+                 "oxidiser": preset.oxidiser, "fuel": preset.fuel,
+                 "mixtureRatio": preset.oxidiser_fuel_ratio,
+                 "source": preset.source}
+                for preset in presets.executable_presets()]
+
+    @Property("QVariantList", constant=True)
+    def blockedPresets(self):
+        """Source combinations this build cannot represent, and why."""
+        return [{"key": preset.key, "label": preset.label,
+                 "blocker": preset.blocker}
+                for preset in presets.preset_catalogue()
+                if not preset.executable]
+
+    @Property(str, constant=True)
+    def presetSource(self) -> str:
+        return presets.SUTTON_SOURCE
+
+    @Property(str, constant=True)
+    def presetNote(self) -> str:
+        """Where the presets come from, and which source pairs are withheld."""
+        return presets.catalogue_note()
+
+    @Property(str, notify=inputsChanged)
+    def currentPreset(self) -> str:
+        """The preset the form matches exactly, or empty for a custom case."""
+        preset = presets.preset_matching(self._case.oxidiser, self._case.fuel,
+                                         self._case.oxidiser_fuel_ratio)
+        return preset.key if preset is not None else ""
+
+    @Slot(str)
+    def applyPreset(self, key: str) -> None:
+        """Set the form to one preset's pair, O/F and reference temperatures.
+
+        A blocked or unknown preset changes nothing. Solving stays the user's
+        explicit Calculate.
+        """
+        preset = presets.preset_named(str(key))
+        if preset is None or not preset.executable:
+            return
+        fuel = propellant_named(preset.fuel)
+        oxidiser = propellant_named(preset.oxidiser)
+        if fuel is None or oxidiser is None:
+            return
+        case = self._case.replace(
+            fuel=fuel.key, fuel_temperature=fuel.reference_temperature,
+            oxidiser=oxidiser.key,
+            oxidiser_temperature=oxidiser.reference_temperature,
+            oxidiser_fuel_ratio=float(preset.oxidiser_fuel_ratio))
+        if case == self._case:
+            return
+        self._case = case
+        self._on_input_changed()
 
     @Property(str, notify=inputsChanged)
     def fuel(self) -> str:

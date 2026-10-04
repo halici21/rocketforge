@@ -1,4 +1,9 @@
-"""Evidence JSON, schema version 1: strict parsing and one canonical form.
+"""Evidence JSON, schema versions 1 and 2: strict parsing and one canonical form.
+
+Version 1 is every record without a burn law, and the source registry. Version 2
+is version 1 plus one field, ``burn_law``, and is written only for a record that
+carries one -- so every version-1 file stays byte for byte what it was, and a
+version-1 reader refuses a burn law instead of silently dropping it.
 
 Parsing is strict on purpose. A field that is not recognised, a field that is
 absent, a value of the wrong JSON type, a duplicated key, a ``NaN``, or a
@@ -23,6 +28,7 @@ from collections.abc import Iterable, Mapping
 from enum import StrEnum
 from typing import Any, TypeVar
 
+from .burnlaw import BurnLawReference, BurnLawRegime
 from .records import (
     CustomDefinition,
     EvidenceRecord,
@@ -47,6 +53,8 @@ from .values import (
 
 __all__ = [
     "SCHEMA_VERSION",
+    "BURN_LAW_SCHEMA_VERSION",
+    "RECORD_SCHEMA_VERSIONS",
     "sources_from_json",
     "sources_to_json",
     "record_from_json",
@@ -55,8 +63,14 @@ __all__ = [
     "record_from_dict",
 ]
 
-#: The only schema version this build reads or writes.
+#: The base schema version: the source registry, and every record without a burn law.
 SCHEMA_VERSION = 1
+
+#: A record that carries a burn law: version 1 plus the ``burn_law`` field.
+BURN_LAW_SCHEMA_VERSION = 2
+
+#: Every record version this build reads.
+RECORD_SCHEMA_VERSIONS = (SCHEMA_VERSION, BURN_LAW_SCHEMA_VERSION)
 
 E = TypeVar("E", bound=StrEnum)
 
@@ -74,6 +88,10 @@ _PROPELLANT_FIELDS = ("propellant_id", "source_ids", "family", "source_name",
 _RECORD_FIELDS = ("schema_version", "record_id", "title", "kind", "source_ids",
                   "capabilities", "capability_notes", "propellant",
                   "comparison_case_ids", "executable_key", "blockers", "notes")
+_RECORD_FIELDS_V2 = _RECORD_FIELDS + ("burn_law",)
+_BURN_LAW_FIELDS = ("law_id", "source_ids", "propellant_name", "form", "pressure_unit",
+                    "rate_unit", "regimes", "temperature", "uncertainty")
+_REGIME_FIELDS = ("pressure_min", "pressure_max", "a", "n")
 
 
 # ---------------------------------------------------------------- parsing
@@ -146,16 +164,18 @@ def _enum(kind: type[E], value: Any, where: str) -> E:
             f"{where}: {value!r} is not one of {[m.value for m in kind]}") from None
 
 
-def _schema_version(payload: dict[str, Any], where: str) -> None:
+def _schema_version(payload: dict[str, Any], where: str,
+                    accepted: tuple[int, ...] = (SCHEMA_VERSION,)) -> int:
     if "schema_version" not in payload:
         raise EvidenceSchemaError(f"{where}: schema_version is required")
     version = payload["schema_version"]
     if isinstance(version, bool) or not isinstance(version, int):
         raise EvidenceSchemaError(f"{where}: schema_version must be an integer, got {version!r}")
-    if version != SCHEMA_VERSION:
+    if version not in accepted:
         raise EvidenceSchemaError(
             f"{where}: schema_version {version} is not supported; this build reads "
-            f"version {SCHEMA_VERSION} only")
+            f"version {' or '.join(str(v) for v in accepted)} only")
+    return version
 
 
 def _datum_from(value: Any, where: str) -> Datum:
@@ -236,6 +256,37 @@ def _propellant_from(value: Any, where: str) -> PropellantReference:
                                         f"{where}.initial_temperature"))
 
 
+def _reported_from(value: Any, where: str) -> ReportedValue:
+    datum = _datum_from(value, where)
+    if not isinstance(datum, ReportedValue):
+        raise EvidenceSchemaError(
+            f"{where}: a burn-law limit or coefficient is reported, never missing")
+    return datum
+
+
+def _burn_law_from(value: Any, where: str) -> BurnLawReference:
+    payload = _object(value, where, _BURN_LAW_FIELDS)
+    regimes = payload["regimes"]
+    if not isinstance(regimes, list):
+        raise EvidenceSchemaError(f"{where}.regimes must be a list")
+    parsed = []
+    for i, item in enumerate(regimes):
+        at = f"{where}.regimes[{i}]"
+        regime = _object(item, at, _REGIME_FIELDS)
+        parsed.append(BurnLawRegime(**{name: _reported_from(regime[name], f"{at}.{name}")
+                                       for name in _REGIME_FIELDS}))
+    return BurnLawReference(
+        law_id=_string(payload["law_id"], f"{where}.law_id"),
+        source_ids=_strings(payload["source_ids"], f"{where}.source_ids"),
+        propellant_name=_string(payload["propellant_name"], f"{where}.propellant_name"),
+        form=_string(payload["form"], f"{where}.form"),
+        pressure_unit=_string(payload["pressure_unit"], f"{where}.pressure_unit"),
+        rate_unit=_string(payload["rate_unit"], f"{where}.rate_unit"),
+        regimes=tuple(parsed),
+        temperature=_datum_from(payload["temperature"], f"{where}.temperature"),
+        uncertainty=_datum_from(payload["uncertainty"], f"{where}.uncertainty"))
+
+
 def _source_from(value: Any, where: str) -> SourceReference:
     payload = _object(value, where, _SOURCE_FIELDS)
     identifiers = payload["identifiers"]
@@ -268,10 +319,18 @@ def record_from_dict(payload: Any) -> EvidenceRecord:
     not source-checked; :func:`record_from_json` does both."""
     if not isinstance(payload, dict):
         raise EvidenceSchemaError("an evidence record must be a JSON object")
-    _schema_version(payload, "record")
-    payload = _object(payload, "record", _RECORD_FIELDS)
+    version = _schema_version(payload, "record", RECORD_SCHEMA_VERSIONS)
+    payload = _object(payload, "record",
+                      _RECORD_FIELDS if version == SCHEMA_VERSION else _RECORD_FIELDS_V2)
     where = f"record {payload.get('record_id')!r}"
     propellant = payload["propellant"]
+    burn_law = None
+    if version == BURN_LAW_SCHEMA_VERSION:
+        if payload["burn_law"] is None:
+            raise EvidenceSchemaError(
+                f"{where}: a schema-version-2 record carries a burn law; a record "
+                "without one is written as version 1")
+        burn_law = _burn_law_from(payload["burn_law"], f"{where}.burn_law")
     return EvidenceRecord(
         record_id=_string(payload["record_id"], f"{where}.record_id"),
         title=_string(payload["title"], f"{where}.title"),
@@ -289,7 +348,8 @@ def record_from_dict(payload: Any) -> EvidenceRecord:
         executable_key=_string(payload["executable_key"], f"{where}.executable_key",
                                nullable=True),
         blockers=_strings(payload["blockers"], f"{where}.blockers"),
-        notes=_string(payload["notes"], f"{where}.notes"))
+        notes=_string(payload["notes"], f"{where}.notes"),
+        burn_law=burn_law)
 
 
 def record_from_json(text: str, sources: Mapping[str, SourceReference]) -> EvidenceRecord:
@@ -365,8 +425,35 @@ def _propellant_to(propellant: PropellantReference) -> dict[str, Any]:
     }
 
 
+def _burn_law_to(law: BurnLawReference) -> dict[str, Any]:
+    return {
+        "law_id": law.law_id,
+        "source_ids": list(law.source_ids),
+        "propellant_name": law.propellant_name,
+        "form": law.form,
+        "pressure_unit": law.pressure_unit,
+        "rate_unit": law.rate_unit,
+        "regimes": [{name: _datum_to(getattr(r, name)) for name in _REGIME_FIELDS}
+                    for r in law.regimes],
+        "temperature": _datum_to(law.temperature),
+        "uncertainty": _datum_to(law.uncertainty),
+    }
+
+
 def record_to_dict(record: EvidenceRecord) -> dict[str, Any]:
-    """The record as a JSON object, in canonical key order."""
+    """The record as a JSON object, in canonical key order.
+
+    Version 1 unless the record carries a burn law; then version 2, with
+    ``burn_law`` last.
+    """
+    out = _record_base(record)
+    if record.burn_law is not None:
+        out["schema_version"] = BURN_LAW_SCHEMA_VERSION
+        out["burn_law"] = _burn_law_to(record.burn_law)
+    return out
+
+
+def _record_base(record: EvidenceRecord) -> dict[str, Any]:
     return {
         "schema_version": SCHEMA_VERSION,
         "record_id": record.record_id,

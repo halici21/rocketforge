@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-FHG-2015-ADNGAP-MOTOR",
+  "title": "Fraunhofer ICT 2015 - ADN/GAP, ADN/HMX/GAP, ADN/FOX12/GAP vs Al/AP/HTPB, small end-burning motor",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-FHG-2015-GETTWERT",
+    "S-IMEMTS-2015-GETTWERT"
+  ],
+  "capabilities": {
+    "VA": "REFERENCE_ONLY",
+    "VB": "VALIDATION_CANDIDATE",
+    "VC": "UNDERDEFINED",
+    "VD": "VALIDATION_CANDIDATE"
+  },
+  "capability_notes": {
+    "VD": "Measured Isp against ICT-code Isp is an efficiency, not a code error."
+  },
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The paper is under copyright: no value from it is shipped. The user supplies the paper.",
+    "No source-complete custom thermochemistry for the GAP and HTPB binder systems, plasticizers, HMX or FOX-12; grain length not reported."
+  ],
+  "notes": "Metadata only. The paper gives class-level formulations (Table 1, p.3), ICT-code theoretical and measured small-motor results (Table 2, p.5) and burn-rate fits (Figure 6, p.7). None is carried, because the source is under copyright."
+}

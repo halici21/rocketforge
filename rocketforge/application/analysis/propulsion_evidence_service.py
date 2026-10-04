@@ -88,7 +88,8 @@ DIMENSION_NAMES = {
 }
 
 #: Library sections, one per record kind that is actually present.
-_SECTION_NAMES = {RecordKind.PROPELLANT: "Propellants", RecordKind.REFERENCE: "References"}
+_SECTION_NAMES = {RecordKind.PROPELLANT: "Propellants", RecordKind.REFERENCE: "References",
+                  RecordKind.BURN_LAW: "Burn Laws"}
 
 #: What a shipping policy means for what this build shows. Worded from
 #: ShippingPolicy's own definition: only VALUES_WITH_ATTRIBUTION lets a record
@@ -281,10 +282,12 @@ class DatumEntry:
 
 def datum_entries(record: EvidenceRecord) -> tuple[DatumEntry, ...]:
     """Every scientific field in a record, reported or missing, in a stable order."""
+    out: list[DatumEntry] = []
+    if record.burn_law is not None:
+        out.extend(_burn_law_entries(record.burn_law))
     propellant = record.propellant
     if propellant is None:
-        return ()
-    out: list[DatumEntry] = []
+        return tuple(out)
     for index, item in enumerate(propellant.ingredients):
         base = f"ingredients[{index}]"
         out.append(DatumEntry(f"{base}.fraction", f"{item.source_name} · fraction", item.fraction))
@@ -294,6 +297,21 @@ def datum_entries(record: EvidenceRecord) -> tuple[DatumEntry, ...]:
     out.append(DatumEntry("initial_temperature", "Initial temperature",
                           propellant.initial_temperature))
     return tuple(out)
+
+
+def _burn_law_entries(law) -> list[DatumEntry]:
+    """A burn law's every datum: each regime's limits and coefficients, as printed,
+    then the temperature and the uncertainty -- a Missing stays a Missing."""
+    out: list[DatumEntry] = []
+    for i, regime in enumerate(law.regimes):
+        base, name = f"burn_law.regimes[{i}]", f"Regime {i + 1}"
+        out.append(DatumEntry(f"{base}.pressure_min", f"{name} · p min", regime.pressure_min))
+        out.append(DatumEntry(f"{base}.pressure_max", f"{name} · p max", regime.pressure_max))
+        out.append(DatumEntry(f"{base}.a", f"{name} · a", regime.a))
+        out.append(DatumEntry(f"{base}.n", f"{name} · n", regime.n))
+    out.append(DatumEntry("burn_law.temperature", "Burn law · test temperature", law.temperature))
+    out.append(DatumEntry("burn_law.uncertainty", "Burn law · uncertainty", law.uncertainty))
+    return out
 
 
 def _custom_entries(custom: CustomDefinition, base: str, name: str) -> list[DatumEntry]:
@@ -355,12 +373,27 @@ def capability_rows(record: EvidenceRecord) -> list[dict]:
     } for d in Dimension]
 
 
-def composition_rows(record: EvidenceRecord) -> list[dict]:
-    """Ingredients as the source lists them. The bar is the stored fraction itself.
+#: How much of the whole one unit of a printed fraction is, per unit as printed.
+#: Exact by definition; any other unit draws no bar rather than a guessed one.
+_SHARE_OF_WHOLE = {"mass fraction": 1.0, "wt%": 0.01}
 
-    ``share`` is the stored mass fraction when it is reported (0..1 of the bar,
-    never renormalised) and -1 when the fraction is missing, so a missing share
-    draws no bar at all rather than a zero-width one.
+
+def _share(fraction) -> float:
+    scale = _SHARE_OF_WHOLE.get(fraction.unit)
+    if scale is None:
+        return -1.0
+    share = fraction.value * scale
+    return share if 0.0 <= share <= 1.0 else -1.0
+
+
+def composition_rows(record: EvidenceRecord) -> list[dict]:
+    """Ingredients as the source lists them. The bar is the stored share itself.
+
+    ``share`` is the stored fraction as a share of the whole (0..1 of the bar,
+    never renormalised): the value itself for a mass fraction, its hundredth for
+    a value printed in wt%. It is -1 when the fraction is missing or printed in
+    another unit, so such a row draws no bar at all rather than a wrong one. The
+    text beside the bar is the stored value and its unit, as printed.
     """
     propellant = record.propellant
     if propellant is None:
@@ -379,7 +412,7 @@ def composition_rows(record: EvidenceRecord) -> list[dict]:
             "unit": fraction.unit if reported else "",
             "valueStatus": fraction.status.value if reported else fraction.reason.value,
             "missing": not reported,
-            "share": fraction.value if reported and 0.0 <= fraction.value <= 1.0 else -1.0,
+            "share": _share(fraction) if reported else -1.0,
         })
     return rows
 

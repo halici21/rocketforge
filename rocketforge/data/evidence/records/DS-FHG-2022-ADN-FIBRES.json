@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-FHG-2022-ADN-FIBRES",
+  "title": "Fraunhofer ICT 2022 - ADN/GAP and ADN/HTPB with AlMg5 fibres (burning rate + small motor)",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-FHG-2022-SIMS"
+  ],
+  "capabilities": {
+    "VA": "NOT_APPLICABLE",
+    "VB": "VALIDATION_CANDIDATE",
+    "VC": "UNDERDEFINED",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {},
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "Rights review required (CC BY-NC-ND): whether extracted tabulated values may ship in a distributed product is not settled, so none is shipped."
+  ],
+  "notes": "Metadata only, pending rights review. The paper gives Crawford-bomb strand rates (figures) and small battleship-motor averages (Tab. 5); its binder share lumps GAP-diol or R45M with isocyanate curatives. Processing details are deliberately not transcribed."
+}

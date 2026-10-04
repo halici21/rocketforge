@@ -19,6 +19,7 @@ from __future__ import annotations
 from .cases import (
     REQUIRED_CASE_FIELDS,
     VERDICT_KINDS,
+    CaseOrigin,
     ReferenceCase,
     ReferenceCaseError,
     ReferenceQuantity,
@@ -39,7 +40,7 @@ from .extract import observed_from_chamber
 from .units import CANONICAL_UNIT, UnitError, to_canonical
 
 __all__ = [
-    "SourceKind", "ReferenceQuantity", "ReferenceCase", "ReferenceCaseError",
+    "SourceKind", "CaseOrigin", "ReferenceQuantity", "ReferenceCase", "ReferenceCaseError",
     "VERDICT_KINDS", "REQUIRED_CASE_FIELDS", "case_from_mapping",
     "ObservedQuantity", "QuantityComparison",
     "CaseComparison", "compare", "AGREES", "DIFFERS", "COMPARED",

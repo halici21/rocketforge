@@ -17,6 +17,7 @@ from rocketforge.comparison import (
     AGREES,
     COMPARED,
     DIFFERS,
+    CaseOrigin,
     ReferenceCase,
     ReferenceQuantity,
     SourceKind,
@@ -153,6 +154,13 @@ def test_example13_reports_its_explained_difference_rather_than_hiding_it(cea_mo
     assert abs(c_star.rel_diff) < 1e-5
 
 
+def _installed_thermo(cea_module) -> str:
+    from rocketforge.providers.cea.resources import discover_resources
+
+    sha = discover_resources(cea_module).thermo_sha256
+    return f"thermo.lib sha256 {sha}" if sha else "not stated"
+
+
 @requires_cea
 def test_example5_against_direct_cea_is_identical(cea_module):
     """A direct-CEA case at zero tolerance: every value bit for bit."""
@@ -161,8 +169,9 @@ def test_example5_against_direct_cea_is_identical(cea_module):
         case_id="rp1311-example5-direct", title="Example 5, direct CEA",
         source_kind=SourceKind.CEA_DIRECT, benchmark_class="A",
         source="cea.EqSolver and cea.RocketSolver, run directly",
-        code="NASA CEA", code_version="as installed", inputs={},
-        tolerance_rel=0.0, quantities=(
+        code="NASA CEA", code_version="as installed",
+        database_version=_installed_thermo(cea_module), origin=CaseOrigin.LIVE,
+        inputs={}, tolerance_rel=0.0, quantities=(
             ReferenceQuantity("chamber_temperature", direct["T"], "K"),
             ReferenceQuantity("molar_mass", direct["MW"], "kg/kmol"),
             ReferenceQuantity("gamma_s", direct["gamma_s"], "1"),

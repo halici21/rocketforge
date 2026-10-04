@@ -86,16 +86,28 @@ EVIDENCE_ROUTE = "page:evidence,page:thermochem,page:evidence,page:home,page:evi
 #: EV-3 inside the package: the explicit CEA compatibility check, Open in
 #: Thermochemistry, which must reach that workspace and must not solve, then
 #: back. The package ships NASA CEA, so the check can pass and Open exists.
-EVIDENCE_CEA_ROUTE = ("page:evidence,evcheck,evopen,expectthermo:unsolved,"
-                      "page:evidence,page:home,page:evidence")
+EVIDENCE_CEA_ROUTE = ("page:evidence,evselect:DS-RP1311-E5,evcheck,evopen,"
+                      "expectthermo:unsolved,page:evidence,page:home,page:evidence")
+
+#: LIQ-1 inside the package: Table 5-5 presets that only the sibling
+#: ``providers.cea_liquid`` package can map and solve -- C/H/O/N, H/N/F and the
+#: mass-basis HTP-90 blend -- and one the frozen provider solves unchanged.
+LIQUID_PRESET_ROUTE = ("page:thermochem,preset:sutton-nto-mmh,preset:sutton-f2-n2h4,"
+                       "preset:sutton-htp90-rp1,preset:sutton-o2-ch4")
 
 #: Normal and Oblique Shock, every section of each, and back.
 SHOCK_ROUTE = ("page:normalshock,section:0,section:1,section:2,"
                "page:obliqueshock,section:0,section:1,section:2,"
                "page:normalshock,page:obliqueshock")
 
-#: Records the package must carry: the regression-locked RP-1311 Example 5.
-EVIDENCE_REQUIRED = ("DS-RP1311-E5",)
+#: Records the package must carry: the regression-locked RP-1311 Example 5 and
+#: the Gate-4 manifest (four NASA reports, and the rights-limited references,
+#: which carry no values).
+EVIDENCE_REQUIRED = ("DS-RP1311-E5", "DS-TND7133", "DS-JPL-ALTPROP-BATES",
+                     "DS-CR2478-STERILIZABLE", "DS-RSRM9", "DS-FHG-2015-ADNGAP-MOTOR",
+                     "DS-FHG-2022-ADN-FIBRES", "DS-JANNAF-DATABASES-REF",
+                     "DS-OPERATIONAL-JAXA-SRB3", "DS-OPERATIONAL-ESA-P120C",
+                     "DS-OPERATIONAL-ISRO-S200")
 
 #: Words that would make the evidence pages an execution surface. None of them
 #: belongs on a page: the explicit check and Open go through the controller.
@@ -263,7 +275,9 @@ def check_smoke(package: Path) -> list[str]:
                             f"({evidence.read_text(encoding='utf-8')[:300] if evidence.is_file() else 'no report'})")
         for name, route, label in (("evidence_cea.json", EVIDENCE_CEA_ROUTE,
                                     "the CEA compatibility route"),
-                                   ("shock.json", SHOCK_ROUTE, "the shock workspaces route")):
+                                   ("shock.json", SHOCK_ROUTE, "the shock workspaces route"),
+                                   ("liquid_presets.json", LIQUID_PRESET_ROUTE,
+                                    "the liquid preset route")):
             report = Path(folder) / name
             code = _run_packaged(package, "--selftest-navigation", str(report), route)
             if code != 0:

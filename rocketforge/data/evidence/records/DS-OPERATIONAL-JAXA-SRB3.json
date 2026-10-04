@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-OPERATIONAL-JAXA-SRB3",
+  "title": "JAXA H3 SRB-3 motor module - ground firing (operational reference)",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-JAXA-SRB3-2018"
+  ],
+  "capabilities": {
+    "VA": "NOT_APPLICABLE",
+    "VB": "NOT_APPLICABLE",
+    "VC": "REFERENCE_ONLY",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {},
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The press release gives headline metrics only (firing duration, maximum thrust, maximum combustion pressure); its redistribution rights are not stated, so they are not shipped.",
+    "No formulation, burn law, Pc(t), geometry or delivered Isp is published."
+  ],
+  "notes": "Metadata only, pending rights review of the headline metrics."
+}

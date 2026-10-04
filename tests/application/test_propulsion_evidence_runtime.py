@@ -202,6 +202,10 @@ def _drive() -> dict:
     out["reference_family_items"] = [f["groups"][0]["items"] for f in plain(nav.property("families"))
                                      if f["key"] == "reference"][0]
     window.setProperty("currentPageIndex", index); settle(0.8); step("enter page")
+    out["initial_selected"] = ev.property("selectedRecordId")
+    out["first_library_record"] = plain(ev.property("library").rows())[0]["recordId"]
+    # the rest of the sequence reads the regression-locked record, chosen as a person would
+    ev.selectRecord("DS-RP1311-E5"); settle()
     title = named("evidenceRecordTitle")
     out["title_matches"] = title is not None and title.property("text") == ev.property("recordTitle") != ""
     lst = named("evidenceLibraryList")
@@ -216,6 +220,9 @@ def _drive() -> dict:
     ship = named("evidenceShippingFilter")
     statuses = [o["key"] for o in plain(ev.property("filterOptions"))["status"]]
     out["status_options"] = statuses
+    from rocketforge.application.analysis import propulsion_evidence_service as service
+    out["corpus_status_options"] = [o["key"] for o in
+                                    service.filter_options(service.load_corpus())["status"]]
     for i in range(1, len(statuses) + 1):
         emit(status, "activated", Q_ARG(int, i))
     emit(dim, "activated", Q_ARG(int, 2))                 # VB
@@ -229,6 +236,7 @@ def _drive() -> dict:
     emit(named("evidenceClearFilters"), "clicked")
     out["after_clear"] = [ev.property("emptyState"), ev.property("selectedRecordId"), ev.property("hasActiveFilter")]
     step("zero match and Clear filters")
+    ev.selectRecord("DS-RP1311-E5"); settle()
 
     emit(named("evidenceProvenanceButton"), "clicked")
     inspector = named("evidenceInspector")
@@ -378,7 +386,10 @@ def test_browsing_evidence_solves_nothing(run):
 def test_the_route_renders_the_controller_state(run):
     assert run["nav_index"] >= 0 and run["title_matches"]
     assert run["reference_family_items"] == [11, run["nav_index"]]    # beside Equation Library
-    assert run["status_options"] == ["REGRESSION_LOCKED", "NOT_APPLICABLE"]
+    # options come from the shipped records, never from a list in QML
+    assert run["status_options"] == run["corpus_status_options"]
+    assert "REGRESSION_LOCKED" in run["status_options"]
+    assert run["initial_selected"] == run["first_library_record"]   # deterministic
     assert run["library_rows"] == run["controller_rows"] >= 1 and run["selected"]
     assert run["capability_text"] == ["Regression locked", "Not applicable"]
 

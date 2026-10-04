@@ -71,12 +71,12 @@ def test_the_shipped_files_are_in_canonical_form(sources, rp1311):
 
 
 def test_the_registry_holds_the_two_distinct_rp1311_sources(sources):
-    assert set(sources) == {CEA_SAMPLE, PRINT_1996}
+    assert {CEA_SAMPLE, PRINT_1996} <= set(sources)          # EV-4 adds other sources
     assert sources[PRINT_1996].year == 1996
     assert sources[PRINT_1996].identifiers["ntrs_id"] == "19960044559"
     assert sources[CEA_SAMPLE].identifiers["release"] == "v3.3.4"
-    assert all(s.shipping is ShippingPolicy.VALUES_WITH_ATTRIBUTION
-               for s in sources.values())
+    assert all(sources[sid].shipping is ShippingPolicy.VALUES_WITH_ATTRIBUTION
+               for sid in (CEA_SAMPLE, PRINT_1996))
 
 
 # ---------------------------------------------------------------- provenance

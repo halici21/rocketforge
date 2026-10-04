@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-CR2478-STERILIZABLE",
+  "title": "NASA CR-2478 - single static firing of a heat-sterilised 134-lb motor (ANB-3438)",
+  "kind": "PROPELLANT",
+  "source_ids": [
+    "S-NASA-CR-2478"
+  ],
+  "capabilities": {
+    "VA": "NOT_APPLICABLE",
+    "VB": "REFERENCE_ONLY",
+    "VC": "VALIDATION_CANDIDATE",
+    "VD": "VALIDATION_CANDIDATE"
+  },
+  "capability_notes": {
+    "VC": "single firing; grain drawings not audited; digitisation required"
+  },
+  "propellant": {
+    "propellant_id": "P-CR2478-ANB3438",
+    "source_ids": [
+      "S-NASA-CR-2478"
+    ],
+    "family": "AP / Al / saturated HTPB (Telagen-S)",
+    "source_name": "ANB-3438",
+    "exact_formulation": false,
+    "basis": "mass_fraction",
+    "ingredients": [
+      {
+        "source_name": "AP",
+        "fraction": {
+          "missing": "NOT_AUDITED",
+          "note": "Given in the report's 'Formulation of ANB-3438' figure, which R1 did not audit."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Al",
+        "fraction": {
+          "missing": "NOT_AUDITED",
+          "note": "Given in the report's 'Formulation of ANB-3438' figure, which R1 did not audit."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Saturated HTPB binder (Telagen-S)",
+        "fraction": {
+          "missing": "NOT_AUDITED",
+          "note": "Given in the report's 'Formulation of ANB-3438' figure, which R1 did not audit."
+        },
+        "provider_name": null,
+        "custom": null
+      }
+    ],
+    "density": {
+      "missing": "NOT_AUDITED",
+      "note": "Not audited in R1."
+    },
+    "initial_temperature": {
+      "missing": "NOT_AUDITED",
+      "note": "Not audited in R1."
+    }
+  },
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The formulation's fractions were not audited, so none is carried."
+  ],
+  "notes": "One static firing of one heat-sterilised motor: a demonstration, not an internal-ballistics methodology dataset. The performance summary is Figure 97 (report p.148); Pc and thrust histories appear only as plots (Figure 92) and the ignition in Figure 93 - none is digitised or carried. Source caveats: thrust perturbations mid-burn are attributed to data acquisition, and the nozzle separated at sea level. Firing data belong to later evidence work."
+}

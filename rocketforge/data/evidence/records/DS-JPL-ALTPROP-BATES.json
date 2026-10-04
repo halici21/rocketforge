@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-JPL-ALTPROP-BATES",
+  "title": "JPL/NASA Shuttle Alternate Propellant Program Phase I - 70-lb BATES motor firings",
+  "kind": "PROPELLANT",
+  "source_ids": [
+    "S-JPL-PUB-79-29"
+  ],
+  "capabilities": {
+    "VA": "REFERENCE_ONLY",
+    "VB": "VALIDATION_CANDIDATE",
+    "VC": "UNDERDEFINED",
+    "VD": "VALIDATION_CANDIDATE"
+  },
+  "capability_notes": {
+    "VA": "Theoretical values from JPL's unnamed free-energy-minimisation program (Table 2-2) are held as an imported reference case; the binders have no formula or enthalpy.",
+    "VB": "Crawford-bomb strands the source flags as possibly biased by RAM-225 mold release; the stated modified-baseline law prints no units beside the equation; per-firing rates are in the BATES tables.",
+    "VC": "Integral quantities and endpoints are rich, but no Pc(t) and no BATES grain dimensions in this report; standard BATES dimensions from other sources were NOT verified.",
+    "VD": "Measured c*, Isp, It per firing - for delivered-performance comparison only, never against ideal CEA Isp as an error."
+  },
+  "propellant": {
+    "propellant_id": "P-JPL-TP-H1148",
+    "source_ids": [
+      "S-JPL-PUB-79-29"
+    ],
+    "family": "AP / Al / PBAN (TP-H1148 baseline)",
+    "source_name": "TP-H1148, current baseline (Table 2-1, footnote a: also to be adjusted)",
+    "exact_formulation": false,
+    "basis": "mass_fraction",
+    "ingredients": [
+      {
+        "source_name": "AP",
+        "fraction": {
+          "value": 69.6,
+          "unit": "wt%",
+          "source_id": "S-JPL-PUB-79-29",
+          "locator": "JPL Publication 79-29, Table 2-1 (PDF p.21)",
+          "status": "REPORTED",
+          "decimals": 1
+        },
+        "provider_name": "NH4CLO4(I)",
+        "custom": null
+      },
+      {
+        "source_name": "Al",
+        "fraction": {
+          "value": 16.0,
+          "unit": "wt%",
+          "source_id": "S-JPL-PUB-79-29",
+          "locator": "JPL Publication 79-29, Table 2-1 (PDF p.21)",
+          "status": "REPORTED",
+          "decimals": 1
+        },
+        "provider_name": "AL(cr)",
+        "custom": null
+      },
+      {
+        "source_name": "Fe2O3",
+        "fraction": {
+          "value": 0.4,
+          "unit": "wt%",
+          "source_id": "S-JPL-PUB-79-29",
+          "locator": "JPL Publication 79-29, Table 2-1 (PDF p.21)",
+          "status": "REPORTED",
+          "decimals": 1,
+          "note": "Footnote b: Fe2O3 to be adjusted."
+        },
+        "provider_name": "Fe2O3(cr)",
+        "custom": null
+      },
+      {
+        "source_name": "PBAN",
+        "fraction": {
+          "value": 14.0,
+          "unit": "wt%",
+          "source_id": "S-JPL-PUB-79-29",
+          "locator": "JPL Publication 79-29, Table 2-1 (PDF p.21)",
+          "status": "REPORTED",
+          "decimals": 1,
+          "note": "PBAN is cured with epoxy Der-331; that the percentage includes the curative is an R1 inference from the footnotes, not stated."
+        },
+        "provider_name": null,
+        "custom": null
+      }
+    ],
+    "density": {
+      "missing": "NOT_AUDITED",
+      "note": "Density was not audited in R1."
+    },
+    "initial_temperature": {
+      "missing": "NOT_AUDITED",
+      "note": "No grain temperature was audited in R1."
+    }
+  },
+  "comparison_case_ids": [
+    "jpl-79-29-tp-h1148-theoretical"
+  ],
+  "executable_key": null,
+  "blockers": [
+    "No binder formula or enthalpy (PBAN with epoxy; HTPB with IPDI).",
+    "The AN-based candidates use trade-name ballistic modifiers (AD, CU-0202 P).",
+    "HMX, in three candidates, is absent from the installed thermo.lib."
+  ],
+  "notes": "Table 2-1 also lists five AN-based candidates (AN-25, AN-71, ANH-12, ANH-33, ANH-18); schema version 1 carries one formulation per record, so they are cited, not carried. BATES per-firing data (Tables 3-x, e.g. run E-1453 on PDF pp.82-84) are cited, not carried: firing data belong to later evidence work; Pc(t) appears only in photographs (Figures 3-1 to 3-3) and the grain's outside diameter, length and segment count are not in this report. Printed inconsistencies are preserved, not corrected: Table 2-2 prints the TP-H1148 c* with disagreeing SI and ft/s values (recorded verbatim in comparison case jpl-79-29-tp-h1148-theoretical), and Table 3-21 prints run E-1455's integral of F dt with a decimal placement inconsistent with run E-1453's. Ingredient labels follow the R1 transcription of the source table; they are not a verbatim copy of its row headings."
+}

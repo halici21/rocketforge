@@ -83,9 +83,11 @@ def test_the_workspace_survives_an_absent_provider(qt_app, absent_gateway):
 def test_the_catalogue_is_available_even_with_no_provider(qt_app, absent_gateway):
     """The unavailable screen can still describe what the workspace would do."""
     controller = ThermochemistryController()
-    assert [option["key"] for option in controller.oxidiserOptions] == ["LOX", "GOX"]
+    assert [option["key"] for option in controller.oxidiserOptions] == [
+        "LOX", "GOX", "LF2", "NTO", "HTP-90"]
     assert [option["key"] for option in controller.fuelOptions] == [
-        "LCH4", "LH2", "GCH4"]
+        "LCH4", "LH2", "GCH4", "N2H4", "UDMH", "MMH", "RP-1", "A-50"]
+    assert len(controller.presetOptions) == 12
 
 
 # ===========================================================================

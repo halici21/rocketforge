@@ -301,6 +301,7 @@ def test_the_new_modules_exist():
         "thermochemistry_reference.py",
         "thermochemistry_controller.py",
         "thermochemistry_table_model.py",
+        "thermochemistry_presets.py",       # LIQ-1, Qt-free, provider-free
     }, sorted(names)
 
 

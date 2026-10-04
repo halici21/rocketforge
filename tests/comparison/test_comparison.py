@@ -16,6 +16,7 @@ from rocketforge.comparison import (
     DIFFERS,
     INCOMPLETE,
     ObservedQuantity,
+    CaseOrigin,
     ReferenceCase,
     ReferenceCaseError,
     ReferenceQuantity,
@@ -31,7 +32,9 @@ def a_case(kind=SourceKind.NASA_PUBLISHED, quantities=None, **overrides):
     base = dict(
         case_id="fixture", title="fixture", source_kind=kind,
         benchmark_class="A", source="test fixture", code="NASA CEA",
-        code_version="not stated", inputs={},
+        code_version="not stated", database_version="not stated",
+        origin=CaseOrigin.LIVE if kind is SourceKind.CEA_DIRECT else CaseOrigin.IMPORTED,
+        inputs={},
         quantities=quantities or (
             ReferenceQuantity("chamber_temperature", 2723.021, "K", decimals=3),),
         tolerance_rel=0.0 if kind is SourceKind.CEA_DIRECT else None)
@@ -202,7 +205,8 @@ def an_import(**overrides):
         "case_id": "propep-example", "title": "an imported run",
         "source_kind": "independent_code", "benchmark_class": "A",
         "source": "a user-supplied PROPEP run", "code": "PROPEP",
-        "code_version": "not stated", "inputs": {"note": "fixture"},
+        "code_version": "not stated", "database_version": "PEPCODE.DAF, undocumented revision",
+        "origin": "imported", "inputs": {"note": "fixture"},
         "quantities": [{"key": "chamber_temperature", "value": 3000.0,
                         "unit": "K"}],
         "missing": ["binder heat of formation not published"],
@@ -218,7 +222,8 @@ def test_an_independent_code_run_imports_as_data():
     assert case.missing == ("binder heat of formation not published",)
 
 
-@pytest.mark.parametrize("field", ["code_version", "source", "source_kind", "code"])
+@pytest.mark.parametrize("field", ["code_version", "source", "source_kind", "code",
+                                   "database_version", "origin"])
 def test_an_import_missing_a_required_field_is_refused(field):
     data = an_import()
     del data[field]
@@ -238,3 +243,47 @@ def test_an_unknown_quantity_field_is_refused():
         case_from_mapping(an_import(quantities=[
             {"key": "chamber_temperature", "value": 1.0, "unit": "K",
              "confidence": "high"}]))
+
+
+# ---------------------------------------------------------------------------
+# provenance: database version and origin (EV-4)
+# ---------------------------------------------------------------------------
+
+
+def test_database_version_is_carried_apart_from_the_code_version():
+    case = case_from_mapping(an_import())
+    assert case.code_version == "not stated"
+    assert case.database_version == "PEPCODE.DAF, undocumented revision"
+    assert case.origin is CaseOrigin.IMPORTED
+
+
+@pytest.mark.parametrize("value", ["", "   "])
+def test_a_blank_database_version_is_refused(value):
+    with pytest.raises(ReferenceCaseError):
+        a_case(database_version=value)
+
+
+def test_an_unknown_origin_is_refused():
+    with pytest.raises(ReferenceCaseError):
+        case_from_mapping(an_import(origin="guessed"))
+
+
+@pytest.mark.parametrize("kind", [SourceKind.NASA_PUBLISHED, SourceKind.INDEPENDENT_CODE,
+                                  SourceKind.EXPERIMENT])
+def test_only_a_direct_cea_run_can_be_live(kind):
+    code = "" if kind is SourceKind.EXPERIMENT else "NASA CEA"
+    with pytest.raises(ReferenceCaseError):
+        a_case(kind, origin=CaseOrigin.LIVE, code=code)
+
+
+def test_a_live_direct_run_is_accepted():
+    case = a_case(SourceKind.CEA_DIRECT, origin=CaseOrigin.LIVE)
+    assert case.origin is CaseOrigin.LIVE and case.allows_verdict
+
+
+def test_provenance_does_not_change_a_comparison():
+    """Two cases differing only in provenance give the same rows and verdict."""
+    observed = {"chamber_temperature": ObservedQuantity("chamber_temperature", 2723.021, "K")}
+    one = compare(a_case(), observed)
+    other = compare(a_case(database_version="thermo.lib sha256 0000"), observed)
+    assert one.as_records() == other.as_records() and one.verdict == other.verdict

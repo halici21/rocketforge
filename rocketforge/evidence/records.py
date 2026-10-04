@@ -26,6 +26,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from types import MappingProxyType
 
+from .burnlaw import BurnLawReference
 from .values import (
     AccessClass,
     Datum,
@@ -62,6 +63,9 @@ class RecordKind(StrEnum):
 
     REFERENCE = "REFERENCE"
     """A source-level reference with no formulation (e.g. an operational motor)."""
+
+    BURN_LAW = "BURN_LAW"
+    """A published burn-rate law (schema version 2)."""
 
 
 def _text(value: object, what: str) -> str:
@@ -318,6 +322,8 @@ class EvidenceRecord:
             formulation stays the authority for execution.
         blockers: What prevents further use, in words.
         notes: Anything else a reader needs.
+        burn_law: The published burn-rate law, for a burn-law record; ``None``
+            otherwise (schema version 1 has no such field).
     """
 
     record_id: str
@@ -331,6 +337,7 @@ class EvidenceRecord:
     executable_key: str | None
     blockers: tuple[str, ...]
     notes: str
+    burn_law: BurnLawReference | None = None
 
     def __post_init__(self) -> None:
         _text(self.record_id, "record_id")
@@ -370,6 +377,17 @@ class EvidenceRecord:
                 raise EvidenceError(
                     f"propellant cites sources the record does not declare: {sorted(undeclared)}")
 
+        if (self.kind is RecordKind.BURN_LAW) != (self.burn_law is not None):
+            raise EvidenceError(
+                "a burn-law record carries its law, and only a burn-law record carries one")
+        if self.burn_law is not None:
+            if not isinstance(self.burn_law, BurnLawReference):
+                raise EvidenceError(f"burn_law must be a BurnLawReference, got {self.burn_law!r}")
+            undeclared = set(self.burn_law.source_ids) - set(self.source_ids)
+            if undeclared:
+                raise EvidenceError(
+                    f"burn law cites sources the record does not declare: {sorted(undeclared)}")
+
         _texts(self.comparison_case_ids, "comparison_case_ids")
         locked = [d for d, s in self.capabilities.items()
                   if s is EvidenceStatus.REGRESSION_LOCKED]
@@ -394,9 +412,12 @@ class EvidenceRecord:
 
 def reported_values(record: EvidenceRecord) -> tuple[ReportedValue, ...]:
     """Every reported value in a record, in a stable order."""
-    if record.propellant is None:
-        return ()
-    return tuple(record.propellant.reported_values())
+    out: list[ReportedValue] = []
+    if record.propellant is not None:
+        out.extend(record.propellant.reported_values())
+    if record.burn_law is not None:
+        out.extend(record.burn_law.reported_values())
+    return tuple(out)
 
 
 def validate_against_sources(record: EvidenceRecord,

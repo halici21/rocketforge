@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-JANNAF-DATABASES-REF",
+  "title": "JANNAF propulsion databases (SPD, RMED, PEID, LPFD, LRED, SCPD, RPTF) - restricted reference",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-JANNAF-DB"
+  ],
+  "capabilities": {
+    "VA": "ACCESS_BLOCKED",
+    "VB": "ACCESS_BLOCKED",
+    "VC": "ACCESS_BLOCKED",
+    "VD": "ACCESS_BLOCKED"
+  },
+  "capability_notes": {
+    "VA": "Access-restricted: what the databases would support here could not be examined.",
+    "VB": "Access-restricted: what the databases would support here could not be examined.",
+    "VC": "Access-restricted: what the databases would support here could not be examined.",
+    "VD": "Access-restricted: what the databases would support here could not be examined."
+  },
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "An account requires U.S. citizenship and U.S. Government or contractor employment (FSO, DD2345); ERG subscriptions require DLA JCP registration and a current government contract for limited-distribution data."
+  ],
+  "notes": "Restricted reference: the public capability description and its URL only. No payload is or will be shipped, and there is no value area or search for it."
+}

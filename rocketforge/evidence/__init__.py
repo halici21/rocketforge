@@ -2,7 +2,8 @@
 
 A pure-data layer, importing only ``core``. It holds sourced values and
 explicit absences, source identity and shipping rights, propellant
-formulations as sources print them, and per-dimension evidence status. It
+formulations and burn-rate laws as sources print them, and per-dimension
+evidence status. It
 computes no physics, calls no provider, runs no solver and knows nothing of Qt;
 ``tests/test_architecture.py`` holds it to that.
 
@@ -18,7 +19,10 @@ section 2; the shipped data lives in ``rocketforge/data/evidence/``.
 
 from __future__ import annotations
 
+from .burnlaw import BURN_LAW_FORM, BurnLawReference, BurnLawRegime
 from .load import (
+    BURN_LAW_SCHEMA_VERSION,
+    RECORD_SCHEMA_VERSIONS,
     SCHEMA_VERSION,
     record_from_dict,
     record_from_json,
@@ -53,7 +57,9 @@ from .values import (
 )
 
 __all__ = [
-    "SCHEMA_VERSION", "record_from_dict", "record_from_json", "record_to_dict",
+    "SCHEMA_VERSION", "BURN_LAW_SCHEMA_VERSION", "RECORD_SCHEMA_VERSIONS",
+    "BURN_LAW_FORM", "BurnLawReference", "BurnLawRegime",
+    "record_from_dict", "record_from_json", "record_to_dict",
     "record_to_json", "sources_from_json", "sources_to_json",
     "MASS_FRACTION_BASIS", "CustomDefinition", "EvidenceRecord",
     "IngredientReference", "PropellantReference", "RecordKind", "SourceReference",

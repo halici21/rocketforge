@@ -199,6 +199,46 @@ Item {
 
                     RFDivider {}
 
+                    // A preset fills the pair, its O/F and the reference
+                    // temperatures; it never solves. "Custom" is shown whenever
+                    // the form no longer matches a preset exactly.
+                    RFComboBox {
+                        id: presetBox
+                        visible: !Thermochemistry.isSolid
+                        Layout.fillWidth: true
+                        label: "Preset"
+                        model: ["Custom"].concat(
+                                   Thermochemistry.presetOptions.map(function (p) { return p.label }))
+                        currentIndex: Thermochemistry.currentPreset === ""
+                                      ? 0
+                                      : view.indexOfKey(Thermochemistry.presetOptions,
+                                                        Thermochemistry.currentPreset) + 1
+                        onActivated: function (index) {
+                            if (index > 0)
+                                Thermochemistry.applyPreset(
+                                    Thermochemistry.presetOptions[index - 1].key)
+                        }
+                    }
+
+                    Text {
+                        id: presetNote
+                        visible: !Thermochemistry.isSolid
+                        Layout.fillWidth: true
+                        text: Thermochemistry.presetNote
+                        wrapMode: Text.WordWrap
+                        color: Theme.textMuted
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.meta
+
+                        HoverHandler { id: presetNoteHover }
+                        RFTooltip {
+                            visible: presetNoteHover.hovered
+                                     && Thermochemistry.blockedPresets.length > 0
+                            text: Thermochemistry.blockedPresets.length > 0
+                                  ? Thermochemistry.blockedPresets[0].blocker : ""
+                        }
+                    }
+
                     RFSectionLabel {
                         text: "Reactants"
                         visible: !Thermochemistry.isSolid

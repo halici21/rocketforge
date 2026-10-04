@@ -69,7 +69,7 @@ def test_a_whole_formula_can_be_missing_and_round_trip():
     assert record_to_dict(again) == data
 
 
-@pytest.mark.parametrize("version", [0, 2, "1", 1.0, True, None])
+@pytest.mark.parametrize("version", [0, 3, "1", 1.0, True, None])
 def test_an_unsupported_schema_version_is_refused(version):
     data = payload()
     data["schema_version"] = version

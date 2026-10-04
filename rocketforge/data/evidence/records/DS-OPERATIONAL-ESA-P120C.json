@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-OPERATIONAL-ESA-P120C",
+  "title": "ESA P120C (Vega-C) qualification firing (operational reference)",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-ESA-P120C-2019"
+  ],
+  "capabilities": {
+    "VA": "NOT_APPLICABLE",
+    "VB": "NOT_APPLICABLE",
+    "VC": "REFERENCE_ONLY",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {},
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The news page gives headline metrics only (propellant mass, dimensions, burn time, maximum thrust); their redistribution rights are not determined, so they are not shipped.",
+    "No formulation, burn law, Pc(t) or geometry is published."
+  ],
+  "notes": "Metadata only, pending rights review. P80 and Zefiro were dispositioned by class in R1 (the same public-metric profile), not individually verified."
+}

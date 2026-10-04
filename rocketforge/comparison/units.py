@@ -50,6 +50,7 @@ _FACTORS: dict[str, tuple[str, float]] = {
     "psia": ("pressure", 0.45359237 * 9.80665 / 0.0254 ** 2),
     "m/s": ("velocity", 1.0),
     "ft/s": ("velocity", 0.3048),
+    "N*s/kg": ("velocity", 1.0),         # specific impulse as a report prints it
     "kg/kmol": ("molar_mass", 1.0),
     "g/mol": ("molar_mass", 1.0),
     "kg/mol": ("molar_mass", 1.0e3),

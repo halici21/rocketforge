@@ -390,6 +390,7 @@ ColumnLayout {
                         Layout.preferredHeight: 10
                         Rectangle {
                             anchors.fill: parent
+                            visible: ingredient.share >= 0     // no track either: absence is not a scale
                             radius: 2
                             color: Theme.surfaceSunken
                             border.width: Metrics.hairline
@@ -406,7 +407,8 @@ ColumnLayout {
                     }
 
                     Text {
-                        Layout.preferredWidth: 120
+                        // a missing fraction's reason is words, given the room they need
+                        Layout.preferredWidth: ingredient.missing ? implicitWidth : 120
                         horizontalAlignment: Text.AlignRight
                         text: ingredient.valueText
                         color: ingredient.missing ? Theme.textSecondary : Theme.text
@@ -442,7 +444,7 @@ ColumnLayout {
         Text {
             Layout.fillWidth: true
             Layout.topMargin: Metrics.spacing.s
-            text: "Bars show each stored fraction on a 0 – 1 scale. Click an ingredient for its source, locator and status; every other stored value is in Evidence data below."
+            text: "Bars show each stored fraction as a share of the whole, on a 0 – 1 scale (a wt% value as its hundredth); the numbers are as printed. Click an ingredient for its source, locator and status; every other stored value is in Evidence data below."
             wrapMode: Text.WordWrap
             color: Theme.textMuted
             font.family: Typography.sans

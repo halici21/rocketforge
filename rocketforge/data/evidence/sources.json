@@ -38,6 +38,213 @@
       "rights_statement": "Apache-2.0 (repository licence)",
       "shipping": "VALUES_WITH_ATTRIBUTION",
       "tier": 1
+    },
+    {
+      "source_id": "S-NASA-TND7133",
+      "organization": "NASA Langley Research Center",
+      "authors": [
+        "Northam, G. Burton",
+        "Sullivan, Edward M."
+      ],
+      "title": "Evaluation of Magnesium-Aluminum Eutectic to Improve Combustion Efficiency in Low Burning-Rate Propellants",
+      "year": 1973,
+      "identifiers": {
+        "report_number": "NASA TN D-7133",
+        "performing_organization_report": "L-8546",
+        "accession": "73N16775",
+        "ntrs_id": "19730008048"
+      },
+      "locator": "https://ntrs.nasa.gov/citations/19730008048",
+      "source_type": "NASA Technical Note (also a 9th JANNAF Combustion Meeting paper, 1972)",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED; distribution PUBLIC; export control NO",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    },
+    {
+      "source_id": "S-JPL-PUB-79-29",
+      "organization": "Jet Propulsion Laboratory / NASA MSFC",
+      "authors": [
+        "Anderson, F. A.",
+        "West, W. R."
+      ],
+      "title": "Alternate Propellant Program, Phase I Final Report",
+      "year": 1979,
+      "identifiers": {
+        "report_number": "JPL Publication 79-29",
+        "nasa_report": "NASA-CR-158815",
+        "ntrs_id": "19790020174"
+      },
+      "locator": "https://ntrs.nasa.gov/citations/19790020174",
+      "source_type": "NASA Contractor Report (JPL)",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    },
+    {
+      "source_id": "S-NASA-CR-2478",
+      "organization": "Aerojet Solid Propulsion Company for NASA Langley",
+      "authors": [
+        "Mastrolia, E. J.",
+        "Santerre, G. M.",
+        "Lambert, W. L."
+      ],
+      "title": "Demonstration of a Sterilizable Solid Rocket Motor System",
+      "year": 1975,
+      "identifiers": {
+        "report_number": "NASA CR-2478",
+        "contract": "NAS1-10861",
+        "ntrs_id": "19750011281"
+      },
+      "locator": "https://ntrs.nasa.gov/citations/19750011281",
+      "source_type": "NASA Contractor Report",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    },
+    {
+      "source_id": "S-NASA-CR-183944-RSRM9",
+      "organization": "Thiokol Corporation Space Operations for NASA MSFC",
+      "authors": [
+        "Drendel, Albert S.",
+        "Richards, M. C."
+      ],
+      "title": "RSRM-9 (360L009) Final Report: Ballistics Mass Properties",
+      "year": 1990,
+      "identifiers": {
+        "report_number": "TWR-17548-10",
+        "nasa_report": "NASA-CR-183944",
+        "ntrs_id": "19900016748"
+      },
+      "locator": "https://ntrs.nasa.gov/citations/19900016748",
+      "source_type": "NASA Contractor Report (flight motor reconstruction)",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+      "shipping": "VALUES_WITH_ATTRIBUTION",
+      "tier": 1
+    },
+    {
+      "source_id": "S-FHG-2015-GETTWERT",
+      "organization": "Fraunhofer ICT",
+      "authors": [
+        "Gettwert, Volker",
+        "Fischer, Sebastian"
+      ],
+      "title": "Small Scale Motor Tests of ADN/GAP Based Propellants",
+      "year": 2015,
+      "identifiers": {
+        "conference": "46th International Annual Conference of Fraunhofer ICT, Karlsruhe, 2015",
+        "doi": "10.24406/publica-fhg-388721"
+      },
+      "locator": "https://publica.fraunhofer.de/handle/publica/388721",
+      "source_type": "Conference paper",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "Under Copyright (Fraunhofer Publica dc.rights.license)",
+      "shipping": "METADATA_ONLY",
+      "tier": 1
+    },
+    {
+      "source_id": "S-IMEMTS-2015-GETTWERT",
+      "organization": "Fraunhofer ICT",
+      "authors": [
+        "Gettwert, V.",
+        "Bohn, M. A.",
+        "Weiser, V."
+      ],
+      "title": "Performance of ADN/GAP Propellants Compared to Al/AP/HTPB (IMEMTS slides)",
+      "year": 2015,
+      "identifiers": {
+        "event": "IMEMTS, Rome, 18-21 May 2015"
+      },
+      "locator": "https://imemg.org/wp-content/uploads/2015/06/4A-1-GETTWERT-day1-imemts2015.pdf",
+      "source_type": "Presentation slides (companion to S-FHG-2015-GETTWERT; discovery only)",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "not stated",
+      "shipping": "METADATA_ONLY",
+      "tier": 3
+    },
+    {
+      "source_id": "S-FHG-2022-SIMS",
+      "organization": "Fraunhofer ICT",
+      "authors": [
+        "Sims, Stefan",
+        "Fischer, Sebastian",
+        "Tagliabue, Claudio"
+      ],
+      "title": "ADN solid propellants with high burning rates",
+      "year": 2022,
+      "identifiers": {
+        "conference": "51st International Annual Conference of Fraunhofer ICT, Karlsruhe, 2022",
+        "doi": "10.24406/publica-156"
+      },
+      "locator": "https://publica.fraunhofer.de/handle/publica/418876",
+      "source_type": "Conference paper",
+      "access_class": "PUBLIC_OPEN",
+      "rights_statement": "CC BY-NC-ND (Fraunhofer Publica dc.rights.license)",
+      "shipping": "RIGHTS_REVIEW_REQUIRED",
+      "tier": 1
+    },
+    {
+      "source_id": "S-JANNAF-DB",
+      "organization": "JANNAF Interagency Propulsion Committee / JHU Energetics Research Group",
+      "authors": [],
+      "title": "JANNAF Databases page; JANNAF Create Account page; ERG Subscriptions page",
+      "year": 2026,
+      "identifiers": {
+        "also_read": "https://www.jannaf.org/create-account; https://www.erg.jhu.edu/services/subscriptions/"
+      },
+      "locator": "https://www.jannaf.org/databases",
+      "source_type": "Official organization web pages",
+      "access_class": "PUBLIC_WEB_PAGE",
+      "rights_statement": "(c) The Johns Hopkins University",
+      "shipping": "RESTRICTED_REFERENCE",
+      "tier": 1
+    },
+    {
+      "source_id": "S-JAXA-SRB3-2018",
+      "organization": "JAXA",
+      "authors": [],
+      "title": "Ground Firing Test Results of SRB-3 Module for H-3 (press release)",
+      "year": 2018,
+      "identifiers": {
+        "press_release": "2018-08-26"
+      },
+      "locator": "https://global.jaxa.jp/press/2018/08/20180826_srb3.html",
+      "source_type": "Official agency press release",
+      "access_class": "PUBLIC_WEB_PAGE",
+      "rights_statement": "not stated on page",
+      "shipping": "METADATA_ONLY",
+      "tier": 1
+    },
+    {
+      "source_id": "S-ESA-P120C-2019",
+      "organization": "ESA",
+      "authors": [],
+      "title": "P120C solid rocket motor tested for use on Vega-C",
+      "year": 2019,
+      "identifiers": {},
+      "locator": "https://www.esa.int/Enabling_Support/Space_Transportation/P120C_solid_rocket_motor_tested_for_use_on_Vega-C",
+      "source_type": "Official agency news page",
+      "access_class": "PUBLIC_WEB_PAGE",
+      "rights_statement": "not determined",
+      "shipping": "METADATA_ONLY",
+      "tier": 1
+    },
+    {
+      "source_id": "S-ISRO-LVM3",
+      "organization": "ISRO",
+      "authors": [],
+      "title": "LVM3 (Geosynchronous Satellite Launch Vehicle Mk III) vehicle page",
+      "year": null,
+      "identifiers": {},
+      "locator": "https://www.isro.gov.in/GSLVmk3_CON.html",
+      "source_type": "Official agency web page",
+      "access_class": "PUBLIC_WEB_PAGE",
+      "rights_statement": "not determined",
+      "shipping": "METADATA_ONLY",
+      "tier": 1
     }
   ]
 }

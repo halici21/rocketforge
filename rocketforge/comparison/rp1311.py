@@ -15,7 +15,7 @@ compared without a verdict, in :mod:`.rp1311_historical`.
 
 from __future__ import annotations
 
-from .cases import ReferenceCase, ReferenceQuantity, SourceKind
+from .cases import CaseOrigin, ReferenceCase, ReferenceQuantity, SourceKind
 
 __all__ = [
     "RP1311_EXAMPLE5_PUBLISHED",
@@ -33,6 +33,8 @@ RP1311_EXAMPLE5_PUBLISHED = ReferenceCase(
             "cea 3.3.4 sample cea/samples/rp1311/example5.py"),
     code="NASA CEA",
     code_version="3.3.4",
+    database_version="thermo.lib distributed with NASA CEA 3.3.4, sha256 8e5df1cca92d4a48663d1ee5a1372e6508c59cddc2247ceeca32f041a03ec52a",
+    origin=CaseOrigin.IMPORTED,
     inputs={"example": 5, "column": "first printed column"},
     quantities=(
         ReferenceQuantity("chamber_pressure", 34.023, "atm", decimals=3),
@@ -102,6 +104,8 @@ RP1311_EXAMPLE12_PUBLISHED = ReferenceCase(
             "cea 3.3.4 sample cea/samples/rp1311/example12.py"),
     code="NASA CEA",
     code_version="3.3.4",
+    database_version="thermo.lib distributed with NASA CEA 3.3.4, sha256 8e5df1cca92d4a48663d1ee5a1372e6508c59cddc2247ceeca32f041a03ec52a",
+    origin=CaseOrigin.IMPORTED,
     inputs={"example": 12, "column": "first printed column"},
     quantities=(
         ReferenceQuantity("chamber_pressure", 68.948, "bar", decimals=3),
@@ -123,6 +127,8 @@ RP1311_EXAMPLE13_PUBLISHED = ReferenceCase(
             "cea 3.3.4 sample cea/samples/rp1311/example13.py"),
     code="NASA CEA",
     code_version="3.3.4",
+    database_version="thermo.lib distributed with NASA CEA 3.3.4, sha256 8e5df1cca92d4a48663d1ee5a1372e6508c59cddc2247ceeca32f041a03ec52a",
+    origin=CaseOrigin.IMPORTED,
     inputs={"example": 13, "column": "first printed column"},
     quantities=(
         ReferenceQuantity("chamber_pressure", 204.138, "atm", decimals=3),

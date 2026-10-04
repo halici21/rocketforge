@@ -107,11 +107,13 @@ def test_the_spec_packages_the_evidence_folder_and_nothing_under_tests():
 
 def test_the_package_smoke_opens_the_propulsion_database():
     assert "page:evidence" in verify_package.EVIDENCE_ROUTE
-    assert verify_package.EVIDENCE_REQUIRED == ("DS-RP1311-E5",)
+    assert "DS-RP1311-E5" in verify_package.EVIDENCE_REQUIRED
+    shipped = {p.stem for p in (SOURCE / "records").glob("*.json")}
+    assert set(verify_package.EVIDENCE_REQUIRED) == shipped
 
 def test_the_package_smoke_runs_the_explicit_cea_check_without_solving():
     route = verify_package.EVIDENCE_CEA_ROUTE.split(",")
-    assert route.index("evcheck") < route.index("evopen")
+    assert route.index("evselect:DS-RP1311-E5") < route.index("evcheck") < route.index("evopen")
     assert route[route.index("evopen") + 1] == "expectthermo:unsolved"
 
 

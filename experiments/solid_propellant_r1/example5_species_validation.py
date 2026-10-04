@@ -30,6 +30,7 @@ import cea  # noqa: E402
 
 from rocketforge.application.analysis import thermochemistry_provider as gateway  # noqa: E402
 from rocketforge.comparison import (  # noqa: E402
+    CaseOrigin,
     ReferenceCase,
     ReferenceQuantity,
     SourceKind,
@@ -70,6 +71,8 @@ def direct_case() -> ReferenceCase:
         source_kind=SourceKind.CEA_DIRECT, benchmark_class="A",
         source="experiments/solid_propellant_r1/example5_direct.json",
         code="NASA CEA", code_version=getattr(cea, "__version__", "not stated"),
+        database_version="not stated (example5_direct.json records no thermo.lib hash)",
+        origin=CaseOrigin.IMPORTED,
         inputs={"pressure_bar": direct["pressure_bar"]}, tolerance_rel=0.0,
         quantities=tuple(quantities))
 

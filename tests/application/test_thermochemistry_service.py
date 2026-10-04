@@ -87,13 +87,15 @@ def test_an_unknown_propellant_is_refused_by_name():
 def test_the_catalogue_is_the_providers_production_set():
     """No propellant is offered that the backend cannot map.
 
-    The set is small on purpose: Phase 5C validated five definitions end to
-    end, and offering a sixth would be offering something with no provider
-    name behind it.
+    The set is small on purpose: the five Phase 5C definitions plus exactly the
+    reactants Sutton Table 5-5 needs (LIQ-1), each verified against the shipped
+    database. Anything else would be offered with no provider identity behind
+    it.
     """
     options = gateway.propellant_options()
     assert {option.key for option in options} == {
-        "LOX", "LCH4", "LH2", "GOX", "GCH4"}
+        "LOX", "LCH4", "LH2", "GOX", "GCH4",
+        "LF2", "NTO", "HTP-90", "N2H4", "UDMH", "MMH", "RP-1", "A-50"}
     for option in options:
         assert option.provider_name, f"{option.key} has no CEA identity"
 

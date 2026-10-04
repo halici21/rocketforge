@@ -20,6 +20,7 @@ A route is a comma-separated list of steps:
     solve           Thermochemistry and Rocket Performance calculate()
     solid:<key>     solid mode, load that formulation, calculate()
     biprop          bipropellant mode, reset the inputs, calculate()
+    preset:<key>    bipropellant mode, apply that liquid preset, calculate()
     theme:<mode>    "light" or "dark"
     size:<w>x<h>    resize the window, e.g. size:1366x768
     capture:<name>  save the window as <name>.png beside the report
@@ -31,12 +32,13 @@ A route is a comma-separated list of steps:
     sweep           Thermochemistry runSweep()
     peekfocus       the first plot peek on screen opens, then asks for Focus
     expectfocus:<yes|no>  a Focus overlay is open (yes) or none is (no)
+    evselect:<id>   Propulsion Database: select that evidence record
     evcheck         Propulsion Database: the explicit CEA compatibility check
     evopen          Propulsion Database: Open in Thermochemistry (must not solve)
     expectthermo:<solved|unsolved>  Thermochemistry holds a result, or none
 
-A solid or biprop step fails the run unless it ends in the mode it names with a
-result -- or, with no chemistry provider, at least in that mode.
+A solid, biprop or preset step fails the run unless it ends in the mode it
+names with a result -- or, with no chemistry provider, at least in that mode.
 """
 
 from __future__ import annotations
@@ -146,6 +148,20 @@ class Route:
                 QMetaObject.invokeMethod(thermo, "calculate")
                 self._require_result("solid")
             return solid
+        if kind == "preset":
+            known = [option["key"] for option in thermo.property("presetOptions")]
+            if arg not in known:
+                raise ValueError(f"unknown preset {arg!r}; known: {known}")
+
+            def preset(key=arg):
+                thermo.setProperty("formulationKind", "bipropellant")
+                thermo.applyPreset(key)
+                # A preset whose reactants the build cannot map changes nothing.
+                if thermo.property("currentPreset") != key:
+                    raise RuntimeError(f"preset {key!r} was not applied")
+                QMetaObject.invokeMethod(thermo, "calculate")
+                self._require_result("bipropellant")
+            return preset
         if kind == "view":
             if arg not in ("2d", "3d"):
                 raise ValueError(f"view:{arg} -- use view:2d or view:3d")
@@ -224,6 +240,12 @@ class Route:
                     raise RuntimeError(f"{len(opened)} Focus overlay(s) open; expected "
                                        f"{'one' if wanted else 'none'}")
             return expectfocus
+        if kind == "evselect":
+            def evselect(record_id=arg):
+                self.evidence.selectRecord(record_id)
+                if self.evidence.property("selectedRecordId") != record_id:
+                    raise RuntimeError(f"no evidence record {record_id!r} to select")
+            return evselect
         if kind in ("evcheck", "evopen"):
             slot = "checkCompatibility" if kind == "evcheck" else "openInThermochemistry"
 

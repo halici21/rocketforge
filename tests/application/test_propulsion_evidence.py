@@ -418,9 +418,9 @@ def test_an_empty_corpus_is_stated_not_filled(qt_app, tmp_path):
 
 
 def test_a_corpus_that_will_not_load_is_stated_word_for_word(qt_app, mixed):
-    (mixed / "records" / "DS-A-OPEN.json").write_text('{"schema_version": 2}', encoding="utf-8")
+    (mixed / "records" / "DS-A-OPEN.json").write_text('{"schema_version": 3}', encoding="utf-8")
     controller = PropulsionEvidenceController(root=mixed)
-    assert controller.emptyState == "load-error" and "schema_version 2" in controller.loadError
+    assert controller.emptyState == "load-error" and "schema_version 3" in controller.loadError
     assert controller.recordCount == 0
 
 

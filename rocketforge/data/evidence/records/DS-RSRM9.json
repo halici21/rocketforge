@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-RSRM9",
+  "title": "RSRM-9 (360L009A/B) STS-36 flight motor pair - ballistics reconstruction",
+  "kind": "PROPELLANT",
+  "source_ids": [
+    "S-NASA-CR-183944-RSRM9"
+  ],
+  "capabilities": {
+    "VA": "UNDERDEFINED",
+    "VB": "REFERENCE_ONLY",
+    "VC": "REFERENCE_ONLY",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {
+    "VC": "Digitisable scanned Pc(t) only; geometry not dimensioned; no ignition data.",
+    "VD": "Thrust and Isp are reconstructed, not measured."
+  },
+  "propellant": {
+    "propellant_id": "P-RSRM9-TP-H1148",
+    "source_ids": [
+      "S-NASA-CR-183944-RSRM9"
+    ],
+    "family": "PBAN / epoxy / AP / Al / iron oxide (TP-H1148)",
+    "source_name": "TP-H1148",
+    "exact_formulation": false,
+    "basis": "mass_fraction",
+    "ingredients": [
+      {
+        "source_name": "PBAN terpolymer binder",
+        "fraction": {
+          "missing": "NOT_REPORTED",
+          "note": "The report names this ingredient (p.1) but gives no fraction. The 1979 TP-H1148 baseline fractions of DS-JPL-ALTPROP-BATES are not applied: that would be an inference."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Epoxy curing agent",
+        "fraction": {
+          "missing": "NOT_REPORTED",
+          "note": "The report names this ingredient (p.1) but gives no fraction. The 1979 TP-H1148 baseline fractions of DS-JPL-ALTPROP-BATES are not applied: that would be an inference."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "AP",
+        "fraction": {
+          "missing": "NOT_REPORTED",
+          "note": "The report names this ingredient (p.1) but gives no fraction. The 1979 TP-H1148 baseline fractions of DS-JPL-ALTPROP-BATES are not applied: that would be an inference."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Al",
+        "fraction": {
+          "missing": "NOT_REPORTED",
+          "note": "The report names this ingredient (p.1) but gives no fraction. The 1979 TP-H1148 baseline fractions of DS-JPL-ALTPROP-BATES are not applied: that would be an inference."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Iron oxide catalyst",
+        "fraction": {
+          "missing": "NOT_REPORTED",
+          "note": "The report names this ingredient (p.1) but gives no fraction. The 1979 TP-H1148 baseline fractions of DS-JPL-ALTPROP-BATES are not applied: that would be an inference."
+        },
+        "provider_name": null,
+        "custom": null
+      }
+    ],
+    "density": {
+      "missing": "NOT_REPORTED",
+      "note": "The report gives no propellant density."
+    },
+    "initial_temperature": {
+      "value": 67.0,
+      "unit": "F",
+      "source_id": "S-NASA-CR-183944-RSRM9",
+      "locator": "NASA-CR-183944, Table 3.2 (PDF p.25)",
+      "status": "REPORTED",
+      "decimals": 0,
+      "note": "Propellant mean bulk temperature (PMBT) used in the reconstruction."
+    }
+  },
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The formulation's fractions are not in the report.",
+    "PBAN and epoxy thermochemistry is absent."
+  ],
+  "notes": "A flight reconstruction of the STS-36 motor pair, not a static test: thrust was not measured - it is reconstructed from head-end pressure with static-test-average conversion factors (section 3.2), and must never be read as measured thrust. No DFI high-rate gauges flew, so the ignition interval and pressure-rise rate are not available and are not supplied. Pc(t) exists only as scanned plots (Figures 3.3 and 3.4), not digitised. The grain is four segments, undimensioned (Figure 1.1). The burn-rate reference points and the Table 3.2 reconstruction outputs are cited, not carried: firing data belong to later evidence work."
+}

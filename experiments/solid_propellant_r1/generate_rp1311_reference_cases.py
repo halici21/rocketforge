@@ -80,6 +80,22 @@ def quantity_lines(scalars, mapping, fractions=None) -> list[str]:
     return out
 
 
+def database_version(version: str) -> str:
+    """The thermo.lib the samples ran against: the installed package's, measured.
+
+    The sample scripts run unmodified with the installed cea, which reads the
+    thermo.lib shipped inside its package; its hash is taken here, not assumed.
+    """
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from rocketforge.providers.cea.resources import discover_resources
+
+    sha = discover_resources(cea).thermo_sha256
+    if not sha:
+        return "not stated"
+    return f"thermo.lib distributed with NASA CEA {version}, sha256 {sha}"
+
+
 def main(argv: list[str] | None = None) -> int:
     """Write the module; ``argv[0]``, if given, is an alternative output
     path (used to check the committed module is reproduced byte for byte)."""
@@ -89,23 +105,24 @@ def main(argv: list[str] | None = None) -> int:
     s12, _ = columns(run(12))
     s13, _ = columns(run(13))
     version = getattr(cea, "__version__", "not stated")
+    database = database_version(version)
     parts = [HEADER.format(version=version)]
     parts.append(CASE.format(
         name="RP1311_EXAMPLE5_PUBLISHED", case_id="rp1311-example5-published",
         title="NASA RP-1311 Example 5, first pressure column", klass="A",
-        example=5, version=version,
+        example=5, version=version, database=database,
         quantities="\n".join(quantity_lines(s5, EX5_SCALARS, f5)),
         notes=EX5_NOTES))
     parts.append(CASE.format(
         name="RP1311_EXAMPLE12_PUBLISHED", case_id="rp1311-example12-published",
         title="NASA RP-1311 Example 12 chamber and c* (not a solid)",
-        klass="B", example=12, version=version,
+        klass="B", example=12, version=version, database=database,
         quantities="\n".join(quantity_lines(s12, EX12_SCALARS)),
         notes=EX12_NOTES))
     parts.append(CASE.format(
         name="RP1311_EXAMPLE13_PUBLISHED", case_id="rp1311-example13-published",
         title="NASA RP-1311 Example 13 chamber and c* (not a solid)",
-        klass="B", example=13, version=version,
+        klass="B", example=13, version=version, database=database,
         quantities="\n".join(quantity_lines(s13, EX13_SCALARS)),
         notes=EX13_NOTES))
     out.write_text("".join(parts), encoding="utf-8", newline="\n")
@@ -132,7 +149,7 @@ compared without a verdict, in :mod:`.rp1311_historical`.
 
 from __future__ import annotations
 
-from .cases import ReferenceCase, ReferenceQuantity, SourceKind
+from .cases import CaseOrigin, ReferenceCase, ReferenceQuantity, SourceKind
 
 __all__ = [
     "RP1311_EXAMPLE5_PUBLISHED",
@@ -152,6 +169,8 @@ CASE = '''
             "cea {version} sample cea/samples/rp1311/example{example}.py"),
     code="NASA CEA",
     code_version="{version}",
+    database_version="{database}",
+    origin=CaseOrigin.IMPORTED,
     inputs={{"example": {example}, "column": "first printed column"}},
     quantities=(
 {quantities}

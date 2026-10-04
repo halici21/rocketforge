@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-OPERATIONAL-ISRO-S200",
+  "title": "ISRO S200 (LVM3) booster (operational reference)",
+  "kind": "REFERENCE",
+  "source_ids": [
+    "S-ISRO-LVM3"
+  ],
+  "capabilities": {
+    "VA": "NOT_APPLICABLE",
+    "VB": "NOT_APPLICABLE",
+    "VC": "REFERENCE_ONLY",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {},
+  "propellant": null,
+  "comparison_case_ids": [],
+  "executable_key": null,
+  "blockers": [
+    "The vehicle page gives headline figures only (mass, dimensions, segmentation, head-grain shape); their redistribution rights are not determined, so they are not shipped.",
+    "No formulation fractions, burn law, Pc(t) or dimensioned geometry is published."
+  ],
+  "notes": "Metadata only, pending rights review."
+}

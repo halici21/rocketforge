@@ -204,9 +204,11 @@ def chamber_provider() -> Any:
         return _provider
     if not availability().usable:
         return None
-    from rocketforge.providers.cea import CEAThermochemistryProvider
+    # The frozen NASA CEA provider, widened to the LIQ-1 reactants. For any
+    # pair without nitrogen or fluorine it is the frozen provider, unchanged.
+    from rocketforge.providers.cea_liquid import CEALiquidProvider
 
-    _provider = CEAThermochemistryProvider()
+    _provider = CEALiquidProvider()
     return _provider
 
 
@@ -219,9 +221,10 @@ def propellant_options() -> tuple[PropellantOption, ...]:
     """The reactants this build can actually map, in a stable order.
 
     Read from the provider package's production set rather than restated here.
-    Phase 5C validated exactly five definitions end to end, and a selector
-    offering a sixth would be offering something the backend cannot map -- the
-    failure mode Phase 5D §15 rules out.
+    Phase 5C validated five definitions end to end; LIQ-1 added the reactants
+    the Sutton Table 5-5 combinations need, each verified against the shipped
+    database. A selector offering anything else would be offering something
+    the backend cannot map -- the failure mode Phase 5D §15 rules out.
 
     Importing the *adapter package* works with no chemistry library installed,
     so the catalogue is available even on the unavailable screen, where it is
@@ -237,13 +240,21 @@ def propellant_options() -> tuple[PropellantOption, ...]:
             CEA_REACTANT_TEMPERATURE_RANGES,
             PRODUCTION_PROPELLANTS,
         )
+        from rocketforge.providers.cea_liquid import (
+            LIQUID_PROPELLANTS,
+            LIQUID_REACTANT_TEMPERATURE_RANGES,
+        )
     except Exception:  # noqa: BLE001 - no catalogue is a usable state here
         _options = ()
         return _options
 
+    ranges = {**CEA_REACTANT_TEMPERATURE_RANGES,
+              **LIQUID_REACTANT_TEMPERATURE_RANGES}
     options: list[PropellantOption] = []
-    for definition in PRODUCTION_PROPELLANTS.values():
-        provider_name = definition.provider_names.get(PROVIDER_ID, "")
+    for definition in (*PRODUCTION_PROPELLANTS.values(),
+                       *LIQUID_PROPELLANTS.values()):
+        provider_name, temperature_range = _provider_identity(
+            definition, PROVIDER_ID, ranges)
         options.append(PropellantOption(
             key=definition.name,
             label=_display_label(definition.name),
@@ -251,7 +262,7 @@ def propellant_options() -> tuple[PropellantOption, ...]:
             phase=str(definition.reference_phase.value),
             reference_temperature=float(definition.reference_temperature),
             provider_name=provider_name,
-            temperature_range=CEA_REACTANT_TEMPERATURE_RANGES.get(provider_name),
+            temperature_range=temperature_range,
             density_hint=(None if definition.density_hint is None
                           else float(definition.density_hint)),
             source=definition.source,
@@ -259,6 +270,35 @@ def propellant_options() -> tuple[PropellantOption, ...]:
         ))
     _options = tuple(options)
     return _options
+
+
+def _provider_identity(definition: Any, provider_id: str,
+                       ranges: Any) -> tuple[str, tuple[float, float] | None]:
+    """The provider's own name for a reactant, and the range it declares.
+
+    A pure reactant has one provider name. A blend has none of its own -- CEA
+    receives its components -- so its identity is stated as those components
+    with their fractions and the fractions' basis, read off the definition
+    rather than restated: ``"90 % H2O2(L) + 10 % H2O(L) by mass"``. A blend's
+    range is the overlap of its components' declared ranges, and is withheld
+    when any component declares none, rather than implying a bound the
+    provider never stated.
+    """
+    composition = definition.composition
+    if len(composition.entries) == 1:
+        name = definition.provider_names.get(provider_id, "")
+        return name, ranges.get(name)
+    basis = "by mass" if composition.basis.value == "mass_fraction" else "by mole"
+    ordered = sorted(composition.entries, key=lambda entry: (-entry[1], entry[0]))
+    parts = " + ".join(f"{100.0 * fraction:g} % {name}"
+                       for name, fraction in ordered)
+    bounds = [ranges.get(name) for name, _ in composition.entries]
+    overlap = None
+    if all(bound is not None for bound in bounds):
+        low = max(bound[0] for bound in bounds)
+        high = min(bound[1] for bound in bounds)
+        overlap = (low, high) if high > low else None
+    return f"{parts} {basis}", overlap
 
 
 #: Display names for the shipped set. The canonical name stays the identifier;
@@ -270,6 +310,14 @@ _DISPLAY_LABELS = {
     "LH2": "LH2 — liquid hydrogen",
     "GOX": "GOX — gaseous oxygen",
     "GCH4": "GCH4 — gaseous methane",
+    "LF2": "LF2 — liquid fluorine",
+    "NTO": "NTO — nitrogen tetroxide",
+    "HTP-90": "HTP-90 — 90 % hydrogen peroxide",
+    "N2H4": "N2H4 — hydrazine",
+    "UDMH": "UDMH — unsym. dimethylhydrazine",
+    "MMH": "MMH — monomethylhydrazine",
+    "RP-1": "RP-1 — rocket kerosene",
+    "A-50": "A-50 — 50 % UDMH + 50 % hydrazine",
 }
 
 

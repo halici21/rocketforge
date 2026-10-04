@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "record_id": "DS-TND7133",
+  "title": "NASA TN D-7133 - Mg-Al eutectic in low-burning-rate HTPB/AP/Al propellant, 10-lbm motors",
+  "kind": "PROPELLANT",
+  "source_ids": [
+    "S-NASA-TND7133"
+  ],
+  "capabilities": {
+    "VA": "REFERENCE_ONLY",
+    "VB": "VALIDATION_CANDIDATE",
+    "VC": "UNDERDEFINED",
+    "VD": "REFERENCE_ONLY"
+  },
+  "capability_notes": {
+    "VA": "Theoretical c* is tabulated per batch (Table II) from a program the report does not name, for a formulation whose binder system is lumped; held as an imported reference, not reproducible.",
+    "VB": "Tabulated motor rates at one low-pressure level per batch; strand data only in a figure; no law, no uncertainty, no temperature.",
+    "VC": "No throat diameter, no scaled Pc(t), time-varying throat from slag.",
+    "VD": "Measured c* is tabulated, but c* efficiency rests on an unnamed theoretical code; delivered c* may be displayed, not compared as 'CEA error'."
+  },
+  "propellant": {
+    "propellant_id": "P-TND7133-TABLE-I",
+    "source_ids": [
+      "S-NASA-TND7133"
+    ],
+    "family": "HTPB (R-45M system) / AP / Al (+ Mg-Al eutectic or ALCAL)",
+    "source_name": "Low-burning-rate propellant of batches 72-16, 72-17 and 72-18 (Table I)",
+    "exact_formulation": false,
+    "basis": "mass_fraction",
+    "ingredients": [
+      {
+        "source_name": "AP, 400 um",
+        "fraction": {
+          "value": 46.0,
+          "unit": "wt%",
+          "source_id": "S-NASA-TND7133",
+          "locator": "NASA TN D-7133, Table I (report p.3)",
+          "status": "REPORTED",
+          "decimals": 0
+        },
+        "provider_name": "NH4CLO4(I)",
+        "custom": null
+      },
+      {
+        "source_name": "AP, 200 um",
+        "fraction": {
+          "value": 13.0,
+          "unit": "wt%",
+          "source_id": "S-NASA-TND7133",
+          "locator": "NASA TN D-7133, Table I (report p.3)",
+          "status": "REPORTED",
+          "decimals": 0
+        },
+        "provider_name": "NH4CLO4(I)",
+        "custom": null
+      },
+      {
+        "source_name": "AP, 20 um",
+        "fraction": {
+          "value": 6.0,
+          "unit": "wt%",
+          "source_id": "S-NASA-TND7133",
+          "locator": "NASA TN D-7133, Table I (report p.3)",
+          "status": "REPORTED",
+          "decimals": 0
+        },
+        "provider_name": "NH4CLO4(I)",
+        "custom": null
+      },
+      {
+        "source_name": "Metal (by batch)",
+        "fraction": {
+          "value": 19.0,
+          "unit": "wt%",
+          "source_id": "S-NASA-TND7133",
+          "locator": "NASA TN D-7133, Table I (report p.3)",
+          "status": "REPORTED",
+          "decimals": 0,
+          "note": "Total metal as Table I prints it. The per-batch split (72-17: Al plus Mg-Al alloy; 72-18: ALCAL) is in Table I and is not carried: one formulation per record."
+        },
+        "provider_name": null,
+        "custom": null
+      },
+      {
+        "source_name": "Binder, curative and bonding agent (lumped)",
+        "fraction": {
+          "value": 16.0,
+          "unit": "wt%",
+          "source_id": "S-NASA-TND7133",
+          "locator": "NASA TN D-7133, Table I (report p.3)",
+          "status": "REPORTED",
+          "decimals": 0,
+          "note": "Lumped by the source; no individual identity, formula or enthalpy is reported."
+        },
+        "provider_name": null,
+        "custom": null
+      }
+    ],
+    "density": {
+      "missing": "NOT_REPORTED",
+      "note": "The report gives no propellant density."
+    },
+    "initial_temperature": {
+      "missing": "NOT_AUDITED",
+      "note": "No grain temperature was audited in R1."
+    }
+  },
+  "comparison_case_ids": [
+    "tnd7133-72-16-theoretical-cstar",
+    "tnd7133-72-17-theoretical-cstar",
+    "tnd7133-72-18-theoretical-cstar"
+  ],
+  "executable_key": null,
+  "blockers": [
+    "Binder, curative and bonding agent are lumped with no individual identity.",
+    "The theoretical c* program and its inputs are not named."
+  ],
+  "notes": "Downgraded by the R1 audit from a 'Gold candidate': a reference and validation candidate for low-rate motor burning rate and delivered c* only. It is not a Gold case, not source-complete for NASA CEA, and not a complete internal-ballistics case: no throat diameter (slag deposition changed the throat during firing; the final area was measured after each test) and Pc(t) only as an unscaled 'typical' figure (Figure 1). Motor 72-18-1 sized the throat and is excluded from the source's averages; 72-18-3 ignited poorly. Motor firing results (Table II, report p.9) and strand rates (Figure 3, p.8, plotted only) are cited, not carried: this record ships the formulation; firing data belong to later evidence work. Ingredient labels follow the R1 transcription of the source table; they are not a verbatim copy of its row headings."
+}

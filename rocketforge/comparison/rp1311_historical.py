@@ -24,7 +24,7 @@ record ``DS-RP1311-E5`` under source ``S-NASA-RP1311-P2-1996``.
 
 from __future__ import annotations
 
-from .cases import ReferenceCase, ReferenceQuantity, SourceKind
+from .cases import CaseOrigin, ReferenceCase, ReferenceQuantity, SourceKind
 
 __all__ = ["RP1311_EXAMPLE5_PRINT_1996"]
 
@@ -40,6 +40,8 @@ RP1311_EXAMPLE5_PRINT_1996 = ReferenceCase(
             "output; NTRS 19960044559"),
     code="NASA CEA (Fortran program documented in RP-1311 Part II, 1996)",
     code_version="not stated",
+    database_version="not stated (the thermodynamic data of that time; the print does not identify them)",
+    origin=CaseOrigin.IMPORTED,
     inputs={"example": 5, "column": "first printed column",
             "chamber_pressure": "500 psia, printed as 34.023 atm",
             "reactants": "NH4CLO4(I) 72.06, CHOS-Binder 18.58, AL(cr) 9, MgO(s) 0.2, "
