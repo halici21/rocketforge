@@ -48,6 +48,9 @@ from rocketforge.application.analysis.rayleigh_controller import RayleighControl
 from rocketforge.application.analysis.performance_controller import (
     RocketPerformanceController,
 )
+from rocketforge.application.analysis.engine_requirement_controller import (
+    EngineRequirementController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -335,6 +338,13 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     propulsion_evidence = PropulsionEvidenceController(parent, thermochemistry=thermochemistry)
     qmlRegisterSingletonInstance(PropulsionEvidenceController, QML_URI, 1, 0,
                                  "PropulsionEvidence", propulsion_evidence)
+
+    # The liquid-engine requirement (LIQ-2): design intent, not a calculation.
+    # It references the LIQ-1 propellant catalogue by key and calls no
+    # provider, physics or engineering function -- editing it solves nothing.
+    engine_requirement = EngineRequirementController(parent)
+    qmlRegisterSingletonInstance(EngineRequirementController, QML_URI, 1, 0,
+                                 "EngineRequirement", engine_requirement)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

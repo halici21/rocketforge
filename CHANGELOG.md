@@ -25,6 +25,15 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   [docs/engineering/design/SOLID_PROPELLANT_PHASE1.md](docs/engineering/design/SOLID_PROPELLANT_PHASE1.md).
 - CEA equilibrium characteristic velocity (c*) for solid formulations,
   shown with its limitations. It is not a motor Isp. Frozen c* is refused.
+- Engine Requirement (LIQ-2): a page under **Liquid Engine** that records a
+  liquid-engine requirement. It holds target thrust, the design environment
+  as an ambient pressure, burn time, and preferences for the propellant pair
+  (a LIQ-1 catalogue pair, or Auto), chamber pressure, O/F, feed architecture,
+  power cycle (pump-fed only) and design priority. It is design intent only.
+  Editing it solves nothing, and Auto choices stay open. Cycles, full-flow
+  staged combustion included, are recorded as intent with no model behind
+  them. The record round-trips as versioned JSON. See
+  [docs/engineering/design/LIQ2_ENGINE_REQUIREMENT.md](docs/engineering/design/LIQ2_ENGINE_REQUIREMENT.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.

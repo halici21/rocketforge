@@ -296,7 +296,7 @@ CONTROLLER_SINGLETONS = {
     "App", "Navigation", "Thermochemistry", "RocketPerformance", "TradeStudy",
     "FluidProperties", "Line", "Isentropic", "MassFlow", "NormalShock",
     "ObliqueShock", "Fanno", "PrandtlMeyer", "Rayleigh", "Nozzle", "MockData",
-    "AnalysisSession", "Viewport3D", "PropulsionEvidence",
+    "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
 }
 
 

@@ -77,7 +77,13 @@ QtObject {
         // notes say the numbers are the sources', and that nothing is solved.
         { key: "evidence", label: "Propulsion Database", page: "PropulsionEvidencePage.qml",
           computed: true, solverNote: "Shipped evidence records, read-only",
-          computedNote: "Source values as stored, with their locators; nothing is solved" }
+          computedNote: "Source values as stored, with their locators; nothing is solved" },
+        // Engine Requirement (LIQ-2). Design intent for a liquid engine, not a
+        // calculation: `computed` because its content comes from the backend
+        // rather than from MockData, and the notes say nothing is solved.
+        { key: "requirement", label: "Engine Requirement", page: "EngineRequirementPage.qml",
+          computed: true, solverNote: "Design intent only, nothing solved",
+          computedNote: "Target, environment and preferences; no sizing or cycle analysis" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -197,6 +203,13 @@ QtObject {
             key: "fluids", label: "Fluids and Feed", short: "FLUID", icon: "fluid",
             hasStatus: true,
             groups: [ { label: "", items: [16, 17] } ]
+        },
+        {
+            // The liquid engine being designed, starting from what is wanted
+            // of it. No persistent solve state: a requirement is not a result.
+            key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
+            hasStatus: false,
+            groups: [ { label: "", items: [19] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

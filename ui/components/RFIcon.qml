@@ -219,6 +219,18 @@ Canvas {
             ctx.bezierCurveTo(3.2, 8.6, 4.6, 6.8, 8, 3.6)
             break
 
+        case "target":
+            // Engine requirement: a target with a centre mark -- what the
+            // engine must achieve, before any of it is designed.
+            ctx.arc(8, 8, 5.8, 0, 2 * Math.PI)
+            ctx.moveTo(10.6, 8)
+            ctx.arc(8, 8, 2.6, 0, 2 * Math.PI)
+            ctx.moveTo(8, 0.8); ctx.lineTo(8, 3.4)
+            ctx.moveTo(8, 12.6); ctx.lineTo(8, 15.2)
+            ctx.moveTo(0.8, 8); ctx.lineTo(3.4, 8)
+            ctx.moveTo(12.6, 8); ctx.lineTo(15.2, 8)
+            break
+
         case "reference":
             // An open reference book with a bookmark tab on the right
             // page -- the tab distinguishes this from a generic book at
