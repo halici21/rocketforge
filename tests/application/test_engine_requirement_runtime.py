@@ -275,8 +275,9 @@ def test_editing_the_requirement_solves_nothing(run):
     assert run["edit_calls"] == 0, run["edit_call_names"]
 
 
-def test_the_page_is_its_own_rail_family(run):
-    assert run["nav_index"] >= 0 and run["family"] == [[run["nav_index"]]]
+def test_the_page_leads_its_rail_family(run):
+    # LIQ-3 added the Propellant Trade beside it; the requirement comes first.
+    assert run["nav_index"] >= 0 and run["family"][0][0] == run["nav_index"]
 
 
 def test_the_qml_controls_write_the_controller_requirement(run):

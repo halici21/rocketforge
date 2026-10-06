@@ -83,7 +83,13 @@ QtObject {
         // rather than from MockData, and the notes say nothing is solved.
         { key: "requirement", label: "Engine Requirement", page: "EngineRequirementPage.qml",
           computed: true, solverNote: "Design intent only, nothing solved",
-          computedNote: "Target, environment and preferences; no sizing or cycle analysis" }
+          computedNote: "Target, environment and preferences; no sizing or cycle analysis" },
+        // Propellant Trade (LIQ-3). Compares catalogue pairs for the current
+        // requirement through the accepted chamber and ideal-performance chain;
+        // solves only on its explicit Run action. No score, no cycle analysis.
+        { key: "propellanttrade", label: "Propellant Trade", page: "PropellantTradePage.qml",
+          computed: true, solverNote: "NASA CEA chamber · RocketForge ideal performance",
+          computedNote: "Candidate pairs at a stated operating point; no sizing or cycle analysis" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -209,7 +215,7 @@ QtObject {
             // of it. No persistent solve state: a requirement is not a result.
             key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
             hasStatus: false,
-            groups: [ { label: "", items: [19] } ]
+            groups: [ { label: "", items: [19, 20] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

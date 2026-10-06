@@ -34,6 +34,16 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   staged combustion included, are recorded as intent with no model behind
   them. The record round-trips as versioned JSON. See
   [docs/engineering/design/LIQ2_ENGINE_REQUIREMENT.md](docs/engineering/design/LIQ2_ENGINE_REQUIREMENT.md).
+- Propellant Trade (LIQ-3): compares the liquid propellant catalogue pairs
+  for the current engine requirement at a stated operating point. The
+  comparison runs through the accepted NASA CEA chamber and RocketForge
+  ideal-performance chain. It reports chamber temperature, molar mass, both
+  gammas and c*. With a stated area ratio it also reports Cf, c_eff and Isp
+  at the design ambient, plus total, oxidiser and fuel mass flow and the
+  propellant consumed. Auto values in the requirement are never filled in,
+  and nothing is scored. The user chooses a pair and can write it back to the
+  requirement. Only Run trade solves. See
+  [docs/engineering/design/LIQ3_PROPELLANT_TRADE.md](docs/engineering/design/LIQ3_PROPELLANT_TRADE.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.

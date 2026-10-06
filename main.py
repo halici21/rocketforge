@@ -51,6 +51,9 @@ from rocketforge.application.analysis.performance_controller import (
 from rocketforge.application.analysis.engine_requirement_controller import (
     EngineRequirementController,
 )
+from rocketforge.application.analysis.propellant_trade_controller import (
+    PropellantTradeController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -345,6 +348,13 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     engine_requirement = EngineRequirementController(parent)
     qmlRegisterSingletonInstance(EngineRequirementController, QML_URI, 1, 0,
                                  "EngineRequirement", engine_requirement)
+
+    # The liquid propellant trade (LIQ-3). It reads the requirement above and
+    # solves only from its explicit Run action, through the same thermochemistry
+    # and performance services as the workspaces before it.
+    propellant_trade = PropellantTradeController(engine_requirement, parent)
+    qmlRegisterSingletonInstance(PropellantTradeController, QML_URI, 1, 0,
+                                 "PropellantTrade", propellant_trade)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second
