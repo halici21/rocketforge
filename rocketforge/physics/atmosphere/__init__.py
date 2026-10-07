@@ -8,7 +8,7 @@ state; it does not reimplement any of this.
 
 Models in this build:
 
-* ``"ussa1976"`` -- U.S. Standard Atmosphere, 1976, -5 km to 80 km geometric.
+* ``"ussa1976"`` -- U.S. Standard Atmosphere, 1976, -5 km to 1000 km geometric.
 
 Pure, Qt-free, SI.
 """

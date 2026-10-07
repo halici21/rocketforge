@@ -86,6 +86,20 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   academic, non-commercial use only. No weather, flight condition or
   trajectory. See
   [docs/engineering/design/ENV1_ATMOSPHERE_FOUNDATION.md](docs/engineering/design/ENV1_ATMOSPHERE_FOUNDATION.md).
+- Flight environment foundation (ENV-3): `rocketforge/physics/flight`, a
+  Qt-free point-state calculation. From an atmosphere state and explicit
+  inputs (geometric altitude, air-relative speed and, for the Reynolds number
+  only, a characteristic length), it gives four quantities. Gravity is
+  g = GM/r², r = R + Z, with WGS 84 GM and semi-major axis; there is no J2,
+  latitude or rotation term. It also gives Mach number V/a, dynamic pressure
+  ½ρV² and Reynolds number ρVL/μ. A quantity whose atmosphere ingredient is
+  not defined has no value and carries the atmosphere's own reason. Above
+  86 km there is no Mach or Reynolds number. In vacuum q = 0, and there is no
+  Mach or Reynolds number. A manual pressure gives gravity only. The speed is
+  relative to the air, and no wind is assumed inside the physics. Results
+  round-trip through versioned JSON with provenance. No trajectory, drag,
+  lift, losses, winds or UI. See
+  [docs/engineering/design/ENV3_FLIGHT_ENVIRONMENT.md](docs/engineering/design/ENV3_FLIGHT_ENVIRONMENT.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.
