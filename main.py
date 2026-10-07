@@ -54,6 +54,9 @@ from rocketforge.application.analysis.engine_requirement_controller import (
 from rocketforge.application.analysis.propellant_trade_controller import (
     PropellantTradeController,
 )
+from rocketforge.application.analysis.chamber_sizing_controller import (
+    ChamberSizingController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -355,6 +358,12 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     propellant_trade = PropellantTradeController(engine_requirement, parent)
     qmlRegisterSingletonInstance(PropellantTradeController, QML_URI, 1, 0,
                                  "PropellantTrade", propellant_trade)
+
+    # Thrust-chamber and nozzle sizing (LIQ-4). It reads the candidate selected
+    # in the trade above and sizes only from its explicit Size action.
+    chamber_sizing = ChamberSizingController(propellant_trade, parent)
+    qmlRegisterSingletonInstance(ChamberSizingController, QML_URI, 1, 0,
+                                 "ChamberSizing", chamber_sizing)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

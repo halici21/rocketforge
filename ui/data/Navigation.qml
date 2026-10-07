@@ -89,7 +89,13 @@ QtObject {
         // solves only on its explicit Run action. No score, no cycle analysis.
         { key: "propellanttrade", label: "Propellant Trade", page: "PropellantTradePage.qml",
           computed: true, solverNote: "NASA CEA chamber · RocketForge ideal performance",
-          computedNote: "Candidate pairs at a stated operating point; no sizing or cycle analysis" }
+          computedNote: "Candidate pairs at a stated operating point; no sizing or cycle analysis" },
+        // Thrust Chamber Sizing (LIQ-4). Sizes the ideal throat and nozzle exit
+        // at the candidate selected in the trade, for a stated Ae/At; solves
+        // only on its explicit Size action. No chamber geometry or cycle.
+        { key: "chambersizing", label: "Thrust Chamber Sizing", page: "ChamberSizingPage.qml",
+          computed: true, solverNote: "NASA CEA chamber · RocketForge ideal performance",
+          computedNote: "Ideal throat and exit at the selected operating point; no chamber geometry or cycle" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -215,7 +221,7 @@ QtObject {
             // of it. No persistent solve state: a requirement is not a result.
             key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
             hasStatus: false,
-            groups: [ { label: "", items: [19, 20] } ]
+            groups: [ { label: "", items: [19, 20, 21] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

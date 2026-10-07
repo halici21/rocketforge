@@ -44,6 +44,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   and nothing is scored. The user chooses a pair and can write it back to the
   requirement. Only Run trade solves. See
   [docs/engineering/design/LIQ3_PROPELLANT_TRADE.md](docs/engineering/design/LIQ3_PROPELLANT_TRADE.md).
+- Thrust Chamber Sizing (LIQ-4): sizes the ideal thrust chamber and nozzle at
+  the candidate selected in the propellant trade. The nozzle design input is
+  an explicit Ae/At: the trade's own, or one stated for the sizing. It reports
+  total, oxidiser and fuel mass flow; throat and exit area and diameter; c*,
+  Cf (momentum and signed pressure terms), c_eff and Isp at the design
+  ambient; the exit state; and momentum, pressure and total thrust with the
+  closure against the target. The trade's chamber case is replayed through
+  the accepted CEA path and must reproduce the trade's recorded numbers bit
+  for bit. The ideal model's refusals and overexpansion notes pass through
+  unchanged. Only Size solves. No chamber geometry, L*, injector, feed,
+  cooling or cycle. See
+  [docs/engineering/design/LIQ4_THRUST_CHAMBER_SIZING.md](docs/engineering/design/LIQ4_THRUST_CHAMBER_SIZING.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.

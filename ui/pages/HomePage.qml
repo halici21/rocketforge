@@ -53,7 +53,7 @@ Item {
         "propulsion": "Ideal rocket performance from a solved chamber",
         "tradestudy": "Parametric sweeps and evaluated design spaces",
         "fluids": "Fluid states and distributed line friction",
-        "liquidengine": "Requirement and propellant trade for a liquid engine",
+        "liquidengine": "Requirement, propellant trade and ideal thrust-chamber sizing",
         "reference": "Relations the modules implement"
     })
 
