@@ -17,6 +17,7 @@ from __future__ import annotations
 import math
 
 from rocketforge.engine.requirement import (
+    DEFAULT_ATMOSPHERE_MODEL,
     STANDARD_SEA_LEVEL_PRESSURE,
     AmbientMode,
     ChamberPressureMode,
@@ -30,6 +31,7 @@ from rocketforge.engine.requirement import (
     validate_requirement,
 )
 
+from . import environment_service
 from . import thermochemistry_presets as presets
 
 __all__ = [
@@ -64,17 +66,25 @@ UNITS: dict[str, dict] = {
     "thrust": {"unit": "kN", "to_si": 1.0e3},
     "burn_time": {"unit": "s", "to_si": 1.0},
     "ambient_pressure": {"unit": "kPa", "to_si": 1.0e3},
+    "altitude": {"unit": "km", "to_si": 1.0e3},
     "chamber_pressure": {"unit": "MPa", "to_si": 1.0e6},
 }
 
 SCOPE_NOTE = (
     "Design intent only. Nothing on this page sizes the engine, trades "
     "propellants, selects a cycle or runs a calculation; Auto leaves a "
-    "decision open for later design.")
+    "decision open for later design. A stated altitude is resolved to its "
+    "standard-atmosphere state, which is closed-form and solves nothing.")
 
 
 def _option(key: str, label: str, note: str = "", **extra) -> dict:
     return {"key": str(key), "label": label, "note": note, **extra}
+
+
+#: The model an altitude is read in, with its supported range (from the
+#: atmosphere package, not restated here).
+_USSA1976 = next(m for m in environment_service.model_options()
+                 if m["key"] == DEFAULT_ATMOSPHERE_MODEL)
 
 
 AMBIENT_OPTIONS: tuple[dict, ...] = (
@@ -83,6 +93,10 @@ AMBIENT_OPTIONS: tuple[dict, ...] = (
     _option(AmbientMode.VACUUM, "Vacuum", "p_a = 0"),
     _option(AmbientMode.CUSTOM, "Custom ambient pressure",
             "An explicit ambient pressure. No altitude model is used."),
+    _option(AmbientMode.STANDARD_ATMOSPHERE, "Altitude (USSA 1976)",
+            f"A geometric altitude from {_USSA1976['minimum'] / 1e3:g} km to "
+            f"{_USSA1976['maximum'] / 1e3:g} km, resolved to pressure by the "
+            f"{_USSA1976['label']}. Not a weather or flight condition."),
 )
 
 PROPELLANT_OPTIONS: tuple[dict, ...] = (
@@ -194,8 +208,10 @@ def reference_mixture_ratio(requirement: EngineRequirement) -> float | None:
 
 
 def requirement_issues(requirement: EngineRequirement) -> tuple[RequirementIssue, ...]:
-    """The domain's issues, plus the catalogue check only this layer can make."""
+    """The domain's issues, plus the checks only this layer can make: the
+    catalogue, and an altitude's resolved atmosphere."""
     issues = list(validate_requirement(requirement))
+    issues += environment_service.environment_issues(requirement)
     key = requirement.propellant.pair_key
     if requirement.propellant.is_explicit and key.strip():
         preset = presets.preset_named(key)
@@ -253,6 +269,11 @@ def summary_rows(requirement: EngineRequirement) -> list[dict]:
         env_text += f", p_a = {_format('ambient_pressure', environment.custom_pressure)}"
     elif environment.mode is AmbientMode.SEA_LEVEL:
         env_text += f", p_a = {_format('ambient_pressure', STANDARD_SEA_LEVEL_PRESSURE)}"
+    elif environment.is_altitude:
+        env_text += f", Z = {_format('altitude', environment.altitude)}"
+        pressure = environment_service.ambient_pressure(environment)
+        if math.isfinite(pressure):
+            env_text += f", p_a = {_format('ambient_pressure', pressure)}"
     else:
         env_text += ", p_a = 0"
 

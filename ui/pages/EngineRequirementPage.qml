@@ -200,6 +200,21 @@ Item {
                                 }
                                 IssueNote { text: page.issueFor("environment") }
                             }
+                            ColumnLayout {
+                                Layout.fillWidth: false
+                                Layout.preferredWidth: 200
+                                Layout.alignment: Qt.AlignTop
+                                visible: EngineRequirement.ambientMode === "standard_atmosphere"
+                                RFNumberField {
+                                    objectName: "requirementAltitude"
+                                    Layout.fillWidth: true
+                                    label: "Altitude, geometric"
+                                    unit: EngineRequirement.units.altitude
+                                    step: 1
+                                    text: EngineRequirement.altitudeText
+                                    onEdited: EngineRequirement.setAltitude(text)
+                                }
+                            }
                             Item { Layout.fillWidth: true }
                         }
                         FieldNote {
@@ -207,6 +222,47 @@ Item {
                                       Math.max(0, page.indexOfKey(EngineRequirement.ambientOptions,
                                                                   EngineRequirement.ambientMode))].note
                         }
+                        // The resolved standard-atmosphere state (ENV-1). Every
+                        // value comes from the controller; nothing is derived here.
+                        GridLayout {
+                            objectName: "requirementAtmosphere"
+                            Layout.fillWidth: true
+                            visible: EngineRequirement.atmosphereRows.length > 0
+                            columns: 3
+                            columnSpacing: Metrics.spacing.l
+                            rowSpacing: Metrics.spacing.xs
+                            Repeater {
+                                model: EngineRequirement.atmosphereRows
+                                delegate: RowLayout {
+                                    required property var modelData
+                                    spacing: Metrics.spacing.s
+                                    Text {
+                                        text: modelData.label
+                                        color: Theme.textMuted
+                                        font.family: Typography.sans
+                                        font.pixelSize: Typography.meta
+                                    }
+                                    Text {
+                                        objectName: "requirementAtmosphereValue_" + modelData.key
+                                        text: modelData.value + (modelData.unit !== "" ? " " + modelData.unit : "")
+                                        color: Theme.text
+                                        font.family: Typography.mono
+                                        font.pixelSize: Typography.meta
+                                    }
+                                }
+                            }
+                        }
+                        // Quantities the model does not define, with its reason.
+                        Repeater {
+                            model: EngineRequirement.atmosphereRows
+                            delegate: FieldNote {
+                                required property var modelData
+                                objectName: "requirementAtmosphereReason_" + modelData.key
+                                visible: modelData.reason !== ""
+                                text: modelData.label + ": " + modelData.reason
+                            }
+                        }
+                        FieldNote { text: EngineRequirement.atmosphereSource }
                     }
 
                     RFPanel {

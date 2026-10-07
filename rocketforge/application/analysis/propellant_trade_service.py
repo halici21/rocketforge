@@ -46,6 +46,7 @@ from rocketforge.engine.requirement import (
 )
 
 from . import engine_requirement_service as requirement_service
+from . import environment_service
 from . import thermochemistry_presets as presets
 
 __all__ = [
@@ -133,7 +134,7 @@ def build_definition(requirement: EngineRequirement, settings: TradeSettings
     if not candidates and not issues:
         add("NO_CANDIDATES", "propellant", "No executable propellant pair to evaluate.")
 
-    ambient = requirement.environment.ambient_pressure
+    ambient = environment_service.ambient_pressure(requirement.environment)
     chamber = requirement.chamber_pressure
     pressure: float | None = None
     pressure_source = PressureSource.REQUIREMENT
@@ -286,7 +287,7 @@ def evaluate_candidate(definition: TradeDefinition, key: str) -> CandidateResult
             area_ratio=float(definition.area_ratio),
             ambient=performance.AmbientCondition(
                 performance.AmbientMode.CUSTOM,
-                definition.requirement.environment.ambient_pressure)))
+                environment_service.ambient_pressure(definition.requirement.environment))))
         result = outcome.result
         notes += [str(d.message) for d in outcome.diagnostics
                   if str(getattr(d, "severity", "")) == "warning"]

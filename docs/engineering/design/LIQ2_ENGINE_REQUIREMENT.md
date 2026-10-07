@@ -35,10 +35,14 @@ component.
 
 ## Decisions
 
-- **The environment is an ambient pressure.** RocketForge has no validated
-  atmosphere model, so an altitude would be a number the program cannot turn
-  into a pressure honestly. Sea level is 101 325 Pa and vacuum is 0, the same
-  names Rocket Performance uses.
+- **The environment is an ambient pressure.** RocketForge had no validated
+  atmosphere model at LIQ-2, so an altitude would have been a number the
+  program could not turn into a pressure honestly. Sea level is 101 325 Pa and
+  vacuum is 0, the same names Rocket Performance uses. *ENV-1 adds a fourth
+  source: an altitude in the U.S. Standard Atmosphere, 1976. The requirement
+  records it as intent and stays standard-library only; the application layer
+  resolves it. See
+  [ENV1_ATMOSPHERE_FOUNDATION.md](ENV1_ATMOSPHERE_FOUNDATION.md).*
 - **Auto is an open decision.** It is never resolved, ranked or recommended.
   The page lists every open decision, and open decisions do not make a
   requirement incomplete.

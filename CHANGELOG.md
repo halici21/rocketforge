@@ -68,6 +68,24 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   outside Sutton's typical range are advisories, not limits. Only Compute
   computes. No injector, pressure loss, cooling, structure or cycle. See
   [docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md](docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md).
+- Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
+  reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
+  and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to
+  1000 km geometric, from its own equations and constants, with geometric and
+  geopotential altitude kept distinct. ENV-1B adds the 80-86 km transition
+  (Table 8) and the diffusive upper atmosphere: N2, O, O2, Ar, He and H
+  integrated from the Standard's equations, with P = NkT. Above 86 km the
+  Standard defines no speed of sound or viscosity, and the state says so
+  rather than inventing them. Everything is checked against the Standard's
+  printed tables, including composition at 15 heights to 1000 km. The Engine Requirement can now state an altitude as the
+  source of its design ambient pressure. The requirement records it as
+  intent, and the application layer resolves it. Trade and sizing read the
+  resolved pressure, and an altitude gives the same results as the same
+  pressure stated manually. Requirements without an altitude are unchanged,
+  byte for byte. NRLMSIS 2.1 (ENV-2) is deferred: NRL licenses it for
+  academic, non-commercial use only. No weather, flight condition or
+  trajectory. See
+  [docs/engineering/design/ENV1_ATMOSPHERE_FOUNDATION.md](docs/engineering/design/ENV1_ATMOSPHERE_FOUNDATION.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.

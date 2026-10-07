@@ -41,6 +41,7 @@ from rocketforge.engine.requirement import (
     PropellantPreference,
 )
 
+from . import environment_service
 from . import propellant_trade_service as service
 
 __all__ = ["PropellantTradeController"]
@@ -210,7 +211,7 @@ class PropellantTradeController(QObject):
 
     @Property(str, notify=settingsChanged)
     def ambientText(self) -> str:
-        pressure = self._requirement().environment.ambient_pressure
+        pressure = environment_service.ambient_pressure(self._requirement().environment)
         return f"{pressure / 1.0e3:g} kPa (design environment)"
 
     # -- running ------------------------------------------------------------
@@ -354,7 +355,7 @@ class PropellantTradeController(QObject):
                       f"{_PRESSURE_SOURCE_TEXT[d.pressure_source]}"},
             {"label": "O/F", "value": f"{ratio} · {_RATIO_SOURCE_TEXT[d.mixture_ratio_source]}"},
             {"label": "Design ambient",
-             "value": f"{r.environment.ambient_pressure / 1.0e3:g} kPa · requirement"},
+             "value": f"{environment_service.ambient_pressure(r.environment) / 1.0e3:g} kPa · requirement"},
             {"label": "Nozzle basis", "value": nozzle},
             {"label": "c* gas reduction", "value": f"single gamma, {d.gamma_basis} basis"},
             {"label": "Mass flow basis", "value": flow},

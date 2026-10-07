@@ -4,7 +4,11 @@ Holds one immutable :class:`EngineRequirement` and republishes it as display
 values. Every setter replaces the requirement and emits one signal; **none of
 them solves anything**, because there is nothing to solve -- a requirement is
 intent, and the LIQ-2 gate deliberately stops before sizing, trading or cycle
-analysis. No provider, physics or engineering function is called from here.
+analysis. No provider or engineering function is called from here. The one
+physics call is ENV-1's: in altitude mode, reading the ambient pressure or the
+atmosphere rows resolves the stated altitude to its standard-atmosphere state,
+through ``environment_service``. That is closed-form and solves nothing.
+Vacuum, sea level and a custom pressure reach no physics at all.
 
 Persistence is the requirement's own JSON record: ``stateJson`` publishes it,
 :meth:`loadStateJson` reads one back, and the clipboard and file slots move
@@ -16,6 +20,7 @@ from __future__ import annotations
 
 import math
 import pathlib
+from dataclasses import replace
 
 from PySide6.QtCore import Property, QObject, QUrl, Signal, Slot
 from PySide6.QtGui import QGuiApplication
@@ -37,6 +42,7 @@ from rocketforge.engine.requirement import (
 )
 
 from . import engine_requirement_service as service
+from . import environment_service
 
 __all__ = ["EngineRequirementController"]
 
@@ -180,23 +186,55 @@ class EngineRequirementController(QObject):
             mode = AmbientMode(str(mode))
         except ValueError:
             return
-        environment = self._requirement.environment
-        self._update(environment=DesignEnvironment(mode, environment.custom_pressure))
+        # Every typed value (custom pressure, altitude, model) is kept.
+        self._update(environment=replace(self._requirement.environment, mode=mode))
 
     @Property(str, notify=requirementChanged)
     def ambientPressureText(self) -> str:
         """The ambient pressure the form shows: the custom value in Custom
-        mode, otherwise the named pressure the mode stands for."""
-        environment = self._requirement.environment
-        return _text("ambient_pressure", environment.ambient_pressure)
+        mode, the resolved pressure in altitude mode, otherwise the named
+        pressure the mode stands for. Empty while an altitude does not resolve."""
+        pressure = environment_service.ambient_pressure(self._requirement.environment)
+        return _text("ambient_pressure", pressure) if math.isfinite(pressure) else ""
 
     @Slot(str)
     def setAmbientPressure(self, text: str) -> None:
         ok, value = _parse(text)
         if not ok or value is None:
             return
-        self._update(environment=DesignEnvironment(
-            AmbientMode.CUSTOM, service.from_display("ambient_pressure", value)))
+        self._update(environment=replace(
+            self._requirement.environment, mode=AmbientMode.CUSTOM,
+            custom_pressure=service.from_display("ambient_pressure", value)))
+
+    @Property(str, notify=requirementChanged)
+    def altitudeText(self) -> str:
+        return _text("altitude", self._requirement.environment.altitude)
+
+    @Slot(str)
+    def setAltitude(self, text: str) -> None:
+        """State the design altitude (km, geometric). Empty clears it."""
+        ok, value = _parse(text)
+        if ok:
+            self._update(environment=replace(
+                self._requirement.environment,
+                altitude=service.from_display("altitude", value)))
+
+    @Property("QVariantList", notify=requirementChanged)
+    def atmosphereRows(self):
+        """The resolved standard-atmosphere state, in altitude mode only."""
+        environment = self._requirement.environment
+        if not environment.is_altitude:
+            return []
+        resolved = environment_service.resolve(environment).value
+        return [] if resolved is None else environment_service.state_rows(resolved)
+
+    @Property(str, notify=requirementChanged)
+    def atmosphereSource(self) -> str:
+        environment = self._requirement.environment
+        if not environment.is_altitude:
+            return ""
+        resolved = environment_service.resolve(environment).value
+        return "" if resolved is None else resolved.provenance
 
     @Property(str, notify=requirementChanged)
     def pairKey(self) -> str:

@@ -23,10 +23,14 @@ Three rules shape this module:
   layer checks the key against that catalogue. This layer cannot import it and
   does not need to.
 
-The design environment is an **ambient pressure**. RocketForge has no validated
-atmosphere model, so an altitude would be a number the program could not turn
-into a pressure honestly; vacuum and sea level are named pressures, not
-special cases.
+The design environment is stated as one of: a manual (custom) ambient
+pressure, vacuum, the standard sea-level pressure, or an altitude in a named
+standard atmosphere model (ENV-1). Vacuum and sea level stay named pressures,
+not altitudes. An altitude is **intent**: this module records it and checks
+that it is stated, but resolves nothing, because a requirement computes
+nothing. The pressure an altitude resolves to comes from
+:mod:`rocketforge.physics.atmosphere`, through the application layer's
+``environment_service``. Nothing here restates an atmosphere equation.
 
 Units are SI throughout: N, Pa, s. Display units belong to ``application``.
 """
@@ -45,7 +49,9 @@ __all__ = [
     "SCHEMA",
     "SCHEMA_VERSION",
     "STANDARD_SEA_LEVEL_PRESSURE",
+    "DEFAULT_ATMOSPHERE_MODEL",
     "AmbientMode",
+    "AmbientNotResolvedHere",
     "ChamberPressureMode",
     "ChamberPressurePreference",
     "CyclePreference",
@@ -74,6 +80,11 @@ SCHEMA_VERSION: Final = 1
 #: value Rocket Performance names "sea level".
 STANDARD_SEA_LEVEL_PRESSURE: Final = 101325.0
 
+#: The atmosphere model an altitude is read in unless another is named: the
+#: U.S. Standard Atmosphere, 1976. A key only; the model is
+#: ``rocketforge.physics.atmosphere``'s, and a test holds the two equal.
+DEFAULT_ATMOSPHERE_MODEL: Final = "ussa1976"
+
 
 class RequirementFormatError(ValueError):
     """A serialised requirement that cannot be read as one.
@@ -85,17 +96,27 @@ class RequirementFormatError(ValueError):
     """
 
 
+class AmbientNotResolvedHere(ValueError):
+    """An altitude environment's pressure was asked of the requirement itself.
+
+    It is resolved through an atmosphere model, outside this layer
+    (``application.analysis.environment_service``). Raising rather than
+    guessing means no caller can read a wrong pressure silently.
+    """
+
+
 # ---------------------------------------------------------------------------
 # the vocabulary
 # ---------------------------------------------------------------------------
 
 
 class AmbientMode(StrEnum):
-    """How the design ambient pressure was named. One number, three names."""
+    """Where the design ambient pressure comes from."""
 
     VACUUM = "vacuum"
     SEA_LEVEL = "sea_level"
-    CUSTOM = "custom"
+    CUSTOM = "custom"                            # a manual ambient pressure
+    STANDARD_ATMOSPHERE = "standard_atmosphere"  # an altitude in a named model (ENV-1)
 
 
 class PropellantMode(StrEnum):
@@ -160,23 +181,51 @@ class DesignPriority(StrEnum):
 
 @dataclass(frozen=True, slots=True)
 class DesignEnvironment:
-    """The ambient pressure the requirement's thrust is stated at.
+    """Where the requirement's thrust is stated, resolved to an ambient pressure.
 
-    ``custom_pressure`` is read only in ``CUSTOM`` mode and is kept otherwise,
-    so switching to "vacuum" and back does not lose what was typed.
+    ``custom_pressure`` is read only in ``CUSTOM`` mode, and ``altitude`` (m,
+    geometric) and ``atmosphere_model`` only in ``STANDARD_ATMOSPHERE`` mode.
+    Each is kept otherwise, so switching to "vacuum" and back does not lose
+    what was typed.
     """
 
     mode: AmbientMode = AmbientMode.SEA_LEVEL
     custom_pressure: float = STANDARD_SEA_LEVEL_PRESSURE
+    altitude: float | None = None                 # m, geometric
+    atmosphere_model: str = DEFAULT_ATMOSPHERE_MODEL
+
+    @property
+    def is_altitude(self) -> bool:
+        """Whether the pressure is resolved from an altitude in a model."""
+        return self.mode is AmbientMode.STANDARD_ATMOSPHERE
 
     @property
     def ambient_pressure(self) -> float:
-        """The design ambient pressure, in Pa."""
+        """The stated design ambient pressure, in Pa: vacuum, sea level or custom.
+
+        An altitude environment raises :class:`AmbientNotResolvedHere`: its
+        pressure comes from an atmosphere model, which this layer does not
+        reach. Read it through ``environment_service.ambient_pressure``.
+        """
         if self.mode is AmbientMode.VACUUM:
             return 0.0
         if self.mode is AmbientMode.SEA_LEVEL:
             return STANDARD_SEA_LEVEL_PRESSURE
-        return float(self.custom_pressure)
+        if self.mode is AmbientMode.CUSTOM:
+            return float(self.custom_pressure)
+        raise AmbientNotResolvedHere(
+            "An altitude environment is resolved through an atmosphere model; read "
+            "its pressure through application.analysis.environment_service.")
+
+    def to_dict(self) -> dict[str, Any]:
+        """The record. Altitude and model appear only once an altitude is in
+        use, so a record without one is byte-identical to the pre-ENV-1 form."""
+        record: dict[str, Any] = {"mode": self.mode.value,
+                                  "custom_pressure_Pa": self.custom_pressure}
+        if self.mode is AmbientMode.STANDARD_ATMOSPHERE or self.altitude is not None:
+            record["altitude_m"] = self.altitude
+            record["atmosphere_model"] = self.atmosphere_model
+        return record
 
 
 @dataclass(frozen=True, slots=True)
@@ -309,8 +358,7 @@ class EngineRequirement:
             "version": SCHEMA_VERSION,
             "name": self.name,
             "thrust_N": self.thrust,
-            "environment": {"mode": self.environment.mode.value,
-                            "custom_pressure_Pa": self.environment.custom_pressure},
+            "environment": self.environment.to_dict(),
             "burn_time_s": self.burn_time,
             "propellant": {"mode": self.propellant.mode.value,
                            "pair_key": self.propellant.pair_key},
@@ -352,7 +400,12 @@ class EngineRequirement:
                 environment=DesignEnvironment(
                     mode=AmbientMode(environment["mode"]),
                     custom_pressure=_number(environment["custom_pressure_Pa"],
-                                            "environment.custom_pressure_Pa")),
+                                            "environment.custom_pressure_Pa"),
+                    altitude=_optional_number(environment.get("altitude_m"),
+                                              "environment.altitude_m"),
+                    atmosphere_model=_text(
+                        environment.get("atmosphere_model", DEFAULT_ATMOSPHERE_MODEL),
+                        "environment.atmosphere_model")),
                 burn_time=_optional_number(payload.get("burn_time_s"), "burn_time_s"),
                 propellant=PropellantPreference(
                     mode=PropellantMode(propellant["mode"]),
@@ -440,6 +493,17 @@ def validate_requirement(requirement: EngineRequirement) -> tuple[RequirementIss
             add("AMBIENT_PRESSURE_INVALID", "environment",
                 "A custom ambient pressure must be finite and at or above zero. "
                 "Zero is vacuum.")
+    elif environment.is_altitude:
+        # Stated-ness only. The model's range and the chamber-versus-ambient
+        # check need the resolved pressure, and are the application layer's.
+        ambient_ok = False
+        if environment.altitude is None:
+            add("ALTITUDE_MISSING", "environment", "State the design altitude.")
+        elif not math.isfinite(environment.altitude):
+            add("ALTITUDE_INVALID", "environment", "The design altitude must be finite.")
+        if not environment.atmosphere_model.strip():
+            add("ATMOSPHERE_MODEL_MISSING", "environment",
+                "Name the atmosphere model the altitude is read in.")
 
     if requirement.burn_time is None:
         add("BURN_TIME_MISSING", "burn_time", "State the required burn time.")

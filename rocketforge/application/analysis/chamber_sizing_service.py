@@ -46,6 +46,8 @@ from rocketforge.engine.chamber_sizing import (
 )
 from rocketforge.engine.propellant_trade import TradeResult
 
+from . import environment_service
+
 __all__ = [
     "DISPLAY",
     "GROUPS",
@@ -116,7 +118,7 @@ def operating_point(result: TradeResult | None, stale: bool
         oxidiser_temperature=candidate.oxidiser_temperature,
         fuel_temperature=candidate.fuel_temperature,
         gamma_basis=d.gamma_basis,
-        ambient_pressure=requirement.environment.ambient_pressure,
+        ambient_pressure=environment_service.ambient_pressure(requirement.environment),
         thrust=float(requirement.thrust),
         trade_area_ratio=d.area_ratio,
         recorded=dict(candidate.metrics),
