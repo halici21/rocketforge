@@ -60,6 +60,9 @@ from rocketforge.application.analysis.chamber_sizing_controller import (
 from rocketforge.application.analysis.chamber_geometry_controller import (
     ChamberGeometryController,
 )
+from rocketforge.application.analysis.injector_controller import (
+    InjectorController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -373,6 +376,12 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     chamber_geometry = ChamberGeometryController(chamber_sizing, parent)
     qmlRegisterSingletonInstance(ChamberGeometryController, QML_URI, 1, 0,
                                  "ChamberGeometry", chamber_geometry)
+
+    # Injector hydraulics and feed pressure budget (LIQ-6). It reads the
+    # accepted sizing's flows and computes only from its explicit Compute action.
+    injector = InjectorController(chamber_sizing, parent)
+    qmlRegisterSingletonInstance(InjectorController, QML_URI, 1, 0,
+                                 "Injector", injector)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

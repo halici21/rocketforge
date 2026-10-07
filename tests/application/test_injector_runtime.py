@@ -1,0 +1,387 @@
+"""LIQ-6 in the running application: only Compute computes.
+
+The real shell is started in a subprocess with every public function of the
+layers below ``application`` and every service entry point wrapped in a
+counter, plus both provider gateways' probes (thermochemistry and fluid
+properties). The injector relations live in ``rocketforge.engineering`` and
+are therefore counted. Then:
+
+1. **positive control** -- a real Isentropic solve registers calls;
+2. **setup** -- a requirement, a one-pair trade at Ae/At 40 and a sizing,
+   through their own controllers (needs NASA CEA);
+3. **browsing** -- open Injector & Feed Pressure, type, clear and retype the
+   inputs through the real fields, switch a density source to the fluid model
+   and back, change theme and size, leave and return: **zero** calls;
+4. **Compute** -- the real button: the orifice relation once per branch and no
+   provider call (stated densities);
+5. **after computing** -- theme, re-entry and a new nozzle stated on the sizing
+   page compute nothing, and the result reads as stale;
+6. **negative control** -- another real solve registers calls again.
+"""
+from __future__ import annotations
+
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import time
+
+import pytest
+
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[2]
+LOWER = ("rocketforge.physics", "rocketforge.engineering", "rocketforge.engine",
+         "rocketforge.providers", "rocketforge.comparison")
+# The liquid-engine data modules hold state the controllers compare
+# (fingerprints); they are records, not solvers.
+EXCLUDED = ("rocketforge.engine.requirement", "rocketforge.engine.propellant_trade",
+            "rocketforge.engine.chamber_sizing", "rocketforge.engine.chamber_geometry",
+            "rocketforge.engine.injector")
+GATEWAYS = {"rocketforge.application.analysis.thermochemistry_provider":
+            ("availability", "chamber_provider", "_cea_module"),
+            "rocketforge.application.analysis.fluid_property_provider":
+            ("availability", "property_provider")}
+ORIFICE = "rocketforge.engineering.injector.hydraulics.orifice_sizing"
+FORBIDDEN_TEXT = ("Best", "Optimal", "Optimum", "Recommended", "Score", "Feasible",
+                  "is stable", "stable combustion")
+
+
+def _drive() -> dict:
+    sys.path.insert(0, str(PROJECT_ROOT))
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    if sys.platform == "win32":
+        os.environ.setdefault("QT_QPA_FONTDIR", "C:/Windows/Fonts")
+    import functools
+    import importlib
+    import inspect
+    import pkgutil
+    import re
+
+    import rocketforge
+
+    for info in pkgutil.walk_packages(rocketforge.__path__, "rocketforge."):
+        try:
+            importlib.import_module(info.name)
+        except Exception:
+            pass
+
+    service_module = re.compile(r"^rocketforge\.application\.analysis\.\w+_(service|provider)$")
+    entry = re.compile(r"^(solve|generate|run|evaluate|compute|calculate|reanalyse)")
+    calls: dict[str, int] = {}
+
+    def wrap(original, key):
+        @functools.wraps(original)
+        def counted(*args, **kwargs):
+            calls[key] = calls.get(key, 0) + 1
+            return original(*args, **kwargs)
+        return counted
+
+    wrappers: dict[int, object] = {}
+    for name, module in list(sys.modules.items()):
+        if module is None or name in EXCLUDED:
+            continue
+        lower, service = name.startswith(LOWER), bool(service_module.match(name))
+        if not (lower or service):
+            continue
+        for attr, value in list(vars(module).items()):
+            if inspect.isfunction(value) and value.__module__ == name:
+                probe = attr in GATEWAYS.get(name, ())
+                if service and not entry.search(attr) and not probe:
+                    continue
+                wrappers[id(value)] = wrap(value, f"{name}.{attr}")
+            elif lower and inspect.isclass(value) and value.__module__ == name:
+                for method, fn in list(vars(value).items()):
+                    if inspect.isfunction(fn) and not method.startswith("__"):
+                        setattr(value, method, wrap(fn, f"{name}.{attr}.{method}"))
+    for name, module in list(sys.modules.items()):
+        if module is None or not (name.startswith("rocketforge") or name == "main"):
+            continue
+        for attr, value in list(vars(module).items()):
+            if inspect.isfunction(value) and id(value) in wrappers:
+                setattr(module, attr, wrappers[id(value)])
+
+    from PySide6.QtCore import QCoreApplication, QEvent, QMetaObject, QtMsgType, QUrl
+    from PySide6.QtCore import qInstallMessageHandler
+    from PySide6.QtGui import QGuiApplication
+    from PySide6.QtQml import QQmlComponent
+
+    import main as app_main
+
+    warnings: list[str] = []
+    qInstallMessageHandler(lambda kind, _c, message: warnings.append(str(message))
+                           if kind in (QtMsgType.QtWarningMsg, QtMsgType.QtCriticalMsg) else None)
+    app_main.configure_application()
+    app = QGuiApplication.instance() or QGuiApplication(sys.argv[:1])
+    engine, _env = app_main.build_engine(app)
+    engine.load(QUrl.fromLocalFile(str(app_main.UI_DIR / "Main.qml")))
+    window = engine.rootObjects()[0]
+    window.setProperty("width", 1920); window.setProperty("height", 1080)
+    probe = QQmlComponent(engine)
+    probe.setData(b'import QtQuick\nimport RocketForge 1.0\nimport "data" as D\n'
+                  b'QtObject { property var nav: D.Navigation; property var iso: Isentropic;'
+                  b' property var req: EngineRequirement; property var trade: PropellantTrade;'
+                  b' property var sizing: ChamberSizing; property var inj: Injector }',
+                  QUrl.fromLocalFile(str(app_main.UI_DIR / "_injector_runtime.qml")))
+    holder = probe.create()
+    nav, iso, req, trade, sizing, inj = (holder.property(n) for n in
+                                         ("nav", "iso", "req", "trade", "sizing", "inj"))
+
+    def settle(seconds=0.3):
+        end = time.perf_counter() + seconds
+        while time.perf_counter() < end:
+            app.processEvents()
+            QCoreApplication.sendPostedEvents(None, QEvent.Type.DeferredDelete)
+            time.sleep(0.005)
+
+    def items(root=None):
+        out, stack = [], [root or window.contentItem()]
+        while stack:
+            node = stack.pop()
+            for child in node.childItems():
+                out.append(child)
+                stack.append(child)
+        return out
+
+    def named(name):
+        found = [i for i in items() if i.objectName() == name]
+        return found[0] if found else None
+
+    def type_into(name, text):
+        field = named(name)
+        field.setProperty("text", text)
+        QMetaObject.invokeMethod(field, "edited"); settle()
+
+    def total():
+        return sum(calls.values())
+
+    def texts(prefix):
+        return {i.objectName()[len(prefix):]: i.property("text") for i in items()
+                if i.objectName().startswith(prefix)}
+
+    out: dict = {"wrapped": len(wrappers)}
+    settle(0.8)
+    calls.clear()
+    iso.setMachAndSolve(2.5); settle()
+    out["positive_control_calls"] = total()
+
+    # 1. setup: requirement, trade, sizing through their own controllers
+    req.setThrust("1000"); req.setBurnTime("200"); req.setPair("sutton-o2-ch4"); settle()
+    trade.setStudyPressure("10"); trade.setRatioMode("catalogue")
+    trade.setPerformanceBasis("ideal_area_ratio"); trade.setAreaRatio("40")
+    trade.runTrade()
+    deadline = time.perf_counter() + 120
+    settle(0.2)
+    while trade.property("busy") and time.perf_counter() < deadline:
+        settle(0.1)
+    trade.selectCandidate("sutton-o2-ch4"); settle()
+    if sizing.property("canSize"):
+        sizing.runSizing(); settle()
+    out["sizing_ok"] = sizing.property("resultOk")
+
+    # 2. browsing
+    calls.clear()
+    index = nav.indexOfKey("injector")
+    out["nav_index"] = index
+    families = nav.property("families")
+    out["family"] = [f["groups"][0]["items"] for f in families.toVariant()
+                     if f["key"] == "liquidengine"] if hasattr(families, "toVariant") else []
+    window.setProperty("currentPageIndex", index); settle(0.8)
+    out["status_before"] = named("injectorStatus").property("text")
+    out["issues_before"] = [i.property("text") for i in items()
+                            if i.objectName() == "injectorIssue"]
+    out["basis_before"] = [i.property("text") for i in items()
+                           if i.objectName() == "injectorBasis"]
+    out["run_enabled_empty"] = named("injectorRun").property("enabled")
+    type_into("injector_oxidiser_dp", "30"); type_into("injector_oxidiser_dp", "")
+    type_into("injector_oxidiser_dp", "20"); type_into("injector_oxidiser_cd", "0.8")
+    type_into("injector_oxidiser_density", "1141")
+    type_into("injector_fuel_dp", "15"); type_into("injector_fuel_cd", "0.75")
+    type_into("injector_fuel_density", "422.6")
+    inj.setDensitySource("oxidiser", "fluid_model"); settle()
+    out["fluid_supported"] = inj.property("oxidiserState")["fluidModelSupported"]
+    inj.setDensitySource("oxidiser", "stated"); settle()
+    inj.setHoleMode("fuel", "hole_count"); settle()
+    type_into("injector_fuel_holeCount", "48")
+    inj.setLossMode("fuel", "cooling_jacket_loss", "stated"); settle()
+    type_into("injector_fuel_value_cooling_jacket_loss", "12")
+    inj.setLossMode("oxidiser", "cooling_jacket_loss", "not_applicable"); settle()
+    out["stated"] = {k: inj.property("oxidiserState")[k] for k in
+                     ("pressureDropText", "dischargeCoefficientText", "densityText")}
+    out["fuel_jacket"] = inj.property("fuelState")["losses"][2]["valueText"]
+    out["run_enabled_stated"] = named("injectorRun").property("enabled")
+    for theme in ("dark", "light"):
+        window.setProperty("themeMode", theme); settle(0.3)
+    for w, h in ((1366, 768), (1920, 1080)):
+        window.setProperty("width", w); window.setProperty("height", h); settle(0.3)
+    window.setProperty("currentPageIndex", nav.indexOfKey("home")); settle(0.4)
+    window.setProperty("currentPageIndex", index); settle(0.5)
+    out["browse_calls"] = dict(calls)
+
+    # 3. Compute, the real button
+    calls.clear()
+    if named("injectorRun").property("enabled"):
+        QMetaObject.invokeMethod(named("injectorRun"), "clicked"); settle(0.6)
+    out["has_result"] = inj.property("hasResult")
+    out["status_after"] = named("injectorStatus").property("text")
+    out["message"] = inj.property("message")
+    out["orifice_calls"] = calls.get(ORIFICE, 0)
+    out["provider_calls"] = {k: n for k, n in calls.items()
+                             if k.startswith(("rocketforge.providers",) + tuple(GATEWAYS))}
+    out["values"] = texts("injector_oxidiser_Value_")
+    out["fuel_values"] = texts("injector_fuel_Value_")
+    out["ledger"] = texts("injector_fuel_ledgerValue_")
+    out["pair"] = texts("injectorPairValue_")
+    if out["has_result"] and inj.result().ok:
+        r = inj.result()
+        out["quantities"] = {"ox": dict(r.oxidiser.quantities), "fuel": dict(r.fuel.quantities),
+                             "pair": dict(r.pair)}
+        out["sizing_flows"] = [sizing.result().value(k) for k in
+                               ("oxidiser_mass_flow", "fuel_mass_flow", "mass_flow")]
+        out["chamber_pressure"] = sizing.result().definition.point.chamber_pressure
+
+    if os.environ.get("RF_INJECTOR_CAPTURE"):
+        target = pathlib.Path(os.environ["RF_INJECTOR_CAPTURE"])
+        for w, h, theme, suffix in ((1920, 1080, "light", ""), (1366, 768, "light", "_1366"),
+                                    (1920, 1080, "dark", "_dark")):
+            window.setProperty("themeMode", theme)
+            window.setProperty("width", w); window.setProperty("height", h); settle(0.6)
+            window.grabWindow().save(str(target.with_stem(target.stem + suffix)))
+        scroll = named("injectorScroll")
+        scroll.setProperty("contentY", max(0.0, scroll.property("contentHeight")
+                                           - scroll.property("height"))); settle(0.4)
+        window.grabWindow().save(str(target.with_stem(target.stem + "_results")))
+        scroll.setProperty("contentY", 0.0)
+        window.setProperty("themeMode", "light")
+        window.setProperty("width", 1920); window.setProperty("height", 1080); settle(0.3)
+
+    # 4. after computing: theme, re-entry and a change on the sizing page compute nothing
+    calls.clear()
+    for theme in ("dark", "light"):
+        window.setProperty("themeMode", theme); settle(0.3)
+    window.setProperty("currentPageIndex", nav.indexOfKey("home")); settle(0.4)
+    window.setProperty("currentPageIndex", index); settle(0.5)
+    out["stale_before_change"] = inj.property("resultStale")
+    sizing.setAreaRatio("25"); settle()
+    out["stale_after_change"] = inj.property("resultStale")
+    out["status_after_change"] = named("injectorStatus").property("text")
+    out["issues_after_change"] = [i.property("text") for i in items()
+                                  if i.objectName() == "injectorIssue"]
+    out["after_run_calls"] = dict(calls)
+    out["page_instances"] = sum(1 for i in items() if i.objectName() == "injectorStatus")
+
+    roots = [i for i in items() if i.metaObject().className().startswith("InjectorPage")]
+    page_texts = [str(i.property("text")) for r in roots for i in items(r)
+                  if i.property("text") is not None]
+    out["forbidden_text"] = sorted({p for p in FORBIDDEN_TEXT for t in page_texts if p in t})
+
+    calls.clear()
+    iso.setMachAndSolve(3.0); settle()
+    out["negative_control_calls"] = total()
+    out["warnings"] = warnings
+    return out
+
+
+def _run() -> dict:
+    completed = subprocess.run(
+        [sys.executable, str(pathlib.Path(__file__).resolve())], cwd=PROJECT_ROOT,
+        env=dict(os.environ, QT_QPA_PLATFORM="offscreen", PYTHONUNBUFFERED="1"),
+        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=400)
+    assert completed.returncode == 0, completed.stderr[-3000:]
+    lines = [line for line in completed.stdout.splitlines() if line.startswith("RESULT ")]
+    assert lines, completed.stdout[-2000:] + completed.stderr[-2000:]
+    return json.loads(lines[-1][len("RESULT "):])
+
+
+@pytest.fixture(scope="module")
+def run():
+    return _run()
+
+
+def _cea_installed() -> bool:
+    from rocketforge.application.analysis.thermochemistry_provider import availability
+
+    return availability().usable
+
+
+def test_the_instrument_is_live(run):
+    assert run["wrapped"] > 200
+    assert run["positive_control_calls"] > 0 and run["negative_control_calls"] > 0
+
+
+def test_browsing_and_editing_compute_nothing(run):
+    assert run["browse_calls"] == {}, run["browse_calls"]
+    assert run["after_run_calls"] == {}, run["after_run_calls"]
+
+
+def test_the_page_sits_in_the_liquid_engine_family(run):
+    assert run["nav_index"] >= 0
+    if run["family"]:
+        assert run["nav_index"] in run["family"][0]
+
+
+def test_the_inputs_are_read_through_the_real_fields(run):
+    assert run["status_before"] == "Not computed"
+    assert run["stated"] == {"pressureDropText": "20", "dischargeCoefficientText": "0.8",
+                             "densityText": "1141"}
+    assert run["fuel_jacket"] == "12"
+    if not _cea_installed():
+        assert run["run_enabled_stated"] is False
+        assert any("No thrust-chamber sizing" in t for t in run["issues_before"])
+        return
+    assert run["sizing_ok"] is True and run["fluid_supported"] is True
+    assert run["run_enabled_empty"] is False
+    assert any("State the oxidiser injector pressure drop" in t for t in run["issues_before"])
+    assert run["run_enabled_stated"] is True
+    assert any("kg/s" in t for t in run["basis_before"])
+
+
+def test_compute_is_the_only_computation(run):
+    if not _cea_installed():
+        assert not run["has_result"]
+        return
+    assert run["orifice_calls"] == 2, run["orifice_calls"]
+    assert run["provider_calls"] == {}, run["provider_calls"]
+    assert run["has_result"] and run["status_after"] == "Computed", run["message"]
+
+
+def test_the_rendered_result_closes_on_the_liq4_flows(run):
+    if not _cea_installed():
+        return
+    import math
+
+    q = run["quantities"]
+    mo, mf, m = run["sizing_flows"]
+    pc = run["chamber_pressure"]
+    assert q["ox"]["mass_flow"] == mo and q["fuel"]["mass_flow"] == mf
+    assert q["ox"]["flow_area"] == pytest.approx(mo / (0.8 * math.sqrt(2 * 1141 * 20e5)),
+                                                 rel=1e-14)
+    assert abs(q["pair"]["oxidiser_fuel_ratio_closure"]) < 1e-13
+    assert q["pair"]["total_mass_flow"] == pytest.approx(m, rel=1e-13)
+    assert run["values"]["flow_area"] == f"{q['ox']['flow_area'] * 1e6:,.4f}"
+    assert run["values"]["pressure_drop"] == "20.0000"
+    assert run["values"]["required_pressure"] == "—"
+    assert run["values"]["minimum_known_pressure"] == f"{(pc + 20e5) / 1e5:,.4f}"
+    assert run["fuel_values"]["hole_count"] == "48"
+    assert run["ledger"]["cooling_jacket_loss"] == "12.0000"
+    assert run["ledger"]["feed_line_loss"] == "UNRESOLVED"
+    assert set(run["pair"]) == {"total_mass_flow", "oxidiser_fuel_ratio",
+                                "oxidiser_fuel_ratio_closure", "total_mass_flow_closure"}
+
+
+def test_a_change_upstream_makes_the_study_stale(run):
+    if not _cea_installed():
+        return
+    assert run["stale_before_change"] is False
+    assert run["stale_after_change"] is True
+    assert run["status_after_change"].startswith("Stale")
+    assert any("sizing is stale" in t for t in run["issues_after_change"])
+
+
+def test_no_warning_no_verdict_text_and_no_accumulating_pages(run):
+    assert run["warnings"] == [], run["warnings"]
+    assert run["forbidden_text"] == []
+    assert run["page_instances"] == 1
+
+
+if __name__ == "__main__":
+    print("RESULT " + json.dumps(_drive(), default=str), flush=True)

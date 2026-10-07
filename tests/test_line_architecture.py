@@ -146,7 +146,10 @@ def test_the_chamber_pressure_scan_would_catch_a_substitution():
 
 # --- scope ---------------------------------------------------------------
 
-@pytest.mark.parametrize("name", ["valve", "orifice", "injector", "pump",
+# ``engineering.injector`` exists since LIQ-6, which owns the injector orifice
+# hydraulics and branch pressure ledger; it was created by that gate, not by the
+# line. The other neighbours still have no package.
+@pytest.mark.parametrize("name", ["valve", "orifice", "pump",
                                   "turbine", "cooling", "tank",
                                   "heat_exchanger"])
 def test_no_neighbouring_component_was_created(name):
@@ -297,7 +300,7 @@ CONTROLLER_SINGLETONS = {
     "FluidProperties", "Line", "Isentropic", "MassFlow", "NormalShock",
     "ObliqueShock", "Fanno", "PrandtlMeyer", "Rayleigh", "Nozzle", "MockData",
     "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
-    "PropellantTrade", "ChamberSizing", "ChamberGeometry",
+    "PropellantTrade", "ChamberSizing", "ChamberGeometry", "Injector",
 }
 
 

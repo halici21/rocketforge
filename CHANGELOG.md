@@ -68,6 +68,28 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   outside Sutton's typical range are advisories, not limits. Only Compute
   computes. No injector, pressure loss, cooling, structure or cycle. See
   [docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md](docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md).
+- Injector & Feed Pressure (LIQ-6): takes an accepted sizing's oxidiser and
+  fuel flows. For each branch it gives the total injector orifice area,
+  A = ṁ/(Cd√(2ρΔp)), and the injection velocity, v = Cd√(2Δp/ρ) (Sutton
+  §8.1, Eqs. 8-1, 8-2, 8-5). Optionally it splits the area into equal holes
+  from a stated count or diameter, reporting the exact count, the whole-hole
+  count and the Δp that whole count gives. Δp, Cd and density have no
+  default. Density is stated, or taken from the validated CoolProp model for
+  LOX, LCH4 and LH2 at the stream temperature and p1 + Δp. That model is
+  liquid-phase only, so a supercritical inlet is refused with its reason. The
+  pair closes O/F (Eq. 8-3) and total flow against LIQ-4. Each branch also
+  has a pressure ledger (Sutton Eqs. 10-7, 11-6, 11-7). It holds chamber
+  pressure, injector Δp, feed line, valves, cooling jacket, dynamic head ½ρv²
+  (stated or from a line diameter), other losses and margin. Each term is
+  stated, not applicable or unresolved, and unresolved is never zero. The
+  ledger always gives the minimum known upstream pressure, and gives the
+  required pressure only when it is complete. Δp/p1 is shown as
+  stability-relevant; stability is not evaluated. Sutton's §8.9 worked example
+  prints areas √2 larger than its own Eq. 8-2; the equations are followed and
+  the discrepancy is recorded. Only Compute computes. No element design,
+  atomization, efficiency, stability, pumps, tanks, cooling channels or cycle.
+  See
+  [docs/engineering/design/LIQ6_INJECTOR_FEED_PRESSURE.md](docs/engineering/design/LIQ6_INJECTOR_FEED_PRESSURE.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to

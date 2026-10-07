@@ -239,8 +239,10 @@ def test_the_chamber_pressure_scan_would_catch_the_substitution():
 #: been removed because the next roadmap step -- `06` §8 step 2 -- implemented
 #: it, gated on the methane transport validation the fluids foundation left
 #: open. The rule is narrowed to the components that are *still* out of scope,
-#: not weakened: everything else it forbade, it still forbids.
-@pytest.mark.parametrize("name", ["valve", "orifice", "injector",
+#: not weakened: everything else it forbade, it still forbids. ``injector`` was
+#: removed the same way when LIQ-6 implemented the injector orifice hydraulics
+#: and branch pressure ledger.
+@pytest.mark.parametrize("name", ["valve", "orifice",
                                   "pump", "turbine", "cooling", "tank"])
 def test_no_fluid_device_module_was_created(name):
     assert not (PACKAGE_ROOT / "engineering" / name).exists(), (
@@ -251,6 +253,15 @@ def test_no_fluid_device_module_was_created(name):
 def test_the_line_component_exists_and_is_the_step_that_created_it():
     """The counterpart to the narrowing above: line is present, deliberately."""
     assert (PACKAGE_ROOT / "engineering" / "line").is_dir()
+
+
+def test_the_injector_component_exists_and_is_the_step_that_created_it():
+    """The same counterpart for LIQ-6: injector is present, deliberately, and
+    holds hydraulics and a pressure ledger only -- no device beyond it."""
+    package = PACKAGE_ROOT / "engineering" / "injector"
+    assert package.is_dir()
+    assert sorted(p.name for p in package.glob("*.py")) == [
+        "__init__.py", "hydraulics.py", "pressure_budget.py"]
 
 
 def test_no_device_correlation_vocabulary_appears_in_the_new_modules():
