@@ -56,6 +56,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   unchanged. Only Size solves. No chamber geometry, L*, injector, feed,
   cooling or cycle. See
   [docs/engineering/design/LIQ4_THRUST_CHAMBER_SIZING.md](docs/engineering/design/LIQ4_THRUST_CHAMBER_SIZING.md).
+- Combustion Chamber Geometry (LIQ-5): extends an accepted sizing's throat
+  upstream to a cylindrical chamber with a conical convergent, from a stated
+  L*, contraction ratio Ac/At and converging half-angle. None of the three
+  has a default. It reports chamber volume (L* · At, injector face to
+  throat), chamber area and diameter, convergent length and volume, cylinder
+  length and volume, injector-face-to-throat length, and the closures. The
+  convergent uses the exact frustum volume: Sutton Eq. 8-8 is printed
+  without its factor 1/3. A convergent larger than the chamber volume is
+  refused, with the smallest L* that would fit. Ac/At below 3 and L*
+  outside Sutton's typical range are advisories, not limits. Only Compute
+  computes. No injector, pressure loss, cooling, structure or cycle. See
+  [docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md](docs/engineering/design/LIQ5_COMBUSTION_CHAMBER_GEOMETRY.md).
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.

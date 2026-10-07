@@ -57,6 +57,9 @@ from rocketforge.application.analysis.propellant_trade_controller import (
 from rocketforge.application.analysis.chamber_sizing_controller import (
     ChamberSizingController,
 )
+from rocketforge.application.analysis.chamber_geometry_controller import (
+    ChamberGeometryController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -364,6 +367,12 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     chamber_sizing = ChamberSizingController(propellant_trade, parent)
     qmlRegisterSingletonInstance(ChamberSizingController, QML_URI, 1, 0,
                                  "ChamberSizing", chamber_sizing)
+
+    # Combustion-chamber geometry (LIQ-5). It extends the accepted sizing's
+    # throat upstream and computes only from its explicit Compute action.
+    chamber_geometry = ChamberGeometryController(chamber_sizing, parent)
+    qmlRegisterSingletonInstance(ChamberGeometryController, QML_URI, 1, 0,
+                                 "ChamberGeometry", chamber_geometry)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

@@ -297,7 +297,7 @@ CONTROLLER_SINGLETONS = {
     "FluidProperties", "Line", "Isentropic", "MassFlow", "NormalShock",
     "ObliqueShock", "Fanno", "PrandtlMeyer", "Rayleigh", "Nozzle", "MockData",
     "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
-    "PropellantTrade", "ChamberSizing",
+    "PropellantTrade", "ChamberSizing", "ChamberGeometry",
 }
 
 

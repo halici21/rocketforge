@@ -95,7 +95,13 @@ QtObject {
         // only on its explicit Size action. No chamber geometry or cycle.
         { key: "chambersizing", label: "Thrust Chamber Sizing", page: "ChamberSizingPage.qml",
           computed: true, solverNote: "NASA CEA chamber · RocketForge ideal performance",
-          computedNote: "Ideal throat and exit at the selected operating point; no chamber geometry or cycle" }
+          computedNote: "Ideal throat and exit at the selected operating point; no chamber geometry or cycle" },
+        // Combustion Chamber Geometry (LIQ-5). Extends the sized throat upstream
+        // to a cylinder + conical convergent from stated L*, Ac/At and
+        // half-angle; computes only on its explicit Compute action.
+        { key: "chambergeometry", label: "Combustion Chamber Geometry", page: "ChamberGeometryPage.qml",
+          computed: true, solverNote: "RocketForge chamber geometry · Sutton §8.2",
+          computedNote: "Chamber volume, diameter and lengths from stated L*, Ac/At and half-angle; no injector, cooling or cycle" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -221,7 +227,7 @@ QtObject {
             // of it. No persistent solve state: a requirement is not a result.
             key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
             hasStatus: false,
-            groups: [ { label: "", items: [19, 20, 21] } ]
+            groups: [ { label: "", items: [19, 20, 21, 22] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",
