@@ -45,23 +45,21 @@ expansion only, not a solved contour.*
   thrust-chamber and nozzle sizing, and chamber geometry, to injector orifice
   hydraulics with a pressure ledger for each branch. The model is ideal: no
   cooling, pump or cycle.
-- **Propulsion System.** The stage around the engine. The propellant
-  inventory gives usable, residual, reserved and loaded propellant per
-  branch, from a stated expulsion efficiency or residual mass and stated
-  allowances. Tank sizing and packaging gives each branch's liquid, ullage
-  and tank volume and the internal geometry of a sphere or a cylinder with
-  hemispherical or ellipsoidal domes, from a stated diameter or length. It
-  refuses a geometry that cannot hold the load; it does no wall or
-  structural sizing. Propellant management records how each outlet is kept
-  covered (settled, diaphragm, bladder, piston, bellows or a surface-tension
-  device) as a stated, consistency-checked declaration with the liquid and
-  gas volumes through the burn; full slosh dynamics are not modelled.
-  Tank pressurization covers regulated stored gas (pressurant mass and
-  bottle volume, Sutton Eqs. 6-5 to 6-7) and blowdown (pressure evolution
-  and end-of-burn margin) with a perfect gas; autogenous and warm-gas
-  pressurization are recorded as future work only.
-  Nothing is defaulted, and an unknown term stays unresolved rather than
-  becoming zero.
+- **Propulsion System.** The stage around the engine, built on the liquid
+  engine chain. Nothing is defaulted, and an unknown term stays unresolved
+  rather than becoming zero.
+  - *Propellant inventory:* usable, residual, reserved and loaded
+    propellant per branch.
+  - *Tank sizing and packaging:* liquid, ullage and tank volume, and the
+    internal geometry of a sphere or a cylinder with hemispherical or
+    ellipsoidal domes. No wall or structural sizing.
+  - *Propellant management:* how each outlet is kept covered, as a stated
+    and checked declaration. Full slosh dynamics are not modelled.
+  - *Tank pressurization:* regulated stored gas and blowdown, with a perfect
+    gas. Autogenous and warm-gas pressurization are future work.
+  - *Feed network:* pressure losses from tank outlet to injector inlet,
+    closed against the injector ledger without counting a loss twice. No
+    cavitation, transients, pumps, turbopumps or engine cycles.
 - **Engine Design.** A topology editor for engine component networks with
   typed ports and structural checks. No physics is wired into it yet (see
   [Known limitations](#known-limitations)).

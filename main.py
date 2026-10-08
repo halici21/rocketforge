@@ -75,6 +75,9 @@ from rocketforge.application.analysis.propellant_management_controller import (
 from rocketforge.application.analysis.tank_pressurization_controller import (
     TankPressurizationController,
 )
+from rocketforge.application.analysis.feed_network_controller import (
+    FeedNetworkController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -419,6 +422,12 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     tank_pressurization = TankPressurizationController(propellant_management, injector, parent)
     qmlRegisterSingletonInstance(TankPressurizationController, QML_URI, 1, 0,
                                  "TankPressurization", tank_pressurization)
+
+    # Liquid feed network (SYS-5). It reads the tank pressurization and the
+    # injector ledger and computes only from its Compute action.
+    feed_network = FeedNetworkController(tank_pressurization, injector, parent)
+    qmlRegisterSingletonInstance(FeedNetworkController, QML_URI, 1, 0,
+                                 "FeedNetwork", feed_network)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second

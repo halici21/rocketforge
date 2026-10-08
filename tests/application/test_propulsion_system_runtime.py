@@ -91,6 +91,16 @@ PAGES = [
       ("fuel.required_pressure", "number", "150"),
       ("fuel.initial_pressure", "number", "400"),
       ("fuel.initial_temperature", "number", "290")]),
+    ("feednetwork", "feed", "FeedNetwork",
+     "rocketforge.engineering.propulsion_system.feed_network.solve_feed_branch",
+     [(f"{b}.{k}", kind, v) for b in ("oxidiser", "fuel") for k, kind, v in (
+         ("density_source", "choice", "injector"), ("viscosity", "number", "0.2"),
+         ("dynamic_head", "choice", "replaced"), ("other_loss", "choice", "carried"),
+         ("add", "action", "pipe"), ("c0.length", "number", "4"),
+         ("c0.diameter", "number", "80"), ("c0.roughness", "number", "1.5"),
+         ("add", "action", "valve"), ("c1.loss_coefficient", "number", "1.5"),
+         ("c1.diameter", "number", "80"), ("add", "action", "velocity_head"),
+         ("c2.diameter", "number", "80"))]),
 ]
 
 
@@ -458,6 +468,19 @@ def test_pressurization_renders_eq_6_7_and_the_blowdown(run):
                                                            rel=1e-13)
     vi, vf = mgmt["fuel"]["gas_volume_start"], mgmt["fuel"]["gas_volume_end"]
     assert q["fuel"]["final_pressure"] == pytest.approx(400e5 * (vi / vf) ** 1.4, rel=1e-13)
+
+
+def test_feed_network_closes_without_counting_liq6_feed_terms(run):
+    if not _cea_installed():
+        return
+    page = run["pages"]["feednetwork"]
+    for branch in ("oxidiser", "fuel"):
+        b = page["quantities"][branch]
+        assert abs(b["pressure_closure"]) < 1e-14
+        assert page["ledger"][branch]["liq6_feed_line_loss"] == "excluded"
+        assert page["ledger"][branch]["liq6_valve_loss"] == "excluded"
+        assert b["liq6_required"] - b["inlet_required"] == pytest.approx(8.5e5 - 1e5,
+                                                                         rel=1e-12)
 
 
 def test_a_change_upstream_makes_every_sys_result_stale(run):

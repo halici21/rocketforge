@@ -121,7 +121,10 @@ QtObject {
           computedNote: "Management intent, outlet-coverage declaration and liquid/gas volumes; no slosh dynamics" },
         { key: "tankpressurization", label: "Tank Pressurization", page: "TankPressurizationPage.qml",
           computed: true, solverNote: "RocketForge tank pressurization · Sutton §6.4, §6.5",
-          computedNote: "Regulated stored gas and blowdown with a perfect gas; autogenous and warm gas are intent only" }
+          computedNote: "Regulated stored gas and blowdown with a perfect gas; autogenous and warm gas are intent only" },
+        { key: "feednetwork", label: "Feed Network", page: "FeedNetworkPage.qml",
+          computed: true, solverNote: "RocketForge feed network · engineering.line, Sutton Eqs. 11-6, 11-7",
+          computedNote: "Series line losses from tank outlet to injector inlet; no cavitation, transients or pumps" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -254,7 +257,7 @@ QtObject {
             // management, pressurization and feed lines (SYS gates).
             key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
             hasStatus: false,
-            groups: [ { label: "", items: [24, 25, 26, 27] } ]
+            groups: [ { label: "", items: [24, 25, 26, 27, 28] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

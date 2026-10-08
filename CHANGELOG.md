@@ -151,6 +151,21 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   compressibility, heat transfer, boil-off, regulator dynamics and
   pressurant lines are not modelled. See
   [docs/engineering/design/SYS4_TANK_PRESSURIZATION.md](docs/engineering/design/SYS4_TANK_PRESSURIZATION.md).
+- Feed Network (SYS-5): each branch's liquid line from the tank outlet to
+  the injector inlet is an explicit series of components. Pipes use the
+  Darcy friction factor of `engineering.line` (none in the transition band);
+  local losses, valves and check valves use K ρv²/2 with K stated (no Cv
+  conventions); filters and explicit losses take a stated Δp; static head is
+  ρ a Δz with a stated sign convention; the velocity head ρv²/2 is the
+  injector-inlet boundary; unknown components stay unresolved. The
+  injector inlet needs the LIQ-6 terms downstream of it. LIQ-6's feed-line
+  and valve terms are always replaced and recorded as excluded, the dynamic
+  head and other terms are carried or replaced as stated, and carrying the
+  dynamic head beside a velocity-head component is refused, so no loss is
+  counted twice. The tank-outlet requirement is closed against each SYS-4
+  tank pressure. Two-phase flow, cavitation and NPSH, transients, valve
+  dynamics, pumps and cooling channels are not modelled. See
+  [docs/engineering/design/SYS5_FEED_NETWORK.md](docs/engineering/design/SYS5_FEED_NETWORK.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to
