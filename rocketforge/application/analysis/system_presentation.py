@@ -75,9 +75,10 @@ def ledger_rows(outcome: BranchOutcome) -> list[dict[str, str]]:
 
 
 def label_rows(outcome: BranchOutcome, labels: Sequence[tuple[str, str]]) -> list[dict[str, str]]:
-    """Named states, in order: ``labels`` is (key, label)."""
+    """Named states, in order: ``labels`` is (key, label). The whole text is
+    also the row's note, so a long declaration reads in full on hover."""
     return [{"key": key, "label": label, "value": outcome.labels.get(key, "—"), "unit": "",
-             "note": "", "reason": "", "status": "resolved"}
+             "note": outcome.labels.get(key, ""), "reason": "", "status": "resolved"}
             for key, label in labels if key in outcome.labels]
 
 

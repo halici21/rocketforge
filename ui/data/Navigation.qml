@@ -115,7 +115,10 @@ QtObject {
           computedNote: "Usable, residual, reserved and loaded propellant per branch; no tanks or cycle flows" },
         { key: "tankgeometry", label: "Tank Geometry & Packaging", page: "TankGeometryPage.qml",
           computed: true, solverNote: "RocketForge tank geometry · Sutton §6.2",
-          computedNote: "Liquid, ullage and tank volume and internal sphere or capsule geometry; no wall, mass or insulation" }
+          computedNote: "Liquid, ullage and tank volume and internal sphere or capsule geometry; no wall, mass or insulation" },
+        { key: "propellantmanagement", label: "Propellant Management", page: "PropellantManagementPage.qml",
+          computed: true, solverNote: "RocketForge propellant management · Sutton §6.2",
+          computedNote: "Management intent, outlet-coverage declaration and liquid/gas volumes; no slosh dynamics" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -248,7 +251,7 @@ QtObject {
             // management, pressurization and feed lines (SYS gates).
             key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
             hasStatus: false,
-            groups: [ { label: "", items: [24, 25] } ]
+            groups: [ { label: "", items: [24, 25, 26] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

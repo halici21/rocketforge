@@ -272,7 +272,7 @@ def test_the_propulsion_system_package_holds_only_the_accepted_sys_gates():
     package = PACKAGE_ROOT / "engineering" / "propulsion_system"
     assert package.is_dir()
     assert sorted(p.name for p in package.glob("*.py")) == [
-        "__init__.py", "inventory.py", "tank_geometry.py"]
+        "__init__.py", "inventory.py", "propellant_management.py", "tank_geometry.py"]
 
 
 def test_no_device_correlation_vocabulary_appears_in_the_new_modules():

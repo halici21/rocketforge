@@ -122,6 +122,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   shape, diameter or optimum is chosen. Internal geometry only: no wall,
   MEOP, mass, insulation, common bulkhead or boil-off. See
   [docs/engineering/design/SYS2_TANK_GEOMETRY_PACKAGING.md](docs/engineering/design/SYS2_TANK_GEOMETRY_PACKAGING.md).
+- Propellant Management (SYS-3): from the current SYS-1 inventory and the
+  SYS-2 tanks built on it, each branch states its management mode (settled
+  free surface, diaphragm, bladder, piston, bellows or surface-tension
+  PMD), its acceleration environment and its settling intent. Outlet
+  coverage is a declaration with its basis, never a demonstration (Sutton
+  §6.2). A settled free surface in low gravity with no settling is
+  refused; an unstated environment is unresolved; low-gravity feed is never
+  claimed from geometry. The expulsion efficiency and residual stay SYS-1's
+  and are never assigned from a device type (Table 6-2 is qualitative). The
+  liquid and gas volumes from loading to the end of the burn are booked
+  and closed. Full slosh dynamics are not modelled. See
+  [docs/engineering/design/SYS3_PROPELLANT_MANAGEMENT.md](docs/engineering/design/SYS3_PROPELLANT_MANAGEMENT.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to

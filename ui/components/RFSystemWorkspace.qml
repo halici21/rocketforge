@@ -164,7 +164,7 @@ Item {
                     visible: f.visible
                     spacing: 2
                     RFNumberField {
-                        objectName: ws.prefix + "_" + cell.f.key
+                        objectName: cell.f.kind === "number" ? ws.prefix + "_" + cell.f.key : ""
                         Layout.fillWidth: true
                         visible: cell.f.kind === "number"
                         label: cell.f.label
@@ -174,7 +174,7 @@ Item {
                         onEdited: ws.controller.setField(cell.f.key, text)
                     }
                     RFComboBox {
-                        objectName: ws.prefix + "_" + cell.f.key
+                        objectName: cell.f.kind === "choice" ? ws.prefix + "_" + cell.f.key : ""
                         Layout.fillWidth: true
                         visible: cell.f.kind === "choice"
                         label: cell.f.label
@@ -185,12 +185,20 @@ Item {
                         }
                     }
                     RFTextField {
-                        objectName: ws.prefix + "_" + cell.f.key
+                        objectName: cell.f.kind === "text" ? ws.prefix + "_" + cell.f.key : ""
                         Layout.fillWidth: true
                         visible: cell.f.kind === "text"
                         label: cell.f.label
                         text: cell.f.text
                         onEdited: ws.controller.setText(cell.f.key, text)
+                    }
+                    Text {
+                        Layout.fillWidth: true
+                        visible: cell.f.kind === "note"
+                        text: cell.f.label
+                        color: Theme.textSecondary
+                        font.family: Typography.sans
+                        font.pixelSize: Typography.meta
                     }
                     Note { text: cell.f.note }
                 }

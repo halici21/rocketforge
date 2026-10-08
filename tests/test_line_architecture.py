@@ -301,7 +301,7 @@ CONTROLLER_SINGLETONS = {
     "ObliqueShock", "Fanno", "PrandtlMeyer", "Rayleigh", "Nozzle", "MockData",
     "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
     "PropellantTrade", "ChamberSizing", "ChamberGeometry", "Injector",
-    "PropellantInventory", "PropellantTanks",
+    "PropellantInventory", "PropellantTanks", "PropellantManagement",
 }
 
 

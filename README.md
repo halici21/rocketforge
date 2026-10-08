@@ -52,8 +52,12 @@ expansion only, not a solved contour.*
   and tank volume and the internal geometry of a sphere or a cylinder with
   hemispherical or ellipsoidal domes, from a stated diameter or length. It
   refuses a geometry that cannot hold the load; it does no wall or
-  structural sizing. Nothing is defaulted, and an unknown term stays
-  unresolved rather than becoming zero.
+  structural sizing. Propellant management records how each outlet is kept
+  covered (settled, diaphragm, bladder, piston, bellows or a surface-tension
+  device) as a stated, consistency-checked declaration with the liquid and
+  gas volumes through the burn; full slosh dynamics are not modelled.
+  Nothing is defaulted, and an unknown term stays unresolved rather than
+  becoming zero.
 - **Engine Design.** A topology editor for engine component networks with
   typed ports and structural checks. No physics is wired into it yet (see
   [Known limitations](#known-limitations)).

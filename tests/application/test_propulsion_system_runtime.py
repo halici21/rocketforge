@@ -65,6 +65,13 @@ PAGES = [
       ("fuel.ullage", "number", "5"), ("fuel.shape", "choice", "cylinder_ellipsoidal"),
       ("fuel.sizing_mode", "choice", "stated_diameter"), ("fuel.diameter", "number", "4"),
       ("fuel.dome_ratio", "number", "0.7071")]),
+    ("propellantmanagement", "management", "PropellantManagement",
+     "rocketforge.engineering.propulsion_system.propellant_management.management_state",
+     [("oxidiser.mode", "choice", "settled"), ("oxidiser.environment", "choice", "accelerated"),
+      ("oxidiser.settling", "choice", "not_required"),
+      ("fuel.mode", "choice", "diaphragm"), ("fuel.environment", "choice", "low_gravity"),
+      ("fuel.settling", "choice", "not_required"),
+      ("fuel.settling_acceleration", "number", "0.05")]),
 ]
 
 
@@ -204,6 +211,22 @@ def _drive() -> dict:
     if sizing.property("canSize"):
         sizing.runSizing(); settle()
     out["sizing_ok"] = sizing.property("resultOk")
+    # The injector, with a complete ledger, for the feed network's closure.
+    for b, dp, cd, rho in (("oxidiser", "20", "0.8", "1141"), ("fuel", "15", "0.75", "422.6")):
+        inj.setValue(b, "pressure_drop", dp); inj.setValue(b, "discharge_coefficient", cd)
+        inj.setValue(b, "density", rho)
+        for term, mode, value in (("feed_line_loss", "stated", "5"), ("valve_loss", "stated", "2"),
+                                  ("cooling_jacket_loss", "not_applicable", ""),
+                                  ("dynamic_head", "stated", "0.5"),
+                                  ("other_loss", "not_applicable", ""),
+                                  ("margin", "stated", "1")):
+            inj.setLossMode(b, term, mode)
+            if value:
+                inj.setLossValue(b, term, value)
+    settle()
+    if inj.property("canCompute"):
+        inj.computeInjector(); settle()
+    out["injector_ok"] = inj.property("resultOk")
 
     families = nav.property("families")
     family = ([f["groups"][0]["items"] for f in families.toVariant()
@@ -229,6 +252,13 @@ def _drive() -> dict:
                 typed.append(type_into(f"{prefix}_{field}", "123"))
                 type_into(f"{prefix}_{field}", "")
                 typed.append(type_into(f"{prefix}_{field}", value))
+            elif kind == "text":
+                typed.append(type_into(f"{prefix}_{field}", value))
+            elif kind == "action":
+                button = named(f"{prefix}_action_{field}_{value}")
+                typed.append(button is not None)
+                if button is not None:
+                    QMetaObject.invokeMethod(button, "clicked"); settle(0.1)
             else:
                 c.setChoice(field, value); settle(0.05)
         page["typed_all"] = all(typed)
@@ -240,6 +270,7 @@ def _drive() -> dict:
         window.setProperty("currentPageIndex", index); settle(0.5)
         page["browse_calls"] = dict(calls)
         page["run_enabled"] = named(prefix + "Run").property("enabled")
+        page["issues_after_typing"] = [i["message"] for i in c.property("issues")]
 
         calls.clear()
         if page["run_enabled"]:
@@ -252,6 +283,8 @@ def _drive() -> dict:
                                   if k.startswith(("rocketforge.providers",) + tuple(GATEWAYS))}
         page["values"] = {b: texts(f"{prefix}_{b}_Value_") for b in ("oxidiser", "fuel")}
         page["totals"] = texts(prefix + "TotalValue_")
+        page["labels"] = {b: texts(f"{prefix}_{b}_labelValue_") for b in ("oxidiser", "fuel")}
+        page["ledger"] = {b: texts(f"{prefix}_{b}_ledgerValue_") for b in ("oxidiser", "fuel")}
         if page["has_result"] and c.result().ok:
             r = c.result()
             page["quantities"] = {"oxidiser": dict(r.oxidiser.quantities),
@@ -350,7 +383,8 @@ def test_compute_is_the_only_computation(run, key):
     assert run["sizing_ok"] is True
     assert page["relation_calls"] >= 2, page
     assert page["provider_calls"] == {}, page["provider_calls"]
-    assert page["has_result"] and page["status_after"] == "Computed", page["message"]
+    assert page["has_result"] and page["status_after"].startswith("Computed"), page["message"]
+    assert "incomplete" not in page["status_after"], page["message"]
 
 
 def test_the_inventory_renders_its_closed_masses(run):
@@ -379,6 +413,20 @@ def test_the_tanks_render_volumes_that_hold_the_inventory(run):
     assert fu["diameter"] == 4.0 and fu["barrel_length"] > 0.0
     assert abs(fu["volume_closure"]) < 1e-14
     assert page["values"]["oxidiser"]["tank_volume"] == f"{ox['tank_volume']:,.6f}"
+
+
+def test_management_declares_and_closes_its_volumes(run):
+    if not _cea_installed():
+        return
+    page = run["pages"]["propellantmanagement"]
+    for branch in ("oxidiser", "fuel"):
+        b = page["quantities"][branch]
+        assert b["gas_volume_end"] + b["residual_volume"] == pytest.approx(b["tank_volume"],
+                                                                           rel=1e-14)
+    labels = page["labels"]
+    assert labels["oxidiser"]["outlet_availability"].startswith("Declared: settled")
+    assert labels["fuel"]["outlet_availability"].startswith("Declared: positive-expulsion")
+    assert page["quantities"]["fuel"]["settling_acceleration"] == 0.05
 
 
 def test_a_change_upstream_makes_every_sys_result_stale(run):
