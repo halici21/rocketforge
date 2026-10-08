@@ -1,0 +1,332 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-F-1",
+ "configuration": "F-1 (Saturn V S-IC), configuration of the Rocketdyne slide",
+ "schematic_ids": [
+  "SCH-DB05-F1-BIGGS-SCHEM"
+ ],
+ "text_sources": [
+  "SRC-DB05-NTRS-20100027316",
+  "SRC-DB05-NTRS-19750063889"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "turbine exhaust manifold geometry (not drawn)",
+   "4-way control valve and checkout valve",
+   "gas generator igniters and exhaust igniters",
+   "thrust chamber prefill (ethylene glycol) system",
+   "purge systems",
+   "helium supply to the heat exchanger (stage)"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-TP-LOX",
+   "component_type": "pump",
+   "label": "LOX pump (dual discharge centrifugal)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-TP-FUEL",
+   "component_type": "pump",
+   "label": "Fuel pump (dual discharge centrifugal)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-TP-TURB",
+   "component_type": "turbine",
+   "label": "Two-stage impulse turbine",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "id": "N-MOV1",
+   "component_type": "valve",
+   "label": "Main Oxidizer Valve No.1",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-MOV2",
+   "component_type": "valve",
+   "label": "Main Oxidizer Valve No.2",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-MFV1",
+   "component_type": "valve",
+   "label": "Main Fuel Valve No.1",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-MFV2",
+   "component_type": "valve",
+   "label": "Main Fuel Valve No.2",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-GG",
+   "component_type": "gas_generator",
+   "label": "Gas Generator (with dual ball valve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-HYP",
+   "component_type": "igniter",
+   "label": "Hypergol Manifold",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-HEX",
+   "component_type": "heat_exchanger",
+   "label": "Heat Exchanger (on turbine exhaust)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber / injector",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "id": "N-TC-COOL",
+   "component_type": "cooling_jacket",
+   "label": "Regen tubes to epsilon 10",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "id": "N-NOZEXT",
+   "component_type": "nozzle_extension",
+   "label": "Gas-cooled nozzle extension (epsilon 10 to 16)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "id": "N-STAGE-PRESS",
+   "component_type": "tank_pressurization_port",
+   "label": "LOX and helium for stage tank pressurization",
+   "subsystem": "stage",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.4-5"
+  },
+  {
+   "id": "N-HYDRAULIC",
+   "component_type": "actuator_supply",
+   "label": "RP-1 hydraulic power to engine valves and vehicle TVC actuators",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-TP-LOX",
+   "to": "N-MOV1",
+   "fluid": "LOX",
+   "role": "discharge 1 (split_group O1)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-TP-LOX",
+   "to": "N-MOV2",
+   "fluid": "LOX",
+   "role": "discharge 2 (split_group O1)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-MOV1",
+   "to": "N-TC",
+   "fluid": "LOX",
+   "role": "main oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-MOV2",
+   "to": "N-TC",
+   "fluid": "LOX",
+   "role": "main oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-TP-LOX",
+   "to": "N-GG",
+   "fluid": "LOX",
+   "role": "GG oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-MFV1",
+   "fluid": "RP-1",
+   "role": "discharge 1 (split_group F1)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-MFV2",
+   "fluid": "RP-1",
+   "role": "discharge 2 (split_group F1)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-MFV1",
+   "to": "N-TC-COOL",
+   "fluid": "RP-1",
+   "role": "fuel to thrust chamber",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-MFV2",
+   "to": "N-TC-COOL",
+   "fluid": "RP-1",
+   "role": "fuel to thrust chamber",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-TC-COOL",
+   "to": "N-TC",
+   "fluid": "RP-1",
+   "role": "coolant to injector",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-GG",
+   "fluid": "RP-1",
+   "role": "GG fuel",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-HYP",
+   "fluid": "RP-1",
+   "role": "fuel pushes hypergol into chamber",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-HYP",
+   "to": "N-TC",
+   "fluid": "hypergol + RP-1",
+   "role": "ignition",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-GG",
+   "to": "N-TP-TURB",
+   "fluid": "hot gas",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; MSFC-MAN-503 p.4-5"
+  },
+  {
+   "from": "N-TP-TURB",
+   "to": "N-HEX",
+   "fluid": "hot gas",
+   "role": "turbine exhaust through heat exchanger",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.4-5"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-NOZEXT",
+   "fluid": "hot gas",
+   "role": "turbine exhaust injected at epsilon 10 through skirt extension; film-cools extension",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text p.4; MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-NOZEXT",
+   "to": "N-AMB",
+   "fluid": "turbine exhaust",
+   "role": "exhaust",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 text pp.4-5; MSFC-MAN-503 pp.4-4..4-5"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-STAGE-PRESS",
+   "fluid": "GOX / warm helium",
+   "role": "stage tank pressurization",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.4-5"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-HYDRAULIC",
+   "fluid": "RP-1",
+   "role": "hydraulic working fluid",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027316 PDF p.16, slide 'F-1 Engine Basic Features' (F1-7.ppt); MSFC-MAN-503 p.4-4"
+  },
+  {
+   "from": "N-TP-TURB",
+   "to": "N-TP-LOX",
+   "fluid": "none",
+   "role": "mechanical_shaft (single shaft)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; text p.4"
+  },
+  {
+   "from": "N-TP-TURB",
+   "to": "N-TP-FUEL",
+   "fluid": "none",
+   "role": "mechanical_shaft (single shaft)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027316 slide 'F-1 Engine Schematic'; text p.4"
+  }
+ ],
+ "note": "'HEX -> nozzle extension' order follows MSFC-MAN-503 (heated by turbopump exhaust) and Biggs (exhaust into nozzle at 10:1); not drawn on the slide."
+}

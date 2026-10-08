@@ -1,0 +1,332 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-LMDE",
+ "configuration": "LM descent propulsion system, final design (variable-area injector)",
+ "schematic_ids": [
+  "SCH-DB05-LMDE-TND7143-F3",
+  "SCH-DB05-LMDE-TND7143-F7"
+ ],
+ "text_sources": [
+  "SRC-NASA-TND7143"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "burst disks, relief valves and squib valves",
+   "propellant gaging",
+   "pilot valves / actuator pressure lines (fuel-actuated SOV)",
+   "thrust neutralizers (vents)",
+   "filters",
+   "which fuel-feed point the HEX bypass rejoins (drawn only)"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-SHE",
+   "component_type": "pressurant_tank",
+   "label": "Supercritical helium tank (with internal He-He heat exchanger)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-AHE",
+   "component_type": "pressurant_tank",
+   "label": "Ambient helium start tank",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-FHEX",
+   "component_type": "heat_exchanger",
+   "label": "Fuel-helium heat exchanger (two helium passes)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-REG",
+   "component_type": "regulator",
+   "label": "Pressure regulators (parallel legs)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-SOL",
+   "component_type": "valve",
+   "label": "Latching solenoid valves",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-QCV",
+   "component_type": "check_valve",
+   "label": "Quad check valves",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-OX-TANKS",
+   "component_type": "tank",
+   "label": "Oxidizer tanks (2)",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-FU-TANKS",
+   "component_type": "tank",
+   "label": "Fuel tanks (2)",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-TRIM",
+   "component_type": "orifice",
+   "label": "Trim orifice",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "id": "N-FCV",
+   "component_type": "valve",
+   "label": "Flow-control valves (variable-area cavitating venturi)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-TCA",
+   "component_type": "actuator",
+   "label": "Thrust-control actuator (links FCVs and injector sleeve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-SOV",
+   "component_type": "valve",
+   "label": "Propellant shutoff valve assembly (parallel-series ball valves)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Variable-area pintle injector (fixed pintle, adjustable sleeve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-FILM",
+   "component_type": "orifice",
+   "label": "Fixed-fuel orifice for cooling chamber wall",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Ablative combustion chamber (to 16:1)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "id": "N-NOZ",
+   "component_type": "nozzle_extension",
+   "label": "Radiation-cooled columbium skirt (16:1 to 47.5:1)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7143 pp.4-10"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7143 pp.4-10"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-SHE",
+   "to": "N-FHEX",
+   "fluid": "He",
+   "role": "helium heating (first and second pass)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3; p.4"
+  },
+  {
+   "from": "N-AHE",
+   "to": "N-REG",
+   "fluid": "He",
+   "role": "start pressurant (as drawn)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-FHEX",
+   "to": "N-REG",
+   "fluid": "He",
+   "role": "warmed helium to regulators",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 3; p.4"
+  },
+  {
+   "from": "N-REG",
+   "to": "N-SOL",
+   "fluid": "He",
+   "role": "regulated pressurant",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-SOL",
+   "to": "N-QCV",
+   "fluid": "He",
+   "role": "regulated pressurant",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-QCV",
+   "to": "N-OX-TANKS",
+   "fluid": "He",
+   "role": "ullage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-QCV",
+   "to": "N-FU-TANKS",
+   "fluid": "He",
+   "role": "ullage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-OX-TANKS",
+   "to": "N-TRIM",
+   "fluid": "N2O4",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-TRIM",
+   "to": "N-FCV",
+   "fluid": "N2O4",
+   "role": "engine feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-FU-TANKS",
+   "to": "N-FCV",
+   "fluid": "A-50",
+   "role": "engine feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-FU-TANKS",
+   "to": "N-FHEX",
+   "fluid": "A-50",
+   "role": "fuel bypass line through heat exchanger",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-FHEX",
+   "to": "N-FCV",
+   "fluid": "A-50",
+   "role": "bypass return to fuel feed (as drawn)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 3"
+  },
+  {
+   "from": "N-FCV",
+   "to": "N-SOV",
+   "fluid": "propellants",
+   "role": "throttled flow",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "from": "N-SOV",
+   "to": "N-INJ",
+   "fluid": "propellants",
+   "role": "to injector manifolds",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7; p.10"
+  },
+  {
+   "from": "N-SOV",
+   "to": "N-FILM",
+   "fluid": "A-50",
+   "role": "fuel film for wall cooling",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "from": "N-FILM",
+   "to": "N-TC",
+   "fluid": "A-50",
+   "role": "wall film",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "hypergolic injection",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-NOZ",
+   "fluid": "combustion gas",
+   "role": "expansion",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7143 pp.4-10"
+  },
+  {
+   "from": "N-NOZ",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7143 pp.4-10"
+  },
+  {
+   "from": "N-TCA",
+   "to": "N-FCV",
+   "fluid": "none",
+   "role": "mechanical linkage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  },
+  {
+   "from": "N-TCA",
+   "to": "N-INJ",
+   "fluid": "none",
+   "role": "mechanical linkage to adjustable orifice sleeve",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7143 Fig. 7"
+  }
+ ],
+ "note": "Two figures combined: Fig. 3 (stage) and Fig. 7 (engine valves/injector). Throttling is by variable-area cavitating venturis ganged with the injector sleeve."
+}

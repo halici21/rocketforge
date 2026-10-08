@@ -1,0 +1,379 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-H-1-188K",
+ "configuration": "H-1 188,000 lb, Saturn I SA-10 inboard engine",
+ "schematic_ids": [
+  "SCH-DB05-H1-SA10-F31"
+ ],
+ "text_sources": [
+  "SRC-NTRS-19650013470"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "GN2 purge network (shown, not modelled)",
+   "drain manifolds B44/B47",
+   "fuel bleed-back orifice B48 to suction",
+   "Conax valve B2 shutdown path",
+   "outboard engine aspirator B27 and hydraulic system",
+   "position of the heat exchanger in the turbine exhaust (drawn near exhaust; heating medium not stated in text)"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-TP-LOX",
+   "component_type": "pump",
+   "label": "LOX pump (B8)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-TP-FUEL",
+   "component_type": "pump",
+   "label": "Fuel pump (B8)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-GEARBOX",
+   "component_type": "gearbox",
+   "label": "Turbopump gearbox (B8)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "SDES-64-415 Vol. VIII §1.2 (PDF pp.5-10)"
+  },
+  {
+   "id": "N-TURB",
+   "component_type": "turbine",
+   "label": "Two-stage turbine (B19)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-SPGG",
+   "component_type": "start_cartridge",
+   "label": "Solid propellant gas generator (B20)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-LPGG",
+   "component_type": "gas_generator",
+   "label": "Liquid propellant gas generator (B22)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-LPGG-CV",
+   "component_type": "valve",
+   "label": "LPGG control valve assembly (B23)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-ORIF-B4",
+   "component_type": "orifice",
+   "label": "Fuel discharge orifice (B4)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-MFV",
+   "component_type": "valve",
+   "label": "Main fuel valve (B39)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-MLV",
+   "component_type": "valve",
+   "label": "Main LOX valve (B49)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-FIV",
+   "component_type": "valve",
+   "label": "Fuel igniter valve (B46)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-HYP",
+   "component_type": "igniter",
+   "label": "Hypergol cartridge / igniter (B2 area)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-FABU",
+   "component_type": "lubricant_blender",
+   "label": "Fuel additive blender unit (B15)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-TC-COOL",
+   "component_type": "cooling_jacket",
+   "label": "Thrust chamber tubes (292, down/up)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "SDES-64-415 Vol. VIII §1.2 (PDF pp.5-10)"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Injector (fuel/LOX alternate rings)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber (B28)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-HEX",
+   "component_type": "heat_exchanger",
+   "label": "Heat exchanger assembly (B30)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-LOX-TANK-PRESS",
+   "component_type": "tank_pressurization_port",
+   "label": "Inflight LOX tank pressurization (via check valve B173)",
+   "subsystem": "stage",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "id": "N-OVBD",
+   "component_type": "ambient",
+   "label": "Overboard (lube drain, turbine exhaust)",
+   "subsystem": "ambient",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-ORIF-B4",
+   "fluid": "RP-1",
+   "role": "fuel discharge (968 -> 930 psia callouts)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-ORIF-B4",
+   "to": "N-MFV",
+   "fluid": "RP-1",
+   "role": "main fuel",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-MFV",
+   "to": "N-TC-COOL",
+   "fluid": "RP-1",
+   "role": "fuel manifold -> down tubes -> return manifold -> up tubes",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.1.1, §1.2.2.3"
+  },
+  {
+   "from": "N-TC-COOL",
+   "to": "N-INJ",
+   "fluid": "RP-1",
+   "role": "fuel injector manifold",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-FABU",
+   "fluid": "RP-1",
+   "role": "branch to blender (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-FABU",
+   "to": "N-GEARBOX",
+   "fluid": "RP-1 + Oronite 262",
+   "role": "gearbox lube and cooling",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.1.5"
+  },
+  {
+   "from": "N-GEARBOX",
+   "to": "N-OVBD",
+   "fluid": "lubricant",
+   "role": "lube drain via relief valve B13",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-FIV",
+   "fluid": "RP-1",
+   "role": "primary ignition branch (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-FIV",
+   "to": "N-HYP",
+   "fluid": "RP-1",
+   "role": "pushes hypergol to injector face",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.1.1"
+  },
+  {
+   "from": "N-HYP",
+   "to": "N-TC",
+   "fluid": "hypergol",
+   "role": "ignition",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.1.1"
+  },
+  {
+   "from": "N-TP-FUEL",
+   "to": "N-MLV",
+   "fluid": "RP-1",
+   "role": "MLV opening control pressure via orifice B1 (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-TP-LOX",
+   "to": "N-MLV",
+   "fluid": "LOX",
+   "role": "LOX discharge (880 psia callout)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-MLV",
+   "to": "N-INJ",
+   "fluid": "LOX",
+   "role": "LOX dome and injector (830 psia callout downstream)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-MLV",
+   "to": "N-HEX",
+   "fluid": "LOX",
+   "role": "branch downstream of MLV via check valve B24 and orifices B29",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.4"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-LOX-TANK-PRESS",
+   "fluid": "GOX",
+   "role": "via check valve B173",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.4"
+  },
+  {
+   "from": "N-MLV",
+   "to": "N-LPGG-CV",
+   "fluid": "LOX",
+   "role": "LOX bootstrap line via orifice B21 (tap downstream of MLV as drawn; text gives no tap point)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-TC-COOL",
+   "to": "N-LPGG-CV",
+   "fluid": "RP-1",
+   "role": "fuel bootstrap line from fuel manifold via orifice B32 (728 psia callout)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-LPGG-CV",
+   "to": "N-LPGG",
+   "fluid": "LOX + RP-1",
+   "role": "GG propellants (opens at ~115 psig chamber pressure)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-SPGG",
+   "to": "N-TURB",
+   "fluid": "solid propellant gas",
+   "role": "start: through part of LPGG to turbine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-LPGG",
+   "to": "N-TURB",
+   "fluid": "hot gas (fuel-rich)",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.3"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-OVBD",
+   "fluid": "turbine exhaust",
+   "role": "turbine exhaust duct",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32); §1.2.2.2"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "injection",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "Fig. 3-1 (PDF p.32)"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-GEARBOX",
+   "fluid": "none",
+   "role": "mechanical_shaft (~32,000 rpm)",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "§1.2.1.2"
+  },
+  {
+   "from": "N-GEARBOX",
+   "to": "N-TP-LOX",
+   "fluid": "none",
+   "role": "gear reduction (~6,537 rpm)",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "§1.2.1.2"
+  },
+  {
+   "from": "N-GEARBOX",
+   "to": "N-TP-FUEL",
+   "fluid": "none",
+   "role": "gear reduction (~6,537 rpm)",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "§1.2.1.2"
+  }
+ ],
+ "note": "Inboard engine panel. Outboard engines add the closed-loop hydraulic system and the turbine exhaust aspirator."
+}

@@ -288,3 +288,29 @@ No DB-0 record reaches `REGRESSION_CANDIDATE`: nothing was fetched.
    [DB0_RESEARCH_OVERVIEW.md](DB0_RESEARCH_OVERVIEW.md)).
 5. Versioned JSON with a schema version and strict refusal of unknown fields,
    like `rocketforge/evidence/load.py`.
+
+## 8. Changes forced by DB-0.5 opened sources (2026-10-08)
+
+Reading the documents themselves broke the proposal in the following places.
+Each item names the document that forced it. Nothing here is implemented.
+
+| # | Change | Forced by |
+| --- | --- | --- |
+| S1 | `Assertion.configuration` (the configuration the *printed text* describes) separate from the record's subject. A document about one variant routinely prints values for another. | TN D-7375 prints 21,500 lb / 102 psia / 309 s under its **Block I** heading; BC98-04's state-point schematic is **Block IIA** inside a Block II-era book; the SDES H-1 volume is the **SA-10 188K** engine |
+| S2 | `value_kind`: `rated` / `nominal` / `limit` / `burst` / `prediction` / `design_goal` / `demonstrated` / `average` / `approximate`. `status` alone cannot say a number is a limit. | JSC-19041 "maximum allowable HPOT ≈30,000 rpm" (DB-0 read it as an operating speed); 1986 large-throat Pc 3,010 psia is a prediction; F-1 "1.8 million pounds" was a demonstration; SPS Isp is an "average"; OMS Pc "approximately 130 psia" |
+| S3 | `pc_station` must be an explicit enum including `nozzle_stagnation`, `injector_face` and `UNSTATED`, and must be required. | Rocketdyne prints J-2 717 psia and J-2S 1,200 psia "(nozzle stagnation)"; F-1, RL10, RS-25 sources do not state a station |
+| S4 | `RightsRecord` keeps the repository determination **and** the printed notice side by side, with a `conflict` flag; the stricter one governs until reviewed. | MSFC-MAN-503 (NTRS public use vs printed reproduction restriction); AIAA 97-2687 (NTRS vs AIAA copyright); BC98-04 "BOEING PROPRIETARY" on a public website |
+| S5 | `SourceRecord.content_sha256`; two source ids with one hash are one document. | TN D-7143 = SRC-NASA-AER-DPS; NTRS 20040084662 registered twice |
+| S6 | Provenance chain on an assertion: `origin` (who first stated it) separate from `source_id` (where it was read). | RD-170 placard values (manufacturer) are known only through Rockwell's 1990 transcription |
+| S7 | `FlowSchematic.provenance_class`: `manufacturer` / `agency` / `third_party_reconstruction` / `training_simplification`. `SHOWN_IN_SCHEMATIC` on a reconstruction must not count toward the `TOPOLOGY` capability. | Rockwell's "RD-170 schematic based on 1989 Paris Air Show photos", with '?' marks on paths |
+| S8 | `DIGITISED` assertions carry `digitised_from = {schematic_id, callout}`; numbers in an illegible scan are recorded as `ILLEGIBLE`, never guessed. | BC98-04 slide 19 state points (legible); AIAA 97-2687 Fig. 1 state points (bilevel scan, illegible at 300 dpi) |
+| S9 | Topology edge roles beyond `mechanical_shaft` and gear: `mechanical_linkage` (valve-to-valve, actuator-to-injector) and `accessory_drive`. | LMDE throttle actuator ganged to cavitating-venturi valves and the injector sleeve; OMS fuel and oxidizer ball valves linked in pairs; J-2 hydraulic pump driven by the oxidizer turbine; H-1 accessory drive pads |
+| S10 | `Assertion.disposition` beyond status: `PROMOTED`, `REJECTED_FOR_VARIANT` (stale text in a later document), `NOT_PROMOTED_MODEL_PARAMETER` (tuning values in modelling papers). | JSC-19041 Rev F (2003) still prints the pre-large-throat 77.5:1; CR-195478's discharge coefficient 0.975 is a model trim |
+| S11 | Document edition as an epoch: the same sentence can change between editions of one manual. | OMS Pc band "100–102%" (JSC-19950, 1995) vs "100–106%" (USA006500, 2006) |
+| S12 | Conflicts may be **intra-document**; `Conflict` needs `scope = intra_document / inter_document`. | NRC 2006 prints RL10B-2 633 psi / 465.5 s in text and 644 psia / 466.5 s in its table; NTRS 19910018906 uses MR 2.58 and 2.47 |
+| S13 | Component nodes need finding numbers / part ids as optional identifiers, because mechanical schematics name components only by them. | H-1 SDES Fig. 3-1 (B4, B19, B23, B39, B49 …) |
+
+The §6 capability rule held up: applied to the opened evidence it yields five
+`REGRESSION_CANDIDATE` sets ([db05/regression_candidates.json](db05/regression_candidates.json))
+and correctly blocks the RS-25 sea-level thrust (unresolved 0.5-1.3% spread between sources) and the
+whole F-1 performance set (rating epoch unresolved).

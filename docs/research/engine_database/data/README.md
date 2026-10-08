@@ -1,5 +1,10 @@
 # DB-0 research data
 
+> **DB-0.5 (2026-10-08).** Sources with `access = fetched` were opened in DB-0.5; their evidence lives in
+> [../db05/](../db05/) (documents, assertions, schematics, topology, conflicts, dispositions, regression
+> candidates), checked by `tests/research/test_db05_research_artifacts.py`. Values in this folder are still
+> the DB-0 search-summary record.
+
 Machine-readable research artifacts for the DB-0 package. **Research data, not
 a runtime asset:** nothing under `rocketforge/` reads these files, nothing here
 is shipped in `dist/`, and no value here is regression-grade. Every value was

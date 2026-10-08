@@ -1,0 +1,429 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-J-2",
+ "configuration": "J-2 (Saturn S-II/S-IVB), configuration of the Rocketdyne slide",
+ "schematic_ids": [
+  "SCH-DB05-J2-COFFMAN-S4",
+  "SCH-DB05-J2-SA503-F57"
+ ],
+ "text_sources": [
+  "SRC-NTRS-20100027318",
+  "SRC-DB05-NTRS-19750063889"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "ASI propellant supply lines",
+   "pneumatic (helium) control system",
+   "propellant bleed valves and recirculation (stage)",
+   "start tank fill/vent valves",
+   "GG fuel valve detail",
+   "exact position of the GG fuel tap relative to the MFV (as drawn only)"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-LOX-IN",
+   "component_type": "engine_inlet",
+   "label": "Oxidizer inlet",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-OTP-P",
+   "component_type": "pump",
+   "label": "Liquid oxygen pump (centrifugal)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-OTP-T",
+   "component_type": "turbine",
+   "label": "Oxidizer turbopump turbine",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 text p.2; MSFC-MAN-503 pp.5-5..5-7"
+  },
+  {
+   "id": "N-FTP-P",
+   "component_type": "pump",
+   "label": "Liquid hydrogen pump (axial)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-FTP-T",
+   "component_type": "turbine",
+   "label": "Fuel turbopump turbine",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 text p.2; MSFC-MAN-503 pp.5-5..5-7"
+  },
+  {
+   "id": "N-MRCV",
+   "component_type": "valve",
+   "label": "Mixture ratio control valve (PU valve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-MOV",
+   "component_type": "valve",
+   "label": "Main oxygen valve",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-MFV",
+   "component_type": "valve",
+   "label": "Main fuel valve",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-GGV",
+   "component_type": "valve",
+   "label": "Gas generator valve",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-GG",
+   "component_type": "gas_generator",
+   "label": "Gas generator",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-OTBV",
+   "component_type": "valve",
+   "label": "Oxidizer turbine bypass",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-HEX",
+   "component_type": "heat_exchanger",
+   "label": "Heat exchanger (in oxidizer turbine exhaust duct)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-STANK",
+   "component_type": "energy_store_start_tank",
+   "label": "GH2 start tank",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Thrust chamber injector / dome",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-TC-COOL",
+   "component_type": "cooling_jacket",
+   "label": "Tubular-wall thrust chamber (regen)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 text p.2; MSFC-MAN-503 pp.5-5..5-7"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-NOZ-DUMP",
+   "component_type": "nozzle_injection_port",
+   "label": "Hot-gas manifold at nozzle 2:1 tube split (nozzle midpoint)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027318 text p.2; MSFC-MAN-503 pp.5-5..5-7"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-LOX-TANK-PRESS",
+   "component_type": "tank_pressurization_port",
+   "label": "O2 for tank pressurization",
+   "subsystem": "stage",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-LH2-TANK-PRESS",
+   "component_type": "tank_pressurization_port",
+   "label": "H2 for tank pressurization",
+   "subsystem": "stage",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "id": "N-ASI",
+   "component_type": "igniter",
+   "label": "Augmented spark igniter",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.5-7; NTRS 20100027318 text p.4"
+  },
+  {
+   "id": "N-HYD-PUMP",
+   "component_type": "hydraulic_pump",
+   "label": "Main hydraulic pump (TVC)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.5-5"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-LOX-IN",
+   "to": "N-OTP-P",
+   "fluid": "LOX",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-OTP-P",
+   "to": "N-MOV",
+   "fluid": "LOX",
+   "role": "main oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-MOV",
+   "to": "N-INJ",
+   "fluid": "LOX",
+   "role": "main oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-OTP-P",
+   "to": "N-GGV",
+   "fluid": "LOX",
+   "role": "GG oxidizer branch",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-GGV",
+   "to": "N-GG",
+   "fluid": "LOX",
+   "role": "GG oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-OTP-P",
+   "to": "N-MRCV",
+   "fluid": "LOX",
+   "role": "discharge-to-inlet bypass (MR control)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-MRCV",
+   "to": "N-OTP-P",
+   "fluid": "LOX",
+   "role": "return to pump inlet",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-OTP-P",
+   "to": "N-HEX",
+   "fluid": "LOX",
+   "role": "branch to heat exchanger",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-LOX-TANK-PRESS",
+   "fluid": "GOX",
+   "role": "tank pressurization",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-FTP-P",
+   "to": "N-MFV",
+   "fluid": "LH2",
+   "role": "main fuel",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-MFV",
+   "to": "N-TC-COOL",
+   "fluid": "LH2",
+   "role": "regen coolant (fuel inlet at reduced-epsilon nozzle station)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2"
+  },
+  {
+   "from": "N-TC-COOL",
+   "to": "N-INJ",
+   "fluid": "H2",
+   "role": "coolant to injector",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027318 text p.2 (tubes down then up)"
+  },
+  {
+   "from": "N-FTP-P",
+   "to": "N-GG",
+   "fluid": "LH2",
+   "role": "GG fuel branch (downstream of pump, upstream of MFV as drawn)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-LH2-TANK-PRESS",
+   "fluid": "GH2",
+   "role": "tap from thrust chamber fuel manifold",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-STANK",
+   "fluid": "GH2",
+   "role": "line between injector manifold and start tank as drawn (refill role not verified)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-STANK",
+   "to": "N-FTP-T",
+   "fluid": "GH2",
+   "role": "spin start through series turbine drive (via STDV)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-7"
+  },
+  {
+   "from": "N-GG",
+   "to": "N-FTP-T",
+   "fluid": "hot gas",
+   "role": "turbine drive, first in series",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2"
+  },
+  {
+   "from": "N-FTP-T",
+   "to": "N-OTP-T",
+   "fluid": "hot gas",
+   "role": "crossover to oxidizer turbine (split_group H1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2"
+  },
+  {
+   "from": "N-FTP-T",
+   "to": "N-OTBV",
+   "fluid": "hot gas",
+   "role": "bypass around oxidizer turbine (split_group H1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-7"
+  },
+  {
+   "from": "N-OTP-T",
+   "to": "N-HEX",
+   "fluid": "hot gas",
+   "role": "turbine exhaust through heat exchanger",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-NOZ-DUMP",
+   "fluid": "hot gas",
+   "role": "dump into nozzle at 2:1 split (merge_group H2)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2"
+  },
+  {
+   "from": "N-OTBV",
+   "to": "N-NOZ-DUMP",
+   "fluid": "hot gas",
+   "role": "bypass rejoins exhaust (merge_group H2)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "injection",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 20100027318 slide J2-4"
+  },
+  {
+   "from": "N-NOZ-DUMP",
+   "to": "N-AMB",
+   "fluid": "turbine exhaust",
+   "role": "exhaust via nozzle",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "NTRS 20100027318 text p.2"
+  },
+  {
+   "from": "N-FTP-T",
+   "to": "N-FTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft (direct drive)",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.5-5 'direct drive turbopumps'"
+  },
+  {
+   "from": "N-OTP-T",
+   "to": "N-OTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft (direct drive)",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.5-5"
+  },
+  {
+   "from": "N-OTP-T",
+   "to": "N-HYD-PUMP",
+   "fluid": "none",
+   "role": "mechanical drive of main hydraulic pump",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "MSFC-MAN-503 p.5-5"
+  }
+ ],
+ "note": "Both turbines are in series (fuel first). Turbine exhaust is dumped at the nozzle 2:1 tube split, not overboard."
+}

@@ -1,0 +1,1725 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "dispositions": [
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "JSC-19041 §1.1.2",
+   "note": "",
+   "db0_field_path": "identity.block_definition",
+   "db0_value": "Block II = Block IIA engine + new Pratt & Whitney high-pressure fuel turbopump",
+   "db0_source_id": "SRC-SFN-SSMEBLOCK2-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 1,
+   "outcome": "CONFIRMED",
+   "evidence": "AIAA 2002-3581 p.3",
+   "note": "",
+   "db0_field_path": "identity.block_package",
+   "db0_value": "Block 2 package lists Large Throat MCC plus Advanced Technology (P&W) oxidizer and fuel turbopumps",
+   "db0_source_id": "SRC-NTRS-20030005845"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 2,
+   "outcome": "CORRECTED",
+   "evidence": "source is JSC-19041 §1.1.2, not NTRS 20030005845",
+   "note": "",
+   "db0_field_path": "identity.block_IIA_change",
+   "db0_value": "Block IA -> Block IIA modification was a larger-throat main combustion chamber",
+   "db0_source_id": "SRC-NTRS-20030005845"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "propellants.oxidizer",
+   "db0_value": "LOX",
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 5,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "propellants.fuel",
+   "db0_value": "LH2",
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 6,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 6.03,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 9,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 512300,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 10,
+   "outcome": "CONFIRMED",
+   "evidence": "FS-2015-07-064-MSFC p.2",
+   "note": "",
+   "db0_field_path": "performance.thrust",
+   "db0_value": 512000,
+   "db0_source_id": "SRC-NASA-RS25-FS2015"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 11,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-03-2025-SLS-4963 p.2 (web page not read)",
+   "note": "",
+   "db0_field_path": "performance.thrust",
+   "db0_value": 491000,
+   "db0_source_id": "SRC-NASA-RS25-WEB"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 12,
+   "outcome": "CONFIRMED",
+   "evidence": "HAER TX-116 p.248",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 390000,
+   "db0_source_id": "SRC-NASA-SSME-NPL-DOC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 13,
+   "outcome": "CONFIRMED",
+   "evidence": "JSC-19041 p.1.1-1",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 2747,
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 15,
+   "outcome": "CONFIRMED",
+   "evidence": "JSC-19041 p.1.1-1",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 2870,
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 14,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR host unreachable",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 2870,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 16,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 2994,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 17,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR host unreachable",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 2994,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 18,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "performance.throttle_range",
+   "db0_value": "67-109",
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 19,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR",
+   "note": "",
+   "db0_field_path": "turbines.HPFT.discharge_temperature",
+   "db0_value": 1615,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 20,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR",
+   "note": "",
+   "db0_field_path": "turbines.HPFT.discharge_temperature",
+   "db0_value": 1638,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 21,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR",
+   "note": "",
+   "db0_field_path": "turbines.HPOT.discharge_temperature",
+   "db0_value": 1223,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 22,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "Hopson FRR",
+   "note": "",
+   "db0_field_path": "turbines.HPOT.discharge_temperature",
+   "db0_value": 1246,
+   "db0_source_id": "SRC-NASA-HOPSON-STS104-FRR-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 23,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "pumps.HPFTP.discharge_pressure",
+   "db0_value": 6276,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 24,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "pumps.HPOTP.discharge_pressure",
+   "db0_value": 7268,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 29,
+   "outcome": "CORRECTED",
+   "evidence": "L3Harris prints 71,140 hp; NTRS 20180006338 prints 69,000 hp; 76,000 hp unsupported",
+   "note": "",
+   "db0_field_path": "pumps.HPFTP.power",
+   "db0_value": 76000,
+   "db0_source_id": "SRC-SFN-SSMEBLOCK2-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 30,
+   "outcome": "UNSUPPORTED",
+   "evidence": "L3Harris 23,260 hp; NTRS 20180006338 25,000 hp; 26,800 hp not found",
+   "note": "",
+   "db0_field_path": "pumps.HPOTP.power",
+   "db0_value": 26800,
+   "db0_source_id": "SRC-SFN-SSMEBLOCK2-2001"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 33,
+   "outcome": "UNSUPPORTED",
+   "evidence": "only primary operating speed found is 22,250 rpm (Block IIA, 104.5%, BC98-04 p.25)",
+   "note": "",
+   "db0_field_path": "pumps.HPOTP.speed_rpm",
+   "db0_value": 28120,
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 34,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "L3Harris L26301 prints 23,260 hp",
+   "note": "",
+   "db0_field_path": "pumps.HPOTP.power",
+   "db0_value": 23260,
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 36,
+   "outcome": "UNSUPPORTED",
+   "evidence": "BC98-04 p.25 prints 5,018 rpm (Block IIA, 104.5%)",
+   "note": "",
+   "db0_field_path": "pumps.LPOTP.speed_rpm",
+   "db0_value": 5150,
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 39,
+   "outcome": "UNSUPPORTED",
+   "evidence": "BC98-04 p.25 prints 15,519 rpm (Block IIA, 104.5%)",
+   "note": "",
+   "db0_field_path": "pumps.LPFTP.speed_rpm",
+   "db0_value": 16185,
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 37,
+   "outcome": "UNSUPPORTED",
+   "evidence": "BC98-04 p.25: LPOTP 100 psia in, 421 psia out (Block IIA, 104.5%)",
+   "note": "",
+   "db0_field_path": "pumps.LPOTP.pressure_rise",
+   "db0_value": "100 -> 420",
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 40,
+   "outcome": "UNSUPPORTED",
+   "evidence": "BC98-04 p.25: LH2 inlet 30 psia; LPFTP discharge 298 psia callout (Block IIA)",
+   "note": "",
+   "db0_field_path": "pumps.LPFTP.pressure_rise",
+   "db0_value": "30 -> 276",
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 41,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "BC98-04 p.24 'two preburners'",
+   "note": "",
+   "db0_field_path": "preburners.count",
+   "db0_value": 2,
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 42,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "BC98-04 p.24 fuel-rich",
+   "note": "",
+   "db0_field_path": "preburners.FPB.rich_side",
+   "db0_value": "fuel-rich",
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 43,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "BC98-04 p.24 fuel-rich",
+   "note": "",
+   "db0_field_path": "preburners.OPB.rich_side",
+   "db0_value": "fuel-rich",
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 44,
+   "outcome": "CONFIRMED",
+   "evidence": "JSC-19041 p.1.1-1 (generic '5,000 psia')",
+   "note": "",
+   "db0_field_path": "preburners.pressure",
+   "db0_value": 5000,
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 48,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "BC98-04 p.27",
+   "note": "",
+   "db0_field_path": "control.mixture_ratio_valve",
+   "db0_value": "Fuel Preburner Oxidizer Valve (FPOV) controls mixture ratio",
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 49,
+   "outcome": "CORRECTED",
+   "evidence": "BC98-04 p.27: OPOV is driven WITH the FPOV to change thrust; not alone",
+   "note": "",
+   "db0_field_path": "control.power_level_valve",
+   "db0_value": "Oxidizer Preburner Oxidizer Valve (OPOV) controls power level",
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 51,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "BC98-04 p.26 (Block IIA) gives split percentages",
+   "note": "",
+   "db0_field_path": "cooling.fuel_split",
+   "db0_value": "after HPFTP: preburner fuel, nozzle coolant, MCC coolant, low-pressure turbine drive gas, hot-gas-manifold coolant",
+   "db0_source_id": "SRC-IBIBLIO-SSMEOVERVIEW"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 53,
+   "outcome": "CORRECTED",
+   "evidence": "statement is in JSC-19041 p.1.1-1; not verified in NTRS 19860012108",
+   "note": "",
+   "db0_field_path": "cooling.coolant",
+   "db0_value": "hydrogen cools all combustion devices exposed to hot gas",
+   "db0_source_id": "SRC-NTRS-19860012108"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 54,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 69,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 55,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19860012108 p.8",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 69.5,
+   "db0_source_id": "SRC-NTRS-19860012108"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 56,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19860012108 p.8",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio_pre_large_throat",
+   "db0_value": 77.5,
+   "db0_source_id": "SRC-NTRS-19860012108"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 57,
+   "outcome": "CONFIRMED",
+   "evidence": "L3Harris L26301",
+   "note": "",
+   "db0_field_path": "mechanical.mass_dry",
+   "db0_value": 7774,
+   "db0_source_id": "SRC-L3HARRIS-RS25-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "db0_assertion_index": 59,
+   "outcome": "UNSUPPORTED",
+   "evidence": "opened sources print 7,750-7,775 lb (SLS) and ~7,400 lb (2003)",
+   "note": "",
+   "db0_field_path": "mechanical.mass_dry",
+   "db0_value": 7004,
+   "db0_source_id": "SRC-WIKI-RS25"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 20100027318 p.1 'open-cycle gas generator'",
+   "note": "",
+   "db0_field_path": "identity.cycle",
+   "db0_value": "gas generator, open cycle",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 3,
+   "outcome": "CONFIRMED",
+   "evidence": "slide J2-3",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 5.5,
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "text p.2",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 4.5,
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 5,
+   "outcome": "CONFIRMED",
+   "evidence": "slide J2-3",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 230000,
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 6,
+   "outcome": "CONFIRMED",
+   "evidence": "Table 1",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 230000,
+   "db0_source_id": "SRC-NTRS-20120016414"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 7,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403; 225,000 lb confirmed in NTRS 20100027318 text p.3 as the qualified version",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 225000,
+   "db0_source_id": "SRC-DTIC-AEDC-J2-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 8,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "ALSJ 404",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": "up to 225,000 lb at high altitude",
+   "db0_source_id": "SRC-NASA-ALSJ-CSM02"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 9,
+   "outcome": "UNSUPPORTED",
+   "evidence": "no opened primary prints 232,250 lbf",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 232250,
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 11,
+   "outcome": "CONFIRMED",
+   "evidence": "Table 1",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 425,
+   "db0_source_id": "SRC-NTRS-20120016414"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 13,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 425 s",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 421,
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 14,
+   "outcome": "CONFIRMED",
+   "evidence": "text p.2; slide J2-3 gives 717 psia nozzle stagnation",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": "a little over 700",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 15,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 717 psia",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 763,
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 17,
+   "outcome": "CONFIRMED",
+   "evidence": "slide J2-3",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 27.5,
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 19,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 27.5:1",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 28,
+   "db0_source_id": "SRC-PURDUE-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 20,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 2,754 lb basic / 3,492 lb with accessories",
+   "note": "",
+   "db0_field_path": "mechanical.mass_dry",
+   "db0_value": 3942,
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 21,
+   "outcome": "UNSUPPORTED",
+   "evidence": "close to 3,492 but not printed",
+   "note": "",
+   "db0_field_path": "mechanical.mass",
+   "db0_value": 3480,
+   "db0_source_id": "SRC-PURDUE-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 22,
+   "outcome": "UNSUPPORTED",
+   "evidence": "matches no primary definition",
+   "note": "",
+   "db0_field_path": "mechanical.mass_unfuelled",
+   "db0_value": 3170,
+   "db0_source_id": "SRC-ASTRONAUTIX-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 23,
+   "outcome": "CONFIRMED",
+   "evidence": "text p.2",
+   "note": "",
+   "db0_field_path": "feed.turbopumps",
+   "db0_value": "independently driven LOX and LH2 turbopumps located on opposite sides of the engine",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 24,
+   "outcome": "CONFIRMED",
+   "evidence": "text p.2",
+   "note": "",
+   "db0_field_path": "turbines.arrangement",
+   "db0_value": "gas generator supplies hot gas to two turbines running in series",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 25,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20100027318 text p.2 (fuel turbine then oxidizer turbine)",
+   "note": "",
+   "db0_field_path": "turbines.arrangement_detail",
+   "db0_value": "exhaust from fuel turbopump turbine ducted to inlet of oxidizer turbopump turbine manifold (crossover duct)",
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 27,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-MAN-503 p.5-7",
+   "note": "",
+   "db0_field_path": "turbines.ox_turbine_bypass",
+   "db0_value": "during start a percentage of fuel-turbine exhaust is routed directly to the thrust chamber, bypassing the oxidizer turbine, to prevent overspeed",
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 31,
+   "outcome": "CONFIRMED",
+   "evidence": "text p.2",
+   "note": "",
+   "db0_field_path": "pumps.FTP.heritage",
+   "db0_value": "axial fuel turbopump derived from nuclear-rocket-programme machines; caused a start-sensitivity development problem",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 33,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "text p.2 'conventional centrifugal'",
+   "note": "",
+   "db0_field_path": "pumps.OTP.type",
+   "db0_value": "single-stage centrifugal, direct turbine drive",
+   "db0_source_id": "SRC-WIKI-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 38,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-MAN-503 p.5-7",
+   "note": "",
+   "db0_field_path": "ignition_start.start_tank_function",
+   "db0_value": "start tank discharges cold GH2 through the two turbines to spin up pumps before GG combustion; helium used by control system to sequence valves",
+   "db0_source_id": "SRC-NTRS-20100027318"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 43,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "ignition_start.start_definition",
+   "db0_value": "test reports define start at energising helium control and ignition-phase solenoids; track MOV and start-tank discharge valve timing",
+   "db0_source_id": "SRC-DTIC-AEDC-J2-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 44,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-MAN-503 p.5-5",
+   "note": "",
+   "db0_field_path": "control.pu_valve",
+   "db0_value": "propellant utilization valve = bypass from LOX pump outlet to LOX pump inlet; gives mixture and thrust control",
+   "db0_source_id": "SRC-ENGINEHISTORY-RPE0822"
+  },
+  {
+   "engine_id": "ENG-US-J-2",
+   "db0_assertion_index": 48,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "history.as502_mods",
+   "db0_value": "engine modifications after AS-502 (4 Apr 1968) malfunctions incl. modified ASI propellant supply lines",
+   "db0_source_id": "SRC-DTIC-AEDC-J2-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 19940016798 pp.8-9 'tap-off cycle'",
+   "note": "",
+   "db0_field_path": "identity.cycle",
+   "db0_value": "combustion tap-off: hot gas tapped from main combustion chamber drives turbines (replaces J-2 gas generator)",
+   "db0_source_id": "SRC-WIKI-TAPOFF"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 1,
+   "outcome": "UNSUPPORTED",
+   "evidence": "NTRS 20100027318 slide J2-5 shows engine tests from 2/66",
+   "note": "",
+   "db0_field_path": "history.first_successful_test",
+   "db0_value": 1969,
+   "db0_source_id": "SRC-WIKI-TAPOFF"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 2,
+   "outcome": "CONFIRMED",
+   "evidence": "Table 1",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 265000,
+   "db0_source_id": "SRC-NTRS-20120016414"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "Table 1",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 436,
+   "db0_source_id": "SRC-NTRS-20120016414"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 6,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 19940016798 p.9",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 5.5,
+   "db0_source_id": "SRC-WIKI2007-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 7,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 19940016798 p.9 basic dry weight",
+   "note": "",
+   "db0_field_path": "mechanical.mass_dry",
+   "db0_value": 3235,
+   "db0_source_id": "SRC-WIKI2007-J2"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 8,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "performance.thrust",
+   "db0_value": 4000,
+   "db0_source_id": "SRC-DTIC-AEDC-J2S-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 9,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "performance.thrust",
+   "db0_value": 50000,
+   "db0_source_id": "SRC-DTIC-AEDC-J2S-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 11,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "history.aedc_tr_70_150",
+   "db0_value": "ten idle-mode firings, one engine, cell J-4, Sep-Oct 1969, new noncompartmented injector, 1,408.2 s total idle",
+   "db0_source_id": "SRC-DTIC-AEDC-J2S-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 12,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "history.aedc_tr_70_204",
+   "db0_value": "eleven firings (tests J4-1001-06/-07/-11/-15) at 80,000-108,000 ft pressure altitude; full-face oxidizer injector for idle-mode oxidizer distribution",
+   "db0_source_id": "SRC-DTIC-AEDC-J2S-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 13,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "injector.idle_mode",
+   "db0_value": "noncompartmented injector (TR-70-150); full-face oxidizer injector for idle (TR-70-204)",
+   "db0_source_id": "SRC-DTIC-AEDC-J2S-SET"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 14,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 20080036837 PDF pp.3-4",
+   "note": "",
+   "db0_field_path": "pumps.heritage",
+   "db0_value": "J-2S Mk.29 oxidizer and fuel turbopump designs used as J-2X point of departure",
+   "db0_source_id": "SRC-NTRS-20080036837"
+  },
+  {
+   "engine_id": "ENG-US-J-2S",
+   "db0_assertion_index": 15,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "generalstaff.org 403",
+   "note": "",
+   "db0_field_path": "history.study",
+   "db0_value": "J-2S Improvement Study, System Description, report D5-15772-2, 30 Apr 1969 (Saturn V upper-stage application)",
+   "db0_source_id": "SRC-GENERALSTAFF-J2S-STUDY-1969"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 2,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20100027316 slide F1-6",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 1522000,
+   "db0_source_id": "SRC-WIKIARCHIVES-MSFC-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 3,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20100027316 slide F1-6",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 1522000,
+   "db0_source_id": "SRC-ENGINEHISTORY-RPE0812"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 4,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 1,748,200 lb",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 1746000,
+   "db0_source_id": "SRC-WIKI-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 5,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 1,125 psia",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": "70 bar (1,015 psi)",
+   "db0_source_id": "SRC-WIKI-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 6,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 1,125 psia",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 982,
+   "db0_source_id": "SRC-PURDUE-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 7,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-6 2.27",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 2.27,
+   "db0_source_id": "SRC-WIKI-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 9,
+   "outcome": "CORRECTED",
+   "evidence": "slide F1-6 prints 265.4 s",
+   "note": "",
+   "db0_field_path": "performance.isp_sl",
+   "db0_value": 265,
+   "db0_source_id": "SRC-PURDUE-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 13,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-7; text p.4",
+   "note": "",
+   "db0_field_path": "pumps.TP.configuration",
+   "db0_value": "single-shaft turbopump with separate fuel and LOX pumps (MK-10)",
+   "db0_source_id": "SRC-AWESOMESTORIES-F1NASA"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 21,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-7 'two stage impulse turbine'",
+   "note": "",
+   "db0_field_path": "turbines.T.stages",
+   "db0_value": "2 (impulse)",
+   "db0_source_id": "SRC-ENGINEHISTORY-F1"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 24,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-MAN-503 p.4-5; NTRS 20100027316 text p.4",
+   "note": "",
+   "db0_field_path": "turbines.T.exhaust_destination",
+   "db0_value": "heat exchanger, then wrap-around exhaust manifold feeding the periphery of the engine bell (nozzle extension film cooling)",
+   "db0_source_id": "SRC-AWESOMESTORIES-F1NASA"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 26,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-7",
+   "note": "",
+   "db0_field_path": "mechanical.bearing_lubrication",
+   "db0_value": "fuel (RP-1) lubricates and cools turbopump bearings",
+   "db0_source_id": "SRC-STEVEBLOG-F1GG"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 29,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-7; MSFC-MAN-503 p.4-4",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 16,
+   "db0_source_id": "SRC-ENGINEHISTORY-RPE0812"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 30,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "MSFC-MAN-503 p.4-4",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio_regen_section",
+   "db0_value": 10,
+   "db0_source_id": "SRC-ENGINEHISTORY-RPE0812"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 31,
+   "outcome": "UNSUPPORTED",
+   "evidence": "primary 18,616 lb (definition unstated)",
+   "note": "",
+   "db0_field_path": "mechanical.mass_dry",
+   "db0_value": 18500,
+   "db0_source_id": "SRC-ENGINEHISTORY-RPE0812"
+  },
+  {
+   "engine_id": "ENG-US-F-1",
+   "db0_assertion_index": 32,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "slide F1-6",
+   "note": "",
+   "db0_field_path": "mechanical.mass",
+   "db0_value": 18616,
+   "db0_source_id": "SRC-PURDUE-F1"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 188000,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 15,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "identity.major_components",
+   "db0_value": "thrust chamber, turbopump assembly, liquid-propellant gas generator (LPGG), fuel additive blender unit (FABU)",
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 16,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "identity.cluster_geometry",
+   "db0_value": "8 engines: 4 inboard at 32 in radius, fixed 3 deg outward cant; 4 outboard at 95 in radius, 6 deg cant, hydraulically gimbaled",
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 17,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "turbines.T.stages",
+   "db0_value": 2,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 18,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "turbines.T.power",
+   "db0_value": 3793,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 19,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "turbines.T.speed_rpm",
+   "db0_value": 32000,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 20,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "mechanical.gearbox",
+   "db0_value": "gear reductions drive LOX and fuel pumps from the turbine shaft",
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 21,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "pumps.LOX.speed_rpm",
+   "db0_value": 6537,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 22,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "pumps.FUEL.speed_rpm",
+   "db0_value": 6537,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 24,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "mechanical.accessory_drive",
+   "db0_value": "dual accessory drive pads ~4,000 rpm; electric heater keeps accessory-drive bearings from freezing",
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 26,
+   "outcome": "CONFIRMED",
+   "evidence": "SDES-64-415 Vol. VIII §1.1-1.2 (attach to ENG-US-H-1-188K)",
+   "note": "",
+   "db0_field_path": "ignition_start.hypergol_cartridge",
+   "db0_value": "hypergol cartridge mentioned",
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 25,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "SDES-64-415 §1.2.1.3",
+   "note": "",
+   "db0_field_path": "ignition_start.turbine_spin_start",
+   "db0_value": "solid-propellant gas generator (SPGG) ignited electrically (500 V AC), ~600-700 psi gas spins turbine; LPGG then sustains",
+   "db0_source_id": "SRC-WIKI-H1"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 27,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "SDES-64-415 §1.2.1.5",
+   "note": "",
+   "db0_field_path": "mechanical.lubrication",
+   "db0_value": "additive blended into RP-1 by FABU; fuel/additive mix fed under pressure to turbopump bearings (lubricates and cools)",
+   "db0_source_id": "SRC-WIKI-H1"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 23,
+   "outcome": "CONFIRMED",
+   "evidence": "DERIVED 32,000/6,537 = 4.9 reproduces",
+   "note": "",
+   "db0_field_path": "mechanical.gear_ratio",
+   "db0_value": 4.9,
+   "db0_source_id": "SRC-NTRS-19650013470"
+  },
+  {
+   "engine_id": "ENG-US-H-1",
+   "db0_assertion_index": 11,
+   "outcome": "UNSUPPORTED",
+   "evidence": "SA-10 document: cutoff ~150 s after ignition (vehicle-specific)",
+   "note": "",
+   "db0_field_path": "performance.burn_time",
+   "db0_value": 155,
+   "db0_source_id": "SRC-WIKI-H1"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "L3Harris sheet 404; NAP 11780 Table D-4 prints the same value",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 22300,
+   "db0_source_id": "SRC-L3HARRIS-RL10-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 5,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "L3Harris sheet 404; NAP 11780 Table D-4 prints the same value",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 451.0,
+   "db0_source_id": "SRC-L3HARRIS-RL10-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 7,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "L3Harris sheet 404; NAP 11780 Table D-4 prints the same value",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 5.5,
+   "db0_source_id": "SRC-L3HARRIS-RL10-SPEC"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 3,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac_vehicle_avg_single",
+   "db0_value": 22.9,
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 4,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac_vehicle_total_dual",
+   "db0_value": 44.6,
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 6,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 450.5,
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 10,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 85,
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 13,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "identity.vehicles",
+   "db0_value": "Atlas V Centaur, one or two engines",
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 9,
+   "outcome": "UNSUPPORTED",
+   "evidence": "NAP 11780 text: 610 psi",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": "32.1 bar (465 psi)",
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-ATLAS"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 11,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NAP Table D-2/D-4: 84:1",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": "84:1 (A-4, A-4-1 rows); family infobox '84:1 or 280:1'",
+   "db0_source_id": "SRC-WIKI-RL10"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "db0_assertion_index": 16,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NASA CR-195478 §3.1 (RL10A-3-3A, family context only)",
+   "note": "",
+   "db0_field_path": "pumps.family_context",
+   "db0_value": "RL10A-3-3A: two-stage fuel pump on turbine shaft; single-stage LOX pump gear-driven; design speeds 30,000 rpm (fuel) / 12,000 rpm (LOX)",
+   "db0_source_id": "SRC-NTRS-RL10A33A-MODEL"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED",
+   "evidence": "ULA inaugural p.2",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 24750,
+   "db0_source_id": "SRC-ULA-DIV-INAUGURAL"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 1,
+   "outcome": "CONFIRMED",
+   "evidence": "ULA GPS III booklet p.1",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 24750,
+   "db0_source_id": "SRC-ULA-DIV-GPSIIISV02"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "NAP text",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 465.5,
+   "db0_source_id": "SRC-NAP-11780"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 5,
+   "outcome": "CONFIRMED",
+   "evidence": "NAP Table D-2",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 466.5,
+   "db0_source_id": "SRC-NAP-11780"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 8,
+   "outcome": "CONFIRMED",
+   "evidence": "NAP text",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 633,
+   "db0_source_id": "SRC-NAP-11780"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 9,
+   "outcome": "CONFIRMED",
+   "evidence": "NAP Table D-2",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 644,
+   "db0_source_id": "SRC-NAP-11780"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 10,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": "32.1 bar (465 psi)",
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-DELTA"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 12,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "AIAA vehicle guide 404",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 285,
+   "db0_source_id": "SRC-AIAA-VEHGUIDE-DELTA"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 13,
+   "outcome": "CONFIRMED",
+   "evidence": "NAP Table D-2",
+   "note": "",
+   "db0_field_path": "nozzle.area_ratio",
+   "db0_value": 285,
+   "db0_source_id": "SRC-NAP-11780"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 14,
+   "outcome": "CONFIRMED",
+   "evidence": "ULA inaugural p.2 'extendible nozzle' (carbon-carbon wording is NAP's)",
+   "note": "",
+   "db0_field_path": "nozzle.extension_type",
+   "db0_value": "translating (extendible) carbon-carbon nozzle extension",
+   "db0_source_id": "SRC-ULA-DIV-INAUGURAL"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 15,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "IAF page shell only",
+   "note": "",
+   "db0_field_path": "nozzle.extension_construction",
+   "db0_value": "three cones, Novoltex / Sepcarb carbon-carbon",
+   "db0_source_id": "SRC-IAC-2018-43630"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 16,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "IAF page shell only",
+   "note": "",
+   "db0_field_path": "nozzle.extension_supplier",
+   "db0_value": "Airbus Safran Launchers (extension); Aerojet Rocketdyne retained Nozzle Extension Deployment System (NEDS)",
+   "db0_source_id": "SRC-IAC-2018-43630"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 17,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "IAF",
+   "note": "",
+   "db0_field_path": "nozzle.extension_length",
+   "db0_value": "nearly 100",
+   "db0_source_id": "SRC-IAC-2018-43630"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "db0_assertion_index": 18,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "IAF",
+   "note": "",
+   "db0_field_path": "nozzle.exit_diameter",
+   "db0_value": "just over 84",
+   "db0_source_id": "SRC-IAC-2018-43630"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-137",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED",
+   "evidence": "TN D-7375 title",
+   "note": "",
+   "db0_field_path": "identity.system_name",
+   "db0_value": "Service Propulsion Subsystem (SPS)",
+   "db0_source_id": "SRC-NASA-TND7375"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-137",
+   "db0_assertion_index": 1,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "TN D-7375 pp.3-4 primary + secondary in series",
+   "note": "",
+   "db0_field_path": "pressurization.regulators",
+   "db0_value": "primary and secondary regulators",
+   "db0_source_id": "SRC-EH-RPE0931"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-137",
+   "db0_assertion_index": 2,
+   "outcome": "UNSUPPORTED",
+   "evidence": "TN D-7375 p.3: helium 'regulated to 180 psia'; 186 psig not printed (see CF-DB05-SPS-REG)",
+   "note": "",
+   "db0_field_path": "pressurization.regulator_setpoint_primary",
+   "db0_value": 186,
+   "db0_source_id": "SRC-EH-RPE0931"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-137",
+   "db0_assertion_index": 3,
+   "outcome": "UNSUPPORTED",
+   "evidence": "TN D-7375 says only that the secondary regulates higher; 191 psig not printed",
+   "note": "",
+   "db0_field_path": "pressurization.regulator_setpoint_secondary",
+   "db0_value": 191,
+   "db0_source_id": "SRC-EH-RPE0931"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-137",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19710025470 title (metadata)",
+   "note": "",
+   "db0_field_path": "control.bipropellant_valve_program",
+   "db0_value": "bipropellant valve improvement program (Aerojet, 1971 summary)",
+   "db0_source_id": "SRC-AEROJET-SPSVALVE-1971"
+  },
+  {
+   "engine_id": "ENG-US-LMDE",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED",
+   "evidence": "TN D-7143",
+   "note": "",
+   "db0_field_path": "identity.system_name",
+   "db0_value": "Descent Propulsion System (LM descent stage)",
+   "db0_source_id": "SRC-NASA-TND7143"
+  },
+  {
+   "engine_id": "ENG-US-LMDE",
+   "db0_assertion_index": 1,
+   "outcome": "CONFIRMED",
+   "evidence": "TN D-7143",
+   "note": "",
+   "db0_field_path": "performance.throttle_capability",
+   "db0_value": "deep throttling capability (highlighted as distinctive feature)",
+   "db0_source_id": "SRC-NASA-TND7143"
+  },
+  {
+   "engine_id": "ENG-US-LMDE",
+   "db0_assertion_index": 2,
+   "outcome": "CONFIRMED",
+   "evidence": "TN D-7143",
+   "note": "",
+   "db0_field_path": "pressurization.pressurant",
+   "db0_value": "lightweight cryogenic helium pressurization system",
+   "db0_source_id": "SRC-NASA-TND7143"
+  },
+  {
+   "engine_id": "ENG-US-LMDE",
+   "db0_assertion_index": 3,
+   "outcome": "CONFIRMED",
+   "evidence": "TN D-7143",
+   "note": "",
+   "db0_field_path": "history.development_approach",
+   "db0_value": "ground testing of individual components and integrated-system testing",
+   "db0_source_id": "SRC-NASA-TND7143"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-190",
+   "db0_assertion_index": 0,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "USA006500 Fig. 2-10",
+   "note": "",
+   "db0_field_path": "pressurization.pressurant",
+   "db0_value": "helium (regulated)",
+   "db0_source_id": "SRC-NTRS-19740026212"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-190",
+   "db0_assertion_index": 1,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "USA006500 §2.1",
+   "note": "",
+   "db0_field_path": "control.bipropellant_valve_actuation",
+   "db0_value": "GN2-actuated valves",
+   "db0_source_id": "SRC-NTRS-19740026212"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 4,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 1112000,
+   "db0_source_id": "SRC-DTIC-ADA397910"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 5,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 250000,
+   "db0_source_id": "SRC-DTIC-ADA397910"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 9,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "DTIC 403",
+   "note": "",
+   "db0_field_path": "pumps.OTP.bearings",
+   "db0_value": "hydrostatic bearings",
+   "db0_source_id": "SRC-DTIC-ADA430218"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 7,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "wpafb.af.mil 403",
+   "note": "",
+   "db0_field_path": "preburners.FPB.drives",
+   "db0_value": "fuel turbopump",
+   "db0_source_id": "SRC-AF-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 8,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "wpafb.af.mil 403",
+   "note": "",
+   "db0_field_path": "preburners.OPB.drives",
+   "db0_value": "oxygen turbopump",
+   "db0_source_id": "SRC-AF-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 10,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "wpafb.af.mil 403",
+   "note": "",
+   "db0_field_path": "history.mainstage",
+   "db0_value": "100% power (mainstage) July 2006, NASA Stennis",
+   "db0_source_id": "SRC-AF-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 11,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "wpafb.af.mil 403",
+   "note": "",
+   "db0_field_path": "history.test_count",
+   "db0_value": "21 of 26 planned tests; 300 s accumulated (at mainstage milestone)",
+   "db0_source_id": "SRC-AF-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 12,
+   "outcome": "ACCESS_BLOCKED",
+   "evidence": "wpafb.af.mil 403",
+   "note": "",
+   "db0_field_path": "identity.developers",
+   "db0_value": "Boeing-Rocketdyne and GenCorp Aerojet (Aerojet preburners)",
+   "db0_source_id": "SRC-AF-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 2,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20040084662 abstract",
+   "note": "",
+   "db0_field_path": "performance.thrust_class",
+   "db0_value": 250,
+   "db0_source_id": "SRC-SFN-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 3,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20040084662 abstract",
+   "note": "",
+   "db0_field_path": "propellants.pair",
+   "db0_value": "LOX/LH2",
+   "db0_source_id": "SRC-SFN-IPD-2006"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "db0_assertion_index": 6,
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "NTRS 20040084662 abstract 'full flow staged combustion'",
+   "note": "",
+   "db0_field_path": "identity.cycle",
+   "db0_value": "full flow staged combustion",
+   "db0_source_id": "SRC-DTIC-ADA397910"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 4,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "feed.turbopump_count",
+   "db0_value": 1,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 5,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "preburners.count",
+   "db0_value": 2,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 6,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "thrust_chamber.count",
+   "db0_value": 4,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 10,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "performance.thrust_sl",
+   "db0_value": 740,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 11,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "performance.thrust_vac",
+   "db0_value": 806,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 12,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "performance.isp_sl",
+   "db0_value": 308,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 13,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "performance.isp_vac",
+   "db0_value": 336,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 14,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 250,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 16,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "propellants.mixture_ratio",
+   "db0_value": 2.58,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 25,
+   "outcome": "CONFIRMED",
+   "evidence": "NTRS 19910018906 PDF p.16 (re-graded Tier B: Rockwell transcription/analysis)",
+   "note": "",
+   "db0_field_path": "history.flights",
+   "db0_value": "29 (21 as SL-16 Zenit since 1985)",
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 8,
+   "outcome": "RECLASSIFIED",
+   "evidence": "NTRS 19910018906 p.15: Rockwell inference from photographs, not a reported fact (status INFERRED)",
+   "note": "",
+   "db0_field_path": "pumps.layout",
+   "db0_value": "single shaft: fuel pump bottom, oxygen pump middle, turbine top",
+   "db0_source_id": "SRC-NTRS-19910018906"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "db0_assertion_index": 15,
+   "outcome": "CONFIRMED",
+   "evidence": "250 kgf/cm2 = 24.52 MPa (DERIVED reproduces)",
+   "note": "",
+   "db0_field_path": "performance.pc",
+   "db0_value": 24.52,
+   "db0_source_id": "SRC-NTRS-19910018906"
+  }
+ ]
+}

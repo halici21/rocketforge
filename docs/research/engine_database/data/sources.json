@@ -1,5 +1,5 @@
 {
- "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "notice": "DB-0 research data. Not a production runtime asset. DB-0 values were read from web-search result summaries (see DB0_RESEARCH_OVERVIEW.md section 3). Sources with access 'fetched' were opened in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
  "schema": "db0-sources-v1",
  "sources": [
   {
@@ -276,7 +276,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "seen by this branch only as a WebSearch result summary (WebFetch DNS-fails, curl CONNECT 403); document not opened. Title paraphrased from summary (March 1971 summary of SPS engine valve improvement effort); exact title unverified.",
    "branches": [
     "anchor_us_modern"
@@ -299,7 +299,7 @@
     "ENG-US-IPD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Mainstage July 2006 at Stennis; 21 of 26 tests; 300 s accumulated; fuel-rich PB drives fuel TP, ox-rich PB drives ox TP (attribution among af.mil/wpafb/satellitetoday uncertain).",
    "branches": [
     "r2_schem",
@@ -434,7 +434,7 @@
    "source_type": "AIAA paper",
    "identifier": "AIAA 97-2687; NTRS 19970028362",
    "url": "https://ntrs.nasa.gov/api/citations/19970028362/downloads/19970028362.pdf",
-   "tier": "B",
+   "tier": "A",
    "primary": "primary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "NTRS-hosted; copyright field not viewed (fetch blocked). Contractor/AIAA authorship possible. Author is a Rocketdyne (contractor) employee.",
@@ -442,7 +442,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "Fig. 1 SSME propellant flow schematic (legend 97PD-038-001); nominal inlet condition table",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary gives LOX inlet ~103-111 psia, 170.5-178 R; fuel 43-47 psia, 37-40 R (nominal inlet condition range). 33rd JPC Seattle July 1997.",
    "branches": [
     "r2_schem"
@@ -534,7 +534,7 @@
     "ENG-US-RL10A-4-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "RL10A-4-2: MR 5.5, Pc 32.1 bar (465 psi), expansion ratio 85:1, Isp 450.5 s; single-engine Centaur avg 22.9 klbf, dual-engine 44.6 klbf total.",
    "branches": [
     "r2_us_classic"
@@ -557,7 +557,7 @@
     "ENG-US-RL10B-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "DCSS RL10B-2: expansion ratio 285:1; Pc 32.1 bar (465 psi) [identical to the Atlas page value -> possible copy error]; hydraulic nozzle gimbal (stage pitch/yaw).",
    "branches": [
     "r2_us_classic"
@@ -2878,7 +2878,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "",
    "branches": [
     "spacecraft"
@@ -2970,7 +2970,7 @@
     "ENG-US-J-2S"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Eleven firings 80,000-108,000 ft pressure altitude (one of the two reports).",
    "id_collision_titles": [
     "AEDC altitude test report: Rocketdyne J-2S engine, six firings (1969) (exact title not seen)"
@@ -2997,7 +2997,7 @@
     "ENG-US-J-2S"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "",
    "id_collision_titles": [
     "AEDC altitude test report: Rocketdyne J-2S engine, eleven firings (1969) (exact title not seen)"
@@ -3024,7 +3024,7 @@
     "ENG-US-IPD"
    ],
    "locators": "abstract",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "1,112,000 N (250,000 lbf) SL thrust LOX/LH2 full-flow demonstration.",
    "branches": [
     "r2_schem"
@@ -3047,7 +3047,7 @@
     "ENG-US-IPD"
    ],
    "locators": "slides",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Oxygen turbopump hydrostatic bearings; FFSC vs SSME fuel-rich SC; lower turbine temperature.",
    "branches": [
     "r2_schem"
@@ -3070,7 +3070,7 @@
     "ENG-US-J-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Summaries: engine start defined at energising helium control and ignition-phase solenoids; MOV, start tank discharge valve, valve timing tables; modifications after AS-502 (4 Apr 1968) malfunctions; modified ASI propellant lines; 'a rating of 225,000 lb at MR 5.5' (report not named).",
    "branches": [
     "r2_us_classic"
@@ -3093,7 +3093,7 @@
     "ENG-US-J-2S"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "TR-70-150: ten idle-mode firings of one J-2S in cell J-4, Sep-Oct 1969, noncompartmented injector, 1,408.2 s total idle; TR-70-204 (Sep 1970): tests J4-1001-06/-07/-11/-15, eleven firings at 80,000-108,000 ft pressure altitude, objectives incl. idle stability, oxidizer injection temperature during main stage -> post-main-stage idle, main-stage performance; full-face oxidizer injector for idle. TR-70-38 (Apr 1970): J4-1902-08/-11/-12. Round-1: AD0867628 idle modes ~4,000 and ~50,000 lbf.",
    "branches": [
     "r2_us_classic"
@@ -3614,7 +3614,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Carried from round 1; appeared again in round-2 results but no values were attributed to it.",
    "branches": [
     "anchor_us_classic",
@@ -5005,7 +5005,7 @@
     "ENG-US-J-2S"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Abstract: stage and vehicle system changes, schedules and costs for J-2S in Saturn V upper stages. Engine figures not seen.",
    "branches": [
     "r2_us_classic"
@@ -6833,7 +6833,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summaries attribute to 'a NASA SSME overview': MCC Pc ~2,747 psia at RPL, ~2,870 psia at 104.5%, 2,994 psia at 109%; preburners ~5,000 psia; fuel split after HPFTP. Attribution among co-listed results is inferred.",
    "id_collision_titles": [
     "SSME Overview (PDF)"
@@ -7950,7 +7950,7 @@
     "ENG-SU-RD-170"
    ],
    "locators": "Fig. 1 RD-170 schematic",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Title paraphrased from summary.",
    "branches": [
     "r2_schem"
@@ -8020,7 +8020,7 @@
     "ENG-US-AJ10-190"
    ],
    "locators": "engine control valves, quantity gauging sections",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "",
    "branches": [
     "r2_schem"
@@ -8423,7 +8423,7 @@
     "ENG-US-RS-68A"
    ],
    "locators": "single-page table (garbled in summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Second unlabelled column (412K lbf vac, 318K lbf SL, 820 psia, MR 5.99) not interpreted.",
    "branches": [
     "r2_schem",
@@ -8494,7 +8494,7 @@
     "ENG-US-RL10A-4-2"
    ],
    "locators": "model comparison table",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Multi-model table: thrust row 24,750 / 22,300 / 22,890 / 23,825 / 24,120 / 24,340 lbf; RL10A-4-2 column 22,300 lbf, Isp 451.0 s, MR 5.5, 46-in nozzle diameter (Atlas V). No area ratio given (per summary).",
    "branches": [
     "r2_us_classic"
@@ -8517,7 +8517,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values as summarised: Pc 2,994 psia; O/F 6.03:1; exit/throat 69:1; dry 7,774 lb; vac thrust 512,300 lb at 109%; throttle 67-109%; H2 pump discharge 6,276 psia; O2 pump discharge 7,268 psia; 'fuel-rich dual-shaft staged combustion'. Describes the RS-25 as supplied for SLS (RS-25D adapted); the operating point of the pump pressures is not stated in the summary.",
    "branches": [
     "r2_us_classic"
@@ -9522,7 +9522,7 @@
     "ENG-US-RS-68"
    ],
    "locators": "p. 256 and Appendix D (chapter 13)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RL10B-2: text 633 psi / 465.5 s; comparison table 644 psia / 466.5 s; 285:1 (round 1 and round 2). Names RL-10A-4-2 as Atlas V engine.",
    "branches": [
     "r2_us_classic",
@@ -9691,7 +9691,7 @@
     "ENG-US-LMDE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Abstract: deep throttling; lightweight cryogenic (supercritical) helium pressurization.",
    "branches": [
     "spacecraft"
@@ -9739,7 +9739,7 @@
     "ENG-US-J-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Possibly the 'NASA overview' giving 'up to 225,000 pounds at high altitude' (attribution inferred).",
    "id_collision_titles": [
     "Saturn Launch Vehicles (pp. 8-14 excerpt, CSM news reference)"
@@ -9834,7 +9834,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "Figure 22, p. 31: SPS pressurization and propellant system",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Locator from search summary; document identity unresolved.",
    "branches": [
     "r2_schem"
@@ -9952,7 +9952,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "Block comparison table (slide number NOT_AUDITED)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Search summary quotes a Block I / Block IIA / Block II comparison table (MCC Pc, HPFT and HPOT discharge temperatures at 104.5% and 109%). Summary warns the text extraction is jumbled (two different Block IIA 104.5% HPFT values, 1601 R and 1615 R). Also a later STS-113 deck (Oct 2002) gives only sigma margins on pump speeds.",
    "branches": [
     "r2_us_classic"
@@ -9998,7 +9998,7 @@
     "ENG-US-AJ10-190"
    ],
    "locators": "system diagrams",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Id-to-URL link inferred.",
    "branches": [
     "r2_schem"
@@ -10161,7 +10161,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Carried from round 1: 512,000 lbf at 109% (condition not shown).",
    "id_collision_titles": [
     "NASAfacts: Space Launch System RS-25 Core Stage Engine"
@@ -10188,7 +10188,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify.",
    "branches": [
     "us_hist"
@@ -10241,7 +10241,7 @@
     "ENG-US-J-2"
    ],
    "locators": "F-1 and J-2 engine sections; flow figure numbers NOT located",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "URL appeared in Gigazine summary text, not as a result link; marked unverified URL.",
    "branches": [
     "r2_schem"
@@ -10696,7 +10696,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: 'sea-level thrust 390,000 pounds nominal power level (NPL) or 104.5 percent RPL'. Exact document among co-listed NASA hits is inferred.",
    "branches": [
     "anchor_us_classic",
@@ -10809,7 +10809,7 @@
     "ENG-US-LMDE"
    ],
    "locators": "figure list not seen",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round-1 id reused.",
    "branches": [
     "anchor_us_modern",
@@ -10863,7 +10863,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Abstract seen in search summary only.",
    "id_collision_titles": [
     "Apollo Experience Report: Service Propulsion Subsystem"
@@ -11987,7 +11987,7 @@
     "ENG-US-H-1"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Two summaries: (a) nominal SL rating 188,000 lb; major components thrust chamber, turbopump assembly, LPGG, fuel additive blender unit (FABU); 8-engine cluster with 4 inboard engines at 32 in radius canted 3 deg outward (fixed) and 4 outboard at 95 in canted 6 deg with hydraulic gimbal. (b) OCR-garbled turbopump text: two-stage turbine ~3,793 hp at ~32,000 rpm; gear reductions drive LOX and fuel pumps at ~6,537 rpm; accessory drives ~4,000 rpm; electric heater for accessory-drive bearings; hypergol cartridge. Summary (b) could not confirm the engine name; summary (a) ties the document to the H-1. Identity: medium. Companion NTRS 19650013471 seen, not described.",
    "branches": [
     "r2_us_classic"
@@ -12010,7 +12010,7 @@
     "ENG-US-H-1"
    ],
    "locators": "mechanical schematics (figure list not seen)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Saturn I (SA-8/SA-10), not Saturn IB; H-1 variant (165K/188K) unspecified.",
    "branches": [
     "r2_schem"
@@ -12033,7 +12033,7 @@
     "ENG-US-H-1"
    ],
    "locators": "mechanical schematics (stage RP-1 feed)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Stage-level.",
    "branches": [
     "r2_schem"
@@ -12147,7 +12147,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "",
    "branches": [
     "spacecraft"
@@ -12217,7 +12217,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: enlarging the throat reduces nozzle expansion ratio from 77.5 to 69.5:1 and Pc at 109% from 3,285 to 3,010 psia; the Large Throat version modifies the MCC, nozzle not modified. Which of NTRS 19920006659 / 19860012108 / 19830016278 carries each sentence is inferred.",
    "branches": [
     "r2_us_classic"
@@ -12264,7 +12264,7 @@
     "ENG-US-RL10A-3-3A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Excerpt quoted: 'Vacuum thrust, lb 16,500 ... Mixture ratio 5:1 ... Chamber pressure, psia 475 Area ratio 61:1' (RL10A-3-3A per search summary) and Isp 444.4 s.",
    "branches": [
     "us_hist"
@@ -12279,7 +12279,7 @@
    "source_type": "NASA briefing slides / report",
    "identifier": "NTRS 19910018906",
    "url": "https://ntrs.nasa.gov/api/citations/19910018906/downloads/19910018906.pdf",
-   "tier": "A",
+   "tier": "B",
    "primary": "secondary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "NTRS document; copyright determination not seen (PDF not opened). Likely US-gov work but unconfirmed.",
@@ -12287,7 +12287,7 @@
     "ENG-SU-RD-170"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Title/date/author not seen; ID implies 1991 accession. Search summary quotes: '1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies'; 740/806 t; 308/336 s; 250 kgf/cm2; MR 2.58; 29 flights (21 as SL-16). Western observers' interpretation of Soviet display data -> primary=secondary.",
    "branches": [
     "r2_ussr"
@@ -12375,7 +12375,7 @@
    "source_type": "NASA report (conference paper?)",
    "identifier": "NTRS 19950022693",
    "url": "https://ntrs.nasa.gov/api/citations/19950022693/downloads/19950022693.pdf",
-   "tier": "B",
+   "tier": "A",
    "primary": "primary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "NTRS-hosted; copyright field not viewed (fetch blocked). Contractor/AIAA authorship possible.",
@@ -12383,7 +12383,7 @@
     "ENG-US-RL10A-3-3A"
    ],
    "locators": "Figure 1 (full expander cycle; 'RL10 engine design (all models) is based on a full expander cycle')",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Refers to 'RL10A-3-3A Rocket Engine Modeling Project Final Report' (not found). Round-1 used SRC-NTRS-TM107318 for an RL10A-3-3A schematic; relation unknown.",
    "branches": [
     "r2_schem"
@@ -12429,7 +12429,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: Block IA -> Block IIA change was a larger-throat MCC; Block 2 package lists Large Throat MCC plus Advanced Technology oxidizer and fuel turbopumps. Attribution inferred (summary says 'NASA's 2003 documentation').",
    "branches": [
     "r2_us_classic"
@@ -12454,7 +12454,7 @@
     "ENG-US-J-2X"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "J-2X used the J-2S as point of departure (J-2S Mk.29 oxidizer and fuel turbopump designs); heritage J-2 fuel TP = inducer + seven-stage axial rotor + stator, 27,000 rpm, two-stage turbine. J-2X items (448 s, series turbines, HEX, single-stage fuel TP limit) are NOT J-2/J-2S facts.",
    "id_collision_titles": [
     "NASA NTRS document 20080036837 (title not seen; J-2X)"
@@ -12527,7 +12527,7 @@
     "ENG-US-J-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summaries quote: up to 230,000 lb thrust; Pc a little over 700 psia; MR 5.5:1 at that Pc, capable of 4.5:1; independently driven LOX and LH2 pumps; gas generator supplying hot gas to two turbines running in series; pneumatic and electrical interlocks; altitude restart; propellant utilization system; pumps on opposite sides; area ratio 27.5:1; start tank discharged cold hydrogen through the two turbines; small helium tank inside the start tank; fuel pump derived from nuclear rocket programs (start sensitivity).",
    "id_collision_titles": [
     "NASA NTRS document 20100027318 (title not seen; J-2/J-2X heritage)"
@@ -12554,7 +12554,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Search summary attributed AJ10-137 general configuration (20,000 lbf, 100 psi, Isp 314.5, eps 62.5) to 'NTRS summary'; exact record uncertain between this and 19730023031.",
    "branches": [
     "spacecraft"
@@ -12579,7 +12579,7 @@
     "ENG-US-J-2X"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Requirements/comparison table: J-2 230 klbf / 425 s; J-2S 265 klbf / 436 s (round 1); J-2X secondary mode MR 4.5 (J-2X only).",
    "id_collision_titles": [
     "NASA NTRS document 20120016414 (title not seen; J-2X)"
@@ -12723,7 +12723,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. '109 percent power level, which was the emergency power level specified in the STS program but is planned as the nominal power level for SLS'.",
    "branches": [
     "us_hist"
@@ -12806,7 +12806,7 @@
    "source_type": "NASA conference paper",
    "identifier": "NTRS 20040084662",
    "url": "https://ntrs.nasa.gov/api/citations/20040084662/downloads/20040084662.pdf",
-   "tier": "B",
+   "tier": "A",
    "primary": "primary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "NTRS-hosted; copyright field not viewed (fetch blocked). Contractor/AIAA authorship possible.",
@@ -12814,7 +12814,7 @@
     "ENG-US-IPD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round-1 id reused.",
    "id_collision_titles": [
     "NTRS record 20040084662 (Integrated Powerhead Demonstrator paper; title unverified)"
@@ -12864,7 +12864,7 @@
     "ENG-US-IPD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "11 OTP cold-flow tests.",
    "branches": [
     "taxonomy"
@@ -12891,7 +12891,7 @@
     "ENG-US-IPD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Per summary: 9 WPB tests, 12 OTP hot-fire tests; engine tests to start late 2004; 250 klbf LOX/LH2 demonstrator; Boeing-Rocketdyne and GenCorp Aerojet.",
    "branches": [
     "taxonomy"
@@ -12914,7 +12914,7 @@
     "ENG-US-AJ10-190"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Attribution of the OMS description to this id is from search summary; verify. He bottle, solenoid valves, regulators, vapor isolation, check, relief valves; GN2-actuated bipropellant valves.",
    "branches": [
     "taxonomy"
@@ -12937,7 +12937,7 @@
     "ENG-US-RL10A-4-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RL10A-3-3A (NOT RL10A-4-2): two-stage fuel turbine drives two-stage fuel pump on a shaft and single-stage LOX pump through a gearbox; design speeds fuel 30,000 rpm, LOX 12,000 rpm; turbine table 31,494 rpm; turbine bypass controls Pc (pneumatic servo); LOX via PU (MR control) valve; start on tank pressure + ambient jacket heat; shutdown drains fuel via pump cooldown valves; throttling studies changed gear ratio 2.5 -> 2.13. Used only as family context.",
    "branches": [
     "r2_us_classic"
@@ -13026,7 +13026,7 @@
     "ENG-US-RL10A-4-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. States RL10A-3-3A, RL10A-4 and RL10A-4-1 retain the basic configuration of the original RL10A-1 with component improvements. Likely contains an engine system schematic (not verified).",
    "branches": [
     "us_hist"
@@ -14634,7 +14634,7 @@
     "ENG-NZ-RUTHERFORD-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "relayed from sibling branch log commercial/_research_log.txt (that branch saw it only as a WebSearch summary); not seen by this branch",
    "branches": [
     "anchor_us_modern"
@@ -14658,7 +14658,7 @@
     "ENG-NZ-RUTHERFORD-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "relayed from sibling branch log commercial/_research_log.txt (that branch saw it only as a WebSearch summary); not seen by this branch. Includes a 2022 page and a later page; URLs not recorded.",
    "branches": [
     "anchor_us_modern"
@@ -18717,7 +18717,7 @@
     "ENG-US-RL10B-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "DCSS RL10B-2 24,750 lbf (per summary).",
    "branches": [
     "r2_us_classic"
@@ -18740,7 +18740,7 @@
     "ENG-US-RL10B-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RL10B-2 24,750 lb thrust; extendible nozzle for boost-phase environments and longer burns.",
    "branches": [
     "r2_us_classic"
@@ -18853,7 +18853,7 @@
     "ENG-US-LMDE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "seen by this branch only as a WebSearch result summary (WebFetch DNS-fails, curl CONNECT 403); document not opened. Appeared in both the DPS and SPS searches; which TN this entry describes was NOT confirmed (summary associated 'iv+21 p. il.' with TN D-7375).",
    "branches": [
     "anchor_us_modern"
@@ -18876,7 +18876,7 @@
     "ENG-US-AJ10-190"
    ],
    "locators": "figure list not seen",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "",
    "branches": [
     "r2_schem"
@@ -25146,6 +25146,90 @@
    "notes": "Seen only on a test5 staging subdomain in search results; main site not confirmed.",
    "branches": [
     "rights"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19750063889",
+   "title": "Saturn V Flight Manual SA-503",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1968,
+   "source_type": "flight manual",
+   "identifier": "MSFC-MAN-503 (25 Nov 1968); NTRS 19750063889",
+   "url": "https://ntrs.nasa.gov/citations/19750063889",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED, but p.A (PDF p.3) prints 'Reproduction for non-government use of the information or illustrations contained in this publication is not permitted without specific approval of the issuing service.'",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19850008634",
+   "title": "Orbital Maneuvering system design evolution",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1985,
+   "source_type": "technical paper",
+   "identifier": "NTRS 19850008634",
+   "url": "https://ntrs.nasa.gov/citations/19850008634",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19940016798",
+   "title": "Advanced Transportation System Studies, Technical Area 3, Alternate Propulsion Subsystem Concepts: J-2S Restart Study Task Final Report",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1993,
+   "source_type": "contractor final report",
+   "identifier": "NASA contract NAS8-39210, DCN 1-1-PP-02147, DR-4 (Rocketdyne, April 1993); NTRS 19940016798",
+   "url": "https://ntrs.nasa.gov/citations/19940016798",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; contractor report (Rockwell International Rocketdyne)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20100027316",
+   "title": "Rocketdyne - F-1 Saturn V First Stage Engine (Robert Biggs)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 2006,
+   "source_type": "conference chapter + viewgraphs",
+   "identifier": "NTRS 20100027316 (Remembering the Giants, Chapter One + Appendix C viewgraphs CP6_0450_Apollo 11 F1-*.ppt)",
+   "url": "https://ntrs.nasa.gov/citations/20100027316",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS PUBLIC_USE_PERMITTED; Rocketdyne viewgraphs reproduced in a NASA publication",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
    ]
   }
  ],

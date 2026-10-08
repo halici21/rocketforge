@@ -140,9 +140,12 @@ def test_sources_use_the_defined_vocabulary(sources):
         assert s["access"] in ACCESS, (sid, s["access"])
 
 
-def test_no_source_is_claimed_as_opened(sources):
-    # DB-0 could not open any document; a later pass that does must record it per source.
-    assert not [sid for sid, s in sources.items() if s["access"] == "fetched"]
+def test_a_source_is_claimed_as_opened_only_with_a_db05_access_record(sources):
+    # DB-0 could not open any document. DB-0.5 records every document it opened in
+    # db05/documents_opened.json; no other source may claim access "fetched".
+    opened = json.loads((PACKAGE / "db05" / "documents_opened.json").read_text(encoding="utf-8"))["documents"]
+    read = {d["source_id"] for d in opened if d["read_level"] in {"READ_AND_MINED", "IDENTITY_VERIFIED_ONLY"}}
+    assert {sid for sid, s in sources.items() if s["access"] == "fetched"} == read
 
 
 def test_a_value_is_reported_only_by_a_tier_a_to_c_source(engines, sources, anchors):

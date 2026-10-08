@@ -1,0 +1,230 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "schematics": [
+  {
+   "schematic_id": "SCH-DB05-RS25-JSC19041-F11II",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "JSC-19041 p.1.1-4, Figure 1.1-II",
+   "title_as_printed": "SSME propellant flow schematic",
+   "kind": "pictorial flow schematic, no state annotations",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered PDF p.4 at 130 and 200 dpi, rotated",
+   "legibility": "labels legible; thin-line arrowheads only partly legible",
+   "db0_schematic_id": "SCH-RS-25D-R2-4",
+   "note": "Labels: H2 inlet, LPFTP, HPFTP, FPOV, Fuel Preburner, MFV, CCV, Main Injector, MCC, Nozzle, MOV, Oxidizer Preburner, OPOV, HPOTP, LPOTP, O2 inlet. Unlabelled sphere near OPOV not identified."
+  },
+  {
+   "schematic_id": "SCH-DB05-RS25-AIAA972687-F1",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-AIAA-97-2687",
+   "locator": "AIAA 97-2687 p.1 (PDF p.3), Figure 1, legend 97PD-038-001",
+   "title_as_printed": "SSME Propellant Flow Schematic",
+   "kind": "pictorial flow schematic with state annotations",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered PDF p.3 at 110 and 300 dpi",
+   "legibility": "valve labels legible; numeric state annotations ILLEGIBLE in the NTRS bilevel scan",
+   "db0_schematic_id": "SCH-RS-25D-R2-1",
+   "note": "Configuration not stated (1997; 470,000 lb RPL / 3006 psia = pre-large-throat). No numbers digitised."
+  },
+  {
+   "schematic_id": "SCH-DB05-RS25IIA-BC9804-S19",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-IIA"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+   "locator": "BC98-04 p.25 (slide 19, 9804168c.ppt)",
+   "title_as_printed": "Block IIA SSME Propellant Flow Schematic, 104.5% of RPL",
+   "kind": "pictorial flow schematic with p/T/flow/rpm annotations",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered PDF p.25 at 150 dpi",
+   "legibility": "all annotations legible",
+   "db0_schematic_id": "SCH-RS-25D-R2-6",
+   "note": "DB-0 'NOT located (TOC only seen)' -> located and viewed. Figure rights: BOEING PROPRIETARY marking; not reproducible."
+  },
+  {
+   "schematic_id": "SCH-DB05-J2-COFFMAN-S4",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "PDF p.15, Appendix D slide 'J-2 Engine Schematic' (CP6_0450_J2-4.ppt)",
+   "title_as_printed": "J-2 Engine Schematic",
+   "kind": "pictorial flow schematic, colour legend Fuel/Oxidizer/Hot Gas, flow arrows",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 110 and 260 dpi",
+   "legibility": "all labels and legend legible; arrows legible on main lines",
+   "db0_schematic_id": null,
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-J2-SA503-F57",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-DB05-NTRS-19750063889",
+   "locator": "MSFC-MAN-503 p.5-8 (PDF p.93), Figure 5-7 sheet 1 of 3 'S-II Engine Start'",
+   "title_as_printed": "S-II Engine Start",
+   "kind": "pictorial start-sequence flow figure with numbered callouts and fluid legend",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 120 dpi",
+   "legibility": "labels legible; hatching distinguishes fluids but turbine order is not unambiguous from hatching alone",
+   "db0_schematic_id": "SCH-J-2-R2-1",
+   "note": "DB-0 lead pointed at SA-507; SA-503 equivalent figure viewed instead."
+  },
+  {
+   "schematic_id": "SCH-DB05-F1-BIGGS-SCHEM",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-DB05-NTRS-20100027316",
+   "locator": "PDF p.17, Appendix C slide 'F-1 Engine Schematic'",
+   "title_as_printed": "F-1 Engine Schematic",
+   "kind": "pictorial flow schematic, colour legend Fuel/Oxidizer/Hot Gas, flow arrows",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 240 dpi",
+   "legibility": "labels, legend and main-line arrows legible",
+   "db0_schematic_id": null,
+   "note": "Turbine exhaust manifold and nozzle-extension injection are not drawn; text supplies them."
+  },
+  {
+   "schematic_id": "SCH-DB05-H1-SA10-F31",
+   "engine_ids": [
+    "ENG-US-H-1-188K"
+   ],
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "SDES-64-415 Vol. VIII, Figure 3-1 'H-1 Engine and Hydraulic System - Mechanical Schematic', p.3.3 (PDF p.32 fold-out)",
+   "title_as_printed": "H-1 Engine and Hydraulic System - Mechanical Schematic",
+   "kind": "mechanical (line) schematic with finding numbers B1..B305, valve states and pressure callouts; inboard, outboard and hydraulic panels",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered fold-out at 300 dpi, rotated, inboard panel viewed at ~180 dpi effective",
+   "legibility": "finding numbers and pressure callouts legible",
+   "db0_schematic_id": "SCH-H-1-R2-1",
+   "note": "DB-0 linked SCH-H-1-R2-1 to the SA-8 volume (NTRS 19650013471) and SCH-H-1-R2-2 to 19650013583 (RP-1 stage system); the H-1 engine schematic viewed here is in the SA-10 Vol. VIII (19650013470)."
+  },
+  {
+   "schematic_id": "SCH-DB05-RL10A33A-CR195478-F1",
+   "engine_ids": [
+    "ENG-US-RL10A-3-3A"
+   ],
+   "source_id": "SRC-NTRS-19950022693",
+   "locator": "NASA CR-195478 Figure 1 'RL10A-3-3A Engine System Schematic' (PDF p.13)",
+   "title_as_printed": "RL10A-3-3A Engine System Schematic",
+   "kind": "line/pictorial schematic with valve labels and flow arrows",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 300 dpi",
+   "legibility": "all labels and arrows legible",
+   "db0_schematic_id": "SCH-RL10A-3-3A-R2-1",
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-SPS-TND7375-F2",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-NASA-TND7375",
+   "locator": "TN D-7375 Figure 2 'Service propulsion subsystem propellant feed assembly', p.4 (PDF p.8)",
+   "title_as_printed": "Service propulsion subsystem propellant feed assembly",
+   "kind": "pictorial/line schematic of the SM pressurization and feed system",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 160 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": null,
+   "note": "Vehicle (service module) system schematic, not the engine internals. DB-0 leads SCH-AJ10-137-R2-1/R2-2 pointed to other documents (one unreachable, one not mined)."
+  },
+  {
+   "schematic_id": "SCH-DB05-LMDE-TND7143-F3",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ],
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "TN D-7143 Figure 3 'The final DPS design', p.4 (PDF p.9)",
+   "title_as_printed": "The final DPS design",
+   "kind": "line schematic of descent-stage pressurization and feed",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 150 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": null,
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-LMDE-TND7143-F6",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ],
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "TN D-7143 Figure 6 'Descent-engine schematic, fixed-area helium injection', p.8 (PDF p.13)",
+   "title_as_printed": "Descent-engine schematic, fixed-area helium injection",
+   "kind": "engine valve schematic (development configuration)",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 150 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": "SCH-LMDE-R2-1",
+   "note": "Development (helium-injection) configuration, not the flight variable-area design."
+  },
+  {
+   "schematic_id": "SCH-DB05-LMDE-TND7143-F7",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ],
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "TN D-7143 Figure 7 'Variable area of the descent engine', p.8 (PDF p.13)",
+   "title_as_printed": "Variable area of the descent engine",
+   "kind": "engine valve and injector schematic with flow arrows",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 150 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": null,
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-OMS-WB-F21",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-USA-OMS21002",
+   "locator": "USA006500 Rev. A Figure 2-1 'OMS schematic' p.2-1 (PDF p.16)",
+   "title_as_printed": "OMS schematic",
+   "kind": "engine line schematic with valves, cooling jacket and flow arrows",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 140 dpi",
+   "legibility": "all labels and arrows legible",
+   "db0_schematic_id": null,
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-OMS-WB-F210",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-USA-OMS21002",
+   "locator": "USA006500 Rev. A Figure 2-10 'Propellant and helium supply schematic' p.2-12 (PDF p.27)",
+   "title_as_printed": "Propellant and helium supply schematic",
+   "kind": "pod pressurization/feed line schematic",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 140 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": null,
+   "note": ""
+  },
+  {
+   "schematic_id": "SCH-DB05-RD170-RKWL-P19",
+   "engine_ids": [
+    "ENG-SU-RD-170"
+   ],
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "NTRS 19910018906 PDF p.19 (briefing p.569) 'Soviet RD-170 Propulsion System Schematic Diagram (Based on 1989 Paris Air Show Display Photos)'",
+   "title_as_printed": "Soviet RD-170 Propulsion System Schematic Diagram (Based on 1989 Paris Air Show Display Photos)",
+   "kind": "THIRD_PARTY_RECONSTRUCTION line schematic (Rockwell), with '?' on uncertain paths",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 130 dpi",
+   "legibility": "all labels legible",
+   "db0_schematic_id": null,
+   "note": "Not a manufacturer schematic. Edges are 'shown' only in the sense that Rockwell drew them."
+  }
+ ]
+}

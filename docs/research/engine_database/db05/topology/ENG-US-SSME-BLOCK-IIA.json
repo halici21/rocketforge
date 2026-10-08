@@ -1,0 +1,613 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-SSME-BLOCK-IIA",
+ "configuration": "Block IIA at 104.5% RPL",
+ "schematic_ids": [
+  "SCH-DB05-RS25IIA-BC9804-S19"
+ ],
+ "text_sources": [
+  "SRC-ENGINEHISTORY-SSMEORIENT-1998"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "ASI fuel supply and igniter detail",
+   "helium purge and pneumatic control",
+   "hydraulic actuators",
+   "bleed and recirculation valves",
+   "start/shutdown sequence (none shown)",
+   "heat exchanger position on the schematic (unlabelled)",
+   "fuel flowmeter labelled but not modelled",
+   "GOX return/recondensation path in the vehicle"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-LH2-IN",
+   "component_type": "engine_inlet",
+   "label": "Hydrogen inlet",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-LPFTP-P",
+   "component_type": "booster_pump",
+   "label": "LPFTP pump",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-LPFTP-T",
+   "component_type": "turbine",
+   "label": "LPFTP turbine (GH2 drive)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-HPFTP-P",
+   "component_type": "pump",
+   "label": "HPFTP pump",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-HPFTP-T",
+   "component_type": "turbine",
+   "label": "HPFTP turbine",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-MFV",
+   "component_type": "valve",
+   "label": "Main fuel valve (MFV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-MCC-COOL",
+   "component_type": "cooling_jacket",
+   "label": "MCC coolant channels (430)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-NOZ-TUBES",
+   "component_type": "cooling_jacket",
+   "label": "Nozzle coolant tubes (1,080)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-CCV",
+   "component_type": "valve",
+   "label": "Chamber coolant valve (CCV), nozzle bypass",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-PB-FUEL-MIX",
+   "component_type": "junction",
+   "label": "Nozzle-coolant + CCV merge, preburner fuel supply",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-FPB",
+   "component_type": "preburner_fuel_rich",
+   "label": "Fuel preburner",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-OPB",
+   "component_type": "preburner_fuel_rich",
+   "label": "Oxidizer preburner",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-HGM",
+   "component_type": "manifold",
+   "label": "Hot gas manifold (with coolant spaces)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-MI",
+   "component_type": "injector",
+   "label": "Main injector",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-MCC",
+   "component_type": "combustion_chamber",
+   "label": "Main combustion chamber",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-NOZ",
+   "component_type": "nozzle",
+   "label": "Nozzle",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-LOX-IN",
+   "component_type": "engine_inlet",
+   "label": "Oxygen inlet",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-LPOTP-P",
+   "component_type": "booster_pump",
+   "label": "LPOTP pump",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-LPOTP-T",
+   "component_type": "turbine_hydraulic",
+   "label": "LPOTP turbine (LOX-driven)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-HPOTP-P",
+   "component_type": "pump",
+   "label": "HPOTP main pump",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-HPOTP-BP",
+   "component_type": "pump",
+   "label": "Preburner oxidizer boost pump (bottom of HPOTP)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-HPOT",
+   "component_type": "turbine",
+   "label": "HPOTP turbine",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-MOV",
+   "component_type": "valve",
+   "label": "Main oxidizer valve (MOV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-FPOV",
+   "component_type": "valve",
+   "label": "Fuel preburner oxidizer valve (FPOV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-OPOV",
+   "component_type": "valve",
+   "label": "Oxidizer preburner oxidizer valve (OPOV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "id": "N-HEX",
+   "component_type": "heat_exchanger",
+   "label": "Heat exchanger coil (LOX -> GOX)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-POGO",
+   "component_type": "accumulator",
+   "label": "Pogo suppression accumulator (on LP oxidizer duct)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-ASI",
+   "component_type": "igniter",
+   "label": "Augmented spark igniters (three)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-ET-LH2",
+   "component_type": "tank_pressurization_port",
+   "label": "ET fuel tank pressurization",
+   "subsystem": "vehicle",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "id": "N-ET-LOX",
+   "component_type": "tank_pressurization_port",
+   "label": "ET oxidizer tank pressurization",
+   "subsystem": "vehicle",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-LH2-IN",
+   "to": "N-LPFTP-P",
+   "fluid": "LH2",
+   "role": "feed",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-LPFTP-P",
+   "to": "N-HPFTP-P",
+   "fluid": "LH2",
+   "role": "feed (low-pressure fuel duct)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPFTP-P",
+   "to": "N-MFV",
+   "fluid": "LH2",
+   "role": "feed (high-pressure fuel duct)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-MFV",
+   "to": "N-MCC-COOL",
+   "fluid": "H2",
+   "role": "cooling, 19% (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-MFV",
+   "to": "N-NOZ-TUBES",
+   "fluid": "H2",
+   "role": "cooling, 27.5% (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-MFV",
+   "to": "N-CCV",
+   "fluid": "H2",
+   "role": "nozzle bypass, 48.5% (split_group F1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-MCC-COOL",
+   "to": "N-LPFTP-T",
+   "fluid": "GH2",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-LPFTP-T",
+   "to": "N-ET-LH2",
+   "fluid": "GH2",
+   "role": "tank pressurization tap",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-LPFTP-T",
+   "to": "N-HGM",
+   "fluid": "GH2",
+   "role": "HGM coolant, enters both ends",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HGM",
+   "to": "N-MI",
+   "fluid": "GH2",
+   "role": "coolant to dedicated injector cavity",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-NOZ-TUBES",
+   "to": "N-PB-FUEL-MIX",
+   "fluid": "H2",
+   "role": "merge (merge_group F2)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-CCV",
+   "to": "N-PB-FUEL-MIX",
+   "fluid": "H2",
+   "role": "merge (merge_group F2)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-PB-FUEL-MIX",
+   "to": "N-FPB",
+   "fluid": "H2",
+   "role": "preburner fuel (50% of fuel)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-PB-FUEL-MIX",
+   "to": "N-OPB",
+   "fluid": "H2",
+   "role": "preburner fuel (26% of fuel)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-FPB",
+   "to": "N-HPFTP-T",
+   "fluid": "H2-rich gas",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-OPB",
+   "to": "N-HPOT",
+   "fluid": "H2-rich gas",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPFTP-T",
+   "to": "N-HGM",
+   "fluid": "H2-rich gas",
+   "role": "turbine exhaust",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOT",
+   "to": "N-HGM",
+   "fluid": "H2-rich gas",
+   "role": "turbine exhaust",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HGM",
+   "to": "N-MI",
+   "fluid": "H2-rich gas",
+   "role": "hot gas to main injector",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-MI",
+   "to": "N-MCC",
+   "fluid": "propellants",
+   "role": "injection",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-MCC",
+   "to": "N-NOZ",
+   "fluid": "combustion gas",
+   "role": "expansion",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-NOZ",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-LOX-IN",
+   "to": "N-LPOTP-P",
+   "fluid": "LOX",
+   "role": "feed",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-LPOTP-P",
+   "to": "N-HPOTP-P",
+   "fluid": "LOX",
+   "role": "feed (low-pressure oxidizer duct)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPOTP-P",
+   "to": "N-MOV",
+   "fluid": "LOX",
+   "role": "main flow ~89%",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-MOV",
+   "to": "N-MI",
+   "fluid": "LOX",
+   "role": "main oxidizer",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOTP-P",
+   "to": "N-LPOTP-T",
+   "fluid": "LOX",
+   "role": "hydraulic turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-LPOTP-T",
+   "to": "N-HPOTP-P",
+   "fluid": "LOX",
+   "role": "turbine discharge merged with LPOTP pump output",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPOTP-P",
+   "to": "N-HEX",
+   "fluid": "LOX",
+   "role": "branch to heat exchanger",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-ET-LOX",
+   "fluid": "GOX",
+   "role": "tank pressurization",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HEX",
+   "to": "N-POGO",
+   "fluid": "GOX",
+   "role": "pogo accumulator pressurization",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPOTP-P",
+   "to": "N-HPOTP-BP",
+   "fluid": "LOX",
+   "role": "11% branch to preburner boost pump",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPOTP-BP",
+   "to": "N-FPOV",
+   "fluid": "LOX",
+   "role": "preburner oxidizer",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOTP-BP",
+   "to": "N-OPOV",
+   "fluid": "LOX",
+   "role": "preburner oxidizer",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-FPOV",
+   "to": "N-FPB",
+   "fluid": "LOX",
+   "role": "preburner oxidizer",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-OPOV",
+   "to": "N-OPB",
+   "fluid": "LOX",
+   "role": "preburner oxidizer",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOTP-P",
+   "to": "N-ASI",
+   "fluid": "LOX",
+   "role": "igniter oxidizer branch",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-HPFTP-T",
+   "to": "N-HPFTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOT",
+   "to": "N-HPOTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-HPOT",
+   "to": "N-HPOTP-BP",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "BC98-04 p.25 slide 19"
+  },
+  {
+   "from": "N-LPFTP-T",
+   "to": "N-LPFTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  },
+  {
+   "from": "N-LPOTP-T",
+   "to": "N-LPOTP-P",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "BC98-04 pp.24-27"
+  }
+ ],
+ "note": "Edge percentages are fuel- or oxidizer-flow fractions printed in the text (p.24, p.26). HGM-to-injector coolant path and LPOTP-turbine merge are text-only."
+}

@@ -1,5 +1,13 @@
 # DB-0 — Flow schematic index
 
+> **DB-0.5 update (2026-10-08).** 15 schematics have now been **viewed** (rendered from the opened PDF and
+> inspected), listed in [db05/schematics_viewed.json](db05/schematics_viewed.json). Nine verified topology
+> graphs built from them are in [db05/topology/](db05/topology/). Of the DB-0 leads below, SCH-RS-25D-R2-1, -R2-4,
+> -R2-6, SCH-J-2-R2-1 (as the SA-503 equivalent), SCH-H-1-R2-1 (found in the SA-10 volume, not SA-8),
+> SCH-LMDE-R2-1 and SCH-RL10A-3-3A-R2-1 were located and viewed. SCH-RS-25D-R2-6 *does* contain a flow
+> schematic (Block IIA, 104.5% RPL, p.25). The RD-170 schematic found is a Rockwell reconstruction, not a
+> manufacturer drawing. DTIC-hosted leads (J-2S, IPD) remain blocked.
+
 Flow and cycle schematics are a first-class research product: they are what
 lets a database hold **topology** rather than a cycle label. This index records
 every schematic DB-0 located, with the figure locator where one was seen.

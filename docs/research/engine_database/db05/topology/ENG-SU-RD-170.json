@@ -1,0 +1,202 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-SU-RD-170",
+ "configuration": "RD-170 as reconstructed by Rockwell from 1989 display photos (one of four chambers drawn)",
+ "schematic_ids": [
+  "SCH-DB05-RD170-RKWL-P19"
+ ],
+ "text_sources": [
+  "SRC-NTRS-19910018906"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "three of four chambers",
+   "valves and control",
+   "start system",
+   "gimbal",
+   "exact LP pump drive taps"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-LPOP",
+   "component_type": "booster_pump",
+   "label": "LP ox pump",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-LPFP",
+   "component_type": "booster_pump",
+   "label": "LP fuel pump",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-HPOP",
+   "component_type": "pump",
+   "label": "HP ox pump",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-HPFP",
+   "component_type": "pump",
+   "label": "HP fuel pump",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-KICK",
+   "component_type": "pump",
+   "label": "Fuel kick pump",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-TURB",
+   "component_type": "turbine",
+   "label": "LOX/fuel turbine (single shaft)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-PB",
+   "component_type": "preburner_ox_rich",
+   "label": "Ox-rich preburners (2)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-TCA",
+   "component_type": "thrust_chamber",
+   "label": "Thrust chamber assembly (1 of 4 drawn)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "id": "N-COOL",
+   "component_type": "cooling_jacket",
+   "label": "Chamber/nozzle fuel cooling ('?' on nozzle path)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-LPOP",
+   "to": "N-HPOP",
+   "fluid": "LOX",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-LPFP",
+   "to": "N-HPFP",
+   "fluid": "RP-1",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-HPOP",
+   "to": "N-PB",
+   "fluid": "LOX",
+   "role": "preburner oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-HPOP",
+   "to": "N-LPOP",
+   "fluid": "LOX",
+   "role": "LP ox pump turbine drive (liquid)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-HPFP",
+   "to": "N-LPFP",
+   "fluid": "RP-1",
+   "role": "LP fuel pump drive (liquid)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-HPFP",
+   "to": "N-KICK",
+   "fluid": "RP-1",
+   "role": "kick pump",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-KICK",
+   "to": "N-PB",
+   "fluid": "RP-1",
+   "role": "preburner fuel",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-HPFP",
+   "to": "N-COOL",
+   "fluid": "RP-1",
+   "role": "chamber coolant (to other three chambers too)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-COOL",
+   "to": "N-TCA",
+   "fluid": "RP-1",
+   "role": "fuel to injector",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-PB",
+   "to": "N-TURB",
+   "fluid": "ox-rich gas",
+   "role": "turbine drive",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-TCA",
+   "fluid": "ox-rich gas",
+   "role": "turbine exhaust to chambers (to other three chambers too)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-HPOP",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-HPFP",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19910018906 p.569 (reconstruction)"
+  }
+ ],
+ "note": "provenance_class = THIRD_PARTY_RECONSTRUCTION. Every SHOWN_IN_SCHEMATIC here means 'drawn by Rockwell', not 'drawn by NPO Energomash'. Not usable as TOPOLOGY capability without a manufacturer source."
+}

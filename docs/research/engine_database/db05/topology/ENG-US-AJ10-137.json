@@ -1,0 +1,282 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-AJ10-137",
+ "configuration": "Apollo SPS, Block I text with Fig. 2 feed assembly",
+ "schematic_ids": [
+  "SCH-DB05-SPS-TND7375-F2"
+ ],
+ "text_sources": [
+  "SRC-NASA-TND7375"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "relief valves and burst diaphragms",
+   "fill/drain/vent disconnects",
+   "propellant gauging",
+   "GN2 actuation system detail",
+   "exact helium routing through the propellant-line heat exchangers (drawn; flow sense inferred from text purpose)"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-HE-TANK",
+   "component_type": "pressurant_tank",
+   "label": "Helium tanks (2, spherical, 4400 psia)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-HE-VALVES",
+   "component_type": "valve",
+   "label": "Helium isolation valves (2 parallel solenoid poppet)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-HE-REG",
+   "component_type": "regulator",
+   "label": "Helium regulator assemblies (2 parallel; primary+secondary in series)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-HE-CHECK",
+   "component_type": "check_valve",
+   "label": "Helium check-valve assemblies (parallel-series)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-HEX-OX",
+   "component_type": "heat_exchanger",
+   "label": "Propellant/helium heat exchanger, oxidizer line",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-HEX-FU",
+   "component_type": "heat_exchanger",
+   "label": "Propellant/helium heat exchanger, fuel line",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-OX-STOR",
+   "component_type": "tank",
+   "label": "Oxidizer storage tank",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-OX-SUMP",
+   "component_type": "tank",
+   "label": "Oxidizer sump tank",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-FU-STOR",
+   "component_type": "tank",
+   "label": "Fuel storage tank",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-FU-SUMP",
+   "component_type": "tank",
+   "label": "Fuel sump tank",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-PUV",
+   "component_type": "valve",
+   "label": "Propellant-utilization valve (oxidizer)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "id": "N-BIPROP",
+   "component_type": "valve",
+   "label": "Bipropellant valve (series-parallel ball valves, GN2 actuated)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Bolt-on aluminum injector",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Ablative thrust chamber",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "id": "N-NOZ",
+   "component_type": "nozzle_extension",
+   "label": "Radiation-cooled nozzle extension (6:1 to 62.5:1)",
+   "subsystem": "engine",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-HE-TANK",
+   "to": "N-HE-VALVES",
+   "fluid": "He",
+   "role": "pressurant",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HE-VALVES",
+   "to": "N-HE-REG",
+   "fluid": "He",
+   "role": "pressurant",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HE-REG",
+   "to": "N-HE-CHECK",
+   "fluid": "He",
+   "role": "regulated pressurant",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HE-CHECK",
+   "to": "N-HEX-OX",
+   "fluid": "He",
+   "role": "thermal conditioning (as drawn)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HE-CHECK",
+   "to": "N-HEX-FU",
+   "fluid": "He",
+   "role": "thermal conditioning (as drawn)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HEX-OX",
+   "to": "N-OX-STOR",
+   "fluid": "He",
+   "role": "ullage pressurization (as drawn)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-HEX-FU",
+   "to": "N-FU-STOR",
+   "fluid": "He",
+   "role": "ullage pressurization (as drawn)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-OX-STOR",
+   "to": "N-OX-SUMP",
+   "fluid": "N2O4",
+   "role": "series transfer line",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-FU-STOR",
+   "to": "N-FU-SUMP",
+   "fluid": "A-50",
+   "role": "series transfer line",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-OX-SUMP",
+   "to": "N-PUV",
+   "fluid": "N2O4",
+   "role": "feed through PU valve",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2"
+  },
+  {
+   "from": "N-PUV",
+   "to": "N-BIPROP",
+   "fluid": "N2O4",
+   "role": "engine feed",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2; TN D-7375 pp.3-6"
+  },
+  {
+   "from": "N-FU-SUMP",
+   "to": "N-BIPROP",
+   "fluid": "A-50",
+   "role": "engine feed",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "TN D-7375 Fig. 2; TN D-7375 pp.3-6"
+  },
+  {
+   "from": "N-BIPROP",
+   "to": "N-INJ",
+   "fluid": "N2O4 + A-50",
+   "role": "injection",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "hypergolic combustion",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-NOZ",
+   "fluid": "combustion gas",
+   "role": "expansion",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  },
+  {
+   "from": "N-NOZ",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "TN D-7375 pp.3-6"
+  }
+ ],
+ "note": "Feed and pressurization belong to the service module (vehicle), engine owns valve/injector/chamber/nozzle. Pressure-fed, no turbomachinery."
+}

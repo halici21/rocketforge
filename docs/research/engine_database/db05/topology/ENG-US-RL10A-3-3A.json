@@ -1,0 +1,362 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-RL10A-3-3A",
+ "configuration": "RL10A-3-3A (Centaur)",
+ "schematic_ids": [
+  "SCH-DB05-RL10A33A-CR195478-F1"
+ ],
+ "text_sources": [
+  "SRC-NTRS-19950022693"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "igniter supply and exciter",
+   "tank pressurization taps (not shown)",
+   "LOX tank pressurization (not shown)",
+   "solenoid/pneumatic control",
+   "nozzle exit/ambient node"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-FINV",
+   "component_type": "valve",
+   "label": "Fuel inlet valve (FINV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-FP1",
+   "component_type": "pump",
+   "label": "Fuel pump stage 1",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-FP2",
+   "component_type": "pump",
+   "label": "Fuel pump stage 2",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-FCV1",
+   "component_type": "valve",
+   "label": "Interstage cooldown valve (FCV1), vents overboard",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-FCV2",
+   "component_type": "valve",
+   "label": "Fuel-pump discharge cooldown valve, vents overboard",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-ORIF",
+   "component_type": "orifice",
+   "label": "Calibrated orifice",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-JACKET",
+   "component_type": "cooling_jacket",
+   "label": "Thrust chamber / nozzle cooling jacket",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-VENT",
+   "component_type": "venturi",
+   "label": "Venturi",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-TURB",
+   "component_type": "turbine",
+   "label": "Turbine (two-stage)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-TCV",
+   "component_type": "valve",
+   "label": "Thrust control valve (TCV), turbine bypass",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-FSOV",
+   "component_type": "valve",
+   "label": "Fuel shut-off valve (FSOV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-OINV",
+   "component_type": "valve",
+   "label": "Oxidizer inlet valve (OINV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-LOXP",
+   "component_type": "pump",
+   "label": "LOX pump (single stage)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-OCV",
+   "component_type": "valve",
+   "label": "Oxidizer control valve (OCV)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-GEAR",
+   "component_type": "gearbox",
+   "label": "Gear box",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Injector",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-IGN",
+   "component_type": "igniter",
+   "label": "Ignitor",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "id": "N-OVBD",
+   "component_type": "ambient",
+   "label": "Vent overboard",
+   "subsystem": "ambient",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-FINV",
+   "to": "N-FP1",
+   "fluid": "LH2",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-FP1",
+   "to": "N-FP2",
+   "fluid": "LH2",
+   "role": "interstage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-FP1",
+   "to": "N-FCV1",
+   "fluid": "LH2",
+   "role": "interstage cooldown vent",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §5.0"
+  },
+  {
+   "from": "N-FCV1",
+   "to": "N-OVBD",
+   "fluid": "H2",
+   "role": "vent",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §5.0"
+  },
+  {
+   "from": "N-FP2",
+   "to": "N-FCV2",
+   "fluid": "LH2",
+   "role": "discharge (cooldown valve tee)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-FCV2",
+   "to": "N-OVBD",
+   "fluid": "H2",
+   "role": "vent",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §5.0"
+  },
+  {
+   "from": "N-FP2",
+   "to": "N-ORIF",
+   "fluid": "LH2",
+   "role": "pump discharge",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-ORIF",
+   "to": "N-JACKET",
+   "fluid": "LH2",
+   "role": "coolant into jacket manifold",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §2.0"
+  },
+  {
+   "from": "N-JACKET",
+   "to": "N-VENT",
+   "fluid": "GH2",
+   "role": "jacket exit",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-VENT",
+   "to": "N-TURB",
+   "fluid": "GH2",
+   "role": "turbine drive (split_group T1)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §2.0"
+  },
+  {
+   "from": "N-VENT",
+   "to": "N-TCV",
+   "fluid": "GH2",
+   "role": "turbine bypass (split_group T1)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-TCV",
+   "to": "N-FSOV",
+   "fluid": "GH2",
+   "role": "rejoins turbine exhaust (merge_group T2)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-FSOV",
+   "fluid": "GH2",
+   "role": "turbine exhaust (merge_group T2)",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-FSOV",
+   "to": "N-INJ",
+   "fluid": "GH2",
+   "role": "warm hydrogen to injector",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §2.0"
+  },
+  {
+   "from": "N-OINV",
+   "to": "N-LOXP",
+   "fluid": "LOX",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-LOXP",
+   "to": "N-OCV",
+   "fluid": "LOX",
+   "role": "discharge",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-OCV",
+   "to": "N-INJ",
+   "fluid": "LOX",
+   "role": "oxidizer to injector",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "injection",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-IGN",
+   "to": "N-TC",
+   "fluid": "spark",
+   "role": "ignition",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "CR-195478 Fig. 1"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-FP1",
+   "fluid": "none",
+   "role": "mechanical_shaft (common shaft)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §3.1"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-FP2",
+   "fluid": "none",
+   "role": "mechanical_shaft (common shaft)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §3.1"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-GEAR",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §3.1"
+  },
+  {
+   "from": "N-GEAR",
+   "to": "N-LOXP",
+   "fluid": "none",
+   "role": "gear drive (32,000 -> 12,800 rpm at normal point)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "CR-195478 Fig. 1; §3.1"
+  }
+ ],
+ "note": "Full (closed) expander: all turbine and bypass hydrogen goes to the injector; only the cooldown valves vent overboard (start/shutdown)."
+}

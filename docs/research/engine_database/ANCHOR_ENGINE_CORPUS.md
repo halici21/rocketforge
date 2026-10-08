@@ -1,5 +1,12 @@
 # DB-0 — Anchor engine corpus
 
+> **DB-0.5 update (2026-10-08).** The anchors below are the DB-0 search-summary record and are kept unchanged.
+> Opened-source evidence now exists for RS-25 (Block II and Block IIA), J-2, J-2S, F-1, H-1 (188K), RL10A-3-3A,
+> RL10A-4-2, RL10B-2, Apollo SPS, LMDE, OMS, IPD and RD-170: 250 assertions with page locators in
+> [db05/assertions.json](db05/assertions.json), and the disposition of 172 DB-0 anchor assertions (confirmed,
+> corrected, unsupported, blocked) in [db05/db0_dispositions.json](db05/db0_dispositions.json). Several DB-0
+> values belong to a different configuration than the anchor (see [db05/STATUS.md](db05/STATUS.md)).
+
 The anchor corpus is the set of engine variants audited **deeply** — every
 field group of the brief's Phase 4, a topology graph, operating points, and the
 features that break a simple schema. Anchors were chosen for architectural

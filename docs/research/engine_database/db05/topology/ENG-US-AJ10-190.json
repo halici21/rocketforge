@@ -1,0 +1,317 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-AJ10-190",
+ "configuration": "Shuttle OMS pod (one engine)",
+ "schematic_ids": [
+  "SCH-DB05-OMS-WB-F21",
+  "SCH-DB05-OMS-WB-F210"
+ ],
+ "text_sources": [
+  "SRC-USA-OMS21002",
+  "SRC-DB05-NTRS-19850008634"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "crossfeed lines and valves between pods",
+   "relief valves (shown, not modelled)",
+   "propellant gauging",
+   "thermal control heaters",
+   "gimbal actuators (TVC)",
+   "N2 tank, regulator and accumulator detail"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-HE",
+   "component_type": "pressurant_tank",
+   "label": "Helium tank (one per pod)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-HEV",
+   "component_type": "valve",
+   "label": "Helium press valves A and B (parallel)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-REG",
+   "component_type": "regulator",
+   "label": "Dual pressure regulators (each leg)",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-VIV",
+   "component_type": "valve",
+   "label": "Vapor isolation valves (oxidizer leg)",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-CK",
+   "component_type": "check_valve",
+   "label": "Check valves",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-OXT",
+   "component_type": "tank",
+   "label": "Oxidizer tank",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-FUT",
+   "component_type": "tank",
+   "label": "Fuel tank",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-TIV",
+   "component_type": "valve",
+   "label": "Tank isolation valves A/B (parallel)",
+   "subsystem": "vehicle",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "id": "N-BPV1",
+   "component_type": "valve",
+   "label": "Bipropellant valve 1 (linked fuel+ox ball valves)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-BPV2",
+   "component_type": "valve",
+   "label": "Bipropellant valve 2 (linked fuel+ox ball valves)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-N2",
+   "component_type": "actuator_supply",
+   "label": "GN2 to valve pistons (engine control valves)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-JACKET",
+   "component_type": "cooling_jacket",
+   "label": "Cooling jacket (single pass, 120 channels, to epsilon 6)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-INJ",
+   "component_type": "injector",
+   "label": "Injector plate",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-NOZ",
+   "component_type": "nozzle_extension",
+   "label": "Columbium radiation-cooled nozzle (6:1 to 55:1)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Exhaust",
+   "subsystem": "ambient",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-HE",
+   "to": "N-HEV",
+   "fluid": "He",
+   "role": "pressurant",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-HEV",
+   "to": "N-REG",
+   "fluid": "He",
+   "role": "pressurant",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-REG",
+   "to": "N-VIV",
+   "fluid": "He",
+   "role": "to oxidizer leg",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-VIV",
+   "to": "N-CK",
+   "fluid": "He",
+   "role": "oxidizer leg",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-REG",
+   "to": "N-CK",
+   "fluid": "He",
+   "role": "fuel leg",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-CK",
+   "to": "N-OXT",
+   "fluid": "He",
+   "role": "ullage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-CK",
+   "to": "N-FUT",
+   "fluid": "He",
+   "role": "ullage",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-OXT",
+   "to": "N-TIV",
+   "fluid": "N2O4",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-FUT",
+   "to": "N-TIV",
+   "fluid": "MMH",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-TIV",
+   "to": "N-BPV1",
+   "fluid": "N2O4 + MMH",
+   "role": "to bipropellant valves",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-10"
+  },
+  {
+   "from": "N-BPV1",
+   "to": "N-BPV2",
+   "fluid": "N2O4 + MMH",
+   "role": "series valves",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "from": "N-BPV2",
+   "to": "N-INJ",
+   "fluid": "N2O4",
+   "role": "oxidizer directly to injector",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1; p.2-3"
+  },
+  {
+   "from": "N-BPV2",
+   "to": "N-JACKET",
+   "fluid": "MMH",
+   "role": "fuel to aft end of cooling jacket",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1; p.2-3"
+  },
+  {
+   "from": "N-JACKET",
+   "to": "N-INJ",
+   "fluid": "MMH",
+   "role": "warmed fuel to injector",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "from": "N-INJ",
+   "to": "N-TC",
+   "fluid": "propellants",
+   "role": "hypergolic injection",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-NOZ",
+   "fluid": "combustion gas",
+   "role": "expansion",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "from": "N-NOZ",
+   "to": "N-AMB",
+   "fluid": "combustion gas",
+   "role": "exhaust",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "USA006500 Fig. 2-1"
+  },
+  {
+   "from": "N-N2",
+   "to": "N-BPV1",
+   "fluid": "GN2",
+   "role": "pneumatic piston actuation",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1; p.2-2"
+  },
+  {
+   "from": "N-N2",
+   "to": "N-BPV2",
+   "fluid": "GN2",
+   "role": "pneumatic piston actuation",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "USA006500 Fig. 2-1; p.2-2"
+  },
+  {
+   "from": "N-N2",
+   "to": "N-JACKET",
+   "fluid": "GN2",
+   "role": "post-burn purge of fuel line and jacket",
+   "evidence_status": "REPORTED_IN_TEXT",
+   "locator": "USA006500 p.2-7 (PDF p.22)"
+  }
+ ],
+ "note": "Two figures combined at the bipropellant-valve interface. Vehicle (pod) owns tanks and pressurization."
+}

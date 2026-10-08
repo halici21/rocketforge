@@ -1,5 +1,15 @@
 # DB-0 — Rights and redistribution matrix
 
+> **DB-0.5 update (2026-10-08).** Rights statements were read on the page for every opened document; they are
+> recorded verbatim-in-substance in [db05/documents_opened.json](db05/documents_opened.json)
+> (`rights_statement_checked`, plus the NTRS copyright determination where one exists). Three conflicts
+> between a repository determination and the printed page were found: MSFC-MAN-503 (NTRS public use vs a
+> printed restriction on non-government reproduction), AIAA 97-2687 (NTRS public use vs printed AIAA
+> copyright), and the Rocketdyne BC98-04 orientation book (every page stamped BOEING PROPRIETARY). The
+> L3Harris RS-25 sheet carries corporate copyright with no reuse licence; the USA OMS workbook carries corporate
+> copyright with a stated Government licence.
+> `sources.json` rights classes were not changed; the checked statements sit beside them.
+
 **Not legal advice.** This is an engineering triage map. Every
 `PUBLIC_DOMAIN_GOV` or `VALUES_WITH_ATTRIBUTION` call below is a working
 default, not a clearance. §7 lists the questions that need legal review before

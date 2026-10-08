@@ -1,5 +1,11 @@
 # DB-0 — Conflict ledger
 
+> **DB-0.5 update (2026-10-08).** 30 of these conflict ids (25 of the 36 P0) were re-examined against opened
+> documents, and 5 new conflicts were found, two of them inside a single document (RL10B-2 in NRC 2006;
+> RD-170 mixture ratio in NTRS 19910018906). Outcomes are in [db05/conflicts.json](db05/conflicts.json): 5
+> RESOLVED, 6 EXPLAINED, 8 PARTIALLY_RESOLVED, 9 UNRESOLVED, 1 CONFIRMED_SECONDARY. This ledger is kept as the
+> DB-0 record and is not rewritten. Summary: [db05/STATUS.md](db05/STATUS.md).
+
 Every material disagreement DB-0 found between sources, kept as separate
 claims. Nothing is averaged and nothing is silently resolved. The
 machine-readable ledger is [data/conflicts.json](data/conflicts.json) (and

@@ -1,0 +1,704 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "conflicts": [
+  {
+   "conflict_id": "CF-DB05-SPS-REG",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-AJ10-137",
+   "field_path": "pressurization.regulator_setpoints",
+   "claims": [
+    [
+     "regulated to 180 psia",
+     "SRC-NASA-TND7375",
+     "p.3 (PDF p.7)"
+    ],
+    [
+     "186 psig primary / 191 psig secondary",
+     "SRC-EH-RPE0931",
+     "DB-0 search summary"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition_or_epoch",
+   "explanation": "Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-AREARATIO",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-1; CF-ORCH_VERIFY-2",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "nozzle.area_ratio",
+   "claims": [
+    [
+     "69:1",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ],
+    [
+     "77.5 -> 69.5:1 (large throat)",
+     "SRC-NTRS-19860012108",
+     "p.8"
+    ],
+    [
+     "77.5 to 1",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "JSC-19041 p.1.1-1"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_configuration",
+   "explanation": "NTRS 19860012108 p.8: the Large Throat MCC 'reduces the nozzle expansion ratio from 77.5 to 69.5:1'; nozzle unchanged. JSC-19041 §1.1.2: Block IIA introduced the larger-throat MCC; AIAA 2002-3581 lists it in the Block 2 package. So 77.5 is pre-Block IIA and JSC-19041's 2003 '77.5 to 1' is stale text. 69 vs 69.5 is rounding."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-PC",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-4",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "approx. 2,747 psia @RPL; approx. 2,870 @104.5%",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "p.1.1-1"
+    ],
+    [
+     "2,994 psia (109% sheet)",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ],
+    [
+     "3006 psia rated chamber pressure @RPL",
+     "SRC-AIAA-97-2687",
+     "p.1-2"
+    ],
+    [
+     "3285 -> 3010 psia @109% (large throat)",
+     "SRC-NTRS-19860012108",
+     "p.8"
+    ],
+    [
+     "2,871 psia @104.5% Block IIA",
+     "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+     "p.25"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_configuration_and_operating_point",
+   "explanation": "Small-throat RPL 3006 x 1.09 = 3277 ~ 3285 @109%; large throat 2,747 @RPL, 2,870-2,871 @104.5%, 2,994 @109% (2,747 x 1.09 = 2,994 DERIVED). The 1986 study's 3010 @109% is a prediction, 2,994 the flown rating."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-THRUSTREF",
+   "db0_conflict_id": "CF-US_HIST-18",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "performance.thrust reference condition",
+   "claims": [
+    [
+     "approximately 491,000 lbf @104.5% (environment unprinted)",
+     "SRC-NASA-RS25-FS2025",
+     "p.2"
+    ],
+    [
+     "approximately 470,000 lbs vacuum / 375,000 lbs sea level @RPL",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "p.1.1-1"
+    ],
+    [
+     "512,300 lb vacuum / 418,000 lb sea level @109%",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "470,000 x 1.045 = 491,150 and 470,000 x 1.09 = 512,300 (DERIVED): 491,000 is the vacuum scale."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-MASS",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-2",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "7,774 lb dry",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ],
+    [
+     "7,775 lbs",
+     "SRC-NASA-RS25-FS2015",
+     "p.2"
+    ],
+    [
+     "3,515 kg (7,750 lbs.)",
+     "SRC-NASA-RS25-FS2025",
+     "p.1"
+    ],
+    [
+     "approximately 7,400 lbs",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "p.1.1-1 (2003)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-PUMPPOWER",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "pumps.HPFTP.power / pumps.HPOTP.power",
+   "claims": [
+    [
+     "71,140 hp / 23,260 hp",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ],
+    [
+     "69,000 hp / 25,000 hp",
+     "SRC-NTRS-20180006338",
+     "p.2"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Neither prints a power level. DB-0 news values 76,000 / 26,800 hp have no primary support."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-HPOTPSPEED",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-5",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "pumps.HPOTP.speed_rpm",
+   "claims": [
+    [
+     "22,250 rpm (Block IIA, 104.5% RPL)",
+     "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+     "p.25"
+    ],
+    [
+     "max allowable approximately 30,000 rpm; burst 38,000 rpm",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "p.97"
+    ],
+    [
+     "28,120 rpm",
+     "SRC-WIKI-RS25",
+     "DB-0 search summary"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "The ~30,000 rpm figure is a limit, not an operating speed. Primary operating speed found only for Block IIA at 104.5%; Block II at 109% not found. 28,120 rpm has no primary support among opened documents."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-HPFTSPEED",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-6",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "pumps.HPFTP.speed_rpm",
+   "claims": [
+    [
+     "34,311 rpm (Rocketdyne HPFTP, Block IIA, 104.5%)",
+     "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+     "p.25"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only."
+  },
+  {
+   "conflict_id": "CF-DB05-RS25-SLTHRUST",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "approx. 380,000 / 390,000 / 420,000 lb at 100 / 104.5 / 109%",
+     "SRC-NASA-SSME-NPL-DOC",
+     "p.248"
+    ],
+    [
+     "approx. 375,000 lbs at RPL",
+     "SRC-IBIBLIO-SSMEOVERVIEW",
+     "p.1.1-1"
+    ],
+    [
+     "418,000 lb at 109%",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rounding_or_configuration",
+   "explanation": "All are approximations or single-configuration values; 1-1.5% spread. Not reconcilable without a rated-thrust table by block."
+  },
+  {
+   "conflict_id": "CF-DB05-J2-PC",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-J2-2",
+   "engine_id": "ENG-US-J-2",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "717 psia (nozzle stagnation)",
+     "SRC-NTRS-20100027318",
+     "slide J2-3"
+    ],
+    [
+     "a little over 700 psia",
+     "SRC-NTRS-20100027318",
+     "text p.2"
+    ],
+    [
+     "763 psi",
+     "SRC-WIKI-J2",
+     "DB-0 search summary"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Primary manufacturer value 717 psia at nozzle stagnation for the 230,000 lb / MR 5.5 J-2. 763 psi has no support in any opened primary document; it may be an injector-face value or a different rating (not verified)."
+  },
+  {
+   "conflict_id": "CF-DB05-J2-MASS",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-J2-3",
+   "engine_id": "ENG-US-J-2",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "2,754 lb basic engine dry; 3,492 lb including accessories",
+     "SRC-NTRS-20100027318",
+     "slide J2-3"
+    ],
+    [
+     "3492 lb",
+     "SRC-NTRS-20120016414",
+     "Table 1"
+    ],
+    [
+     "3,942 lb dry",
+     "SRC-WIKI-J2",
+     "DB-0"
+    ],
+    [
+     "3,480 lb",
+     "SRC-PURDUE-J2",
+     "DB-0"
+    ],
+    [
+     "3,170 lb",
+     "SRC-ASTRONAUTIX-J2",
+     "DB-0"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Two primary definitions exist (basic vs including accessories). 3,480 is close to 3,492; 3,942 looks like a transposition of 3,492 (INFERRED, not verified); 3,170 matches neither primary value."
+  },
+  {
+   "conflict_id": "CF-DB05-J2-THRUST",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-J2-1; CF-US_HIST-10",
+   "engine_id": "ENG-US-J-2",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "230,000 lb nominal vacuum",
+     "SRC-NTRS-20100027318",
+     "slide J2-3"
+    ],
+    [
+     "225,000-pound version (qualification; 59 delivered)",
+     "SRC-NTRS-20100027318",
+     "text p.3"
+    ],
+    [
+     "230 klbf",
+     "SRC-NTRS-20120016414",
+     "Table 1"
+    ],
+    [
+     "232,250 lbf",
+     "SRC-WIKI-J2",
+     "DB-0"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Primary text confirms two ratings (225,000 lb, then 230,000 lb). Which flights used which rating, and the 232,250 lbf figure, are not established by opened documents (AEDC reports blocked)."
+  },
+  {
+   "conflict_id": "CF-DB05-J2S-DATES",
+   "db0_conflict_id": "CF-US_HIST-22; CF-TAXONOMY-TAX-5",
+   "engine_id": "ENG-US-J-2S",
+   "field_path": "history dates",
+   "claims": [
+    [
+     "J-2S development bar 1965-1972; 1st 27.5:1 test 2/66; 1st 40:1 test 6/68; ready for qual 10/71; final report 3/74",
+     "SRC-NTRS-20100027318",
+     "slide J2-5"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_event",
+   "explanation": "Primary timeline shows engine testing from 1966 and 40:1 configuration from 1968; '1969 first successful test' is not supported or contradicted by an opened document."
+  },
+  {
+   "conflict_id": "CF-DB05-J2S-CYCLE",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-J-2S",
+   "field_path": "architecture.cycle",
+   "claims": [
+    [
+     "Tap-off turbine drive cycle; changed to a tap-off cycle to eliminate the gas generator",
+     "SRC-DB05-NTRS-19940016798",
+     "PDF pp.8-9"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "DB-0 held tap_off as SECONDARY_CLAIM only; now Tier A."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-RATING",
+   "db0_conflict_id": "CF-US_HIST-01; CF-ORCH_VERIFY-1",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.thrust_sl rating epoch",
+   "claims": [
+    [
+     "1,522,000 lb sea level (no epoch printed)",
+     "SRC-DB05-NTRS-20100027316",
+     "slide F1-6"
+    ],
+    [
+     "1,530,000 pound fixed thrust (SA-503 manual, 25 Nov 1968)",
+     "SRC-DB05-NTRS-19750063889",
+     "p.4-4"
+    ],
+    [
+     "a million and one-half (design goal)",
+     "SRC-DB05-NTRS-20100027316",
+     "text p.3"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Three primary values: 1.5 Mlbf design goal, 1.530 Mlbf in the SA-503 crew manual, 1.522 Mlbf in a 2006 Rocketdyne slide. Which flights carried which rating is not established by the opened documents."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-PC",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-F1-1",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "1,125 psia (station unstated)",
+     "SRC-DB05-NTRS-20100027316",
+     "slide F1-6"
+    ],
+    [
+     "70 bar (1,015 psi)",
+     "SRC-WIKI-F1",
+     "DB-0"
+    ],
+    [
+     "982 psi",
+     "SRC-PURDUE-F1",
+     "DB-0"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-MASS",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-F1-2",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "18,616 lb",
+     "SRC-DB05-NTRS-20100027316",
+     "slide F1-6"
+    ],
+    [
+     "designed ... with a weight of 18,000 pounds",
+     "SRC-DB05-NTRS-20100027316",
+     "text p.4"
+    ],
+    [
+     "~18,500 lb dry",
+     "SRC-ENGINEHISTORY-RPE0812",
+     "DB-0"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight."
+  },
+  {
+   "conflict_id": "CF-DB05-H1-THRUST",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-H1-1",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "188,000 pounds (nominal rating) at sea level, SA-10",
+     "SRC-NTRS-19650013470",
+     "§1.2 p.1.1"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "Primary value confirmed for the SA-10 (188K) configuration and attached to ENG-US-H-1-188K, not the family anchor. 200K/205K ratings remain secondary-only."
+  },
+  {
+   "conflict_id": "CF-DB05-RL10A33A-MR-ISP",
+   "db0_conflict_id": "CF-US_HIST-02",
+   "engine_id": "ENG-US-RL10A-3-3A",
+   "field_path": "propellants.mixture_ratio / performance.isp_vac",
+   "claims": [
+    [
+     "MR 5:1, Isp 444.4 s (RL10A-3-3A)",
+     "SRC-NTRS-19910018888",
+     "p.3"
+    ],
+    [
+     "normal operating point 475 psia and O/F = 5.0",
+     "SRC-NTRS-19950022693",
+     "§4.3"
+    ],
+    [
+     "A-3-3: Isp 442; A-3-3a: 444",
+     "SRC-NAP-11780",
+     "Table D-2"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "Two Tier A sources give O/F 5.0 for the RL10A-3-3A. 442.4 s is the RL10A-3-3 value in the P&W evolution table (NAP prints 442 for A-3-3); the DB-0 Purdue pairing of 442.4 s with 5.5:1 mixes variants (INFERRED)."
+  },
+  {
+   "conflict_id": "CF-DB05-RL10B2-PC-ISP",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-B2-1; CF-R2_US_CLASSIC-B2-3; CF-US_HIST-03",
+   "engine_id": "ENG-US-RL10B-2",
+   "field_path": "performance.pc / performance.isp_vac",
+   "claims": [
+    [
+     "644 psia; 466.5 s (Table D-2)",
+     "SRC-NAP-11780",
+     "Table D-2"
+    ],
+    [
+     "633 psi; 465.5 s (text)",
+     "SRC-NAP-11780",
+     "Appendix D text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404)."
+  },
+  {
+   "conflict_id": "CF-DB05-RL10B2-THRUST",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-B2-2",
+   "engine_id": "ENG-US-RL10B-2",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "24,750 lb",
+     "SRC-ULA-DIV-INAUGURAL",
+     "p.2"
+    ],
+    [
+     "24,750 lbf",
+     "SRC-ULA-DIV-GPSIIISV02",
+     "p.1"
+    ],
+    [
+     "24,750 (Table D-2)",
+     "SRC-NAP-11780",
+     "Table D-2"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Three opened sources agree on 24,750; 24,740/24,800 are rounding/conversion in secondary sources."
+  },
+  {
+   "conflict_id": "CF-DB05-RL10A42-THRUST-ISP",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-A42-2",
+   "engine_id": "ENG-US-RL10A-4-2",
+   "field_path": "performance.thrust_vac / isp_vac",
+   "claims": [
+    [
+     "22,300 lb; 451 s",
+     "SRC-NAP-11780",
+     "Table D-4"
+    ],
+    [
+     "A-4-1 column: 22,300 lb; 610 psia; 451 s (Feb 1994)",
+     "SRC-NAP-11780",
+     "Table D-2"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": null,
+   "explanation": "Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404)."
+  },
+  {
+   "conflict_id": "CF-DB05-SPS-THRUST",
+   "db0_conflict_id": "CF-SPACECRAFT-1",
+   "engine_id": "ENG-US-AJ10-137",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "21 500 pounds vacuum, 102 psia, 309 s (Block I section)",
+     "SRC-NASA-TND7375",
+     "p.5"
+    ],
+    [
+     "20,000 pounds, 100 psi, 314.5 s (general configuration)",
+     "SRC-NTRS-20100027319",
+     "p.63"
+    ],
+    [
+     "20,500 lbf",
+     "SRC-WIKI-AJ10",
+     "DB-0, not seen"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_configuration",
+   "explanation": "The 21,500 lb value is printed for the Block I (O/F 2:1) engine; 20,000 lb is Aerojet's nominal. A Block II flight rating was not found in the pages read; 20,500 lbf remains unsupported by an opened primary document."
+  },
+  {
+   "conflict_id": "CF-DB05-LMDE-REPORTNO",
+   "db0_conflict_id": "CF-ANCHOR_US_MODERN-6",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "identity.report_number",
+   "claims": [
+    [
+     "NASA TN D-7143, MSC S-349, March 1973",
+     "SRC-NASA-TND7143",
+     "report documentation page (PDF p.2)"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Report number verified on the document itself."
+  },
+  {
+   "conflict_id": "CF-DB05-OMS-ISP",
+   "db0_conflict_id": "CF-SPACECRAFT-3",
+   "engine_id": "ENG-US-AJ10-190",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "313 seconds",
+     "SRC-USA-OMS21002",
+     "PDF p.11"
+    ],
+    [
+     "313 seconds",
+     "SRC-JSC-19950",
+     "PDF p.8"
+    ],
+    [
+     "316 s / 313 s",
+     "SRC-WIKI-OMS",
+     "DB-0"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Two Tier A training documents (1995, 2006) print 313 s. 316 s has no primary support among opened documents."
+  },
+  {
+   "conflict_id": "CF-DB05-OMS-PCBAND",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-AJ10-190",
+   "field_path": "performance.pc normal band",
+   "claims": [
+    [
+     "100 and 106 percent ... approximately 130 psia",
+     "SRC-USA-OMS21002",
+     "PDF p.19"
+    ],
+    [
+     "100 and 102 percent ... approximately 130 psia",
+     "SRC-JSC-19950",
+     "PDF p.16"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Same sentence in the 1995 and 2006 editions; band widened between editions. The ~130 psia reference value is unchanged."
+  },
+  {
+   "conflict_id": "CF-DB05-RD170-PB",
+   "db0_conflict_id": "CF-R2_USSR-R2-1",
+   "engine_id": "ENG-SU-RD-170",
+   "field_path": "preburners.count",
+   "claims": [
+    [
+     "1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies",
+     "SRC-NTRS-19910018906",
+     "PDF p.16"
+    ],
+    [
+     "two Ox-Rich Preburn boxes drawn",
+     "SRC-NTRS-19910018906",
+     "PDF p.19 reconstruction"
+    ]
+   ],
+   "resolution": "CONFIRMED_SECONDARY",
+   "kind": "source_grade",
+   "explanation": "The document says 2 preburners, but as Rockwell's reading of display photos. DB-0's 'resolved to 2' stands only at Tier B; no manufacturer document opened."
+  },
+  {
+   "conflict_id": "CF-DB05-RD170-MR",
+   "db0_conflict_id": "CF-R2_USSR-R2-2",
+   "engine_id": "ENG-SU-RD-170",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "MR 2.58",
+     "SRC-NTRS-19910018906",
+     "PDF p.16"
+    ],
+    [
+     "MR = 2.47 (power balance baseline)",
+     "SRC-NTRS-19910018906",
+     "PDF p.22, p.26"
+    ],
+    [
+     "2.63",
+     "SRC-WIKI-RD170",
+     "DB-0"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "The opened document itself carries two values; neither is attributed to the placard. A new intra-document conflict, not visible in DB-0."
+  },
+  {
+   "conflict_id": "CF-DB05-RD170-PC",
+   "db0_conflict_id": "CF-R2_USSR-R2-3",
+   "engine_id": "ENG-SU-RD-170",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "250 kgs/cm2 (placard transcription)",
+     "SRC-NTRS-19910018906",
+     "PDF p.16"
+    ],
+    [
+     "3,556 psi (Rockwell conversion)",
+     "SRC-NTRS-19910018906",
+     "PDF p.16"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "unit",
+   "explanation": "250 kgf/cm2 = 3,556 psi (DERIVED: 250 x 14.223 = 3,556), so the two are one value. 266.7 bar (journalism) remains unsupported."
+  }
+ ]
+}

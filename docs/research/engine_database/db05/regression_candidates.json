@@ -1,0 +1,167 @@
+{
+ "notice": "DB-0.5 regression CANDIDATES only. Not accepted physics; nothing here is wired into RocketForge.",
+ "rule": "SCHEMA_PROPOSAL.md §6 REGRESSION_CANDIDATE: fetched, values usable with attribution, defined operating point, no UNRESOLVED conflict on the fields used",
+ "candidates": [
+  {
+   "candidate_id": "RC-DB05-RL10A-3-3A-NOMINAL",
+   "engine_id": "ENG-US-RL10A-3-3A",
+   "configuration": "RL10A-3-3A nominal operating point (O/F 5.0, 475 psia)",
+   "assertions": [
+    "AS-DB05-US-RL10A-3-3A-009",
+    "AS-DB05-US-RL10A-3-3A-010",
+    "AS-DB05-US-RL10A-3-3A-012",
+    "AS-DB05-US-RL10A-3-3A-013",
+    "AS-DB05-US-RL10A-3-3A-006"
+   ],
+   "use": "ideal-performance check (Pc, O/F, epsilon -> Isp, thrust) with stated efficiency gap; expander-cycle power balance (pump speeds, flows also printed)",
+   "caveats": [
+    "Pc station unstated",
+    "Isp is delivered engine Isp, not ideal"
+   ],
+   "sources": [
+    "SRC-NTRS-19910018888",
+    "SRC-NTRS-19950022693"
+   ],
+   "rights_values": [
+    "PUBLIC_DOMAIN_GOV",
+    "VALUES_WITH_ATTRIBUTION"
+   ],
+   "unresolved_conflicts_on_fields": [],
+   "status": "REGRESSION_CANDIDATE"
+  },
+  {
+   "candidate_id": "RC-DB05-J-2S-NOMINAL",
+   "engine_id": "ENG-US-J-2S",
+   "configuration": "J-2S nominal (MR 5.5)",
+   "assertions": [
+    "AS-DB05-US-J-2S-001",
+    "AS-DB05-US-J-2S-002",
+    "AS-DB05-US-J-2S-003",
+    "AS-DB05-US-J-2S-004",
+    "AS-DB05-US-J-2S-008"
+   ],
+   "use": "ideal-performance check; Pc explicitly at nozzle stagnation",
+   "caveats": [
+    "slide read visually from a rotated scan (values legible)"
+   ],
+   "sources": [
+    "SRC-DB05-NTRS-19940016798"
+   ],
+   "rights_values": [
+    "PUBLIC_DOMAIN_GOV"
+   ],
+   "unresolved_conflicts_on_fields": [],
+   "status": "REGRESSION_CANDIDATE"
+  },
+  {
+   "candidate_id": "RC-DB05-J-2-230K",
+   "engine_id": "ENG-US-J-2",
+   "configuration": "J-2 230,000 lb rating, MR 5.5",
+   "assertions": [
+    "AS-DB05-US-J-2-001",
+    "AS-DB05-US-J-2-002",
+    "AS-DB05-US-J-2-003",
+    "AS-DB05-US-J-2-004",
+    "AS-DB05-US-J-2-007"
+   ],
+   "use": "ideal-performance check; Pc explicitly at nozzle stagnation",
+   "caveats": [
+    "thrust rating epoch partially resolved (225K and 230K both primary; this candidate is the 230K row only)",
+    "slide figure rights review required; values usable with attribution"
+   ],
+   "sources": [
+    "SRC-NTRS-20100027318"
+   ],
+   "rights_values": [
+    "VALUES_WITH_ATTRIBUTION"
+   ],
+   "unresolved_conflicts_on_fields": [],
+   "status": "REGRESSION_CANDIDATE"
+  },
+  {
+   "candidate_id": "RC-DB05-RS-25-SLS-109",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "configuration": "RS-25 (SLS-adapted Block II) at 109% RPL",
+   "assertions": [
+    "AS-DB05-US-SSME-BLOCK-II-002",
+    "AS-DB05-US-SSME-BLOCK-II-003",
+    "AS-DB05-US-SSME-BLOCK-II-004",
+    "AS-DB05-US-SSME-BLOCK-II-010",
+    "AS-DB05-US-SSME-BLOCK-II-009"
+   ],
+   "use": "vacuum ideal-performance check",
+   "caveats": [
+    "power level printed for thrust only; pressure and Isp assumed same sheet (109%) - stated on sheet header, not per line",
+    "manufacturer copyright; values with attribution only",
+    "sea-level thrust excluded: CF-DB05-RS25-SLTHRUST unresolved"
+   ],
+   "sources": [
+    "SRC-L3HARRIS-RS25-SPEC"
+   ],
+   "rights_values": [
+    "VALUES_WITH_ATTRIBUTION"
+   ],
+   "unresolved_conflicts_on_fields": [],
+   "status": "REGRESSION_CANDIDATE"
+  },
+  {
+   "candidate_id": "RC-DB05-SPS-BLOCK-I",
+   "engine_id": "ENG-US-AJ10-137",
+   "configuration": "Apollo SPS Block I (O/F 2:1)",
+   "assertions": [
+    "AS-DB05-US-AJ10-137-001",
+    "AS-DB05-US-AJ10-137-002",
+    "AS-DB05-US-AJ10-137-003",
+    "AS-DB05-US-AJ10-137-004",
+    "AS-DB05-US-AJ10-137-010"
+   ],
+   "use": "pressure-fed ideal-performance check (N2O4/A-50); Isp printed as an average",
+   "caveats": [
+    "Isp 'average'",
+    "Block I only; not the Block II flight engine"
+   ],
+   "sources": [
+    "SRC-NASA-TND7375"
+   ],
+   "rights_values": [
+    "PUBLIC_DOMAIN_GOV"
+   ],
+   "unresolved_conflicts_on_fields": [],
+   "status": "REGRESSION_CANDIDATE"
+  }
+ ],
+ "not_candidates": [
+  {
+   "engine_id": "ENG-US-F-1",
+   "reason": "thrust rating epoch UNRESOLVED (1.500 / 1.522 / 1.530 Mlbf)"
+  },
+  {
+   "engine_id": "ENG-US-RL10B-2",
+   "reason": "Pc and Isp intra-document conflict UNRESOLVED (633/644 psi, 465.5/466.5 s)"
+  },
+  {
+   "engine_id": "ENG-US-RL10A-4-2",
+   "reason": "only a Tier B compilation opened; A-4-1/A-4-2 column attribution ambiguous"
+  },
+  {
+   "engine_id": "ENG-US-AJ10-190",
+   "reason": "mixture ratio not found in opened pages; Pc only 'approximately'"
+  },
+  {
+   "engine_id": "ENG-US-LMDE",
+   "reason": "chamber pressure and mixture ratio not found in opened pages"
+  },
+  {
+   "engine_id": "ENG-US-H-1-188K",
+   "reason": "no primary Pc, Isp or MR found (only thrust and turbomachinery)"
+  },
+  {
+   "engine_id": "ENG-US-IPD",
+   "reason": "engine-level documents blocked (DTIC 403)"
+  },
+  {
+   "engine_id": "ENG-SU-RD-170",
+   "reason": "Tier B second-hand transcription; MR intra-document conflict"
+  }
+ ]
+}
