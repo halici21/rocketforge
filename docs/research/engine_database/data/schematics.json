@@ -1,0 +1,1338 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "schema": "db0-schematics-v1",
+ "schematics": [
+  {
+   "schematic_id": "SCH-ENG-EU-VULCAIN-2-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "NOT_AUDITED",
+   "title": "(none viewed) - ESA text describes nozzle reinjection of turbopump exhaust",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Placeholder: no schematic viewed; text-only evidence of a topology feature. Search a Vulcain 2 flow schematic in a follow-up session. Round 2: still none viewed; ESA V157 inquiry text and Wikipedia film-cooling text add described topology.",
+   "branch": "r2_asia"
+  },
+  {
+   "schematic_id": "SCH-ENG-JP-LE-7A-1",
+   "engine_ids": [
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-WEBLIO-LE7",
+   "locator": "text description",
+   "title": "(none viewed) staged-combustion flow described in text",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "OPEN_LICENSE",
+   "verification": "described_in_text",
+   "notes": "Text-only: H-rich preburner gas drives LH2 and LOX TPs then enters MCC. ja.wikipedia pages usually carry a cycle diagram - not viewed.",
+   "branch": "r2_asia"
+  },
+  {
+   "schematic_id": "SCH-ENG-IN-CE-20-1",
+   "engine_ids": [
+    "ENG-IN-CE-20"
+   ],
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "text description",
+   "title": "(none viewed) GG fed from pump outlets, series turbines",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "OPEN_LICENSE",
+   "verification": "described_in_text",
+   "notes": "Text-only.",
+   "branch": "r2_asia"
+  },
+  {
+   "schematic_id": "SCH-ENG-KR-KRE-075-1",
+   "engine_ids": [
+    "ENG-KR-KRE-075"
+   ],
+   "source_id": "SRC-EUCASS2019-0521",
+   "locator": "UNKNOWN",
+   "title": "(lead, not viewed) EUCASS 2019 KRE-075 gas generator paper",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Abstract mentions three control valves; a system figure is likely but NOT seen.",
+   "branch": "r2_asia"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-1",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-AIAA-97-2687",
+   "locator": "Fig. 1 (legend 97PD-038-001)",
+   "title": "SSME Propellant Flow Schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "oxidizer preburner oxidizer valve (OPOV)",
+    "fuel preburner oxidizer valve (FPOV)",
+    "main fuel valve (MFV)",
+    "main oxidizer valve (MOV)",
+    "chamber coolant valve (CCV)"
+   ],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Only the legend's five valves were described in the summary; other components not listed. Engine block shown in 1997 paper not stated (Block I/IIA era likely; INFERRED). Best-located SSME flow figure found this round: NTRS PDF, exact figure number.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-2",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "figure no. unknown",
+   "title": "SSME propellant flow schematic (reused)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Summary says companion paper reuses the same schematic.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-3",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Figure 3; Photo No. LC86C-4-1315",
+   "title": "SSME Propellant Flow Schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Caption describes a schematic of the engine system showing relationship of major components. Photo number gives a traceable original (Rocketdyne/NASA photo lab, 1986).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-4",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "Fig. 1.1-II",
+   "title": "SSME propellant flow schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "In same drawing set as orbiter MPS and component-location drawings (Fig. 1.1-III).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-5",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "Fig. 1.1-III",
+   "title": "SSME component diagram",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "high pressure fuel turbopump",
+    "fuel preburner",
+    "oxidizer preburner",
+    "main injector",
+    "hot gas manifold"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Component location drawing, not a flow schematic.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25D-R2-6",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+   "locator": "NOT located (TOC only seen)",
+   "title": "SSME Orientation propellant flow schematic (expected)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Existence of a flow schematic in this edition is NOT confirmed; auction listings describe the 1984 edition as containing numerous schematics.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RL10A-3-3A-R2-1",
+   "engine_ids": [
+    "ENG-US-RL10A-3-3A"
+   ],
+   "source_id": "SRC-NTRS-19950022693",
+   "locator": "Figure 1",
+   "title": "RL10 full expander cycle",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Text: 'RL10 engine design (all models) is based on a full expander cycle, as shown in Figure 1'. Components not described.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RL10A-3-R2-2",
+   "engine_ids": [
+    "ENG-US-RL10A-3"
+   ],
+   "source_id": "SRC-PW-RL10A3-DESIGNREPORT-1966",
+   "locator": "UNKNOWN",
+   "title": "RL10A-3 propellant flow schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Reproduced on Tier E blog (SRC-BLOG-STEVE-RL10) with attribution to P&W Design Report 28 Feb 1966; original not located.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-GENERIC-EXPANDER-R2-1",
+   "engine_ids": [],
+   "source_id": "SRC-NASA-TM4275",
+   "locator": "UNKNOWN",
+   "title": "Full / split / dual expander cycle layouts",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Generic H2/O2 expander cycles; presence of figures not confirmed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-F-1-R2-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-NASA-SA507-FLIGHTMANUAL",
+   "locator": "F-1 engine section; figure no. NOT located",
+   "title": "F-1 engine (flight manual)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "cited_by_other_source",
+   "notes": "Gigazine summary lists liquid fuel supply system and energy distribution diagram in the F-1 section; no flow figure number seen.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-F-1-R2-2",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "text",
+   "title": "F-1 turbine exhaust path (text description)",
+   "type": "flow_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "gas generator (fuel-rich RP-1/LOX)",
+    "turbine",
+    "heat exchanger",
+    "wrap-around turbine exhaust manifold",
+    "double-walled nozzle extension (to 16:1)"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "described_in_text",
+   "notes": "Textual flow description, not a figure.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-J-2-R2-1",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-NASA-SA507-FLIGHTMANUAL",
+   "locator": "J-2 engine section; figure no. NOT located",
+   "title": "J-2 engine (flight manual)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "cited_by_other_source",
+   "notes": "Saturn V flight manuals customarily include engine flow figures [BG]; not confirmed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-J-2-R2-2",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-RPE0822",
+   "locator": "text",
+   "title": "J-2 turbine drive path (text description)",
+   "type": "flow_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "gas generator",
+    "fuel turbine (2-stage velocity-compounded)",
+    "LOX turbine (2-stage velocity-compounded)",
+    "MK15 7-stage axial LH2 pump",
+    "centrifugal LOX pump",
+    "nozzle (LOX turbine exhaust destination)"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "described_in_text",
+   "notes": "Series turbines: GG -> fuel turbine -> LOX turbine -> nozzle.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-H-1-R2-1",
+   "engine_ids": [
+    "ENG-US-H-1"
+   ],
+   "source_id": "SRC-NTRS-19650013471",
+   "locator": "figure list not seen",
+   "title": "H-1 engine mechanical schematics (Saturn I SA-8 FSD Vol. VIII)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Title explicitly includes 'mechanical schematics' for H-1 engine and hydraulic system; H-1 rating variant not stated.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-H-1-R2-2",
+   "engine_ids": [
+    "ENG-US-H-1"
+   ],
+   "source_id": "SRC-NTRS-19650013583",
+   "locator": "figure list not seen",
+   "title": "Saturn I RP-1 fuel system mechanical schematics",
+   "type": "installation_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Stage-level feed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LR87-AJ-5-R2-1",
+   "engine_ids": [
+    "ENG-US-LR87-AJ-5"
+   ],
+   "source_id": "SRC-MILSTD-T2START",
+   "locator": "page text",
+   "title": "Titan II Stage I engine arrangement (text)",
+   "type": "system_diagram",
+   "detail": "simplified",
+   "components_visible": [
+    "2 regeneratively cooled thrust chambers",
+    "2 pump drive assemblies (fuel pump, oxidizer pump, gearbox, 2 turbine wheels each)",
+    "oxidizer duct through fuel tank",
+    "engine frame"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "described_in_text",
+   "notes": "No HAER drawing located; LoC HAER collection is the suggested lead.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-137-R2-1",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-NASA-APOLLO-LIQPROP-OVERVIEW",
+   "locator": "Figure 22, p. 31",
+   "title": "SPS pressurization and propellant system",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Document identity unresolved (NASA-hosted Apollo liquid propulsion overview).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-137-R2-2",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-APOLLO9-SPS-FFE",
+   "locator": "UNKNOWN",
+   "title": "Apollo 9 SPS pressurization system",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Report discusses pressurization in depth; figure not confirmed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LMDE-R2-1",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ],
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "figure list not seen",
+   "title": "DPS schematic (expected)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Abstract only; cryogenic helium pressurization is a stated feature.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LM-APS-R2-1",
+   "engine_ids": [
+    "ENG-US-LM-ASCENT-ENGINE"
+   ],
+   "source_id": "SRC-NTRS-19730010173",
+   "locator": "figure list not seen",
+   "title": "APS schematic (expected)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LM-APS-R2-2",
+   "engine_ids": [
+    "ENG-US-LM-ASCENT-ENGINE"
+   ],
+   "source_id": "SRC-NASA-A10-APS-FFE",
+   "locator": "UNKNOWN",
+   "title": "Apollo 10 LM-4 APS flight evaluation",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-190-R2-1",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-USA-OMS21002",
+   "locator": "figure list not seen",
+   "title": "OMS workbook schematics",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Workbooks in this series typically carry pod schematics [BG].",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-190-R2-2",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-JSC-19950",
+   "locator": "UNKNOWN",
+   "title": "OMS 2102 training manual (engine control valves)",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-190-R2-3",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-JSC-11174-RevE",
+   "locator": "OMS/RCS section",
+   "title": "Systems Handbook OMS drawing",
+   "type": "system_diagram",
+   "detail": "detailed",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Flight-controller system drawings (detail level per summary description of handbook type).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-AJ10-190-R2-4",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-NASA-JSC-CN-7650",
+   "locator": "UNKNOWN",
+   "title": "OMS/RCS system diagrams (presentation)",
+   "type": "system_diagram",
+   "detail": "simplified",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Summary: 'presents diagrams of the systems'.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-IPD-R2-1",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ],
+   "source_id": "SRC-DTIC-ADA397910",
+   "locator": "UNKNOWN",
+   "title": "IPD full-flow cycle (expected)",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Abstract only.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-IPD-R2-2",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ],
+   "source_id": "SRC-DTIC-ADA430218",
+   "locator": "slides",
+   "title": "IPD briefing (FFSC vs SSME cycle comparison)",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Slides contrast FFSC with SSME fuel-rich SC; whether a schematic is drawn is unconfirmed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-J-2S-R2-1",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ],
+   "source_id": "SRC-DTIC-AD0867628",
+   "locator": "UNKNOWN",
+   "title": "J-2S altitude test hardware (expected)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "ITAR marking reported; access may be restricted.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RD-170-R2-1",
+   "engine_ids": [
+    "ENG-SU-RD-170",
+    "ENG-SU-RD-170"
+   ],
+   "source_id": "SRC-JPP-2018-LIOI",
+   "locator": "Fig. 1",
+   "title": "RD-170 schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "described_in_text",
+   "notes": "Text: 'The Russian RD-170, shown schematically in Fig. 1'. Components not described.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RD-180-R2-1",
+   "engine_ids": [
+    "ENG-RU-RD-180"
+   ],
+   "source_id": "SRC-NTRS-20170000444",
+   "locator": "UNKNOWN",
+   "title": "Ox-rich staged-combustion injector element (RD-180-style)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "oxidizer tube (preburner/turbine exhaust)",
+    "tangential fuel orifices (regen-circuit fuel)"
+   ],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Element-level, not engine flow.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LE-9-R2-1",
+   "engine_ids": [
+    "ENG-JP-LE-9",
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-JAXA-AA1740298002",
+   "locator": "UNKNOWN",
+   "title": "LE-7A vs LE-9 cycle (expected)",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Text layer garbled; figure not confirmed.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LE-9-R2-2",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-IAC-LE9-2016",
+   "locator": "manuscript (restricted)",
+   "title": "LE-9 system",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "cited_by_other_source",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LE-9-R2-3",
+   "engine_ids": [
+    "ENG-JP-LE-9",
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-TEIKYO-LAB001",
+   "locator": "photo",
+   "title": "Staged combustion vs expander bleed comparison (JAXA-credited)",
+   "type": "cycle_schematic",
+   "detail": "simplified",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "cited_by_other_source",
+   "notes": "Figure credited to JAXA on a university page.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-LE-X-R2-1",
+   "engine_ids": [
+    "ENG-JP-LE-X",
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-MHI-LEX",
+   "locator": "UNKNOWN",
+   "title": "LE-X engine system (expected)",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "cited_by_other_source",
+   "notes": "Cited by Wikipedia.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-A4-R2-1",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-V2ROCKET-DESIGN",
+   "locator": "linked large diagram",
+   "title": "A-4/V-2 engine systems diagram",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "cited_by_other_source",
+   "notes": "Provenance of underlying drawing unknown (possibly wartime German or postwar US exploitation report).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-A4-R2-2",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-NASM-A19790951000",
+   "locator": "catalogue text",
+   "title": "V-2 turbopump drive path (text)",
+   "type": "flow_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "hydrogen peroxide (T-Stoff) + permanganate (Z-Stoff) steam generator",
+    "turbine",
+    "LOX and alcohol pump impellers",
+    "overboard steam exhaust"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "verification": "described_in_text",
+   "notes": "Overboard venting from a separate summary sentence (source attribution among NASM pages uncertain).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US6832471-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US6832471",
+   "locator": "FIG. numbers not seen",
+   "title": "Expander cycle with staged combustion and heat exchange",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "fuel-rich preburner",
+    "platelet heat exchanger/cooler",
+    "turbine",
+    "main injector"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "Concept patent (Aerojet).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US7900436-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US7900436",
+   "locator": "FIG. numbers not seen",
+   "title": "Gas-generator augmented expander cycle",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "gas generator",
+    "hydrogen coolant heat path",
+    "two turbopumps"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US4589253-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US4589253",
+   "locator": "FIG. numbers not seen",
+   "title": "Pre-regenerated staged combustion",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "preburner",
+    "cooling jacket heat exchange",
+    "turbine"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US11149691-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US11149691",
+   "locator": "FIG. numbers not seen",
+   "title": "Staged combustion with integrated TPU/preburner",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "cited_by_other_source",
+   "notes": "",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US8250853-R2",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2"
+   ],
+   "source_id": "SRC-PATENT-US8250853",
+   "locator": "FIG. numbers not seen",
+   "title": "Hybrid expander cycle (background discusses RL10)",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "LH2 turbopump shaft",
+    "gear-driven LOX pump"
+   ],
+   "topology_usefulness": "low",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "RL10 discussed in background text only; whether a figure depicts RL10 is unknown. RL10 variant not specified; engine link INFERRED.",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-PATENT-US11408373-R2",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD"
+   ],
+   "source_id": "SRC-PATENT-US11408373",
+   "locator": "FIG. numbers not seen",
+   "title": "Jettisonable battery systems powering electric turbopumps",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "battery packs (jettisonable)",
+    "electric turbopumps"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "Engine link INFERRED (summary calls it a Rocket Lab patent).",
+   "branch": "r2_schem"
+  },
+  {
+   "schematic_id": "SCH-RS-25-1",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-RKD-SSME-ORIENTATION",
+   "locator": "UNKNOWN",
+   "title": "SSME propellant flow schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Named in orchestrator brief only; not viewed; document not retrieved.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-F-1-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-RKD-F1-FAMILIARIZATION",
+   "locator": "UNKNOWN",
+   "title": "F-1 engine flow schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Named in orchestrator brief only; not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-J-2-1",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-RKD-J2-MANUAL",
+   "locator": "UNKNOWN",
+   "title": "J-2 engine flow diagram",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Named in orchestrator brief only; not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-H-1-1",
+   "engine_ids": [
+    "ENG-US-H-1-205K"
+   ],
+   "source_id": "SRC-RKD-H1-MANUAL",
+   "locator": "UNKNOWN",
+   "title": "H-1 engine flow schematic",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Named in orchestrator brief only; not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-RL10A-3-3A-1",
+   "engine_ids": [
+    "ENG-US-RL10A-3-3A"
+   ],
+   "source_id": "SRC-NTRS-TM107318",
+   "locator": "UNKNOWN",
+   "title": "RL10A-3-3A engine system schematic (expected in modeling TM)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "high",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "cited_by_other_source",
+   "notes": "Existence INFERRED: a component-level engine modeling TM normally includes a flow schematic; orchestrator brief also says RL10 schematics exist in NASA papers. Not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-XRS-2200-1",
+   "engine_ids": [
+    "ENG-US-XRS-2200"
+   ],
+   "source_id": "SRC-NTRS-19980174934",
+   "locator": "UNKNOWN",
+   "title": "XRS-2200 engine/control system schematic (expected)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Existence INFERRED from paper topic (engine control system); not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-J-2X-1",
+   "engine_ids": [
+    "ENG-US-J-2X"
+   ],
+   "source_id": "SRC-NTRS-20080036837",
+   "locator": "UNKNOWN",
+   "title": "J-2X gas generator cycle schematic (expected)",
+   "type": "cycle_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "cited_by_other_source",
+   "notes": "Existence INFERRED; not viewed.",
+   "branch": "us_hist"
+  },
+  {
+   "schematic_id": "SCH-ENG-DE-A4-ENGINE-1",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-NASM-V2-TURBOPUMP",
+   "locator": "object A19600013000",
+   "title": "Turbopump, Steam Generator and Frame, V-2 Rocket Engine (museum artefact)",
+   "type": "installation_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "turbopump",
+    "steam generator",
+    "frame"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Physical artefact + catalogue text, not a drawing. Shows separate-working-fluid architecture (H2O2/permanganate steam generator).",
+   "branch": "europe"
+  },
+  {
+   "schematic_id": "SCH-ENG-DE-A4-ENGINE-2",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-V2ROCKETHISTORY-TP",
+   "locator": "video overview",
+   "title": "V2 turbopump and Walter hydrogen peroxide steam generator plant overview",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "turbopump",
+    "Walter steam generator plant"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "UNKNOWN",
+   "verification": "described_in_text",
+   "notes": "Blog/video; not viewed.",
+   "branch": "europe"
+  },
+  {
+   "schematic_id": "SCH-ENG-GB-SUPER-SPRITE-1",
+   "engine_ids": [
+    "ENG-GB-SUPER-SPRITE"
+   ],
+   "source_id": "SRC-NASM-SUPERSPRITE",
+   "locator": "object A19700331000",
+   "title": "Super Sprite cut-away (museum artefact)",
+   "type": "cutaway",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Physical cutaway; images not viewed.",
+   "branch": "europe"
+  },
+  {
+   "schematic_id": "SCH-ENG-FR-VEXIN-B-1",
+   "engine_ids": [
+    "ENG-FR-VEXIN-B"
+   ],
+   "source_id": "SRC-IAC-09-3159",
+   "locator": "paper (full text not accessed)",
+   "title": "Diamant-A first stage propulsion system (likely contains system diagram)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "tanks",
+    "solid-propellant pressurisation gas generator",
+    "water injection"
+   ],
+   "topology_usefulness": "high",
+   "rights": "RESTRICTED_REFERENCE",
+   "verification": "cited_by_other_source",
+   "notes": "Existence of figure INFERRED; abstract describes pressurisation topology.",
+   "branch": "europe"
+  },
+  {
+   "schematic_id": "SCH-ENG-FR-VINCI-1",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ],
+   "source_id": "SRC-DLR-VINCI-NOZZLE-2010",
+   "locator": "press release",
+   "title": "Vinci deployable nozzle extension description",
+   "type": "installation_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "3-cone deployable nozzle extension"
+   ],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Text description only.",
+   "branch": "europe"
+  },
+  {
+   "schematic_id": "SCH-JP-LE-9-1",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "",
+   "title": "LE-9 expander bleed cycle description",
+   "type": "cycle_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "fuel turbopump",
+    "ox turbopump",
+    "regenerative chamber",
+    "bleed turbine exhaust"
+   ],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Only textual description seen; Wikipedia expander-cycle diagrams exist but not viewed",
+   "branch": "asia_other"
+  },
+  {
+   "schematic_id": "SCH-CN-YF-77-1",
+   "engine_ids": [
+    "ENG-CN-YF-77"
+   ],
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "",
+   "title": "YF-77 GG cycle description (single GG, two turbopumps, separate exhausts)",
+   "type": "cycle_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "gas generator",
+    "LOX turbopump",
+    "LH2 turbopump",
+    "turbine exhausts"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "asia_other"
+  },
+  {
+   "schematic_id": "SCH-CN-YF-75D-1",
+   "engine_ids": [
+    "ENG-CN-YF-75D"
+   ],
+   "source_id": "SRC-WIKI-YF75D",
+   "locator": "",
+   "title": "YF-75D closed expander description",
+   "type": "cycle_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "two-stage axial turbine",
+    "lengthened chamber cooling jacket"
+   ],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "asia_other"
+  },
+  {
+   "schematic_id": "SCH-GENERIC-CYCLES-1",
+   "engine_ids": [],
+   "source_id": "SRC-NTRS-SP8107",
+   "locator": "figure number NOT known",
+   "title": "Major bipropellant engine cycles (gas generator, expander, staged combustion)",
+   "type": "cycle_schematic",
+   "detail": "simplified",
+   "components_visible": [
+    "GG",
+    "turbine",
+    "pumps",
+    "preburner",
+    "thrust chamber"
+   ],
+   "topology_usefulness": "high",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Reproduced in SRC-NATO-ENAVT150-05 per search summary; neither PDF opened.",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-GENERIC-BOOSTPUMP-1",
+   "engine_ids": [],
+   "source_id": "SRC-NTRS-SP8107",
+   "locator": "pp.53-55",
+   "title": "Boost-pump arrangements",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "boost pump",
+    "main pump"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "cited_by_other_source",
+   "notes": "Page range cited by SRC-PATENT-US5197851; figure existence on those pages not confirmed.",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-F-1-NE-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-WIKI-F1",
+   "locator": "article text",
+   "title": "F-1 turbine exhaust -> heat exchanger -> manifold -> nozzle extension path",
+   "type": "flow_schematic",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "gas generator",
+    "turbine",
+    "heat exchanger",
+    "exhaust manifold",
+    "nozzle extension"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "OPEN_LICENSE",
+   "verification": "described_in_text",
+   "notes": "Text description of topology only; Wikipedia F-1 article is known to carry a NASA flow diagram but not verified this session.",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-LR87-5-START-1",
+   "engine_ids": [
+    "ENG-US-LR87-AJ-5"
+   ],
+   "source_id": "SRC-MILSTD-T2START",
+   "locator": "page text",
+   "title": "Titan II start sequence (cartridge spin-up, GG bootstrap, oxidizer superheater)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "start cartridge",
+    "turbopump",
+    "gas generator",
+    "superheater HEX"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "UNKNOWN",
+   "verification": "described_in_text",
+   "notes": "Usable to build a topology; no figure verified.",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-AJ10-137-PRESS-1",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-AEHS-RPE",
+   "locator": "RPE09.31 text",
+   "title": "Apollo SM SPS helium pressurization (dual series regulators, quad check valves, relief)",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "He bottles",
+    "pressurizing valves",
+    "primary/secondary regulators",
+    "quad check valves",
+    "relief valves",
+    "propellant tanks"
+   ],
+   "topology_usefulness": "high",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "verification": "described_in_text",
+   "notes": "Primary-source candidates: SRC-IBIBLIO-APOLLO9SPS; Apollo Operations Handbook SPS section (URL history.nasa.gov/afj/aoh/aoh-v1-2-04-sps.pdf seen only quoted inside a forum post - unverified).",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-AJ10-190-PRESS-1",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-NTRS-OMS-1974",
+   "locator": "UNKNOWN",
+   "title": "Shuttle OMS pressurization subsystem",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "He bottle",
+    "solenoid valves",
+    "regulators",
+    "vapor isolation valves",
+    "check valves",
+    "relief valves",
+    "GN2 actuation system"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Component list from search summary; figure not verified.",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-J-2X-HEX-1",
+   "engine_ids": [
+    "ENG-US-J-2X"
+   ],
+   "source_id": "SRC-NASA-J2XBLOG-HEX",
+   "locator": "blog post",
+   "title": "J-2X heat exchanger: cold He warmed by hot-gas ducts for LOX tank pressurization",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "heat exchanger",
+    "helium",
+    "hot gas duct"
+   ],
+   "topology_usefulness": "low",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-RS-25-GOXHEX-1",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US5918460",
+   "locator": "patent drawings (fig. no. not known)",
+   "title": "SSME GOX heat exchanger in HPOTP turbine exit",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "HPOTP turbine exhaust",
+    "GOX heat exchanger",
+    "tank pressurization line",
+    "POGO"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "Patent figures likely include an SSME flow schematic; not viewed.",
+   "branch": "taxonomy",
+   "family_ids": [
+    "FAM-RS-25"
+   ]
+  },
+  {
+   "schematic_id": "SCH-VULCAIN-2-TEX-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-PATENT-US6996973",
+   "locator": "patent drawings (fig. no. not known)",
+   "title": "Vulcain-type turbine-exhaust reinjection into divergent",
+   "type": "patent_figure",
+   "detail": "UNKNOWN",
+   "components_visible": [
+    "turbine exhaust pipelines",
+    "injection ring",
+    "nozzle divergent"
+   ],
+   "topology_usefulness": "medium",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "verification": "described_in_text",
+   "notes": "",
+   "branch": "taxonomy"
+  },
+  {
+   "schematic_id": "SCH-VULCAIN-2-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "NOT_AUDITED",
+   "title": "(none viewed) - ESA text describes nozzle reinjection of turbopump exhaust",
+   "type": "system_diagram",
+   "detail": "UNKNOWN",
+   "components_visible": [],
+   "topology_usefulness": "low",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "verification": "described_in_text",
+   "notes": "Placeholder: no schematic viewed; text-only evidence of a topology feature. Search a Vulcain 2 flow schematic in a follow-up session.",
+   "branch": "anchor_eu_asia"
+  }
+ ]
+}

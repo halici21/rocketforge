@@ -202,6 +202,17 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.
 
+### Research
+- DB-0 liquid engine research map (documentation and research data only; no
+  application feature, nothing shipped). A best-effort, source-traceable map
+  of publicly documented liquid rocket engines: 576 variant records in 227
+  families, an architecture taxonomy, 46 anchor audits with topology graphs,
+  a flow-schematic index, a source registry with rights classes, a conflict
+  ledger and a proposed DB-1 schema. Values were read from web-search
+  summaries only, so none is regression-grade; DB-0 is recorded as partial.
+  See
+  [docs/research/engine_database/DB0_RESEARCH_OVERVIEW.md](docs/research/engine_database/DB0_RESEARCH_OVERVIEW.md).
+
 ### Not included
 - Solid motor performance: Isp, thrust, thrust curve, Pc(t), nozzle
   expansion and internal ballistics. Rocket Performance refuses a solid

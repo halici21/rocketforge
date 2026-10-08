@@ -1,0 +1,339 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-JP-LE-5B-2",
+ "designation": "LE-5B-2",
+ "family": "LE-5",
+ "variant_scope": "LE-5B-2 (H-IIB second stage from 2009; later H-IIA). Excludes LE-5B and LE-5B-3.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "100%, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "3% tank-head idle",
+   "notes": "tank head pressure only"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 144.9,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 447,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 3.78,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 110,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 290,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "60%, 30%, 3%* (*tank head pressure only)",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "spec table footnote",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.element_count",
+   "operating_point": null,
+   "value": 306,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "smaller coaxial elements"
+  },
+  {
+   "field_path": "injector.element_type",
+   "operating_point": null,
+   "value": "coaxial",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "feed.mixer",
+   "operating_point": null,
+   "value": "new mixer of gaseous and liquid hydrogen in the hydrogen feed line",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.manifold",
+   "operating_point": null,
+   "value": "flow-laminarizing plates in expander manifold",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.purpose",
+   "operating_point": null,
+   "value": "reduce second-stage vibration; developed by MHI under JAXA contract",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC08-LE5B",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.result",
+   "operating_point": null,
+   "value": "upper-stage vibration reduced by half",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "feed.mixer.gh2_source",
+   "reason": "NOT_REPORTED",
+   "note": "where the GH2 entering the mixer comes from is not stated"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-PUMP",
+    "component_type": "pump",
+    "label": "LH2 pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Chamber cooling / expander circuit",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "inherited from LE-5B"
+   },
+   {
+    "id": "N-MANIFOLD",
+    "component_type": "manifold",
+    "label": "Expander manifold with flow-laminarizing plates",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MIXER",
+    "component_type": "mixer",
+    "label": "GH2/LH2 mixer in hydrogen feed line",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "Injector, 306 coaxial elements",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Combustion chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-PUMP",
+    "to": "N-MIXER",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "mixer is 'in hydrogen feed line'"
+   },
+   {
+    "id": "E-2",
+    "from": "N-JACKET",
+    "to": "N-MIXER",
+    "fluid": "GH2",
+    "role": "other",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "GH2 source NOT_REPORTED; jacket is a guess"
+   },
+   {
+    "id": "E-3",
+    "from": "N-MIXER",
+    "to": "N-INJ",
+    "fluid": "H2 (two-phase/gas mix)",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-JACKET",
+    "to": "N-MANIFOLD",
+    "fluid": "GH2",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-INJ",
+    "to": "N-MCC",
+    "fluid": "H2+LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Mostly inferred; included because the GH2/LH2 mixer is a topology element a flat schema cannot hold."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "not_reported",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "partial",
+  "cooling": "weak",
+  "feed_system": "weak",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "partial",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "GH2/LH2 mixer in the fuel feed line: a mixing node merging two hydrogen states before injection.",
+  "Upgrade motivated by vehicle vibration (a stage/vehicle requirement) - change rationale belongs to a lineage edge."
+ ],
+ "notes": "No new Tier A/B numbers for LE-5B-2 in round 2; the IAC-08 abstract confirms purpose and developer.",
+ "branch": "r2_asia"
+}

@@ -1,0 +1,370 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-RL10B-2",
+ "designation": "RL10B-2",
+ "family": "RL10",
+ "variant_scope": "RL10B-2 on the Delta IV (and Delta III) Delta Cryogenic Second Stage, with deployable carbon-carbon nozzle extension. Excludes RL10C-2/C-3 and modified 'B-2 without extension' builds.",
+ "operating_points": [
+  {
+   "op_id": "OP-DEP",
+   "label": "Nominal, vacuum, extension deployed",
+   "notes": "Stowed-extension operation not documented in summaries."
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-DEP",
+   "value": 24750,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-DIV-INAUGURAL",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Delta IV inaugural-launch paper."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-DEP",
+   "value": 24750,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-DIV-GPSIIISV02",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Independent ULA booklet."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-DEP",
+   "value": 24740,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SPACELINE-DIV",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-DEP",
+   "value": "110.1 kN (24,800 lbf)",
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-DEP",
+   "value": 465.5,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAP-11780",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "NAP report text (Tier B, values SECONDARY because NAP is not the originator)."
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-DEP",
+   "value": 466.5,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAP-11780",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "NAP comparison table."
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-DEP",
+   "value": 465.5,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac_stage_DCSS_DeltaIII",
+   "operating_point": null,
+   "value": 462,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-DCSS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Delta III DCSS listing - stage/engine ambiguity."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-DEP",
+   "value": 633,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAP-11780",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "NAP text 'nominally'."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-DEP",
+   "value": 644,
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAP-11780",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "NAP comparison table."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-DEP",
+   "value": "32.1 bar (465 psi)",
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-DELTA",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Identical to AIAA's RL10A-4-2 value - likely copy error."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-DEP",
+   "value": 5.88,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-DEP",
+   "value": 285,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-DELTA",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-DEP",
+   "value": 285,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAP-11780",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Two independent secondary sources agree."
+  },
+  {
+   "field_path": "nozzle.extension_type",
+   "operating_point": null,
+   "value": "translating (extendible) carbon-carbon nozzle extension",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-DIV-INAUGURAL",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "'extendible nozzle designed for boost-phase environments and longer burns'; C-C per Wikipedia DCSS."
+  },
+  {
+   "field_path": "nozzle.extension_construction",
+   "operating_point": null,
+   "value": "three cones, Novoltex / Sepcarb carbon-carbon",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IAC-2018-43630",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Attribution between IAC metadata and Wikipedia 'Nozzle extension' inferred."
+  },
+  {
+   "field_path": "nozzle.extension_supplier",
+   "operating_point": null,
+   "value": "Airbus Safran Launchers (extension); Aerojet Rocketdyne retained Nozzle Extension Deployment System (NEDS)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IAC-2018-43630",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Era of this supplier arrangement (2018 paper) may post-date early B-2 production; unverified."
+  },
+  {
+   "field_path": "nozzle.extension_length",
+   "operating_point": null,
+   "value": "nearly 100",
+   "unit": "in",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IAC-2018-43630",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.exit_diameter",
+   "operating_point": "OP-DEP",
+   "value": "just over 84",
+   "unit": "in",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IAC-2018-43630",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": "301 kg (664 lb)",
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 277,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Older Wikipedia revision (mirror)."
+  },
+  {
+   "field_path": "mechanical.gimbal_actuation",
+   "operating_point": null,
+   "value": "electro-mechanical gimbaling",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "AIAA Delta page lists 'hydraulic nozzle gimbal' at stage level (CF-B2-4)."
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.* / turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio_stowed",
+   "reason": "NOT_REPORTED",
+   "note": "Stowed-extension ratio not found."
+  },
+  {
+   "field_path": "performance.restarts / burn_time",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RL10",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ-FIXED",
+    "component_type": "nozzle",
+    "label": "Regeneratively cooled fixed nozzle",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RL10",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "[BG]"
+   },
+   {
+    "id": "N-NE",
+    "component_type": "nozzle",
+    "label": "Deployable C-C nozzle extension (3 cones)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC-2018-43630",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NEDS",
+    "component_type": "other",
+    "label": "Nozzle Extension Deployment System",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC-2018-43630",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-NOZ-FIXED",
+    "to": "N-NE",
+    "fluid": "combustion products",
+    "role": "other",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ULA-DIV-INAUGURAL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "extension deployed in flight"
+   }
+  ],
+  "topology_completeness": "Feed/turbomachinery not documented in summaries; RL10 family expander topology (see RL10A-4-2 anchor) presumably applies [BG]."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "partial",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "partial",
+  "materials_manufacturing": "partial",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Deployable nozzle extension: geometry (area ratio, length, exit diameter) differs between stowed and deployed states within one flight.",
+  "Extension and its deployment system have different suppliers than the engine core.",
+  "Same designation later modified (extension removed, new igniter) for other uses - configuration not captured by designation."
+ ],
+ "notes": "Pc has three disagreeing numbers (633 psi, 644 psia, 465 psi); 285:1 is consistent across two secondary sources.",
+ "branch": "r2_us_classic"
+}

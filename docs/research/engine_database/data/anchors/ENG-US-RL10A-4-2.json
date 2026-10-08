@@ -1,0 +1,516 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-RL10A-4-2",
+ "designation": "RL10A-4-2",
+ "family": "RL10",
+ "variant_scope": "RL10A-4-2 as flown on Atlas V Centaur (single- and dual-engine Centaur). Excludes RL10A-4 / A-4-1 (recorded only as table neighbours), RL10A-3-3A (family turbomachinery context only), RL10B-2 and RL10C.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "Nominal full thrust, vacuum",
+   "notes": "Single rated point; no throttling for this variant in sources seen."
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 22300,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RL10-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "RL10A-4-2 column of model table."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 99.1,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Variant table (row truncated in summary)."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 10.115,
+   "unit": "tonnes (force)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASA-SMA-SLR-DATASHEET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Third-party datasheet."
+  },
+  {
+   "field_path": "performance.thrust_vac_vehicle_avg_single",
+   "operating_point": "OP-1",
+   "value": 22.9,
+   "unit": "klbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Single-engine Centaur 'average thrust' - differs from 22.3 klbf; may be a different rating or averaging (CF-A42-2)."
+  },
+  {
+   "field_path": "performance.thrust_vac_vehicle_total_dual",
+   "operating_point": "OP-1",
+   "value": 44.6,
+   "unit": "klbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Dual-engine Centaur total = 2 x 22.3 klbf (DERIVED consistency)."
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 451.0,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RL10-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 450.5,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.5,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RL10-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Engine O/F."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.5,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": "32.1 bar (465 psi)",
+   "unit": "bar / psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "abs/gauge not stated. Same value printed for RL10B-2 on the AIAA Delta page (suspicious)."
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 85,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": "84:1 (A-4, A-4-1 rows); family infobox '84:1 or 280:1'",
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "A-4-2 row truncated - 84 not shown for A-4-2 itself."
+  },
+  {
+   "field_path": "nozzle.exit_diameter",
+   "operating_point": null,
+   "value": 46,
+   "unit": "in",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RL10-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'46-inch nozzle diameter for the Atlas V version'."
+  },
+  {
+   "field_path": "identity.vehicles",
+   "operating_point": null,
+   "value": "Atlas V Centaur, one or two engines",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.status",
+   "operating_point": null,
+   "value": "two-engine Atlas V Centaur continues with RL10A-4-2 after RL10C-1 introduction (2014)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RL10C-2014",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.production_start",
+   "operating_point": null,
+   "value": 2002,
+   "unit": "year",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RL10",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'in production from 2002'."
+  },
+  {
+   "field_path": "pumps.family_context",
+   "operating_point": null,
+   "value": "RL10A-3-3A: two-stage fuel pump on turbine shaft; single-stage LOX pump gear-driven; design speeds 30,000 rpm (fuel) / 12,000 rpm (LOX)",
+   "unit": "",
+   "status": "INFERRED",
+   "source_id": "SRC-NTRS-RL10A33A-MODEL",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "INFERRED applicability: values are for RL10A-3-3A, not A-4-2. Recorded only so the merge does not lose the lead; do not attach to A-4-2 pumps."
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "No A-4-2-specific turbopump data in summaries."
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": "Regenerative tube jacket [BG]; not sourced for A-4-2."
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_REPORTED",
+   "note": "Columbium extension / dual-pulse / direct spark (query hints) not confirmed."
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time / restarts",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-FUEL-PUMP",
+    "component_type": "pump",
+    "label": "Two-stage fuel pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "From RL10A-3-3A sources"
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "Single-stage LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "From RL10A-3-3A sources"
+   },
+   {
+    "id": "N-GEARBOX",
+    "component_type": "gearbox",
+    "label": "Gearbox driving LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "From RL10A-3-3A sources"
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Two-stage fuel turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "From RL10A-3-3A sources"
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Regenerative cooling jacket",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TBV",
+    "component_type": "valve",
+    "label": "Turbine bypass valve (Pc control)",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-PUV",
+    "component_type": "valve",
+    "label": "Propellant utilization (MR control) valve",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-CDV",
+    "component_type": "valve",
+    "label": "Pump cooldown valves",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "Injector",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "Nozzle (85:1 per AIAA)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-FUEL-PUMP",
+    "to": "N-JACKET",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-JACKET",
+    "to": "N-TURB",
+    "fluid": "GH2",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-JACKET",
+    "to": "N-TBV",
+    "fluid": "GH2",
+    "role": "bypass",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-INJ",
+    "fluid": "GH2",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "closed expander [BG]"
+   },
+   {
+    "id": "E-5",
+    "from": "N-TBV",
+    "to": "N-INJ",
+    "fluid": "GH2",
+    "role": "bypass",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-LOX-PUMP",
+    "to": "N-PUV",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-PUV",
+    "to": "N-INJ",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-TURB",
+    "to": "N-FUEL-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-TURB",
+    "to": "N-GEARBOX",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-GEARBOX",
+    "to": "N-LOX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-FUEL-PUMP",
+    "to": "N-CDV",
+    "fluid": "LH2",
+    "role": "chilldown",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-12",
+    "from": "N-INJ",
+    "to": "N-TC",
+    "fluid": "LOX + GH2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-RL10A33A-MODEL",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Entire graph is INFERRED from RL10A-3-3A family sources; no A-4-2-specific flow source seen. Inlet/shutoff valves, igniter, interstage cooldown flows missing."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "partial",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "weak",
+  "pumps": "weak",
+  "turbines": "weak",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Geared shaft: one turbine drives two pumps at different speeds (gear ratio a design parameter changed between family members, e.g. 2.5 -> 2.13 in throttling studies).",
+  "Vehicle-level counts (single vs dual engine Centaur) quoted as engine 'thrust' in some sources (44.6 klbf).",
+  "Family table values (A-4, A-4-1, A-4-2) share thrust (99.1 kN) and area ratio with truncation - easy to misassign."
+ ],
+ "notes": "Only identity/performance-level data found. Topology carried from RL10A-3-3A sources as INFERRED family context.",
+ "branch": "r2_us_classic"
+}

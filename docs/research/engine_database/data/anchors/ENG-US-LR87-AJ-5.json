@@ -1,0 +1,668 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-LR87-AJ-5",
+ "designation": "LR87-AJ-5",
+ "family": "LR87",
+ "variant_scope": "Titan II ICBM Stage I engine (N2O4 / Aerozine 50). Excludes LR87-AJ-7 (Gemini GLV), -9, -11 and LOX/RP-1 LR87-AJ-3.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "Nominal Stage I, sea level",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.assembly",
+   "operating_point": null,
+   "value": "two regeneratively cooled thrust chambers, two pump drive assemblies, interconnecting lines and fittings, engine frame",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "feed.turbopump_count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "identical turbopump assemblies",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "One per chamber [INFERRED pairing]."
+  },
+  {
+   "field_path": "pumps.TPA.configuration",
+   "operating_point": null,
+   "value": "each TPA: fuel pump + oxidizer pump + gearbox + two balanced turbine wheels",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.TPA.stages",
+   "operating_point": null,
+   "value": "2 (each stage has nozzle diaphragm directing GG exhaust onto rotor)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.single_unit",
+   "operating_point": null,
+   "value": "chambers share vital components and can only be fired as a single unit",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKITALK-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Wikipedia main text: 'twin motors with separate combustion chambers and turbopump machinery, considered a single unit'."
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "open gas-generator cycle; regeneratively cooled chamber and nozzle",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "N2O4",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "Aerozine 50",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 1.93,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 430000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Stage I total (both chambers)."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 5.4,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": "54.0 bar (53.3 atm)",
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ASTRONAUTIX-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Round 1."
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 297,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value": 259,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 8,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.turbine_start",
+   "operating_point": null,
+   "value": "solid-propellant starter cartridge, burns ~1 s, ~2,000 psia to TPA turbines; then hypergolic ignition and GG sustains",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Wikipedia also: 'solid-propellant cartridges to start the turbopumps' (plural)."
+  },
+  {
+   "field_path": "ignition_start.ignition",
+   "operating_point": null,
+   "value": "hypergolic",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.method",
+   "operating_point": null,
+   "value": "autogenous: fuel tank by fuel-rich GG exhaust; oxidizer tank by NTO evaporated in heat exchanger using turbine exhaust; replaced cold-helium tanks",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LR87",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.ox_heat_exchanger",
+   "operating_point": null,
+   "value": "'super heater': stainless tubing coils in the GG/turbine exhaust outlet on sub-assembly 2",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Only one of the two sub-assemblies carries it."
+  },
+  {
+   "field_path": "mechanical.gimbal_range",
+   "operating_point": null,
+   "value": "5 deg any direction (one page) / 4 deg (another page)",
+   "unit": "deg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Internal inconsistency."
+  },
+  {
+   "field_path": "mechanical.lube_oil_reservoir",
+   "operating_point": null,
+   "value": "present (capacities quoted differ between Stage I and II)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Gearbox lubrication by separate oil [INFERRED]."
+  },
+  {
+   "field_path": "feed.stage_ox_duct",
+   "operating_point": null,
+   "value": "Stage I oxidizer duct routed through fuel tank inside a conduit",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Stage-level."
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "gas_generators.count",
+   "reason": "UNKNOWN",
+   "note": "Whether each sub-assembly has its own GG is not stated; 'GG exhaust outlet on sub-assembly 2' hints at one per sub-assembly [INFERRED]."
+  },
+  {
+   "field_path": "pumps.*.speed / pressures",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": "785 psia and injector baffles (query hints) not confirmed."
+  },
+  {
+   "field_path": "mechanical.mass",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "HAER engine record",
+   "reason": "NOT_REPORTED",
+   "note": "Only HAER CA-2408 (launch complex) found."
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TC1",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber 1 (regen)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TC2",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber 2 (regen)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TPA1",
+    "component_type": "turbine",
+    "label": "TPA 1 turbine (2-stage)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TPA2",
+    "component_type": "turbine",
+    "label": "TPA 2 turbine (2-stage)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GB1",
+    "component_type": "gearbox",
+    "label": "TPA 1 gearbox",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GB2",
+    "component_type": "gearbox",
+    "label": "TPA 2 gearbox",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FP1",
+    "component_type": "pump",
+    "label": "TPA 1 fuel pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OP1",
+    "component_type": "pump",
+    "label": "TPA 1 oxidizer pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FP2",
+    "component_type": "pump",
+    "label": "TPA 2 fuel pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OP2",
+    "component_type": "pump",
+    "label": "TPA 2 oxidizer pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator(s) (count UNKNOWN)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-SC",
+    "component_type": "start_cartridge",
+    "label": "Solid starter cartridge(s)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-SH",
+    "component_type": "heat_exchanger",
+    "label": "Oxidizer 'super heater' (sub-assembly 2)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TANK-OX",
+    "component_type": "tank",
+    "label": "Stage I oxidizer tank",
+    "subsystem": "stage",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LR87",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TANK-F",
+    "component_type": "tank",
+    "label": "Stage I fuel tank",
+    "subsystem": "stage",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LR87",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-SC",
+    "to": "N-TPA1",
+    "fluid": "solid-propellant gas",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "per-TPA cartridge pairing INFERRED"
+   },
+   {
+    "id": "E-2",
+    "from": "N-SC",
+    "to": "N-TPA2",
+    "fluid": "solid-propellant gas",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-GG",
+    "to": "N-TPA1",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-GG",
+    "to": "N-TPA2",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-TPA1",
+    "to": "N-GB1",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-GB1",
+    "to": "N-FP1",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-GB1",
+    "to": "N-OP1",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-TPA2",
+    "to": "N-GB2",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-GB2",
+    "to": "N-FP2",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-GB2",
+    "to": "N-OP2",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-FP1",
+    "to": "N-TC1",
+    "fluid": "A-50",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "regen then injector; pump-to-chamber pairing INFERRED"
+   },
+   {
+    "id": "E-12",
+    "from": "N-OP1",
+    "to": "N-TC1",
+    "fluid": "N2O4",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-13",
+    "from": "N-FP2",
+    "to": "N-TC2",
+    "fluid": "A-50",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-14",
+    "from": "N-OP2",
+    "to": "N-TC2",
+    "fluid": "N2O4",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-15",
+    "from": "N-TPA2",
+    "to": "N-SH",
+    "fluid": "turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-TMS-TITAN2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-16",
+    "from": "N-SH",
+    "to": "N-TANK-OX",
+    "fluid": "GNTO (evaporated N2O4)",
+    "role": "pressurization",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LR87",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-17",
+    "from": "N-GG",
+    "to": "N-TANK-F",
+    "fluid": "fuel-rich GG gas",
+    "role": "pressurization",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LR87",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "cooling/conditioning not documented"
+   }
+  ],
+  "topology_completeness": "GG count and propellant supply, valves, pressurization tap points, injector and regen paths, cross-connections between sub-assemblies all missing."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "weak",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "partial",
+  "pumps": "weak",
+  "turbines": "weak",
+  "gg_preburner": "weak",
+  "pressurization": "partial",
+  "ignition_start": "partial",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Two chambers + two turbopumps + (possibly) shared components, fired as one unit: neither 'one engine' nor 'two engines' cleanly.",
+  "Asymmetric sub-assemblies (only sub-assembly 2 carries the oxidizer super-heater).",
+  "Engine produces both tanks' pressurant by different mechanisms (GG gas vs evaporated oxidizer).",
+  "Start by consumable solid cartridge."
+ ],
+ "notes": "Best available evidence is an ex-crew technical site (Tier D) apparently paraphrasing USAF technical orders; no Tier A Aerojet/USAF document found.",
+ "branch": "r2_us_classic"
+}

@@ -1,0 +1,285 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-IN-CE-7-5",
+ "designation": "CE-7.5",
+ "family": "CE-7.5",
+ "variant_scope": "CE-7.5 main engine of the GSLV Mk II indigenous cryogenic upper stage (CUS). Two steering engines belong to the engine assembly per sources; recorded as nodes, not as separate performance.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "GSLV D5 flight-demonstrated range",
+   "notes": "73.55-82 kN"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "fuel-rich staged combustion; regeneratively cooled; variable thrust",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.lineage",
+   "operating_point": null,
+   "value": "developed under Cryogenic Upper Stage Project (CUSP); replaced Russian KVD-1 (RD-56) of GSLV Mk I",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 73.55,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "spec",
+   "confidence": "medium",
+   "note": "also given as 73.5 kN"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 75,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "'maximum thrust (vacuum) 75 kN' in another source/revision",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": "OP-2",
+   "value": "73.55 to 82 kN demonstrated on GSLV Mk2 D5",
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": "5.8 / 7.5",
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "two values without explanation (main chamber vs preburner? unknown)"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 58,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SLIDESHARE-CRYO",
+   "locator": "slide",
+   "confidence": "low",
+   "note": "'nominal chamber pressure'"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": "454 +/- 3",
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "4.452 +/- 0.029 km/s"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": null,
+   "value": 720,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "nominal"
+  },
+  {
+   "field_path": "control.regulators",
+   "operating_point": null,
+   "value": "two independent regulators: thrust control and mixture-ratio control",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.steering",
+   "operating_point": null,
+   "value": "two gimballed steering engines provide steering during thrust",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE75",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "control.steering",
+   "operating_point": null,
+   "value": "two smaller (cryogenic) steering engines",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BHARATNOTES-CRYO",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "preburners.*",
+   "reason": "NOT_REPORTED",
+   "note": "no preburner pressure/temperature/MR found"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "42,000 rpm claim not found"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "steering_engines.feed_source",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-PB",
+    "component_type": "preburner",
+    "label": "Fuel-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": "existence inferred from 'fuel-rich staged combustion'"
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Main thrust chamber (regen cooled)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-STEER-1",
+    "component_type": "other",
+    "label": "Steering engine #1 (gimballed, cryogenic)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-STEER-2",
+    "component_type": "other",
+    "label": "Steering engine #2 (gimballed, cryogenic)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-REG-THRUST",
+    "component_type": "regulator",
+    "label": "Thrust control regulator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-REG-MR",
+    "component_type": "regulator",
+    "label": "Mixture-ratio control regulator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE75",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-PB",
+    "to": "N-MCC",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "via turbine(s); turbopump layout not reported"
+   }
+  ],
+  "topology_completeness": "Very incomplete: turbopumps, turbine arrangement, steering-engine feed and cooling all unknown."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "weak",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "partial",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Main engine plus two gimballed steering engines delivered as one engine assembly: engine-vs-auxiliary thrust chamber relationship.",
+  "Separate thrust and MR regulators: closed-loop control attributes.",
+  "Two chamber-pressure figures in one infobox with no label."
+ ],
+ "notes": "Only Tier D/E reached. ISRO/LPSC or Current Science papers were not surfaced.",
+ "branch": "r2_asia"
+}

@@ -1,0 +1,530 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-RS-68A",
+ "designation": "RS-68A",
+ "family": "RS-68",
+ "variant_scope": "RS-68A as described on the Aerojet Rocketdyne/L3Harris RS-68A data sheet (Delta IV / Delta IV Heavy). Excludes baseline RS-68 and RS-68B (Ares V study). OP-1 = 100%/full power level as tabulated; the sheet's second, unlabelled column is NOT interpreted.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "data-sheet primary column (full power; label not seen)",
+   "notes": "sea level and vacuum values both given"
+  },
+  {
+   "op_id": "OP-2",
+   "label": "data-sheet second column (unlabelled; likely minimum power level - INFERRED)",
+   "notes": "412K lbf vac, 318K lbf SL, 820 psia, MR 5.99 per summary"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 705000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": "'705K lbf' as printed"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 800000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": "'800K lbf'"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 1580,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": "location (injector face vs stagnation) not stated; see CF-R2-1"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 411,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-1",
+   "value": 362,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.97,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table",
+   "confidence": "medium",
+   "note": "engine vs chamber convention not stated"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-1",
+   "value": 21.5,
+   "unit": ":1",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet table ('expansion ratio')",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-1",
+   "value": 21.5,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS68",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 3137,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS68",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "= 705,000 lbf"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 1488,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS68",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "10.26 MPa; conflicts with data sheet (CF-R2-1)"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-2",
+   "value": 412000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet second column",
+   "confidence": "low",
+   "note": "column meaning not seen"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 318000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet second column",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-2",
+   "value": 820,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet second column",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-2",
+   "value": 5.99,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "data sheet second column",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.first_test_firing",
+   "operating_point": null,
+   "value": "2008-09",
+   "unit": "date",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.certification",
+   "operating_point": null,
+   "value": "2011-04",
+   "unit": "date",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.first_flight",
+   "operating_point": null,
+   "value": "2012-06",
+   "unit": "date",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator (open)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAS-11780-2006",
+   "locator": "Appendix D",
+   "confidence": "low",
+   "note": "stated for RS-68 baseline; NAS is Tier B but describes RS-68 not RS-68A"
+  },
+  {
+   "field_path": "control.roll_control_by_gg_exhaust",
+   "operating_point": null,
+   "value": "turbine exhaust can be vectored on command for roll control (Delta IV)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAS-11780-2006",
+   "locator": "Appendix D",
+   "confidence": "low",
+   "note": "baseline RS-68 statement; carry-over to RS-68A INFERRED"
+  },
+  {
+   "field_path": "ignition_start.helium_spin_start",
+   "operating_point": null,
+   "value": "helium spin-start duct redesigned in RS-68A upgrade (with start-sequence changes to minimise pre-ignition free hydrogen)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20090028723",
+   "locator": "slides on RS-68A upgrades",
+   "confidence": "low",
+   "note": "document identity uncertain; confirms helium spin start exists"
+  },
+  {
+   "field_path": "nozzle.ablative_construction",
+   "operating_point": null,
+   "value": "ablative nozzle with increased-duration capability (RS-68A upgrade item)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20090028723",
+   "locator": "slides",
+   "confidence": "low",
+   "note": "liner material not stated; chamber is regen-cooled per NAS (baseline)"
+  },
+  {
+   "field_path": "turbines.seals",
+   "operating_point": null,
+   "value": "redesigned turbine seals reduce helium usage pre-launch and in flight",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20090028723",
+   "locator": "slides",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "identity.major_component_count",
+   "operating_point": null,
+   "value": 11,
+   "unit": "components",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAS-11780-2006",
+   "locator": "Appendix D",
+   "confidence": "low",
+   "note": "RS-68 baseline: MCC, single O and H turbopumps, gimbal bearing, injector, GG, heat exchangers, fuel exhaust duct, ..."
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "identity.parent_designation",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran; lineage RS-68 -> RS-68A is the orchestrator's framing, unsourced here"
+  },
+  {
+   "field_path": "pumps.LOX_TPA.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.LH2_TPA.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  },
+  {
+   "field_path": "gas_generators.GG.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "main combustion chamber (regeneratively cooled)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": "baseline RS-68"
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "injector",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-OTP",
+    "component_type": "pump",
+    "label": "oxygen turbopump (single)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-FTP",
+    "component_type": "pump",
+    "label": "hydrogen turbopump (single)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-HEX",
+    "component_type": "heat_exchanger",
+    "label": "heat exchanger(s)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": "purpose (tank pressurant?) not stated"
+   },
+   {
+    "id": "N-TED",
+    "component_type": "turbine_exhaust_duct",
+    "label": "fuel (turbine) exhaust duct, vectorable for roll",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "ablative nozzle",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20090028723",
+    "locator": "search-result summary (round 2)",
+    "note": "RS-68A upgrade slide"
+   },
+   {
+    "id": "N-HE-SPIN",
+    "component_type": "start_tank",
+    "label": "helium spin-start supply/duct",
+    "subsystem": "ambiguous",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20090028723",
+    "locator": "search-result summary (round 2)",
+    "note": "supply source (ground vs vehicle) unknown"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-OTP",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": "GG drives turbines; series/parallel arrangement unknown"
+   },
+   {
+    "id": "E-2",
+    "from": "N-GG",
+    "to": "N-FTP",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-FTP",
+    "to": "N-TED",
+    "fluid": "turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NAS-11780-2006",
+    "locator": "search-result summary (round 2)",
+    "note": "'fuel exhaust duct' named; which turbine exhausts into it unknown"
+   },
+   {
+    "id": "E-4",
+    "from": "N-HE-SPIN",
+    "to": "N-FTP",
+    "fluid": "He",
+    "role": "start",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-20090028723",
+    "locator": "search-result summary (round 2)",
+    "note": "spin-start target turbine(s) not stated"
+   }
+  ],
+  "topology_completeness": "Component list from NAS (baseline RS-68) + RS-68A upgrade slide; no schematic seen. Turbine series/parallel, valves, regen path, HEX function all missing."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "partial",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "weak",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "weak",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Delta IV Heavy RS-68A vs single-stick Delta IV RS-68 vs RS-68 throttle-setting conventions (expected; unverified).",
+  "Data sheet tabulates two operating columns; one unlabelled - operating points must be first-class.",
+  "Helium spin-start and helium usage are engine-plus-ground/vehicle features (subsystem ambiguous).",
+  "Roll control via vectored GG exhaust: turbine exhaust has a control function, not just disposal."
+ ],
+ "notes": "No evidence obtained. Highest-value sources to retrieve: ULA Delta IV Launch Services User's Guide (engine section), AIAA papers by Rocketdyne on RS-68 development (e.g. 'RS-68 ... design' JPC papers), NASA Ares V RS-68B trade studies on NTRS. | ROUND 2 (r2_schem): L3Harris data sheet (Tier A) located via search; values REPORTED at medium confidence (summary only). No flow schematic found for RS-68/RS-68A.",
+ "branch": "r2_schem"
+}

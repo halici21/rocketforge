@@ -18,6 +18,7 @@ directory is the paper trail behind its claims, not a second entry point.
 | Which RocketForge you are running, and how to build and launch it | [engineering/release/BUILD_AND_LAUNCH.md](engineering/release/BUILD_AND_LAUNCH.md) |
 | What Engine Design mode can and can't do | [../acceptance/cad_workbench_r1/engine_component_inventory.json](../acceptance) (gitignored — regenerate locally, or see the summary in the root README) |
 | What the `.claude/skills/` design tooling is and why | [design/skills/DESIGN_SKILL_FOUNDATION_R1_REPORT.md](design/skills/DESIGN_SKILL_FOUNDATION_R1_REPORT.md) |
+| What liquid rocket engines exist, how they are built, and what a future engine database needs (research, not a feature) | [research/engine_database/DB0_RESEARCH_OVERVIEW.md](research/engine_database/DB0_RESEARCH_OVERVIEW.md) |
 
 ## Architecture & specifications (`engineering/`)
 

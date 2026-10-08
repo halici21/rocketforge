@@ -1,0 +1,640 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-H-1",
+ "designation": "H-1",
+ "family": "H-1",
+ "variant_scope": "Umbrella anchor for the H-1 as used in Saturn I S-I and Saturn IB S-IB clusters, kept at the round-1 id for merge continuity. Values are tagged to rating operating points (188k / 200k / 205k lb) because sources disagree; the merge SHOULD split them into ENG-US-H-1-188K / -200K / -205K (us_hist ids). Turbopump numbers come from a 1965 NASA report tied to the 188k rating.",
+ "operating_points": [
+  {
+   "op_id": "OP-188K",
+   "label": "188,000 lb SL rating (1965 NASA report)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-200K",
+   "label": "200,000 lb SL rating (Saturn IB)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-205K",
+   "label": "205,000 lb SL rating (final)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-188K",
+   "value": 188000,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'nominal sea-level thrust rating'."
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-188K",
+   "value": 188000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Displayed engine 'may be the second variation'."
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-200K",
+   "value": 200000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Infobox; summary says adopted on Saturn IB."
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-205K",
+   "value": 205000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Text value."
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-205K",
+   "value": 205000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Round 1."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 700,
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Rating not stated."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 700,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.23,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 289,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value": 255,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value": 263,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": null,
+   "value": 155,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 8,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 2200,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value": 2009,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "identity.major_components",
+   "operating_point": "OP-188K",
+   "value": "thrust chamber, turbopump assembly, liquid-propellant gas generator (LPGG), fuel additive blender unit (FABU)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cluster_geometry",
+   "operating_point": "OP-188K",
+   "value": "8 engines: 4 inboard at 32 in radius, fixed 3 deg outward cant; 4 outboard at 95 in radius, 6 deg cant, hydraulically gimbaled",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Stage-level installation data."
+  },
+  {
+   "field_path": "turbines.T.stages",
+   "operating_point": "OP-188K",
+   "value": 2,
+   "unit": "stages",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "OCR-garbled text; engine identity of this passage medium."
+  },
+  {
+   "field_path": "turbines.T.power",
+   "operating_point": "OP-188K",
+   "value": 3793,
+   "unit": "hp",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'about'."
+  },
+  {
+   "field_path": "turbines.T.speed_rpm",
+   "operating_point": "OP-188K",
+   "value": 32000,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'roughly'."
+  },
+  {
+   "field_path": "mechanical.gearbox",
+   "operating_point": "OP-188K",
+   "value": "gear reductions drive LOX and fuel pumps from the turbine shaft",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.LOX.speed_rpm",
+   "operating_point": "OP-188K",
+   "value": 6537,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Both pumps quoted at ~6,537 rpm."
+  },
+  {
+   "field_path": "pumps.FUEL.speed_rpm",
+   "operating_point": "OP-188K",
+   "value": 6537,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.gear_ratio",
+   "operating_point": "OP-188K",
+   "value": 4.9,
+   "unit": ":1",
+   "status": "DERIVED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "32,000 / 6,537 = 4.9 (DERIVED from approximate values)."
+  },
+  {
+   "field_path": "mechanical.accessory_drive",
+   "operating_point": "OP-188K",
+   "value": "dual accessory drive pads ~4,000 rpm; electric heater keeps accessory-drive bearings from freezing",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.turbine_spin_start",
+   "operating_point": null,
+   "value": "solid-propellant gas generator (SPGG) ignited electrically (500 V AC), ~600-700 psi gas spins turbine; LPGG then sustains",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.hypergol_cartridge",
+   "operating_point": "OP-188K",
+   "value": "hypergol cartridge mentioned",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19650013470",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Role (TC ignition) not stated in summary."
+  },
+  {
+   "field_path": "mechanical.lubrication",
+   "operating_point": null,
+   "value": "additive blended into RP-1 by FABU; fuel/additive mix fed under pressure to turbopump bearings (lubricates and cools)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "FABU existence REPORTED in NTRS 19650013470."
+  },
+  {
+   "field_path": "materials.pumps",
+   "operating_point": null,
+   "value": "aluminium alloys (pumps); Hastelloy (turbine)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-H1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "turbopump data at 200K/205K",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "gearbox lube reservoir (query hint)",
+   "reason": "NOT_REPORTED",
+   "note": "Superseded: H-1 uses fuel-additive lubrication per Wikipedia; NTRS mentions FABU."
+  },
+  {
+   "field_path": "pumps.*.discharge_pressure",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-SPGG",
+    "component_type": "start_cartridge",
+    "label": "Solid propellant gas generator (spin start)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-H1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-LPGG",
+    "component_type": "gas_generator",
+    "label": "Liquid propellant gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-T",
+    "component_type": "turbine",
+    "label": "Two-stage turbine (~32,000 rpm)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GB",
+    "component_type": "gearbox",
+    "label": "Reduction gearbox",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-LOXP",
+    "component_type": "pump",
+    "label": "LOX pump (~6,537 rpm)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FP",
+    "component_type": "pump",
+    "label": "Fuel pump (~6,537 rpm)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-ACC",
+    "component_type": "other",
+    "label": "Accessory drive pads (~4,000 rpm; hydraulic pump on outboard engines [INFERRED])",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FABU",
+    "component_type": "mixer",
+    "label": "Fuel additive blender unit",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-BRG",
+    "component_type": "other",
+    "label": "Turbopump bearings/gears",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-H1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-SPGG",
+    "to": "N-T",
+    "fluid": "solid-propellant gas",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-H1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-LPGG",
+    "to": "N-T",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "fuel-rich [BG]"
+   },
+   {
+    "id": "E-3",
+    "from": "N-T",
+    "to": "N-GB",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-GB",
+    "to": "N-LOXP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-GB",
+    "to": "N-FP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-GB",
+    "to": "N-ACC",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-FP",
+    "to": "N-FABU",
+    "fluid": "RP-1",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-H1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-FABU",
+    "to": "N-BRG",
+    "fluid": "RP-1 + additive",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-H1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "lubrication"
+   },
+   {
+    "id": "E-9",
+    "from": "N-FP",
+    "to": "N-TC",
+    "fluid": "RP-1",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-LOXP",
+    "to": "N-TC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-FP",
+    "to": "N-LPGG",
+    "fluid": "RP-1",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-12",
+    "from": "N-LOXP",
+    "to": "N-LPGG",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19650013470",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Missing valves, turbine exhaust path, heat exchanger (if any), regen path, igniter/hypergol location, LOX dome."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "weak",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "weak",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "weak",
+  "pumps": "partial",
+  "turbines": "partial",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "partial",
+  "control": "not_reported",
+  "mechanical": "partial",
+  "materials_manufacturing": "weak",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Gearbox with three output speeds (turbine ~32,000; pumps ~6,537; accessory ~4,000 rpm) - one turbine, many shafts.",
+  "Two different turbine start sources (solid SPGG) vs run source (LPGG) - start-only working fluid.",
+  "Fuel-additive lubrication system (FABU) - a third 'propellant-derived' fluid circuit.",
+  "Installation-dependent variants (inboard fixed vs outboard gimbaled; outboard carries hydraulic system) under one designation.",
+  "Three successive thrust ratings under one designation."
+ ],
+ "notes": "NTRS 19650013470 identity: one summary could not confirm the engine name; a second summary tied the same NTRS id to the H-1 188,000 lb rating with LPGG/FABU/cluster geometry. Treated as medium-confidence H-1-188K.",
+ "branch": "r2_us_classic"
+}

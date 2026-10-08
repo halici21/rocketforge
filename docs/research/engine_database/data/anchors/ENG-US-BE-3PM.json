@@ -1,0 +1,197 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-BE-3PM",
+ "designation": "BE-3PM",
+ "family": "BE-3",
+ "variant_scope": "BE-3PM (New Shepard propulsion module). Separate variant from BE-3U.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated",
+   "notes": "SL vs vac not stated in relay"
+  },
+  {
+   "op_id": "OP-2",
+   "label": "minimum throttle",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_rated",
+   "operating_point": "OP-1",
+   "value": 110000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.throttle_min_thrust",
+   "operating_point": "OP-2",
+   "value": 20000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "tap-off",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "tap-off (BE-3, 2013 debut)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-2013-BE3-RELEASE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "2013 release predates BE-3PM/BE-3U naming split; relayed via sibling log"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [],
+  "edges": [],
+  "topology_completeness": "Nothing sourced for topology."
+ },
+ "coverage": {
+  "identity": "not_reported",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Deep throttle on a landing booster (~5.5:1 from relayed values, DERIVED) — needs operating points."
+ ],
+ "notes": "Relayed values.",
+ "branch": "anchor_us_modern"
+}

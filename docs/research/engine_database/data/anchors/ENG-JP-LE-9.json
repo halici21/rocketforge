@@ -1,0 +1,487 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-JP-LE-9",
+ "designation": "LE-9",
+ "family": "LE-9",
+ "variant_scope": "LE-9 first-stage engine of H3 (flown from 2023). Type 1 / Type 1A / Type 2 build standards reported in Japanese press were NOT separated here. Dev-era archived values (1,448 kN / 12.4 MPa / 432 s) are recorded only as superseded.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, vacuum",
+   "notes": "per MHI / Wikipedia"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "expander bleed (open expander); turbine gas obtained from hydrogen heated in the engine (fuel's own heat pickup)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle_note",
+   "operating_point": null,
+   "value": "expander bleed allows a first-stage (booster) engine; first H3 = first LV with expander-bleed first stage",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.responsibility",
+   "operating_point": null,
+   "value": "MHI: engine system; IHI: turbopumps",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IHI-GIHO-LE9-TP",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.9,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "convention not stated"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1471,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "infobox",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 150,
+   "unit": "ton (tf)",
+   "status": "REPORTED",
+   "source_id": "SRC-MHI-LE9",
+   "locator": "round-1 product page",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 150,
+   "unit": "t",
+   "status": "REPORTED",
+   "source_id": "SRC-JAXA-PRESS-LE9-2017",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "attribution of the summary sentence to this PDF uncertain; 2- or 3-engine vehicle configs"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": "~1500 kN level, just under 1.4x LE-7A",
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-IHI-GIHO-LE9-TP",
+   "locator": "introduction (as summarised)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 10.0,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "abs/gauge, station not stated"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 12.4,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "older mirror ('In Development')",
+   "confidence": "low",
+   "note": "superseded development target"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 425,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-MHI-LE9",
+   "locator": "round-1 product page",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 426,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 37,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "round-1 infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 2400,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "round-1 infobox (2.4 t)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.unidentified_tp.speed_rpm",
+   "operating_point": null,
+   "value": 41600,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-IHI-GIHO-LE9-TP",
+   "locator": "body text (garbled PDF)",
+   "confidence": "low",
+   "note": "'nominal speed 41 600 rpm', lower than LE-7A; WHICH pump is not legible in the garbled text"
+  },
+  {
+   "field_path": "pumps.lh2_tp.speed_rpm",
+   "operating_point": null,
+   "value": 41600,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IHIFAN-LE9",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "Tier E site states LH2 TP explicitly; consistent with IHI value"
+  },
+  {
+   "field_path": "pumps.design.impeller",
+   "operating_point": null,
+   "value": "open impellers (cost reduction)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC-LE9-2017",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.manufacturing",
+   "operating_point": null,
+   "value": "HIP brazing for main combustion chamber",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC-LE9-2017",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.valves",
+   "operating_point": null,
+   "value": "electrically actuated valves; opening positions and engine operating point adjustable during acceptance firing tests",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC-LE9-2017",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.issue",
+   "operating_point": null,
+   "value": "low fuel injection temperature can cause combustion vibration",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-TEIKYO-LAB001",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.demonstrator",
+   "operating_point": null,
+   "value": "LE-X demonstrator showed feasibility of 3x LE-5B combustion pressure and 10x thrust for expander bleed",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LEX",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.first_operation",
+   "operating_point": null,
+   "value": "2023-03-07 (H3 TF1; LE-9 nominal, 2nd stage failed to ignite); 2024-02-17 H3 TF2 success",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "history.delay",
+   "operating_point": null,
+   "value": "Jan 2022: H3 first launch slipped citing LE-9 technical problems",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.lox_tp.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.*.power",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": "partial-admission turbine claim not confirmed"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": "chamber vs nozzle heat-pickup split not found"
+  },
+  {
+   "field_path": "turbines.exhaust_destination",
+   "reason": "NOT_REPORTED",
+   "note": "bleed dump location not stated"
+  },
+  {
+   "field_path": "injector.element_count",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "variants.type1_type2",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-PUMP",
+    "component_type": "pump",
+    "label": "LH2 pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IHIFAN-LE9",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "two turbopumps assumed (IHI 'turbopumps' plural)"
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Hydrogen heat-pickup (chamber cooling) circuit",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE9",
+    "locator": "search summary",
+    "note": "location (chamber/nozzle) not stated"
+   },
+   {
+    "id": "N-LH2-TURB",
+    "component_type": "turbine",
+    "label": "LH2 TP turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-TURB",
+    "component_type": "turbine",
+    "label": "LOX TP turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Main combustion chamber (HIP brazed)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC-LE9-2017",
+    "locator": "abstract",
+    "note": ""
+   },
+   {
+    "id": "N-BLEED-OUT",
+    "component_type": "turbine_exhaust_duct",
+    "label": "Turbine bleed exhaust (open)",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "destination NOT_REPORTED"
+   },
+   {
+    "id": "N-VALVES",
+    "component_type": "valve",
+    "label": "Electrically actuated valves (set)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC-LE9-2017",
+    "locator": "abstract",
+    "note": "count/positions unknown"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-PUMP",
+    "to": "N-JACKET",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "expander bleed implies pumped H2 through heat pickup"
+   },
+   {
+    "id": "E-2",
+    "from": "N-JACKET",
+    "to": "N-LH2-TURB",
+    "fluid": "GH2 (heated)",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE9",
+    "locator": "search summary",
+    "note": "'gas from fuel's own heat'"
+   },
+   {
+    "id": "E-3",
+    "from": "N-JACKET",
+    "to": "N-LOX-TURB",
+    "fluid": "GH2 (heated)",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "series/parallel unknown"
+   },
+   {
+    "id": "E-4",
+    "from": "N-LH2-TURB",
+    "to": "N-BLEED-OUT",
+    "fluid": "GH2",
+    "role": "bleed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "open cycle: turbine gas not injected into MCC"
+   },
+   {
+    "id": "E-5",
+    "from": "N-LH2-PUMP",
+    "to": "N-MCC",
+    "fluid": "H2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-LOX-PUMP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeleton mostly INFERRED from the cycle label. Missing: bleed split ratio, turbine arrangement, valve list, igniter, any chamber/nozzle cooling partition."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "weak",
+  "materials_manufacturing": "weak",
+  "test_history": "partial"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Open expander bleed: turbine drive fluid is coolant-heated H2 that is dumped, so 'cycle' needs an exhaust-destination attribute.",
+  "Vehicle uses 2 or 3 engines (H3-22/-30): installation count is a vehicle property, not engine.",
+  "Operating point adjustable at acceptance test by electric valves: per-serial-number trim point.",
+  "A pump speed reported without pump identity (IHI) - schema must allow 'unidentified component' assertions rather than forcing assignment."
+ ],
+ "notes": "Round 2 added IHI Technical Review (Vol.57 No.3, 2017) as Tier A lead: 41,600 rpm nominal turbopump speed (pump identity illegible), MHI/IHI split. Japanese press (MONOist 2020) on LE-9 development problems not mined.",
+ "branch": "r2_asia"
+}

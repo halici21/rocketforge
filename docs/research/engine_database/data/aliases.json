@@ -1,0 +1,3849 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "schema": "db0-aliases-v1",
+ "aliases": [
+  {
+   "alias": "7500N变推力发动机",
+   "kind": "native",
+   "engine_id": "ENG-CN-7500N-VARIABLE-THRUST-ENGINE",
+   "designation": "7500N变推力发动机 (Chang'e-3 7500 N variable-thrust engine)",
+   "source_ids": [
+    "SRC-TSINGHUA-7500N"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "烽云",
+   "kind": "native",
+   "engine_id": "ENG-CN-FENGYUN",
+   "designation": "Fengyun (烽云)",
+   "source_ids": [
+    "SRC-36KR-JZYJ"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "焦点一号",
+   "kind": "native",
+   "engine_id": "ENG-CN-JD-1",
+   "designation": "JD-1",
+   "source_ids": [
+    "SRC-IFENG-JD1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Focus-1",
+   "kind": "common",
+   "engine_id": "ENG-CN-JD-1",
+   "designation": "JD-1",
+   "source_ids": [
+    "SRC-SPACENEWS-105372"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "焦点二号",
+   "kind": "native",
+   "engine_id": "ENG-CN-JD-2",
+   "designation": "JD-2",
+   "source_ids": [
+    "SRC-IFENG-JD1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Focus-2",
+   "kind": "common",
+   "engine_id": "ENG-CN-JD-2",
+   "designation": "JD-2",
+   "source_ids": [
+    "SRC-IFENG-JD1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "龙云",
+   "kind": "native",
+   "engine_id": "ENG-CN-LONGYUN",
+   "designation": "Longyun (龙云)",
+   "source_ids": [
+    "SRC-ITHOME-893006"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "雷霆-R1",
+   "kind": "native",
+   "engine_id": "ENG-CN-LEIYU-THUNDER-R1",
+   "designation": "Thunder-R1 (雷霆-R1)",
+   "source_ids": [
+    "SRC-ITHOME-628718"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Leiting-R1",
+   "kind": "transliteration",
+   "engine_id": "ENG-CN-LEIYU-THUNDER-R1",
+   "designation": "Thunder-R1 (雷霆-R1)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "雷霆-RS",
+   "kind": "native",
+   "engine_id": "ENG-CN-THUNDER-RS",
+   "designation": "Thunder-RS (雷霆-RS)",
+   "source_ids": [
+    "SRC-STDAILY-2026-THUNDERRS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "天火-11",
+   "kind": "native",
+   "engine_id": "ENG-CN-TH-11",
+   "designation": "TH-11",
+   "source_ids": [
+    "SRC-WIKI-TH11"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "天火-12",
+   "kind": "native",
+   "engine_id": "ENG-CN-TH-12",
+   "designation": "TH-12",
+   "source_ids": [
+    "SRC-WIKI-TH12"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Tianhuo-12",
+   "kind": "transliteration",
+   "engine_id": "ENG-CN-TH-12",
+   "designation": "TH-12",
+   "source_ids": [
+    "SRC-SPACEPIONEER-TH12"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "天鹊-12",
+   "kind": "native",
+   "engine_id": "ENG-CN-TQ-12",
+   "designation": "TQ-12",
+   "source_ids": [
+    "SRC-NCSTI-2023-TQ"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Tianque-12",
+   "kind": "transliteration",
+   "engine_id": "ENG-CN-TQ-12",
+   "designation": "TQ-12",
+   "source_ids": [
+    "SRC-WIKI-TQ12"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "苍穹-50",
+   "kind": "native",
+   "engine_id": "ENG-CN-WELKIN",
+   "designation": "Welkin (CQ-50)",
+   "source_ids": [
+    "SRC-GE-CQ50-CN"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "CQ-50",
+   "kind": "manufacturer",
+   "engine_id": "ENG-CN-WELKIN",
+   "designation": "Welkin (CQ-50)",
+   "source_ids": [
+    "SRC-ITHOME-898210"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Cangqiong",
+   "kind": "transliteration",
+   "engine_id": "ENG-CN-WELKIN",
+   "designation": "Welkin (CQ-50)",
+   "source_ids": [
+    "SRC-GE-CQ50-CN"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "苍穹",
+   "kind": "native",
+   "engine_id": "ENG-CN-WELKIN",
+   "designation": "Welkin (CQ-50)",
+   "source_ids": [
+    "SRC-GE-CQ50-CN"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "DaFY20-1",
+   "kind": "index",
+   "engine_id": "ENG-CN-YF-22B",
+   "designation": "YF-22B",
+   "source_ids": [
+    "SRC-WIKI-YF24"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "YF-77 氢氧发动机",
+   "kind": "native",
+   "engine_id": "ENG-CN-YF-77",
+   "designation": "YF-77",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-72",
+   "kind": "manufacturer",
+   "engine_id": "ENG-DE-AESTUS-II",
+   "designation": "Aestus II",
+   "source_ids": [
+    "SRC-WIKI-AESTUS",
+    "SRC-BOEING-RS72-2000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-72 Pathfinder",
+   "kind": "common",
+   "engine_id": "ENG-DE-AESTUS-II",
+   "designation": "Aestus II",
+   "source_ids": [
+    "SRC-BOEING-RS72-2000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "V-2",
+   "kind": "common",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "designation": "A-4 main engine",
+   "source_ids": [
+    "SRC-NASM-A19600013000",
+    "SRC-NMUSAF-V2"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "V-2 engine",
+   "kind": "common",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "designation": "A-4 main engine",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Triebwerk 39",
+   "kind": "manufacturer",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "designation": "A-4 main engine",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Aquila SL",
+   "kind": "common",
+   "engine_id": "ENG-DE-AQUILA",
+   "designation": "Aquila (SL)",
+   "source_ids": [
+    "SRC-NSE-ELC-2025"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "S220?",
+   "kind": "manufacturer",
+   "engine_id": "ENG-EU-ESM-RCS-220-N",
+   "designation": "ESM RCS 220 N",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Starthilfe",
+   "kind": "common",
+   "engine_id": "ENG-DE-HWK-109-500",
+   "designation": "HWK 109-500",
+   "source_ids": [
+    "SRC-WIKI-HWK109500"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RII-201?",
+   "kind": "military",
+   "engine_id": "ENG-DE-HWK-109-500",
+   "designation": "HWK 109-500",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "R II-211",
+   "kind": "military",
+   "engine_id": "ENG-DE-HWK-109-509",
+   "designation": "HWK 109-509",
+   "source_ids": [
+    "SRC-WIKI-BMW109718"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Common Rocket Propulsion Unit",
+   "kind": "common",
+   "engine_id": "ENG-DE-OTRAG-CRPU-ENGINE",
+   "designation": "OTRAG CRPU",
+   "source_ids": [
+    "SRC-WIKI-OTRAG"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "S10-18",
+   "kind": "manufacturer",
+   "engine_id": "ENG-EU-S10-10-N-BIPROPELLANT-THRUSTER",
+   "designation": "S10 (10 N bipropellant thruster)",
+   "source_ids": [
+    "SRC-SATCAT-S1026"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "S10-26",
+   "kind": "manufacturer",
+   "engine_id": "ENG-EU-S10-10-N-BIPROPELLANT-THRUSTER",
+   "designation": "S10 (10 N bipropellant thruster)",
+   "source_ids": [
+    "SRC-SATCAT-S1026"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "HM7-A",
+   "kind": "common",
+   "engine_id": "ENG-FR-HM7A",
+   "designation": "HM7A",
+   "source_ids": [
+    "SRC-WIKI-ARIANE1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Véronique",
+   "kind": "native",
+   "engine_id": "ENG-FR-VERONIQUE-ENGINE",
+   "designation": "Veronique engine",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Vexin-A",
+   "kind": "common",
+   "engine_id": "ENG-FR-CORALIE-ENGINE",
+   "designation": "Coralie engine",
+   "source_ids": [
+    "SRC-WIKI-EUROPA"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Vexin",
+   "kind": "common",
+   "engine_id": "ENG-FR-VEXIN-B",
+   "designation": "Vexin B",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Vulcain 1",
+   "kind": "common",
+   "engine_id": "ENG-FR-VULCAIN",
+   "designation": "Vulcain",
+   "source_ids": [
+    "SRC-NTRS-19910018907"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "HM60",
+   "kind": "former_name",
+   "engine_id": "ENG-FR-VULCAIN",
+   "designation": "Vulcain",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Vulcain Mk2",
+   "kind": "common",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "designation": "Vulcain 2",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "D.Spe",
+   "kind": "manufacturer",
+   "engine_id": "ENG-GB-SPECTRE",
+   "designation": "Spectre",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "D Spec 5",
+   "kind": "manufacturer",
+   "engine_id": "ENG-GB-SPECTRE",
+   "designation": "Spectre",
+   "source_ids": [
+    "SRC-DHMUSEUM-SPECTRE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "D.Spr.1?",
+   "kind": "manufacturer",
+   "engine_id": "ENG-GB-SPRITE",
+   "designation": "Sprite",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "DSpr.4",
+   "kind": "manufacturer",
+   "engine_id": "ENG-GB-SUPER-SPRITE",
+   "designation": "Super Sprite",
+   "source_ids": [
+    "SRC-WIKI-SPRITE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Gamma Type 2",
+   "kind": "common",
+   "engine_id": "ENG-GB-GAMMA-2",
+   "designation": "Gamma 2",
+   "source_ids": [
+    "SRC-SCIMUS-GAMMA2",
+    "SRC-WIGHT-BLACKARROW"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Gamma Type 8",
+   "kind": "common",
+   "engine_id": "ENG-GB-GAMMA-8",
+   "designation": "Gamma 8",
+   "source_ids": [
+    "SRC-WIGHT-BLACKARROW"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Gamma 304 Type 8",
+   "kind": "common",
+   "engine_id": "ENG-GB-GAMMA-8",
+   "designation": "Gamma 8",
+   "source_ids": [
+    "SRC-WIGHT-BLACKARROW"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Stentor Mk 101",
+   "kind": "manufacturer",
+   "engine_id": "ENG-GB-STENTOR",
+   "designation": "Stentor",
+   "source_ids": [
+    "SRC-BCAR-BLUESTEEL"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "PR.23?",
+   "kind": "military",
+   "engine_id": "ENG-GB-STENTOR",
+   "designation": "Stentor",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Skyrora 1",
+   "kind": "former_name",
+   "engine_id": "ENG-GB-SKYLARK-L-ENGINE",
+   "designation": "Skylark L engine (30 kN; formerly 'Skyrora 1')",
+   "source_ids": [
+    "SRC-WIKI-SKYRORA"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LAM",
+   "kind": "common",
+   "engine_id": "ENG-IN-LAM-440-N",
+   "designation": "440 N Liquid Apogee Motor",
+   "source_ids": [
+    "SRC-IAC16-32550"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "PS4 engine",
+   "kind": "common",
+   "engine_id": "ENG-IN-PS4-ENGINE-L-2-5",
+   "designation": "L-2-5 (PS4 engine)",
+   "source_ids": [
+    "SRC-FRANCOWIKI-PSLV"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "SCE-200",
+   "kind": "former_name",
+   "engine_id": "ENG-IN-SCE-200",
+   "designation": "SE-2000",
+   "source_ids": [
+    "SRC-WIKI-SE2000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "SE2000",
+   "kind": "common",
+   "engine_id": "ENG-IN-SCE-200",
+   "designation": "SE-2000",
+   "source_ids": [
+    "SRC-ANANTAM-LVM3-SC"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "VIKAS (Vikram Ambalal Sarabhai)",
+   "kind": "common",
+   "engine_id": "ENG-IN-VIKAS",
+   "designation": "Vikas",
+   "source_ids": [
+    "SRC-WIKI-VIKAS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "HTVE",
+   "kind": "common",
+   "engine_id": "ENG-IN-VIKAS-HIGH-THRUST",
+   "designation": "High Thrust Vikas Engine (HTVE)",
+   "source_ids": [
+    "SRC-WIKI-VIKAS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "L110-G Vikas engine",
+   "kind": "common",
+   "engine_id": "ENG-IN-VIKAS-HUMAN-RATED",
+   "designation": "Human-rated Vikas (L110-G)",
+   "source_ids": [
+    "SRC-ISRO-VIKAS-TEST"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MR10",
+   "kind": "manufacturer",
+   "engine_id": "ENG-IT-M10",
+   "designation": "M10",
+   "source_ids": [
+    "SRC-WIKI-M10"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MIRA",
+   "kind": "common",
+   "engine_id": "ENG-IT-MIRA",
+   "designation": "LM10-MIRA",
+   "source_ids": [
+    "SRC-IAC15-30730"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LM10-MIRA",
+   "kind": "manufacturer",
+   "engine_id": "ENG-IT-MIRA",
+   "designation": "LM10-MIRA",
+   "source_ids": [
+    "SRC-IAC15-30730"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LE-7",
+   "kind": "manufacturer",
+   "engine_id": "ENG-JP-LE-7",
+   "designation": "LE-7",
+   "source_ids": [
+    "SRC-WIKI-LE7"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MARC-60",
+   "kind": "common",
+   "engine_id": "ENG-JP-MB-60",
+   "designation": "MB-60",
+   "source_ids": [
+    "SRC-WIKI-MARC60"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "7톤급 액체엔진",
+   "kind": "native",
+   "engine_id": "ENG-KR-KRE-007",
+   "designation": "KRE-007",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "KRE-75",
+   "kind": "common",
+   "engine_id": "ENG-KR-KRE-075",
+   "designation": "KRE-075",
+   "source_ids": [
+    "SRC-IAC19-53152"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "75톤급 액체엔진",
+   "kind": "native",
+   "engine_id": "ENG-KR-KRE-075",
+   "designation": "KRE-075",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11Д428А",
+   "kind": "native",
+   "engine_id": "ENG-RU-11D428A",
+   "designation": "11D428A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "DPO-B",
+   "kind": "common",
+   "engine_id": "ENG-RU-11D428A",
+   "designation": "11D428A",
+   "source_ids": [
+    "SRC-WIKI-KTDU80"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "DPO-M",
+   "kind": "common",
+   "engine_id": "ENG-RU-S5-142",
+   "designation": "S5.142",
+   "source_ids": [
+    "SRC-WIKI-S5142"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "С5.80",
+   "kind": "native",
+   "engine_id": "ENG-RU-S5-80",
+   "designation": "S5.80",
+   "source_ids": [
+    "SRC-WIKI-S580"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "SKD of KTDU-80",
+   "kind": "common",
+   "engine_id": "ENG-RU-S5-80",
+   "designation": "S5.80",
+   "source_ids": [
+    "SRC-WIKI-KTDU80"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-107А",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-107A",
+   "designation": "RD-107A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D22",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-107A",
+   "designation": "RD-107A",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-108А",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-108A",
+   "designation": "RD-108A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D21",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-108A",
+   "designation": "RD-108A",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-151",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-151",
+   "designation": "RD-151",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "КВД-1",
+   "kind": "native",
+   "engine_id": "ENG-RU-KVD-1",
+   "designation": "KVD-1",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "12KRB (stage)",
+   "kind": "common",
+   "engine_id": "ENG-RU-KVD-1",
+   "designation": "KVD-1",
+   "source_ids": [
+    "SRC-WIKI-KVD1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RDMT-135",
+   "kind": "manufacturer",
+   "engine_id": "ENG-RU-11D428",
+   "designation": "11D428",
+   "source_ids": [
+    "SRC-WIKI-11D428"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "4Д10",
+   "kind": "native",
+   "engine_id": "ENG-SU-4D10",
+   "designation": "4D10",
+   "source_ids": [
+    "SRC-WIKI-R27"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "9Д21",
+   "kind": "native",
+   "engine_id": "ENG-SU-9D21",
+   "designation": "9D21",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "S5.2? (unverified)",
+   "kind": "manufacturer",
+   "engine_id": "ENG-SU-9D21",
+   "designation": "9D21",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "С2.253",
+   "kind": "native",
+   "engine_id": "ENG-SU-S2-253",
+   "designation": "S2.253",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D21? (unverified)",
+   "kind": "index",
+   "engine_id": "ENG-SU-S2-253",
+   "designation": "S2.253",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "С2.711",
+   "kind": "native",
+   "engine_id": "ENG-SU-S2-711",
+   "designation": "S2.711",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "С5.92",
+   "kind": "native",
+   "engine_id": "ENG-RU-S5-92",
+   "designation": "S5.92",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "17D61",
+   "kind": "index",
+   "engine_id": "ENG-RU-S5-92",
+   "designation": "S5.92",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "С5.98М",
+   "kind": "native",
+   "engine_id": "ENG-RU-S5-98M",
+   "designation": "S5.98M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D30",
+   "kind": "index",
+   "engine_id": "ENG-RU-S5-98M",
+   "designation": "S5.98M",
+   "source_ids": [
+    "SRC-HABR-212735",
+    "SRC-WIKI-S598M"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "14Д30",
+   "kind": "native",
+   "engine_id": "ENG-RU-S5-98M",
+   "designation": "S5.98M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "КТДУ-35",
+   "kind": "native",
+   "engine_id": "ENG-SU-KTDU-35",
+   "designation": "KTDU-35",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D62",
+   "kind": "index",
+   "engine_id": "ENG-SU-KTDU-35",
+   "designation": "KTDU-35",
+   "source_ids": [
+    "SRC-WIKI-KTDU35"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "С5.35",
+   "kind": "native",
+   "engine_id": "ENG-SU-S5-35",
+   "designation": "S5.35 (DKD)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "С5.60",
+   "kind": "native",
+   "engine_id": "ENG-SU-S5-60",
+   "designation": "S5.60 (SKD)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "DKD (KTDU-35 backup)",
+   "kind": "common",
+   "engine_id": "ENG-RU-S5-35",
+   "designation": "S5.35",
+   "source_ids": [
+    "SRC-WIKI-KTDU35"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "SKD (KTDU-35 primary)",
+   "kind": "common",
+   "engine_id": "ENG-RU-S5-60",
+   "designation": "S5.60",
+   "source_ids": [
+    "SRC-WIKI-KTDU35"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "11Д426",
+   "kind": "native",
+   "engine_id": "ENG-RU-11D426",
+   "designation": "11D426",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11Д57",
+   "kind": "native",
+   "engine_id": "ENG-SU-11D57",
+   "designation": "11D57",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-33А",
+   "kind": "native",
+   "engine_id": "ENG-RU-NK-33A",
+   "designation": "NK-33A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D15",
+   "kind": "index",
+   "engine_id": "ENG-RU-NK-33A",
+   "designation": "NK-33A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": true
+  },
+  {
+   "alias": "НК-15",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-15",
+   "designation": "NK-15",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D51",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-15",
+   "designation": "NK-15",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-15В",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-15V",
+   "designation": "NK-15V",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D52",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-15V",
+   "designation": "NK-15V",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-19",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-19",
+   "designation": "NK-19",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D53",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-19",
+   "designation": "NK-19",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-21",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-21",
+   "designation": "NK-21",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D59",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-21",
+   "designation": "NK-21",
+   "source_ids": [
+    "SRC-RSW-N1G"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-31",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-31",
+   "designation": "NK-31",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D114",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-31",
+   "designation": "NK-31",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-33",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-33",
+   "designation": "NK-33",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D111",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-33",
+   "designation": "NK-33",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D15 (search-summary claim; likely NK-33A)",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-33",
+   "designation": "NK-33",
+   "source_ids": [
+    "SRC-WIKI-NK33"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D15",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-33",
+   "designation": "NK-33",
+   "source_ids": [
+    "SRC-NAKEDSCI-NK33"
+   ],
+   "sourced": true,
+   "ambiguous": true
+  },
+  {
+   "alias": "НК-39",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-39",
+   "designation": "NK-39",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D113",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-39",
+   "designation": "NK-39",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-43",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-43",
+   "designation": "NK-43",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D112",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-43",
+   "designation": "NK-43",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-9",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-9",
+   "designation": "NK-9",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D517 (unverified)",
+   "kind": "index",
+   "engine_id": "ENG-SU-NK-9",
+   "designation": "NK-9",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "НК-9В",
+   "kind": "native",
+   "engine_id": "ENG-SU-NK-9V",
+   "designation": "NK-9V",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "S1.5400",
+   "kind": "manufacturer",
+   "engine_id": "ENG-SU-11D33",
+   "designation": "11D33",
+   "source_ids": [
+    "SRC-WIKI-S15400"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "С1.5400",
+   "kind": "native",
+   "engine_id": "ENG-SU-11D33",
+   "designation": "11D33",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D33",
+   "kind": "index",
+   "engine_id": "ENG-SU-11D33",
+   "designation": "11D33",
+   "source_ids": [
+    "SRC-WIKI-S15400"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "S1.5400A1",
+   "kind": "manufacturer",
+   "engine_id": "ENG-SU-11D33M",
+   "designation": "S1.5400A1 (11D33M)",
+   "source_ids": [
+    "SRC-WIKI-S15400"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D33M",
+   "kind": "index",
+   "engine_id": "ENG-SU-11D33M",
+   "designation": "S1.5400A1 (11D33M)",
+   "source_ids": [
+    "SRC-WIKI-S15400"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "ОРМ-65",
+   "kind": "native",
+   "engine_id": "ENG-SU-ORM-65",
+   "designation": "ORM-65",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0105",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0105",
+   "designation": "RD-0105",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D714",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0105",
+   "designation": "RD-0105",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0109",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0109",
+   "designation": "RD-0109",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D719",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0109",
+   "designation": "RD-0109",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0110Р",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0110R",
+   "designation": "RD-0110R",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D24",
+   "kind": "index",
+   "engine_id": "ENG-RU-RD-0110R",
+   "designation": "RD-0110R",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0106",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0106",
+   "designation": "RD-0106",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0107",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0107",
+   "designation": "RD-0107",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D715",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0107",
+   "designation": "RD-0107",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0108",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0108",
+   "designation": "RD-0108",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D715P",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0108",
+   "designation": "RD-0108",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0110",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0110",
+   "designation": "RD-0110",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D55",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0110",
+   "designation": "RD-0110",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0120",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0120",
+   "designation": "RD-0120",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D122",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0120",
+   "designation": "RD-0120",
+   "source_ids": [
+    "SRC-WIKI-RD0120"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0124",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0124",
+   "designation": "RD-0124",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D23",
+   "kind": "index",
+   "engine_id": "ENG-RU-RD-0124",
+   "designation": "RD-0124",
+   "source_ids": [
+    "SRC-WIKI-RD0124"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0124А",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0124A",
+   "designation": "RD-0124A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D23A? (unverified)",
+   "kind": "index",
+   "engine_id": "ENG-RU-RD-0124A",
+   "designation": "RD-0124A",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0124МС",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0124MS",
+   "designation": "RD-0124MS",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RD-124MV",
+   "kind": "common",
+   "engine_id": "ENG-RU-RD-0124MS",
+   "designation": "RD-0124MS",
+   "source_ids": [
+    "SRC-FRONTIER-SOYUZ5"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0146",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0146",
+   "designation": "RD-0146",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0162",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0162",
+   "designation": "RD-0162",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0205",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0205",
+   "designation": "RD-0205",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0210",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0210",
+   "designation": "RD-0210",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D411K",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0210",
+   "designation": "RD-0210",
+   "source_ids": [
+    "SRC-WIKI-RD0210"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0211",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0211",
+   "designation": "RD-0211",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D412K",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0211",
+   "designation": "RD-0211",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0212",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0212",
+   "designation": "RD-0212",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D49",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0212",
+   "designation": "RD-0212",
+   "source_ids": [
+    "SRC-RSW-RD0212"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0213",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0213",
+   "designation": "RD-0213",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D48",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0213",
+   "designation": "RD-0213",
+   "source_ids": [
+    "SRC-RSW-RD0212"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0214",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0214",
+   "designation": "RD-0214",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0216",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0216",
+   "designation": "RD-0216",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D2? (unverified)",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0216",
+   "designation": "RD-0216",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0217",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0217",
+   "designation": "RD-0217",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0228",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0228",
+   "designation": "RD-0228",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0229",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0229",
+   "designation": "RD-0229",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0232",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0232",
+   "designation": "RD-0232",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0233",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0233",
+   "designation": "RD-0233",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D95",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0233",
+   "designation": "RD-0233",
+   "source_ids": [
+    "SRC-WIKI-RD0233"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0234",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0234",
+   "designation": "RD-0234",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D96",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0234",
+   "designation": "RD-0234",
+   "source_ids": [
+    "SRC-WIKI-RD0233"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0235",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0235",
+   "designation": "RD-0235",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D113",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0235",
+   "designation": "RD-0235",
+   "source_ids": [
+    "SRC-WIKI-ROKOT"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0236",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0236",
+   "designation": "RD-0236",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D114",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-0236",
+   "designation": "RD-0236",
+   "source_ids": [
+    "SRC-WIKI-RD0236"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0243",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0243",
+   "designation": "RD-0243",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0244",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0244",
+   "designation": "RD-0244",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0245",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-0245",
+   "designation": "RD-0245",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-0750",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-0750",
+   "designation": "RD-0750",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-1",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-1",
+   "designation": "RD-1",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-1ХЗ",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-1KHZ",
+   "designation": "RD-1KhZ",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-100",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-100",
+   "designation": "RD-100",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D51",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-100",
+   "designation": "RD-100",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-101",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-101",
+   "designation": "RD-101",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D52",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-101",
+   "designation": "RD-101",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-103",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-103",
+   "designation": "RD-103",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-103М",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-103M",
+   "designation": "RD-103M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-107",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-107",
+   "designation": "RD-107",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D74",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-107",
+   "designation": "RD-107",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D74K",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-107-8D74K",
+   "designation": "RD-107 (8D74K)",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D728",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-107MM",
+   "designation": "RD-107MM",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D74M",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-107MM",
+   "designation": "RD-107MM",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-108",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-108",
+   "designation": "RD-108",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D75",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-108",
+   "designation": "RD-108",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D727",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-108MM",
+   "designation": "RD-108MM",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D75M",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-108MM",
+   "designation": "RD-108MM",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-117",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-117",
+   "designation": "RD-117",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D511",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-117",
+   "designation": "RD-117",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-118",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-118",
+   "designation": "RD-118",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D512",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-118",
+   "designation": "RD-118",
+   "source_ids": [
+    "SRC-WIKI-RD107"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-109",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-109",
+   "designation": "RD-109",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-111",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-111",
+   "designation": "RD-111",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D716",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-111",
+   "designation": "RD-111",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-120",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-120",
+   "designation": "RD-120",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D123",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-120",
+   "designation": "RD-120",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-171М",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-171M",
+   "designation": "RD-171M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-171МВ",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-171MV",
+   "designation": "RD-171MV",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-180",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-180",
+   "designation": "RD-180",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-180В",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-180V",
+   "designation": "RD-180V",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-181",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-181",
+   "designation": "RD-181",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-191",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-191",
+   "designation": "RD-191",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-191М",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-191M",
+   "designation": "RD-191M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-193",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-193",
+   "designation": "RD-193",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-170",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-170",
+   "designation": "RD-170",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D521",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-170",
+   "designation": "RD-170",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-171",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-171",
+   "designation": "RD-171",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D520",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-171",
+   "designation": "RD-171",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-214",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-214",
+   "designation": "RD-214",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D59",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-214",
+   "designation": "RD-214",
+   "source_ids": [
+    "SRC-WIKI-RD214"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-215",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-215",
+   "designation": "RD-215",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D513",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-215",
+   "designation": "RD-215",
+   "source_ids": [
+    "SRC-WIKI-RD215"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-216",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-216",
+   "designation": "RD-216",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D514",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-216",
+   "designation": "RD-216",
+   "source_ids": [
+    "SRC-WIKI-RD215"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D614",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-216",
+   "designation": "RD-216",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-217",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-217",
+   "designation": "RD-217",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D515",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-217",
+   "designation": "RD-217",
+   "source_ids": [
+    "SRC-WIKI-RD215"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-218",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-218",
+   "designation": "RD-218",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D712",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-218",
+   "designation": "RD-218",
+   "source_ids": [
+    "SRC-WIKI-RD215"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-219",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-219",
+   "designation": "RD-219",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D713",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-219",
+   "designation": "RD-219",
+   "source_ids": [
+    "SRC-WIKI-RD215"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-275",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-275",
+   "designation": "RD-275",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D14",
+   "kind": "index",
+   "engine_id": "ENG-RU-RD-275",
+   "designation": "RD-275",
+   "source_ids": [
+    "SRC-WIKI-RD253"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-275М",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-275M",
+   "designation": "RD-275M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "14D14M",
+   "kind": "index",
+   "engine_id": "ENG-RU-RD-275M",
+   "designation": "RD-275M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-253",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-253",
+   "designation": "RD-253",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D43",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-253",
+   "designation": "RD-253",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-250",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-250",
+   "designation": "RD-250",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D518",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-250",
+   "designation": "RD-250",
+   "source_ids": [
+    "SRC-WIKI-RD250"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-251",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-251",
+   "designation": "RD-251",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D723",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-251",
+   "designation": "RD-251",
+   "source_ids": [
+    "SRC-WIKI-RD250"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-252",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-252",
+   "designation": "RD-252",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D724",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-252",
+   "designation": "RD-252",
+   "source_ids": [
+    "SRC-WIKI-RD250"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-261",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-261",
+   "designation": "RD-261",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D69",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-261",
+   "designation": "RD-261",
+   "source_ids": [
+    "SRC-WIKI-RD250"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-262",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-262",
+   "designation": "RD-262",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D26",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-262",
+   "designation": "RD-262",
+   "source_ids": [
+    "SRC-WIKI-RD250"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-263",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-263",
+   "designation": "RD-263",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D117 (unit)",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-263",
+   "designation": "RD-263",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D117",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-263",
+   "designation": "RD-263",
+   "source_ids": [
+    "SRC-WIKI-RD263"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-264",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-264",
+   "designation": "RD-264",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D119",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-264",
+   "designation": "RD-264",
+   "source_ids": [
+    "SRC-WIKI-RD263"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D117",
+   "kind": "DROPPED",
+   "engine_id": "ENG-SU-RD-264",
+   "designation": "RD-264",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false,
+   "note": "round-1 unsourced; r2_ussr found RD-264 = 15D119 and 15D117 = RD-263 unit"
+  },
+  {
+   "alias": "РД-268",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-268",
+   "designation": "RD-268",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "15D168",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-268",
+   "designation": "RD-268",
+   "source_ids": [
+    "SRC-WIKI-RD263"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-270",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-270",
+   "designation": "RD-270",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "8D420",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-270",
+   "designation": "RD-270",
+   "source_ids": [
+    "SRC-WIKI-RD270"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-301",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-301",
+   "designation": "RD-301",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D14",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-301",
+   "designation": "RD-301",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-56",
+   "kind": "native",
+   "engine_id": "ENG-SU-RD-56",
+   "designation": "RD-56",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D56",
+   "kind": "index",
+   "engine_id": "ENG-SU-RD-56",
+   "designation": "RD-56",
+   "source_ids": [
+    "SRC-ESA-KVD1-11D56",
+    "SRC-WIKI-KVD1"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RD-58MF",
+   "kind": "common",
+   "engine_id": "ENG-RU-11D58MF",
+   "designation": "11D58MF",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RD-58",
+   "kind": "common",
+   "engine_id": "ENG-SU-11D58",
+   "designation": "11D58",
+   "source_ids": [
+    "SRC-WIKI-RD58"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-58",
+   "kind": "native",
+   "engine_id": "ENG-SU-11D58",
+   "designation": "11D58",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RD-58M",
+   "kind": "common",
+   "engine_id": "ENG-SU-11D58M",
+   "designation": "11D58M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-58М",
+   "kind": "native",
+   "engine_id": "ENG-SU-11D58M",
+   "designation": "11D58M",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-701",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-701",
+   "designation": "RD-701",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-704",
+   "kind": "native",
+   "engine_id": "ENG-RU-RD-704",
+   "designation": "RD-704",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-855",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-855",
+   "designation": "RD-855",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-861",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-861",
+   "designation": "RD-861",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-8",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-8",
+   "designation": "RD-8",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "11D513",
+   "kind": "index",
+   "engine_id": "ENG-UA-RD-8",
+   "designation": "RD-8",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-801",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-801",
+   "designation": "RD-801",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-810",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-810",
+   "designation": "RD-810",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-843",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-843",
+   "designation": "RD-843",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-861К",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-861K",
+   "designation": "RD-861K",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-870",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-870",
+   "designation": "RD-870",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "РД-864",
+   "kind": "native",
+   "engine_id": "ENG-UA-RD-864",
+   "designation": "RD-864",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Service Propulsion System engine (SPS)",
+   "kind": "common",
+   "engine_id": "ENG-US-AJ10-137",
+   "designation": "AJ10-137",
+   "source_ids": [
+    "SRC-NASA-TND7375"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Service Propulsion System engine",
+   "kind": "common",
+   "engine_id": "ENG-US-AJ10-137",
+   "designation": "AJ10-137",
+   "source_ids": [
+    "SRC-NASA-TND7375"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "OMS engine",
+   "kind": "common",
+   "engine_id": "ENG-US-AJ10-190",
+   "designation": "AJ10-190",
+   "source_ids": [
+    "SRC-WIKI-OMS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "OME",
+   "kind": "common",
+   "engine_id": "ENG-US-AJ10-190",
+   "designation": "AJ10-190",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Orion Main Engine (OME)",
+   "kind": "common",
+   "engine_id": "ENG-US-OMS-E-ORION-ESM",
+   "designation": "OMS-E (Orion ESM)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "refurbished Shuttle OMS-E",
+   "kind": "common",
+   "engine_id": "ENG-US-OMS-E-ORION-ESM",
+   "designation": "OMS-E (Orion ESM)",
+   "source_ids": [
+    "SRC-NTRS-20240003648"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "BE-3",
+   "kind": "former_name",
+   "engine_id": "ENG-US-BE-3PM",
+   "designation": "BE-3PM",
+   "source_ids": [
+    "SRC-BLUE-BE3-ACCEPT"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Co-Optimized Booster for Reusable Applications",
+   "kind": "common",
+   "engine_id": "ENG-US-COBRA",
+   "designation": "COBRA",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Corporal E engine",
+   "kind": "common",
+   "engine_id": "ENG-US-XF30L20000",
+   "designation": "XF30L20000",
+   "source_ids": [
+    "SRC-WIKI-CORPORALE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Corporal missile engine",
+   "kind": "common",
+   "engine_id": "ENG-US-XF30L20000",
+   "designation": "XF30L20000",
+   "source_ids": [
+    "SRC-FAS-CORPORAL"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "TALOS thruster",
+   "kind": "common",
+   "engine_id": "ENG-US-FRONTIER-DSE",
+   "designation": "Frontier Deep Space Engine (DSE) / Peregrine main engine",
+   "source_ids": [
+    "SRC-NASA-TALOS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "SE-7 (unverified mapping)",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-GEMINI-OAMS-100-LBF-THRUSTER",
+   "designation": "Gemini OAMS 100 lbf thruster",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Gemini RCS / OAMS 25 lbf thruster",
+   "kind": "common",
+   "engine_id": "ENG-US-SE-6",
+   "designation": "SE-6",
+   "source_ids": [
+    "SRC-NASM-GEMRCS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Nell (popular name of the 1926 rocket, not the motor)",
+   "kind": "common",
+   "engine_id": "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR",
+   "designation": "Goddard 1926 liquid rocket motor",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "H-1",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-H-1-165K",
+   "designation": "H-1 (165K)",
+   "source_ids": [
+    "SRC-WIKI-H1"
+   ],
+   "sourced": true,
+   "ambiguous": true
+  },
+  {
+   "alias": "Integrated Powerhead Demonstrator",
+   "kind": "common",
+   "engine_id": "ENG-US-IPD",
+   "designation": "IPD",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "IPD",
+   "kind": "common",
+   "engine_id": "ENG-US-IPD",
+   "designation": "IPD",
+   "source_ids": [
+    "SRC-SFN-IPD-2006"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "J-2 Simplified",
+   "kind": "common",
+   "engine_id": "ENG-US-J-2S",
+   "designation": "J-2S",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "J-2X (1960s project name, not the 2000s J-2X)",
+   "kind": "former_name",
+   "engine_id": "ENG-US-J-2S",
+   "designation": "J-2S",
+   "source_ids": [
+    "SRC-SECRETPROJ-J2DERIV"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "J-2T toroidal aerospike",
+   "kind": "common",
+   "engine_id": "ENG-US-J-2T-200K",
+   "designation": "J-2T-200K",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Lance missile engine",
+   "kind": "common",
+   "engine_id": "ENG-US-P8E-9",
+   "designation": "P8E-9",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Lightning 1",
+   "kind": "common",
+   "engine_id": "ENG-US-LIGHTNING",
+   "designation": "Lightning",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-2200 subscale / X-33 engine",
+   "kind": "common",
+   "engine_id": "ENG-US-XRS-2200",
+   "designation": "XRS-2200",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Ascent Propulsion System engine (APS)",
+   "kind": "common",
+   "engine_id": "ENG-US-LM-ASCENT-ENGINE",
+   "designation": "LM Ascent Engine",
+   "source_ids": [
+    "SRC-NTRS-19730010173"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Bell 8258",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-LM-ASCENT-ENGINE",
+   "designation": "LM Ascent Engine",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-18",
+   "kind": "former_name",
+   "engine_id": "ENG-US-LM-ASCENT-ENGINE",
+   "designation": "LM Ascent Engine",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": true
+  },
+  {
+   "alias": "Lunar Module Descent Engine",
+   "kind": "common",
+   "engine_id": "ENG-US-LMDE",
+   "designation": "LMDE",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Descent Propulsion System (DPS) engine",
+   "kind": "common",
+   "engine_id": "ENG-US-LMDE",
+   "designation": "LMDE",
+   "source_ids": [
+    "SRC-NASA-AER-DPS"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "TR-200",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-LMDE",
+   "designation": "LMDE",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Descent Propulsion System engine",
+   "kind": "common",
+   "engine_id": "ENG-US-LMDE",
+   "designation": "LMDE",
+   "source_ids": [
+    "SRC-NASA-TND7143"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR-101",
+   "kind": "military",
+   "engine_id": "ENG-US-LR101",
+   "designation": "LR101",
+   "source_ids": [
+    "SRC-WIKI-LR101"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR105-7",
+   "kind": "military",
+   "engine_id": "ENG-US-LR105-NA-7",
+   "designation": "LR105-NA-7",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR105-7"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MA-5 sustainer",
+   "kind": "common",
+   "engine_id": "ENG-US-LR105-NA-7",
+   "designation": "LR105-NA-7",
+   "source_ids": [
+    "SRC-WIKI-MA5"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MB-3 (per Pima placard)",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-LR79-NA-9",
+   "designation": "LR79-NA-9",
+   "source_ids": [
+    "SRC-FLICKR-MB3"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR79",
+   "kind": "military",
+   "engine_id": "ENG-US-S-3D",
+   "designation": "S-3D",
+   "source_ids": [
+    "SRC-WIKI-S3D",
+    "SRC-NMUSAF-LR79"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "S-3",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-S-3D",
+   "designation": "S-3D",
+   "source_ids": [
+    "SRC-WIKI-PGM19"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR87-11",
+   "kind": "military",
+   "engine_id": "ENG-US-LR87-AJ-11",
+   "designation": "LR87-AJ-11",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR87"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR87-3",
+   "kind": "military",
+   "engine_id": "ENG-US-LR87-AJ-3",
+   "designation": "LR87-AJ-3",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR87"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR87-5",
+   "kind": "military",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "designation": "LR87-AJ-5",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR87"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR87-7",
+   "kind": "military",
+   "engine_id": "ENG-US-LR87-AJ-7",
+   "designation": "LR87-AJ-7",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR87"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR87 hydrogen variant",
+   "kind": "common",
+   "engine_id": "ENG-US-LR87-LH2",
+   "designation": "LR87-LH2",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR89-5",
+   "kind": "military",
+   "engine_id": "ENG-US-LR89-NA-5",
+   "designation": "LR89-NA-5",
+   "source_ids": [
+    "SRC-ENGINEHISTORY-RPE05"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR89-7",
+   "kind": "military",
+   "engine_id": "ENG-US-LR89-NA-7",
+   "designation": "LR89-NA-7",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-LR89-7"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MA-5 booster engine",
+   "kind": "common",
+   "engine_id": "ENG-US-LR89-NA-7",
+   "designation": "LR89-NA-7",
+   "source_ids": [
+    "SRC-WIKI-MA5"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR91-3",
+   "kind": "military",
+   "engine_id": "ENG-US-LR91-AJ-3",
+   "designation": "LR91-AJ-3",
+   "source_ids": [
+    "SRC-WIKI-LR91"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR91-5",
+   "kind": "military",
+   "engine_id": "ENG-US-LR91-AJ-5",
+   "designation": "LR91-AJ-5",
+   "source_ids": [
+    "SRC-WIKI-LR91"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR91-7",
+   "kind": "military",
+   "engine_id": "ENG-US-LR91-AJ-7",
+   "designation": "LR91-AJ-7",
+   "source_ids": [
+    "SRC-WIKI-LR91"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "MB-3 Block I",
+   "kind": "common",
+   "engine_id": "ENG-US-MB-3-1",
+   "designation": "MB-3-1",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "MB-3 Block II",
+   "kind": "common",
+   "engine_id": "ENG-US-MB-3-2",
+   "designation": "MB-3-2",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "MB-3 Block III",
+   "kind": "common",
+   "engine_id": "ENG-US-MB-3-3",
+   "designation": "MB-3-3",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Merlin Vacuum",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1C-VACUUM",
+   "designation": "Merlin 1C Vacuum",
+   "source_ids": [
+    "SRC-WIKI-MERLIN",
+    "SRC-SLR-F9-SMA"
+   ],
+   "sourced": true,
+   "ambiguous": true
+  },
+  {
+   "alias": "MVac",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1C-VACUUM",
+   "designation": "Merlin 1C Vacuum",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": true
+  },
+  {
+   "alias": "Merlin 1D (v1.1 rating)",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "designation": "Merlin 1D",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Merlin 1D++",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1D-BLOCK-5",
+   "designation": "Merlin 1D Block 5",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Merlin 1D+",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1D-FULL-THRUST",
+   "designation": "Merlin 1D Full Thrust",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "MVac",
+   "kind": "common",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "designation": "Merlin 1D Vacuum",
+   "source_ids": [
+    "SRC-SPACEX-FUG-2025"
+   ],
+   "sourced": true,
+   "ambiguous": true
+  },
+  {
+   "alias": "Merlin Vacuum",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "designation": "Merlin 1D Vacuum",
+   "source_ids": [
+    "SRC-SPACEX-F9-PAGE"
+   ],
+   "sourced": true,
+   "ambiguous": true
+  },
+  {
+   "alias": "DST-13E",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-DST-13",
+   "designation": "DST-13",
+   "source_ids": [
+    "SRC-MOOG-BIPROP-PAGE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "120K",
+   "kind": "common",
+   "engine_id": "ENG-US-XLR71-NA-1",
+   "designation": "XLR71-NA-1",
+   "source_ids": [
+    "SRC-ENGINEHISTORY-RPE03"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "G38 engine system",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-XLR83-NA-1",
+   "designation": "XLR83-NA-1",
+   "source_ids": [
+    "SRC-HEROICRELICS-RKDTREE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "LR-83",
+   "kind": "military",
+   "engine_id": "ENG-US-XLR83-NA-1",
+   "designation": "XLR83-NA-1",
+   "source_ids": [
+    "SRC-ASTRONAUTIX-XLR71"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-1",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-1",
+   "designation": "NAA 75-110 A-1",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-2",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-2",
+   "designation": "NAA 75-110 A-2",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-3",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-3",
+   "designation": "NAA 75-110 A-3",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-4",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-4",
+   "designation": "NAA 75-110 A-4",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-5",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-5",
+   "designation": "NAA 75-110 A-5",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-6",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-6",
+   "designation": "NAA 75-110 A-6",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Redstone A-7",
+   "kind": "common",
+   "engine_id": "ENG-US-NAA-75-110-A-7",
+   "designation": "NAA 75-110 A-7",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "75K",
+   "kind": "common",
+   "engine_id": "ENG-US-XLR43-NA-1",
+   "designation": "XLR43-NA-1",
+   "source_ids": [
+    "SRC-ENGINEHISTORY-RPE03"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "AJ-26",
+   "kind": "common",
+   "engine_id": "ENG-US-AJ26-58",
+   "designation": "AJ26-58",
+   "source_ids": [
+    "SRC-WIKI-AJ26"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Shuttle Vernier RCS thruster (VRCS)",
+   "kind": "common",
+   "engine_id": "ENG-US-R-1E",
+   "designation": "R-1E",
+   "source_ids": [
+    "SRC-NTRS-19910018886"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Shuttle Primary RCS thruster (PRCS)",
+   "kind": "common",
+   "engine_id": "ENG-US-R-40A",
+   "designation": "R-40A",
+   "source_ids": [
+    "SRC-NTRS-19910018886"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Advanced Material Bipropellant Rocket",
+   "kind": "common",
+   "engine_id": "ENG-US-AMBR",
+   "designation": "AMBR",
+   "source_ids": [
+    "SRC-NASA-AMBR-NF3"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "R-4D-1/-2 (Apollo)",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-R-4D",
+   "designation": "R-4D",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "R-4D-11-300 (eps 300 version)",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-R-4D-11",
+   "designation": "R-4D-11",
+   "source_ids": [
+    "SRC-SATCATALOG-R4D11"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "ESM auxiliary engine",
+   "kind": "common",
+   "engine_id": "ENG-US-R-4D-11-ORION-ESM-AUXILIARY",
+   "designation": "R-4D-11 (Orion ESM auxiliary)",
+   "source_ids": [
+    "SRC-ESA-ESMPROP"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "HiPAT",
+   "kind": "common",
+   "engine_id": "ENG-US-R-4D-15",
+   "designation": "R-4D-15",
+   "source_ids": [
+    "SRC-IAC10-AJHIPAT"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "HiPAT dual-mode",
+   "kind": "common",
+   "engine_id": "ENG-US-R-4D-15DM",
+   "designation": "R-4D-15DM",
+   "source_ids": [
+    "SRC-NASA-AMBR-NF3"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Raptor 1",
+   "kind": "common",
+   "engine_id": "ENG-US-RAPTOR-1",
+   "designation": "Raptor 1",
+   "source_ids": [
+    "SRC-WIKI-RAPTOR"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RVac",
+   "kind": "common",
+   "engine_id": "ENG-US-RAPTOR-VACUUM",
+   "designation": "Raptor Vacuum",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Reaver 1",
+   "kind": "common",
+   "engine_id": "ENG-US-REAVER",
+   "designation": "Reaver",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-25 restart engine",
+   "kind": "common",
+   "engine_id": "ENG-US-RS-25E",
+   "designation": "RS-25E (RS-25 restart production)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "SSME Block II",
+   "kind": "common",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "designation": "RS-25D",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "SSME Block II (flight inventory reused on SLS)",
+   "kind": "former_name",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "designation": "RS-25D",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "RS-25",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "designation": "SSME (FPL / Phase I)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Space Shuttle Main Engine",
+   "kind": "common",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "designation": "SSME (FPL / Phase I)",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "LAE",
+   "kind": "common",
+   "engine_id": "ENG-US-STARLINER-LAE",
+   "designation": "Starliner Launch Abort Engine (LAE)",
+   "source_ids": [
+    "SRC-AR-STARLINER-2016"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Apollo Command Module RCS thruster",
+   "kind": "common",
+   "engine_id": "ENG-US-SE-8",
+   "designation": "SE-8",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Orbital Maneuvering and Attitude Control engine",
+   "kind": "common",
+   "engine_id": "ENG-US-STARLINER-OMAC",
+   "designation": "Starliner OMAC thruster",
+   "source_ids": [
+    "SRC-AR-STARLINER-2016"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Delta-P stage engine",
+   "kind": "common",
+   "engine_id": "ENG-US-TR-201",
+   "designation": "TR-201",
+   "source_ids": [
+    "SRC-WIKI-TR201"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "WAC Corporal sustainer engine",
+   "kind": "common",
+   "engine_id": "ENG-US-38ALDW-1500",
+   "designation": "38ALDW-1500",
+   "source_ids": [
+    "SRC-WIKI-WACCORPORAL"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR50",
+   "kind": "military",
+   "engine_id": "ENG-US-X-405",
+   "designation": "X-405",
+   "source_ids": [
+    "SRC-WIKI-X405"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "GE X-405",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-X-405",
+   "designation": "X-405",
+   "source_ids": [
+    "SRC-WIKI-X405"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "5M15",
+   "kind": "common",
+   "engine_id": "ENG-US-5M15",
+   "designation": "XR-5M15",
+   "source_ids": [
+    "SRC-ENGINEER-5M15"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Viking engine",
+   "kind": "common",
+   "engine_id": "ENG-US-XLR10-RM-2",
+   "designation": "XLR10-RM-2",
+   "source_ids": [
+    "SRC-WIKI-VIKING-SOUNDING-ROCKET"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "RMI 6000C4",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-XLR11",
+   "designation": "XLR11",
+   "source_ids": [
+    "SRC-WIKI-XLR11"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "6000C-4",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-XLR11",
+   "designation": "XLR11",
+   "source_ids": [
+    "SRC-NASM-XLR11"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Black Betsy",
+   "kind": "common",
+   "engine_id": "ENG-US-XLR11",
+   "designation": "XLR11",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR8",
+   "kind": "military",
+   "engine_id": "ENG-US-XLR8-RM-5",
+   "designation": "XLR8-RM-5",
+   "source_ids": [
+    "SRC-WIKI-XLR11"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR-129",
+   "kind": "military",
+   "engine_id": "ENG-US-XLR129-P-1",
+   "designation": "XLR129-P-1",
+   "source_ids": [
+    "SRC-WIKI-XLR129"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-1",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-117",
+   "designation": "Bell 117",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "Hustler engine",
+   "kind": "common",
+   "engine_id": "ENG-US-BELL-117",
+   "designation": "Bell 117",
+   "source_ids": [],
+   "sourced": false,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-3",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-8001",
+   "designation": "Bell 8001",
+   "source_ids": [
+    "SRC-WIKI-BELL8000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-5",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-8048",
+   "designation": "Bell 8048",
+   "source_ids": [
+    "SRC-WIKI-BELL8000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-7",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-8081",
+   "designation": "Bell 8081",
+   "source_ids": [
+    "SRC-WIKI-BELL8000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-11",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-8096",
+   "designation": "Bell 8096",
+   "source_ids": [
+    "SRC-WIKI-BELL8000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR81-BA-13",
+   "kind": "military",
+   "engine_id": "ENG-US-BELL-8247",
+   "designation": "Bell 8247",
+   "source_ids": [
+    "SRC-WIKI-BELL8000"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Pioneer",
+   "kind": "common",
+   "engine_id": "ENG-US-XLR99-RM-1",
+   "designation": "XLR99-RM-1",
+   "source_ids": [
+    "SRC-NASM-XLR99"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "XLR99",
+   "kind": "military",
+   "engine_id": "ENG-US-XLR99-RM-1",
+   "designation": "XLR99-RM-1",
+   "source_ids": [
+    "SRC-WIKI-XLR99"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Thiokol XLR99",
+   "kind": "manufacturer",
+   "engine_id": "ENG-US-XLR99-RM-1",
+   "designation": "XLR99-RM-1",
+   "source_ids": [
+    "SRC-NASM-XLR99"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  },
+  {
+   "alias": "Rutherford Sea Level",
+   "kind": "common",
+   "engine_id": "ENG-NZ-RUTHERFORD",
+   "designation": "Rutherford",
+   "source_ids": [
+    "SRC-RL-ELECTRON-PAGE"
+   ],
+   "sourced": true,
+   "ambiguous": false
+  }
+ ]
+}

@@ -1,0 +1,408 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-CN-YF-77",
+ "designation": "YF-77",
+ "family": "YF-77",
+ "variant_scope": "YF-77 LOX/LH2 core-stage engine of Long March 5/5B (two per stage). SL figures disagree between Wikipedia revisions.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "sea level",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC13-17679",
+   "locator": "abstract",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.role",
+   "operating_point": null,
+   "value": "first Chinese cryogenic LOX/LH2 engine for a booster(core)-level stage",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.5,
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC13-17679",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": "5.5 (adjustable)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 700,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC13-17679",
+   "locator": "abstract",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 700,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 518,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox (current)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 510,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox (other revision/mirror)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 10.1,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox (one revision)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 10.2,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "infobox (other revision)",
+   "confidence": "medium",
+   "note": "1,480 psi"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 428.0,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "one revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 430,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "other revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-2",
+   "value": 316.7,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "one revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-2",
+   "value": 310.2,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "other revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": null,
+   "value": 525,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "one revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": null,
+   "value": 520,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "other revision",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.gimbal",
+   "operating_point": null,
+   "value": "each engine can independently gimbal in two planes",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "history.scaling_vs_yf75",
+   "operating_point": null,
+   "value": "vs YF-75: thrust ~9x, pressure ~2.7x, mass flow ~9x",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC13-17679",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.development_issues",
+   "operating_point": null,
+   "value": "fuel turbopump rotor cracking; combustion-instability damage to chamber; solved",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC13-17679",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.arrangement",
+   "operating_point": null,
+   "value": "two separate turbopumps driven by one central gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "round-1 asia_other note (host page not recorded)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.long_duration_test",
+   "operating_point": null,
+   "value": "520 s long-duration test, Feb 2021",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-GOTAIK-2021",
+   "locator": "round-1",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": "searched in Chinese; not found"
+  },
+  {
+   "field_path": "gas_generator.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.exhaust_destination",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Central gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-YF77",
+    "locator": "round-1 note",
+    "note": "low confidence"
+   },
+   {
+    "id": "N-LH2-TP",
+    "component_type": "pump",
+    "label": "Fuel (LH2) turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC13-17679",
+    "locator": "abstract (rotor cracking)",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-TP",
+    "component_type": "pump",
+    "label": "LOX turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-YF77",
+    "locator": "round-1 note",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IAC13-17679",
+    "locator": "abstract",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-LH2-TP",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-YF77",
+    "locator": "round-1 note",
+    "note": "parallel drive implied by 'one GG drives two TPs'; not confirmed"
+   },
+   {
+    "id": "E-2",
+    "from": "N-GG",
+    "to": "N-LOX-TP",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-YF77",
+    "locator": "round-1 note",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-LH2-TP",
+    "to": "N-MCC",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-LOX-TP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeleton. Missing: GG feed taps, exhaust, regen, valves."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "partial"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Two engines per stage with independent two-plane gimbal: TVC is per-engine.",
+  "Adjustable mixture ratio: MR is a range/set-point, not a scalar.",
+  "Wikipedia revisions disagree on SL thrust/Isp/pc/burn time - per-source assertions required."
+ ],
+ "notes": "Chinese-language searches surfaced no 《火箭推进》 paper with turbopump data. IAC-13 abstract is the best source.",
+ "branch": "r2_asia"
+}

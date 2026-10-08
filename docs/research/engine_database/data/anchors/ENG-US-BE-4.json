@@ -1,0 +1,443 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-BE-4",
+ "designation": "BE-4",
+ "family": "BE-4",
+ "variant_scope": "BE-4 as described on Blue Origin's engines page (current rating). Earlier press-release rating kept as conflict. Covers both Vulcan (2/vehicle) and New Glenn (7/vehicle) uses.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated (as on engines page; SL implied)",
+   "notes": "sea-level not explicitly confirmed in relay"
+  },
+  {
+   "op_id": "OP-2",
+   "label": "minimum throttle",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 640000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "also 2,846 kN; SL vs vac not explicit in relay; relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 2846,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.throttle_min_thrust",
+   "operating_point": "OP-2",
+   "value": 220000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'throttle to 220,000 lbf (978 kN)'; relayed via sibling log"
+  },
+  {
+   "field_path": "performance.throttle_min_thrust",
+   "operating_point": "OP-2",
+   "value": 978,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value": 550000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-PRESS-BE4-EARLY",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "earlier press-release rating; see CF-1; relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "oxygen-rich staged combustion (ORSC)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "propellants.pair",
+   "operating_point": null,
+   "value": "LOX/LNG",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "history.development_start",
+   "operating_point": null,
+   "value": "2012",
+   "unit": "year",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.engines_per_vehicle",
+   "operating_point": null,
+   "value": "New Glenn: 7; Vulcan: 2",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 550000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-BE4-FACTSHEET",
+   "locator": "fact sheet",
+   "confidence": "medium",
+   "note": "earlier rating; CF-R2-5"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "oxygen-rich staged combustion",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-BE4-FACTSHEET",
+   "locator": "fact sheet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.tank",
+   "operating_point": null,
+   "value": "LNG enables autogenous tank pressurization (no complex pressurization system)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-ULA-BE4-FACTSHEET",
+   "locator": "fact sheet",
+   "confidence": "medium",
+   "note": "vehicle-level attribute"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 640000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-NEWGLENN-PAGE",
+   "locator": "",
+   "confidence": "medium",
+   "note": "2,846 kN; 'deep-throttle capability'"
+  },
+  {
+   "field_path": "preburners.count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-BE4",
+   "locator": "article",
+   "confidence": "low",
+   "note": "single oxygen-rich preburner"
+  },
+  {
+   "field_path": "turbines.count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-BE4",
+   "locator": "article",
+   "confidence": "low",
+   "note": "single turbine drives fuel and oxygen pumps"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 134,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-BE4",
+   "locator": "older revision",
+   "confidence": "low",
+   "note": "CF-R2-6"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 140,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-BE4",
+   "locator": "current revision",
+   "confidence": "low",
+   "note": "CF-R2-6"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "gg_preburner.preburner_count",
+   "reason": "ACCESS_BLOCKED",
+   "note": "'single preburner' (orchestrator framing) unverified"
+  },
+  {
+   "field_path": "pumps.boost_pumps",
+   "reason": "ACCESS_BLOCKED",
+   "note": "unverified"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-OPB",
+    "component_type": "preburner",
+    "label": "oxygen-rich preburner (single)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": "secondary"
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "single turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": "secondary"
+   },
+   {
+    "id": "N-OP",
+    "component_type": "pump",
+    "label": "oxygen pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-FP",
+    "component_type": "pump",
+    "label": "LNG pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "main combustion chamber (single)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-OPB",
+    "to": "N-TURB",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TURB",
+    "to": "N-OP",
+    "fluid": "",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-TURB",
+    "to": "N-FP",
+    "fluid": "",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-BE4",
+    "locator": "search-result summary (round 2)",
+    "note": "single-shaft vs geared unknown"
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-MCC",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ULA-BE4-FACTSHEET",
+    "locator": "search-result summary (round 2)",
+    "note": "closed cycle implied by 'staged combustion'"
+   }
+  ],
+  "topology_completeness": "Boost pumps, regen path, igniters, valves unknown. Preburner/turbine counts SECONDARY_CLAIM."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "weak",
+  "gg_preburner": "weak",
+  "pressurization": "weak",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Fuel is 'LNG' (a mixture) rather than pure methane — propellant field cannot be a fixed species.",
+  "Same engine on two vehicles from two companies; vehicle-specific ratings possible.",
+  "Propellant choice justified by vehicle tank-pressurization (autogenous) - a vehicle attribute recorded in engine docs."
+ ],
+ "notes": "Relayed manufacturer values. | ROUND 2 (r2_schem): ULA fact sheet and Blue Origin New Glenn page found (Tier A). Boost pumps NOT found.",
+ "branch": "r2_schem"
+}

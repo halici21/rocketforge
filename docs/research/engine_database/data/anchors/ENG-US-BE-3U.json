@@ -1,0 +1,215 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-BE-3U",
+ "designation": "BE-3U",
+ "family": "BE-3",
+ "variant_scope": "BE-3U upper-stage variant (New Glenn GS2). Distinct from BE-3PM (New Shepard) which has its own record.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "minimum throttle",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 200000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.throttle_min_thrust",
+   "operating_point": "OP-2",
+   "value": 100000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "open expander",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "Wikipedia revisions also say 'expander bleed' (CF-3); relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": 173000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-PRESS-BE3U-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "earlier rating (CF-2); relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": 160000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-PRESS-BE3U-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'160,000 lbf each' in another release (CF-2); relayed via sibling log"
+  },
+  {
+   "field_path": "identity.stage_total_thrust_vac",
+   "operating_point": null,
+   "value": "320,000 -> 400,000",
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-BLUE-PRESS-BE3U-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "stage total (two engines) uprate; stage-level; relayed via sibling log"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [],
+  "edges": [],
+  "topology_completeness": "Nothing sourced for topology; cycle naming itself is in conflict."
+ },
+ "coverage": {
+  "identity": "not_reported",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Manufacturer cycle wording ('open expander') vs encyclopedic ('expander bleed') — cycle enum needs a source-wording field plus normalized value.",
+  "Same family has a tap-off variant (BE-3PM) and an expander variant (BE-3U): cycle is a variant property, not a family property."
+ ],
+ "notes": "Relayed values; multiple undated ratings.",
+ "branch": "anchor_us_modern"
+}

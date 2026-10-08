@@ -1,0 +1,549 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-SU-RD-108A",
+ "equivalent_ids": [
+  "ENG-SU-RD-108A"
+ ],
+ "designation": "RD-108A (14D21)",
+ "family": "RD-107/108",
+ "variant_scope": "RD-108A (14D21) on Soyuz-2/Soyuz-FG. Family-level statements from the Wiki RD-107 page (H2O2 drive, start sequence) are attributed to this variant only by family inheritance.",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal 100% rated, as published",
+   "notes": "SL vs vac per assertion"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 792.41,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-SOYUZFG",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 921.86,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-SOYUZFG",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-NOM",
+   "value": 257.7,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-SOYUZFG",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-NOM",
+   "value": 320.6,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-SOYUZFG",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 80.8,
+   "unit": "tf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WWW1-RD107A",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.verniers",
+   "operating_point": null,
+   "value": "4 vernier chambers, full vector control of Blok A",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.count_main",
+   "operating_point": null,
+   "value": 4,
+   "unit": "count",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "feed.turbopump_count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "count (feeds all main + vernier chambers)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T1.working_fluid",
+   "operating_point": null,
+   "value": "steam/gas from catalytic decomposition of H2O2",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "family-level statement (RD-107 page)"
+  },
+  {
+   "field_path": "gg_preburner.GG1.catalyst",
+   "operating_point": null,
+   "value": "solid catalyst F-30-P-G",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.tank",
+   "operating_point": null,
+   "value": "nitrogen gas generator on the single-axle TPA for tank pressurization",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "Wiki wording; whether it is an LN2 evaporator (task hypothesis) not confirmed"
+  },
+  {
+   "field_path": "ignition_start.sequence",
+   "operating_point": null,
+   "value": "valves open, propellants flow through pumps by gravity, pyrotechnic ignition, 'intermediate' thrust stage; pumps then drive two small pumps feeding H2O2 to the gas generator",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "family-level, wording as summarised; mechanism of H2O2 pumping needs Tier A check"
+  },
+  {
+   "field_path": "control.mixture_ratio",
+   "operating_point": null,
+   "value": "variable mixture ratio capability (propellant-depletion balancing across boosters)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.manufacturer",
+   "operating_point": null,
+   "value": "Kuznetsov (Samara), supervised by Volga branch of NPO Energomash",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD107",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.pc",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T1.exhaust_destination",
+   "reason": "NOT_REPORTED",
+   "note": "dumped overboard is [BG] only"
+  },
+  {
+   "field_path": "nozzle.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-H2O2-TANK",
+    "component_type": "tank",
+    "label": "H2O2 tank",
+    "subsystem": "ambiguous",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "stage or engine ownership unknown"
+   },
+   {
+    "id": "N-H2O2-PUMPS",
+    "component_type": "pump",
+    "label": "two small H2O2 pumps",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "family-level"
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "H2O2 steam/gas generator (solid catalyst F-30-P-G)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "steam turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-OX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FUEL-PUMP",
+    "component_type": "pump",
+    "label": "kerosene pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-N2-GG",
+    "component_type": "heat_exchanger",
+    "label": "nitrogen gas generator for tank pressurization",
+    "subsystem": "ambiguous",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "serves the stage tanks"
+   },
+   {
+    "id": "N-MC1",
+    "component_type": "main_chamber",
+    "label": "main chamber 1",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC2",
+    "component_type": "main_chamber",
+    "label": "main chamber 2",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC3",
+    "component_type": "main_chamber",
+    "label": "main chamber 3",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC4",
+    "component_type": "main_chamber",
+    "label": "main chamber 4",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-V1",
+    "component_type": "main_chamber",
+    "label": "vernier chamber 1",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "component_type 'vernier' not in enum"
+   },
+   {
+    "id": "N-V2",
+    "component_type": "main_chamber",
+    "label": "vernier chamber 2",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "component_type 'vernier' not in enum"
+   },
+   {
+    "id": "N-V3",
+    "component_type": "main_chamber",
+    "label": "vernier chamber 3",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "component_type 'vernier' not in enum"
+   },
+   {
+    "id": "N-V4",
+    "component_type": "main_chamber",
+    "label": "vernier chamber 4",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "component_type 'vernier' not in enum"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-H2O2-TANK",
+    "to": "N-H2O2-PUMPS",
+    "fluid": "HTP",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-H2O2-PUMPS",
+    "to": "N-GG",
+    "fluid": "HTP",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-GG",
+    "to": "N-TURB",
+    "fluid": "steam/O2 (H2O2 decomposition products)",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-OX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "single axle"
+   },
+   {
+    "id": "E-5",
+    "from": "N-TURB",
+    "to": "N-FUEL-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-TURB",
+    "to": "N-H2O2-PUMPS",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "Wiki: 'pumps ... drive two small pumps'; drive path unknown"
+   },
+   {
+    "id": "E-MC1",
+    "from": "N-OX-PUMP",
+    "to": "N-MC1",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-MC2",
+    "from": "N-OX-PUMP",
+    "to": "N-MC2",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-MC3",
+    "from": "N-OX-PUMP",
+    "to": "N-MC3",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-MC4",
+    "from": "N-OX-PUMP",
+    "to": "N-MC4",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-V1",
+    "from": "N-OX-PUMP",
+    "to": "N-V1",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "one TP feeds verniers too"
+   },
+   {
+    "id": "E-V2",
+    "from": "N-OX-PUMP",
+    "to": "N-V2",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "one TP feeds verniers too"
+   },
+   {
+    "id": "E-V3",
+    "from": "N-OX-PUMP",
+    "to": "N-V3",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "one TP feeds verniers too"
+   },
+   {
+    "id": "E-V4",
+    "from": "N-OX-PUMP",
+    "to": "N-V4",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD107",
+    "locator": "search summary",
+    "note": "one TP feeds verniers too"
+   }
+  ],
+  "topology_completeness": "Missing: fuel edges, turbine exhaust, pressurant routing, valves, vernier gimbal actuators, N2 source tank."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "weak",
+  "pumps": "not_reported",
+  "turbines": "weak",
+  "gg_preburner": "weak",
+  "pressurization": "weak",
+  "ignition_start": "weak",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Third, turbine-only working fluid (H2O2) with its own tank, pumps and solid catalyst.",
+  "Chambers by role: 4 main + 4 verniers; verniers have separate gimbal semantics (single-plane vs full).",
+  "Stage-serving hardware (N2 pressurization generator) mounted on the engine TPA.",
+  "Start sequence includes a gravity-fed 'intermediate thrust' stage - a pre-mainstage operating point."
+ ],
+ "notes": " | Evidence basis: WebSearch result summaries only (WebFetch/curl blocked); every source access=search_result_only.",
+ "branch": "r2_ussr"
+}

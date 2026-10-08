@@ -1,0 +1,357 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-AJ10-137",
+ "designation": "AJ10-137",
+ "family": "AJ10",
+ "variant_scope": "Apollo CSM Service Propulsion System engine (AJ10-137, Aerojet). SPS helium/propellant tanks belong to the Service Module (vehicle/stage).",
+ "operating_points": [],
+ "assertions": [
+  {
+   "field_path": "identity.system_name",
+   "operating_point": null,
+   "value": "Service Propulsion Subsystem (SPS)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-TND7375",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "high",
+   "note": "from search summary, document not opened"
+  },
+  {
+   "field_path": "pressurization.regulators",
+   "operating_point": null,
+   "value": "primary and secondary regulators",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-EH-RPE0931",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "pressurization.regulator_setpoint_primary",
+   "operating_point": null,
+   "value": 186,
+   "unit": "psig",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-EH-RPE0931",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "gauge as relayed; which is primary vs secondary assumed from relay word order; relayed via sibling log"
+  },
+  {
+   "field_path": "pressurization.regulator_setpoint_secondary",
+   "operating_point": null,
+   "value": 191,
+   "unit": "psig",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-EH-RPE0931",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "control.bipropellant_valve_program",
+   "operating_point": null,
+   "value": "bipropellant valve improvement program (Aerojet, 1971 summary)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AEROJET-SPSVALVE-1971",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "medium",
+   "note": "from search summary, document not opened"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.fuel",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Aerozine-50 framing unverified"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "columbium/titanium framing unverified"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-HE-TANK",
+    "component_type": "pressurant_tank",
+    "label": "SM helium tank(s)",
+    "subsystem": "vehicle",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-REG-P",
+    "component_type": "regulator",
+    "label": "primary He regulator",
+    "subsystem": "vehicle",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-REG-S",
+    "component_type": "regulator",
+    "label": "secondary He regulator",
+    "subsystem": "vehicle",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-OX-TANKS",
+    "component_type": "tank",
+    "label": "oxidizer tanks",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-FU-TANKS",
+    "component_type": "tank",
+    "label": "fuel tanks",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-BIPROP-VLV",
+    "component_type": "valve",
+    "label": "bipropellant valve assembly",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AEROJET-SPSVALVE-1971",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-HE-TANK",
+    "to": "N-REG-P",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": "series vs parallel regulator arrangement unknown"
+   },
+   {
+    "id": "E-2",
+    "from": "N-REG-P",
+    "to": "N-REG-S",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": "arrangement unverified"
+   },
+   {
+    "id": "E-3",
+    "from": "N-REG-S",
+    "to": "N-OX-TANKS",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-REG-S",
+    "to": "N-FU-TANKS",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-EH-RPE0931",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-OX-TANKS",
+    "to": "N-BIPROP-VLV",
+    "fluid": "oxidizer",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-FU-TANKS",
+    "to": "N-BIPROP-VLV",
+    "fluid": "fuel",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-BIPROP-VLV",
+    "to": "N-TC",
+    "fluid": "oxidizer+fuel",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7375",
+    "locator": "search-result summary",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeleton. Missing: check valves, storage/sump tank pairs, propellant utilization/gauging, valve actuation (GN2), injector, ablative chamber, nozzle extension."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "not_reported",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "weak",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Redundant pressurization regulators with distinct setpoints — single 'tank pressure' field insufficient.",
+  "Redundant bipropellant valve banks (expected; unverified) need series/parallel topology semantics."
+ ],
+ "notes": "TN D-7375 (NTRS 19730023031) is the priority retrieval.",
+ "branch": "anchor_us_modern"
+}

@@ -1,0 +1,3863 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "schema": "db0-families-v1",
+ "families": [
+  {
+   "family_id": "FAM-ABL-E2",
+   "names_as_recorded": [
+    "E2"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "ABL Space Systems",
+    "ABL Space Systems (now Long Wall)"
+   ],
+   "variant_ids": [
+    "ENG-US-E2",
+    "ENG-US-E2-VACUUM"
+   ]
+  },
+  {
+   "family_id": "FAM-AEON",
+   "names_as_recorded": [
+    "Aeon"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Relativity Space"
+   ],
+   "variant_ids": [
+    "ENG-US-AEON-1",
+    "ENG-US-AEON-R",
+    "ENG-US-AEON-VAC",
+    "ENG-US-AEON-VAC-TERRAN-R"
+   ]
+  },
+  {
+   "family_id": "FAM-AESTUS",
+   "names_as_recorded": [
+    "Aestus"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Astrium (Ottobrunn) with Boeing Rocketdyne",
+    "DASA / Astrium (Ottobrunn Space Propulsion Centre)"
+   ],
+   "variant_ids": [
+    "ENG-DE-AESTUS",
+    "ENG-DE-AESTUS-II"
+   ]
+  },
+  {
+   "family_id": "FAM-AETHER",
+   "names_as_recorded": [
+    "Aether"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Astra"
+   ],
+   "variant_ids": [
+    "ENG-US-AETHER"
+   ]
+  },
+  {
+   "family_id": "FAM-AGGREGAT",
+   "names_as_recorded": [
+    "A-4",
+    "Aggregat"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "HVA Peenemuende",
+    "Heeresversuchsanstalt (Kummersdorf/Peenemuende)",
+    "Heeresversuchsanstalt Peenemuende (per general knowledge; unverified)",
+    "Heereswaffenamt (von Braun, Rudolph) at Kummersdorf"
+   ],
+   "variant_ids": [
+    "ENG-DE-A1-ENGINE",
+    "ENG-DE-A3-ENGINE",
+    "ENG-DE-A4-ENGINE",
+    "ENG-DE-A5-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-AGILE",
+   "names_as_recorded": [
+    "Agile"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Agile Space Industries"
+   ],
+   "variant_ids": [
+    "ENG-US-A110",
+    "ENG-US-A2200",
+    "ENG-US-DS250"
+   ]
+  },
+  {
+   "family_id": "FAM-AGNILET",
+   "names_as_recorded": [
+    "Agnilet"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "AgniKul Cosmos"
+   ],
+   "variant_ids": [
+    "ENG-IN-AGNILET"
+   ]
+  },
+  {
+   "family_id": "FAM-AJ10",
+   "names_as_recorded": [
+    "AJ10"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet",
+    "Aerojet (Aerojet-General)",
+    "Aerojet Rocketdyne (refurbished at NASA WSTF)",
+    "Aerojet-General"
+   ],
+   "variant_ids": [
+    "ENG-US-AJ10-101",
+    "ENG-US-AJ10-104",
+    "ENG-US-AJ10-104D",
+    "ENG-US-AJ10-118",
+    "ENG-US-AJ10-118A",
+    "ENG-US-AJ10-118D",
+    "ENG-US-AJ10-118E",
+    "ENG-US-AJ10-118F",
+    "ENG-US-AJ10-118K",
+    "ENG-US-AJ10-137",
+    "ENG-US-AJ10-138",
+    "ENG-US-AJ10-190",
+    "ENG-US-AJ10-37",
+    "ENG-US-AJ10-42",
+    "ENG-US-OMS-E-ORION-ESM"
+   ]
+  },
+  {
+   "family_id": "FAM-AKATSUKI-OME",
+   "names_as_recorded": [
+    "Akatsuki OME"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "JAXA / IHI Aerospace (manufacturer NOT confirmed)"
+   ],
+   "variant_ids": [
+    "ENG-JP-AKATSUKI-OME"
+   ]
+  },
+  {
+   "family_id": "FAM-AL-ZAFIR",
+   "names_as_recorded": [
+    "Al-Zafir"
+   ],
+   "countries": [
+    "EG"
+   ],
+   "developers": [
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-EG-AL-ZAFIR-AL-KAHIR-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-ANDROMEDA",
+   "names_as_recorded": [
+    "Andromeda"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Stoke Space"
+   ],
+   "variant_ids": [
+    "ENG-US-ANDROMEDA"
+   ]
+  },
+  {
+   "family_id": "FAM-AQUILA",
+   "names_as_recorded": [
+    "Aquila"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Isar Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-DE-AQUILA",
+    "ENG-DE-AQUILA-VAC"
+   ]
+  },
+  {
+   "family_id": "FAM-AR1",
+   "names_as_recorded": [
+    "AR1"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-AR1"
+   ]
+  },
+  {
+   "family_id": "FAM-ARCHIMEDES",
+   "names_as_recorded": [
+    "Archimedes"
+   ],
+   "countries": [
+    "NZ",
+    "US"
+   ],
+   "developers": [
+    "Rocket Lab"
+   ],
+   "variant_ids": [
+    "ENG-NZ-ARCHIMEDES",
+    "ENG-NZ-ARCHIMEDES-VACUUM"
+   ]
+  },
+  {
+   "family_id": "FAM-ARIANEGROUP-200N",
+   "names_as_recorded": [
+    "ArianeGroup 200N"
+   ],
+   "countries": [
+    "DE",
+    "EU"
+   ],
+   "developers": [
+    "ArianeGroup (ex-Snecma/Astrium heritage)",
+    "Snecma (Safran) / ArianeGroup"
+   ],
+   "variant_ids": [
+    "ENG-EU-ESM-RCS-220-N",
+    "ENG-EU-200-N-BIPROPELLANT-THRUSTER-ATV"
+   ]
+  },
+  {
+   "family_id": "FAM-ARMSTRONG-SIDDELEY",
+   "names_as_recorded": [
+    "Armstrong Siddeley"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Armstrong Siddeley",
+    "Armstrong Siddeley (from RAE Westcott work)"
+   ],
+   "variant_ids": [
+    "ENG-GB-BETA",
+    "ENG-GB-SCREAMER",
+    "ENG-GB-SNARLER"
+   ]
+  },
+  {
+   "family_id": "FAM-ARROWAY",
+   "names_as_recorded": [
+    "Arroway"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Ursa Major"
+   ],
+   "variant_ids": [
+    "ENG-US-ARROWAY"
+   ]
+  },
+  {
+   "family_id": "FAM-ASTRIS",
+   "names_as_recorded": [
+    "Astris"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "ERNO / MBB (ASAT consortium)"
+   ],
+   "variant_ids": [
+    "ENG-DE-ASTRIS"
+   ]
+  },
+  {
+   "family_id": "FAM-BE-1",
+   "names_as_recorded": [
+    "BE-1"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Blue Origin"
+   ],
+   "variant_ids": [
+    "ENG-US-BE-1"
+   ]
+  },
+  {
+   "family_id": "FAM-BE-2",
+   "names_as_recorded": [
+    "BE-2"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Blue Origin"
+   ],
+   "variant_ids": [
+    "ENG-US-BE-2"
+   ]
+  },
+  {
+   "family_id": "FAM-BE-3",
+   "names_as_recorded": [
+    "BE-3"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Blue Origin"
+   ],
+   "variant_ids": [
+    "ENG-US-BE-3PM",
+    "ENG-US-BE-3U"
+   ]
+  },
+  {
+   "family_id": "FAM-BE-4",
+   "names_as_recorded": [
+    "BE-4"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Blue Origin"
+   ],
+   "variant_ids": [
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "family_id": "FAM-BE-7",
+   "names_as_recorded": [
+    "BE-7"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Blue Origin"
+   ],
+   "variant_ids": [
+    "ENG-US-BE-7"
+   ]
+  },
+  {
+   "family_id": "FAM-BMW-109-5XX",
+   "names_as_recorded": [
+    "BMW 109-5xx"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "BMW (Bruckmuehl / Berlin-Spandau, Helmut von Zborowski group)",
+    "BMW (Flugmotorenbau, Berlin-Spandau group)"
+   ],
+   "variant_ids": [
+    "ENG-DE-BMW-109-548",
+    "ENG-DE-BMW-109-558"
+   ]
+  },
+  {
+   "family_id": "FAM-BMW-109-7XX",
+   "names_as_recorded": [
+    "BMW 109-7xx"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "BMW"
+   ],
+   "variant_ids": [
+    "ENG-DE-BMW-109-718"
+   ]
+  },
+  {
+   "family_id": "FAM-BT-4",
+   "names_as_recorded": [
+    "BT-4"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "IHI Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-JP-BT-4"
+   ]
+  },
+  {
+   "family_id": "FAM-CE-20",
+   "names_as_recorded": [
+    "CE-20"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-CE-20"
+   ]
+  },
+  {
+   "family_id": "FAM-CE-7-5",
+   "names_as_recorded": [
+    "CE-7.5"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC",
+    "ISRO LPSC (CUSP)"
+   ],
+   "variant_ids": [
+    "ENG-IN-CE-7-5",
+    "ENG-IN-CE-7-5-STEERING-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-CHANG-E-LANDER-ENGINE",
+   "names_as_recorded": [
+    "Chang'e lander engine"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "CASC (6th Academy) [developer not in summary]"
+   ],
+   "variant_ids": [
+    "ENG-CN-7500N-VARIABLE-THRUST-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-COBRA",
+   "names_as_recorded": [
+    "COBRA"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Pratt & Whitney / Aerojet"
+   ],
+   "variant_ids": [
+    "ENG-US-COBRA"
+   ]
+  },
+  {
+   "family_id": "FAM-CORPORAL",
+   "names_as_recorded": [
+    "Corporal"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "JPL / Firestone (Ryan built engines later) - manufacturer UNKNOWN in sources seen"
+   ],
+   "variant_ids": [
+    "ENG-US-XF30L20000"
+   ]
+  },
+  {
+   "family_id": "FAM-COSMOS",
+   "names_as_recorded": [
+    "COSMOS"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "Interstellar Technologies"
+   ],
+   "variant_ids": [
+    "ENG-JP-INTERSTELLAR-TECHNOLOGIES-ZERO-FIRST-STAGE-ENGINE-COSMOS"
+   ]
+  },
+  {
+   "family_id": "FAM-CURIE",
+   "names_as_recorded": [
+    "Curie"
+   ],
+   "countries": [
+    "NZ",
+    "US"
+   ],
+   "developers": [
+    "Rocket Lab"
+   ],
+   "variant_ids": [
+    "ENG-NZ-CURIE",
+    "ENG-NZ-HYPERCURIE"
+   ]
+  },
+  {
+   "family_id": "FAM-DE-HAVILLAND-HTP",
+   "names_as_recorded": [
+    "de Havilland HTP"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "de Havilland Engine Co."
+   ],
+   "variant_ids": [
+    "ENG-GB-DOUBLE-SPECTRE",
+    "ENG-GB-SPECTRE",
+    "ENG-GB-SPRITE",
+    "ENG-GB-SUPER-SPRITE"
+   ]
+  },
+  {
+   "family_id": "FAM-DELPHIN",
+   "names_as_recorded": [
+    "Delphin"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Astra"
+   ],
+   "variant_ids": [
+    "ENG-US-DELPHIN"
+   ]
+  },
+  {
+   "family_id": "FAM-DHAWAN",
+   "names_as_recorded": [
+    "Dhawan"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "Skyroot Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-IN-DHAWAN-1",
+    "ENG-IN-DHAWAN-2"
+   ]
+  },
+  {
+   "family_id": "FAM-DPO-THRUSTERS",
+   "names_as_recorded": [
+    "DPO thrusters"
+   ],
+   "countries": [
+    "RU",
+    "SU"
+   ],
+   "developers": [
+    "KB KhimMash (Isayev) [developer not in summary]",
+    "NIIMash"
+   ],
+   "variant_ids": [
+    "ENG-RU-11D428A",
+    "ENG-RU-11D428A-16",
+    "ENG-RU-S5-142",
+    "ENG-RU-11D428"
+   ]
+  },
+  {
+   "family_id": "FAM-DRACO",
+   "names_as_recorded": [
+    "Draco"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "SpaceX"
+   ],
+   "variant_ids": [
+    "ENG-US-DRACO",
+    "ENG-US-SUPERDRACO"
+   ]
+  },
+  {
+   "family_id": "FAM-F-1",
+   "names_as_recorded": [
+    "F-1"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne",
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-F-1",
+    "ENG-US-F-1A"
+   ]
+  },
+  {
+   "family_id": "FAM-FENGYUN",
+   "names_as_recorded": [
+    "Fengyun"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Jiuzhou Yunjian"
+   ],
+   "variant_ids": [
+    "ENG-CN-FENGYUN"
+   ]
+  },
+  {
+   "family_id": "FAM-FRONTIER-DSE",
+   "names_as_recorded": [
+    "Frontier DSE"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Frontier Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-FRONTIER-DSE"
+   ]
+  },
+  {
+   "family_id": "FAM-GAMMA",
+   "names_as_recorded": [
+    "Gamma"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Armstrong Siddeley (Bristol Siddeley from 1959)",
+    "Armstrong Siddeley / Bristol Siddeley"
+   ],
+   "variant_ids": [
+    "ENG-GB-GAMMA-2",
+    "ENG-GB-GAMMA-201",
+    "ENG-GB-GAMMA-301",
+    "ENG-GB-GAMMA-8",
+    "ENG-GB-STENTOR"
+   ]
+  },
+  {
+   "family_id": "FAM-GEMINI-OAMS",
+   "names_as_recorded": [
+    "Gemini OAMS"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-GEMINI-OAMS-100-LBF-THRUSTER",
+    "ENG-US-SE-6"
+   ]
+  },
+  {
+   "family_id": "FAM-GODDARD",
+   "names_as_recorded": [
+    "Goddard"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Robert H. Goddard",
+    "Robert H. Goddard (Roswell, NM)"
+   ],
+   "variant_ids": [
+    "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR",
+    "ENG-US-GODDARD-P-SERIES-PUMP-FED-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-GR-AF-M315E",
+   "names_as_recorded": [
+    "GR (AF-M315E)"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-GR-1",
+    "ENG-US-GR-22"
+   ]
+  },
+  {
+   "family_id": "FAM-H-1",
+   "names_as_recorded": [
+    "H-1"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne",
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-H-1",
+    "ENG-US-H-1-165K",
+    "ENG-US-H-1-188K",
+    "ENG-US-H-1-200K",
+    "ENG-US-H-1-205K"
+   ]
+  },
+  {
+   "family_id": "FAM-HADLEY",
+   "names_as_recorded": [
+    "Hadley"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Ursa Major"
+   ],
+   "variant_ids": [
+    "ENG-US-DRAPER",
+    "ENG-US-HADLEY",
+    "ENG-US-HADLEY-VACUUM"
+   ]
+  },
+  {
+   "family_id": "FAM-HELIX",
+   "names_as_recorded": [
+    "Helix"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Rocket Factory Augsburg"
+   ],
+   "variant_ids": [
+    "ENG-DE-HELIX",
+    "ENG-DE-HELIX-2-0",
+    "ENG-DE-HELIX-VAC"
+   ]
+  },
+  {
+   "family_id": "FAM-HM7",
+   "names_as_recorded": [
+    "HM",
+    "HM7"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "SEP"
+   ],
+   "variant_ids": [
+    "ENG-FR-HM4",
+    "ENG-FR-HM7",
+    "ENG-FR-HM7A",
+    "ENG-FR-HM7B"
+   ]
+  },
+  {
+   "family_id": "FAM-HPGP",
+   "names_as_recorded": [
+    "HPGP"
+   ],
+   "countries": [
+    "SE"
+   ],
+   "developers": [
+    "ECAPS (Bradford ECAPS)"
+   ],
+   "variant_ids": [
+    "ENG-SE-HPGP-1N",
+    "ENG-SE-HPGP-22N",
+    "ENG-SE-HPGP-5N"
+   ]
+  },
+  {
+   "family_id": "FAM-HWK-109",
+   "names_as_recorded": [
+    "HWK",
+    "HWK 109-509",
+    "HWK 109-50x"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Hellmuth Walter KG",
+    "Hellmuth Walter KG (Kiel)"
+   ],
+   "variant_ids": [
+    "ENG-DE-HWK-109-500",
+    "ENG-DE-HWK-109-501",
+    "ENG-DE-HWK-109-507",
+    "ENG-DE-HWK-109-509",
+    "ENG-DE-HWK-109-739"
+   ]
+  },
+  {
+   "family_id": "FAM-IHI-HBT",
+   "names_as_recorded": [
+    "IHI HBT"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "IHI Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-JP-HBT-1",
+    "ENG-JP-HBT-5"
+   ]
+  },
+  {
+   "family_id": "FAM-IPD",
+   "names_as_recorded": [
+    "IPD"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne + Aerojet (USAF/NASA IHPRPT)"
+   ],
+   "variant_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "family_id": "FAM-ISAYEV-MISSILE-ENGINES",
+   "names_as_recorded": [
+    "Isayev missile engines"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-2 / KB KhimMash (A. M. Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-SU-4D10",
+    "ENG-SU-9D21",
+    "ENG-SU-S2-253",
+    "ENG-SU-S2-711"
+   ]
+  },
+  {
+   "family_id": "FAM-ISAYEV-S5-UPPER-STAGE-ENGINES",
+   "names_as_recorded": [
+    "Isayev S5 upper-stage engines"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KB KhimMash (Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-RU-S5-92",
+    "ENG-RU-S5-98M"
+   ]
+  },
+  {
+   "family_id": "FAM-ISRO-800N-THROTTLEABLE",
+   "names_as_recorded": [
+    "ISRO LAM"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-800-N-THROTTLEABLE-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-ISRO-LAM-440N",
+   "names_as_recorded": [
+    "LAM"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-LAM-440-N"
+   ]
+  },
+  {
+   "family_id": "FAM-ISRO-THRUSTERS",
+   "names_as_recorded": [
+    "ISRO thrusters"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-58-N-THRUSTER"
+   ]
+  },
+  {
+   "family_id": "FAM-J-2",
+   "names_as_recorded": [
+    "J-2"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Pratt & Whitney Rocketdyne (for NASA)",
+    "Rocketdyne",
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-J-2",
+    "ENG-US-J-2S",
+    "ENG-US-J-2T-200K",
+    "ENG-US-J-2T-250K",
+    "ENG-US-J-2X"
+   ]
+  },
+  {
+   "family_id": "FAM-JD-JIAODIAN-FOCUS",
+   "names_as_recorded": [
+    "JD (Jiaodian/Focus)"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "iSpace",
+    "iSpace (Beijing Interstellar Glory Space Technology)"
+   ],
+   "variant_ids": [
+    "ENG-CN-JD-1",
+    "ENG-CN-JD-2"
+   ]
+  },
+  {
+   "family_id": "FAM-KESTREL",
+   "names_as_recorded": [
+    "Kestrel"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "SpaceX"
+   ],
+   "variant_ids": [
+    "ENG-US-KESTREL",
+    "ENG-US-KESTREL-2"
+   ]
+  },
+  {
+   "family_id": "FAM-KONRAD",
+   "names_as_recorded": [
+    "Konrad"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Dr. Konrad (Rheinmetall-Borsig / VfK?)",
+    "Dr. Konrad (Rheinmetall-Borsig)"
+   ],
+   "variant_ids": [
+    "ENG-DE-KONRAD-VFK-613-A01",
+    "ENG-DE-RHEINTOCHTER-R3-SUSTAINER"
+   ]
+  },
+  {
+   "family_id": "FAM-KRE",
+   "names_as_recorded": [
+    "KRE"
+   ],
+   "countries": [
+    "KR"
+   ],
+   "developers": [
+    "KARI"
+   ],
+   "variant_ids": [
+    "ENG-KR-KRE-007",
+    "ENG-KR-KRE-075",
+    "ENG-KR-KRE-075-2ND-STAGE"
+   ]
+  },
+  {
+   "family_id": "FAM-KSR-III",
+   "names_as_recorded": [
+    "KSR-III"
+   ],
+   "countries": [
+    "KR"
+   ],
+   "developers": [
+    "KARI"
+   ],
+   "variant_ids": [
+    "ENG-KR-KSR-III-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-KTDU",
+   "names_as_recorded": [
+    "KTDU"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-2 (Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-SU-KTDU-35",
+    "ENG-SU-S5-35",
+    "ENG-SU-S5-60"
+   ]
+  },
+  {
+   "family_id": "FAM-KTDU-35",
+   "names_as_recorded": [
+    "KTDU-35"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-2 (Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-RU-S5-35",
+    "ENG-RU-S5-60"
+   ]
+  },
+  {
+   "family_id": "FAM-KTDU-53",
+   "names_as_recorded": [
+    "KTDU-53"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-2 (Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-RU-S5-53"
+   ]
+  },
+  {
+   "family_id": "FAM-KTDU-80",
+   "names_as_recorded": [
+    "KTDU-80"
+   ],
+   "countries": [
+    "RU",
+    "SU"
+   ],
+   "developers": [
+    "KB KhimMash (Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-RU-S5-80",
+    "ENG-RU-11D426"
+   ]
+  },
+  {
+   "family_id": "FAM-L-SERIES-IAE",
+   "names_as_recorded": [
+    "L-series (IAE)"
+   ],
+   "countries": [
+    "BR"
+   ],
+   "developers": [
+    "IAE/DCTA",
+    "IAE/DCTA (with DLR)"
+   ],
+   "variant_ids": [
+    "ENG-BR-L15",
+    "ENG-BR-L5",
+    "ENG-BR-L75"
+   ]
+  },
+  {
+   "family_id": "FAM-LANCE-PROPULSION",
+   "names_as_recorded": [
+    "Lance propulsion"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-P8E-9"
+   ]
+  },
+  {
+   "family_id": "FAM-LAUNCHER-E-2",
+   "names_as_recorded": [
+    "E-2"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Launcher (acquired by Vast [BG])"
+   ],
+   "variant_ids": [
+    "ENG-US-E-2"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-3",
+   "names_as_recorded": [
+    "LE-3"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "NASDA / MHI"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-3"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-5",
+   "names_as_recorded": [
+    "LE-5"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "JAXA / MHI",
+    "NASDA / MHI",
+    "NASDA/JAXA, MHI"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-5",
+    "ENG-JP-LE-5A",
+    "ENG-JP-LE-5B",
+    "ENG-JP-LE-5B-2",
+    "ENG-JP-LE-5B-3"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-7",
+   "names_as_recorded": [
+    "LE-7"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "NASDA / MHI",
+    "NASDA/JAXA, MHI"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-7",
+    "ENG-JP-LE-7A"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-8",
+   "names_as_recorded": [
+    "LE-8"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "JAXA / IHI (IHI Aerospace)"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-8"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-9",
+   "names_as_recorded": [
+    "LE-9"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "JAXA / MHI (system), IHI (turbopumps)"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-9"
+   ]
+  },
+  {
+   "family_id": "FAM-LE-X",
+   "names_as_recorded": [
+    "LE-X"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-JP-LE-X"
+   ]
+  },
+  {
+   "family_id": "FAM-LEROS",
+   "names_as_recorded": [
+    "LEROS"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Nammo UK",
+    "Nammo UK (formerly BAe / Royal Ordnance / AMPAC-ISP / Moog-ISP)"
+   ],
+   "variant_ids": [
+    "ENG-GB-LEROS-1B",
+    "ENG-GB-LEROS-1C",
+    "ENG-GB-LEROS-2B",
+    "ENG-GB-LEROS-4",
+    "ENG-GB-LEROS-4-ET"
+   ]
+  },
+  {
+   "family_id": "FAM-LIGHTNING",
+   "names_as_recorded": [
+    "Lightning"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Firefly Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-LIGHTNING"
+   ]
+  },
+  {
+   "family_id": "FAM-LINEAR-AEROSPIKE",
+   "names_as_recorded": [
+    "Linear aerospike"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Boeing Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-2200",
+    "ENG-US-XRS-2200"
+   ]
+  },
+  {
+   "family_id": "FAM-LM-APS",
+   "names_as_recorded": [
+    "LM APS"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Bell Aerosystems (injector later by Rocketdyne)"
+   ],
+   "variant_ids": [
+    "ENG-US-LM-ASCENT-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-LMDE",
+   "names_as_recorded": [
+    "LMDE"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "TRW (Space Technology Laboratories)"
+   ],
+   "variant_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "family_id": "FAM-LONGYUN",
+   "names_as_recorded": [
+    "Longyun"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Jiuzhou Yunjian (九州云箭)"
+   ],
+   "variant_ids": [
+    "ENG-CN-LONGYUN"
+   ]
+  },
+  {
+   "family_id": "FAM-LR101",
+   "names_as_recorded": [
+    "LR101"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR101"
+   ]
+  },
+  {
+   "family_id": "FAM-LR105",
+   "names_as_recorded": [
+    "LR105"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR105-NA-3",
+    "ENG-US-LR105-NA-5",
+    "ENG-US-LR105-NA-7"
+   ]
+  },
+  {
+   "family_id": "FAM-LR79-S-3",
+   "names_as_recorded": [
+    "LR79/S-3"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR79-NA-11",
+    "ENG-US-LR79-NA-13",
+    "ENG-US-LR79-NA-9",
+    "ENG-US-S-3D"
+   ]
+  },
+  {
+   "family_id": "FAM-LR87",
+   "names_as_recorded": [
+    "LR87"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet",
+    "Aerojet (Aerojet-General)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR87-AJ-11",
+    "ENG-US-LR87-AJ-11A",
+    "ENG-US-LR87-AJ-3",
+    "ENG-US-LR87-AJ-5",
+    "ENG-US-LR87-AJ-7",
+    "ENG-US-LR87-AJ-9",
+    "ENG-US-LR87-LH2"
+   ]
+  },
+  {
+   "family_id": "FAM-LR89",
+   "names_as_recorded": [
+    "LR89"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR89-NA-3",
+    "ENG-US-LR89-NA-5",
+    "ENG-US-LR89-NA-6",
+    "ENG-US-LR89-NA-7"
+   ]
+  },
+  {
+   "family_id": "FAM-LR91",
+   "names_as_recorded": [
+    "LR91"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Aerojet-General)"
+   ],
+   "variant_ids": [
+    "ENG-US-LR91-AJ-11",
+    "ENG-US-LR91-AJ-11A",
+    "ENG-US-LR91-AJ-3",
+    "ENG-US-LR91-AJ-5",
+    "ENG-US-LR91-AJ-7",
+    "ENG-US-LR91-AJ-9"
+   ]
+  },
+  {
+   "family_id": "FAM-LYULKA-LOX-LH2",
+   "names_as_recorded": [
+    "Lyulka LOX/LH2"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-165 (A. M. Lyulka)"
+   ],
+   "variant_ids": [
+    "ENG-SU-11D57"
+   ]
+  },
+  {
+   "family_id": "FAM-M-1",
+   "names_as_recorded": [
+    "M-1"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Aerojet-General) / NASA Lewis"
+   ],
+   "variant_ids": [
+    "ENG-US-M-1"
+   ]
+  },
+  {
+   "family_id": "FAM-M10",
+   "names_as_recorded": [
+    "M10"
+   ],
+   "countries": [
+    "IT"
+   ],
+   "developers": [
+    "Avio (with heritage from KBKhA RD-0146 collaboration)",
+    "Avio + KBKhA (RU)"
+   ],
+   "variant_ids": [
+    "ENG-IT-M10",
+    "ENG-IT-MIRA"
+   ]
+  },
+  {
+   "family_id": "FAM-MASTEN",
+   "names_as_recorded": [
+    "Masten"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Masten Space Systems"
+   ],
+   "variant_ids": [
+    "ENG-US-BROADSWORD",
+    "ENG-US-CYCLOPS",
+    "ENG-US-MACHETE",
+    "ENG-US-SCIMITAR"
+   ]
+  },
+  {
+   "family_id": "FAM-MB-3",
+   "names_as_recorded": [
+    "MB-3"
+   ],
+   "countries": [
+    "JP",
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-JP-MB-3-LICENCE-BUILT-N-I-N-II-H-I",
+    "ENG-US-MB-3-1",
+    "ENG-US-MB-3-2",
+    "ENG-US-MB-3-3"
+   ]
+  },
+  {
+   "family_id": "FAM-MB-60",
+   "names_as_recorded": [
+    "MB"
+   ],
+   "countries": [
+    "JP",
+    "US"
+   ],
+   "developers": [
+    "Boeing Rocketdyne + MHI"
+   ],
+   "variant_ids": [
+    "ENG-JP-MB-60"
+   ]
+  },
+  {
+   "family_id": "FAM-MBB-10-N",
+   "names_as_recorded": [
+    "MBB 10 N"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "MBB (later DASA/EADS)"
+   ],
+   "variant_ids": [
+    "ENG-DE-GALILEO-RPM-10-N"
+   ]
+  },
+  {
+   "family_id": "FAM-MBB-400-N",
+   "names_as_recorded": [
+    "MBB 400 N"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "MBB (later DASA/EADS)"
+   ],
+   "variant_ids": [
+    "ENG-DE-GALILEO-RPM-400-N"
+   ]
+  },
+  {
+   "family_id": "FAM-MERLIN",
+   "names_as_recorded": [
+    "Merlin"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "SpaceX"
+   ],
+   "variant_ids": [
+    "ENG-US-MERLIN-1A",
+    "ENG-US-MERLIN-1B",
+    "ENG-US-MERLIN-1C",
+    "ENG-US-MERLIN-1C-FALCON-9-CONFIGURATION",
+    "ENG-US-MERLIN-1C-VACUUM",
+    "ENG-US-MERLIN-1D",
+    "ENG-US-MERLIN-1D-BLOCK-5",
+    "ENG-US-MERLIN-1D-FULL-THRUST",
+    "ENG-US-MERLIN-1D-VACUUM",
+    "ENG-US-MERLIN-1D-VACUUM-SHORT-NOZZLE"
+   ]
+  },
+  {
+   "family_id": "FAM-MIRANDA",
+   "names_as_recorded": [
+    "Miranda"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Firefly Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-MIRANDA"
+   ]
+  },
+  {
+   "family_id": "FAM-MOMO",
+   "names_as_recorded": [
+    "MOMO"
+   ],
+   "countries": [
+    "JP"
+   ],
+   "developers": [
+    "Interstellar Technologies"
+   ],
+   "variant_ids": [
+    "ENG-JP-INTERSTELLAR-TECHNOLOGIES-MOMO-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-MOOG-DST",
+   "names_as_recorded": [
+    "Moog DST"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Moog"
+   ],
+   "variant_ids": [
+    "ENG-US-DST-11H",
+    "ENG-US-DST-12",
+    "ENG-US-DST-13"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-103",
+   "names_as_recorded": [
+    "MR-103"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-103G",
+    "ENG-US-MR-103J"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-104",
+   "names_as_recorded": [
+    "MR-104"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)",
+    "Aerojet Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-104",
+    "ENG-US-MR-104G"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-106",
+   "names_as_recorded": [
+    "MR-106"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-106L",
+    "ENG-US-MR-106M"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-107",
+   "names_as_recorded": [
+    "MR-107"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-107N",
+    "ENG-US-MR-107S",
+    "ENG-US-MR-107T",
+    "ENG-US-MR-107U",
+    "ENG-US-MR-107V"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-111",
+   "names_as_recorded": [
+    "MR-111"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-111C",
+    "ENG-US-MR-111G"
+   ]
+  },
+  {
+   "family_id": "FAM-MR-80",
+   "names_as_recorded": [
+    "MR-80"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (Rocket Research Co. heritage, Redmond WA)",
+    "Rocket Research Company"
+   ],
+   "variant_ids": [
+    "ENG-US-MR-80",
+    "ENG-US-MR-80B"
+   ]
+  },
+  {
+   "family_id": "FAM-NAA-120K-135K",
+   "names_as_recorded": [
+    "NAA 120K/135K"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR71-NA-1",
+    "ENG-US-XLR83-NA-1"
+   ]
+  },
+  {
+   "family_id": "FAM-NAA-75-110-REDSTONE",
+   "names_as_recorded": [
+    "NAA 75-110 (Redstone)"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-NAA-75-110-A-1",
+    "ENG-US-NAA-75-110-A-2",
+    "ENG-US-NAA-75-110-A-3",
+    "ENG-US-NAA-75-110-A-4",
+    "ENG-US-NAA-75-110-A-5",
+    "ENG-US-NAA-75-110-A-6",
+    "ENG-US-NAA-75-110-A-7"
+   ]
+  },
+  {
+   "family_id": "FAM-NAA-75K",
+   "names_as_recorded": [
+    "NAA 75K"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (North American Aviation)"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR43-NA-1"
+   ]
+  },
+  {
+   "family_id": "FAM-NEWTON",
+   "names_as_recorded": [
+    "Newton"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Virgin Orbit"
+   ],
+   "variant_ids": [
+    "ENG-US-NEWTONFOUR",
+    "ENG-US-NEWTONTHREE"
+   ]
+  },
+  {
+   "family_id": "FAM-NK",
+   "names_as_recorded": [
+    "NK",
+    "NK-33"
+   ],
+   "countries": [
+    "SU",
+    "US"
+   ],
+   "developers": [
+    "Aerojet",
+    "Aerojet (from NK-43)",
+    "OKB-276 (N. D. Kuznetsov) / SNTK im. Kuznetsova (now UEC-Kuznetsov)",
+    "SNTK Kuznetsov / Kuznetsov (Samara)"
+   ],
+   "variant_ids": [
+    "ENG-RU-NK-33A",
+    "ENG-SU-NK-15",
+    "ENG-SU-NK-15V",
+    "ENG-SU-NK-19",
+    "ENG-SU-NK-21",
+    "ENG-SU-NK-31",
+    "ENG-SU-NK-33",
+    "ENG-SU-NK-39",
+    "ENG-SU-NK-43",
+    "ENG-SU-NK-9",
+    "ENG-SU-NK-9V",
+    "ENG-US-AJ26-58",
+    "ENG-US-AJ26-59",
+    "ENG-US-AJ26-60",
+    "ENG-US-AJ26-62"
+   ]
+  },
+  {
+   "family_id": "FAM-NODONG",
+   "names_as_recorded": [
+    "Nodong"
+   ],
+   "countries": [
+    "IR",
+    "KP"
+   ],
+   "developers": [],
+   "variant_ids": [
+    "ENG-IR-SHAHAB-3-ENGINE",
+    "ENG-KP-NODONG-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-OKB-1-UPPER-STAGE-ENGINES",
+   "names_as_recorded": [
+    "OKB-1 upper-stage engines"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-1 (M. V. Melnikov)",
+    "OKB-1 (Melnikov)"
+   ],
+   "variant_ids": [
+    "ENG-SU-11D33",
+    "ENG-SU-11D33M"
+   ]
+  },
+  {
+   "family_id": "FAM-ORBEX",
+   "names_as_recorded": [
+    "Orbex"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Orbex"
+   ],
+   "variant_ids": [
+    "ENG-GB-ORBEX-PRIME-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-ORM",
+   "names_as_recorded": [
+    "ORM"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "GDL/RNII (V. P. Glushko)"
+   ],
+   "variant_ids": [
+    "ENG-SU-ORM-65"
+   ]
+  },
+  {
+   "family_id": "FAM-OTRAG",
+   "names_as_recorded": [
+    "OTRAG"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "OTRAG (Lutz Kayser)"
+   ],
+   "variant_ids": [
+    "ENG-DE-OTRAG-CRPU-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-PAEKTUSAN",
+   "names_as_recorded": [
+    "Paektusan"
+   ],
+   "countries": [
+    "KP"
+   ],
+   "developers": [],
+   "variant_ids": [
+    "ENG-KP-HWASONG-14-15-MAIN-ENGINE-PAEKTUSAN",
+    "ENG-KP-HWASONG-14-MAIN-ENGINE",
+    "ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-PROMETHEUS",
+   "names_as_recorded": [
+    "Prometheus"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "ArianeGroup (ESA)"
+   ],
+   "variant_ids": [
+    "ENG-FR-PROMETHEUS"
+   ]
+  },
+  {
+   "family_id": "FAM-PS4",
+   "names_as_recorded": [
+    "PS4"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-PS4-ENGINE-L-2-5"
+   ]
+  },
+  {
+   "family_id": "FAM-R-1E",
+   "names_as_recorded": [
+    "R-1E"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "The Marquardt Company"
+   ],
+   "variant_ids": [
+    "ENG-US-R-1E"
+   ]
+  },
+  {
+   "family_id": "FAM-R-27-VERNIER",
+   "names_as_recorded": [
+    "R-27 vernier?"
+   ],
+   "countries": [
+    "IR"
+   ],
+   "developers": [],
+   "variant_ids": [
+    "ENG-IR-SAFIR-SECOND-STAGE-ENGINE-PAIR",
+    "ENG-IR-SIMORGH-SECOND-STAGE-ENGINES"
+   ]
+  },
+  {
+   "family_id": "FAM-R-40",
+   "names_as_recorded": [
+    "R-40"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (ex-Marquardt)",
+    "The Marquardt Company"
+   ],
+   "variant_ids": [
+    "ENG-US-R-40A",
+    "ENG-US-R-40B"
+   ]
+  },
+  {
+   "family_id": "FAM-R-42",
+   "names_as_recorded": [
+    "R-42"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Marquardt / Aerojet"
+   ],
+   "variant_ids": [
+    "ENG-US-R-42"
+   ]
+  },
+  {
+   "family_id": "FAM-R-4D",
+   "names_as_recorded": [
+    "R-4D"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet",
+    "Aerojet (NASA ISPT funded)",
+    "Aerojet (formerly Marquardt)",
+    "Aerojet Rocketdyne",
+    "Marquardt / Kaiser Marquardt (later Aerojet)",
+    "The Marquardt Company"
+   ],
+   "variant_ids": [
+    "ENG-US-AMBR",
+    "ENG-US-R-4D",
+    "ENG-US-R-4D-11",
+    "ENG-US-R-4D-11-ORION-ESM-AUXILIARY",
+    "ENG-US-R-4D-15",
+    "ENG-US-R-4D-15DM",
+    "ENG-US-R-4D-CASSINI-MAIN-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-RAMAN",
+   "names_as_recorded": [
+    "Raman"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "Skyroot Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-IN-RAMAN"
+   ]
+  },
+  {
+   "family_id": "FAM-RAPTOR",
+   "names_as_recorded": [
+    "Raptor"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "SpaceX"
+   ],
+   "variant_ids": [
+    "ENG-US-RAPTOR-1",
+    "ENG-US-RAPTOR-2",
+    "ENG-US-RAPTOR-3",
+    "ENG-US-RAPTOR-3-VACUUM",
+    "ENG-US-RAPTOR-DEVELOPMENT",
+    "ENG-US-RAPTOR-VACUUM"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0105-0109",
+   "names_as_recorded": [
+    "RD-0105/0109"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0105",
+    "ENG-SU-RD-0109"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0106-0107-0108-0110",
+   "names_as_recorded": [
+    "RD-0106/0107/0108/0110"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA",
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-0110R",
+    "ENG-SU-RD-0106",
+    "ENG-SU-RD-0107",
+    "ENG-SU-RD-0108",
+    "ENG-SU-RD-0110"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0120",
+   "names_as_recorded": [
+    "RD-0120"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0120"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0124",
+   "names_as_recorded": [
+    "RD-0124"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA",
+    "KBKhA (now part of NPO Energomash)"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-0124",
+    "ENG-RU-RD-0124A",
+    "ENG-RU-RD-0124MS"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0146",
+   "names_as_recorded": [
+    "RD-0146"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA (with Pratt & Whitney cooperation, early)"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-0146"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0162",
+   "names_as_recorded": [
+    "RD-0162"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-0162"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0205-0210",
+   "names_as_recorded": [
+    "RD-0205/0210"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0205",
+    "ENG-SU-RD-0210",
+    "ENG-SU-RD-0211",
+    "ENG-SU-RD-0212",
+    "ENG-SU-RD-0213",
+    "ENG-SU-RD-0214"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0216-0217",
+   "names_as_recorded": [
+    "RD-0216/0217"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0216",
+    "ENG-SU-RD-0217"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0228-0229-0255",
+   "names_as_recorded": [
+    "RD-0228/0229/0255"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA",
+    "KBKhA (OKB-154)"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0228",
+    "ENG-SU-RD-0229"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0233-0234-0235",
+   "names_as_recorded": [
+    "RD-0233/0234/0235"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA",
+    "OKB-154 (S. A. Kosberg) / KBKhA (Chemical Automatics Design Bureau), Voronezh"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0232",
+    "ENG-SU-RD-0233",
+    "ENG-SU-RD-0234",
+    "ENG-SU-RD-0235",
+    "ENG-SU-RD-0236"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0243-0244-0245",
+   "names_as_recorded": [
+    "RD-0243/0244/0245"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA",
+    "KBKhA (OKB-154)"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-0243",
+    "ENG-SU-RD-0244",
+    "ENG-SU-RD-0245"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-0750",
+   "names_as_recorded": [
+    "RD-0750"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "KBKhA"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-0750"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-1-AIRCRAFT-BOOSTER",
+   "names_as_recorded": [
+    "RD-1 (aircraft booster)"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-SD Kazan (V. P. Glushko)"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-1",
+    "ENG-SU-RD-1KHZ"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-100-V-2-LINEAGE",
+   "names_as_recorded": [
+    "RD-100 (V-2 lineage)"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-100",
+    "ENG-SU-RD-101",
+    "ENG-SU-RD-103",
+    "ENG-SU-RD-103M"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-107-108",
+   "names_as_recorded": [
+    "RD-107/108"
+   ],
+   "countries": [
+    "RU",
+    "SU"
+   ],
+   "developers": [
+    "NPO Energomash",
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-107A",
+    "ENG-SU-RD-108A",
+    "ENG-SU-RD-107",
+    "ENG-SU-RD-107-8D74K",
+    "ENG-SU-RD-107MM",
+    "ENG-SU-RD-108",
+    "ENG-SU-RD-108MM",
+    "ENG-SU-RD-117",
+    "ENG-SU-RD-118"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-109-BLOCK-E-PROPOSAL",
+   "names_as_recorded": [
+    "RD-109 (Block E proposal)"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-109"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-111",
+   "names_as_recorded": [
+    "RD-111"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-111"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-120",
+   "names_as_recorded": [
+    "RD-120"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-120"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-170",
+   "names_as_recorded": [
+    "RD-170/171",
+    "RD-170/RD-191 lineage",
+    "RD-180",
+    "RD-191/181/151/193"
+   ],
+   "countries": [
+    "RU",
+    "SU"
+   ],
+   "developers": [
+    "NPO Energomash",
+    "NPO Energomash (INFERRED)",
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-151",
+    "ENG-RU-RD-171M",
+    "ENG-RU-RD-171MV",
+    "ENG-RU-RD-180",
+    "ENG-RU-RD-180V",
+    "ENG-RU-RD-181",
+    "ENG-RU-RD-191",
+    "ENG-RU-RD-191M",
+    "ENG-RU-RD-193",
+    "ENG-SU-RD-170",
+    "ENG-SU-RD-171"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-21X",
+   "names_as_recorded": [
+    "RD-21x"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (Glushko)",
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-214",
+    "ENG-SU-RD-215",
+    "ENG-SU-RD-216",
+    "ENG-SU-RD-217",
+    "ENG-SU-RD-218",
+    "ENG-SU-RD-219"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-253-275",
+   "names_as_recorded": [
+    "RD-253/275"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "NPO Energomash",
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-275",
+    "ENG-RU-RD-275M",
+    "ENG-SU-RD-253"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-25X",
+   "names_as_recorded": [
+    "RD-25x"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (Glushko)",
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-250",
+    "ENG-SU-RD-251",
+    "ENG-SU-RD-252",
+    "ENG-SU-RD-261",
+    "ENG-SU-RD-262"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-26X",
+   "names_as_recorded": [
+    "RD-26x"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-263",
+    "ENG-SU-RD-264",
+    "ENG-SU-RD-268"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-270",
+   "names_as_recorded": [
+    "RD-270"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-270"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-301",
+   "names_as_recorded": [
+    "RD-301"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "OKB-456 (V. P. Glushko) / NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-SU-RD-301"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-56-KVD-1",
+   "names_as_recorded": [
+    "RD-56/KVD-1"
+   ],
+   "countries": [
+    "RU",
+    "SU"
+   ],
+   "developers": [
+    "KB KhimMash (Isayev)",
+    "OKB-2 / KB KhimMash (A. M. Isayev)"
+   ],
+   "variant_ids": [
+    "ENG-RU-KVD-1",
+    "ENG-SU-RD-56"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-58-11D58",
+   "names_as_recorded": [
+    "RD-58/11D58"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "NPO Energia",
+    "OKB-1 / NPO Energia",
+    "RSC Energia"
+   ],
+   "variant_ids": [
+    "ENG-RU-11D58MF",
+    "ENG-SU-11D58",
+    "ENG-SU-11D58M"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-701-704-TRIPROPELLANT",
+   "names_as_recorded": [
+    "RD-701/704 tripropellant"
+   ],
+   "countries": [
+    "SU"
+   ],
+   "developers": [
+    "NPO Energomash"
+   ],
+   "variant_ids": [
+    "ENG-RU-RD-701",
+    "ENG-RU-RD-704"
+   ]
+  },
+  {
+   "family_id": "FAM-RD-8",
+   "names_as_recorded": [
+    "RD-8"
+   ],
+   "countries": [
+    "UA"
+   ],
+   "developers": [
+    "KB Yuzhnoye (Dnipro)"
+   ],
+   "variant_ids": [
+    "ENG-UA-RD-8"
+   ]
+  },
+  {
+   "family_id": "FAM-REAVER",
+   "names_as_recorded": [
+    "Reaver"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Firefly Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-REAVER"
+   ]
+  },
+  {
+   "family_id": "FAM-RIPLEY",
+   "names_as_recorded": [
+    "Ripley"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Ursa Major"
+   ],
+   "variant_ids": [
+    "ENG-US-RIPLEY"
+   ]
+  },
+  {
+   "family_id": "FAM-RL10",
+   "names_as_recorded": [
+    "RL10"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Pratt & Whitney"
+   ],
+   "variant_ids": [
+    "ENG-US-RL10-CECE",
+    "ENG-US-RL10A-1",
+    "ENG-US-RL10A-3",
+    "ENG-US-RL10A-3-1",
+    "ENG-US-RL10A-3-3",
+    "ENG-US-RL10A-3-3A",
+    "ENG-US-RL10A-4",
+    "ENG-US-RL10A-4-1",
+    "ENG-US-RL10A-4-2",
+    "ENG-US-RL10A-5",
+    "ENG-US-RL10B-2",
+    "ENG-US-RL10C-1",
+    "ENG-US-RL10C-1-1",
+    "ENG-US-RL10C-2",
+    "ENG-US-RL10C-3",
+    "ENG-US-RL10C-X"
+   ]
+  },
+  {
+   "family_id": "FAM-ROTON",
+   "names_as_recorded": [
+    "Roton"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rotary Rocket Company"
+   ],
+   "variant_ids": [
+    "ENG-US-ROTON-ROTARY-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-18",
+   "names_as_recorded": [
+    "RS-18"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-18"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-25",
+   "names_as_recorded": [
+    "RS-25"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet Rocketdyne",
+    "Aerojet Rocketdyne (L3Harris)",
+    "Rocketdyne (Rockwell / Boeing / PWR / Aerojet Rocketdyne)",
+    "Rocketdyne (later PWR/Aerojet Rocketdyne); HPFTP by Pratt & Whitney"
+   ],
+   "variant_ids": [
+    "ENG-US-AR22",
+    "ENG-US-RS-25E",
+    "ENG-US-SSME-BLOCK-I",
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-IIA",
+    "ENG-US-SSME-FPL-PHASE-I",
+    "ENG-US-SSME-PHASE-II"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-27",
+   "names_as_recorded": [
+    "RS-27"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne",
+    "Rocketdyne (Boeing / PWR / Aerojet Rocketdyne)",
+    "Rocketdyne (Rockwell International)"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-27",
+    "ENG-US-RS-27A",
+    "ENG-US-RS-27C"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-56",
+   "names_as_recorded": [
+    "RS-56"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (Rockwell)"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-56-OBA",
+    "ENG-US-RS-56-OSA"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-68",
+   "names_as_recorded": [
+    "RS-68"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Boeing Rocketdyne",
+    "Pratt & Whitney Rocketdyne / Aerojet Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-68",
+    "ENG-US-RS-68A"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-83",
+   "names_as_recorded": [
+    "RS-83"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (Boeing)"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-83"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-84",
+   "names_as_recorded": [
+    "RS-84"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne (Boeing)"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-84"
+   ]
+  },
+  {
+   "family_id": "FAM-RS-88",
+   "names_as_recorded": [
+    "RS-88"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet Rocketdyne",
+    "Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-RS-88",
+    "ENG-US-STARLINER-LAE"
+   ]
+  },
+  {
+   "family_id": "FAM-RUTHERFORD",
+   "names_as_recorded": [
+    "Rutherford"
+   ],
+   "countries": [
+    "NZ",
+    "US"
+   ],
+   "developers": [
+    "Rocket Lab"
+   ],
+   "variant_ids": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "family_id": "FAM-RZ",
+   "names_as_recorded": [
+    "RZ"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Rolls-Royce",
+    "Rolls-Royce (from Rocketdyne S-3D)"
+   ],
+   "variant_ids": [
+    "ENG-GB-RZ-1",
+    "ENG-GB-RZ-2"
+   ]
+  },
+  {
+   "family_id": "FAM-S10",
+   "names_as_recorded": [
+    "S10"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "ArianeGroup"
+   ],
+   "variant_ids": [
+    "ENG-EU-S10-10-N-BIPROPELLANT-THRUSTER"
+   ]
+  },
+  {
+   "family_id": "FAM-S22",
+   "names_as_recorded": [
+    "S22"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "ArianeGroup"
+   ],
+   "variant_ids": [
+    "ENG-EU-22-N-THRUSTER-ESA-GSTP-ARIANEGROUP"
+   ]
+  },
+  {
+   "family_id": "FAM-S400",
+   "names_as_recorded": [
+    "S400"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "ArianeGroup",
+    "ArianeGroup (MBB/DASA/Astrium heritage)"
+   ],
+   "variant_ids": [
+    "ENG-EU-S400-12",
+    "ENG-EU-S400-15"
+   ]
+  },
+  {
+   "family_id": "FAM-SE-2000",
+   "names_as_recorded": [
+    "SE-2000"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-SCE-200"
+   ]
+  },
+  {
+   "family_id": "FAM-SE-8",
+   "names_as_recorded": [
+    "SE-8"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-SE-8"
+   ]
+  },
+  {
+   "family_id": "FAM-SEPR",
+   "names_as_recorded": [
+    "SEPR 84",
+    "SEPR aircraft rockets"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "SEPR",
+    "SEPR (Societe d'Etude de la Propulsion par Reaction)"
+   ],
+   "variant_ids": [
+    "ENG-FR-SEPR-25",
+    "ENG-FR-SEPR-66",
+    "ENG-FR-SEPR-841",
+    "ENG-FR-SEPR-844"
+   ]
+  },
+  {
+   "family_id": "FAM-SHAHAB-NODONG",
+   "names_as_recorded": [
+    "Shahab/Nodong"
+   ],
+   "countries": [
+    "IR"
+   ],
+   "developers": [
+    "Iran (unknown entity)"
+   ],
+   "variant_ids": [
+    "ENG-IR-SAFIR-FIRST-STAGE-ENGINE",
+    "ENG-IR-SIMORGH-FIRST-STAGE-ENGINE-CLUSTER"
+   ]
+  },
+  {
+   "family_id": "FAM-SISP-490N-LAE",
+   "names_as_recorded": [
+    "490N LAE"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "SISP",
+    "SISP (上海空间推进研究所)"
+   ],
+   "variant_ids": [
+    "ENG-CN-490N-LAE-THIRD-GENERATION",
+    "ENG-CN-FY-25",
+    "ENG-CN-TQS492-2"
+   ]
+  },
+  {
+   "family_id": "FAM-SKYRORA",
+   "names_as_recorded": [
+    "Skyrora"
+   ],
+   "countries": [
+    "GB"
+   ],
+   "developers": [
+    "Skyrora"
+   ],
+   "variant_ids": [
+    "ENG-GB-SKYFORCE-2",
+    "ENG-GB-SKYLARK-L-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-SPECTRE",
+   "names_as_recorded": [
+    "Spectre"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Firefly Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-SPECTRE"
+   ]
+  },
+  {
+   "family_id": "FAM-STARLINER-SM-PROPULSION",
+   "names_as_recorded": [
+    "Starliner SM propulsion"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet Rocketdyne"
+   ],
+   "variant_ids": [
+    "ENG-US-STARLINER-OMAC",
+    "ENG-US-STARLINER-RCS"
+   ]
+  },
+  {
+   "family_id": "FAM-TAIFUN",
+   "names_as_recorded": [
+    "Taifun"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "HVA Peenemuende / Elektromechanische Werke Karlshagen"
+   ],
+   "variant_ids": [
+    "ENG-DE-TAIFUN-F-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-TEPREL",
+   "names_as_recorded": [
+    "TEPREL"
+   ],
+   "countries": [
+    "ES"
+   ],
+   "developers": [
+    "PLD Space"
+   ],
+   "variant_ids": [
+    "ENG-ES-TEPREL-B",
+    "ENG-ES-TEPREL-C",
+    "ENG-ES-TEPREL-C-VAC"
+   ]
+  },
+  {
+   "family_id": "FAM-THUNDER-LEITING",
+   "names_as_recorded": [
+    "Thunder (Leiting)"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Deep Blue Aerospace",
+    "Deep Blue Aerospace (深蓝航天)"
+   ],
+   "variant_ids": [
+    "ENG-CN-LEIYU-THUNDER-R1",
+    "ENG-CN-THUNDER-RS"
+   ]
+  },
+  {
+   "family_id": "FAM-TIANHUO",
+   "names_as_recorded": [
+    "TH",
+    "TH-11",
+    "TH-12"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Space Pioneer",
+    "Space Pioneer (Beijing Tianbing Technology)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-TH-11",
+    "ENG-CN-TH-12",
+    "ENG-CN-TH-12V",
+    "ENG-CN-TH-31"
+   ]
+  },
+  {
+   "family_id": "FAM-TQ-11",
+   "names_as_recorded": [
+    "TQ-11"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "LandSpace"
+   ],
+   "variant_ids": [
+    "ENG-CN-TQ-11"
+   ]
+  },
+  {
+   "family_id": "FAM-TQ-12",
+   "names_as_recorded": [
+    "TQ-12"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "LandSpace",
+    "LandSpace (蓝箭航天)"
+   ],
+   "variant_ids": [
+    "ENG-CN-TQ-12",
+    "ENG-CN-TQ-12A",
+    "ENG-CN-TQ-12B"
+   ]
+  },
+  {
+   "family_id": "FAM-TQ-15",
+   "names_as_recorded": [
+    "TQ-15"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "LandSpace"
+   ],
+   "variant_ids": [
+    "ENG-CN-TQ-15A",
+    "ENG-CN-TQ-15B"
+   ]
+  },
+  {
+   "family_id": "FAM-TR-202",
+   "names_as_recorded": [
+    "TR-202"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Northrop Grumman"
+   ],
+   "variant_ids": [
+    "ENG-US-TR-202"
+   ]
+  },
+  {
+   "family_id": "FAM-TRONADOR",
+   "names_as_recorded": [
+    "Tronador"
+   ],
+   "countries": [
+    "AR"
+   ],
+   "developers": [
+    "CONAE",
+    "CONAE (UNVERIFIED)",
+    "CONAE / VENG S.A."
+   ],
+   "variant_ids": [
+    "ENG-AR-MT-B",
+    "ENG-AR-RS-2",
+    "ENG-AR-TRONADOR-II-ENGINES",
+    "ENG-AR-VEX-1A-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-TRW-LAE",
+   "names_as_recorded": [
+    "TRW LAE"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "TRW (now Northrop Grumman)"
+   ],
+   "variant_ids": [
+    "ENG-US-TR-308",
+    "ENG-US-TR-312"
+   ]
+  },
+  {
+   "family_id": "FAM-TRW-PINTLE",
+   "names_as_recorded": [
+    "TRW pintle"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "TRW",
+    "TRW / Northrop Grumman"
+   ],
+   "variant_ids": [
+    "ENG-US-TR-106",
+    "ENG-US-TR-107",
+    "ENG-US-TR-201"
+   ]
+  },
+  {
+   "family_id": "FAM-VECTOR",
+   "names_as_recorded": [
+    "Vector"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Vector Launch"
+   ],
+   "variant_ids": [
+    "ENG-US-LP-2"
+   ]
+  },
+  {
+   "family_id": "FAM-VERONIQUE",
+   "names_as_recorded": [
+    "Veronique"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "LRBA",
+    "LRBA (Laboratoire de recherches balistiques et aerodynamiques)"
+   ],
+   "variant_ids": [
+    "ENG-FR-VERONIQUE-ENGINE",
+    "ENG-FR-VESTA-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-VEXIN",
+   "names_as_recorded": [
+    "Vexin"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "LRBA"
+   ],
+   "variant_ids": [
+    "ENG-FR-CORALIE-ENGINE",
+    "ENG-FR-VALOIS",
+    "ENG-FR-VEXIN-B"
+   ]
+  },
+  {
+   "family_id": "FAM-VFR",
+   "names_as_recorded": [
+    "VfR"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "Verein fuer Raumschiffahrt (VfR)"
+   ],
+   "variant_ids": [
+    "ENG-DE-MIRAK-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-VIKAS",
+   "names_as_recorded": [
+    "Vikas"
+   ],
+   "countries": [
+    "IN"
+   ],
+   "developers": [
+    "ISRO LPSC"
+   ],
+   "variant_ids": [
+    "ENG-IN-VIKAS",
+    "ENG-IN-VIKAS-4",
+    "ENG-IN-VIKAS-4B",
+    "ENG-IN-VIKAS-HIGH-THRUST",
+    "ENG-IN-VIKAS-HUMAN-RATED",
+    "ENG-IN-VIKAS-L40-STRAP-ON",
+    "ENG-IN-VIKAS-X"
+   ]
+  },
+  {
+   "family_id": "FAM-VIKING",
+   "names_as_recorded": [
+    "Viking"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "SEP",
+    "SEP (Societe Europeenne de Propulsion)"
+   ],
+   "variant_ids": [
+    "ENG-FR-VIKING-2",
+    "ENG-FR-VIKING-2B",
+    "ENG-FR-VIKING-4",
+    "ENG-FR-VIKING-4B",
+    "ENG-FR-VIKING-5",
+    "ENG-FR-VIKING-5B",
+    "ENG-FR-VIKING-5C",
+    "ENG-FR-VIKING-6"
+   ]
+  },
+  {
+   "family_id": "FAM-VINCI",
+   "names_as_recorded": [
+    "Vinci"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "Snecma / ArianeGroup (ESA programme)"
+   ],
+   "variant_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "family_id": "FAM-VORTEX",
+   "names_as_recorded": [
+    "VORTEX"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Sierra Space"
+   ],
+   "variant_ids": [
+    "ENG-US-VORTEX-1500-LBF-HYPERGOLIC",
+    "ENG-US-VR35K-A"
+   ]
+  },
+  {
+   "family_id": "FAM-VR",
+   "names_as_recorded": [
+    "VR"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Intuitive Machines"
+   ],
+   "variant_ids": [
+    "ENG-US-VR3500",
+    "ENG-US-VR900"
+   ]
+  },
+  {
+   "family_id": "FAM-VULCAIN",
+   "names_as_recorded": [
+    "Vulcain"
+   ],
+   "countries": [
+    "FR"
+   ],
+   "developers": [
+    "SEP (prime) with European partners; later Snecma / ArianeGroup",
+    "Snecma (Safran/ArianeGroup)"
+   ],
+   "variant_ids": [
+    "ENG-FR-VULCAIN",
+    "ENG-FR-VULCAIN-2",
+    "ENG-FR-VULCAIN-2-1"
+   ]
+  },
+  {
+   "family_id": "FAM-WAC-CORPORAL",
+   "names_as_recorded": [
+    "WAC Corporal"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Aerojet (with JPL)"
+   ],
+   "variant_ids": [
+    "ENG-US-38ALDW-1500"
+   ]
+  },
+  {
+   "family_id": "FAM-WASSERFALL",
+   "names_as_recorded": [
+    "Wasserfall"
+   ],
+   "countries": [
+    "DE"
+   ],
+   "developers": [
+    "HVA Peenemuende (Walter Thiel)"
+   ],
+   "variant_ids": [
+    "ENG-DE-WASSERFALL-ENGINE"
+   ]
+  },
+  {
+   "family_id": "FAM-WELKIN",
+   "names_as_recorded": [
+    "Welkin"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Galactic Energy"
+   ],
+   "variant_ids": [
+    "ENG-CN-WELKIN",
+    "ENG-CN-WELKIN-VAC"
+   ]
+  },
+  {
+   "family_id": "FAM-X-405",
+   "names_as_recorded": [
+    "X-405"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "General Electric"
+   ],
+   "variant_ids": [
+    "ENG-US-X-405"
+   ]
+  },
+  {
+   "family_id": "FAM-XCOR",
+   "names_as_recorded": [
+    "XCOR"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "XCOR Aerospace"
+   ],
+   "variant_ids": [
+    "ENG-US-5M15",
+    "ENG-US-XCOR-LYNX-MAIN",
+    "ENG-US-XR-4A3",
+    "ENG-US-XR-5K18"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR10",
+   "names_as_recorded": [
+    "XLR10"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Reaction Motors Inc."
+   ],
+   "variant_ids": [
+    "ENG-US-XLR10-RM-2"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR11",
+   "names_as_recorded": [
+    "XLR11"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Reaction Motors Inc.",
+    "Reaction Motors Inc. (RMI)"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR11",
+    "ENG-US-XLR11-RM-5",
+    "ENG-US-XLR8-RM-5"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR129",
+   "names_as_recorded": [
+    "XLR129"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Pratt & Whitney (Florida R&D Center)"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR129-P-1"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR25",
+   "names_as_recorded": [
+    "XLR25"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Curtiss-Wright"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR25-CW-1"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR81",
+   "names_as_recorded": [
+    "XLR81"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Bell Aerosystems (Bell Aircraft)"
+   ],
+   "variant_ids": [
+    "ENG-US-BELL-117",
+    "ENG-US-BELL-8001",
+    "ENG-US-BELL-8048",
+    "ENG-US-BELL-8081",
+    "ENG-US-BELL-8096",
+    "ENG-US-BELL-8247"
+   ]
+  },
+  {
+   "family_id": "FAM-XLR99",
+   "names_as_recorded": [
+    "XLR99"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Reaction Motors Division of Thiokol"
+   ],
+   "variant_ids": [
+    "ENG-US-XLR99-RM-1",
+    "ENG-US-XLR99-RM-2"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-1",
+   "names_as_recorded": [
+    "YF-1"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "CAS propulsion (later AALPT)",
+    "CAS/7th Ministry propulsion (later AALPT)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-1",
+    "ENG-CN-YF-1B",
+    "ENG-CN-YF-2",
+    "ENG-CN-YF-3",
+    "ENG-CN-YF-3A"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-100",
+   "names_as_recorded": [
+    "YF-100"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT; Xi'an Aerospace Propulsion Institute (INFERRED)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-100",
+    "ENG-CN-YF-100K",
+    "ENG-CN-YF-100L",
+    "ENG-CN-YF-100M"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-115",
+   "names_as_recorded": [
+    "YF-115"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "Xi'an Aerospace Propulsion Institute (AALPT)"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-115"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-130",
+   "names_as_recorded": [
+    "YF-130"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-130"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-20",
+   "names_as_recorded": [
+    "YF-20"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT (Academy of Aerospace Liquid Propulsion Technology)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-20",
+    "ENG-CN-YF-20B",
+    "ENG-CN-YF-21",
+    "ENG-CN-YF-21B",
+    "ENG-CN-YF-22",
+    "ENG-CN-YF-22B",
+    "ENG-CN-YF-23",
+    "ENG-CN-YF-24",
+    "ENG-CN-YF-24C",
+    "ENG-CN-YF-25"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-209",
+   "names_as_recorded": [
+    "YF-209"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT (CASC 6th Academy)"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-209"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-215",
+   "names_as_recorded": [
+    "YF-215"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-215"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-40",
+   "names_as_recorded": [
+    "YF-40"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-40",
+    "ENG-CN-YF-40A"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-50",
+   "names_as_recorded": [
+    "YF-50"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "CALT (stage) / engine developer UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-50D"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-73",
+   "names_as_recorded": [
+    "YF-73"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-73"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-75",
+   "names_as_recorded": [
+    "YF-75"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT (Beijing Aerospace Propulsion Institute — UNVERIFIED)",
+    "UNKNOWN"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-75",
+    "ENG-CN-YF-75D"
+   ]
+  },
+  {
+   "family_id": "FAM-YF-77",
+   "names_as_recorded": [
+    "YF-77"
+   ],
+   "countries": [
+    "CN"
+   ],
+   "developers": [
+    "AALPT (Beijing, INFERRED)"
+   ],
+   "variant_ids": [
+    "ENG-CN-YF-77"
+   ]
+  },
+  {
+   "family_id": "FAM-YUZHNOYE-RD-8XX",
+   "names_as_recorded": [
+    "Yuzhnoye RD-8xx"
+   ],
+   "countries": [
+    "SU",
+    "UA"
+   ],
+   "developers": [
+    "KB Yuzhnoye (Dnipro)",
+    "Yuzhnoye"
+   ],
+   "variant_ids": [
+    "ENG-UA-RD-855",
+    "ENG-UA-RD-861",
+    "ENG-UA-RD-801",
+    "ENG-UA-RD-810",
+    "ENG-UA-RD-843",
+    "ENG-UA-RD-861K",
+    "ENG-UA-RD-870",
+    "ENG-UA-RD-864"
+   ]
+  },
+  {
+   "family_id": "FAM-ZENITH",
+   "names_as_recorded": [
+    "Zenith"
+   ],
+   "countries": [
+    "US"
+   ],
+   "developers": [
+    "Stoke Space"
+   ],
+   "variant_ids": [
+    "ENG-US-ZENITH"
+   ]
+  }
+ ]
+}

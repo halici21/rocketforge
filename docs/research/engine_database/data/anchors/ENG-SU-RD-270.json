@@ -1,0 +1,389 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-SU-RD-270",
+ "equivalent_ids": [
+  "ENG-SU-RD-270"
+ ],
+ "designation": "RD-270 (8D420)",
+ "family": "RD-270",
+ "variant_scope": "RD-270 test-stand engine (never flew).",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal 100% rated, as published",
+   "notes": "SL vs vac per assertion"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.index",
+   "operating_point": null,
+   "value": "8D420",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "count",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 26.1,
+   "unit": "MPa (3790 psi)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-NOM",
+   "value": 301,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-NOM",
+   "value": 322,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 6270,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 6713,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-NOM",
+   "value": 2.67,
+   "unit": "- (variable ~+-7%)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "N2O4",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "UDMH",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "gg_preburner.arrangement",
+   "operating_point": null,
+   "value": "two preburners: fuel-rich drives fuel-pump turbine, ox-rich drives ox-pump turbine; main chamber burns only generator gas",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.end",
+   "operating_point": null,
+   "value": "1968 (en-wiki) / 1970-12-31 (ja-wiki)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD270",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "nozzle.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "control.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-FPB",
+    "component_type": "preburner",
+    "label": "fuel-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-OPB",
+    "component_type": "preburner",
+    "label": "ox-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FT",
+    "component_type": "turbine",
+    "label": "fuel-side turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-OT",
+    "component_type": "turbine",
+    "label": "ox-side turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FP",
+    "component_type": "pump",
+    "label": "fuel (UDMH) pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-OP",
+    "component_type": "pump",
+    "label": "oxidizer (N2O4) pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "main chamber (gas-gas)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-FPB",
+    "to": "N-FT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-OPB",
+    "to": "N-OT",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-FT",
+    "to": "N-FP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-OT",
+    "to": "N-OP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-FT",
+    "to": "N-MCC",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-OT",
+    "to": "N-MCC",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-FP",
+    "to": "N-FPB",
+    "fluid": "UDMH",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": "full flow: all fuel to FPB"
+   },
+   {
+    "id": "E-8",
+    "from": "N-OP",
+    "to": "N-OPB",
+    "fluid": "N2O4",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD270",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Missing: cross-feeds (ox to FPB, fuel to OPB), cooling path, boost pumps, valves. Only Tier D evidence."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Two independent turbopump shafts with different hot-gas sides; main chamber is gas-gas.",
+  "Programme end date disputed between language editions."
+ ],
+ "notes": "Tier D only. | Evidence basis: WebSearch result summaries only (WebFetch/curl blocked); every source access=search_result_only.",
+ "branch": "r2_ussr"
+}

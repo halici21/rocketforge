@@ -1,0 +1,384 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-IN-CE-20",
+ "designation": "CE-20",
+ "family": "CE-20",
+ "variant_scope": "CE-20 LVM3 upper-stage engine (C25 and uprated C32). Thrust ratings 19 t / 20 t (Gaganyaan) / 22 t are qualified set-points of one design; not separate records.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "spec-table vacuum (186.36 kN)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "nominal 200 kN",
+   "notes": "older table / Gaganyaan 20 t"
+  },
+  {
+   "op_id": "OP-3",
+   "label": "uprated 22 t",
+   "notes": "C32"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator (first Indian cryogenic engine with GG cycle)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "gas_generator.gg1.propellant_source",
+   "operating_point": null,
+   "value": "LOX and LH2 tapped from the respective pump outlets",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.arrangement",
+   "operating_point": null,
+   "value": "independent LH2 and LOX turbopumps operating in series mode",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "interpreted as turbines in series on the GG gas path; order not stated"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 186.36,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-2",
+   "value": 200,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "older spec table (45,000 lbf)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "180-220 kN; can be set to any fixed value within range",
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "set-point, not in-flight throttling"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-3",
+   "value": "19 t / 20 t / 22 t qualified levels",
+   "unit": "t",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IASGYAN-CE20",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-2",
+   "value": 6,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": "870 psi"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-2",
+   "value": 5.05,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": "convention not stated"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 442,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_to_weight",
+   "operating_point": null,
+   "value": 34.7,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": null,
+   "value": "640-800",
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 588,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "spec table",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "gas_generator.gg1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.exhaust_destination",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-PUMP",
+    "component_type": "pump",
+    "label": "LH2 pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LH2-TURB",
+    "component_type": "turbine",
+    "label": "LH2 TP turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-TURB",
+    "component_type": "turbine",
+    "label": "LOX TP turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber (6 MPa)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-EXH",
+    "component_type": "turbine_exhaust_duct",
+    "label": "Turbine exhaust",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "destination NOT_REPORTED"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-PUMP",
+    "to": "N-GG",
+    "fluid": "LH2",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": "tapped from pump outlet"
+   },
+   {
+    "id": "E-2",
+    "from": "N-LOX-PUMP",
+    "to": "N-GG",
+    "fluid": "LOX",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": "tapped from pump outlet"
+   },
+   {
+    "id": "E-3",
+    "from": "N-GG",
+    "to": "N-LH2-TURB",
+    "fluid": "fuel-rich hot gas (assumed)",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "order of series turbines NOT_REPORTED; LH2 first assumed"
+   },
+   {
+    "id": "E-4",
+    "from": "N-LH2-TURB",
+    "to": "N-LOX-TURB",
+    "fluid": "turbine gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-CE20",
+    "locator": "search summary",
+    "note": "'series mode'; direction uncertain"
+   },
+   {
+    "id": "E-5",
+    "from": "N-LOX-TURB",
+    "to": "N-EXH",
+    "fluid": "turbine gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-LH2-PUMP",
+    "to": "N-MCC",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-LOX-PUMP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Series-turbine skeleton; order and exhaust handling unknown."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "weak",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [
+  "SCH-ENG-IN-CE-20-1"
+ ],
+ "schema_breakers": [
+  "Series turbine drive with independent turbopumps: edge order matters.",
+  "Multiple qualified thrust set-points (19/20/22 t) for one designation; 'nominal' differs by mission.",
+  "GG fed from pump outlets (bootstrap) vs from tanks - needs explicit tap-point."
+ ],
+ "notes": "Tier D only; IAC-14 paper 25117 is a lead.",
+ "branch": "r2_asia"
+}

@@ -1,0 +1,688 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-SU-RD-170",
+ "equivalent_ids": [
+  "ENG-SU-RD-170"
+ ],
+ "designation": "RD-170 (11D521)",
+ "family": "RD-170/171",
+ "variant_scope": "RD-170 Energia strap-on engine. NTRS slides describe 'Energia booster engine' and count Zenit (SL-16) flights under the same label, so some values may be RD-171-common. RD-171/171M excluded (separate records).",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal 100% rated, as published",
+   "notes": "SL vs vac per assertion"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.native_name",
+   "operating_point": null,
+   "value": "РД-170",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAKEDSCI-RAPTOR",
+   "locator": "search excerpt",
+   "confidence": "high",
+   "note": "[carried from round 1] [merge: status REPORTED -> SECONDARY_CLAIM, source tier E]"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 266.7,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAKEDSCI-RAPTOR",
+   "locator": "search excerpt ('согласно опубликованным данным Энергомаша')",
+   "confidence": "low",
+   "note": "[carried from round 1] Journalism quoting manufacturer. 266.7 bar = 26.67 MPa = 272 kgf/cm2 (DERIVED). Abs/gauge and location not stated. [merge: status REPORTED -> SECONDARY_CLAIM, source tier E]"
+  },
+  {
+   "field_path": "performance.pc_margin_claim",
+   "operating_point": "OP-NOM",
+   "value": ">280",
+   "unit": "bar (claimed ~10% margin)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SNOB-172276",
+   "locator": "search excerpt; attributed to chief designer P. Lyovochkin",
+   "confidence": "low",
+   "note": "[carried from round 1] Capability/margin claim, not a rated operating point. Do not merge with rated Pc."
+  },
+  {
+   "field_path": "identity.lineage_children",
+   "operating_point": null,
+   "value": "RD-180 (2-chamber derivative); RD-191 based on RD-170/171 design",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RUWIKI-RD191",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[carried from round 1] [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "feed.turbopump_count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "count",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "high",
+   "note": "'propulsion module consisting of 1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies'"
+  },
+  {
+   "field_path": "preburners.count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "count",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "RESOLVES round-1 1-vs-2 question in favour of 2 (Tier A, but seen only via search summary). Both drive the single turbine."
+  },
+  {
+   "field_path": "thrust_chamber.count",
+   "operating_point": null,
+   "value": 4,
+   "unit": "count",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.method",
+   "operating_point": null,
+   "value": "regenerative (fuel)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "'four regeneratively cooled (fuel) TCAs'"
+  },
+  {
+   "field_path": "pumps.layout",
+   "operating_point": null,
+   "value": "single shaft: fuel pump bottom, oxygen pump middle, turbine top",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "feed.inlets",
+   "operating_point": null,
+   "value": "low pressure kerosene inlet; low pressure oxygen inlet",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "from display photographs"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 740,
+   "unit": "metric tons",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 806,
+   "unit": "metric tons",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-NOM",
+   "value": 308,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-NOM",
+   "value": 336,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 250,
+   "unit": "kgf/cm2",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "abs/gauge, station not stated. 250 kgf/cm2 = 24.52 MPa (DERIVED)"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 24.52,
+   "unit": "MPa",
+   "status": "DERIVED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "arithmetic 250 x 0.0980665"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-NOM",
+   "value": 2.58,
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "convention not stated"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-NOM",
+   "value": 2.63,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 7250,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 7900,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T1.power",
+   "operating_point": null,
+   "value": 170,
+   "unit": "MW (230,000 hp)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.method",
+   "operating_point": null,
+   "value": "pyrophoric start-fuel capsule (triethylaluminium)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.first_test_firing",
+   "operating_point": null,
+   "value": "1980-08-25",
+   "unit": "date",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.development",
+   "operating_point": null,
+   "value": "1976-1987",
+   "unit": "years",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.life_design",
+   "operating_point": null,
+   "value": 10,
+   "unit": "firings (reusable design goal)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD170",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.flights",
+   "operating_point": null,
+   "value": "29 (21 as SL-16 Zenit since 1985)",
+   "unit": "count",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19910018906",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "as of slide date; mixes RD-170/RD-171 usage"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.boost_pumps.drive",
+   "reason": "NOT_REPORTED",
+   "note": "3 targeted searches (ru/en); no retrieved summary states the boost-pump drive (hydraulic vs gas turbine). Remains a verification target."
+  },
+  {
+   "field_path": "preburners.P1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.P1.temperature",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "control.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TPA-SHAFT",
+    "component_type": "shaft",
+    "label": "single TPA shaft",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FUEL-PUMP",
+    "component_type": "pump",
+    "label": "main fuel (kerosene) pump - bottom of shaft",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-OX-PUMP",
+    "component_type": "pump",
+    "label": "main oxygen pump - middle of shaft",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "main turbine - top of shaft (170 MW per Wiki)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-PB1",
+    "component_type": "preburner",
+    "label": "preburner 1 (ox-rich)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": "ox-rich per Wiki cycle"
+   },
+   {
+    "id": "N-PB2",
+    "component_type": "preburner",
+    "label": "preburner 2 (ox-rich)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LP-FUEL-IN",
+    "component_type": "booster_pump",
+    "label": "low-pressure kerosene inlet (boost pump presence INFERRED)",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": "slides say 'low pressure kerosene inlet'; a boost pump is not stated"
+   },
+   {
+    "id": "N-LP-OX-IN",
+    "component_type": "booster_pump",
+    "label": "low-pressure oxygen inlet (boost pump presence INFERRED)",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TCA1",
+    "component_type": "main_chamber",
+    "label": "TCA 1 (regen, fuel)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TCA2",
+    "component_type": "main_chamber",
+    "label": "TCA 2",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TCA3",
+    "component_type": "main_chamber",
+    "label": "TCA 3",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TCA4",
+    "component_type": "main_chamber",
+    "label": "TCA 4",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-START",
+    "component_type": "start_cartridge",
+    "label": "TEA pyrophoric start capsule",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": "Tier D"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LP-OX-IN",
+    "to": "N-OX-PUMP",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-LP-FUEL-IN",
+    "to": "N-FUEL-PUMP",
+    "fluid": "RP-1 (kerosene)",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-OX-PUMP",
+    "to": "N-PB1",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": "ox-rich staged combustion implies bulk LOX to preburners; split between PB1/PB2 not reported"
+   },
+   {
+    "id": "E-4",
+    "from": "N-OX-PUMP",
+    "to": "N-PB2",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-PB1",
+    "to": "N-TURB",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": "'TPA driven by 2 preburners'"
+   },
+   {
+    "id": "E-6",
+    "from": "N-PB2",
+    "to": "N-TURB",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-TURB",
+    "to": "N-TCA1",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": "staged combustion; distribution manifold to 4 TCAs not described"
+   },
+   {
+    "id": "E-8",
+    "from": "N-TURB",
+    "to": "N-TCA2",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-TURB",
+    "to": "N-TCA3",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-TURB",
+    "to": "N-TCA4",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-FUEL-PUMP",
+    "to": "N-TCA1",
+    "fluid": "RP-1 (kerosene)",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": "'regeneratively cooled (fuel)'; same for TCA2-4 (edges omitted for brevity -> see note)"
+   },
+   {
+    "id": "E-12",
+    "from": "N-FUEL-PUMP",
+    "to": "N-PB1",
+    "fluid": "RP-1 (kerosene)",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": "preburner fuel; any kick stage not reported"
+   },
+   {
+    "id": "E-13",
+    "from": "N-FUEL-PUMP",
+    "to": "N-PB2",
+    "fluid": "RP-1 (kerosene)",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD170",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-14",
+    "from": "N-TURB",
+    "to": "N-TPA-SHAFT",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-15",
+    "from": "N-TPA-SHAFT",
+    "to": "N-OX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-16",
+    "from": "N-TPA-SHAFT",
+    "to": "N-FUEL-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19910018906",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Missing: boost pump drives (and their turbine flows), fuel kick pump if any, valves/control, gimbal actuators, coolant edges to TCA2-4 (same as E-11), igniter path, start sequence."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "partial",
+  "pumps": "partial",
+  "turbines": "weak",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "weak",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "2 preburners -> 1 turbine -> 4 chambers: merge (2->1) then split (1->4) in hot-gas path; preburner and chamber counts differ.",
+  "Rated Pc vs design-margin claim (round-1 >280 bar) vs 266.7 bar journalism vs 250 kgf/cm2 slides: value-kind and source-tier qualifiers needed.",
+  "Flight counts reported under one label for two variants (RD-170 Energia, RD-171 Zenit).",
+  "Low-pressure inlet ports are reported without the boost-pump hardware or drive being described: need 'port' vs 'component' distinction."
+ ],
+ "notes": "Boost pump drive remains the key open question. | Evidence basis: WebSearch result summaries only (WebFetch/curl blocked); every source access=search_result_only.",
+ "branch": "r2_ussr"
+}

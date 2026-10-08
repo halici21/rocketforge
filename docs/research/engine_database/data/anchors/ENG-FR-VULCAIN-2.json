@@ -1,0 +1,671 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-FR-VULCAIN-2",
+ "designation": "Vulcain 2",
+ "family": "Vulcain",
+ "variant_scope": "Vulcain 2 as flown on Ariane 5 ECA/ES (2002-2023), incl. post-2002 redesigned nozzle. Excludes Vulcain (1) and Vulcain 2.1 (Ariane 6). Values from the Wikipedia/ESA 'Vulcain' pages whose variant is unclear (13,600/34,000 rpm, 235 kg/s) are NOT attached here (see CF-R2-VUL-1).",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal, vacuum (as quoted by sources; not defined)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "nominal, sea level",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-3",
+   "label": "LOX turbopump design point (press release)",
+   "notes": "13,000 rpm / 161 bar"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox (search summary)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "search snippet",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "LH2",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "search snippet",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 6.1,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "engine vs chamber O/F convention not stated"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 6.1,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-MECAIND-2020-T1",
+   "locator": "Table T1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1390,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-CNES-A5-TECH",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": "'1,390 kN (139 tonnes) ... in vacuum'; 20% gain over Vulcain"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1359,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1359,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1340,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "comparison table",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 960,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 117.3,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "abs/gauge, station not stated"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 117.3,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 115,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-MECAIND-2020-T1",
+   "locator": "Table T1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 429,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 429,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 58.2,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 58.5,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-MECAIND-2020-T1",
+   "locator": "Table T1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.turbine_exhaust_reinjection",
+   "operating_point": null,
+   "value": "new nozzle allows exhaust from the turbopumps to be reinjected into the main system, improving high-altitude performance",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": "number of injection points / ducts not stated in seen text"
+  },
+  {
+   "field_path": "pumps.lox_tp.manufacturer",
+   "operating_point": null,
+   "value": "Avio (Italy)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-CLASSICISTRANIERI-VULCAIN",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lh2_tp.manufacturer",
+   "operating_point": null,
+   "value": "Snecma",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-CLASSICISTRANIERI-VULCAIN",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lox_tp.redesign",
+   "operating_point": null,
+   "value": "new oxygen turbopump vs Vulcain",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "paraphrase"
+  },
+  {
+   "field_path": "pumps.lox_tp.speed_rpm",
+   "operating_point": "OP-3",
+   "value": 13000,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint ('new oxygen turbopump operates at 13 000 rpm')",
+   "confidence": "medium",
+   "note": "explicitly the NEW (Vulcain 2) oxygen TP; originator of release not identified"
+  },
+  {
+   "field_path": "pumps.lox_tp.discharge_p",
+   "operating_point": "OP-3",
+   "value": 161,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint",
+   "confidence": "medium",
+   "note": "'to deliver a pressure of 161 bar'"
+  },
+  {
+   "field_path": "pumps.lox_tp.manufacturer",
+   "operating_point": null,
+   "value": "Avio",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lh2_tp.manufacturer",
+   "operating_point": null,
+   "value": "Snecma (also prime contractor)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.manufacturer",
+   "operating_point": null,
+   "value": "Volvo Aero (later GKN): gas turbines powering the turbopumps, and the nozzle",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint",
+   "confidence": "medium",
+   "note": "Wikipedia names GKN for the same scope"
+  },
+  {
+   "field_path": "propellants.mixture_ratio_change",
+   "operating_point": null,
+   "value": "about 20% more LOX in the mixture than Vulcain (1); slightly higher pressure",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-INNOV-VULCAIN2-PROD",
+   "locator": "press-release reprint",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.film_cooling",
+   "operating_point": null,
+   "value": "film cooling of lower part of nozzle by re-injected turbine exhaust gas",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "consistent with ESA 'turbopump exhaust re-injected' (round-1); number of injection points not stated"
+  },
+  {
+   "field_path": "cooling.nozzle_circuit",
+   "operating_point": null,
+   "value": "tube-wall nozzle with hydrogen cooling circuit (cooling tubes)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-V157-INQUIRY",
+   "locator": "inquiry findings",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.v157_failure",
+   "operating_point": null,
+   "value": "Dec 2002 Ariane 5 ECA maiden flight: leak in Vulcain 2 nozzle cooling circuit -> overheating -> loss of nozzle integrity -> thrust imbalance; root: fissured cooling tubes plus loads not fully defined",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-V157-INQUIRY",
+   "locator": "inquiry findings",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "history.v1_v2_nozzle_difference",
+   "operating_point": null,
+   "value": "Vulcain 1 vs 2 nozzles differ in cooling-tube shape and stiffener technology",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-V157-INQUIRY",
+   "locator": "inquiry findings",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "history.redesign",
+   "operating_point": null,
+   "value": "reinforced nozzle extension modified to correct the Dec 2002 malfunction",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-V2-TEST",
+   "locator": "press release",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "history.redesign",
+   "operating_point": null,
+   "value": "structural reinforcement; increased hydrogen coolant flow; thermal barrier coating on flame side of coolant tubes; first successful flight of redesigned engine 2005 (flight 521)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VULCAIN",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.nozzle_demonstrator",
+   "operating_point": null,
+   "value": "Vulcain 2+ Nozzle Extension Demonstrator: full-length dump-cooled laser-welded sandwich wall, two full-scale hot fires on a Vulcain 2 at DLR Lampoldshausen (TRL 6)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC11-12052",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": "demonstrator hardware, NOT the flight nozzle configuration"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.lh2_tp.speed_rpm",
+   "reason": "UNKNOWN",
+   "note": "34,000 rpm / ~12 MW, same caveat"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "UNKNOWN",
+   "note": "235 kg/s on ESA esaMI page, variant unresolved"
+  },
+  {
+   "field_path": "nozzle.extension_cooling",
+   "reason": "NOT_AUDITED",
+   "note": "task prompt says dump-cooled; not verified"
+  },
+  {
+   "field_path": "gas_generators.gg.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "gas_generators.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "control.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "history.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pumps.lh2_tp.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": "34,000 rpm exists only in variant-ambiguous 'Vulcain' pages"
+  },
+  {
+   "field_path": "gas_generator.gg1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.extension_cooling_flight",
+   "reason": "NOT_REPORTED",
+   "note": "flight NE cooling method (dump vs film) not stated beyond film cooling of lower part"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-TP",
+    "component_type": "pump",
+    "label": "LH2 turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-CLASSICISTRANIERI-VULCAIN",
+    "locator": "search snippet",
+    "note": "separate TP; Snecma"
+   },
+   {
+    "id": "N-LOX-TP",
+    "component_type": "pump",
+    "label": "LOX turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-CLASSICISTRANIERI-VULCAIN",
+    "locator": "search snippet",
+    "note": "separate TP; Avio"
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VULCAIN",
+    "locator": "search snippet",
+    "note": "Tier D only"
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "Nozzle (with turbine-exhaust reinjection)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-A5ECA-NEWELEM",
+    "locator": "search snippet",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ-TUBES",
+    "component_type": "cooling_jacket",
+    "label": "Tube-wall nozzle cooling circuit (hydrogen)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-V157-INQUIRY",
+    "locator": "inquiry findings",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ-LOWER",
+    "component_type": "nozzle_extension_cooling",
+    "label": "Lower nozzle section film-cooled by re-injected turbine exhaust",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VULCAIN",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-LH2-TP",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "whether series or parallel turbine drive NOT_AUDITED"
+   },
+   {
+    "id": "E-2",
+    "from": "N-GG",
+    "to": "N-LOX-TP",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-LH2-TP",
+    "to": "N-NOZ",
+    "fluid": "turbine exhaust gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-A5ECA-NEWELEM",
+    "locator": "search snippet",
+    "note": "'exhaust from the turbopumps ... reinjected'; which TP(s) and duct count not stated"
+   },
+   {
+    "id": "E-4",
+    "from": "N-LOX-TP",
+    "to": "N-NOZ",
+    "fluid": "turbine exhaust gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-A5ECA-NEWELEM",
+    "locator": "search snippet",
+    "note": "same caveat"
+   },
+   {
+    "id": "E-5",
+    "from": "N-LH2-TP",
+    "to": "N-NOZ-TUBES",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VULCAIN",
+    "locator": "search summary",
+    "note": "'increased hydrogen coolant flow' (2003 fix); exit destination of coolant NOT_REPORTED"
+   },
+   {
+    "id": "E-6",
+    "from": "N-NOZ",
+    "to": "N-NOZ-LOWER",
+    "fluid": "turbine exhaust gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VULCAIN",
+    "locator": "search summary",
+    "note": "refines E-3/E-4: injection is into the lower nozzle as a film"
+   }
+  ],
+  "topology_completeness": "Skeleton plus nozzle cooling circuit and film-injection node. Missing: tanks/feed lines, valves, GG feeds, chamber regen path, igniters/start, turbine series/parallel arrangement, which turbine exhausts are reinjected."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "partial",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "not_reported",
+  "pumps": "partial",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "weak",
+  "test_history": "partial"
+ },
+ "schematic_ids": [
+  "SCH-ENG-EU-VULCAIN-2-1"
+ ],
+ "schema_breakers": [
+  "Turbine exhaust is reinjected into the nozzle rather than dumped overboard: a flat 'cycle=GG' field hides where GG gas ends up (affects Isp accounting).",
+  "Two separate turbopumps from different suppliers: per-pump manufacturer and data need a pump child table.",
+  "Same family name 'Vulcain' spans Vulcain, Vulcain 2, Vulcain 2.1 with agency pages not always variant-labelled.",
+  "Nozzle failure mode and redesign changed the flown hardware under the same designation (pre/post-2003 nozzle) - configuration revision needed.",
+  "Nozzle-extension demonstrator hardware tested on the engine (Vulcain 2+ NE) - test-article configurations must not pollute flight values."
+ ],
+ "notes": "Weak: only Tier A snippets (CNES, ESA) and Tier D. No datasheet/paper opened. | ROUND 2: added LOX TP 13,000 rpm / 161 bar (explicitly 'new oxygen turbopump'), V157 inquiry facts (Tier A), redesign, Volvo/GKN scope, film-cooled lower nozzle. Variant-ambiguous 13,600 / 34,000 rpm values still not attached.",
+ "branch": "r2_asia"
+}

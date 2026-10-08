@@ -1,0 +1,276 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-FR-HM7B",
+ "designation": "HM7B",
+ "family": "HM7",
+ "variant_scope": "HM7B; sources mix Ariane 1-4 third stage (H10) and Ariane 5 ESC-A applications - not separated.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal vacuum (application unclear)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "regeneratively cooled gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-HM7B",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "regeneratively cooled gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 67,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-CNES-A5-TECH",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 62.2,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 64.8,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SATNOW-HM7B",
+   "locator": "listing",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 446,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SATNOW-HM7B",
+   "locator": "listing",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 3.7,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-HM7B",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc_history",
+   "operating_point": null,
+   "value": "raised from 30 to 35 bar",
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-HM7B",
+   "locator": "body text",
+   "confidence": "low",
+   "note": "which transition (HM7->HM7B?) not clear in snippet"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": "OP-1",
+   "value": 950,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": "Ariane 5 ECA"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": "OP-1",
+   "value": "up to 15 min 45 s",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-CNES-A5-TECH",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.restarts",
+   "operating_point": null,
+   "value": "no restart capability",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-ARIANE",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 165,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SATNOW-HM7B",
+   "locator": "listing",
+   "confidence": "low",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_AUDITED",
+   "note": "single TP with gearbox per task prompt - no source seen"
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "gas_generators.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "control.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "history.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-HM7B",
+    "locator": "search snippet",
+    "note": ""
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Regenerative cooling",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-HM7B",
+    "locator": "search snippet",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "edges": [],
+  "topology_completeness": "Minimal; no turbopump evidence."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "not_reported",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Same designation flown on different stages with different burn times / possibly thrust values."
+ ],
+ "notes": "Weak.",
+ "branch": "anchor_eu_asia"
+}

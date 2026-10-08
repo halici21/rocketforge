@@ -1,0 +1,575 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-JP-LE-7A",
+ "designation": "LE-7A",
+ "family": "LE-7",
+ "variant_scope": "LE-7A first-stage engine of H-IIA / H-IIB (2001-2025). Short- and long-nozzle configurations are mixed in sources and labelled where known. MEXT/NASDA 1997 values are development-phase design specifications, not flight-acceptance data. Excludes LE-7 (H-II) except where explicitly contrasted.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated (design spec, 1997 SAC material)",
+   "notes": "vacuum implied for Isp; nozzle version not stated"
+  },
+  {
+   "op_id": "OP-2",
+   "label": "short nozzle, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-3",
+   "label": "long nozzle, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-4",
+   "label": "sea level, short nozzle",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-5",
+   "label": "throttled 72 +/- 5 %",
+   "notes": "no values beyond the setting itself"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "staged combustion, hydrogen-rich preburner driving both LH2 and LOX turbopumps; preburner gas then burned in main chamber",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE7",
+   "locator": "search summary (Japanese text)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "staged combustion",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "LH2",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.9,
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "LE-7A/LE-7 comparison table, row 混合比",
+   "confidence": "medium",
+   "note": "engine vs chamber convention not stated; LE-7 column gives 6.0"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5.9,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "LE-7A spec table (5.90)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 441,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table, 比推力",
+   "confidence": "medium",
+   "note": "design value 1997; nozzle not stated"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": "1.10 (unit illegible in OCR: '1.10 Ionf')",
+   "unit": "unknown (OCR)",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table, 推力（真空中）",
+   "confidence": "low",
+   "note": "Unit garbled; plausibly ~110 tonf but NOT converted. Do not use as a number without reading the PDF."
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "throttling capability yes; no mixture-ratio control (推力可変機能あり（混合比制御なし）)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": "OP-5",
+   "value": "100% or 72 +/- 5%",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-H2A",
+   "locator": "round-1 search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-2",
+   "value": 1074,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "round-1: spec list, short nozzle",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-2",
+   "value": 429,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "round-1: short nozzle",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-3",
+   "value": 1098,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "round-1: long nozzle",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-3",
+   "value": 442,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "round-1: long nozzle",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": 112,
+   "unit": "ton (tf)",
+   "status": "REPORTED",
+   "source_id": "SRC-MHI-LE7A",
+   "locator": "round-1: product page",
+   "confidence": "medium",
+   "note": "nozzle version not stated"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 440,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-MHI-LE7A",
+   "locator": "round-1: product page",
+   "confidence": "medium",
+   "note": "nozzle version not stated"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-4",
+   "value": 843,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-H2A",
+   "locator": "round-1 snippet",
+   "confidence": "medium",
+   "note": "short nozzle"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 121,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AIAA-VG-H2A",
+   "locator": "round-1 snippet (1750 psi)",
+   "confidence": "medium",
+   "note": "abs/gauge and station not stated"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 12.0,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE7",
+   "locator": "round-1 infobox",
+   "confidence": "medium",
+   "note": "No Tier A LE-7A pc found in round 2; the 12.7 MPa figure in mirrors belongs to LE-7"
+  },
+  {
+   "field_path": "pumps.lh2_tp.speed_rpm",
+   "operating_point": "OP-1",
+   "value": 41200,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table, 液水ターボポンプ回転数",
+   "confidence": "medium",
+   "note": "LE-7 column: 42,200 rpm"
+  },
+  {
+   "field_path": "pumps.lox_tp.speed_rpm",
+   "operating_point": "OP-1",
+   "value": 18050,
+   "unit": "rpm",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table, 液酸ターボポンプ回転数 (OCR '回転紋')",
+   "confidence": "medium",
+   "note": "LE-7 column: 18,100 rpm"
+  },
+  {
+   "field_path": "preburners.pb1.gas_temperature",
+   "operating_point": "OP-1",
+   "value": 740,
+   "unit": "K",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "comparison table, プリバーナガス温度",
+   "confidence": "medium",
+   "note": "LE-7 column 840 K. Agrees qualitatively with round-1 Wikipedia note that LE-7A runs a reduced preburner temperature."
+  },
+  {
+   "field_path": "preburners.pb1.rich_side",
+   "operating_point": null,
+   "value": "fuel (hydrogen)-rich",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE7",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lh2_tp.internal_line_condition",
+   "operating_point": null,
+   "value": "about 28 MPa, about 46 K (rated operation), piping inside LH2 turbopump",
+   "unit": "MPa, K",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "1997 firing-test material (OCR '系勺28MPa')",
+   "confidence": "low",
+   "note": "Piping condition, not a pump discharge spec. Which 1997 PDF and whether it concerns LE-7A or LE-7 is uncertain."
+  },
+  {
+   "field_path": "history.development_issue",
+   "operating_point": null,
+   "value": "early development: excessive turbopump vibration prevented reaching specified speed",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "locator": "1997 material (as summarised)",
+   "confidence": "low",
+   "note": "Which turbopump not stated in summary"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.pc",
+   "reason": "NOT_REPORTED",
+   "note": "No Tier A LE-7A chamber pressure found (MEXT summary silent on pc)."
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_AUDITED",
+   "note": "short vs long nozzle ratios not found in round 2"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.pb1.pressure",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.pb1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": "series/parallel turbine drive arrangement not stated"
+  },
+  {
+   "field_path": "pumps.*.discharge_p",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-PUMP",
+    "component_type": "pump",
+    "label": "LH2 pump (fuel turbopump)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-MEXT-SAC-1997",
+    "locator": "rpm row",
+    "note": ""
+   },
+   {
+    "id": "N-LH2-TURB",
+    "component_type": "turbine",
+    "label": "LH2 turbopump turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump (oxidizer turbopump)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-MEXT-SAC-1997",
+    "locator": "rpm row",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-TURB",
+    "component_type": "turbine",
+    "label": "LOX turbopump turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-PB",
+    "component_type": "preburner",
+    "label": "Preburner (H2-rich)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Main combustion chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "Nozzle (short or long version)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE7",
+    "locator": "round-1",
+    "note": "two nozzle configurations"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-PUMP",
+    "to": "N-PB",
+    "fluid": "H2 (described as vaporised fuel, 気化した燃料)",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": "Vaporised state implies the fuel passes a heating path (cooling jacket?) first - that path is NOT reported"
+   },
+   {
+    "id": "E-2",
+    "from": "N-LOX-PUMP",
+    "to": "N-PB",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": "'part of the oxidizer' to preburner"
+   },
+   {
+    "id": "E-3",
+    "from": "N-PB",
+    "to": "N-LH2-TURB",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": "series vs parallel with E-4 not stated"
+   },
+   {
+    "id": "E-4",
+    "from": "N-PB",
+    "to": "N-LOX-TURB",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-LH2-TURB",
+    "to": "N-MCC",
+    "fluid": "fuel-rich turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE7",
+    "locator": "search summary",
+    "note": "re-burned in main chamber"
+   },
+   {
+    "id": "E-6",
+    "from": "N-LOX-TURB",
+    "to": "N-MCC",
+    "fluid": "fuel-rich turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "both turbine exhausts assumed to reach MCC"
+   },
+   {
+    "id": "E-7",
+    "from": "N-LOX-PUMP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "remaining oxidizer to main injector"
+   },
+   {
+    "id": "E-8",
+    "from": "N-LH2-TURB",
+    "to": "N-LH2-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-LOX-TURB",
+    "to": "N-LOX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeleton. Missing: regen jacket/nozzle cooling path, fuel split between MCC and preburner, valves (MFV/MOV/PBOV...), igniters, booster pumps (if any), turbine series/parallel arrangement, tanks."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "well",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "partial",
+  "turbines": "not_reported",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [
+  "SCH-ENG-JP-LE-7A-1"
+ ],
+ "schema_breakers": [
+  "Design-spec (1997) vs flight values for the same designation: needs a value-provenance/epoch attribute, not just a number.",
+  "Two nozzle configurations (short/long) share one designation and produce different thrust/Isp: configuration must be a sub-key of operating point.",
+  "Preburner gas temperature is a variant-distinguishing parameter (LE-7 840 K vs LE-7A 740 K) - needs a preburner child table.",
+  "Throttle capability WITHOUT mixture-ratio control - control capability needs separate booleans for thrust and MR.",
+  "Turbine drive split (series vs parallel) is a topology fact absent from a flat 'cycle' column."
+ ],
+ "notes": "Strongest new source: MEXT-hosted 1997 Space Activities Commission material (Tier A) giving LE-7A vs LE-7 table: MR 5.9/6.0, LH2 TP 41,200/42,200 rpm, LOX TP 18,050/18,100 rpm, preburner gas 740/840 K, Isp 441 s. OCR is poor; re-read the PDF before production use. LE-7 values in that table agree with Wikipedia's LE-7 block (42,200 / 18,100 rpm) - an independent agreement for LE-7, recorded in engines.json.",
+ "branch": "r2_asia"
+}

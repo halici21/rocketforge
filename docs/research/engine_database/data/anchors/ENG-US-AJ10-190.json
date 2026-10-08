@@ -1,0 +1,324 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-AJ10-190",
+ "designation": "AJ10-190",
+ "family": "AJ10",
+ "variant_scope": "Space Shuttle Orbital Maneuvering System engine (two per Orbiter, in OMS pods). The OMS pod helium/propellant tanks belong to the Orbiter (vehicle). Orion ESM OMS-E reuse noted but NOT included in this record.",
+ "operating_points": [],
+ "assertions": [
+  {
+   "field_path": "pressurization.pressurant",
+   "operating_point": null,
+   "value": "helium (regulated)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NTRS-19740026212",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "Sibling summary statement attributed to a doubtful NTRS id; relayed via sibling log"
+  },
+  {
+   "field_path": "control.bipropellant_valve_actuation",
+   "operating_point": null,
+   "value": "GN2-actuated valves",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NTRS-19740026212",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "Sibling summary; NTRS ID association uncertain; relayed via sibling log"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Orchestrator framing: fuel-regen chamber + radiation-cooled extension; NOT verified. WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "identity.orion_esm_reuse",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Orion ESM OMS-E reuse of Shuttle OMS engines: NOT verified here. WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-HE-TANK",
+    "component_type": "pressurant_tank",
+    "label": "OMS pod helium tank",
+    "subsystem": "vehicle",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": "Existence implied by 'He regulated'; count unknown"
+   },
+   {
+    "id": "N-HE-REG",
+    "component_type": "regulator",
+    "label": "helium pressure regulator",
+    "subsystem": "vehicle",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-OX-TANK",
+    "component_type": "tank",
+    "label": "N2O4 tank (OMS pod)",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": "Inferred from pressure-fed regulated system; propellant identity is orchestrator framing"
+   },
+   {
+    "id": "N-FU-TANK",
+    "component_type": "tank",
+    "label": "MMH tank (OMS pod)",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-BIPROP-VLV",
+    "component_type": "valve",
+    "label": "bipropellant valve (GN2 actuated)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-GN2",
+    "component_type": "pressurant_tank",
+    "label": "GN2 actuation supply",
+    "subsystem": "ambiguous",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": "Engine-mounted vs pod not established"
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-HE-TANK",
+    "to": "N-HE-REG",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-HE-REG",
+    "to": "N-OX-TANK",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": "check valves likely but unverified"
+   },
+   {
+    "id": "E-3",
+    "from": "N-HE-REG",
+    "to": "N-FU-TANK",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-OX-TANK",
+    "to": "N-BIPROP-VLV",
+    "fluid": "N2O4",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-FU-TANK",
+    "to": "N-BIPROP-VLV",
+    "fluid": "MMH",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-BIPROP-VLV",
+    "to": "N-TC",
+    "fluid": "N2O4+MMH",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-GN2",
+    "to": "N-BIPROP-VLV",
+    "fluid": "GN2",
+    "role": "other",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-19740026212",
+    "locator": "search-result summary",
+    "note": "actuation gas"
+   }
+  ],
+  "topology_completeness": "Skeleton only. Missing: check valves, isolation valves, crossfeed to aft RCS, propellant gauging, fuel coolant path, injector, nozzle extension; every node except regulator/He/GN2 valve is inferred."
+ },
+ "coverage": {
+  "identity": "weak",
+  "propellants": "not_reported",
+  "performance": "not_reported",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "weak",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Engine shared across two programmes (Shuttle OMS and Orion ESM) with different vehicle-side pressurization — engine record must not inherit vehicle feed topology.",
+  "OMS propellant crossfeed with Orbiter aft RCS (vehicle-level; expected, unverified) makes tank->engine mapping many-to-many."
+ ],
+ "notes": "Only two sibling-relayed statements, both tied to an NTRS id the sibling itself marked uncertain.",
+ "branch": "anchor_us_modern"
+}

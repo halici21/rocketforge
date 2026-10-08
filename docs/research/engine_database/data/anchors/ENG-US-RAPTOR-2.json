@@ -1,0 +1,233 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-RAPTOR-2",
+ "designation": "Raptor 2",
+ "family": "Raptor",
+ "variant_scope": "Raptor 2 sea-level engine (Super Heavy / Starship). Raptor Vacuum 2 values recorded only as ambiguous notes. Excludes Raptor 1 and Raptor 3.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, sea level (as quoted in SpaceX R2->R3 comparison)",
+   "notes": "ambiguous provenance"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 230,
+   "unit": "tf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'from 230 tf (507,000 lbf)' baseline in a Raptor 3 comparison; sibling flagged summary ambiguity; relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 507000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 1630,
+   "unit": "kg",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'SL mass 1,525 kg from 1,630 kg' -- 1,630 kg read as Raptor 2; dry vs wet not stated; relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "staged-combustion methalox",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-STARSHIP-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "Page wording relayed; 'full-flow' not in relayed summary and page may describe Raptor generally; relayed via sibling log"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 3.6,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "family-level"
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "full-flow staged combustion",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 330,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "family-level; CF-R2-4"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 2256,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "= 230 tf"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "gg_preburner.fuel_rich_preburner",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Two preburners (orchestrator framing) unverified. WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "gg_preburner.ox_rich_preburner",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [],
+  "edges": [],
+  "topology_completeness": "Nothing sourced for FFSC topology. Do not draw two-preburner topology from this record."
+ },
+ "coverage": {
+  "identity": "not_reported",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Rating quoted in metric tonnes-force (tf) by manufacturer; unit system must preserve it.",
+  "Values often published only as deltas in a successor comparison (R2 -> R3), so provenance attaches to the successor's announcement.",
+  "Rapid block evolution under one name (Raptor 1/2/3) with incompatible values."
+ ],
+ "notes": "All values relayed; confidence low. | ROUND 2 (r2_schem): spacex.com (Raptor 3 update) gives prior values 230 tf SL, 258 tf vac (vacuum variant), 1,630 kg - prior-version labelling not explicit (CF-R2-15). Two-preburner topology remains SECONDARY_CLAIM only (FFSC wording on Wikipedia).",
+ "branch": "r2_schem"
+}

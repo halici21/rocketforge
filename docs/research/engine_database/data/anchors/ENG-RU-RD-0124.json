@@ -1,0 +1,352 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-RU-RD-0124",
+ "equivalent_ids": [
+  "ENG-RU-RD-0124"
+ ],
+ "designation": "RD-0124 (14D23)",
+ "family": "RD-0124",
+ "variant_scope": "RD-0124 Soyuz-2.1b/2.1v Block I. Excludes RD-0124A (Angara) and RD-0124MS (Soyuz-5).",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-THR",
+   "label": "reduced-Pc (throttled) mode",
+   "notes": "Wiki: 9.5 MPa / 347 s"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "thrust_chamber.count",
+   "operating_point": null,
+   "value": 4,
+   "unit": "count",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "feed.turbopump_count",
+   "operating_point": null,
+   "value": 1,
+   "unit": "count (multi-stage TP)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "gg_preburner.type",
+   "operating_point": null,
+   "value": "preburner (ox-rich staged combustion)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.coolant",
+   "operating_point": null,
+   "value": "kerosene (regenerative)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 15.7,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 294.3,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-NOM",
+   "value": 359,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-THR",
+   "value": 9.5,
+   "unit": "MPa (1,380 psi)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-THR",
+   "value": 347,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.gimbal",
+   "operating_point": null,
+   "value": "gimbaling the engine in two planes",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": "conflicts with Wiki per-chamber single-axis (CF-R2-7)"
+  },
+  {
+   "field_path": "control.gimbal",
+   "operating_point": null,
+   "value": "each of four chambers gimbals along a single axis",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.development_firings",
+   "operating_point": null,
+   "value": "1996 - Feb 2004 at KBKhA",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.dimensions_design_intent",
+   "operating_point": null,
+   "value": "height 2,327 mm, diameter 1,470 mm 'roughly same as RD-0110' (early 30-t design statement)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RSW-RD0124",
+   "locator": "search summary (URL-level)",
+   "confidence": "low",
+   "note": "NOT a measured RD-0124 dimension"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "nozzle.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-PB",
+    "component_type": "preburner",
+    "label": "ox-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TP",
+    "component_type": "turbine",
+    "label": "multi-stage TP turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC1",
+    "component_type": "main_chamber",
+    "label": "chamber 1",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC2",
+    "component_type": "main_chamber",
+    "label": "chamber 2",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC3",
+    "component_type": "main_chamber",
+    "label": "chamber 3",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MC4",
+    "component_type": "main_chamber",
+    "label": "chamber 4",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-PB",
+    "to": "N-TP",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-RSW-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TP",
+    "to": "N-MC1",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-TP",
+    "to": "N-MC2",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TP",
+    "to": "N-MC3",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD0124",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-TP",
+    "to": "N-MC4",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RD0124",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeletal; pumps, boost pumps, cooling path, valves missing."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Gimbal: engine-level 2-plane vs per-chamber single-axis description - schema must allow either.",
+  "Two published operating points (nominal / reduced Pc)."
+ ],
+ "notes": " | Evidence basis: WebSearch result summaries only (WebFetch/curl blocked); every source access=search_result_only.",
+ "branch": "r2_ussr"
+}

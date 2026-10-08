@@ -1,0 +1,482 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-CN-YF-100",
+ "designation": "YF-100",
+ "family": "YF-100",
+ "variant_scope": "Original YF-100 (LM-5 boosters, LM-6/7/8 first stages). Excludes YF-100K/L/M (separate records). Some Chinese summaries may describe later production standards.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "rated, sea level",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "oxidizer-rich staged combustion (first Chinese staged-combustion engine)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "高压富氧补燃循环: ox-rich gas drives turbine, then burns again in thrust chamber; Isp >10% higher than GG cycle",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-HUXIU-YF100",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 18,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "2,600 psi"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 18,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "推力室室压:18Mpa",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1340,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 1340.5,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 1200,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 1188,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": "1000 kN design raised to 1200 kN",
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-HUXIU-YF100",
+   "locator": "round-1",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-2",
+   "value": 299.9,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 335.0,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.6,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 35,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "round-1",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "65%-105%",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "65%-100%",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "feed.lox_routing",
+   "operating_point": null,
+   "value": "LOX main pump delivers ALL oxidizer into the preburner",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "液氧主泵驱动氧化剂全部进入预燃室"
+  },
+  {
+   "field_path": "feed.fuel_routing",
+   "operating_point": null,
+   "value": "kerosene split into several paths, including one that drives the kerosene pre-pump (booster pump)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.sequence",
+   "operating_point": null,
+   "value": "start sequence: preburner ox-rich gas drives turbopump (富氧燃气驱动涡轮泵)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-BILI-CV15113396",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.test",
+   "operating_point": null,
+   "value": "July 2012: 200 s firing at 120 t thrust",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.first_flight",
+   "operating_point": null,
+   "value": "2015-09-20, Long March 6 inaugural flight",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-YF100",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "no reliable turbopump specs found"
+  },
+  {
+   "field_path": "preburners.pb1.temperature",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.pb1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.gimbal_position",
+   "reason": "UNKNOWN",
+   "note": "pump-after gimbal engine at 2018 airshow (Sohu) may be a variant; not attributed"
+  },
+  {
+   "field_path": "pumps.lox_booster.drive",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LOX-BP",
+    "component_type": "booster_pump",
+    "label": "LOX booster pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "existence not confirmed"
+   },
+   {
+    "id": "N-FUEL-BP",
+    "component_type": "booster_pump",
+    "label": "Kerosene pre-pump (booster)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FUEL-BP-TURB",
+    "component_type": "turbine",
+    "label": "Kerosene pre-pump drive (driven by tapped kerosene)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": "hydraulic turbine type INFERRED"
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX main pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-FUEL-PUMP",
+    "component_type": "pump",
+    "label": "Kerosene main pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-PB",
+    "component_type": "preburner",
+    "label": "Oxidizer-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Main turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-HUXIU-YF100",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber (18 MPa)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-HUXIU-YF100",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LOX-PUMP",
+    "to": "N-PB",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": "100% of oxidizer"
+   },
+   {
+    "id": "E-2",
+    "from": "N-FUEL-PUMP",
+    "to": "N-PB",
+    "fluid": "kerosene",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "small fuel fraction to preburner"
+   },
+   {
+    "id": "E-3",
+    "from": "N-PB",
+    "to": "N-TURB",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-HUXIU-YF100",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-MCC",
+    "fluid": "ox-rich turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-HUXIU-YF100",
+    "locator": "search summary",
+    "note": "burned again in thrust chamber"
+   },
+   {
+    "id": "E-5",
+    "from": "N-FUEL-PUMP",
+    "to": "N-FUEL-BP-TURB",
+    "fluid": "kerosene",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-BILI-CV15113396",
+    "locator": "search summary",
+    "note": "tap path for pre-pump drive; return path NOT_REPORTED"
+   },
+   {
+    "id": "E-6",
+    "from": "N-FUEL-BP-TURB",
+    "to": "N-FUEL-BP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-FUEL-BP",
+    "to": "N-FUEL-PUMP",
+    "fluid": "kerosene",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-FUEL-PUMP",
+    "to": "N-MCC",
+    "fluid": "kerosene",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "regen cooling path not reported"
+   },
+   {
+    "id": "E-9",
+    "from": "N-TURB",
+    "to": "N-LOX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "single-shaft vs separate fuel pump drive not reported"
+   }
+  ],
+  "topology_completeness": "Partial; regen jacket, LOX booster drive, igniter, valves, gimbal position missing."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "partial",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "weak",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "partial"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "All oxidizer passes through preburner: flow-fraction attribute on preburner feed edge (100%).",
+  "Booster pump driven by a tapped kerosene stream - a hydraulic drive edge type distinct from turbine_drive by hot gas.",
+  "Throttle range disagrees (65-100 vs 65-105%).",
+  "Gimbal location (pump-before vs pump-after) differs across YF-100 derivatives - mechanical configuration per variant."
+ ],
+ "notes": "Only Tier D/E; IAC-15 review and IAC-17 sensitivity paper are Tier B leads (abstract only).",
+ "branch": "r2_asia"
+}

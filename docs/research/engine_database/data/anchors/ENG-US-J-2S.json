@@ -1,0 +1,373 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-J-2S",
+ "designation": "J-2S",
+ "family": "J-2",
+ "variant_scope": "J-2S ('J-2 Simplified' [BG]) development engine with combustion tap-off turbine drive, 1965-1972 testing. Excludes J-2, J-2T, J-2X (J-2X took J-2S as point of departure).",
+ "operating_points": [
+  {
+   "op_id": "OP-MAIN",
+   "label": "Main stage, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-IDLE-LOW",
+   "label": "Idle mode (low)",
+   "notes": "~4,000 lbf (round 1, AD0867628)"
+  },
+  {
+   "op_id": "OP-IDLE-HIGH",
+   "label": "Idle mode (high)",
+   "notes": "~50,000 lbf (round 1)"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "combustion tap-off: hot gas tapped from main combustion chamber drives turbines (replaces J-2 gas generator)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-TAPOFF",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Also 2007 Wikipedia mirror and forum."
+  },
+  {
+   "field_path": "history.first_successful_test",
+   "operating_point": null,
+   "value": 1969,
+   "unit": "year",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-TAPOFF",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Round-1 CF-26: first test 1965 vs first successful 1969."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-MAIN",
+   "value": 265000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20120016414",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Round 1, comparison table; ID attribution inferred."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-MAIN",
+   "value": 265000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI2007-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-MAIN",
+   "value": 436,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20120016414",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-MAIN",
+   "value": 436,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI2007-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-MAIN",
+   "value": 5.5,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI2007-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 3235,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI2007-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Round 1; 3,800 lb with accessories."
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-IDLE-LOW",
+   "value": 4000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Round 1 (AD0867628), approximate."
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-IDLE-HIGH",
+   "value": 50000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Round 1, approximate."
+  },
+  {
+   "field_path": "control.throttling",
+   "operating_point": null,
+   "value": "throttling system with variable mixture ratio control; idle mode for on-orbit maneuvering / tank settling",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI2007-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.aedc_tr_70_150",
+   "operating_point": null,
+   "value": "ten idle-mode firings, one engine, cell J-4, Sep-Oct 1969, new noncompartmented injector, 1,408.2 s total idle",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.aedc_tr_70_204",
+   "operating_point": null,
+   "value": "eleven firings (tests J4-1001-06/-07/-11/-15) at 80,000-108,000 ft pressure altitude; full-face oxidizer injector for idle-mode oxidizer distribution",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.idle_mode",
+   "operating_point": null,
+   "value": "noncompartmented injector (TR-70-150); full-face oxidizer injector for idle (TR-70-204)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Configurations changed during development."
+  },
+  {
+   "field_path": "pumps.heritage",
+   "operating_point": null,
+   "value": "J-2S Mk.29 oxidizer and fuel turbopump designs used as J-2X point of departure",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20080036837",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.study",
+   "operating_point": null,
+   "value": "J-2S Improvement Study, System Description, report D5-15772-2, 30 Apr 1969 (Saturn V upper-stage application)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-GENERALSTAFF-J2S-STUDY-1969",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.pc",
+   "reason": "NOT_REPORTED",
+   "note": "1,246 psia (query hint) not confirmed."
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_REPORTED",
+   "note": "40:1 (query hint) not confirmed."
+  },
+  {
+   "field_path": "turbines.inlet_temperature / tap-off location",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.* values",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Main combustion chamber (tap-off source)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TAP",
+    "component_type": "other",
+    "label": "Combustion tap-off port",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FT",
+    "component_type": "turbine",
+    "label": "Fuel turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OT",
+    "component_type": "turbine",
+    "label": "Oxidizer turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FTP",
+    "component_type": "pump",
+    "label": "Fuel turbopump (Mk.29)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20080036837",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OTP",
+    "component_type": "pump",
+    "label": "Oxidizer turbopump (Mk.29)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20080036837",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-TC",
+    "to": "N-TAP",
+    "fluid": "combustion products",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TAP",
+    "to": "N-FT",
+    "fluid": "combustion products",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "series vs parallel not documented"
+   },
+   {
+    "id": "E-3",
+    "from": "N-TAP",
+    "to": "N-OT",
+    "fluid": "combustion products",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-TAPOFF",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-FT",
+    "to": "N-FTP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-20080036837",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-OT",
+    "to": "N-OTP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NTRS-20080036837",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Turbine arrangement, exhaust destination, start system, idle-mode flow paths (tank-head idle) all undocumented."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "weak",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "weak",
+  "cooling": "not_reported",
+  "feed_system": "weak",
+  "pumps": "weak",
+  "turbines": "weak",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "partial"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Turbine drive gas source is the main chamber itself (tap-off): no gas generator node, and a feedback loop chamber -> turbine -> pumps -> chamber.",
+  "Multiple discrete operating modes (main stage, high idle, low idle) with very different thrust (~4k to 265k lbf).",
+  "Injector configuration changed between test series - a development engine without a single frozen configuration."
+ ],
+ "notes": "Primary J-2S reports (NTRS 19690072871/19690073042, D5-15772-2, AEDC TR-70-xx) located but not opened; AD-number to TR-number mapping unverified.",
+ "branch": "r2_us_classic"
+}

@@ -1,0 +1,409 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-JP-LE-5B",
+ "designation": "LE-5B",
+ "family": "LE-5",
+ "variant_scope": "LE-5B as introduced on H-II F8 / H-IIA second stage. Excludes LE-5B-2 (H-IIB/H-IIA later) and LE-5B-3 (H3). Weblio (ja.wikipedia) comparison table values are assumed to be the LE-5B column but the exact page was not identified.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "100% rated, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "60% throttle",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-3",
+   "label": "30% throttle",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-4",
+   "label": "idle / tank-head (3% or 5%)",
+   "notes": "turbine not driven; value conflicts"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "expander bleed, chamber-expander (hydrogen circulated around combustion chamber only, not nozzle as in LE-5A)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "エキスパンダブリードサイクル（チャンバエキスパンダ）vs LE-5A ノズルエキスパンダ",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.design_change",
+   "operating_point": null,
+   "value": "combustion chamber cooling passages and materials altered for effective heat transfer to make chamber-only bleed work",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 137.2,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": "14 tf"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 5,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 110,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 447,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 447,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "round-1 ('drops to about 447 s')",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 3.58,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": "abs/gauge not stated"
+  },
+  {
+   "field_path": "pumps.lh2_tp.speed_rpm",
+   "operating_point": "OP-1",
+   "value": 52000,
+   "unit": "min-1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lox_tp.speed_rpm",
+   "operating_point": "OP-1",
+   "value": 18000,
+   "unit": "min-1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.length",
+   "operating_point": null,
+   "value": 2.79,
+   "unit": "m",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 285,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "comparison table",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.restarts",
+   "operating_point": null,
+   "value": "re-re-ignition possible (再々着火まで可能; i.e. up to 3 ignitions)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "interpretation of 再々着火 = third ignition"
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": null,
+   "value": "60%, 30%, and 3% without driving the turbine (from LE-5B onward)",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEBLIO-LE5",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.throttle",
+   "operating_point": "OP-4",
+   "value": "idle mode 5%",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-LE5",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "conflicts with 3% (see conflicts)"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "injector.element_count",
+   "reason": "NOT_REPORTED",
+   "note": "180 elements per round-1 asia_other note (Wikipedia), not re-seen"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.channel_count",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.exhaust_destination",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.*.discharge_p",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-PUMP",
+    "component_type": "pump",
+    "label": "LH2 turbopump pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE5",
+    "locator": "rpm row",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX turbopump pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WEBLIO-LE5",
+    "locator": "rpm row",
+    "note": ""
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Combustion chamber cooling passages (chamber only)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Turbine(s) (count/arrangement unknown)",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Combustion chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "Nozzle extension (not hydrogen-cooled by bleed circuit)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": "cooling method of nozzle NOT_REPORTED"
+   },
+   {
+    "id": "N-BLEED-OUT",
+    "component_type": "turbine_exhaust_duct",
+    "label": "Bleed exhaust",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-PUMP",
+    "to": "N-JACKET",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-LE5",
+    "locator": "search summary",
+    "note": "fuel circulated around chamber only"
+   },
+   {
+    "id": "E-2",
+    "from": "N-JACKET",
+    "to": "N-TURB",
+    "fluid": "GH2",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "bleed portion; split not reported"
+   },
+   {
+    "id": "E-3",
+    "from": "N-TURB",
+    "to": "N-BLEED-OUT",
+    "fluid": "GH2",
+    "role": "bleed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-LH2-PUMP",
+    "to": "N-MCC",
+    "fluid": "H2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "path after jacket vs direct not reported"
+   },
+   {
+    "id": "E-5",
+    "from": "N-LOX-PUMP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-LH2-PUMP",
+    "to": "N-MCC",
+    "fluid": "H2 at tank head pressure",
+    "role": "bypass",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "3% mode: turbine not driven (Weblio) -> flow by tank pressure"
+   }
+  ],
+  "topology_completeness": "Skeleton. Missing: valves, LE-5 heritage start sequence, turbine count, bleed dump location."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "weak",
+  "feed_system": "not_reported",
+  "pumps": "partial",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "partial",
+  "mechanical": "partial",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Tank-head idle mode where turbopumps are not driven: one engine operates in two feed modes (pump-fed and effectively pressure-fed).",
+  "Bleed-heat source location (chamber-only vs chamber+nozzle) differentiates LE-5A from LE-5B though both are 'expander bleed'.",
+  "Discrete throttle levels (60/30/3%) rather than a continuous range."
+ ],
+ "notes": "All values Tier D (Weblio ja.wikipedia mirror). IAC-08 MHI paper (LE-5B improvement) is the Tier B lead; JAXA repository record 45126 covers LE-5 start transient only.",
+ "branch": "r2_asia"
+}

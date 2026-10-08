@@ -1,0 +1,494 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-DE-A4-ENGINE",
+ "equivalent_ids": [
+  "ENG-DE-A-4"
+ ],
+ "designation": "A-4 (V-2) main engine",
+ "family": "A-4",
+ "variant_scope": "Production A-4/V-2 propulsion unit (1944-45). Thiel's 1.5 t development motor values are excluded except where marked.",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal 100% rated, as published",
+   "notes": "SL vs vac per assertion"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 25,
+   "unit": "metric tons (~56,000 lb)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19600013000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19600013000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "75% alcohol",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19600013000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T1.working_fluid",
+   "operating_point": null,
+   "value": "steam from H2O2 (T-Stoff) + Z-Stoff catalyst (27% sodium permanganate solution)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19600013000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "gg_preburner.SG1.h2o2_concentration",
+   "operating_point": null,
+   "value": 85,
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE02-2",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "gg_preburner.SG1.h2o2_concentration",
+   "operating_point": null,
+   "value": 80,
+   "unit": "% (test strength)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-V2ROCKETHISTORY",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T1.power",
+   "operating_point": "OP-NOM",
+   "value": 580,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NMUSAF-V2",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.shaft.speed",
+   "operating_point": "OP-NOM",
+   "value": 3800,
+   "unit": "rpm (about)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NMUSAF-V2",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.mdot_fuel",
+   "operating_point": "OP-NOM",
+   "value": 128,
+   "unit": "lb/s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NMUSAF-V2",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.mdot_ox",
+   "operating_point": "OP-NOM",
+   "value": 159,
+   "unit": "lb/s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NMUSAF-V2",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.propellant_consumed",
+   "operating_point": null,
+   "value": "9,700 kg over 62 s",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19600013000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.propellant_consumed",
+   "operating_point": null,
+   "value": "9,000 kg over 60 s",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-A19790951000",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.prechambers",
+   "operating_point": null,
+   "value": 18,
+   "unit": "count ('pots', each ~1.5 t, feeding common mixing chamber)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-THIEL",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.prechambers_function",
+   "operating_point": null,
+   "value": "components swirled in 18 pre-chambers",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.method",
+   "operating_point": null,
+   "value": "regenerative (alcohol enters double wall at lower end, flows to injection head) + film cooling (Poehlmann)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.main_valve",
+   "operating_point": null,
+   "value": "main valve regulates injection pressure",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.design_freeze",
+   "operating_point": null,
+   "value": "18-pot design declared finished 1941-09-15",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-THIEL",
+   "locator": "search summary (URL-level)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc_dev_motor",
+   "operating_point": null,
+   "value": 15,
+   "unit": "bar (1.5 t development motor; 50 bar desired)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-THIEL",
+   "locator": "search summary (URL-level)",
+   "confidence": "low",
+   "note": "development motor, not production engine"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.pc",
+   "reason": "NOT_REPORTED",
+   "note": "production Pc not in retrieved summaries"
+  },
+  {
+   "field_path": "nozzle.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "pumps.discharge_p.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in any retrieved search summary (round 2); documents could not be opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-HTP-TANK",
+    "component_type": "tank",
+    "label": "T-Stoff (H2O2) tank",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-Z-TANK",
+    "component_type": "tank",
+    "label": "Z-Stoff (permanganate) tank",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-SG",
+    "component_type": "gas_generator",
+    "label": "steam generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "steam turbine 580 hp",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NMUSAF-V2",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-ALC-PUMP",
+    "component_type": "pump",
+    "label": "alcohol pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MV",
+    "component_type": "valve",
+    "label": "main valve",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "double-wall cooling jacket",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-POTS",
+    "component_type": "injector",
+    "label": "18 pre-chambers (pots) at chamber head",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-THIEL",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "common combustion/mixing chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-THIEL",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-HTP-TANK",
+    "to": "N-SG",
+    "fluid": "HTP",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-Z-TANK",
+    "to": "N-SG",
+    "fluid": "sodium permanganate solution",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": "liquid catalyst consumable"
+   },
+   {
+    "id": "E-3",
+    "from": "N-SG",
+    "to": "N-TURB",
+    "fluid": "steam",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-A19600013000",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-ALC-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NMUSAF-V2",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-TURB",
+    "to": "N-LOX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NMUSAF-V2",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-ALC-PUMP",
+    "to": "N-JACKET",
+    "fluid": "75% alcohol",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+    "locator": "search summary",
+    "note": "enters at lower end"
+   },
+   {
+    "id": "E-7",
+    "from": "N-JACKET",
+    "to": "N-POTS",
+    "fluid": "75% alcohol",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-LOX-PUMP",
+    "to": "N-POTS",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-THIEL",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-POTS",
+    "to": "N-MCC",
+    "fluid": "combustion gas",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-THIEL",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-ALC-PUMP",
+    "to": "N-MV",
+    "fluid": "75% alcohol",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-DEUTSCHESMUSEUM-A4",
+    "locator": "search summary",
+    "note": "valve position in circuit not described"
+   }
+  ],
+  "topology_completeness": "Missing: pressurization of T/Z-Stoff tanks, turbine exhaust, film-cooling ring, igniter, preliminary stage."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "partial",
+  "cooling": "partial",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "weak",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Turbine working fluid generated from two separate consumables (H2O2 + liquid permanganate catalyst).",
+  "Fuel composition is a concentration (75% alcohol); H2O2 concentration disputed (80/85%).",
+  "Injector-level sub-chambers ('pots') each with a thrust rating, feeding one chamber.",
+  "Development-motor Pc easily mistaken for production Pc."
+ ],
+ "notes": " | Evidence basis: WebSearch result summaries only (WebFetch/curl blocked); every source access=search_result_only.",
+ "branch": "r2_ussr"
+}

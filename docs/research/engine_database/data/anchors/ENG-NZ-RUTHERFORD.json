@@ -1,0 +1,403 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-NZ-RUTHERFORD",
+ "designation": "Rutherford",
+ "family": "Rutherford",
+ "variant_scope": "Rutherford sea-level engine (Electron first stage, 9 per stage). Rutherford Vacuum in its own record. Ratings changed over time.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, sea level (later rating)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "rated, sea level (earlier rating)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 5600,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-ROCKETLAB-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'up from 5,500'; relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-2",
+   "value": 5500,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-ROCKETLAB-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-1",
+   "value": 311,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-ROCKETLAB-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "feed.pump_drive",
+   "operating_point": null,
+   "value": "brushless DC electric motors powered by lithium-polymer batteries drive impeller pumps",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-ROCKETLAB-UPDATES",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.stage_total_thrust_sl",
+   "operating_point": null,
+   "value": "190 kN (43,000 lbf) liftoff; 224 kN (50,600 lbf) peak",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-ROCKETLAB-ELECTRON-PAGE",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "stage level, 9 engines; relayed via sibling log"
+  },
+  {
+   "field_path": "feed.pump_drive",
+   "operating_point": null,
+   "value": "brushless DC electric motors + lithium polymer batteries drive propellant pumps",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-RKLB-BATTERY-PAGE",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "materials.chamber_manufacturing",
+   "operating_point": null,
+   "value": "all primary components 3D printed: engine chamber, injector, pumps, main propellant valves; printable in 24 h",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-RKLB-BATTERY-PAGE",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": "sentence attribution among Rocket Lab pages uncertain"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 35,
+   "unit": "kg",
+   "status": "REPORTED",
+   "source_id": "SRC-RKLB-SEC-FILING",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "'about 35 kg'; attribution uncertain"
+  },
+  {
+   "field_path": "history.flight_count",
+   "operating_point": null,
+   "value": 350,
+   "unit": "engines launched",
+   "status": "REPORTED",
+   "source_id": "SRC-RKLB-SEC-FILING",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "cumulative at filing date"
+  },
+  {
+   "field_path": "feed.pump_count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "pumps",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RUTHERFORD",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "one fuel, one oxidizer"
+  },
+  {
+   "field_path": "feed.pump_inlet_pressure_source",
+   "operating_point": null,
+   "value": "stage pressurant system provides pump inlet pressure",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RUTHERFORD",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "phrase resembles Electron payload user's guide wording; not verified"
+  },
+  {
+   "field_path": "feed.battery_management",
+   "operating_point": null,
+   "value": "stage 2: two HV batteries deplete then jettisoned; third takes over",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RUTHERFORD",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "applies to Rutherford Vacuum stage; stage-level"
+  },
+  {
+   "field_path": "pumps.motor.power",
+   "operating_point": null,
+   "value": 50,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-POPSCI-RUTHERFORD-2015",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "~37 kW DERIVED; per motor; 2015 press"
+  },
+  {
+   "field_path": "propellants.pair",
+   "operating_point": null,
+   "value": "LOX / RP-1",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RUTHERFORD",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-BATT",
+    "component_type": "other",
+    "label": "lithium-polymer battery pack",
+    "subsystem": "ambiguous",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": "stage-mounted vs engine not established"
+   },
+   {
+    "id": "N-MOTOR",
+    "component_type": "other",
+    "label": "brushless DC electric motor(s)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": "per-pump motor count not sourced"
+   },
+   {
+    "id": "N-PUMP",
+    "component_type": "pump",
+    "label": "impeller pump(s)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": "ox/fuel split not sourced"
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-BATT-JET",
+    "component_type": "other",
+    "label": "jettisonable battery packs (patent architecture)",
+    "subsystem": "ambiguous",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-PATENT-US11408373",
+    "locator": "search-result summary (round 2)",
+    "note": "patent link to flight engine INFERRED"
+   },
+   {
+    "id": "N-PRESS",
+    "component_type": "pressurant_tank",
+    "label": "stage pressurant system (pump inlet pressure)",
+    "subsystem": "stage",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RUTHERFORD",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-BATT",
+    "to": "N-MOTOR",
+    "fluid": "electric power",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": "electrical edge; not a fluid"
+   },
+   {
+    "id": "E-2",
+    "from": "N-MOTOR",
+    "to": "N-PUMP",
+    "fluid": "",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-PUMP",
+    "to": "N-TC",
+    "fluid": "propellants",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ROCKETLAB-UPDATES",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-R2-1",
+    "from": "N-PRESS",
+    "to": "N-PUMP",
+    "fluid": "He (assumed)",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RUTHERFORD",
+    "locator": "search-result summary (round 2)",
+    "note": "pressurant gas identity not sourced"
+   }
+  ],
+  "topology_completeness": "Partial. Missing: separate LOX/fuel pumps, inverters/controllers, cooling path, injector, valves."
+ },
+ "coverage": {
+  "identity": "not_reported",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "partial",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "partial",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [
+  "SCH-PATENT-US11408373-R2"
+ ],
+ "schema_breakers": [
+  "Power source is electrical (battery) — topology needs non-fluid energy edges and battery mass/energy fields.",
+  "Batteries may be jettisoned/managed at stage level (unverified) — subsystem boundary ambiguous.",
+  "Battery packs jettisoned mid-burn (stage 2): energy source mass changes discretely during operation.",
+  "Pump motor power (hp/kW) is an electrical-machine property, not a turbine property."
+ ],
+ "notes": "Relayed values. ID uses US because Rocket Lab is US-headquartered; development/production is US/NZ — country should be multi-valued. | ROUND 2 (r2_schem): Motor rpm, Pc, MR, cooling method NOT found. Round-1 ids conflict: ENG-US-RUTHERFORD vs ENG-NZ-RUTHERFORD in other branches.",
+ "branch": "r2_schem"
+}

@@ -1,0 +1,701 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-F-1",
+ "designation": "F-1",
+ "family": "F-1",
+ "variant_scope": "Rocketdyne F-1 as flown on Saturn V S-IC (initial 1.5 Mlbf rating and uprated 1.522 Mlbf). Excludes F-1A and F-1B.",
+ "operating_points": [
+  {
+   "op_id": "OP-1500K",
+   "label": "Initial rating, sea level",
+   "notes": "1,500,000 lbf"
+  },
+  {
+   "op_id": "OP-1522K",
+   "label": "Uprated, sea level (from SA-504 per round-1 caption)",
+   "notes": "1,522,000 lbf"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1500K",
+   "value": 1500000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKIARCHIVES-MSFC-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Carried from round 1 (NASA caption). [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1500K",
+   "value": "1.5 million",
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1522K",
+   "value": 1522000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKIARCHIVES-MSFC-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Carried from round 1. [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1522K",
+   "value": 1522000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'calibrated to develop a sea-level-rated thrust'."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1522K",
+   "value": 1746000,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "7,770 kN; rating association inferred."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": "70 bar (1,015 psi)",
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 982,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.27,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'69% LOX, 31% RP-1'."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.2674,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKIDERIV-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value": 265,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Round 1."
+  },
+  {
+   "field_path": "performance.isp",
+   "operating_point": null,
+   "value": 264.72,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKIDERIV-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Condition not stated."
+  },
+  {
+   "field_path": "performance.mdot_total_5_engines",
+   "operating_point": null,
+   "value": 28415,
+   "unit": "lb/s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKIDERIV-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Five-engine combined (3,357 US gal/s)."
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "operating_point": null,
+   "value": 5683,
+   "unit": "lb/s",
+   "status": "DERIVED",
+   "source_id": "SRC-WIKIDERIV-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "28,415 / 5; derived from a secondary claim."
+  },
+  {
+   "field_path": "pumps.TP.configuration",
+   "operating_point": null,
+   "value": "single-shaft turbopump with separate fuel and LOX pumps (MK-10)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AWESOMESTORIES-F1NASA",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "NASA text reproduction; MK-10 name from enginehistory."
+  },
+  {
+   "field_path": "pumps.TP.mass",
+   "operating_point": null,
+   "value": 2500,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Also enginehistory."
+  },
+  {
+   "field_path": "pumps.TP.flow_total",
+   "operating_point": null,
+   "value": 42500,
+   "unit": "US gal/min",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.FP.flow",
+   "operating_point": null,
+   "value": 15471,
+   "unit": "US gal/min",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "RP-1."
+  },
+  {
+   "field_path": "pumps.OP.flow",
+   "operating_point": null,
+   "value": 24811,
+   "unit": "US gal/min",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "LOX; sum 40,282 gpm vs NASM 42,500 gpm (CF-F1-4)."
+  },
+  {
+   "field_path": "turbines.T.speed_rpm",
+   "operating_point": null,
+   "value": 5500,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T.speed_rpm",
+   "operating_point": null,
+   "value": 5490,
+   "unit": "rpm",
+   "status": "DERIVED",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "From '91.5 revolutions in one second' x 60."
+  },
+  {
+   "field_path": "turbines.T.power",
+   "operating_point": null,
+   "value": 55000,
+   "unit": "bhp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "41 MW; enginehistory also 55,000 hp."
+  },
+  {
+   "field_path": "turbines.T.stages",
+   "operating_point": null,
+   "value": "2 (impulse)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T.blade_counts",
+   "operating_point": null,
+   "value": "109 blades (33-in 1st stage), 119 blades (35-in 2nd stage)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.T.inlet_temperature",
+   "operating_point": null,
+   "value": 1500,
+   "unit": "degF",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'input gas at 1,500 F'; Wikipedia cites Saturn V News Reference F-1 Fact Sheet (not retrieved)."
+  },
+  {
+   "field_path": "turbines.T.exhaust_destination",
+   "operating_point": null,
+   "value": "heat exchanger, then wrap-around exhaust manifold feeding the periphery of the engine bell (nozzle extension film cooling)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AWESOMESTORIES-F1NASA",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "NASA text reproduction; Wikipedia: tapered manifold, film protects NE from ~3,200 C gas."
+  },
+  {
+   "field_path": "gas_generators.GG.rich_side",
+   "operating_point": null,
+   "value": "fuel-rich LOX/RP-1",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-AWESOMESTORIES-F1NASA",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.bearing_lubrication",
+   "operating_point": null,
+   "value": "fuel (RP-1) lubricates and cools turbopump bearings",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-STEVEBLOG-F1GG",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Blog quoting NASA; also Wikipedia."
+  },
+  {
+   "field_path": "ignition_start.tc_igniter",
+   "operating_point": null,
+   "value": "hypergolic fluid cartridge (TEB with 10-15% TEA) with burst diaphragms at each end, in the high-pressure fuel circuit, own injection point in chamber",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Also Wikipedia."
+  },
+  {
+   "field_path": "thrust_chamber.construction",
+   "operating_point": null,
+   "value": "two-piece: tubular-wall regeneratively cooled chamber to 10:1 plane; double-walled turbine-exhaust-gas-cooled nozzle extension to 16:1",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 16,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Also Purdue, Wikipedia."
+  },
+  {
+   "field_path": "nozzle.area_ratio_regen_section",
+   "operating_point": null,
+   "value": 10,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Attachment plane of extension."
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 18500,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'approximately'; source attribution partly inferred."
+  },
+  {
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value": 18616,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-F1",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.documentation",
+   "operating_point": null,
+   "value": "Rocketdyne R-3896 manual series: -1 Engine Data, -11 Operating Instructions, -4 Illustrated Parts Breakdown",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-RRAUCTION-F1MANUALS",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Metadata only."
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*.discharge_pressure",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "gas_generators.GG.flow / mr / pressure",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.heat_exchanger_fluids",
+   "reason": "NOT_REPORTED",
+   "note": "HX existence reported; which fluids it heats (LOX->GOX, helium) not in summaries."
+  },
+  {
+   "field_path": "performance.pc (1,125 psia query hint)",
+   "reason": "NOT_REPORTED",
+   "note": "Not found."
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-FP",
+    "component_type": "pump",
+    "label": "Fuel (RP-1) pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-T",
+    "component_type": "turbine",
+    "label": "Two-stage impulse turbine (bottom of shaft)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Fuel-rich LOX/RP-1 gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HX",
+    "component_type": "heat_exchanger",
+    "label": "Turbine-exhaust heat exchanger",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-EXM",
+    "component_type": "manifold",
+    "label": "Wrap-around (tapered) turbine exhaust manifold",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NE",
+    "component_type": "nozzle_extension_cooling",
+    "label": "Double-walled TEG-cooled nozzle extension (10:1 -> 16:1)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Tubular regen thrust chamber (to 10:1)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HYP",
+    "component_type": "start_cartridge",
+    "label": "Hypergol cartridge (TEB/TEA)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-BRG",
+    "component_type": "other",
+    "label": "Turbopump bearings (fuel-lubricated)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-STEVEBLOG-F1GG",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-T",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-T",
+    "to": "N-HX",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-HX",
+    "to": "N-EXM",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-EXM",
+    "to": "N-NE",
+    "fluid": "fuel-rich hot gas",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-F1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "film cooling of extension"
+   },
+   {
+    "id": "E-5",
+    "from": "N-T",
+    "to": "N-FP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "single shaft"
+   },
+   {
+    "id": "E-6",
+    "from": "N-T",
+    "to": "N-OP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-FP",
+    "to": "N-HYP",
+    "fluid": "RP-1",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "cartridge sits in HP fuel circuit; burst diaphragms"
+   },
+   {
+    "id": "E-8",
+    "from": "N-HYP",
+    "to": "N-TC",
+    "fluid": "TEB/TEA + RP-1",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-FP",
+    "to": "N-TC",
+    "fluid": "RP-1",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-ENGINEHISTORY-RPE0812",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "regen tubes [BG for exact path]"
+   },
+   {
+    "id": "E-10",
+    "from": "N-OP",
+    "to": "N-TC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AWESOMESTORIES-F1NASA",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-FP",
+    "to": "N-GG",
+    "fluid": "RP-1",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-F1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "turbopump supplies GG"
+   },
+   {
+    "id": "E-12",
+    "from": "N-OP",
+    "to": "N-GG",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASM-F1",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-13",
+    "from": "N-FP",
+    "to": "N-BRG",
+    "fluid": "RP-1",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-STEVEBLOG-F1GG",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "lubrication/cooling"
+   }
+  ],
+  "topology_completeness": "Missing main valves, HX working fluids and outputs (stage pressurization), GG valve, hydraulic control using fuel [BG], checkout/purge lines, injector."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "partial",
+  "nozzle": "partial",
+  "injector": "not_reported",
+  "cooling": "partial",
+  "feed_system": "partial",
+  "pumps": "partial",
+  "turbines": "partial",
+  "gg_preburner": "weak",
+  "pressurization": "weak",
+  "ignition_start": "partial",
+  "control": "not_reported",
+  "mechanical": "partial",
+  "materials_manufacturing": "weak",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Turbine exhaust is a coolant: one flow is both 'turbine_exhaust' and 'nozzle_extension_cooling', after passing a heat exchanger used for vehicle functions.",
+  "Two area ratios within one nozzle (regen chamber to 10:1, TEG-cooled extension to 16:1) with different cooling methods.",
+  "Consumable ignition element (hypergol cartridge) inserted into the propellant circuit.",
+  "Re-rating (1.500 -> 1.522 Mlbf) under the same designation.",
+  "Propellant used as bearing lubricant/coolant (fuel), a non-combustion use of the fuel stream."
+ ],
+ "notes": "Tier A fact sheet (Saturn V News Reference, Dec 1968) located by citation only. Most F-1 numbers are SECONDARY_CLAIM.",
+ "branch": "r2_us_classic"
+}

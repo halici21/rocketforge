@@ -1,0 +1,379 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-IN-VIKAS",
+ "designation": "Vikas",
+ "family": "Vikas",
+ "variant_scope": "Vikas family baseline as described by sources that do NOT separate Vikas-2 / -4 / -4B / -X / high-thrust (HTVE) / human-rated. Each assertion names its era/variant where the source does. Variant records exist separately in engines.json.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "pre-2001 standard (52.5 bar)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "2001 uprated (58.5 bar)",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-3",
+   "label": "high-thrust version (62 bar)",
+   "notes": "HTVE, from 2018"
+  },
+  {
+   "op_id": "OP-4",
+   "label": "unspecified (infobox)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.lineage",
+   "operating_point": null,
+   "value": "derived from SEP Viking; 1974 agreement: SEP transferred Viking technology for 100 man-years of ISRO engineering work; early units used imported French components",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "N2O4",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "UDMH (earlier) / UH25 (75% UDMH + 25% hydrazine hydrate, later variants)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": "one source says 'hydrazine hydrate', another 'N2H4' for the 25%"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 52.5,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SPACENEWS-33640",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "'current version' as of 2001"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-2",
+   "value": 58.5,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SPACENEWS-33640",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "uprated version tested 2001"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-3",
+   "value": 6.2,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "62 bar = high-thrust version per other text"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-1",
+   "value": 725,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "'original engine' maximum; SL/vac not stated"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-2",
+   "value": 799,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-VAJIRAM-VIKAS",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "PSLV version; SL/vac not stated"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-3",
+   "value": 846,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-VAJIRAM-VIKAS",
+   "locator": "search summary",
+   "confidence": "low",
+   "note": "GSLV GS2 high-thrust version"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-4",
+   "value": 821,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "another revision gives 850 kN"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-4",
+   "value": 850,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "infobox (other revision)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-4",
+   "value": 293,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "baseline per summary"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-4",
+   "value": 262,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.restarts",
+   "operating_point": null,
+   "value": "restart demonstrated on ground (Propulsion Complex, Mahendragiri, reported Jan 2025)",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-VISIONIAS-VIKAS-RESTART",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.htve_qualification",
+   "operating_point": null,
+   "value": "high-thrust version qualified in 195 s ground test, 15 Jul 2018",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.thrust_uprate",
+   "operating_point": null,
+   "value": "6% increased-thrust version for launches from 2018",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKAS",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.human_rated",
+   "operating_point": null,
+   "value": "human-rated L110-G Vikas: final long-duration hot test 240 s on 6 Apr 2023, IPRC Mahendragiri",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ISRO-VIKAS-TEST",
+   "locator": "test campaign page",
+   "confidence": "high",
+   "note": "applies to human-rated variant"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "'coaxial pumps' / speed not found"
+  },
+  {
+   "field_path": "gas_generator.coolant_water",
+   "reason": "NOT_REPORTED",
+   "note": "water injection in GG not confirmed by any result"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TP",
+    "component_type": "pump",
+    "label": "Turbopump (pump set)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": "count of pumps / shaft arrangement unknown"
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-TURB",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TURB",
+    "to": "N-TP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-TP",
+    "to": "N-MCC",
+    "fluid": "N2O4 + UDMH/UH25",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKAS",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TP",
+    "to": "N-GG",
+    "fluid": "N2O4 + UDMH/UH25",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "GG propellant source not stated"
+   }
+  ],
+  "topology_completeness": "Generic GG skeleton only. Missing: third pump/water circuit (if any), exhaust duct, valves, cooling."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "well",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "partial"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Same designation spans several chamber-pressure eras (52.5 / 58.5 / 62 bar) and fuels (UDMH / UH25): variant-by-epoch keys needed.",
+  "Engine is cross-vehicle (PSLV PS2, GSLV GS2, GSLV boosters, LVM3 L110) with different thrust ratings per vehicle.",
+  "Human-rating is a qualification attribute of a variant, not a separate design necessarily."
+ ],
+ "notes": "No Tier A specification sheet found; isro.gov.in result covered only the human-rated test campaign. Thrust figures disagree widely (725-850 kN) because SL/vac and variant are rarely stated.",
+ "branch": "r2_asia"
+}

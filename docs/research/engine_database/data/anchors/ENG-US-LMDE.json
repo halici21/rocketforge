@@ -1,0 +1,316 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-LMDE",
+ "designation": "LMDE",
+ "family": "LMDE",
+ "variant_scope": "Lunar Module Descent Engine (TRW) as the engine of the Apollo LM Descent Propulsion System (DPS). Stage-level DPS items (tanks, supercritical helium) are recorded with subsystem=stage. Excludes TR-201 derivative.",
+ "operating_points": [],
+ "assertions": [
+  {
+   "field_path": "identity.system_name",
+   "operating_point": null,
+   "value": "Descent Propulsion System (LM descent stage)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "high",
+   "note": "from search summary, document not opened"
+  },
+  {
+   "field_path": "performance.throttle_capability",
+   "operating_point": null,
+   "value": "deep throttling capability (highlighted as distinctive feature)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "NTRS abstract via search summary",
+   "confidence": "medium",
+   "note": "No ratio given in the snippet; the orchestrator's 10:1 is unverified; from search summary, document not opened"
+  },
+  {
+   "field_path": "pressurization.pressurant",
+   "operating_point": null,
+   "value": "lightweight cryogenic helium pressurization system",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "NTRS abstract via search summary",
+   "confidence": "medium",
+   "note": "Stage-level system; 'supercritical' wording not in snippet; from search summary, document not opened"
+  },
+  {
+   "field_path": "history.development_approach",
+   "operating_point": null,
+   "value": "ground testing of individual components and integrated-system testing",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "NTRS abstract via search summary",
+   "confidence": "medium",
+   "note": "from search summary, document not opened"
+  },
+  {
+   "field_path": "history.flight_evaluation_doc",
+   "operating_point": null,
+   "value": "Apollo 15 Mission Report Supplement 4, DPS final flight evaluation LM-10 (MSC-05161, Sept 1972)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "medium",
+   "note": "from search summary, document not opened"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Pintle (orchestrator framing) NOT verified. WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.throttle_mechanism",
+   "reason": "ACCESS_BLOCKED",
+   "note": "Flow control valves + variable-area injector NOT verified. WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-SHE-TANK",
+    "component_type": "pressurant_tank",
+    "label": "cryogenic helium tank (DPS)",
+    "subsystem": "stage",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "NTRS abstract",
+    "note": ""
+   },
+   {
+    "id": "N-OX-TANKS",
+    "component_type": "tank",
+    "label": "oxidizer tank(s)",
+    "subsystem": "stage",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": "count/propellant not sourced here"
+   },
+   {
+    "id": "N-FU-TANKS",
+    "component_type": "tank",
+    "label": "fuel tank(s)",
+    "subsystem": "stage",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "N-THROTTLE",
+    "component_type": "valve",
+    "label": "throttling hardware (unspecified)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": "abstract states deep throttling only"
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-SHE-TANK",
+    "to": "N-OX-TANKS",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": "regulator/heat exchanger path unverified"
+   },
+   {
+    "id": "E-2",
+    "from": "N-SHE-TANK",
+    "to": "N-FU-TANKS",
+    "fluid": "He",
+    "role": "pressurization",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-OX-TANKS",
+    "to": "N-THROTTLE",
+    "fluid": "oxidizer",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-FU-TANKS",
+    "to": "N-THROTTLE",
+    "fluid": "fuel",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-THROTTLE",
+    "to": "N-TC",
+    "fluid": "oxidizer+fuel",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-NASA-TND7143",
+    "locator": "search-result summary",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Skeleton. Missing: supercritical-He heat exchanger(s) (expected, unverified), ambient He start bottle, regulators, burst discs/relief, injector, ablative chamber, radiation-cooled extension, shutoff valves."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "weak",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Throttleable engine: a single thrust/Isp/Pc row is insufficient; needs operating points over the throttle range.",
+  "Pressurization is a stage-level cryogenic helium system distinct from the engine — engine record must point to a stage subsystem.",
+  "Variable-geometry injector (if confirmed) is a geometry that changes with operating point."
+ ],
+ "notes": "TN D-7143 (NTRS 19730011150) is the priority retrieval; it is the most likely public-domain schematic source for this branch.",
+ "branch": "anchor_us_modern"
+}

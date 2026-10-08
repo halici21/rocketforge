@@ -1,0 +1,314 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-FR-VINCI",
+ "designation": "Vinci",
+ "family": "Vinci",
+ "variant_scope": "Vinci as qualified for Ariane 6 ULPM (search sources did not distinguish development configurations).",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal vacuum (undefined by source)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "expander; no gas generator; two turbopumps (LH2, LOX)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-VINCI-60S",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 6.1,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 180,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 60,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 457.2,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 240,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "deployed/stowed not stated"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": "~550",
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VINCI",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "~160 kg excluding nozzle"
+  },
+  {
+   "field_path": "pumps.lh2_tp.discharge_p",
+   "operating_point": "OP-1",
+   "value": ">300",
+   "unit": "bar",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC-18-45921",
+   "locator": "abstract snippet",
+   "confidence": "medium",
+   "note": "'up to more than 300 bar' for hydrogen"
+  },
+  {
+   "field_path": "history.hot_fire_60s",
+   "operating_point": null,
+   "value": "60 s firing with turbopumps at full speed and full pressure (2005)",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-ESA-VINCI-60S",
+   "locator": "search snippet",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.heritage",
+   "operating_point": null,
+   "value": "design concepts from HM7 and Vulcain experience",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-EUCASS2019-VINCI",
+   "locator": "abstract snippet",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "nozzle.extension_deployment",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "performance.restarts",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "identity.expander_closed_vs_bleed",
+   "reason": "NOT_AUDITED",
+   "note": "ESA text: expander, no GG; closed not explicitly seen"
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "gas_generators.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "control.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "mechanical.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  },
+  {
+   "field_path": "history.*",
+   "reason": "NOT_AUDITED",
+   "note": "search budget exhausted / fetch unavailable"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LH2-TP",
+    "component_type": "pump",
+    "label": "LH2 turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-VINCI-60S",
+    "locator": "search snippet",
+    "note": ""
+   },
+   {
+    "id": "N-LOX-TP",
+    "component_type": "pump",
+    "label": "LOX turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ESA-VINCI-60S",
+    "locator": "search snippet",
+    "note": ""
+   },
+   {
+    "id": "N-JACKET",
+    "component_type": "cooling_jacket",
+    "label": "Regeneratively cooled chamber",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VINCI",
+    "locator": "search summary",
+    "note": "heat pickup drives cycle (Tier D)"
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-LH2-TP",
+    "to": "N-JACKET",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "standard expander logic; not seen in source"
+   },
+   {
+    "id": "E-2",
+    "from": "N-JACKET",
+    "to": "N-LH2-TP",
+    "fluid": "GH2",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-JACKET",
+    "to": "N-LOX-TP",
+    "fluid": "GH2",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "series/parallel arrangement NOT_AUDITED"
+   }
+  ],
+  "topology_completeness": "Skeleton; turbine arrangement, bypass/regulating valves, nozzle-extension cooling, igniter, pressurization tap-offs all missing."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "weak",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Extendable nozzle (per task prompt, unverified): area ratio depends on deployment state.",
+  "Turbopump discharge pressure (>300 bar) is a per-pump value far above pc (60 bar)."
+ ],
+ "notes": "Weak; primary paper abstracts only.",
+ "branch": "anchor_eu_asia"
+}

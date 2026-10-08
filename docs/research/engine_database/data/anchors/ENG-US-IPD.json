@@ -1,0 +1,384 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-IPD",
+ "designation": "Integrated Powerhead Demonstrator",
+ "family": "IPD",
+ "variant_scope": "IPD full-flow staged-combustion LOX/LH2 powerhead demonstrator (Rocketdyne + Aerojet; NASA/AFRL IHPRPT). Powerhead test article, not a flight engine.",
+ "operating_points": [],
+ "assertions": [
+  {
+   "field_path": "identity.cycle_wording",
+   "operating_point": null,
+   "value": "full-flow staged combustion",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-IPD-2006",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "identity.developers",
+   "operating_point": null,
+   "value": "Rocketdyne and Aerojet",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-IPD-2006",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_class",
+   "operating_point": null,
+   "value": 250,
+   "unit": "klbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-IPD-2006",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "'250 klbf' class; SL/vac not stated; relayed via sibling log"
+  },
+  {
+   "field_path": "propellants.pair",
+   "operating_point": null,
+   "value": "LOX/LH2",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-IPD-2006",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 1112000,
+   "unit": "N",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-ADA397910",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": "'(250,000 lbf) thrust (at sea level)' design class"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 250000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-ADA397910",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "full flow staged combustion",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-ADA397910",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.FPB.drives",
+   "operating_point": null,
+   "value": "fuel turbopump",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AF-IPD-2006",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.OPB.drives",
+   "operating_point": null,
+   "value": "oxygen turbopump",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AF-IPD-2006",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.OTP.bearings",
+   "operating_point": null,
+   "value": "hydrostatic bearings",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-ADA430218",
+   "locator": "briefing",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.mainstage",
+   "operating_point": null,
+   "value": "100% power (mainstage) July 2006, NASA Stennis",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AF-IPD-2006",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.test_count",
+   "operating_point": null,
+   "value": "21 of 26 planned tests; 300 s accumulated (at mainstage milestone)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AF-IPD-2006",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.developers",
+   "operating_point": null,
+   "value": "Boeing-Rocketdyne and GenCorp Aerojet (Aerojet preburners)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-AF-IPD-2006",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "documents.ntrs",
+   "reason": "NOT_AUDITED",
+   "note": "NTRS 20040084662 and 20040129712 identified by sibling; not opened"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-FPB",
+    "component_type": "preburner",
+    "label": "fuel-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AF-IPD-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-OPB",
+    "component_type": "preburner",
+    "label": "oxidizer-rich preburner",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AF-IPD-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-FTP",
+    "component_type": "pump",
+    "label": "fuel turbopump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AF-IPD-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-OTP",
+    "component_type": "pump",
+    "label": "oxygen turbopump (hydrostatic bearings)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DTIC-ADA430218",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "main combustion chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-FLIGHTGLOBAL-IPD",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-FPB",
+    "to": "N-FTP",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AF-IPD-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-OPB",
+    "to": "N-OTP",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-AF-IPD-2006",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-FTP",
+    "to": "N-MCC",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-DTIC-ADA397910",
+    "locator": "search-result summary (round 2)",
+    "note": "full-flow implies both exhausts to MCC"
+   },
+   {
+    "id": "E-4",
+    "from": "N-OTP",
+    "to": "N-MCC",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-DTIC-ADA397910",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Preburner->turbopump pairing REPORTED (USAF). Pump feed of preburners, cooling, valves, Pc missing."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "partial",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "partial"
+ },
+ "schematic_ids": [
+  "SCH-IPD-R2-1",
+  "SCH-IPD-R2-2"
+ ],
+ "schema_breakers": [
+  "Demonstrator 'engine' that is a powerhead (no flight nozzle) — chamber/nozzle fields may legitimately be N/A, not missing."
+ ],
+ "notes": "Only secondary relayed claims. | ROUND 2 (r2_schem): Pc and TP speeds NOT found (one NTRS hit gave 0-80,000 rpm for a hybrid hydrostatic bearing rig - NOT IPD). Work split (Rocketdyne TPs+TC, Aerojet PBs+nozzle) seen only in a forum post - not recorded.",
+ "branch": "r2_schem"
+}

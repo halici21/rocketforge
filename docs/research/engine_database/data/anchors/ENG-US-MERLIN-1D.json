@@ -1,0 +1,402 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-MERLIN-1D",
+ "designation": "Merlin 1D",
+ "family": "Merlin",
+ "variant_scope": "Merlin 1D sea-level engine as described in the 2025-05-09 Falcon User's Guide (implicitly Falcon 9 Block 5 configuration). Earlier v1.1/FT ratings are NOT captured. Merlin 1D Vacuum noted only in engines.json/notes.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal, sea level (as stated in 2025 user guide)",
+   "notes": "date-specific rating"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 845,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "per engine; also given as 190,000 lbf; relayed via sibling log"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 190000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "per engine; relayed via sibling log"
+  },
+  {
+   "field_path": "identity.stage_total_thrust_sl",
+   "operating_point": "OP-1",
+   "value": 7605,
+   "unit": "kN",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (no page locator)",
+   "confidence": "low",
+   "note": "first-stage total (9 engines); stage-level value, not engine; relayed via sibling log"
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator ('instead of the more complex staged combustion cycle')",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "engine description",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.pair",
+   "operating_point": null,
+   "value": "RP-1 / LOX",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-F9-PAGE",
+   "locator": "Merlin section",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.engines_per_vehicle",
+   "operating_point": null,
+   "value": "9 (Falcon 9 first stage); 27 (Falcon Heavy)",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "identity.stage_total_thrust_sl",
+   "operating_point": "OP-1",
+   "value": 1710000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": "stage total, not engine"
+  },
+  {
+   "field_path": "identity.vehicle_total_thrust_sl",
+   "operating_point": "OP-1",
+   "value": "22,819 kN (5,130,000 lbf) Falcon Heavy, 27 engines",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "locator": "search-result summary (round 2)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 9.7,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-MERLIN",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "1,410 psi; CF-R2-8"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 981,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-MERLIN",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "sea-level engine in vacuum; 221,000 lbf"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 16,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-MERLIN",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "injector.type",
+   "operating_point": null,
+   "value": "pintle (LMDE heritage)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-MERLIN",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.method",
+   "operating_point": null,
+   "value": "dual redundant TEA-TEB pyrophoric igniters",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-UC-OLLI-SPACEX",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "Tier E; not found in FUG summary"
+  },
+  {
+   "field_path": "pumps.TPA.arrangement",
+   "operating_point": null,
+   "value": "single-shaft, dual-impeller turbopump",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-UC-OLLI-SPACEX",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.TPA.speed_rpm",
+   "operating_point": "OP-1",
+   "value": 36000,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-UC-OLLI-SPACEX",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.TPA.power",
+   "operating_point": "OP-1",
+   "value": 10000,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-UC-OLLI-SPACEX",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "'about'"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "operating_point": "OP-1",
+   "value": "100%-57%",
+   "unit": "% (SL)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WEVOLVER-MERLIN",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "CF-R2-9"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "NOT_REPORTED",
+   "note": "Sibling: 'No Isp on SpaceX pages' (search-summary level)"
+  },
+  {
+   "field_path": "gas_generators.GG.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-SPACEX-FUG-2025",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-TPA",
+    "component_type": "pump",
+    "label": "single-shaft dual-impeller turbopump (LOX + RP-1)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-UC-OLLI-SPACEX",
+    "locator": "search-result summary (round 2)",
+    "note": "Tier E"
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SPACEX-FUG-2025",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SPACEX-FUG-2025",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "pintle injector",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-MERLIN",
+    "locator": "search-result summary (round 2)",
+    "note": "secondary"
+   },
+   {
+    "id": "N-IGN",
+    "component_type": "igniter",
+    "label": "TEA-TEB igniters (dual redundant)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-UC-OLLI-SPACEX",
+    "locator": "search-result summary (round 2)",
+    "note": "Tier E"
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-TURB",
+    "fluid": "fuel-rich hot gas (assumed)",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SPACEX-FUG-2025",
+    "locator": "search-result summary (round 2)",
+    "note": "GG mixture side not sourced"
+   },
+   {
+    "id": "E-2",
+    "from": "N-TURB",
+    "to": "N-TPA",
+    "fluid": "",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-UC-OLLI-SPACEX",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-TPA",
+    "to": "N-INJ",
+    "fluid": "LOX / RP-1",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SPACEX-FUG-2025",
+    "locator": "search-result summary (round 2)",
+    "note": "regen path not sourced"
+   }
+  ],
+  "topology_completeness": "GG cycle REPORTED by FUG; everything else secondary. Turbine exhaust destination, regen cooling path, valves missing."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "weak",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "weak",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Rating drifts by date/block with the same designation (Merlin 1D thrust uprates); engine record needs dated ratings.",
+  "Stage thrust (7,605 kN) is commonly quoted alongside engine thrust — must not be stored as engine thrust.",
+  "Unofficial sub-variant labels (1D+, 1D++) used by secondary sources for uprated values."
+ ],
+ "notes": "Values relayed from the commercial sibling branch. Thrust-by-date conflict could not be recorded because only one dated value was obtained. | ROUND 2 (r2_schem): FUG 2025 summary seen directly via spacex.com-filtered search. MVac: 981 kN / 220,500 lbf, 397 s burn (SpaceX page) belongs to ENG-US-MERLIN-1D-VACUUM, not this record.",
+ "branch": "r2_schem"
+}

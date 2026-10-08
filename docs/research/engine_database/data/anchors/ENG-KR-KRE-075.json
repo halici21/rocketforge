@@ -1,0 +1,527 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-KR-KRE-075",
+ "designation": "KRE-075",
+ "family": "KRE",
+ "variant_scope": "KRE-075 (Nuri/KSLV-II). Stage-1 sea-level version is the baseline; stage-2 altitude-nozzle version values are tagged OP-3 and also kept in a separate engines.json record ENG-KR-KRE-075-2ND-STAGE. 2009 KARI values are design-stage targets.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "stage-1 version, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "stage-1 version, sea level",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-3",
+   "label": "stage-2 (altitude nozzle) version, vacuum",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-4",
+   "label": "2009 design target, vacuum",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "open gas generator cycle",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "Jet A-1",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.45,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "convention not stated"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 7.0,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "infobox",
+   "confidence": "medium",
+   "note": "1,020 psi"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 60,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-FRWIKI-KRE075",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-4",
+   "value": 60,
+   "unit": "bar",
+   "status": "REPORTED",
+   "source_id": "SRC-KSCI-KARI-2009-KRE75",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "design-stage combustion chamber"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-4",
+   "value": 74.8,
+   "unit": "ton",
+   "status": "REPORTED",
+   "source_id": "SRC-KSCI-KARI-2009-KRE75",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "design stage"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-4",
+   "value": 306.9,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-KSCI-KARI-2009-KRE75",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "design stage"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 735.5,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-3",
+   "value": 788,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-1",
+   "value": 75.8,
+   "unit": "tonf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "'KARI presentation material' quoted in Korean summary",
+   "confidence": "low",
+   "note": "summary says 'sea-level type' vacuum thrust"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-3",
+   "value": 81.1,
+   "unit": "tonf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "'KARI presentation material' quoted",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 298.6,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-3",
+   "value": 315.4,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-2",
+   "value": 261.7,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": "OP-1",
+   "value": 127,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "stage 1"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "operating_point": "OP-3",
+   "value": 148,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-KRE075",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "stage 2"
+  },
+  {
+   "field_path": "gas_generator.gg1.flow_fraction",
+   "operating_point": null,
+   "value": "~4% of engine propellant flow",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "Korean summary",
+   "confidence": "low",
+   "note": "host page uncertain (Namu/Wikipedia)"
+  },
+  {
+   "field_path": "turbines.exhaust_destination",
+   "operating_point": null,
+   "value": "GG gas passes heat exchanger and exhaust duct; exhaust produces ~1% of thrust",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "Korean summary",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.tt1.type",
+   "operating_point": null,
+   "value": "impulse turbine, 12 nozzles, single rotor",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-KSCI-KARI-2016-TP",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": "2016 development TP"
+  },
+  {
+   "field_path": "control.ground_test",
+   "operating_point": null,
+   "value": "three control valves move to control/maintain engine operating condition in ground tests",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-EUCASS2019-0521",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.gimbal",
+   "operating_point": null,
+   "value": "two-axis gimbal for TVC",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "Korean summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.combustion_instability",
+   "operating_point": null,
+   "value": "combustion instability during development solved by repeated injector and baffle layout redesign",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAMU-KRE075",
+   "locator": "Korean summary",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.*.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": "searched in Korean and English"
+  },
+  {
+   "field_path": "gas_generator.gg1.mr",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.tt1.inlet_t",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.*.discharge_p",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "heat_exchanger.function",
+   "reason": "NOT_REPORTED",
+   "note": "probably pressurant heating [BG] - unverified"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-LOX-PUMP",
+    "component_type": "pump",
+    "label": "LOX pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-FUEL-PUMP",
+    "component_type": "pump",
+    "label": "Kerosene (Jet A-1) pump",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Impulse turbine (12 nozzles, single rotor)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-KSCI-KARI-2016-TP",
+    "locator": "abstract",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "75 tf-class gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-EUCASS2019-0521",
+    "locator": "abstract",
+    "note": ""
+   },
+   {
+    "id": "N-HX",
+    "component_type": "heat_exchanger",
+    "label": "Heat exchanger in turbine exhaust",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAMU-KRE075",
+    "locator": "Korean summary",
+    "note": ""
+   },
+   {
+    "id": "N-EXH",
+    "component_type": "turbine_exhaust_duct",
+    "label": "Exhaust duct (~1% thrust)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAMU-KRE075",
+    "locator": "Korean summary",
+    "note": ""
+   },
+   {
+    "id": "N-CV",
+    "component_type": "valve",
+    "label": "Three control valves",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-EUCASS2019-0521",
+    "locator": "abstract",
+    "note": "which lines not stated"
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Combustion chamber (with baffles)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAMU-KRE075",
+    "locator": "Korean summary",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-TURB",
+    "fluid": "fuel-rich hot gas (assumed)",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TURB",
+    "to": "N-HX",
+    "fluid": "turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAMU-KRE075",
+    "locator": "Korean summary",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-HX",
+    "to": "N-EXH",
+    "fluid": "turbine exhaust",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NAMU-KRE075",
+    "locator": "Korean summary",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-LOX-PUMP",
+    "to": "N-GG",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "~4% of total flow to GG"
+   },
+   {
+    "id": "E-5",
+    "from": "N-FUEL-PUMP",
+    "to": "N-GG",
+    "fluid": "Jet A-1",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-LOX-PUMP",
+    "to": "N-MCC",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-7",
+    "from": "N-FUEL-PUMP",
+    "to": "N-MCC",
+    "fluid": "Jet A-1",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-TURB",
+    "to": "N-LOX-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "single-shaft arrangement not confirmed"
+   }
+  ],
+  "topology_completeness": "Skeleton with notable heat exchanger; valve placement, regen cooling and pressurant paths unknown."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "well",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "weak",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "weak",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [
+  "SCH-ENG-KR-KRE-075-1"
+ ],
+ "schema_breakers": [
+  "Two stage-specific variants (stage-1 SL nozzle, stage-2 altitude nozzle) share the designation.",
+  "Turbine exhaust passes a heat exchanger then a thrust-producing exhaust duct: exhaust has both thermal duty and thrust contribution.",
+  "Design-stage (2009) vs flight values for the same designation.",
+  "Chamber pressure 7.0 MPa vs 60 bar across sources."
+ ],
+ "notes": "Korean-language search did not surface pump speeds. KSPE/koreascience papers are the best Tier B leads (abstract only).",
+ "branch": "r2_asia"
+}

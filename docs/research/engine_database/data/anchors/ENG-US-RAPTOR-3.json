@@ -1,0 +1,193 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-RAPTOR-3",
+ "designation": "Raptor 3",
+ "family": "Raptor",
+ "variant_scope": "Raptor 3 sea-level engine as announced on spacex.com updates and Starship specs page. Raptor 3 Vacuum (ENG-US-RAPTOR-3-VACUUM) values noted only in notes.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "rated, sea level (manufacturer announcement)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 250,
+   "unit": "tf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "Raptor 3 update",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 551000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "Raptor 3 update",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 250,
+   "unit": "tf",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-STARSHIP-SPECS",
+   "locator": "engine block",
+   "confidence": "medium",
+   "note": "551 klbf"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 1525,
+   "unit": "kg",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "locator": "Raptor 3 update",
+   "confidence": "medium",
+   "note": "'engine mass'; dry vs wet not stated"
+  },
+  {
+   "field_path": "mechanical.diameter",
+   "operating_point": null,
+   "value": 1.3,
+   "unit": "m",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-STARSHIP-SPECS",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "variant implied"
+  },
+  {
+   "field_path": "mechanical.length",
+   "operating_point": null,
+   "value": 2.9,
+   "unit": "m",
+   "status": "REPORTED",
+   "source_id": "SRC-SPACEX-STARSHIP-SPECS",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "'height'"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-1",
+   "value": 2452,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "full-flow staged combustion (fuel-rich and ox-rich preburners)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-1",
+   "value": 3.6,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RAPTOR",
+   "locator": "search-result summary (round 2)",
+   "confidence": "low",
+   "note": "family-level"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.pc",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "preburners.*",
+   "reason": "NOT_REPORTED",
+   "note": "not in spacex.com summaries"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "UNKNOWN",
+   "note": "~350 bar only in Tier E comparisons"
+  }
+ ],
+ "topology": {
+  "nodes": [],
+  "edges": [],
+  "topology_completeness": "No sourced topology; FFSC structure is SECONDARY_CLAIM."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "weak",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "partial",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Ratings in tf; mass reduction quoted with vehicle-level savings (~1 t per engine incl. vehicle-side commodities) that must not be booked to the engine.",
+  "Conflicting secondary 280 tf figure (CF-R2-3)."
+ ],
+ "notes": "ROUND 2 (r2_schem) new anchor. Raptor 3 Vacuum: 275 tf (606,000 lbf) per SRC-SPACEX-UPDATES (from 258 tf / 568,000 lbf).",
+ "branch": "r2_schem"
+}

@@ -1,0 +1,301 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-FR-VIKING-5C",
+ "designation": "Viking 5C",
+ "family": "Viking",
+ "variant_scope": "Viking 5C as used on Ariane 4 first stage (1990-2003). Same engine as europe branch record ENG-FR-VIKING-5C (ID convention conflict EU vs FR). Family-level values flagged.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "nominal (SL/vac not stated)",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-FRWIKI-VIKING",
+   "locator": "spec table (cycle générateur de gaz)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator with 3 coaxial pumps",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "N2O4",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-FRWIKI-VIKING",
+   "locator": "spec table",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "UH 25 (75% UDMH + 25% hydrazine); family also used UDMH",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel_change",
+   "operating_point": null,
+   "value": "UDMH -> UH 25 from Ariane 2 onward after combustion instability / explosion on Ariane 1 flight 2",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-UH25",
+   "locator": "search summary",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 58.5,
+   "unit": "bar",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-FRWIKI-VIKING",
+   "locator": "spec table (Viking 5C)",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-1",
+   "value": 5.5,
+   "unit": "MPa",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "infobox (family-level)",
+   "confidence": "low",
+   "note": "not 5C-specific"
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-1",
+   "value": 760.7,
+   "unit": "kN",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "round-1 europe",
+   "confidence": "low",
+   "note": "SL/vac unstated"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 10,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "round-1 europe",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "history.service",
+   "operating_point": null,
+   "value": "Ariane 4 first stage, 1990-2003",
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-VIKING",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.origin",
+   "operating_point": null,
+   "value": "1965: development of a completely new engine with turbopumps began under ELDO",
+   "unit": "-",
+   "status": "REPORTED",
+   "source_id": "SRC-DLR-VIKING-GALLERY",
+   "locator": "search summary",
+   "confidence": "medium",
+   "note": "family origin, not 5C-specific"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "gas_generator.water_injection",
+   "reason": "NOT_REPORTED",
+   "note": "explicitly searched; no result confirms water in GG [BG verification target]"
+  },
+  {
+   "field_path": "pumps.third_pump.fluid",
+   "reason": "NOT_REPORTED",
+   "note": "third coaxial pump's fluid not identified"
+  },
+  {
+   "field_path": "pumps.*.speed_rpm",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_*",
+   "reason": "NOT_AUDITED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TURB",
+    "component_type": "turbine",
+    "label": "Turbine",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "N-PUMP-OX",
+    "component_type": "pump",
+    "label": "Oxidizer pump (coaxial set)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKING",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-PUMP-FU",
+    "component_type": "pump",
+    "label": "Fuel pump (coaxial set)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKING",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-PUMP-3",
+    "component_type": "pump",
+    "label": "Third coaxial pump (fluid unidentified)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-VIKING",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-FRWIKI-VIKING",
+    "locator": "search summary",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-TURB",
+    "fluid": "hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-TURB",
+    "to": "N-PUMP-OX",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": "coaxial = common shaft assumed"
+   },
+   {
+    "id": "E-3",
+    "from": "N-TURB",
+    "to": "N-PUMP-FU",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-TURB",
+    "to": "N-PUMP-3",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "",
+    "locator": "",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Very weak; destination and fluid of third pump unknown."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "well",
+  "performance": "weak",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "weak",
+  "turbines": "not_reported",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "not_reported",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Three pumps on one shaft, one of which carries a fluid that is neither main propellant (if water, a third working fluid) - schema needs >2 propellant/working-fluid roles.",
+  "Fuel changed mid-life of the family (UDMH -> UH 25) under the same variant names."
+ ],
+ "notes": "No Tier A/B text on 5C internals reached. ID note: anchor uses ENG-EU-VIKING-5C (round-1 anchor convention); europe branch uses ENG-FR-VIKING-5C.",
+ "branch": "r2_asia"
+}

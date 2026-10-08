@@ -1,0 +1,1401 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-SSME-BLOCK-II",
+ "designation": "RS-25D",
+ "family": "RS-25 (SSME)",
+ "variant_scope": "SSME Block II (Block IIA + Pratt & Whitney HPFTP), final Shuttle flight configuration; the 'RS-25D' label for it is [BG] except that Wikipedia uses RS-25D for the dry-mass value. Includes the 14+ RS-25D engines adapted for SLS only where a source (L3Harris sheet, NASA SLS fact sheets) gives values for that adaptation: flagged in notes. Excludes Phase I/II, Block I, Block IIA-only rows (recorded only as comparison notes) and RS-25E.",
+ "operating_points": [
+  {
+   "op_id": "OP-RPL",
+   "label": "100% RPL (rated power level, original design reference)",
+   "notes": "Reference definition only; Block II rarely ran here."
+  },
+  {
+   "op_id": "OP-104.5",
+   "label": "104.5% RPL ('NPL' nominal power level for Shuttle)",
+   "notes": "Shuttle nominal ascent level."
+  },
+  {
+   "op_id": "OP-109",
+   "label": "109% RPL (FPL on Shuttle; nominal on SLS)",
+   "notes": "Shuttle abort/emergency level; SLS nominal per NTRS 20180006338 (round 1)."
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.block_definition",
+   "operating_point": null,
+   "value": "Block II = Block IIA engine + new Pratt & Whitney high-pressure fuel turbopump",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "News article quoting NASA; consistent with NTRS 20030005845 summary."
+  },
+  {
+   "field_path": "identity.block_package",
+   "operating_point": null,
+   "value": "Block 2 package lists Large Throat MCC plus Advanced Technology (P&W) oxidizer and fuel turbopumps",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20030005845",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Attribution to this NTRS id inferred from co-listed results."
+  },
+  {
+   "field_path": "identity.block_IIA_change",
+   "operating_point": null,
+   "value": "Block IA -> Block IIA modification was a larger-throat main combustion chamber",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20030005845",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Attribution inferred."
+  },
+  {
+   "field_path": "history.atd_hpotp_first_flight",
+   "operating_point": null,
+   "value": "P&W liquid-oxygen turbopump first flew on STS-70 under the Block I upgrade; ~55-mission / 7.5 h design life before overhaul",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Search summary; exact news article among co-listed hits not distinguishable."
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Sheet lists 'Oxygen pump discharge'."
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "LH2",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Sheet lists 'Hydrogen pump discharge'."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 6.03,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Engine O/F per sheet; SLS-supplied configuration; power level not stated."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 6.0,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-WEB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Rounded web value."
+  },
+  {
+   "field_path": "propellants.mixture_ratio_main_chamber",
+   "operating_point": null,
+   "value": "6 lb oxidizer to 1 lb fuel in main combustion chamber",
+   "unit": "lb/lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Summary text from an SSME overview; attribution among co-listed docs inferred. Main-chamber vs engine O/F convention not stated."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-109",
+   "value": 512300,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "In vacuum at 109% (SLS-supplied configuration)."
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-109",
+   "value": 512000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-RS25-FS2015",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Carried from round 1; condition not shown in excerpt."
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": "OP-104.5",
+   "value": 491000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-RS25-WEB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Carried from round 1; reference condition not stated (analyst [BG]: vacuum)."
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-104.5",
+   "value": 390000,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-SSME-NPL-DOC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'390,000 pounds nominal power level (NPL) or 104.5 percent RPL' at sea level; which NASA doc among co-listed hits is inferred."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-RPL",
+   "value": 2747,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'approximately'; main combustion chamber; injector-face vs stagnation not stated."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-104.5",
+   "value": 2870,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Block II row of block-comparison table; also ~2,870 psia in SSME overview."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-104.5",
+   "value": 2870,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'approximately 2,870 psia' (independent second source)."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-109",
+   "value": 2994,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Spec-sheet chamber pressure (SLS configuration)."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-109",
+   "value": 2994,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Table row labelled Block IIA at 109% (Block II 109% Pc not given in summary)."
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "operating_point": null,
+   "value": "67-109",
+   "unit": "% RPL",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "SLS-supplied configuration."
+  },
+  {
+   "field_path": "turbines.HPFT.discharge_temperature",
+   "operating_point": "OP-104.5",
+   "value": 1615,
+   "unit": "degR",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Block II row; summary warns of jumbled extraction (a 1601 R value also appears, labelled Block I or IIA)."
+  },
+  {
+   "field_path": "turbines.HPFT.discharge_temperature",
+   "operating_point": "OP-109",
+   "value": 1638,
+   "unit": "degR",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Block II at 109%."
+  },
+  {
+   "field_path": "turbines.HPOT.discharge_temperature",
+   "operating_point": "OP-104.5",
+   "value": 1223,
+   "unit": "degR",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Block II at 104.5%."
+  },
+  {
+   "field_path": "turbines.HPOT.discharge_temperature",
+   "operating_point": "OP-109",
+   "value": 1246,
+   "unit": "degR",
+   "status": "REPORTED",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Block II at 109%."
+  },
+  {
+   "field_path": "pumps.HPFTP.discharge_pressure",
+   "operating_point": null,
+   "value": 6276,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'Hydrogen Pump Discharge'; power level not stated (probably 109%)."
+  },
+  {
+   "field_path": "pumps.HPOTP.discharge_pressure",
+   "operating_point": null,
+   "value": 7268,
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'Oxygen Pump Discharge'; which HPOTP stage (main pump vs preburner boost pump) not stated; magnitude suggests the preburner boost pump [INFERRED]."
+  },
+  {
+   "field_path": "pumps.HPFTP.vendor",
+   "operating_point": null,
+   "value": "Pratt & Whitney (Block II)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.HPFTP.construction",
+   "operating_point": null,
+   "value": "cast housing (weld elimination), integral shaft/disk, thin-wall blades, ceramic bearings",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.HPFTP.mass_delta",
+   "operating_point": null,
+   "value": "+300 lb (135 kg) vs previous pump",
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.HPFTP.speed_rpm",
+   "operating_point": null,
+   "value": 36200,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-FORUM-BITOG-PWHPFTP",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Forum quoting P&W website; operating point not stated."
+  },
+  {
+   "field_path": "pumps.HPFTP.power",
+   "operating_point": null,
+   "value": 76000,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'turbopumps each transmit 76,000 horsepower to deliver liquid hydrogen'; news source among co-listed hits not distinguishable; block/operating point not stated."
+  },
+  {
+   "field_path": "pumps.HPOTP.power",
+   "operating_point": null,
+   "value": 26800,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Same sentence as HPFTP power."
+  },
+  {
+   "field_path": "pumps.HPOTP.configuration",
+   "operating_point": null,
+   "value": "two single-stage centrifugal pumps (main pump + preburner pump) on a common shaft, two-stage hot-gas turbine",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Generic SSME description; Block II uses the P&W ATD HPOTP whose detail may differ."
+  },
+  {
+   "field_path": "pumps.HPOTP_main.discharge_pressure",
+   "operating_point": null,
+   "value": 4350,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "420 -> 4,350 psi; operating point/block not stated."
+  },
+  {
+   "field_path": "pumps.HPOTP.speed_rpm",
+   "operating_point": null,
+   "value": 28120,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'approximately'; block not stated."
+  },
+  {
+   "field_path": "pumps.HPOTP.power",
+   "operating_point": null,
+   "value": 23260,
+   "unit": "hp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "17.34 MW; conflicts with 26,800 hp news figure (CF-RS-5)."
+  },
+  {
+   "field_path": "pumps.LPOTP.type",
+   "operating_point": null,
+   "value": "axial-flow pump driven by six-stage turbine powered by high-pressure LOX from the HPOTP",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Hydraulic (liquid) turbine drive."
+  },
+  {
+   "field_path": "pumps.LPOTP.speed_rpm",
+   "operating_point": null,
+   "value": 5150,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "approximately"
+  },
+  {
+   "field_path": "pumps.LPOTP.pressure_rise",
+   "operating_point": null,
+   "value": "100 -> 420",
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "0.7 -> 2.9 MPa"
+  },
+  {
+   "field_path": "pumps.LPFTP.type",
+   "operating_point": null,
+   "value": "axial-flow pump driven by two-stage turbine powered by gaseous hydrogen",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.LPFTP.speed_rpm",
+   "operating_point": null,
+   "value": 16185,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "approximately"
+  },
+  {
+   "field_path": "pumps.LPFTP.pressure_rise",
+   "operating_point": null,
+   "value": "30 -> 276",
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "'Two preburners burn a fuel rich mixture to power the HPFTP and HPOTP turbines'."
+  },
+  {
+   "field_path": "preburners.FPB.rich_side",
+   "operating_point": null,
+   "value": "fuel-rich",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.OPB.rich_side",
+   "operating_point": null,
+   "value": "fuel-rich",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.pressure",
+   "operating_point": null,
+   "value": 5000,
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "General 'about 5,000 psia' statement, not Block II / power-level specific."
+  },
+  {
+   "field_path": "preburners.FPB.injector_element_count",
+   "operating_point": null,
+   "value": 264,
+   "unit": "elements",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PATENT-UNIDENT-SSMEPB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Patent not identified; block not stated."
+  },
+  {
+   "field_path": "preburners.OPB.injector_element_count",
+   "operating_point": null,
+   "value": 120,
+   "unit": "elements",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PATENT-UNIDENT-SSMEPB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "preburners.injector_element_type",
+   "operating_point": null,
+   "value": "shear coaxial",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PATENT-UNIDENT-SSMEPB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "control.mixture_ratio_valve",
+   "operating_point": null,
+   "value": "Fuel Preburner Oxidizer Valve (FPOV) controls mixture ratio",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "control.power_level_valve",
+   "operating_point": null,
+   "value": "Oxidizer Preburner Oxidizer Valve (OPOV) controls power level",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.fpov_start_position",
+   "operating_point": null,
+   "value": "FPOV ramped to 56% to provide LOX for FPB ignition (initial turbine torque)",
+   "unit": "%",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Summary source among co-listed NTRS/overview docs not distinguishable."
+  },
+  {
+   "field_path": "cooling.fuel_split",
+   "operating_point": null,
+   "value": "after HPFTP: preburner fuel, nozzle coolant, MCC coolant, low-pressure turbine drive gas, hot-gas-manifold coolant",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Summary: 'one NASA document says'; doc not named."
+  },
+  {
+   "field_path": "cooling.mcc_coolant_path",
+   "operating_point": null,
+   "value": "MCC coolant hydrogen passes back through the LPFTP turbine, then to fuel-tank pressurization or HGM cooling",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Sources do NOT confirm nozzle coolant drives the LPFTP turbine."
+  },
+  {
+   "field_path": "cooling.coolant",
+   "operating_point": null,
+   "value": "hydrogen cools all combustion devices exposed to hot gas",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NTRS-19860012108",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Attribution among co-listed NTRS docs inferred."
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 69,
+   "unit": ":1 (exit/throat)",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Large-throat MCC configuration."
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 69.5,
+   "unit": ":1",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19860012108",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Large Throat study: 77.5 -> 69.5 when throat enlarged (nozzle unmodified)."
+  },
+  {
+   "field_path": "nozzle.area_ratio_pre_large_throat",
+   "operating_point": null,
+   "value": 77.5,
+   "unit": ":1",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-19860012108",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Pre-Block IIA (small throat) nozzle - NOT this variant; recorded to explain conflict."
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 7774,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'Dry'; SLS-supplied configuration (may include SLS adaptations)."
+  },
+  {
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value": 7775,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-L3HARRIS-RS25-WEB",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 7004,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Wikipedia RS-25D dry weight; definition differs from L3Harris (CF-RS-2)."
+  },
+  {
+   "field_path": "mechanical.hot_gas_manifold",
+   "operating_point": null,
+   "value": "structural backbone: supports HPTPs, preburners, main injector, MCC and nozzle; routes H2-rich turbine exhaust to main chamber; turbopumps mounted on it with preburners close-coupled to turbines",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Summary of NTRS papers (19850018587/88-series); attribution inferred."
+  },
+  {
+   "field_path": "feed.pogo_accumulator",
+   "operating_point": null,
+   "value": "pogo suppression accumulator upstream of HPOTP; helium pre/post-charge; filled with GOX from heat exchanger; internal baffles, no membrane",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-RS25",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "pumps.HPFTP.speed_rpm (Tier A)",
+   "reason": "NOT_REPORTED",
+   "note": "No Tier A absolute speed found; STS-113 FRR (Oct 2002) gives only sigma margins."
+  },
+  {
+   "field_path": "preburners.*.temperature",
+   "reason": "NOT_REPORTED",
+   "note": "No numeric preburner temperatures in any summary."
+  },
+  {
+   "field_path": "preburners.*.mixture_ratio",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "injector.main.element_count",
+   "reason": "NOT_REPORTED",
+   "note": "600-element figure (query hint) not confirmed."
+  },
+  {
+   "field_path": "nozzle.exit_diameter / thrust_chamber.throat_diameter",
+   "reason": "NOT_REPORTED",
+   "note": "10.3 in / 90.7 in not found."
+  },
+  {
+   "field_path": "nozzle.tube_count / steerhorn",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac / isp_sl",
+   "reason": "NOT_AUDITED",
+   "note": "Not searched in round 2 (budget)."
+  },
+  {
+   "field_path": "history.block_II_first_flight",
+   "reason": "NOT_REPORTED",
+   "note": "Not in summaries."
+  },
+  {
+   "field_path": "ignition_start.ASI",
+   "reason": "NOT_REPORTED",
+   "note": "TOC entries 'Preburner Augmented Spark Igniter' only."
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_REPORTED",
+   "note": "Only qualitative: LPFTP turbine exhaust -> fuel tank pressurization; heat exchanger GOX -> pogo accumulator."
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TANK-LOX",
+    "component_type": "tank",
+    "label": "External tank LOX",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "vehicle side"
+   },
+   {
+    "id": "N-TANK-LH2",
+    "component_type": "tank",
+    "label": "External tank LH2",
+    "subsystem": "vehicle",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "vehicle side"
+   },
+   {
+    "id": "N-LPOTP-PUMP",
+    "component_type": "booster_pump",
+    "label": "LPOTP axial pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-LPOTP-TURB",
+    "component_type": "turbine",
+    "label": "LPOTP six-stage hydraulic (LOX) turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-POGO",
+    "component_type": "other",
+    "label": "Pogo suppression accumulator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HPOTP-MAIN",
+    "component_type": "pump",
+    "label": "HPOTP main pump (single-stage centrifugal)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HPOTP-PBP",
+    "component_type": "pump",
+    "label": "HPOTP preburner boost pump (single-stage centrifugal)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HPOT",
+    "component_type": "turbine",
+    "label": "HPOTP two-stage hot-gas turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-LPFTP-PUMP",
+    "component_type": "booster_pump",
+    "label": "LPFTP axial pump",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-LPFT",
+    "component_type": "turbine",
+    "label": "LPFTP two-stage GH2 turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HPFTP-PUMP",
+    "component_type": "pump",
+    "label": "HPFTP (P&W, Block II)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-SFN-SSMEBLOCK2-2001",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HPFT",
+    "component_type": "turbine",
+    "label": "HPFTP turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FPB",
+    "component_type": "preburner",
+    "label": "Fuel preburner (fuel-rich)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OPB",
+    "component_type": "preburner",
+    "label": "Oxidizer preburner (fuel-rich)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-MOV",
+    "component_type": "valve",
+    "label": "Main oxidizer valve",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FPOV",
+    "component_type": "valve",
+    "label": "Fuel preburner oxidizer valve (MR control)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OPOV",
+    "component_type": "valve",
+    "label": "Oxidizer preburner oxidizer valve (power level)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HGM",
+    "component_type": "manifold",
+    "label": "Hot gas manifold (structural)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-MCC-COOL",
+    "component_type": "cooling_jacket",
+    "label": "MCC coolant circuit",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ-COOL",
+    "component_type": "nozzle_extension_cooling",
+    "label": "Nozzle coolant circuit",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-MCC",
+    "component_type": "main_chamber",
+    "label": "Main combustion chamber (large throat)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20030005845",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-NOZ",
+    "component_type": "nozzle",
+    "label": "Nozzle (69:1)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-L3HARRIS-RS25-SPEC",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "Main injector",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HEX",
+    "component_type": "heat_exchanger",
+    "label": "Oxidizer heat exchanger (GOX source)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "Location (on HPOTP) [BG] not sourced."
+   },
+   {
+    "id": "N-PRESS-LH2",
+    "component_type": "other",
+    "label": "Fuel tank pressurization outlet",
+    "subsystem": "ambiguous",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-TANK-LOX",
+    "to": "N-LPOTP-PUMP",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-LPOTP-PUMP",
+    "to": "N-HPOTP-MAIN",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "via pogo accumulator region (accumulator is 'mounted before the HPOTP')"
+   },
+   {
+    "id": "E-3",
+    "from": "N-HPOTP-MAIN",
+    "to": "N-MOV",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-4",
+    "from": "N-MOV",
+    "to": "N-INJ",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-5",
+    "from": "N-HPOTP-MAIN",
+    "to": "N-LPOTP-TURB",
+    "fluid": "LOX",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "HP LOX drives LPOTP turbine; return path to LPOTP discharge [BG] not sourced"
+   },
+   {
+    "id": "E-6",
+    "from": "N-HPOTP-MAIN",
+    "to": "N-HPOTP-PBP",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "preburner pump on same shaft; branch point not sourced"
+   },
+   {
+    "id": "E-7",
+    "from": "N-HPOTP-PBP",
+    "to": "N-FPOV",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-8",
+    "from": "N-HPOTP-PBP",
+    "to": "N-OPOV",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-9",
+    "from": "N-FPOV",
+    "to": "N-FPB",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-OPOV",
+    "to": "N-OPB",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-11",
+    "from": "N-TANK-LH2",
+    "to": "N-LPFTP-PUMP",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-12",
+    "from": "N-LPFTP-PUMP",
+    "to": "N-HPFTP-PUMP",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-13",
+    "from": "N-HPFTP-PUMP",
+    "to": "N-FPB",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "'preburner fuel' branch of the post-HPFTP split; MFV and coolant control valve not captured"
+   },
+   {
+    "id": "E-14",
+    "from": "N-HPFTP-PUMP",
+    "to": "N-OPB",
+    "fluid": "LH2",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-15",
+    "from": "N-HPFTP-PUMP",
+    "to": "N-NOZ-COOL",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-16",
+    "from": "N-HPFTP-PUMP",
+    "to": "N-MCC-COOL",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-17",
+    "from": "N-MCC-COOL",
+    "to": "N-LPFT",
+    "fluid": "GH2",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-18",
+    "from": "N-LPFT",
+    "to": "N-PRESS-LH2",
+    "fluid": "GH2",
+    "role": "pressurization",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-19",
+    "from": "N-LPFT",
+    "to": "N-HGM",
+    "fluid": "GH2",
+    "role": "coolant",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "HGM cooling"
+   },
+   {
+    "id": "E-20",
+    "from": "N-FPB",
+    "to": "N-HPFT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-21",
+    "from": "N-OPB",
+    "to": "N-HPOT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-22",
+    "from": "N-HPFT",
+    "to": "N-HGM",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-23",
+    "from": "N-HPOT",
+    "to": "N-HGM",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-24",
+    "from": "N-HGM",
+    "to": "N-INJ",
+    "fluid": "fuel-rich hot gas",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-25",
+    "from": "N-INJ",
+    "to": "N-MCC",
+    "fluid": "LOX + fuel-rich gas",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-26",
+    "from": "N-MCC",
+    "to": "N-NOZ",
+    "fluid": "combustion products",
+    "role": "other",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-L3HARRIS-RS25-SPEC",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-27",
+    "from": "N-HEX",
+    "to": "N-POGO",
+    "fluid": "GOX",
+    "role": "pressurization",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "accumulator filled with GOX from heat exchanger"
+   },
+   {
+    "id": "E-28",
+    "from": "N-HPOT",
+    "to": "N-HPOTP-MAIN",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-29",
+    "from": "N-HPOT",
+    "to": "N-HPOTP-PBP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-30",
+    "from": "N-LPFT",
+    "to": "N-LPFTP-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-31",
+    "from": "N-LPOTP-TURB",
+    "to": "N-LPOTP-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-RS25",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-32",
+    "from": "N-HPFT",
+    "to": "N-HPFTP-PUMP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Missing: main fuel valve, chamber coolant valve, fuel/oxidizer bleed and purge circuits, ASIs, heat-exchanger supply source and GOX tank-pressurization line, HGM fuel/ox side split, nozzle-coolant return path into MCC/HGM, LPOTP turbine discharge return, recirculation/start lines. No schematic was viewed; graph is from text summaries only."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "partial",
+  "injector": "weak",
+  "cooling": "partial",
+  "feed_system": "partial",
+  "pumps": "partial",
+  "turbines": "partial",
+  "gg_preburner": "weak",
+  "pressurization": "weak",
+  "ignition_start": "weak",
+  "control": "partial",
+  "mechanical": "partial",
+  "materials_manufacturing": "weak",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Three operating points (100/104.5/109% RPL) with different Pc/temperatures; the % scale is relative to a historic rating, not to the variant's own nominal.",
+  "Four turbopumps with different drive media: two hot-gas turbines (fuel-rich preburner gas), one GH2 turbine (LPFTP, driven by regen-heated hydrogen) and one liquid-LOX hydraulic turbine (LPOTP).",
+  "HPOTP has two pumps on one shaft (main + preburner boost pump) with different discharge pressures; a single 'ox pump discharge pressure' field is ambiguous (7,268 vs 4,350 psi).",
+  "Two preburners, both fuel-rich, each tied to one turbopump; preburner LOX flow controlled by two separate valves with distinct control roles (MR vs power level).",
+  "Hot gas manifold is both a structural member and a flow element; turbine exhaust becomes the main injector's fuel feed (closed cycle).",
+  "Block-level change of a single component vendor (P&W HPFTP) creates a new variant without changing designation in many sources (Block II vs RS-25D naming).",
+  "Same physical engines later re-rated (SLS 109% nominal) - operating envelope depends on vehicle.",
+  "Engine-supplied vehicle functions: fuel-tank pressurization gas tap from LPFTP turbine discharge; GOX heat exchanger feeding pogo accumulator / tank."
+ ],
+ "notes": "All 35 round-2 searches were search-summary only. Strongest numeric sources: Hopson STS-104 FRR table (Tier A, but extraction jumbled) and the L3Harris RS-25 sheet (Tier A manufacturer, SLS configuration). Turbopump speeds come only from Wikipedia or a forum (SECONDARY_CLAIM). Early-SSME '470,000 lb at RPL, MCC 3,006 psia' appeared in a NASA report summary but belongs to an earlier configuration and is NOT recorded as an RS-25D assertion.",
+ "branch": "r2_us_classic"
+}

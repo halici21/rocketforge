@@ -1,0 +1,72 @@
+schematic_id,engine_ids,source_id,locator,title,type,detail,topology_usefulness,rights,verification
+SCH-ENG-EU-VULCAIN-2-1,ENG-FR-VULCAIN-2,SRC-ESA-A5ECA-NEWELEM,NOT_AUDITED,(none viewed) - ESA text describes nozzle reinjection of turbopump exhaust,system_diagram,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-ENG-JP-LE-7A-1,ENG-JP-LE-7A,SRC-WEBLIO-LE7,text description,(none viewed) staged-combustion flow described in text,cycle_schematic,UNKNOWN,low,OPEN_LICENSE,described_in_text
+SCH-ENG-IN-CE-20-1,ENG-IN-CE-20,SRC-WIKI-CE20,text description,"(none viewed) GG fed from pump outlets, series turbines",cycle_schematic,UNKNOWN,low,OPEN_LICENSE,described_in_text
+SCH-ENG-KR-KRE-075-1,ENG-KR-KRE-075,SRC-EUCASS2019-0521,UNKNOWN,"(lead, not viewed) EUCASS 2019 KRE-075 gas generator paper",system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RS-25D-R2-1,ENG-US-SSME-BLOCK-II; ENG-US-SSME-BLOCK-II,SRC-AIAA-97-2687,Fig. 1 (legend 97PD-038-001),SSME Propellant Flow Schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RS-25D-R2-2,ENG-US-SSME-BLOCK-II,SRC-AIAA-97-2685,figure no. unknown,SSME propellant flow schematic (reused),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-RS-25D-R2-3,ENG-US-SSME-BLOCK-II,SRC-ENGINEHISTORY-SSME1,Figure 3; Photo No. LC86C-4-1315,SSME Propellant Flow Schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RS-25D-R2-4,ENG-US-SSME-BLOCK-II,SRC-IBIBLIO-SSMEOVERVIEW,Fig. 1.1-II,SSME propellant flow schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RS-25D-R2-5,ENG-US-SSME-BLOCK-II,SRC-IBIBLIO-SSMEOVERVIEW,Fig. 1.1-III,SSME component diagram,system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RS-25D-R2-6,ENG-US-SSME-BLOCK-II; ENG-US-SSME-BLOCK-II,SRC-ENGINEHISTORY-SSMEORIENT-1998,NOT located (TOC only seen),SSME Orientation propellant flow schematic (expected),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-RL10A-3-3A-R2-1,ENG-US-RL10A-3-3A,SRC-NTRS-19950022693,Figure 1,RL10 full expander cycle,cycle_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-RL10A-3-R2-2,ENG-US-RL10A-3,SRC-PW-RL10A3-DESIGNREPORT-1966,UNKNOWN,RL10A-3 propellant flow schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-GENERIC-EXPANDER-R2-1,,SRC-NASA-TM4275,UNKNOWN,Full / split / dual expander cycle layouts,cycle_schematic,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-F-1-R2-1,ENG-US-F-1,SRC-NASA-SA507-FLIGHTMANUAL,F-1 engine section; figure no. NOT located,F-1 engine (flight manual),system_diagram,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,cited_by_other_source
+SCH-F-1-R2-2,ENG-US-F-1,SRC-ENGINEHISTORY-RPE0812,text,F-1 turbine exhaust path (text description),flow_schematic,simplified,medium,RESTRICTED_REFERENCE,described_in_text
+SCH-J-2-R2-1,ENG-US-J-2,SRC-NASA-SA507-FLIGHTMANUAL,J-2 engine section; figure no. NOT located,J-2 engine (flight manual),flow_schematic,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,cited_by_other_source
+SCH-J-2-R2-2,ENG-US-J-2,SRC-ENGINEHISTORY-RPE0822,text,J-2 turbine drive path (text description),flow_schematic,simplified,medium,RESTRICTED_REFERENCE,described_in_text
+SCH-H-1-R2-1,ENG-US-H-1,SRC-NTRS-19650013471,figure list not seen,H-1 engine mechanical schematics (Saturn I SA-8 FSD Vol. VIII),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-H-1-R2-2,ENG-US-H-1,SRC-NTRS-19650013583,figure list not seen,Saturn I RP-1 fuel system mechanical schematics,installation_schematic,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-LR87-AJ-5-R2-1,ENG-US-LR87-AJ-5,SRC-MILSTD-T2START,page text,Titan II Stage I engine arrangement (text),system_diagram,simplified,medium,RESTRICTED_REFERENCE,described_in_text
+SCH-AJ10-137-R2-1,ENG-US-AJ10-137,SRC-NASA-APOLLO-LIQPROP-OVERVIEW,"Figure 22, p. 31",SPS pressurization and propellant system,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-AJ10-137-R2-2,ENG-US-AJ10-137,SRC-APOLLO9-SPS-FFE,UNKNOWN,Apollo 9 SPS pressurization system,flow_schematic,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-LMDE-R2-1,ENG-US-LMDE,SRC-NASA-TND7143,figure list not seen,DPS schematic (expected),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-LM-APS-R2-1,ENG-US-LM-ASCENT-ENGINE,SRC-NTRS-19730010173,figure list not seen,APS schematic (expected),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-LM-APS-R2-2,ENG-US-LM-ASCENT-ENGINE,SRC-NASA-A10-APS-FFE,UNKNOWN,Apollo 10 LM-4 APS flight evaluation,flow_schematic,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-AJ10-190-R2-1,ENG-US-AJ10-190,SRC-USA-OMS21002,figure list not seen,OMS workbook schematics,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-AJ10-190-R2-2,ENG-US-AJ10-190,SRC-JSC-19950,UNKNOWN,OMS 2102 training manual (engine control valves),flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-AJ10-190-R2-3,ENG-US-AJ10-190,SRC-JSC-11174-RevE,OMS/RCS section,Systems Handbook OMS drawing,system_diagram,detailed,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-AJ10-190-R2-4,ENG-US-AJ10-190,SRC-NASA-JSC-CN-7650,UNKNOWN,OMS/RCS system diagrams (presentation),system_diagram,simplified,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-IPD-R2-1,ENG-US-IPD,SRC-DTIC-ADA397910,UNKNOWN,IPD full-flow cycle (expected),cycle_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-IPD-R2-2,ENG-US-IPD,SRC-DTIC-ADA430218,slides,IPD briefing (FFSC vs SSME cycle comparison),cycle_schematic,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-J-2S-R2-1,ENG-US-J-2S,SRC-DTIC-AD0867628,UNKNOWN,J-2S altitude test hardware (expected),system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-RD-170-R2-1,ENG-SU-RD-170; ENG-SU-RD-170,SRC-JPP-2018-LIOI,Fig. 1,RD-170 schematic,flow_schematic,UNKNOWN,high,RESTRICTED_REFERENCE,described_in_text
+SCH-RD-180-R2-1,ENG-RU-RD-180,SRC-NTRS-20170000444,UNKNOWN,Ox-rich staged-combustion injector element (RD-180-style),system_diagram,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-LE-9-R2-1,ENG-JP-LE-9; ENG-JP-LE-7A,SRC-JAXA-AA1740298002,UNKNOWN,LE-7A vs LE-9 cycle (expected),cycle_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-LE-9-R2-2,ENG-JP-LE-9,SRC-IAC-LE9-2016,manuscript (restricted),LE-9 system,cycle_schematic,UNKNOWN,high,RESTRICTED_REFERENCE,cited_by_other_source
+SCH-LE-9-R2-3,ENG-JP-LE-9; ENG-JP-LE-7A,SRC-TEIKYO-LAB001,photo,Staged combustion vs expander bleed comparison (JAXA-credited),cycle_schematic,simplified,medium,RESTRICTED_REFERENCE,cited_by_other_source
+SCH-LE-X-R2-1,ENG-JP-LE-X; ENG-JP-LE-9,SRC-MHI-LEX,UNKNOWN,LE-X engine system (expected),cycle_schematic,UNKNOWN,high,RESTRICTED_REFERENCE,cited_by_other_source
+SCH-A4-R2-1,ENG-DE-A4-ENGINE,SRC-V2ROCKET-DESIGN,linked large diagram,A-4/V-2 engine systems diagram,system_diagram,UNKNOWN,high,RESTRICTED_REFERENCE,cited_by_other_source
+SCH-A4-R2-2,ENG-DE-A4-ENGINE,SRC-NASM-A19790951000,catalogue text,V-2 turbopump drive path (text),flow_schematic,simplified,medium,VALUES_WITH_ATTRIBUTION,described_in_text
+SCH-PATENT-US6832471-R2,,SRC-PATENT-US6832471,FIG. numbers not seen,Expander cycle with staged combustion and heat exchange,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-PATENT-US7900436-R2,,SRC-PATENT-US7900436,FIG. numbers not seen,Gas-generator augmented expander cycle,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-PATENT-US4589253-R2,,SRC-PATENT-US4589253,FIG. numbers not seen,Pre-regenerated staged combustion,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-PATENT-US11149691-R2,,SRC-PATENT-US11149691,FIG. numbers not seen,Staged combustion with integrated TPU/preburner,patent_figure,UNKNOWN,low,PUBLIC_DOMAIN_GOV,cited_by_other_source
+SCH-PATENT-US8250853-R2,ENG-US-RL10A-4-2,SRC-PATENT-US8250853,FIG. numbers not seen,Hybrid expander cycle (background discusses RL10),patent_figure,UNKNOWN,low,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-PATENT-US11408373-R2,ENG-NZ-RUTHERFORD,SRC-PATENT-US11408373,FIG. numbers not seen,Jettisonable battery systems powering electric turbopumps,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-RS-25-1,ENG-US-SSME-BLOCK-II; ENG-US-SSME-BLOCK-II,SRC-RKD-SSME-ORIENTATION,UNKNOWN,SSME propellant flow schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-F-1-1,ENG-US-F-1,SRC-RKD-F1-FAMILIARIZATION,UNKNOWN,F-1 engine flow schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-J-2-1,ENG-US-J-2,SRC-RKD-J2-MANUAL,UNKNOWN,J-2 engine flow diagram,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-H-1-1,ENG-US-H-1-205K,SRC-RKD-H1-MANUAL,UNKNOWN,H-1 engine flow schematic,flow_schematic,UNKNOWN,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-RL10A-3-3A-1,ENG-US-RL10A-3-3A,SRC-NTRS-TM107318,UNKNOWN,RL10A-3-3A engine system schematic (expected in modeling TM),system_diagram,UNKNOWN,high,PUBLIC_DOMAIN_GOV,cited_by_other_source
+SCH-XRS-2200-1,ENG-US-XRS-2200,SRC-NTRS-19980174934,UNKNOWN,XRS-2200 engine/control system schematic (expected),system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-J-2X-1,ENG-US-J-2X,SRC-NTRS-20080036837,UNKNOWN,J-2X gas generator cycle schematic (expected),cycle_schematic,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,cited_by_other_source
+SCH-ENG-DE-A4-ENGINE-1,ENG-DE-A4-ENGINE,SRC-NASM-V2-TURBOPUMP,object A19600013000,"Turbopump, Steam Generator and Frame, V-2 Rocket Engine (museum artefact)",installation_schematic,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-ENG-DE-A4-ENGINE-2,ENG-DE-A4-ENGINE,SRC-V2ROCKETHISTORY-TP,video overview,V2 turbopump and Walter hydrogen peroxide steam generator plant overview,system_diagram,UNKNOWN,medium,UNKNOWN,described_in_text
+SCH-ENG-GB-SUPER-SPRITE-1,ENG-GB-SUPER-SPRITE,SRC-NASM-SUPERSPRITE,object A19700331000,Super Sprite cut-away (museum artefact),cutaway,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-ENG-FR-VEXIN-B-1,ENG-FR-VEXIN-B,SRC-IAC-09-3159,paper (full text not accessed),Diamant-A first stage propulsion system (likely contains system diagram),system_diagram,UNKNOWN,high,RESTRICTED_REFERENCE,cited_by_other_source
+SCH-ENG-FR-VINCI-1,ENG-FR-VINCI,SRC-DLR-VINCI-NOZZLE-2010,press release,Vinci deployable nozzle extension description,installation_schematic,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-JP-LE-9-1,ENG-JP-LE-9,SRC-WIKI-LE9,,LE-9 expander bleed cycle description,cycle_schematic,simplified,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-CN-YF-77-1,ENG-CN-YF-77,SRC-WIKI-YF77,,"YF-77 GG cycle description (single GG, two turbopumps, separate exhausts)",cycle_schematic,simplified,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-CN-YF-75D-1,ENG-CN-YF-75D,SRC-WIKI-YF75D,,YF-75D closed expander description,cycle_schematic,simplified,low,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-GENERIC-CYCLES-1,,SRC-NTRS-SP8107,figure number NOT known,"Major bipropellant engine cycles (gas generator, expander, staged combustion)",cycle_schematic,simplified,high,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-GENERIC-BOOSTPUMP-1,,SRC-NTRS-SP8107,pp.53-55,Boost-pump arrangements,system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,cited_by_other_source
+SCH-F-1-NE-1,ENG-US-F-1,SRC-WIKI-F1,article text,F-1 turbine exhaust -> heat exchanger -> manifold -> nozzle extension path,flow_schematic,UNKNOWN,medium,OPEN_LICENSE,described_in_text
+SCH-LR87-5-START-1,ENG-US-LR87-AJ-5,SRC-MILSTD-T2START,page text,"Titan II start sequence (cartridge spin-up, GG bootstrap, oxidizer superheater)",system_diagram,UNKNOWN,medium,UNKNOWN,described_in_text
+SCH-AJ10-137-PRESS-1,ENG-US-AJ10-137,SRC-AEHS-RPE,RPE09.31 text,"Apollo SM SPS helium pressurization (dual series regulators, quad check valves, relief)",system_diagram,UNKNOWN,high,VALUES_WITH_ATTRIBUTION,described_in_text
+SCH-AJ10-190-PRESS-1,ENG-US-AJ10-190,SRC-NTRS-OMS-1974,UNKNOWN,Shuttle OMS pressurization subsystem,system_diagram,UNKNOWN,medium,RIGHTS_REVIEW_REQUIRED,described_in_text
+SCH-J-2X-HEX-1,ENG-US-J-2X,SRC-NASA-J2XBLOG-HEX,blog post,J-2X heat exchanger: cold He warmed by hot-gas ducts for LOX tank pressurization,system_diagram,UNKNOWN,low,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-RS-25-GOXHEX-1,,SRC-PATENT-US5918460,patent drawings (fig. no. not known),SSME GOX heat exchanger in HPOTP turbine exit,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-VULCAIN-2-TEX-1,ENG-FR-VULCAIN-2,SRC-PATENT-US6996973,patent drawings (fig. no. not known),Vulcain-type turbine-exhaust reinjection into divergent,patent_figure,UNKNOWN,medium,PUBLIC_DOMAIN_GOV,described_in_text
+SCH-VULCAIN-2-1,ENG-FR-VULCAIN-2,SRC-ESA-A5ECA-NEWELEM,NOT_AUDITED,(none viewed) - ESA text describes nozzle reinjection of turbopump exhaust,system_diagram,UNKNOWN,low,RIGHTS_REVIEW_REQUIRED,described_in_text

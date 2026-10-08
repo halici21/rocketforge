@@ -1,0 +1,276 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-R-4D-11",
+ "designation": "R-4D-11",
+ "family": "R-4D",
+ "variant_scope": "R-4D-11 490 N-class NTO/MMH apogee/spacecraft engine; two nozzle configurations (164:1 and 300:1) per L3Harris spec sheet. Excludes R-4D-15 (HiPAT) and Orion ESM auxiliary use.",
+ "operating_points": [
+  {
+   "op_id": "OP-1",
+   "label": "300:1 nozzle configuration",
+   "notes": ""
+  },
+  {
+   "op_id": "OP-2",
+   "label": "164:1 nozzle configuration",
+   "notes": ""
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "performance.thrust_range",
+   "operating_point": null,
+   "value": "378-511",
+   "unit": "N",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "R-4D-11 row",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-1",
+   "value": 315.5,
+   "unit": "s (lbf-s/lbm)",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "R-4D-11 row",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-2",
+   "value": 311,
+   "unit": "s (lbf-s/lbm)",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "R-4D-11 row",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": "OP-1",
+   "value": 4.31,
+   "unit": "kg",
+   "status": "REPORTED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "R-4D-11 row",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-1",
+   "value": 300,
+   "unit": ":1",
+   "status": "INFERRED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "'300:1' label",
+   "confidence": "low",
+   "note": "label read as area ratio; not defined in summary"
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": "OP-2",
+   "value": 164,
+   "unit": ":1",
+   "status": "INFERRED",
+   "source_id": "SRC-L3H-LHX-SPECSHEET-2024",
+   "locator": "'164:1' label",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": 490,
+   "unit": "N",
+   "status": "REPORTED",
+   "source_id": "SRC-IAC10-AJHIPAT",
+   "locator": "abstract",
+   "confidence": "medium",
+   "note": "'nominal thrust of 490-Newtons'"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": "OP-1",
+   "value": 4.31,
+   "unit": "kg",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SATCATALOG-R4D11",
+   "locator": "",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 100.5,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-R4D",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "R-4D family, not -11 specific"
+  },
+  {
+   "field_path": "propellants.pair",
+   "operating_point": null,
+   "value": "NTO/MMH",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-R4D",
+   "locator": "infobox",
+   "confidence": "low",
+   "note": "family"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.pc",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.mdot_total",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "performance.burn_time",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "thrust_chamber.throat_diameter",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "nozzle.extension_material",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "injector.type",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "cooling.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "ignition_start.method",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "control.valves",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "history.first_flight",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "identity.manufacturer_current",
+   "reason": "ACCESS_BLOCKED",
+   "note": "WebFetch DNS failure for all hosts, curl egress 403, and the shared 200-call WebSearch budget was exhausted before this branch's anchor searches ran"
+  },
+  {
+   "field_path": "materials.chamber",
+   "reason": "ACCESS_BLOCKED",
+   "note": "C-103/columbium framing unverified"
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "thrust chamber",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-R4D",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   },
+   {
+    "id": "N-VALVE",
+    "component_type": "valve",
+    "label": "bipropellant valve",
+    "subsystem": "valve type not sourced",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-R4D",
+    "locator": "search-result summary (round 2)",
+    "note": ""
+   }
+  ],
+  "edges": [],
+  "topology_completeness": "Pressure-fed spacecraft engine; feed/pressurization belong to spacecraft. No schematic sourced."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "not_reported",
+  "performance": "partial",
+  "thrust_chamber": "not_reported",
+  "nozzle": "not_reported",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "not_reported",
+  "mechanical": "weak",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Thrust class name (490 N) vs dash-number variants with differing thrust/Isp; propellant MON-3 vs N2O4 variants (expected; unverified).",
+  "Same designation with alternative nozzle area ratios (164:1 vs 300:1) giving different Isp and mass - nozzle configuration must be a variant dimension or operating point.",
+  "Thrust given as a range (378-511 N) rather than a point."
+ ],
+ "notes": "No evidence obtained. Retrieve Aerojet Rocketdyne in-space bipropellant data sheet and NTRS R-4D qualification reports. | ROUND 2 (r2_schem): L3Harris 2024 spec sheet found. MR and Pc for -11 not found.",
+ "branch": "r2_schem"
+}

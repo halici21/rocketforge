@@ -1,0 +1,980 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-US-J-2",
+ "designation": "J-2",
+ "family": "J-2",
+ "variant_scope": "Rocketdyne J-2 as flown on S-II and S-IVB (Saturn IB/V). Thrust ratings evolved (200k/225k/230k lb per various sources) - rating-specific values flagged in notes. Excludes J-2S, J-2T, J-2X.",
+ "operating_points": [
+  {
+   "op_id": "OP-MR5.5",
+   "label": "Main stage, engine MR 5.5 (vacuum)",
+   "notes": "Nominal per NTRS 20100027318."
+  },
+  {
+   "op_id": "OP-MR4.5",
+   "label": "Main stage, engine MR 4.5 (PU shift, vacuum)",
+   "notes": "Capability stated; thrust/Isp at this point not found."
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "gas generator, open cycle",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "LH2",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-MR5.5",
+   "value": 5.5,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "'5.5:1 at that chamber pressure'; engine MR."
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": "OP-MR4.5",
+   "value": 4.5,
+   "unit": "O/F",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "'capability of operating at a mixture ratio 4.5:1'. Thrust at 4.5 not found."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-MR5.5",
+   "value": 230000,
+   "unit": "lb",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'up to 230,000 pounds of thrust'; rating/flight not specified."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-MR5.5",
+   "value": 230000,
+   "unit": "lbf",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20120016414",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "J-2X requirements table heritage column."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-MR5.5",
+   "value": 225000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-DTIC-AEDC-J2-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "'a rating of 225,000 lb at a mixture ratio of 5.5' (which AEDC report not named)."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": "up to 225,000 lb at high altitude",
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASA-ALSJ-CSM02",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'A NASA overview'; attribution to ALSJ CSM02 inferred."
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value": 232250,
+   "unit": "lbf",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "SA-208/SA-504 configuration; 1,033.1 kN."
+  },
+  {
+   "field_path": "performance.thrust",
+   "operating_point": null,
+   "value": "200,000-230,000",
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NASM-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "Range over ratings."
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 425,
+   "unit": "s",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20120016414",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 425,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value": 421,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "SA-208/SA-504."
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-MR5.5",
+   "value": "a little over 700",
+   "unit": "psia",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value": 763,
+   "unit": "psi",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "5,260 kPa; abs/gauge not stated."
+  },
+  {
+   "field_path": "performance.restarts",
+   "operating_point": null,
+   "value": "one restart in S-IVB application (parking-orbit insertion ~2 min, TLI ~6.5 min)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 27.5,
+   "unit": ":1",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 27.5,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 28,
+   "unit": ":1",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "rounded"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 3942,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "1,788.1 kg; SA-208/SA-504."
+  },
+  {
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value": 3480,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "mechanical.mass_unfuelled",
+   "operating_point": null,
+   "value": 3170,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ASTRONAUTIX-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "1,438 kg."
+  },
+  {
+   "field_path": "feed.turbopumps",
+   "operating_point": null,
+   "value": "independently driven LOX and LH2 turbopumps located on opposite sides of the engine",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.arrangement",
+   "operating_point": null,
+   "value": "gas generator supplies hot gas to two turbines running in series",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.arrangement_detail",
+   "operating_point": null,
+   "value": "exhaust from fuel turbopump turbine ducted to inlet of oxidizer turbopump turbine manifold (crossover duct)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.crossover_duct_diameter",
+   "operating_point": null,
+   "value": 8,
+   "unit": "in",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'8-inch diameter crossover duct' - which source said it is not identified."
+  },
+  {
+   "field_path": "turbines.ox_turbine_bypass",
+   "operating_point": null,
+   "value": "during start a percentage of fuel-turbine exhaust is routed directly to the thrust chamber, bypassing the oxidizer turbine, to prevent overspeed",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Source among Wikipedia/RPE08.22 not distinguished."
+  },
+  {
+   "field_path": "pumps.FTP.type",
+   "operating_point": null,
+   "value": "axial flow: inducer + seven-stage rotor + stator",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Also described in NTRS 20080036837 (heritage J-2)."
+  },
+  {
+   "field_path": "pumps.FTP.speed_rpm",
+   "operating_point": null,
+   "value": 27000,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.FTP.pressure_rise",
+   "operating_point": null,
+   "value": "30 -> 1,225",
+   "unit": "psi (abs)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "210 -> 8,450 kPa."
+  },
+  {
+   "field_path": "pumps.FTP.heritage",
+   "operating_point": null,
+   "value": "axial fuel turbopump derived from nuclear-rocket-programme machines; caused a start-sensitivity development problem",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Attribution inferred."
+  },
+  {
+   "field_path": "turbines.FT.stages",
+   "operating_point": null,
+   "value": 2,
+   "unit": "stages",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.OTP.type",
+   "operating_point": null,
+   "value": "single-stage centrifugal, direct turbine drive",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.OTP.speed_rpm",
+   "operating_point": null,
+   "value": 8600,
+   "unit": "rpm",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.OTP.discharge_pressure",
+   "operating_point": null,
+   "value": 1080,
+   "unit": "psi (abs)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "7,400 kPa."
+  },
+  {
+   "field_path": "pumps.OTP.power",
+   "operating_point": null,
+   "value": 2200,
+   "unit": "bhp",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "1,600 kW."
+  },
+  {
+   "field_path": "ignition_start.start_tank",
+   "operating_point": null,
+   "value": "integral GH2 + helium start tank; helium sphere inside the hydrogen tank",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": "Also in Wikipedia."
+  },
+  {
+   "field_path": "ignition_start.start_tank_function",
+   "operating_point": null,
+   "value": "start tank discharges cold GH2 through the two turbines to spin up pumps before GG combustion; helium used by control system to sequence valves",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.start_tank_volume_He",
+   "operating_point": null,
+   "value": 16000,
+   "unit": "cm3",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": "'about'."
+  },
+  {
+   "field_path": "ignition_start.start_tank_volume_H2",
+   "operating_point": null,
+   "value": 118931,
+   "unit": "cm3",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.start_tank_refill",
+   "operating_point": null,
+   "value": "filled from ground before launch; GH2 tank refilled during engine operation from thrust-chamber fuel inlet manifold for restart",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.igniter",
+   "operating_point": null,
+   "value": "augmented spark igniter on injector face, two spark plugs, ignition monitor",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "field_path": "ignition_start.start_definition",
+   "operating_point": null,
+   "value": "test reports define start at energising helium control and ignition-phase solenoids; track MOV and start-tank discharge valve timing",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.pu_valve",
+   "operating_point": null,
+   "value": "propellant utilization valve = bypass from LOX pump outlet to LOX pump inlet; gives mixture and thrust control",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0822",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "high",
+   "note": "Also Wikipedia."
+  },
+  {
+   "field_path": "control.pu_valve_calibration",
+   "operating_point": null,
+   "value": "with PU valve closed an internal nozzle bypasses a small percentage - calibration device for turbopump balance and engine MR",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-ENGINEHISTORY-RPE0822",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "control.interlocks",
+   "operating_point": null,
+   "value": "pneumatic and electrical control interlocks",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-NTRS-20100027318",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "injector.lox_path",
+   "operating_point": null,
+   "value": "LOX enters via dome manifold and is injected through oxidizer posts",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-WIKI-J2",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.as502_mods",
+   "operating_point": null,
+   "value": "engine modifications after AS-502 (4 Apr 1968) malfunctions incl. modified ASI propellant supply lines",
+   "unit": "",
+   "status": "REPORTED",
+   "source_id": "SRC-DTIC-AEDC-J2-SET",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "history.start_tank_incident",
+   "operating_point": null,
+   "value": "start-tank over-pressure rupture and fire during testing (ice affecting relief device)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-EUHIAD-J2STARTTANK",
+   "locator": "search summary only (doc not opened); page NOT_AUDITED",
+   "confidence": "low",
+   "note": ""
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "performance.thrust_vac@OP-MR4.5",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "control.pu_valve_positions",
+   "reason": "NOT_REPORTED",
+   "note": "No 5.0 setting found."
+  },
+  {
+   "field_path": "gg.mixture_ratio / temperature",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "turbines.OT.stages",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "NOT_REPORTED",
+   "note": "Oxidizer-tank helium heat exchanger in summaries belonged to J-2X; J-2 equivalent not confirmed."
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "NOT_REPORTED",
+   "note": ""
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-FTP",
+    "component_type": "pump",
+    "label": "Fuel turbopump (axial, 7-stage)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FT",
+    "component_type": "turbine",
+    "label": "Fuel turbine (2-stage)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OTP",
+    "component_type": "pump",
+    "label": "Oxidizer turbopump (1-stage centrifugal)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OT",
+    "component_type": "turbine",
+    "label": "Oxidizer turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-GG",
+    "component_type": "gas_generator",
+    "label": "Gas generator",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-XDUCT",
+    "component_type": "turbine_exhaust_duct",
+    "label": "Crossover duct fuel turbine -> ox turbine",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-OTBV",
+    "component_type": "valve",
+    "label": "Oxidizer turbine bypass (start)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "named as a routing; valve identity [BG]"
+   },
+   {
+    "id": "N-START",
+    "component_type": "start_tank",
+    "label": "Integral GH2/He start tank",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-HE",
+    "component_type": "pressurant_tank",
+    "label": "Helium sphere (inside start tank) for valve control",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-PUV",
+    "component_type": "valve",
+    "label": "PU valve (LOX pump outlet->inlet bypass)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0822",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-MOV",
+    "component_type": "valve",
+    "label": "Main oxidizer valve",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DTIC-AEDC-J2-SET",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-STDV",
+    "component_type": "valve",
+    "label": "Start tank discharge valve",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DTIC-AEDC-J2-SET",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-FIM",
+    "component_type": "manifold",
+    "label": "Thrust chamber fuel inlet manifold",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-INJ",
+    "component_type": "injector",
+    "label": "Injector (LOX dome, ox posts)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-ASI",
+    "component_type": "igniter",
+    "label": "Augmented spark igniter",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "N-TC",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber (27.5:1)",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-GG",
+    "to": "N-FT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-2",
+    "from": "N-FT",
+    "to": "N-XDUCT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-3",
+    "from": "N-XDUCT",
+    "to": "N-OT",
+    "fluid": "fuel-rich hot gas",
+    "role": "turbine_drive",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "series turbines"
+   },
+   {
+    "id": "E-4",
+    "from": "N-XDUCT",
+    "to": "N-TC",
+    "fluid": "fuel-rich hot gas",
+    "role": "bypass",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "start-transient bypass of ox turbine"
+   },
+   {
+    "id": "E-5",
+    "from": "N-START",
+    "to": "N-STDV",
+    "fluid": "GH2",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-DTIC-AEDC-J2-SET",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-6",
+    "from": "N-STDV",
+    "to": "N-FT",
+    "fluid": "GH2",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "cold GH2 through the two turbines (series path implied)"
+   },
+   {
+    "id": "E-7",
+    "from": "N-FIM",
+    "to": "N-START",
+    "fluid": "GH2",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "refill during operation for restart"
+   },
+   {
+    "id": "E-8",
+    "from": "N-OTP",
+    "to": "N-PUV",
+    "fluid": "LOX",
+    "role": "recirculation",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-ENGINEHISTORY-RPE0822",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "returns to LOX pump inlet"
+   },
+   {
+    "id": "E-9",
+    "from": "N-OTP",
+    "to": "N-MOV",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-DTIC-AEDC-J2-SET",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-10",
+    "from": "N-MOV",
+    "to": "N-INJ",
+    "fluid": "LOX",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "via LOX dome"
+   },
+   {
+    "id": "E-11",
+    "from": "N-FTP",
+    "to": "N-FIM",
+    "fluid": "LH2",
+    "role": "coolant",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "regen path [BG]"
+   },
+   {
+    "id": "E-12",
+    "from": "N-FT",
+    "to": "N-FTP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-13",
+    "from": "N-OT",
+    "to": "N-OTP",
+    "fluid": "-",
+    "role": "mechanical_shaft",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "direct drive"
+   },
+   {
+    "id": "E-14",
+    "from": "N-HE",
+    "to": "N-MOV",
+    "fluid": "He",
+    "role": "other",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-NTRS-20100027318",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": "pneumatic valve sequencing"
+   },
+   {
+    "id": "E-15",
+    "from": "N-INJ",
+    "to": "N-TC",
+    "fluid": "LOX + H2",
+    "role": "main_feed",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   },
+   {
+    "id": "E-16",
+    "from": "N-ASI",
+    "to": "N-TC",
+    "fluid": "LOX + H2",
+    "role": "start",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-WIKI-J2",
+    "locator": "search summary only (doc not opened); page NOT_AUDITED",
+    "note": ""
+   }
+  ],
+  "topology_completeness": "Missing GG propellant feed lines and valves, main fuel valve, turbine exhaust destination after ox turbine (nozzle-wall manifold [BG]), stage tank pressurization taps, thrust chamber cooling details, bleed/chilldown."
+ },
+ "coverage": {
+  "identity": "well",
+  "propellants": "well",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "partial",
+  "injector": "weak",
+  "cooling": "not_reported",
+  "feed_system": "partial",
+  "pumps": "partial",
+  "turbines": "partial",
+  "gg_preburner": "weak",
+  "pressurization": "not_reported",
+  "ignition_start": "partial",
+  "control": "partial",
+  "mechanical": "partial",
+  "materials_manufacturing": "not_reported",
+  "test_history": "weak"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Two operating points selected in flight by a PU valve (MR 5.5 vs 4.5) - engine-level MR is a controlled variable, not a constant.",
+  "Turbines in series across two separate shafts (fuel turbine exhaust drives ox turbine) plus a start-only bypass path.",
+  "Start tank is refilled by the engine during operation for restart - a state-dependent flow path.",
+  "Thrust rating varied by vehicle/flight (200k-232k lb) under one designation.",
+  "Helium for valve actuation stored inside the hydrogen start tank (nested tank)."
+ ],
+ "notes": "NTRS 20100027318 (Rocketdyne history chapter, NASA-hosted) is the best Tier A anchor. Avoid J-2X facts (HEX, 448 s, single-stage fuel TP) bleeding into J-2.",
+ "branch": "r2_us_classic"
+}

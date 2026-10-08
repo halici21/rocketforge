@@ -1,0 +1,510 @@
+{
+ "notice": "DB-0 research data. Not a production runtime asset. Values were read from web-search result summaries; no source document was opened (see DB0_RESEARCH_OVERVIEW.md section 3).",
+ "engine_id": "ENG-RU-RD-180",
+ "designation": "RD-180",
+ "family": "RD-170",
+ "variant_scope": "RD-180 as flown on Atlas III/V (single published nominal rating). Excludes RD-180V and any RD-181/RD-191 data. Values from US (P&W-derived) and Russian sources are NOT confirmed to describe the same production standard.",
+ "operating_points": [
+  {
+   "op_id": "OP-NOM",
+   "label": "nominal (100%) rated, as published",
+   "notes": "sea-level vs vacuum given per assertion"
+  }
+ ],
+ "assertions": [
+  {
+   "field_path": "identity.native_name",
+   "operating_point": null,
+   "value": "РД-180",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-NAKEDSCI-RAPTOR",
+   "locator": "search excerpt",
+   "confidence": "high",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier E]"
+  },
+  {
+   "field_path": "identity.lineage",
+   "operating_point": null,
+   "value": "two-thrust-chamber derivative of the RD-170",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt (P&W fact sheet text)",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "identity.parts_commonality_rd170",
+   "operating_point": null,
+   "value": 70,
+   "unit": "% parts commonality with RD-170",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "identity.cycle",
+   "operating_point": null,
+   "value": "LOx rich, closed cycle, staged combustion",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "propellants.oxidizer",
+   "operating_point": null,
+   "value": "LOX",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "high",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "propellants.fuel",
+   "operating_point": null,
+   "value": "kerosene (RP-1)",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "Search summary wording 'liquid oxygen and kerosene (RP-1)'. [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "thrust_chamber.count",
+   "operating_point": null,
+   "value": 2,
+   "unit": "chambers",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "high",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 860200,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt; 'nominal thrust (sea level)'",
+   "confidence": "medium",
+   "note": "lbf presumably. [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 933400,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt; '(vacuum)'",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_sl",
+   "operating_point": "OP-NOM",
+   "value": 860400,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-NOM",
+   "value": 933000,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-NOM",
+   "value": 311.3,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-NOM",
+   "value": 337.8,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.isp_sl",
+   "operating_point": "OP-NOM",
+   "value": 311,
+   "unit": "s",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 3722,
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "Location (injector face vs nozzle stagnation) not stated in excerpt. 3722 psia = 25.66 MPa (DERIVED). [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 3734,
+   "unit": "psia",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "= 25.75 MPa (DERIVED). [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.pc",
+   "operating_point": "OP-NOM",
+   "value": 261,
+   "unit": "kgf/cm2",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SNOB-172276",
+   "locator": "search excerpt; carrier article ambiguous (snob.ru 172276 or naked-science)",
+   "confidence": "low",
+   "note": "= 25.6 MPa = 3712 psi (DERIVED). Gauge/abs not stated. [merge: status REPORTED -> SECONDARY_CLAIM, source tier E]"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "operating_point": "OP-NOM",
+   "value": "47-100",
+   "unit": "% power level",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "operating_point": "OP-NOM",
+   "value": "40-100",
+   "unit": "% ('Forty to 100 percent continuous throttling')",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "low",
+   "note": "Same search result set; may be from SFN 2000 page or Space Foundation sheet. Conflicts with 47%: see CF-3. [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "performance.throttle_range",
+   "operating_point": "OP-NOM",
+   "value": "100-47",
+   "unit": "%",
+   "status": "REPORTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": ""
+  },
+  {
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value": 36.87,
+   "unit": "-",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt ('one source')",
+   "confidence": "low",
+   "note": "Value-to-source pairing ambiguous; other value 36.4 (CF-4). [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value": 2.72,
+   "unit": "O/F",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt ('one source')",
+   "confidence": "low",
+   "note": "Engine vs chamber O/F not stated; pairing ambiguous (CF-5). [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "mechanical.length",
+   "operating_point": null,
+   "value": 140,
+   "unit": "in",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value": 11675,
+   "unit": "lb",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-PURDUE-RD180",
+   "locator": "search excerpt ('weight')",
+   "confidence": "low",
+   "note": "Dry vs wet not stated. [merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "mechanical.mass_dry",
+   "operating_point": null,
+   "value": 5480,
+   "unit": "kg",
+   "status": "REPORTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "5480 kg = 12,081 lb (DERIVED); differs from Purdue 11,675 lb (CF-6)."
+  },
+  {
+   "field_path": "mechanical.height",
+   "operating_point": null,
+   "value": 3.6,
+   "unit": "m",
+   "status": "REPORTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "3.6 m = 141.7 in, vs 140 in length (SFN) - consistent within rounding."
+  },
+  {
+   "field_path": "mechanical.diameter",
+   "operating_point": null,
+   "value": 3.2,
+   "unit": "m",
+   "status": "REPORTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "Envelope width presumably."
+  },
+  {
+   "field_path": "mechanical.gimbal",
+   "operating_point": null,
+   "value": "+-8",
+   "unit": "deg (each of the two thrust chambers)",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "search excerpt",
+   "confidence": "medium",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  },
+  {
+   "field_path": "control.health_monitoring",
+   "operating_point": null,
+   "value": "health monitoring and life prediction system",
+   "unit": "",
+   "status": "SECONDARY_CLAIM",
+   "source_id": "SRC-SFN-RD180-2002",
+   "locator": "search excerpt",
+   "confidence": "low",
+   "note": "[merge: status REPORTED -> SECONDARY_CLAIM, source tier D]"
+  }
+ ],
+ "missing": [
+  {
+   "field_path": "turbines.main.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "ULA/AIAA paper URL seen but not retrievable."
+  },
+  {
+   "field_path": "pumps.fuel_boost.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  },
+  {
+   "field_path": "pumps.lox_boost.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": ""
+  },
+  {
+   "field_path": "history.co_production",
+   "reason": "NOT_AUDITED",
+   "note": "RAND / Mitchell Commission 2014 not searched (budget exhausted)."
+  },
+  {
+   "field_path": "thrust_chamber.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "nozzle.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "injector.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "cooling.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "pumps.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "turbines.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "preburners.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "pressurization.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "ignition_start.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "control.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "materials.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  },
+  {
+   "field_path": "history.*",
+   "reason": "ACCESS_BLOCKED",
+   "note": "No document could be opened (WebFetch/curl blocked; WebSearch budget exhausted after 2 searches). Not audited."
+  }
+ ],
+ "topology": {
+  "nodes": [
+   {
+    "id": "N-MC-1",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber 1",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-SFN-RD180-2000",
+    "locator": "search excerpt",
+    "note": "Gimballed +-8 deg."
+   },
+   {
+    "id": "N-MC-2",
+    "component_type": "main_chamber",
+    "label": "Thrust chamber 2",
+    "subsystem": "engine",
+    "evidence_status": "REPORTED_IN_TEXT",
+    "source_id": "SRC-SFN-RD180-2000",
+    "locator": "search excerpt",
+    "note": "Gimballed +-8 deg."
+   },
+   {
+    "id": "N-PB",
+    "component_type": "preburner",
+    "label": "Oxidizer-rich preburner(s) - count NOT verified",
+    "subsystem": "engine",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SFN-RD180-2002",
+    "locator": "search excerpt",
+    "note": "'LOx rich closed cycle staged combustion' implies at least one ox-rich preburner; count/arrangement not retrieved."
+   }
+  ],
+  "edges": [
+   {
+    "id": "E-1",
+    "from": "N-PB",
+    "to": "N-MC-1",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SFN-RD180-2002",
+    "locator": "search excerpt",
+    "note": "Closed cycle => turbine exhaust goes to the chambers; path via turbine not retrieved."
+   },
+   {
+    "id": "E-2",
+    "from": "N-PB",
+    "to": "N-MC-2",
+    "fluid": "ox-rich hot gas",
+    "role": "turbine_exhaust",
+    "evidence_status": "INFERRED",
+    "source_id": "SRC-SFN-RD180-2002",
+    "locator": "search excerpt",
+    "note": "As E-1."
+   }
+  ],
+  "topology_completeness": "Almost everything: main TPA (pumps, turbine, shaft), boost pumps and their drives, preburner count, fuel cooling paths, igniter/start system, valves, actuators. Graph holds only what search excerpts reported plus 2 INFERRED closed-cycle edges."
+ },
+ "coverage": {
+  "identity": "partial",
+  "propellants": "partial",
+  "performance": "partial",
+  "thrust_chamber": "weak",
+  "nozzle": "weak",
+  "injector": "not_reported",
+  "cooling": "not_reported",
+  "feed_system": "not_reported",
+  "pumps": "not_reported",
+  "turbines": "not_reported",
+  "gg_preburner": "not_reported",
+  "pressurization": "not_reported",
+  "ignition_start": "not_reported",
+  "control": "weak",
+  "mechanical": "partial",
+  "materials_manufacturing": "not_reported",
+  "test_history": "not_reported"
+ },
+ "schematic_ids": [],
+ "schema_breakers": [
+  "Two chambers fed by one turbomachinery set: per-chamber vs per-engine values (gimbal is per chamber; thrust/Pc per engine).",
+  "Throttle range stated three ways (47-100%, 40-100%, 100-47%) - needs range + source + context fields, not one number.",
+  "Mass reported as 'weight' (lb) and 'dry mass' (kg) with ~400 lb gap - need mass type qualifier.",
+  "Pc given in psia and kgf/cm2 from different-country sources; abs/gauge unknown."
+ ],
+ "verification_targets_unsourced": [
+  "Verify preburner count (recall: one ox-rich preburner, one main TPA on a single shaft) - UNVERIFIED",
+  "Verify boost pumps: fuel boost pump driven by hydraulic turbine using high-pressure kerosene; LOX boost pump driven by gas turbine on ox-rich gas tapped from main turbine exhaust - UNVERIFIED recall",
+  "Verify hypergolic (triethylaluminium-based) start ampoule ignition - UNVERIFIED recall",
+  "Mitchell Commission 2014 / RAND co-production reports - not searched"
+ ],
+ "notes": "RD-180 is the only anchor with real (search-excerpt) values. Strongest available source, the ULA-hosted record paper, could not be opened. All values Tier D/E or Tier A seen only via excerpt.",
+ "branch": "anchor_ussr"
+}
