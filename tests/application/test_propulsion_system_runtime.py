@@ -57,6 +57,14 @@ PAGES = [
          ("chilldown_mode", "choice", "not_applicable"),
          ("other_allowance_mode", "choice", "not_applicable"),
          ("boiloff_mode", "choice", "not_applicable"))]),
+    ("tankgeometry", "tanks", "PropellantTanks",
+     "rocketforge.engineering.propulsion_system.tank_geometry.solve_tank_geometry",
+     [("oxidiser.density", "number", "1141"), ("oxidiser.ullage_mode", "choice", "fraction"),
+      ("oxidiser.ullage", "number", "5"), ("oxidiser.shape", "choice", "sphere"),
+      ("fuel.density", "number", "422.6"), ("fuel.ullage_mode", "choice", "fraction"),
+      ("fuel.ullage", "number", "5"), ("fuel.shape", "choice", "cylinder_ellipsoidal"),
+      ("fuel.sizing_mode", "choice", "stated_diameter"), ("fuel.diameter", "number", "4"),
+      ("fuel.dome_ratio", "number", "0.7071")]),
 ]
 
 
@@ -357,6 +365,20 @@ def test_the_inventory_renders_its_closed_masses(run):
         assert page["values"][branch]["loaded_mass"] == f"{b['loaded_mass']:,.4f}"
         assert page["values"][branch]["expulsion_efficiency"] == "98.0000"
     assert page["totals"]["loaded_total"] == f"{q['totals']['loaded_total']:,.4f}"
+
+
+def test_the_tanks_render_volumes_that_hold_the_inventory(run):
+    if not _cea_installed():
+        return
+    inv = run["pages"]["propellantinventory"]["quantities"]
+    page = run["pages"]["tankgeometry"]
+    q = page["quantities"]
+    ox, fu = q["oxidiser"], q["fuel"]
+    assert ox["liquid_mass"] == inv["oxidiser"]["loaded_mass"]
+    assert ox["tank_volume"] == pytest.approx(ox["liquid_mass"] / 1141.0 / 0.95, rel=1e-14)
+    assert fu["diameter"] == 4.0 and fu["barrel_length"] > 0.0
+    assert abs(fu["volume_closure"]) < 1e-14
+    assert page["values"]["oxidiser"]["tank_volume"] == f"{ox['tank_volume']:,.6f}"
 
 
 def test_a_change_upstream_makes_every_sys_result_stale(run):

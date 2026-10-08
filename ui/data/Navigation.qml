@@ -112,7 +112,10 @@ QtObject {
         // the engine. Each computes only on its explicit Compute action.
         { key: "propellantinventory", label: "Propellant Inventory", page: "PropellantInventoryPage.qml",
           computed: true, solverNote: "RocketForge propellant inventory · Sutton §6.2, §11.1",
-          computedNote: "Usable, residual, reserved and loaded propellant per branch; no tanks or cycle flows" }
+          computedNote: "Usable, residual, reserved and loaded propellant per branch; no tanks or cycle flows" },
+        { key: "tankgeometry", label: "Tank Geometry & Packaging", page: "TankGeometryPage.qml",
+          computed: true, solverNote: "RocketForge tank geometry · Sutton §6.2",
+          computedNote: "Liquid, ullage and tank volume and internal sphere or capsule geometry; no wall, mass or insulation" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -245,7 +248,7 @@ QtObject {
             // management, pressurization and feed lines (SYS gates).
             key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
             hasStatus: false,
-            groups: [ { label: "", items: [24] } ]
+            groups: [ { label: "", items: [24, 25] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

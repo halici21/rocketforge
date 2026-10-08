@@ -48,8 +48,12 @@ expansion only, not a solved contour.*
 - **Propulsion System.** The stage around the engine. The propellant
   inventory gives usable, residual, reserved and loaded propellant per
   branch, from a stated expulsion efficiency or residual mass and stated
-  allowances. Nothing is defaulted, and an unknown term stays unresolved
-  rather than becoming zero.
+  allowances. Tank sizing and packaging gives each branch's liquid, ullage
+  and tank volume and the internal geometry of a sphere or a cylinder with
+  hemispherical or ellipsoidal domes, from a stated diameter or length. It
+  refuses a geometry that cannot hold the load; it does no wall or
+  structural sizing. Nothing is defaulted, and an unknown term stays
+  unresolved rather than becoming zero.
 - **Engine Design.** A topology editor for engine component networks with
   typed ports and structural checks. No physics is wired into it yet (see
   [Known limitations](#known-limitations)).

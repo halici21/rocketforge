@@ -106,6 +106,22 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   upstream results are refused. The record round-trips through versioned,
   fingerprint-checked JSON, and only Compute computes. See
   [docs/engineering/design/SYS1_PROPELLANT_INVENTORY.md](docs/engineering/design/SYS1_PROPELLANT_INVENTORY.md).
+- Tank Geometry & Packaging (SYS-2), in **Propulsion System**: from a
+  complete SYS-1 inventory, each branch's tank holds its loaded mass as
+  liquid at a stated storage density, or the validated LOX/LCH4/LH2 liquid
+  model at a stated storage temperature and pressure. With a stated ullage
+  (a fraction of the tank, or a volume), V_tank = V_liquid/(1 − u) or
+  V_liquid + V_u. The internal geometry is a sphere, or a cylinder with two
+  hemispherical or ellipsoidal domes (half spheroids, k = h/R stated,
+  0 < k ≤ 1). A cylinder is fixed by a stated diameter, which solves the
+  barrel length, or a stated total length, which solves the radius by
+  bracketed Brent on its monotonic range. The result gives the volumes,
+  fill fraction, dimensions, dome volume and height, and analytic internal
+  surface area, with mass, ullage and geometric closures. A geometry that
+  cannot hold the volume, or that exceeds a stated envelope, is refused. No
+  shape, diameter or optimum is chosen. Internal geometry only: no wall,
+  MEOP, mass, insulation, common bulkhead or boil-off. See
+  [docs/engineering/design/SYS2_TANK_GEOMETRY_PACKAGING.md](docs/engineering/design/SYS2_TANK_GEOMETRY_PACKAGING.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to
