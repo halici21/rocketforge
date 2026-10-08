@@ -56,6 +56,10 @@ expansion only, not a solved contour.*
   covered (settled, diaphragm, bladder, piston, bellows or a surface-tension
   device) as a stated, consistency-checked declaration with the liquid and
   gas volumes through the burn; full slosh dynamics are not modelled.
+  Tank pressurization covers regulated stored gas (pressurant mass and
+  bottle volume, Sutton Eqs. 6-5 to 6-7) and blowdown (pressure evolution
+  and end-of-burn margin) with a perfect gas; autogenous and warm-gas
+  pressurization are recorded as future work only.
   Nothing is defaulted, and an unknown term stays unresolved rather than
   becoming zero.
 - **Engine Design.** A topology editor for engine component networks with

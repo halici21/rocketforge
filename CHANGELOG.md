@@ -134,6 +134,23 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   liquid and gas volumes from loading to the end of the burn are booked
   and closed. Full slosh dynamics are not modelled. See
   [docs/engineering/design/SYS3_PROPELLANT_MANAGEMENT.md](docs/engineering/design/SYS3_PROPELLANT_MANAGEMENT.md).
+- Tank Pressurization (SYS-4): regulated stored gas and blowdown per
+  branch, with a perfect gas (Sutton §6.4, §6.5). The regulated mode applies
+  Eq. 6-5 with explicit temperatures: mp = pp Vp/(R Tp),
+  Tg = T0 (pg/p0)^((n−1)/n), V0 = mp R/(p0/T0 − pg/Tg). It reproduces
+  Eq. 6-7 and Example 6-2 exactly under their conventions and reports the
+  bottle mass, the residual gas, the end-of-burn regulator drop and an
+  optional stated reserve. Blowdown evolves the SYS-3 ullage as pV^n =
+  const, with the end-of-burn pressure and the margins. No gas, gas
+  constant, exponent, temperature or pressure has a default. The required
+  tank pressure is stated, or taken from the LIQ-6 ledger, and stays
+  unresolved when that ledger is incomplete. Autogenous and warm-gas
+  pressurization are recorded as intent only. Sutton's helium isentropic
+  line in Example 6-2 prints 1.334 V0 where its equation gives 1.322; the
+  equation is followed and the discrepancy pinned. Real-gas
+  compressibility, heat transfer, boil-off, regulator dynamics and
+  pressurant lines are not modelled. See
+  [docs/engineering/design/SYS4_TANK_PRESSURIZATION.md](docs/engineering/design/SYS4_TANK_PRESSURIZATION.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to

@@ -118,7 +118,10 @@ QtObject {
           computedNote: "Liquid, ullage and tank volume and internal sphere or capsule geometry; no wall, mass or insulation" },
         { key: "propellantmanagement", label: "Propellant Management", page: "PropellantManagementPage.qml",
           computed: true, solverNote: "RocketForge propellant management · Sutton §6.2",
-          computedNote: "Management intent, outlet-coverage declaration and liquid/gas volumes; no slosh dynamics" }
+          computedNote: "Management intent, outlet-coverage declaration and liquid/gas volumes; no slosh dynamics" },
+        { key: "tankpressurization", label: "Tank Pressurization", page: "TankPressurizationPage.qml",
+          computed: true, solverNote: "RocketForge tank pressurization · Sutton §6.4, §6.5",
+          computedNote: "Regulated stored gas and blowdown with a perfect gas; autogenous and warm gas are intent only" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -251,7 +254,7 @@ QtObject {
             // management, pressurization and feed lines (SYS gates).
             key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
             hasStatus: false,
-            groups: [ { label: "", items: [24, 25, 26] } ]
+            groups: [ { label: "", items: [24, 25, 26, 27] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

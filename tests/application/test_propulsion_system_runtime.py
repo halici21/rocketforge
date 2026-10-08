@@ -72,6 +72,25 @@ PAGES = [
       ("fuel.mode", "choice", "diaphragm"), ("fuel.environment", "choice", "low_gravity"),
       ("fuel.settling", "choice", "not_required"),
       ("fuel.settling_acceleration", "number", "0.05")]),
+    ("tankpressurization", "pressurization", "TankPressurization",
+     "rocketforge.engineering.propulsion_system.pressurization.ideal_gas_mass",
+     [("oxidiser.mode", "choice", "regulated"), ("oxidiser.gas_name", "text", "helium"),
+      ("oxidiser.gas_constant", "number", "2077.1"), ("oxidiser.exponent", "number", "1"),
+      ("oxidiser.required_source", "choice", "stated"),
+      ("oxidiser.required_pressure", "number", "150"),
+      ("oxidiser.tank_pressure", "number", "200"),
+      ("oxidiser.tank_gas_temperature_mode", "choice", "bottle_initial"),
+      ("oxidiser.bottle_initial_pressure", "number", "300"),
+      ("oxidiser.bottle_initial_temperature", "number", "290"),
+      ("oxidiser.bottle_final_pressure", "number", "210"),
+      ("oxidiser.ullage_source", "choice", "ground"),
+      ("oxidiser.reserve_mode", "choice", "not_applicable"),
+      ("fuel.mode", "choice", "blowdown"), ("fuel.gas_name", "text", "nitrogen"),
+      ("fuel.gas_constant", "number", "296.8"), ("fuel.exponent", "number", "1.4"),
+      ("fuel.required_source", "choice", "stated"),
+      ("fuel.required_pressure", "number", "150"),
+      ("fuel.initial_pressure", "number", "400"),
+      ("fuel.initial_temperature", "number", "290")]),
 ]
 
 
@@ -427,6 +446,18 @@ def test_management_declares_and_closes_its_volumes(run):
     assert labels["oxidiser"]["outlet_availability"].startswith("Declared: settled")
     assert labels["fuel"]["outlet_availability"].startswith("Declared: positive-expulsion")
     assert page["quantities"]["fuel"]["settling_acceleration"] == 0.05
+
+
+def test_pressurization_renders_eq_6_7_and_the_blowdown(run):
+    if not _cea_installed():
+        return
+    mgmt = run["pages"]["propellantmanagement"]["quantities"]
+    q = run["pages"]["tankpressurization"]["quantities"]
+    vp = mgmt["oxidiser"]["expelled_volume"]
+    assert q["oxidiser"]["bottle_volume"] == pytest.approx(200e5 * vp / (300e5 - 210e5),
+                                                           rel=1e-13)
+    vi, vf = mgmt["fuel"]["gas_volume_start"], mgmt["fuel"]["gas_volume_end"]
+    assert q["fuel"]["final_pressure"] == pytest.approx(400e5 * (vi / vf) ** 1.4, rel=1e-13)
 
 
 def test_a_change_upstream_makes_every_sys_result_stale(run):

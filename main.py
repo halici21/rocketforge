@@ -72,6 +72,9 @@ from rocketforge.application.analysis.propellant_tanks_controller import (
 from rocketforge.application.analysis.propellant_management_controller import (
     PropellantManagementController,
 )
+from rocketforge.application.analysis.tank_pressurization_controller import (
+    TankPressurizationController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -410,6 +413,12 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     propellant_management = PropellantManagementController(propellant_inventory, propellant_tanks, parent)
     qmlRegisterSingletonInstance(PropellantManagementController, QML_URI, 1, 0,
                                  "PropellantManagement", propellant_management)
+
+    # Tank pressurization (SYS-4). It reads propellant management and, for a
+    # required pressure from LIQ-6, the injector; computes only on Compute.
+    tank_pressurization = TankPressurizationController(propellant_management, injector, parent)
+    qmlRegisterSingletonInstance(TankPressurizationController, QML_URI, 1, 0,
+                                 "TankPressurization", tank_pressurization)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second
