@@ -90,6 +90,22 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   atomization, efficiency, stability, pumps, tanks, cooling channels or cycle.
   See
   [docs/engineering/design/LIQ6_INJECTOR_FEED_PRESSURE.md](docs/engineering/design/LIQ6_INJECTOR_FEED_PRESSURE.md).
+- Propellant Inventory (SYS-1): the first page of a new **Propulsion System**
+  family, for the stage around the engine. It takes an accepted LIQ-4
+  sizing's oxidiser and fuel flows and the LIQ-2 burn time, read through the
+  trade that sizing extends. Per branch it keeps a mass budget: usable
+  ṁ × t, available (usable plus stated transients, chill-down, other
+  allowances and reserve), residual, and loaded (present plus boil-off). The
+  residual comes from a stated expulsion efficiency η, with
+  present = available/η, or from a stated tank residual and trapped-line mass
+  (Sutton §6.2, §11.1, Example 11-1). The reserve is a stated mass or a stated
+  fraction of the usable mass. No η, reserve, trapped-line mass, boil-off,
+  transient or chill-down mass has a default. Unresolved is never zero: the
+  loaded mass waits on it, and the minimum known load is given instead. No
+  gas-generator or other cycle flow is added. Stale, refused or mismatched
+  upstream results are refused. The record round-trips through versioned,
+  fingerprint-checked JSON, and only Compute computes. See
+  [docs/engineering/design/SYS1_PROPELLANT_INVENTORY.md](docs/engineering/design/SYS1_PROPELLANT_INVENTORY.md).
 - Atmosphere foundation (ENV-1): `rocketforge/physics/atmosphere`, a
   reusable, Qt-free atmosphere state contract with manual-pressure, vacuum
   and U.S. Standard Atmosphere 1976 sources. The Standard runs from -5 km to

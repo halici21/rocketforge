@@ -231,6 +231,18 @@ Canvas {
             ctx.moveTo(12.6, 8); ctx.lineTo(15.2, 8)
             break
 
+        case "tank":
+            // Propulsion system: a capsule tank (cylinder with domes) and a
+            // liquid level line, with an outlet stub below.
+            ctx.moveTo(4, 5)
+            ctx.arc(8, 5, 4, Math.PI, 0)
+            ctx.lineTo(12, 11)
+            ctx.arc(8, 11, 4, 0, Math.PI)
+            ctx.lineTo(4, 5)
+            ctx.moveTo(4, 8.6); ctx.lineTo(12, 8.6)
+            ctx.moveTo(8, 15); ctx.lineTo(8, 15.6)
+            break
+
         case "reference":
             // An open reference book with a bookmark tab on the right
             // page -- the tab distinguishes this from a generic book at

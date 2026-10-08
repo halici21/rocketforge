@@ -107,7 +107,12 @@ QtObject {
         // only on its explicit Compute action.
         { key: "injector", label: "Injector & Feed Pressure", page: "InjectorPage.qml",
           computed: true, solverNote: "RocketForge injector hydraulics · Sutton §8.1, §11.5",
-          computedNote: "Orifice area, injection velocity and branch pressure ledger; no stability, atomization, pump or cycle" }
+          computedNote: "Orifice area, injection velocity and branch pressure ledger; no stability, atomization, pump or cycle" },
+        // Propulsion System (SYS gates): what the stage carries and delivers to
+        // the engine. Each computes only on its explicit Compute action.
+        { key: "propellantinventory", label: "Propellant Inventory", page: "PropellantInventoryPage.qml",
+          computed: true, solverNote: "RocketForge propellant inventory · Sutton §6.2, §11.1",
+          computedNote: "Usable, residual, reserved and loaded propellant per branch; no tanks or cycle flows" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -234,6 +239,13 @@ QtObject {
             key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
             hasStatus: false,
             groups: [ { label: "", items: [19, 20, 21, 22, 23] } ]
+        },
+        {
+            // The stage around the engine: inventory, tanks, propellant
+            // management, pressurization and feed lines (SYS gates).
+            key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
+            hasStatus: false,
+            groups: [ { label: "", items: [24] } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",

@@ -264,6 +264,17 @@ def test_the_injector_component_exists_and_is_the_step_that_created_it():
         "__init__.py", "hydraulics.py", "pressure_budget.py"]
 
 
+def test_the_propulsion_system_package_holds_only_the_accepted_sys_gates():
+    """The stage around the engine (SYS gates) lives in its own package, not
+    in a device package: no ``engineering.tank``, ``valve`` or ``pump`` was
+    created for it, and the fence above still holds. Each accepted gate adds
+    exactly its module here."""
+    package = PACKAGE_ROOT / "engineering" / "propulsion_system"
+    assert package.is_dir()
+    assert sorted(p.name for p in package.glob("*.py")) == [
+        "__init__.py", "inventory.py"]
+
+
 def test_no_device_correlation_vocabulary_appears_in_the_new_modules():
     forbidden = ("friction_factor", "darcy", "reynolds_number", "discharge_coefficient",
                  "pressure_drop", "nusselt", "bartz")

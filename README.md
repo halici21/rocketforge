@@ -40,6 +40,16 @@ expansion only, not a solved contour.*
   only the two plotted. It evaluates a sample and is not an optimiser.
 - **Fluids and Feed.** Fluid properties from CoolProp, and pressure drop in a
   straight line with the Darcy friction factor stated as such.
+- **Liquid Engine.** The design chain starts from a requirement (thrust,
+  design environment, burn time). It goes through a propellant trade,
+  thrust-chamber and nozzle sizing, and chamber geometry, to injector orifice
+  hydraulics with a pressure ledger for each branch. The model is ideal: no
+  cooling, pump or cycle.
+- **Propulsion System.** The stage around the engine. The propellant
+  inventory gives usable, residual, reserved and loaded propellant per
+  branch, from a stated expulsion efficiency or residual mass and stated
+  allowances. Nothing is defaulted, and an unknown term stays unresolved
+  rather than becoming zero.
 - **Engine Design.** A topology editor for engine component networks with
   typed ports and structural checks. No physics is wired into it yet (see
   [Known limitations](#known-limitations)).

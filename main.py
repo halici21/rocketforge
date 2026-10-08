@@ -63,6 +63,9 @@ from rocketforge.application.analysis.chamber_geometry_controller import (
 from rocketforge.application.analysis.injector_controller import (
     InjectorController,
 )
+from rocketforge.application.analysis.propellant_inventory_controller import (
+    PropellantInventoryController,
+)
 from rocketforge.application.analysis.fluid_property_controller import (
     FluidPropertyController,
 )
@@ -382,6 +385,13 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     injector = InjectorController(chamber_sizing, parent)
     qmlRegisterSingletonInstance(InjectorController, QML_URI, 1, 0,
                                  "Injector", injector)
+
+    # Propellant inventory (SYS-1). It reads the accepted sizing's flows and the
+    # trade's requirement burn time and computes only from its Compute action.
+    propellant_inventory = PropellantInventoryController(chamber_sizing, propellant_trade,
+                                                         parent)
+    qmlRegisterSingletonInstance(PropellantInventoryController, QML_URI, 1, 0,
+                                 "PropellantInventory", propellant_inventory)
 
     # Interactive views. Viewport3D says whether Qt Quick 3D is installed (the
     # optional requirements-3d.txt profile); the QML host adds the second
