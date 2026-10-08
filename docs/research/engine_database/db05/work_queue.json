@@ -1,0 +1,4252 @@
+{
+ "notice": "DB-0.5 work queue generated offline from the DB-0 corpus. Nothing here is verified; every item is SEARCH_RESULT_ONLY until the document is opened.",
+ "documents": [
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NAP-11780",
+   "title": "A Review of United States Air Force and Department of Defense Aerospace Propulsion Needs",
+   "url": "https://www.nationalacademies.org/read/11780/page/256",
+   "identifier": "NAP 11780",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2",
+    "ENG-US-RL10B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-ALSJ-AERINDEX",
+   "title": "Apollo Experience Reports (index page)",
+   "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/ApolExpRpts.html",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137",
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20120016414",
+   "title": "NASA NTRS 20120016414 (J-2X; title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/20120016414/downloads/20120016414.pdf",
+   "identifier": "NTRS 20120016414",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2",
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-RKLB-PAYLOAD-INCREASE",
+   "title": "Rocket Lab Increases Electron Payload Capacity...",
+   "url": "https://rocketlabcorp.com/updates/rocket-lab-increases-electron-payload-capacity-enabling-interplanetary-missions-and-reusability/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-RL-ELECTRON-PAGE",
+   "title": "Electron launch vehicle page",
+   "url": "https://rocketlabcorp.com/launch/electron/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-ROCKETLAB-ELECTRON-PAGE",
+   "title": "Rocket Lab Electron vehicle page",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-ROCKETLAB-UPDATES",
+   "title": "Rocket Lab news/updates pages (Rutherford ratings)",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-AEROJET-SPSVALVE-1971",
+   "title": "Summary report on Apollo SPS rocket engine bipropellant valve improvement program",
+   "url": "https://ntrs.nasa.gov/api/citations/19710025470/downloads/19710025470.pdf",
+   "identifier": "NTRS 19710025470; OCR shows 'NASA 108578' (series designation unverified)",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-AF-IPD-2006",
+   "title": "New rocket engine combustion cycle technology testing reaches 100 percent power level",
+   "url": "https://www.wpafb.af.mil/News/Article-Display/Article/401448/new-rocket-engine-combustion-cycle-technology-testing-reaches-100-power-level",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-AIAA-VEHGUIDE-ATLAS",
+   "title": "AIAA Vehicle Guide: Atlas - vehicle design",
+   "url": "https://aiaa.org/vehicle-guide/vehicles/atlas/vehicle-design",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-AIAA-VEHGUIDE-DELTA",
+   "title": "AIAA Vehicle Guide: Delta - vehicle design",
+   "url": "https://aiaa.org/vehicle-guide/vehicles/delta/vehicle-design",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-APOLLO9-SPS-FFE",
+   "title": "Apollo 9 Service Propulsion System Final Flight Evaluation",
+   "url": "https://ibiblio.org/apollo/Documents/19700019020.pdf",
+   "identifier": "ibiblio 19700019020",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-DTIC-AD0368743",
+   "title": "Simulated altitude testing of the Apollo service module propulsion system (Report 1, Phase 2 develop",
+   "url": "https://apps.dtic.mil/sti/html/tr/AD0368743/index.html",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-DTIC-AD0867628",
+   "title": "AEDC J-2S altitude test report (J-4 cell, 1969)",
+   "url": "https://apps.dtic.mil/sti/pdfs/AD0867628.pdf",
+   "identifier": "AD0867628",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-DTIC-AD0874400",
+   "title": "AEDC J-2S altitude test report (J-4 cell, 1969)",
+   "url": "https://apps.dtic.mil/sti/pdfs/AD0874400.pdf",
+   "identifier": "AD0874400",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-DTIC-AEDC-J2-SET",
+   "title": "AEDC altitude test reports on the J-2 engine (AD0823096, AD0829984, AD0848188, AD0847234; which repo",
+   "url": "https://apps.dtic.mil/sti/pdfs/AD0829984.pdf",
+   "identifier": "AD0823096; AD0829984; AD0848188; AD0847234",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-DTIC-AEDC-J2S-SET",
+   "title": "AEDC J-2S altitude test reports: AEDC-TR-70-150, AEDC-TR-70-204, AEDC-TR-70-38 (DTIC AD numbers amon",
+   "url": "https://apps.dtic.mil/sti/pdfs/AD0874400.pdf",
+   "identifier": "AEDC-TR-70-150; AEDC-TR-70-204; AEDC-TR-70-38",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+   "title": "SSME Orientation (abbreviated SSME orientation course handout)",
+   "url": "https://enginehistory.org/Rockets/SSME/SSMEorientation.pdf",
+   "identifier": "BC98-04 (per round-1 summary)",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-GENERALSTAFF-J2S-STUDY-1969",
+   "title": "J-2S Improvement Study, System Description (report D5-15772-2, 30 April 1969)",
+   "url": "https://www.generalstaff.org/Space/Saturn/J-2S_Study_30_April_69.pdf",
+   "identifier": "D5-15772-2; NTRS 19690072871 (unverified)",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-IAC-2018-43630",
+   "title": "Carbon-carbon Nozzle Extension Assembly for the RL10 Engines (IAC-18, C4.3, paper 43630)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-18/C4/3/43630/",
+   "identifier": "IAC-18,C4,3,x43630",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "title": "SSME Overview (PDF; a search summary identifies it as JSC-19041; unverified)",
+   "url": "https://ibiblio.org/apollo/Shuttle/Reference/SSME%20Overview.pdf",
+   "identifier": "JSC-19041 (unverified)",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-JAXA-TND7375",
+   "title": "JAXA repository record: Apollo experience report: Service propulsion subsystem",
+   "url": "https://repository.exst.jaxa.jp/dspace/handle/a-is/197647",
+   "identifier": "a-is/197647",
+   "tier": "A",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-L3H-RS68A-DS",
+   "title": "RS-68A data sheet",
+   "url": "https://arsuppliernet.l3harris.com/sites/default/files/documents/RS-68A_data_sheet.pdf",
+   "identifier": "RS-68A_data_sheet.pdf",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RS-68A"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-L3HARRIS-RL10-SPEC",
+   "title": "RL10 spec sheet (L3Harris / Aerojet Rocketdyne)",
+   "url": "https://l3harris.com/sites/default/files/2024-07/l3harris-ar-rl10-spec-sheet.pdf",
+   "identifier": "l3harris-ar-rl10-spec-sheet.pdf; AJRD-LHX_RL10_SpecSheet 2024-01; arsuppliernet RL10_data_sheet.pdf",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-L3HARRIS-RS25-SPEC",
+   "title": "RS-25 spec sheet (L3Harris / Aerojet Rocketdyne)",
+   "url": "https://l3harris.com/sites/default/files/2024-07/l3harris-ar-rs-25-spec-sheet.pdf",
+   "identifier": "l3harris-ar-rs-25-spec-sheet.pdf; also AJRD-LHX_RS-25_SpecSheet 2023-07 and arsuppliernet lr_3-26-19_RS25 data sheet",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-L3HARRIS-RS25-WEB",
+   "title": "RS-25 Engine (capabilities web page)",
+   "url": "https://l3harris.com/all-capabilities/rs-25-engine",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "title": "Apollo 15 Mission Report Supplement 4: Descent Propulsion System Final Flight Evaluation (LM-10)",
+   "url": "https://ibiblio.org/apollo/Documents/19730023018.pdf",
+   "identifier": "MSC-05161 (Sept 1972)",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-MSFC-SATURNV-FLIGHTMANUAL",
+   "title": "Saturn V Flight Manual (SA-50x)",
+   "url": "",
+   "identifier": "MSFC-MAN-50x (unverified)",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-3HO",
+   "title": "nasa.gov files/3HO.pdf",
+   "url": "https://www.nasa.gov/sites/default/files/files/3HO.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-A14DPSPERF",
+   "title": "Apollo 14 DPS performance (file a14DPSPerformance.pdf on nasa.gov ALSJ mirror)",
+   "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a14/a14DPSPerformance.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-AER-DPS",
+   "title": "Apollo experience report: Descent propulsion system",
+   "url": "https://ntrs.nasa.gov/citations/19730011150",
+   "identifier": "NTRS 19730011150 (TN number not seen)",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-ALSJ-CSM02",
+   "title": "Saturn Launch Vehicles pp. 8-14 (Apollo Lunar Surface Journal reproduction)",
+   "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/CSM02_Saturn_Launch_Vehicles_pp8-14.pdf",
+   "identifier": "CSM02_Saturn_Launch_Vehicles_pp8-14.pdf",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
+   "title": "STS-104 SSME Flight Readiness Review (Hopson), 28 June 2001",
+   "url": "https://corpora.tika.apache.org/base/docs/govdocs1/673/673547.pdf",
+   "identifier": "govdocs1 corpus 673547.pdf (also 675066 / 655318 hits)",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-KSC-167449-SSMEPF06",
+   "title": "167449main SSMEPF 06",
+   "url": "https://www3.nasa.gov/centers/kennedy/pdf/167449main_SSMEPF-06.pdf",
+   "identifier": "167449main_SSMEPF-06",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-RS25-FS2015",
+   "title": "NASAfacts: Space Launch System RS-25 Core Stage Engine (2015)",
+   "url": "https://www.nasa.gov/wp-content/uploads/2020/09/final_sls_rs25_fact_sheet_508_07312015.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-RS25-FS2025",
+   "title": "SLS RS-25 Engine Fact Sheet",
+   "url": "https://www.nasa.gov/wp-content/uploads/2025/04/sls-4963-sls-rs-25-engine-fact-sheet-508.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-RS25-WEB",
+   "title": "Space Shuttle/SLS RS-25 web page (NASA)",
+   "url": "https://www.nasa.gov/reference/space-launch-system-rs-25-core-stage-engine/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-SSME-NPL-DOC",
+   "title": "NASA document giving SSME sea-level thrust at NPL (one of nasa.gov 2015/12/3.pdf or Van Hooser APPEL",
+   "url": "https://www.nasa.gov/wp-content/uploads/2015/12/3.pdf",
+   "identifier": "nasa.gov wp-content/uploads/2015/12/3.pdf or appel 553045main",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-TND7143",
+   "title": "Apollo Experience Report: Descent Propulsion System",
+   "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19730011150.pdf",
+   "identifier": "TN D-7143; NTRS 19730011150",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NASA-TND7375",
+   "title": "Apollo experience report: Service propulsion subsystem (NASA TN D-7375, JSC S-378)",
+   "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19730023031.pdf",
+   "identifier": "NASA-TN-D-7375; NTRS 19730023031",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-19650013470",
+   "title": "NASA NTRS 19650013470 (1965 NASA report on the H-1 engine / S-I(B) propulsion; exact title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/19650013470/downloads/19650013470.pdf",
+   "identifier": "NTRS 19650013470",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-H-1"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-19740022190",
+   "title": "Apollo 16 mission report supplement (SPS S/N 66 reorificed for higher mixture ratio)",
+   "url": "https://ntrs.nasa.gov/citations/19740022190",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-19740026212",
+   "title": "NTRS 19740026212 (Shuttle OMS-related report; identity unverified, sibling marked with '?')",
+   "url": "",
+   "identifier": "NTRS 19740026212 (unverified)",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-19860012108",
+   "title": "NASA NTRS 19860012108 (SSME 'Large Throat' study, 1986; title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/19860012108/downloads/19860012108.pdf",
+   "identifier": "NTRS 19860012108",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-19910018906",
+   "title": "Energia booster engine (RD-170) briefing slides based on 1989 Paris Air Show displays",
+   "url": "https://ntrs.nasa.gov/api/citations/19910018906/downloads/19910018906.pdf",
+   "identifier": "NTRS 19910018906",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-RD-170"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20030005845",
+   "title": "NASA NTRS 20030005845 (SSME Block 2 related; title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/20030005845/downloads/20030005845.pdf",
+   "identifier": "NTRS 20030005845",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20080036837",
+   "title": "NASA NTRS 20080036837 (J-2X design paper; title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/20080036837/downloads/20080036837.pdf",
+   "identifier": "NTRS 20080036837",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20100027318",
+   "title": "NASA NTRS 20100027318 (Rocketdyne J-2 history chapter / presentation; exact title not seen)",
+   "url": "https://ntrs.nasa.gov/api/citations/20100027318/downloads/20100027318.pdf",
+   "identifier": "NTRS 20100027318",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20100027319",
+   "title": "NTRS record 20100027319 (Apollo SPS-related; title not seen)",
+   "url": "https://ntrs.nasa.gov/citations/20100027319",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-20180006338",
+   "title": "Overview of RS-25 Adaptation Hot-Fire Test Series for SLS",
+   "url": "https://ntrs.nasa.gov/api/citations/20180006338/downloads/20180006338.pdf",
+   "identifier": "NTRS 20180006338",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-IPD-20040084662",
+   "title": "NTRS 20040084662 (Stennis test-facility paper covering IPD workhorse preburner / oxidizer turbopump ",
+   "url": "https://ntrs.nasa.gov/api/citations/20040084662/downloads/20040084662.pdf",
+   "identifier": "NTRS 20040084662",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-IPD-20040129712",
+   "title": "NTRS record 20040129712 (Integrated Powerhead Demonstrator paper; title unverified)",
+   "url": "",
+   "identifier": "NTRS 20040129712",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-IPD-OTPCF",
+   "title": "IPD oxidizer turbopump cold-flow testing",
+   "url": "https://ntrs.nasa.gov/citations/20040129712",
+   "identifier": "NTRS 20040129712",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-IPD-WPB",
+   "title": "IPD Workhorse Preburner and oxidizer turbopump hot-fire testing (Stennis)",
+   "url": "https://ntrs.nasa.gov/citations/20040084662",
+   "identifier": "NTRS 20040084662",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-NTRS-RL10A33A-MODEL",
+   "title": "NTRS RL10A-3-3A modelling/throttling reports (19950017370, 19950022693, 19910018888; attribution amo",
+   "url": "https://ntrs.nasa.gov/api/citations/19950017370/downloads/19950017370.pdf",
+   "identifier": "NTRS 19950017370; 19950022693; 19910018888",
+   "tier": "A",
+   "rights_class_provisional": "PUBLIC_DOMAIN_GOV",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-PATENT-UNIDENT-SSMEPB",
+   "title": "Unidentified patent cited in a search summary (SSME preburner element counts)",
+   "url": "",
+   "identifier": "UNKNOWN (not shown)",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-RL-500-TESTS",
+   "title": "Rocket Lab reaches 500 Rutherford engine test fires",
+   "url": "https://rocketlabcorp.com/updates/rocket-lab-reaches-500-rutherford-engine-test-fires/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-RL-PRESSKIT-2017",
+   "title": "Electron 'It's a Test' press kit (May 2017)",
+   "url": "https://rocketlabcorp.com/assets/Uploads/Its-a-Test-Press-Kit3.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-SAE-730941",
+   "title": "SAE Technical Paper 730941 (reference list citing TN D-7143)",
+   "url": "https://saemobilus.sae.org/content/730941",
+   "identifier": "SAE 730941",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-ULA-DIV-GPSIIISV02",
+   "title": "Delta IV GPS III SV02 mission overview booklet",
+   "url": "https://www.ulalaunch.com/docs/default-source/launch-booklets/div_gpsiiisv02_mob.pdf",
+   "identifier": "div_gpsiiisv02_mob.pdf",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-ULA-DIV-INAUGURAL",
+   "title": "Critical events of the inaugural launch of the Boeing Delta IV expendable launch vehicle",
+   "url": "https://www.ulalaunch.com/docs/default-source/evolution/critical-events-of-the-inaugural-launch-of-the-boeing-delta-iv-expendable-launch-vehicle.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RL10B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P0",
+   "source_id": "SRC-UNT-MOCAT-946-31648",
+   "title": "Monthly Catalog of US Government Publications entry 946-31648",
+   "url": "https://mocat.library.unt.edu/catalog/946-31648",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-ENGINES",
+   "title": "Blue Engines page",
+   "url": "https://www.blueorigin.com/engines",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3PM",
+    "ENG-US-BE-3U",
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-ENGINES-PAGE",
+   "title": "Blue Origin engines web page",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3PM",
+    "ENG-US-BE-3U",
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ARIANESPACE-SOYUZ-UM-2012",
+   "title": "Soyuz User's Manual (CSG), Issue 2, March 2012",
+   "url": "https://courses.edx.org/asset-v1:DelftX+AEASM1x+1T2023+type@asset+block/Soyuz-Users-Manual-March-2012.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-RD-107A",
+    "ENG-SU-RD-108A"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-NEWGLENN-PAGE",
+   "title": "Blue Origin New Glenn web page",
+   "url": "https://www.blueorigin.com/new-glenn",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3U",
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-CNES-A5-TECH",
+   "title": "Ariane 5 - Technical features",
+   "url": "https://ariane5.cnes.fr/en/technical-features-0",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-HM7B",
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SPACEX-STARSHIP-PAGE",
+   "title": "Starship vehicle page / Raptor",
+   "url": "https://www.spacex.com/vehicles/starship/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RAPTOR-2",
+    "ENG-US-RAPTOR-3"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SPACEX-UPDATES",
+   "title": "SpaceX updates page (Raptor 3 announcement)",
+   "url": "https://www.spacex.com/updates/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RAPTOR-2",
+    "ENG-US-RAPTOR-3"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-2013-BE3-RELEASE",
+   "title": "Blue Origin 2013 release debuting BE-3 (blueorigin.com/news/blue-origin-debuts-...)",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3PM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-BE3-ACCEPT",
+   "title": "Blue Origin Completes Acceptance Testing of BE-3 Engine for New Shepard Suborbital Flight",
+   "url": "https://www.blueorigin.com/news/blue-origin-completes-acceptance-testing-of-be-3-engine-for-new-shepard-suborbital-flight",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3PM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-BE3-DEBUT",
+   "title": "Blue Origin Debuts the American-made BE-3 Liquid Hydrogen Rocket Engine",
+   "url": "https://www.blueorigin.com/news/blue-origin-debuts-the-american-made-be-3-liquid-hydrogen-rocket-engine",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3PM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-NEWS-BE3U-MISC",
+   "title": "Blue Origin news releases citing earlier BE-3U ratings (pages not pinned)",
+   "url": "https://www.blueorigin.com/news/new-glenn-completes-second-stage-hotfire",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3U"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-NG-UPGRADE",
+   "title": "New Glenn Update: upgraded engines, subcooled components drive enhanced performance",
+   "url": "https://www.blueorigin.com/news/new-glenn-upgraded-engines-subcooled-components-drive-enhanced-performance",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3U"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-PRESS-BE3U-UPDATES",
+   "title": "Blue Origin New Glenn updates/releases giving BE-3U thrust",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-3U"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-PRESS-BE4-EARLY",
+   "title": "Blue Origin / ULA press releases (earlier BE-4 rating)",
+   "url": "",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-ULA-PARTNERSHIP",
+   "title": "ULA and Blue Origin Announce Partnership To Develop New American Rocket Engine",
+   "url": "https://www.blueorigin.com/news/ula-and-blue-origin-announce-partnership-to-develop-new-american-rocket-engine",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-BLUE-VULCAN-DELIVERY",
+   "title": "Blue Origin Completes the Delivery of Flight Engines to ULA for Vulcan's Initial Launch",
+   "url": "https://www.blueorigin.com/news/blue-origin-completes-the-delivery-of-flight-engines-to-ula-for-vulcan-initial-launch",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-BE-4"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-DLR-VIKING-GALLERY",
+   "title": "The Viking engine - Propulsion for the Ariane family (DLR image gallery)",
+   "url": "https://www.dlr.de/en/images/gallery-images/lampoldshausen/la_09_viking",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VIKING-5C"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-DLR-VINCI-NOZZLE-2010",
+   "title": "Europe's new upper stage engine reaches an important milestone - DLR tests its long expansion nozzle",
+   "url": "https://www.dlr.de/en/latest/news/2010/20101112_europe-s-new-upper-stage-engine-reaches-an-important-milestone-dlr-tests-its-long-expansion-nozzle-for-the-first-time_27697/@@download/file",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-DVIGATEL-1999-1",
+   "title": "Article in 'Dvigatel' magazine 1999 no.1 pp.30-31 (epizodyspace scan)",
+   "url": "https://epizodyspace.ru/bibl/dvigatel/1999/1/30-31.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-NK-33"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "title": "Ariane 5 ECA - New elements",
+   "url": "https://esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Ariane_5_ECA_-_New_elements",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-A6ENGINES",
+   "title": "The engines of Ariane 6",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/The_engines_of_Ariane_6",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-ESAMI-VULCAIN",
+   "title": "Vulcain engine (ESA Launchers 'esaMI' page)",
+   "url": "https://www.esa.int/esaMI/Launchers_Access_to_Space/ASELVQI4HNC_0.html",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-V157-INQUIRY",
+   "title": "Arianespace Flight 157 - Inquiry Board submits findings",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Arianespace_Flight_157_-_Inquiry_Board_submits_findings",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-V2-TEST",
+   "title": "Successful test for Vulcain 2 engine",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Successful_test_for_Vulcain_2_engine",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-VINCI-60S",
+   "title": "Thumbs up for 60-second firing",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Thumbs_up_for_60-second_firing",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ESA-VINCI-HOTFIRE",
+   "title": "First hot firing of next generation rocket engine",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/First_hot_firing_of_next-generation_rocket_engine",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-EUCASS2019-0521",
+   "title": "Development of the 75 tonf-class gas generator for KRE-075 (EUCASS2019-0521)",
+   "url": "https://eucass.eu/doi/EUCASS2019-0521.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-KR-KRE-075"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-EUCASS2019-VINCI",
+   "title": "VINCI engine paper (EUCASS 2019; Snecma / Airbus Safran Launchers / CNES authorship per summary)",
+   "url": "https://www.eucass-proceedings.eu/10.1051/eucass/201911481",
+   "identifier": "doi:10.1051/eucass/201911481",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-GLAVKOSMOS-RD171M",
+   "title": "RD-171M product page (Glavkosmos export catalogue)",
+   "url": "https://trade.glavkosmos.com/rd-171-m/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-RU-RD-171M"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "title": "RD-180 (Glavkosmos trade catalogue entry)",
+   "url": "https://trade.glavkosmos.com/rd-180/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-RU-RD-180"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC-15-28800",
+   "title": "VINCI, the European reference for Ariane 6 upper stage cryogenic engine",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-15/C4/1/28800/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC-18-45921",
+   "title": "Vinci Upper Stage Engine Development, Test, Qualification, and Industrialisation Status for Ariane 6",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-18/C4/1/45921/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC-19-52605",
+   "title": "IAC-19 C4.1 paper 52605 (Vinci)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-19/C4/1/52605/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC-21-65631",
+   "title": "IAC-21,C4,1,5,x65631 (ArianeGroup Vinci paper, abstract)",
+   "url": "https://p.iafastro.directory/iac/paper/id/65631/abstract-pdf/IAC-21,C4,1,5,x65631.brief.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC-LE9-2017",
+   "title": "Design and Development Status of LE-9 Engine for H3 Launch Vehicle (IAC-17-C4.1)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-17/C4/1/36601/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC08-LE5B",
+   "title": "Improvement program status of the LE-5B engine (IAC-08-C4.1.8)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-08/C4/1/1734/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-5B-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC10-AJHIPAT",
+   "title": "Aerojet High-Performance Bipropellant Apogee Engines (IAC-10.C4.1.8239)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-10/C4/1/8239/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-R-4D-11"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC11-12052",
+   "title": "Hot testing of laser welded channel wall nozzles on Vulcain 2 engine and subscale staged combustion ",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-11/C4/3/12052/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC13-17679",
+   "title": "IAC-13-C4.1 paper 17679 (YF-77 system/component design and operating characteristics)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-13/C4/1/17679/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-CN-YF-77"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC13-20083",
+   "title": "LOX-kerosene liquid rocket engine with a thrust of 9.8 MN",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-13/C4/P/20083/",
+   "identifier": "IAC-13.C4.P.20083 (paper number as shown in IAF archive URL)",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-RU-RD-171M"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IAC15-LOXKERO-REVIEW",
+   "title": "A Review of China's LOX/Kerosene Stage Combustion Cycle Rocket Engine (IAC-15-C4.1)",
+   "url": "https://iafastro.directory/iac/archive/browse/IAC-15/C4/1/28419/",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-CN-YF-100"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-IHI-GIHO-LE9-TP",
+   "title": "H3ロケット1段エンジンLE-9ターボポンプの開発 (Development of LE-9 turbopumps for H3 first stage)",
+   "url": "https://repository.exst.jaxa.jp/dspace/handle/a-is/835996",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ISRO-VIKAS-TEST",
+   "title": "Vikas engine test campaign (human-rated L110-G Vikas)",
+   "url": "https://www.isro.gov.in/Vikas_engine_test_campaign.html",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-IN-VIKAS"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-JAXA-61856043",
+   "title": "JAXA repository record 16179 (file 61856043.pdf) - document summarising CADB RD-0120 data from an AI",
+   "url": "https://jaxa.repo.nii.ac.jp/record/16179/files/61856043.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-RD-0120"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-JAXA-PRESS-LE9-2017",
+   "title": "JAXA press material on LE-9 (2017-09-05)",
+   "url": "https://www.jaxa.jp/press/2017/09/files/20170905_le-9.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-JAXAREPO-45156",
+   "title": "JAXA repository record 45156 (LE-7A related; title not seen)",
+   "url": "https://jaxa.repo.nii.ac.jp/records/45156",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "UNKNOWN",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-7A"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-KSCI-KARI-2009-KRE75",
+   "title": "KARI 75 tonf-class engine design paper (KSPE/koreascience CFKO200911764903166, 2009)",
+   "url": "https://koreascience.kr/article/CFKO200911764903166.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-KR-KRE-075"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-KSCI-KARI-2016-TP",
+   "title": "KARI 75 tonf turbopump turbine performance paper (koreascience JAKO201630762633289, 2016)",
+   "url": "https://koreascience.or.kr/article/JAKO201630762633289.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "METADATA_ONLY",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-KR-KRE-075"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-L3H-BIPROP-2024",
+   "title": "L3Harris AR bipropellant rocket engines sheet (L26240, July 2024)",
+   "url": "https://l3harris.com/sites/default/files/2024-07/l3harris-ar-bipropellant-rocket-engines.pdf",
+   "identifier": "L26240",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-R-4D-11"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-LPRE-NPOEM-RD0120UP",
+   "title": "Modernisation of RD0120 feed units (A.V. Ivanov, A.I. Dmitrenko) - PDF 'NPOEM_RD0120_up'",
+   "url": "https://software.lpre.de/resources/articles/NPOEM_RD0120_up.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-RD-0120"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-MECAIND-2020-T1",
+   "title": "Comparative engine table T1 (Mechanics & Industry 2020, mi190197)",
+   "url": "https://www.mechanics-industry.org/articles/meca/full_html/2020/05/mi190197/T1.html",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-MEXT-SAC-1997",
+   "title": "Space Activities Commission (宇宙開発委員会) 1997 meeting materials on LE-7A / H-IIA (NASDA material hosted",
+   "url": "https://www.mext.go.jp/content/19970409-mxt_uchukai01-000026358_6.pdf",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-7A"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-MHI-LE7A",
+   "title": "H-IIA/B First Stage Engine LE-7A (product page)",
+   "url": "https://www.mhi.com/business/products-services/space-defense/rocket-engines-testing/h2a-h2b-first-stage-engine-le-7a",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-7A"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-MHI-LE9",
+   "title": "First stage engine LE-9 (product page)",
+   "url": "https://www.mhi.com/products/space/first_stage_engine_le-9.html",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-NAS-DEPS-068011",
+   "title": "Aerojet AJ26 / NK-33 presentation (National Academies DEPS document 068011)",
+   "url": "https://sites.nationalacademies.org/cs/groups/depssite/documents/webpage/deps_068011.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-SU-NK-33"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-PATENT-RU2544684C1",
+   "title": "Жидкостный ракетный двигатель (RU2544684C1)",
+   "url": "https://patents.google.com/patent/RU2544684C1/ru",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-RU-RD-171M"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-RL-100TH-RUTHERFORD",
+   "title": "Rocket Lab Celebrates 100th Rutherford Engine Build",
+   "url": "https://www.rocketlabusa.com/news/updates/rocket-lab-celebrates-100th-rutherford-engine-build/",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SAFRAN-VINCI-2018",
+   "title": "140 successful tests and several firsts: Vinci engine (press release, 15 Feb 2018)",
+   "url": "https://www.safran-group.com/pressroom/140-successful-tests-and-several-firsts-vinci-engine-ariane-6-2018-02-15/pdf-download",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "RIGHTS_REVIEW_REQUIRED",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SPACEX-FLT12",
+   "title": "Starship's Twelfth Flight Test",
+   "url": "https://www.spacex.com/launches/starship-flight-12",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RAPTOR-3"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SPACEX-FLT13",
+   "title": "Starship's Thirteenth Flight Test",
+   "url": "https://www.spacex.com/launches/starship-flight-13",
+   "identifier": "",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-RAPTOR-3"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-SPACEX-FUG-2025",
+   "title": "Falcon User's Guide (2025-05-09)",
+   "url": "https://www.spacex.com/assets/media/falcon-users-guide-2025-05-09.pdf",
+   "identifier": "falcon-users-guide-2025-05-09",
+   "tier": "A",
+   "rights_class_provisional": "VALUES_WITH_ATTRIBUTION",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-US-MERLIN-1D"
+   ]
+  },
+  {
+   "kind": "document",
+   "priority": "P1",
+   "source_id": "SRC-ULA-RD180-RECORD",
+   "title": "RD-180 Engine: An Established Record of Performance and Reliability on Atlas Launch Vehicles",
+   "url": "https://www.ulalaunch.com/docs/default-source/evolution/rd-180-engine-an-established-record-of-performance-and-reliability-on-atlas-launch-vehicles.pdf",
+   "identifier": "",
+   "tier": "B",
+   "rights_class_provisional": "RESTRICTED_REFERENCE",
+   "status": "SEARCH_RESULT_ONLY",
+   "engine_ids": [
+    "ENG-RU-RD-180"
+   ]
+  }
+ ],
+ "schematics": [
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-137-PRESS-1",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-AEHS-RPE",
+   "locator": "RPE09.31 text",
+   "verification": "described_in_text",
+   "rights": "VALUES_WITH_ATTRIBUTION"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-137-R2-1",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-NASA-APOLLO-LIQPROP-OVERVIEW",
+   "locator": "Figure 22, p. 31",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-137-R2-2",
+   "engine_ids": [
+    "ENG-US-AJ10-137"
+   ],
+   "source_id": "SRC-APOLLO9-SPS-FFE",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-190-PRESS-1",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-NTRS-OMS-1974",
+   "locator": "UNKNOWN",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-190-R2-1",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-USA-OMS21002",
+   "locator": "figure list not seen",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-190-R2-2",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-JSC-19950",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-190-R2-3",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-JSC-11174-RevE",
+   "locator": "OMS/RCS section",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-AJ10-190-R2-4",
+   "engine_ids": [
+    "ENG-US-AJ10-190"
+   ],
+   "source_id": "SRC-NASA-JSC-CN-7650",
+   "locator": "UNKNOWN",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-F-1-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-RKD-F1-FAMILIARIZATION",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-F-1-NE-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-WIKI-F1",
+   "locator": "article text",
+   "verification": "described_in_text",
+   "rights": "OPEN_LICENSE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-F-1-R2-1",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-NASA-SA507-FLIGHTMANUAL",
+   "locator": "F-1 engine section; figure no. NOT located",
+   "verification": "cited_by_other_source",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-F-1-R2-2",
+   "engine_ids": [
+    "ENG-US-F-1"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "text",
+   "verification": "described_in_text",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-H-1-R2-1",
+   "engine_ids": [
+    "ENG-US-H-1"
+   ],
+   "source_id": "SRC-NTRS-19650013471",
+   "locator": "figure list not seen",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-H-1-R2-2",
+   "engine_ids": [
+    "ENG-US-H-1"
+   ],
+   "source_id": "SRC-NTRS-19650013583",
+   "locator": "figure list not seen",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-IPD-R2-1",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ],
+   "source_id": "SRC-DTIC-ADA397910",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-IPD-R2-2",
+   "engine_ids": [
+    "ENG-US-IPD"
+   ],
+   "source_id": "SRC-DTIC-ADA430218",
+   "locator": "slides",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-J-2-1",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-RKD-J2-MANUAL",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-J-2-R2-1",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-NASA-SA507-FLIGHTMANUAL",
+   "locator": "J-2 engine section; figure no. NOT located",
+   "verification": "cited_by_other_source",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-J-2-R2-2",
+   "engine_ids": [
+    "ENG-US-J-2"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-RPE0822",
+   "locator": "text",
+   "verification": "described_in_text",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-J-2S-R2-1",
+   "engine_ids": [
+    "ENG-US-J-2S"
+   ],
+   "source_id": "SRC-DTIC-AD0867628",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-LMDE-R2-1",
+   "engine_ids": [
+    "ENG-US-LMDE"
+   ],
+   "source_id": "SRC-NASA-TND7143",
+   "locator": "figure list not seen",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-LR87-5-START-1",
+   "engine_ids": [
+    "ENG-US-LR87-AJ-5"
+   ],
+   "source_id": "SRC-MILSTD-T2START",
+   "locator": "page text",
+   "verification": "described_in_text",
+   "rights": "UNKNOWN"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-LR87-AJ-5-R2-1",
+   "engine_ids": [
+    "ENG-US-LR87-AJ-5"
+   ],
+   "source_id": "SRC-MILSTD-T2START",
+   "locator": "page text",
+   "verification": "described_in_text",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-PATENT-US11408373-R2",
+   "engine_ids": [
+    "ENG-NZ-RUTHERFORD"
+   ],
+   "source_id": "SRC-PATENT-US11408373",
+   "locator": "FIG. numbers not seen",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-PATENT-US8250853-R2",
+   "engine_ids": [
+    "ENG-US-RL10A-4-2"
+   ],
+   "source_id": "SRC-PATENT-US8250853",
+   "locator": "FIG. numbers not seen",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RD-170-R2-1",
+   "engine_ids": [
+    "ENG-SU-RD-170",
+    "ENG-SU-RD-170"
+   ],
+   "source_id": "SRC-JPP-2018-LIOI",
+   "locator": "Fig. 1",
+   "verification": "described_in_text",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RL10A-3-3A-1",
+   "engine_ids": [
+    "ENG-US-RL10A-3-3A"
+   ],
+   "source_id": "SRC-NTRS-TM107318",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RL10A-3-3A-R2-1",
+   "engine_ids": [
+    "ENG-US-RL10A-3-3A"
+   ],
+   "source_id": "SRC-NTRS-19950022693",
+   "locator": "Figure 1",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25-1",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-RKD-SSME-ORIENTATION",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-1",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-AIAA-97-2687",
+   "locator": "Fig. 1 (legend 97PD-038-001)",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-2",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "figure no. unknown",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-3",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Figure 3; Photo No. LC86C-4-1315",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-4",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "Fig. 1.1-II",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-5",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-IBIBLIO-SSMEOVERVIEW",
+   "locator": "Fig. 1.1-III",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P0",
+   "schematic_id": "SCH-RS-25D-R2-6",
+   "engine_ids": [
+    "ENG-US-SSME-BLOCK-II",
+    "ENG-US-SSME-BLOCK-II"
+   ],
+   "source_id": "SRC-ENGINEHISTORY-SSMEORIENT-1998",
+   "locator": "NOT located (TOC only seen)",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-A4-R2-1",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-V2ROCKET-DESIGN",
+   "locator": "linked large diagram",
+   "verification": "cited_by_other_source",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-A4-R2-2",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-NASM-A19790951000",
+   "locator": "catalogue text",
+   "verification": "described_in_text",
+   "rights": "VALUES_WITH_ATTRIBUTION"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-CN-YF-77-1",
+   "engine_ids": [
+    "ENG-CN-YF-77"
+   ],
+   "source_id": "SRC-WIKI-YF77",
+   "locator": "",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-DE-A4-ENGINE-1",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-NASM-V2-TURBOPUMP",
+   "locator": "object A19600013000",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-DE-A4-ENGINE-2",
+   "engine_ids": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "source_id": "SRC-V2ROCKETHISTORY-TP",
+   "locator": "video overview",
+   "verification": "described_in_text",
+   "rights": "UNKNOWN"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-EU-VULCAIN-2-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "NOT_AUDITED",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-FR-VINCI-1",
+   "engine_ids": [
+    "ENG-FR-VINCI"
+   ],
+   "source_id": "SRC-DLR-VINCI-NOZZLE-2010",
+   "locator": "press release",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-IN-CE-20-1",
+   "engine_ids": [
+    "ENG-IN-CE-20"
+   ],
+   "source_id": "SRC-WIKI-CE20",
+   "locator": "text description",
+   "verification": "described_in_text",
+   "rights": "OPEN_LICENSE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-JP-LE-7A-1",
+   "engine_ids": [
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-WEBLIO-LE7",
+   "locator": "text description",
+   "verification": "described_in_text",
+   "rights": "OPEN_LICENSE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-ENG-KR-KRE-075-1",
+   "engine_ids": [
+    "ENG-KR-KRE-075"
+   ],
+   "source_id": "SRC-EUCASS2019-0521",
+   "locator": "UNKNOWN",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-JP-LE-9-1",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-WIKI-LE9",
+   "locator": "",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-LE-9-R2-1",
+   "engine_ids": [
+    "ENG-JP-LE-9",
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-JAXA-AA1740298002",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-LE-9-R2-2",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-IAC-LE9-2016",
+   "locator": "manuscript (restricted)",
+   "verification": "cited_by_other_source",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-LE-9-R2-3",
+   "engine_ids": [
+    "ENG-JP-LE-9",
+    "ENG-JP-LE-7A"
+   ],
+   "source_id": "SRC-TEIKYO-LAB001",
+   "locator": "photo",
+   "verification": "cited_by_other_source",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-RD-180-R2-1",
+   "engine_ids": [
+    "ENG-RU-RD-180"
+   ],
+   "source_id": "SRC-NTRS-20170000444",
+   "locator": "UNKNOWN",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-VULCAIN-2-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-ESA-A5ECA-NEWELEM",
+   "locator": "NOT_AUDITED",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P1",
+   "schematic_id": "SCH-VULCAIN-2-TEX-1",
+   "engine_ids": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "source_id": "SRC-PATENT-US6996973",
+   "locator": "patent drawings (fig. no. not known)",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-CN-YF-75D-1",
+   "engine_ids": [
+    "ENG-CN-YF-75D"
+   ],
+   "source_id": "SRC-WIKI-YF75D",
+   "locator": "",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-ENG-FR-VEXIN-B-1",
+   "engine_ids": [
+    "ENG-FR-VEXIN-B"
+   ],
+   "source_id": "SRC-IAC-09-3159",
+   "locator": "paper (full text not accessed)",
+   "verification": "cited_by_other_source",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-ENG-GB-SUPER-SPRITE-1",
+   "engine_ids": [
+    "ENG-GB-SUPER-SPRITE"
+   ],
+   "source_id": "SRC-NASM-SUPERSPRITE",
+   "locator": "object A19700331000",
+   "verification": "described_in_text",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-GENERIC-BOOSTPUMP-1",
+   "engine_ids": [],
+   "source_id": "SRC-NTRS-SP8107",
+   "locator": "pp.53-55",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-GENERIC-CYCLES-1",
+   "engine_ids": [],
+   "source_id": "SRC-NTRS-SP8107",
+   "locator": "figure number NOT known",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-GENERIC-EXPANDER-R2-1",
+   "engine_ids": [],
+   "source_id": "SRC-NASA-TM4275",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-H-1-1",
+   "engine_ids": [
+    "ENG-US-H-1-205K"
+   ],
+   "source_id": "SRC-RKD-H1-MANUAL",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-J-2X-1",
+   "engine_ids": [
+    "ENG-US-J-2X"
+   ],
+   "source_id": "SRC-NTRS-20080036837",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-J-2X-HEX-1",
+   "engine_ids": [
+    "ENG-US-J-2X"
+   ],
+   "source_id": "SRC-NASA-J2XBLOG-HEX",
+   "locator": "blog post",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-LE-X-R2-1",
+   "engine_ids": [
+    "ENG-JP-LE-X",
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-MHI-LEX",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RESTRICTED_REFERENCE"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-LM-APS-R2-1",
+   "engine_ids": [
+    "ENG-US-LM-ASCENT-ENGINE"
+   ],
+   "source_id": "SRC-NTRS-19730010173",
+   "locator": "figure list not seen",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-LM-APS-R2-2",
+   "engine_ids": [
+    "ENG-US-LM-ASCENT-ENGINE"
+   ],
+   "source_id": "SRC-NASA-A10-APS-FFE",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-PATENT-US11149691-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US11149691",
+   "locator": "FIG. numbers not seen",
+   "verification": "cited_by_other_source",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-PATENT-US4589253-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US4589253",
+   "locator": "FIG. numbers not seen",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-PATENT-US6832471-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US6832471",
+   "locator": "FIG. numbers not seen",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-PATENT-US7900436-R2",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US7900436",
+   "locator": "FIG. numbers not seen",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-RL10A-3-R2-2",
+   "engine_ids": [
+    "ENG-US-RL10A-3"
+   ],
+   "source_id": "SRC-PW-RL10A3-DESIGNREPORT-1966",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-RS-25-GOXHEX-1",
+   "engine_ids": [],
+   "source_id": "SRC-PATENT-US5918460",
+   "locator": "patent drawings (fig. no. not known)",
+   "verification": "described_in_text",
+   "rights": "PUBLIC_DOMAIN_GOV"
+  },
+  {
+   "kind": "schematic",
+   "priority": "P2",
+   "schematic_id": "SCH-XRS-2200-1",
+   "engine_ids": [
+    "ENG-US-XRS-2200"
+   ],
+   "source_id": "SRC-NTRS-19980174934",
+   "locator": "UNKNOWN",
+   "verification": "cited_by_other_source",
+   "rights": "RIGHTS_REVIEW_REQUIRED"
+  }
+ ],
+ "conflicts": [
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-ANCHOR_US_MODERN-6",
+   "engine_id": "ENG-US-LMDE",
+   "field": "identity.report_number",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-COMMERCIAL-COM-13",
+   "engine_id": "ENG-NZ-RUTHERFORD",
+   "field": "isp_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-ORCH_VERIFY-1",
+   "engine_id": "ENG-US-F-1",
+   "field": "thrust_sl rating epoch",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-ORCH_VERIFY-2",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "nozzle.area_ratio",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_SCHEM-R2-1",
+   "engine_id": "ENG-US-RS-68A",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_SCHEM-R2-12",
+   "engine_id": "ENG-SU-RD-170",
+   "field": "turbines.main.power",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_USSR-R2-2",
+   "engine_id": "ENG-SU-RD-170",
+   "field": "of",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_USSR-R2-3",
+   "engine_id": "ENG-SU-RD-170",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-A42-1",
+   "engine_id": "ENG-US-RL10A-4-2",
+   "field": "nozzle.area_ratio",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-A42-2",
+   "engine_id": "ENG-US-RL10A-4-2",
+   "field": "performance.thrust_vac/isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-B2-1",
+   "engine_id": "ENG-US-RL10B-2",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-B2-3",
+   "engine_id": "ENG-US-RL10B-2",
+   "field": "performance.isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-B2-4",
+   "engine_id": "ENG-US-RL10B-2",
+   "field": "mechanical.gimbal_actuation / mass_dry",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-F1-1",
+   "engine_id": "ENG-US-F-1",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-F1-2",
+   "engine_id": "ENG-US-F-1",
+   "field": "mechanical.mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-F1-4",
+   "engine_id": "ENG-US-F-1",
+   "field": "pumps.TP.flow_total",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-H1-2",
+   "engine_id": "ENG-US-H-1",
+   "field": "performance.isp_sl / mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-J2-1",
+   "engine_id": "ENG-US-J-2",
+   "field": "performance.thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-J2-2",
+   "engine_id": "ENG-US-J-2",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-J2-3",
+   "engine_id": "ENG-US-J-2",
+   "field": "mechanical.mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-J2-4",
+   "engine_id": "ENG-US-J-2",
+   "field": "performance.isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-LR-1",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "field": "mechanical.gimbal_range",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-RS-2",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "mechanical.mass_dry",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-RS-4",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-RS-5",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "pumps.HPOTP.speed/power",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-RS-6",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "pumps.HPFTP.speed_rpm",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-R2_US_CLASSIC-RS-7",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "turbines.HPFT.discharge_temperature@104.5",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-SPACECRAFT-1",
+   "engine_id": "ENG-US-AJ10-137",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-SPACECRAFT-3",
+   "engine_id": "ENG-US-AJ10-190",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-TAXONOMY-TAX-5",
+   "engine_id": "ENG-US-J-2S",
+   "field": "development dates",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-USSR-1",
+   "engine_id": "ENG-SU-RD-170",
+   "field": "thrust_sl/thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-US_HIST-02",
+   "engine_id": "ENG-US-RL10A-3-3A",
+   "field": "of / isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-US_HIST-03",
+   "engine_id": "ENG-US-RL10B-2",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-US_HIST-10",
+   "engine_id": "ENG-US-J-2",
+   "field": "thrust_vac / isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-US_HIST-18",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field": "thrust reference condition & RPL convention",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P0",
+   "conflict_id": "CF-US_HIST-22",
+   "engine_id": "ENG-US-J-2S",
+   "field": "first test date",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-1",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-2",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-3",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "area_ratio",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-4",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "mdot_fuel (LH2) and variant attribution",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-5",
+   "engine_id": "ENG-FR-HM7B",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-6",
+   "engine_id": "ENG-FR-HM7B",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_EU_ASIA-7",
+   "engine_id": "ENG-FR-HM7B",
+   "field": "burn_time",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-1",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-3",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "performance.throttle_range",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-4",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "nozzle.area_ratio",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-5",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "propellants.mixture_ratio",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-6",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "mechanical.mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_USSR-7",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "performance.thrust_sl / thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_US_MODERN-1",
+   "engine_id": "ENG-US-BE-4",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_US_MODERN-2",
+   "engine_id": "ENG-US-BE-3U",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_US_MODERN-3",
+   "engine_id": "ENG-US-BE-3U",
+   "field": "cycle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ANCHOR_US_MODERN-4",
+   "engine_id": "ENG-NZ-RUTHERFORD-VACUUM",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ASIA_OTHER-1",
+   "engine_id": "ENG-JP-LE-7A",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ASIA_OTHER-11",
+   "engine_id": "ENG-CN-YF-77",
+   "field": "isp",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ASIA_OTHER-2",
+   "engine_id": "ENG-JP-LE-7A",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-ASIA_OTHER-4",
+   "engine_id": "ENG-JP-LE-9",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-COMMERCIAL-COM-10",
+   "engine_id": "ENG-US-BE-3U",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-COMMERCIAL-COM-7",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-29",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field": "naming 'Triebwerk 39 / 39a'",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-3",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-4",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-5",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-7",
+   "engine_id": "ENG-FR-VINCI",
+   "field": "restarts/ignitions",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-8",
+   "engine_id": "ENG-FR-HM7B",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-EUROPE-9",
+   "engine_id": "ENG-FR-HM7B",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-1",
+   "engine_id": "ENG-JP-LE-7A",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-10",
+   "engine_id": "ENG-IN-CE-7-5",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-11",
+   "engine_id": "ENG-IN-CE-7-5",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-12",
+   "engine_id": "ENG-IN-CE-20",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-13",
+   "engine_id": "ENG-CN-YF-77",
+   "field": "thrust_sl / pc / isp / burn_time",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-14",
+   "engine_id": "ENG-CN-YF-100",
+   "field": "throttle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-15",
+   "engine_id": "ENG-CN-YF-100",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-16",
+   "engine_id": "ENG-KR-KRE-075",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-17",
+   "engine_id": "ENG-KR-KRE-075",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-18",
+   "engine_id": "ENG-FR-VIKING-5C",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-19",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "pumps.lox_tp.speed_rpm (variant attribution)",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-2",
+   "engine_id": "ENG-JP-LE-7A",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-20",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field": "mdot",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-4",
+   "engine_id": "ENG-JP-LE-9",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-5",
+   "engine_id": "ENG-JP-LE-9",
+   "field": "pumps.speed_rpm identity",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-6",
+   "engine_id": "ENG-JP-LE-5B",
+   "field": "idle throttle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-7",
+   "engine_id": "ENG-JP-LE-5B",
+   "field": "thrust_vac vs LE-5B-3",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_ASIA-R2A-8",
+   "engine_id": "ENG-IN-VIKAS",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-13",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field": "propellants.load_mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-15",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field": "identity.rating_attribution",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-3",
+   "engine_id": "ENG-US-RAPTOR-3",
+   "field": "performance.thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-4",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-6",
+   "engine_id": "ENG-US-BE-4",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-8",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field": "performance.pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_SCHEM-R2-9",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field": "performance.throttle_range",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-10",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field": "propellant_consumed",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-11",
+   "engine_id": "ENG-SU-RD-107A",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-17",
+   "engine_id": "ENG-SU-RD-270",
+   "field": "history.end",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-4",
+   "engine_id": "ENG-SU-NK-33",
+   "field": "pc / thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-5",
+   "engine_id": "ENG-SU-NK-33",
+   "field": "aliases.index",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-6",
+   "engine_id": "ENG-SU-RD-0120",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-7",
+   "engine_id": "ENG-RU-RD-0124",
+   "field": "control.gimbal",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-R2_USSR-R2-9",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field": "h2o2_concentration / catalyst",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-TAXONOMY-TAX-1",
+   "engine_id": "ENG-US-BE-3U",
+   "field": "cycle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-TAXONOMY-TAX-2",
+   "engine_id": "ENG-JP-LE-9",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-TAXONOMY-TAX-4",
+   "engine_id": "ENG-SU-RD-270",
+   "field": "cancellation year",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-USSR-12",
+   "engine_id": "ENG-SU-NK-33",
+   "field": "index (GRAU)",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-USSR-14",
+   "engine_id": "ENG-SU-RD-0120",
+   "field": "thrust/isp_sl/gimbal",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-USSR-17",
+   "engine_id": "ENG-SU-RD-270",
+   "field": "period",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-USSR-3",
+   "engine_id": "ENG-RU-RD-171M",
+   "field": "mass_dry",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P1",
+   "conflict_id": "CF-USSR-4",
+   "engine_id": "ENG-RU-RD-180",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-10",
+   "engine_id": "ENG-CN-YF-75D",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-12",
+   "engine_id": "ENG-CN-YF-115",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-14",
+   "engine_id": "ENG-CN-TQ-15A",
+   "field": "throttle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-15",
+   "engine_id": "ENG-CN-TH-12",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-16",
+   "engine_id": "ENG-CN-TH-12",
+   "field": "cycle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-6",
+   "engine_id": "ENG-CN-YF-1",
+   "field": "chambers",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-7",
+   "engine_id": "ENG-CN-YF-23",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-8",
+   "engine_id": "ENG-CN-YF-40",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-ASIA_OTHER-9",
+   "engine_id": "ENG-CN-YF-73",
+   "field": "first_flight",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-COMMERCIAL-COM-14",
+   "engine_id": "ENG-NZ-ARCHIMEDES-VACUUM",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-COMMERCIAL-COM-17",
+   "engine_id": "ENG-US-MERLIN-1D-BLOCK-5",
+   "field": "isp",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-COMMERCIAL-COM-3",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-COMMERCIAL-COM-4",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-1",
+   "engine_id": "ENG-FR-VULCAIN",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-10",
+   "engine_id": "ENG-DE-AESTUS",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-11",
+   "engine_id": "ENG-DE-AESTUS",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-12",
+   "engine_id": "ENG-DE-AESTUS",
+   "field": "of",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-13",
+   "engine_id": "ENG-DE-AESTUS",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-14",
+   "engine_id": "ENG-FR-VIKING-5",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-15",
+   "engine_id": "ENG-FR-VEXIN-B",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-17",
+   "engine_id": "ENG-FR-CORALIE-ENGINE",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-18",
+   "engine_id": "ENG-DE-ASTRIS",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-19",
+   "engine_id": "ENG-DE-ASTRIS",
+   "field": "manufacturer",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-2",
+   "engine_id": "ENG-FR-VULCAIN",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-20",
+   "engine_id": "ENG-DE-HWK-109-509",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-21",
+   "engine_id": "ENG-DE-HWK-109-509",
+   "field": "steam generation catalyst",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-22",
+   "engine_id": "ENG-DE-BMW-109-718",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-25",
+   "engine_id": "ENG-GB-STENTOR",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-26",
+   "engine_id": "ENG-GB-SUPER-SPRITE",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-27",
+   "engine_id": "ENG-FR-PROMETHEUS",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-28",
+   "engine_id": "ENG-FR-HM7",
+   "field": "identity",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-EUROPE-6",
+   "engine_id": "ENG-FR-VULCAIN-2-1",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-22",
+   "engine_id": "ENG-IN-AGNILET",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-23",
+   "engine_id": "ENG-IN-DHAWAN-1",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-24",
+   "engine_id": "ENG-RU-RD-151",
+   "field": "designation",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-25",
+   "engine_id": "ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE",
+   "field": "chamber/engine count",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-26",
+   "engine_id": "ENG-AR-MT-B",
+   "field": "propellants",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-27",
+   "engine_id": "ENG-AR-VEX-1A-ENGINE",
+   "field": "test date",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-28",
+   "engine_id": "ENG-CN-WELKIN",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-29",
+   "engine_id": "ENG-CN-WELKIN-VAC",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-30",
+   "engine_id": "ENG-CN-LONGYUN",
+   "field": "thrust class",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-31",
+   "engine_id": "ENG-ES-TEPREL-C-VAC",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-32",
+   "engine_id": "ENG-FR-SEPR-841",
+   "field": "fuel",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-33",
+   "engine_id": "ENG-DE-OTRAG-CRPU-ENGINE",
+   "field": "oxidizer",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_ASIA-R2A-34",
+   "engine_id": "ENG-JP-MB-60",
+   "field": "alias",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-1",
+   "engine_id": "ENG-US-SUPERDRACO",
+   "field": "isp_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-10",
+   "engine_id": "ENG-CN-FY-25",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-11",
+   "engine_id": "ENG-RU-S5-98M",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-13",
+   "engine_id": "ENG-US-AEON-1",
+   "field": "cycle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-14",
+   "engine_id": "ENG-US-ARROWAY",
+   "field": "cycle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-17",
+   "engine_id": "ENG-NZ-CURIE",
+   "field": "propellant",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-18",
+   "engine_id": "ENG-US-AJ26-62",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-3",
+   "engine_id": "ENG-US-STARLINER-OMAC",
+   "field": "count/thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-4",
+   "engine_id": "ENG-JP-BT-4",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-5",
+   "engine_id": "ENG-US-VR900",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-6",
+   "engine_id": "ENG-US-FRONTIER-DSE",
+   "field": "fuel",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-8",
+   "engine_id": "ENG-GB-LEROS-4-ET",
+   "field": "fuel",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_SC_COMM-R2-9",
+   "engine_id": "ENG-US-GR-22",
+   "field": "flown_on_GPIM",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_USSR-R2-13",
+   "engine_id": "ENG-SU-RD-263",
+   "field": "thrust_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_USSR-R2-16",
+   "engine_id": "ENG-RU-S5-92",
+   "field": "starts / isp",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_USSR-R2-18",
+   "engine_id": "ENG-RU-S5-98M",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_USSR-R2-19",
+   "engine_id": "ENG-SU-11D58M",
+   "field": "thrust_vac / isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-R2_USSR-R2-21",
+   "engine_id": "ENG-RU-KVD-1",
+   "field": "thrust_vac / period",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-4",
+   "engine_id": "ENG-US-OMS-E-ORION-ESM",
+   "field": "heritage_last_flight",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-5",
+   "engine_id": "ENG-US-R-42",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-6",
+   "engine_id": "ENG-US-R-40B",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-7",
+   "engine_id": "ENG-US-MR-103J",
+   "field": "thrust_range",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-8",
+   "engine_id": "ENG-US-MR-111G",
+   "field": "thrust_range",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-SPACECRAFT-9",
+   "engine_id": "ENG-US-MR-107N",
+   "field": "chamber_count_on_vehicle",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-TAXONOMY-TAX-6",
+   "engine_id": "ENG-US-DELPHIN",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-TAXONOMY-TAX-7",
+   "engine_id": "ENG-US-ROTON-ROTARY-ENGINE",
+   "field": "chamber count",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-TAXONOMY-TAX-8",
+   "engine_id": "ENG-US-RAPTOR",
+   "field": "vehicle tank pressurization",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-10",
+   "engine_id": "ENG-SU-RD-101",
+   "field": "fuel",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-11",
+   "engine_id": "ENG-SU-NK-15",
+   "field": "thrust_vac/pc/isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-13",
+   "engine_id": "ENG-US-AJ26-59",
+   "field": "lineage",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-15",
+   "engine_id": "ENG-SU-RD-0110",
+   "field": "pc/isp_vac/burn_time",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-16",
+   "engine_id": "ENG-SU-RD-0210",
+   "field": "thrust_vac/pc/burn_time",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-19",
+   "engine_id": "ENG-SU-RD-253",
+   "field": "index",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-5",
+   "engine_id": "ENG-RU-RD-191",
+   "field": "isp_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-6",
+   "engine_id": "ENG-RU-RD-0124MS",
+   "field": "isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-8",
+   "engine_id": "ENG-SU-RD-100",
+   "field": "thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-USSR-9",
+   "engine_id": "ENG-SU-RD-101",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-04",
+   "engine_id": "ENG-US-RS-68",
+   "field": "thrust_sl / pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-05",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field": "of",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-06",
+   "engine_id": "ENG-US-BELL-8096",
+   "field": "designation / isp_vac",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-07",
+   "engine_id": "ENG-US-BELL-8081",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-08",
+   "engine_id": "ENG-US-XLR11",
+   "field": "thrust / mass / X-1 designation",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-09",
+   "engine_id": "ENG-US-XLR99-RM-1",
+   "field": "mass",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-11",
+   "engine_id": "ENG-US-LR79-NA-9",
+   "field": "vehicles",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-12",
+   "engine_id": "ENG-US-S-3D",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-13",
+   "engine_id": "ENG-US-NAA-75-110-A-6",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-14",
+   "engine_id": "ENG-US-38ALDW-1500",
+   "field": "fuel",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-15",
+   "engine_id": "ENG-US-LR89-NA-7",
+   "field": "designation / thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-16",
+   "engine_id": "ENG-US-RS-56-OSA",
+   "field": "thrust",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-17",
+   "engine_id": "ENG-US-XRS-2200",
+   "field": "thrust_vac / thrust_sl",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-19",
+   "engine_id": "ENG-US-LR87-AJ-7",
+   "field": "pc",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-20",
+   "engine_id": "ENG-US-TR-201",
+   "field": "period",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-23",
+   "engine_id": "ENG-US-M-1",
+   "field": "cancellation date",
+   "resolved": false
+  },
+  {
+   "kind": "conflict",
+   "priority": "P2",
+   "conflict_id": "CF-US_HIST-24",
+   "engine_id": "ENG-US-LR101",
+   "field": "thrust",
+   "resolved": false
+  }
+ ]
+}
