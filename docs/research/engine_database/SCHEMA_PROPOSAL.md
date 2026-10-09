@@ -1,5 +1,9 @@
 # DB-0 — Proposed DB-1 schema for a reference engine database
 
+> **Implemented as DB-1** in `rocketforge/evidence/engines`; the production contract is
+> [docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md](../../engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md).
+> This proposal is kept as the research record that led to it.
+
 Proposal only. Nothing here is implemented, and nothing changes the accepted
 `rocketforge.evidence` package. The proposal is derived from what the DB-0
 corpus needed to hold, and every structural feature below is justified by a

@@ -123,6 +123,9 @@ downloads and hashes (documents are **not** committed; set `DB05_CACHE`),
 `candidates.py` applies the regression-candidate rule. Consistency is checked
 by `tests/research/test_db05_research_artifacts.py`.
 
-DB-1 Production Reference Engine Schema: NOT STARTED.
+DB-1 Production Reference Engine Schema: implemented after this pass, see
+`docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md`. DB-1 uses
+these files as design evidence and stress-test input only; they are not
+production data.
 DB-2 Production Engine Corpus: NOT STARTED.
 LIQ-7 Pump Foundation: PAUSED.

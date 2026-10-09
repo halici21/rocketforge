@@ -78,7 +78,7 @@ beside `physics` on `core` alone: it holds sourced data and computes nothing.
 | `engineering` | Design and sizing of one physical component, using L1 relations | `physics`, `core` |
 | `engine` | Assembly of components into a cycle: mass balance, pressure network, shaft power balance, iteration | `engineering`, `physics`, `core` |
 | `providers` | Concrete adapters that satisfy L1 interfaces using external libraries | `physics`, `core`, external libs |
-| `evidence` | Sourced propulsion evidence: source identity and shipping rights, values as printed with their locator, explicit absences, formulations as sources state them, per-dimension evidence status. Computes nothing, solves nothing | `core` |
+| `evidence` | Sourced propulsion evidence: source identity and shipping rights, values as printed with their locator, explicit absences, formulations as sources state them, per-dimension evidence status; and, in `evidence/engines`, the reference-engine evidence schema (identity, assertions, rights, conflicts, topology). Computes nothing, solves nothing | `core` |
 | `comparison` | Compares RocketForge results with reference cases (direct CEA, NASA printouts, independent codes, experiments) and reports the differences; draws a verdict only where the source kind permits one | `physics`, `core` |
 | `application` | The only place that wires providers to services and exposes QObjects to QML | everything below |
 | `ui` | Presentation | nothing Python |

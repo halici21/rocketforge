@@ -84,7 +84,16 @@ class MissingReason(StrEnum):
     """The source was not examined for it."""
 
     WITHHELD_RIGHTS = "WITHHELD_RIGHTS"
-    """The source gives it, but the value may not be shipped."""
+    """The source gives it, but the value may not be shipped.
+
+    The engine research package (DB-0) called this ``RIGHTS_RESTRICTED``; it is
+    the same meaning and has this one spelling."""
+
+    ACCESS_BLOCKED = "ACCESS_BLOCKED"
+    """The source that would give it could not be opened (refused, not found).
+
+    Added for reference-engine evidence. It says nothing about whether the
+    source gives the value, only that nobody could look."""
 
 
 class Dimension(StrEnum):

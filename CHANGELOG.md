@@ -201,6 +201,25 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 - `rocketforge/comparison`: comparison against reference cases. Direct CEA
   and NASA printouts get a verdict; independent codes (PROPEP, EXPLO5) and
   experiments get differences only.
+- `rocketforge/evidence/engines` (DB-1): the production schema for reference
+  liquid-engine evidence. It is internal infrastructure, with no engine
+  records, no UI and no solver use. It holds:
+  - family, variant, configuration and operating point, with no value
+    inheritance between levels;
+  - typed assertions with value kinds (a limit is not an operating value) and
+    structured conditions, including chamber-pressure basis and measurement
+    station;
+  - sources with an access state and a content hash;
+  - rights records that keep a host's statement and a printed notice when
+    they disagree;
+  - conflicts that reference claims and never average them;
+  - topology graphs with typed edges (flow, shaft, gear, linkage, actuation,
+    electrical), explicit completeness, and schematic provenance (an original
+    drawing or a third-party reconstruction).
+
+  Strict versioned JSON, schema version 1. Adds `MissingReason.ACCESS_BLOCKED`.
+  See
+  [docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md](docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md).
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no
