@@ -220,6 +220,31 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   Strict versioned JSON, schema version 1. Adds `MissingReason.ACCESS_BLOCKED`.
   See
   [docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md](docs/engineering/design/DB1_REFERENCE_ENGINE_EVIDENCE_SCHEMA.md).
+- Reference engine seed corpus (DB-2A): the initial verified seed corpus of
+  three engine configurations, shipped as data in
+  `rocketforge/data/evidence/engines/reference_engines.json`. The three are
+  the J-2 at the 230,000 lb rating (MR 5.5 calibration point), the
+  RL10A-3-3A at 475 psia and O/F 5.0, and the Apollo SPS engine (AJ10-137)
+  in its Block I configuration. It is not a complete engine database. The
+  J-2 thrust and the SPS Block I chamber pressure, thrust and specific impulse
+  ship by recorded owner decision for their own configuration only, while the
+  research conflicts behind them stay open.
+  - Every value, graph element and source was promoted one by one from the
+    DB-0.5 research through a reviewable manifest
+    (`tools/reference_engines/db2a_manifest.py`) and gates that refuse
+    unopened sources, unsettled rights, open conflicts, inferred values and
+    filled-in conditions. The application reads only the shipped file.
+  - `rocketforge.evidence.engines.admission` states what a shipped corpus
+    must satisfy beyond the schema. `rocketforge.evidence.engines.capabilities`
+    answers five questions per configuration: identity, architecture,
+    performance reference, topology and regression candidate. A regression
+    candidate is eligibility only; no regression is accepted.
+  - `rocketforge.application.analysis.reference_engine_catalog` is a
+    read-only backend over the corpus, with no UI, no provider and no solve.
+    The package verifier also loads the packaged corpus.
+
+  See
+  [docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md](docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md).
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

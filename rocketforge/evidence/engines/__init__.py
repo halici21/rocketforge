@@ -1,9 +1,13 @@
 """Reference-engine evidence: the production schema for what sources say about liquid rocket engines.
 
-DB-1 of the reference engine database. A data model and its validators only:
-no records ship with it (that is DB-2), nothing here is shown in the UI, and
-nothing here is solved. It sits in the ``evidence`` layer and imports only
-``core`` and the rest of ``evidence``.
+DB-1 of the reference engine database: a data model and its validators.
+Nothing here is shown in the UI and nothing here is solved. It sits in the
+``evidence`` layer and imports only ``core`` and the rest of ``evidence``.
+DB-2A added :mod:`.admission` (what a *shipped* corpus must satisfy beyond the
+schema) and :mod:`.capabilities` (what one configuration's record can
+support); the seed records themselves are data, in
+``rocketforge/data/evidence/engines``
+(``docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md``).
 
 What it reuses from :mod:`rocketforge.evidence`: :class:`~rocketforge.evidence.Missing`
 and :class:`~rocketforge.evidence.MissingReason` for explicit absence,

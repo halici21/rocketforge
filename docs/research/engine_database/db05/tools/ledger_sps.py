@@ -42,6 +42,9 @@ A(E, "feed.engine_inlet_pressure", None, "The inlet pressure was only 165 pounds
 A(E, "injector.ring_channels", None, "There were twenty-two ring channels in the injector", 22, "rings", {}, "SRC-NTRS-20100027319", LB, db0=None)
 A(E, "life.spec", None, "Specification required 750 seconds duration, or fifty engine restarts during a flight", "750 / 50", "s / starts", {}, "SRC-NTRS-20100027319", LB, db0=None)
 A(E, "nozzle.materials", None, "columbium down to about the 40:1 area ratio, then titanium the rest of the way", "text", "", {}, "SRC-NTRS-20100027319", "p.11 (PDF)", db0=None)
+# DB-2A supplement (2026-10-09): feed system of the Block I engine assembly.
+A(E, "architecture.feed", None, "The SPS engine (fig. 3) was a nonthrottleable, gimbaled, pressure-fed rocket engine", "pressure_fed", "", {"configuration": "Block I"}, TN, L9, db0=None,
+  note="TN D-7375 names the oxidizer (N2O4, p.13) but not the fuel; propellant identity for the SPS is printed only in the Aerojet chapter, configuration unstated.")
 
 S("SCH-DB05-SPS-TND7375-F2", engine_ids=[E], source_id=TN, locator="TN D-7375 Figure 2 'Service propulsion subsystem propellant feed assembly', p.4 (PDF p.8)",
   title="Service propulsion subsystem propellant feed assembly", kind="pictorial/line schematic of the SM pressurization and feed system",

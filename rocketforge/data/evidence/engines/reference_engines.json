@@ -1,0 +1,3356 @@
+{
+  "format": "rocketforge.engine_evidence",
+  "schema_version": 1,
+  "sources": [
+    {
+      "reference": {
+        "source_id": "SRC-NASA-TND7375",
+        "organization": "NASA Lyndon B. Johnson Space Center",
+        "authors": [
+          "C. R. Gibson",
+          "J. A. Wood"
+        ],
+        "title": "Apollo Experience Report - Service Propulsion Subsystem",
+        "year": 1973,
+        "identifiers": {
+          "NTRS": "19730023031",
+          "NASA": "TN D-7375",
+          "JSC": "S-378"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19730023031/downloads/19730023031.pdf",
+        "source_type": "NASA technical note",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "aa2457ad1273ca4fddd014dbeca93862db7957434e5686e7b1fa963d84984391",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-08T18:07:58Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright, proprietary or reproduction notice in the extracted text of any page, nor on the pages viewed (checked 2026-10-09)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; a NASA technical note with no notice on the pages. Owner-reviewed 2026-10-09."
+      },
+      "access_note": "downloaded 2026-10-08T18:07:58Z from https://ntrs.nasa.gov/api/citations/19730023031/downloads/19730023031.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-NTRS-19910018888",
+        "organization": "Pratt & Whitney (United Technologies), presented at the Space Transportation Propulsion Technology Symposium",
+        "authors": [
+          "James R. Brown"
+        ],
+        "title": "Cryogenic Upper Stage Propulsion: RL10 and Derivative Engines",
+        "year": 1990,
+        "identifiers": {
+          "NTRS": "19910018888",
+          "NASA accession": "N91-28202"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19910018888/downloads/19910018888.pdf",
+        "source_type": "manufacturer viewgraphs, printed in NASA conference proceedings",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "fb63971da76b39188787a078810f643896078679cf01664b302de9bf89082ef9",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-08T18:19:36Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright, proprietary or reproduction notice in the extracted text of any page, nor on the pages viewed (checked 2026-10-09)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no notice on the viewgraphs (all 25 pages viewed). Owner-reviewed 2026-10-09."
+      },
+      "access_note": "downloaded 2026-10-08T18:19:36Z from https://ntrs.nasa.gov/api/citations/19910018888/downloads/19910018888.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-NTRS-19950022693",
+        "organization": "NASA Lewis Research Center (NYMA, Inc., contract NAS 3-27186)",
+        "authors": [
+          "Michael P. Binder"
+        ],
+        "title": "A Transient Model of the RL10A-3-3A Rocket Engine",
+        "year": 1995,
+        "identifiers": {
+          "NTRS": "19950022693",
+          "NASA": "CR-195478",
+          "AIAA": "95-2968"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19950022693/downloads/19950022693.pdf",
+        "source_type": "NASA contractor report",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "e0788ffa9caec11c9991928a69221f7a259ae061acce79d3f6ede96cf1c8c72a",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-08T18:10:41Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright, proprietary or reproduction notice in the extracted text of any page, nor on the pages viewed (checked 2026-10-09)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no notice on the pages. Owner-reviewed 2026-10-09."
+      },
+      "access_note": "downloaded 2026-10-08T18:10:41Z from https://ntrs.nasa.gov/api/citations/19950022693/downloads/19950022693.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-NTRS-20100027318",
+        "organization": "NASA (Remembering the Giants: Apollo Rocket Propulsion Development)",
+        "authors": [
+          "Paul Coffman"
+        ],
+        "title": "Rocketdyne - J-2 Saturn V 2nd & 3rd Stage Engine",
+        "year": 2009,
+        "identifiers": {
+          "NTRS": "20100027318"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/20100027318/downloads/20100027318.pdf",
+        "source_type": "Rocketdyne engineer's programme history with Rocketdyne viewgraphs, printed by NASA",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "7a977c999474eb9b78168cdc8528925362a298cc15a20dd130e2c9675b81e336",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-08T18:08:24Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright, proprietary or reproduction notice in the extracted text of any page, nor on the pages viewed (checked 2026-10-09)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "RIGHTS_REVIEW_REQUIRED",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS permits public use; no notice on the pages. The viewgraphs are Rocketdyne's, so figures are not shipped; values are, with attribution. Owner-reviewed 2026-10-09."
+      },
+      "access_note": "downloaded 2026-10-08T18:08:24Z from https://ntrs.nasa.gov/api/citations/20100027318/downloads/20100027318.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-NTRS-20100027319",
+        "organization": "NASA (Remembering the Giants: Apollo Rocket Propulsion Development)",
+        "authors": [
+          "Clay Boyce"
+        ],
+        "title": "Aerojet - AJ10-137 Apollo Service Module Engine",
+        "year": 2009,
+        "identifiers": {
+          "NTRS": "20100027319"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/20100027319/downloads/20100027319.pdf",
+        "source_type": "Aerojet engineer's programme history, printed by NASA",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "68289578e422db4176397668a4f69ff1c5e02b5e0ab093059deb85f3305bbdfd",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-08T18:08:29Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright, proprietary or reproduction notice in the extracted text of any page, nor on the pages viewed (checked 2026-10-09)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS permits public use; no notice on the pages. Speaker recollection: only the propellant identity is promoted from it, at variant level. Owner-reviewed 2026-10-09."
+      },
+      "access_note": "downloaded 2026-10-08T18:08:29Z from https://ntrs.nasa.gov/api/citations/20100027319/downloads/20100027319.pdf; read in DB-0.5"
+    }
+  ],
+  "families": [
+    {
+      "family_id": "FAM-J2",
+      "name": "J-2",
+      "notes": ""
+    },
+    {
+      "family_id": "FAM-RL10",
+      "name": "RL10",
+      "notes": ""
+    },
+    {
+      "family_id": "FAM-AJ10",
+      "name": "AJ10",
+      "notes": "Aerojet AJ10 storable-propellant engines."
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "VAR-J2",
+      "family_id": "FAM-J2",
+      "designation": "J-2",
+      "notes": ""
+    },
+    {
+      "variant_id": "VAR-RL10A-3-3A",
+      "family_id": "FAM-RL10",
+      "designation": "RL10A-3-3A",
+      "notes": ""
+    },
+    {
+      "variant_id": "VAR-AJ10-137",
+      "family_id": "FAM-AJ10",
+      "designation": "AJ10-137",
+      "notes": "The Apollo service module (SPS) engine."
+    }
+  ],
+  "configurations": [
+    {
+      "configuration_id": "CFG-J2-230K",
+      "variant_id": "VAR-J2",
+      "label": "J-2, 230,000 lb nominal vacuum thrust rating",
+      "effective": {
+        "missing": "UNKNOWN",
+        "note": "which flights used the 230,000 lb rating is not established by the opened documents; Coffman's text (p.3) also names a 225,000 lb qualification version, and the AEDC test reports could not be opened"
+      },
+      "notes": "Defined by Rocketdyne's 'J-2 Basic Engine Features' viewgraph (NTRS 20100027318 PDF p.14). The 225,000 lb version is a different configuration and is not part of this corpus."
+    },
+    {
+      "configuration_id": "CFG-RL10A-3-3A",
+      "variant_id": "VAR-RL10A-3-3A",
+      "label": "RL10A-3-3A (Centaur)",
+      "effective": {
+        "missing": "NOT_AUDITED",
+        "note": "DB-0.5 did not transcribe an effectivity for this configuration"
+      },
+      "notes": "Centaur upper stage engine (CR-195478 abstract)."
+    },
+    {
+      "configuration_id": "CFG-SPS-BLOCK-I",
+      "variant_id": "VAR-AJ10-137",
+      "label": "Apollo SPS engine, Block I",
+      "effective": "the Block I vehicles (TN D-7375 p.3: 'The 2:1 ratio was used in the Block I vehicles')",
+      "notes": "Block I as described in TN D-7375 pp.3-5. Block II (O/F 1.6:1) is a different configuration and is not part of this corpus."
+    }
+  ],
+  "operating_points": [
+    {
+      "operating_point_id": "OP-J2-230K-MR55",
+      "configuration_id": "CFG-J2-230K",
+      "label": "engine mixture ratio calibration 5.5:1 (O/F)",
+      "notes": "The one point of the 'Performance & Weight' table on the 230,000 lb viewgraph."
+    },
+    {
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "configuration_id": "CFG-RL10A-3-3A",
+      "label": "475 psia, O/F 5.0",
+      "notes": "The point of Pratt & Whitney's 'RL10A-3-3A ENGINE' table (NTRS 19910018888 p.3: chamber pressure 475 psia, mixture ratio 5:1, Isp 'at 5.0 O/F') and CR-195478's 'normal operating point of 475 psia and O/F = 5.0' (section 4.3)."
+    },
+    {
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "configuration_id": "CFG-SPS-BLOCK-I",
+      "label": "Block I operation, O/F 2:1",
+      "notes": "TN D-7375 p.3: 'The 2:1 ratio was used in the Block I vehicles'; p.5 gives the Block I engine's chamber pressure, vacuum thrust and average specific impulse."
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "UNIT-SPS-BLOCK-I",
+      "kind": "STAGE_PROPULSION",
+      "designation": "Apollo service propulsion subsystem, Block I",
+      "members": [
+        {
+          "member": {
+            "kind": "CONFIGURATION",
+            "id": "CFG-SPS-BLOCK-I"
+          },
+          "count": 1,
+          "role": "rocket-engine assembly"
+        }
+      ],
+      "notes": "TN D-7375 p.3: the Block I subsystem consisted of a helium-pressurization assembly, a propellant-supply and propellant-distribution assembly, a propellant-utilization and propellant-gaging assembly, a rocket-engine assembly, instrumentation, and displays and controls."
+    }
+  ],
+  "aliases": [
+    {
+      "alias_id": "ALIAS-SPS-ENGINE",
+      "name": "SPS engine",
+      "kind": "INFORMAL",
+      "target": {
+        "kind": "VARIANT",
+        "id": "VAR-AJ10-137"
+      },
+      "source_ids": [
+        "SRC-NASA-TND7375",
+        "SRC-NTRS-20100027319"
+      ],
+      "ambiguous": false,
+      "notes": ""
+    }
+  ],
+  "lineage": [],
+  "components": [],
+  "schematics": [
+    {
+      "schematic_id": "SCH-DB05-J2-COFFMAN-S4",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "PDF p.15, Appendix D slide 'J-2 Engine Schematic' (CP6_0450_J2-4.ppt)",
+      "title_as_printed": "J-2 Engine Schematic",
+      "provenance": "ORIGINAL_MANUFACTURER",
+      "drawn_by": "Rocketdyne (viewgraph CP6_0450_J2-4.ppt), as printed by NASA",
+      "legibility": "all labels and legend legible; arrows legible on main lines",
+      "notes": ""
+    },
+    {
+      "schematic_id": "SCH-DB05-RL10A33A-CR195478-F1",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 Figure 1 'RL10A-3-3A Engine System Schematic' (PDF p.13)",
+      "title_as_printed": "RL10A-3-3A Engine System Schematic",
+      "provenance": "ORIGINAL_CONTRACTOR",
+      "drawn_by": "as printed in NASA CR-195478 (NYMA, Inc., under NASA contract NAS 3-27186); the draftsman is not stated",
+      "legibility": "all labels and arrows legible",
+      "notes": "ORIGINAL_CONTRACTOR accepted by the owner 2026-10-09: an original drawing in a NASA contractor report. It is not ORIGINAL_MANUFACTURER; it is not a Pratt & Whitney drawing."
+    },
+    {
+      "schematic_id": "SCH-DB05-SPS-TND7375-F2",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 Figure 2 'Service propulsion subsystem propellant feed assembly', p.4 (PDF p.8)",
+      "title_as_printed": "Service propulsion subsystem propellant feed assembly",
+      "provenance": "ORIGINAL_AGENCY",
+      "drawn_by": "NASA, as printed in TN D-7375",
+      "legibility": "all labels legible",
+      "notes": "Vehicle (service module) system schematic, not the engine internals. DB-0 leads SCH-AJ10-137-R2-1/R2-2 pointed to other documents (one unreachable, one not mined)."
+    }
+  ],
+  "topologies": [
+    {
+      "topology_id": "TOPO-J2-230K",
+      "scope": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "label": "J-2 engine flow (Rocketdyne J-2 Engine Schematic, same viewgraph set as the 230,000 lb table)",
+      "provenance": "ROCKETFORGE_DERIVED_GRAPH",
+      "schematic_ids": [
+        "SCH-DB05-J2-COFFMAN-S4"
+      ],
+      "text_source_ids": [
+        "SRC-NTRS-20100027318"
+      ],
+      "completeness": {
+        "declared_complete": false,
+        "known_omissions": [
+          "ASI propellant supply lines",
+          "pneumatic (helium) control system",
+          "propellant bleed valves and recirculation (stage)",
+          "start tank fill/vent valves",
+          "GG fuel valve detail",
+          "exact position of the GG fuel tap relative to the MFV (as drawn only)",
+          "one component known only from a rights-withheld source (not recorded)",
+          "mixture ratio control valve flow connections (not described in the sources used)",
+          "turbine-to-pump drive of each turbopump: shaft or gear not stated in the sources used",
+          "one drive relation known only from a rights-withheld source (not recorded)"
+        ],
+        "absences": []
+      },
+      "nodes": [
+        {
+          "node_id": "N-LOX-IN",
+          "component_type": "INTERFACE_PORT",
+          "label": "Oxidizer inlet",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OTP-P",
+          "component_type": "PUMP",
+          "label": "Liquid oxygen pump (centrifugal)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OTP-T",
+          "component_type": "TURBINE",
+          "label": "Oxidizer turbopump turbine",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FTP-P",
+          "component_type": "PUMP",
+          "label": "Liquid hydrogen pump (axial)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FTP-T",
+          "component_type": "TURBINE",
+          "label": "Fuel turbopump turbine",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-MRCV",
+          "component_type": "VALVE",
+          "label": "Mixture ratio control valve",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-MOV",
+          "component_type": "VALVE",
+          "label": "Main oxygen valve",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-MFV",
+          "component_type": "VALVE",
+          "label": "Main fuel valve",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-GGV",
+          "component_type": "VALVE",
+          "label": "Gas generator valve",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-GG",
+          "component_type": "GAS_GENERATOR",
+          "label": "Gas generator",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OTBV",
+          "component_type": "VALVE",
+          "label": "Oxidizer turbine bypass",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HEX",
+          "component_type": "HEAT_EXCHANGER",
+          "label": "Heat exchanger",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-STANK",
+          "component_type": "START_ENERGY_STORE",
+          "label": "GH2 start tank",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-INJ",
+          "component_type": "INJECTOR",
+          "label": "Thrust chamber injector / dome",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TC-COOL",
+          "component_type": "COOLING_JACKET",
+          "label": "Tubular-wall thrust chamber (regen)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TC",
+          "component_type": "COMBUSTION_CHAMBER",
+          "label": "Thrust chamber",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-NOZ-DUMP",
+          "component_type": "MANIFOLD",
+          "label": "Hot-gas manifold at nozzle 2:1 tube split (nozzle midpoint)",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-AMB",
+          "component_type": "AMBIENT_SINK",
+          "label": "Exhaust",
+          "ownership": "AMBIENT",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-LOX-TANK-PRESS",
+          "component_type": "INTERFACE_PORT",
+          "label": "O2 for tank pressurization",
+          "ownership": "STAGE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-LH2-TANK-PRESS",
+          "component_type": "INTERFACE_PORT",
+          "label": "H2 for tank pressurization",
+          "ownership": "STAGE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "component_id": null
+        },
+        {
+          "node_id": "N-ASI",
+          "component_type": "IGNITER",
+          "label": "Augmented spark igniter",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "NTRS 20100027318 text p.4",
+          "component_id": null
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "E00",
+          "source": "N-LOX-IN",
+          "target": "N-OTP-P",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "feed",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E01",
+          "source": "N-OTP-P",
+          "target": "N-MOV",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "main oxidizer",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E02",
+          "source": "N-MOV",
+          "target": "N-INJ",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "main oxidizer",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E03",
+          "source": "N-OTP-P",
+          "target": "N-GGV",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "GG oxidizer branch",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E04",
+          "source": "N-GGV",
+          "target": "N-GG",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "GG oxidizer",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E07",
+          "source": "N-OTP-P",
+          "target": "N-HEX",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "branch to heat exchanger",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E08",
+          "source": "N-HEX",
+          "target": "N-LOX-TANK-PRESS",
+          "kind": "FLUID_FLOW",
+          "carrier": "GOX",
+          "role": "tank pressurization",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E09",
+          "source": "N-FTP-P",
+          "target": "N-MFV",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "main fuel",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E10",
+          "source": "N-MFV",
+          "target": "N-TC-COOL",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "regen coolant (fuel inlet at reduced-epsilon nozzle station)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E11",
+          "source": "N-TC-COOL",
+          "target": "N-INJ",
+          "kind": "FLUID_FLOW",
+          "carrier": "H2",
+          "role": "coolant to injector",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "NTRS 20100027318 text p.2 (tubes down then up)",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E12",
+          "source": "N-FTP-P",
+          "target": "N-GG",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "GG fuel branch (downstream of pump, upstream of MFV as drawn)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E13",
+          "source": "N-INJ",
+          "target": "N-LH2-TANK-PRESS",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "tap",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E14",
+          "source": "N-INJ",
+          "target": "N-STANK",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "line between injector manifold and start tank as drawn (refill role not verified)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E15",
+          "source": "N-STANK",
+          "target": "N-FTP-T",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "spin start through series turbine drive",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E16",
+          "source": "N-GG",
+          "target": "N-FTP-T",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "turbine drive, first in series",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E17",
+          "source": "N-FTP-T",
+          "target": "N-OTP-T",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "crossover to oxidizer turbine (split_group H1)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": "H1",
+          "merge_group": null
+        },
+        {
+          "edge_id": "E18",
+          "source": "N-FTP-T",
+          "target": "N-OTBV",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "bypass around oxidizer turbine (split_group H1)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": "H1",
+          "merge_group": null
+        },
+        {
+          "edge_id": "E19",
+          "source": "N-OTP-T",
+          "target": "N-HEX",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "turbine exhaust through heat exchanger",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E20",
+          "source": "N-HEX",
+          "target": "N-NOZ-DUMP",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "dump into nozzle at 2:1 split (merge_group H2)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": "H2"
+        },
+        {
+          "edge_id": "E21",
+          "source": "N-OTBV",
+          "target": "N-NOZ-DUMP",
+          "kind": "FLUID_FLOW",
+          "carrier": "hot gas",
+          "role": "bypass rejoins exhaust (merge_group H2)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": "H2"
+        },
+        {
+          "edge_id": "E22",
+          "source": "N-INJ",
+          "target": "N-TC",
+          "kind": "FLUID_FLOW",
+          "carrier": "propellants",
+          "role": "injection",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E23",
+          "source": "N-TC",
+          "target": "N-AMB",
+          "kind": "FLUID_FLOW",
+          "carrier": "combustion gas",
+          "role": "exhaust",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "NTRS 20100027318 slide J2-4",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E24",
+          "source": "N-NOZ-DUMP",
+          "target": "N-AMB",
+          "kind": "FLUID_FLOW",
+          "carrier": "turbine exhaust",
+          "role": "exhaust via nozzle",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "NTRS 20100027318 text p.2",
+          "split_group": null,
+          "merge_group": null
+        }
+      ],
+      "notes": "Rests on Rocketdyne's viewgraph and Coffman's text only. MSFC-MAN-503, which DB-0.5 also used, is withheld for rights, so the elements that rested on it alone are left out and listed as omissions. The schematic slide states no rating; it belongs to the same viewgraph set as the 230,000 lb table, and Coffman's narrative speaks of the J-2 in general."
+    },
+    {
+      "topology_id": "TOPO-RL10A-3-3A",
+      "scope": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "label": "RL10A-3-3A engine system (CR-195478 Figure 1)",
+      "provenance": "ROCKETFORGE_DERIVED_GRAPH",
+      "schematic_ids": [
+        "SCH-DB05-RL10A33A-CR195478-F1"
+      ],
+      "text_source_ids": [
+        "SRC-NTRS-19950022693"
+      ],
+      "completeness": {
+        "declared_complete": false,
+        "known_omissions": [
+          "igniter supply and exciter",
+          "tank pressurization taps (not shown)",
+          "LOX tank pressurization (not shown)",
+          "solenoid/pneumatic control",
+          "nozzle exit/ambient node",
+          "igniter to thrust chamber (drawn): DB-1 has no edge kind for ignition energy, and it is not forced into a fluid-flow edge"
+        ],
+        "absences": []
+      },
+      "nodes": [
+        {
+          "node_id": "N-FINV",
+          "component_type": "VALVE",
+          "label": "Fuel inlet valve (FINV)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FP1",
+          "component_type": "PUMP",
+          "label": "Fuel pump stage 1",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FP2",
+          "component_type": "PUMP",
+          "label": "Fuel pump stage 2",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FCV1",
+          "component_type": "VALVE",
+          "label": "Interstage cooldown valve (FCV1), vents overboard",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FCV2",
+          "component_type": "VALVE",
+          "label": "Fuel-pump discharge cooldown valve, vents overboard",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-ORIF",
+          "component_type": "ORIFICE",
+          "label": "Calibrated orifice",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-JACKET",
+          "component_type": "COOLING_JACKET",
+          "label": "Thrust chamber / nozzle cooling jacket",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-VENT",
+          "component_type": "VENTURI",
+          "label": "Venturi",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TURB",
+          "component_type": "TURBINE",
+          "label": "Turbine (two-stage)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TCV",
+          "component_type": "VALVE",
+          "label": "Thrust control valve (TCV), turbine bypass",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FSOV",
+          "component_type": "VALVE",
+          "label": "Fuel shut-off valve (FSOV)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OINV",
+          "component_type": "VALVE",
+          "label": "Oxidizer inlet valve (OINV)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-LOXP",
+          "component_type": "PUMP",
+          "label": "LOX pump (single stage)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OCV",
+          "component_type": "VALVE",
+          "label": "Oxidizer control valve (OCV)",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-GEAR",
+          "component_type": "GEARBOX",
+          "label": "Gear box",
+          "ownership": "ENGINE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-INJ",
+          "component_type": "INJECTOR",
+          "label": "Injector",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-IGN",
+          "component_type": "IGNITER",
+          "label": "Ignitor",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TC",
+          "component_type": "COMBUSTION_CHAMBER",
+          "label": "Thrust chamber",
+          "ownership": "ENGINE",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OVBD",
+          "component_type": "AMBIENT_SINK",
+          "label": "Vent overboard",
+          "ownership": "AMBIENT",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1",
+          "component_id": null
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "E00",
+          "source": "N-FINV",
+          "target": "N-FP1",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "feed",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E01",
+          "source": "N-FP1",
+          "target": "N-FP2",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "interstage",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E02",
+          "source": "N-FP1",
+          "target": "N-FCV1",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "interstage cooldown vent",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §5.0",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E03",
+          "source": "N-FCV1",
+          "target": "N-OVBD",
+          "kind": "FLUID_FLOW",
+          "carrier": "H2",
+          "role": "vent",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §5.0",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E04",
+          "source": "N-FP2",
+          "target": "N-FCV2",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "discharge (cooldown valve tee)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E05",
+          "source": "N-FCV2",
+          "target": "N-OVBD",
+          "kind": "FLUID_FLOW",
+          "carrier": "H2",
+          "role": "vent",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §5.0",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E06",
+          "source": "N-FP2",
+          "target": "N-ORIF",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "pump discharge",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E07",
+          "source": "N-ORIF",
+          "target": "N-JACKET",
+          "kind": "FLUID_FLOW",
+          "carrier": "LH2",
+          "role": "coolant into jacket manifold",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §2.0",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E08",
+          "source": "N-JACKET",
+          "target": "N-VENT",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "jacket exit",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E09",
+          "source": "N-VENT",
+          "target": "N-TURB",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "turbine drive (split_group T1)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §2.0",
+          "split_group": "T1",
+          "merge_group": null
+        },
+        {
+          "edge_id": "E10",
+          "source": "N-VENT",
+          "target": "N-TCV",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "turbine bypass (split_group T1)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": "T1",
+          "merge_group": null
+        },
+        {
+          "edge_id": "E11",
+          "source": "N-TCV",
+          "target": "N-FSOV",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "rejoins turbine exhaust (merge_group T2)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": "T2"
+        },
+        {
+          "edge_id": "E12",
+          "source": "N-TURB",
+          "target": "N-FSOV",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "turbine exhaust (merge_group T2)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": "T2"
+        },
+        {
+          "edge_id": "E13",
+          "source": "N-FSOV",
+          "target": "N-INJ",
+          "kind": "FLUID_FLOW",
+          "carrier": "GH2",
+          "role": "warm hydrogen to injector",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §2.0",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E14",
+          "source": "N-OINV",
+          "target": "N-LOXP",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "feed",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E15",
+          "source": "N-LOXP",
+          "target": "N-OCV",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "discharge",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E16",
+          "source": "N-OCV",
+          "target": "N-INJ",
+          "kind": "FLUID_FLOW",
+          "carrier": "LOX",
+          "role": "oxidizer to injector",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E17",
+          "source": "N-INJ",
+          "target": "N-TC",
+          "kind": "FLUID_FLOW",
+          "carrier": "propellants",
+          "role": "injection",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "CR-195478 Fig. 1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E19",
+          "source": "N-TURB",
+          "target": "N-FP1",
+          "kind": "MECHANICAL_SHAFT",
+          "carrier": null,
+          "role": "mechanical_shaft (common shaft)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §3.1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E20",
+          "source": "N-TURB",
+          "target": "N-FP2",
+          "kind": "MECHANICAL_SHAFT",
+          "carrier": null,
+          "role": "mechanical_shaft (common shaft)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §3.1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E21",
+          "source": "N-TURB",
+          "target": "N-GEAR",
+          "kind": "MECHANICAL_SHAFT",
+          "carrier": null,
+          "role": "mechanical_shaft",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §3.1",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E22",
+          "source": "N-GEAR",
+          "target": "N-LOXP",
+          "kind": "GEARED_DRIVE",
+          "carrier": null,
+          "role": "gear drive (32,000 -> 12,800 rpm at normal point)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "CR-195478 Fig. 1; §3.1",
+          "split_group": null,
+          "merge_group": null
+        }
+      ],
+      "notes": "Full expander: all turbine and bypass hydrogen goes to the injector; only the cooldown valves vent overboard (start and shutdown)."
+    },
+    {
+      "topology_id": "TOPO-SPS-BLOCK-I",
+      "scope": {
+        "kind": "PROPULSION_UNIT",
+        "id": "UNIT-SPS-BLOCK-I"
+      },
+      "label": "Apollo SPS Block I: service-module pressurization and feed with the engine assembly",
+      "provenance": "ROCKETFORGE_DERIVED_GRAPH",
+      "schematic_ids": [
+        "SCH-DB05-SPS-TND7375-F2"
+      ],
+      "text_source_ids": [
+        "SRC-NASA-TND7375"
+      ],
+      "completeness": {
+        "declared_complete": false,
+        "known_omissions": [
+          "relief valves and burst diaphragms",
+          "fill/drain/vent disconnects",
+          "propellant gauging",
+          "GN2 actuation system detail",
+          "exact helium routing through the propellant-line heat exchangers (drawn; flow sense inferred from text purpose)"
+        ],
+        "absences": []
+      },
+      "nodes": [
+        {
+          "node_id": "N-HE-TANK",
+          "component_type": "PRESSURANT_TANK",
+          "label": "Helium tanks",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HE-VALVES",
+          "component_type": "VALVE",
+          "label": "Helium isolation valves (2 parallel solenoid poppet)",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HE-REG",
+          "component_type": "REGULATOR",
+          "label": "Helium regulator assemblies (2 parallel; primary+secondary in series)",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HE-CHECK",
+          "component_type": "CHECK_VALVE",
+          "label": "Helium check-valve assemblies (parallel-series)",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HEX-OX",
+          "component_type": "HEAT_EXCHANGER",
+          "label": "Propellant/helium heat exchanger, oxidizer line",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-HEX-FU",
+          "component_type": "HEAT_EXCHANGER",
+          "label": "Propellant/helium heat exchanger, fuel line",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OX-STOR",
+          "component_type": "TANK",
+          "label": "Oxidizer storage tank",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-OX-SUMP",
+          "component_type": "TANK",
+          "label": "Oxidizer sump tank",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FU-STOR",
+          "component_type": "TANK",
+          "label": "Fuel storage tank",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-FU-SUMP",
+          "component_type": "TANK",
+          "label": "Fuel sump tank",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-PUV",
+          "component_type": "VALVE",
+          "label": "Propellant-utilization valve (oxidizer)",
+          "ownership": "VEHICLE",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "component_id": null
+        },
+        {
+          "node_id": "N-BIPROP",
+          "component_type": "VALVE",
+          "label": "Bipropellant valve (series-parallel ball valves, GN2 actuated)",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "component_id": null
+        },
+        {
+          "node_id": "N-INJ",
+          "component_type": "INJECTOR",
+          "label": "Bolt-on aluminum injector",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "component_id": null
+        },
+        {
+          "node_id": "N-TC",
+          "component_type": "COMBUSTION_CHAMBER",
+          "label": "Ablative thrust chamber",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "component_id": null
+        },
+        {
+          "node_id": "N-NOZ",
+          "component_type": "NOZZLE_EXTENSION",
+          "label": "Radiation-cooled nozzle extension (6:1 to 62.5:1)",
+          "ownership": "ENGINE",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "component_id": null
+        },
+        {
+          "node_id": "N-AMB",
+          "component_type": "AMBIENT_SINK",
+          "label": "Exhaust",
+          "ownership": "AMBIENT",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "component_id": null
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "E00",
+          "source": "N-HE-TANK",
+          "target": "N-HE-VALVES",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "pressurant",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E01",
+          "source": "N-HE-VALVES",
+          "target": "N-HE-REG",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "pressurant",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E02",
+          "source": "N-HE-REG",
+          "target": "N-HE-CHECK",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "regulated pressurant",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E03",
+          "source": "N-HE-CHECK",
+          "target": "N-HEX-OX",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "thermal conditioning (as drawn)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E04",
+          "source": "N-HE-CHECK",
+          "target": "N-HEX-FU",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "thermal conditioning (as drawn)",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E05",
+          "source": "N-HEX-OX",
+          "target": "N-OX-STOR",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "ullage pressurization (as drawn)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E06",
+          "source": "N-HEX-FU",
+          "target": "N-FU-STOR",
+          "kind": "FLUID_FLOW",
+          "carrier": "He",
+          "role": "ullage pressurization (as drawn)",
+          "evidence": "SHOWN_IN_SCHEMATIC",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E07",
+          "source": "N-OX-STOR",
+          "target": "N-OX-SUMP",
+          "kind": "FLUID_FLOW",
+          "carrier": "N2O4",
+          "role": "series transfer line",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E08",
+          "source": "N-FU-STOR",
+          "target": "N-FU-SUMP",
+          "kind": "FLUID_FLOW",
+          "carrier": "fuel",
+          "role": "series transfer line",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E09",
+          "source": "N-OX-SUMP",
+          "target": "N-PUV",
+          "kind": "FLUID_FLOW",
+          "carrier": "N2O4",
+          "role": "feed through PU valve",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E10",
+          "source": "N-PUV",
+          "target": "N-BIPROP",
+          "kind": "FLUID_FLOW",
+          "carrier": "N2O4",
+          "role": "engine feed",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2; TN D-7375 pp.3-6",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E11",
+          "source": "N-FU-SUMP",
+          "target": "N-BIPROP",
+          "kind": "FLUID_FLOW",
+          "carrier": "fuel",
+          "role": "engine feed",
+          "evidence": "DERIVED_FROM_BOTH",
+          "locator": "TN D-7375 Fig. 2; TN D-7375 pp.3-6",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E12",
+          "source": "N-BIPROP",
+          "target": "N-INJ",
+          "kind": "FLUID_FLOW",
+          "carrier": "N2O4 + fuel",
+          "role": "injection",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E13",
+          "source": "N-INJ",
+          "target": "N-TC",
+          "kind": "FLUID_FLOW",
+          "carrier": "propellants",
+          "role": "hypergolic combustion",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E14",
+          "source": "N-TC",
+          "target": "N-NOZ",
+          "kind": "FLUID_FLOW",
+          "carrier": "combustion gas",
+          "role": "expansion",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "split_group": null,
+          "merge_group": null
+        },
+        {
+          "edge_id": "E15",
+          "source": "N-NOZ",
+          "target": "N-AMB",
+          "kind": "FLUID_FLOW",
+          "carrier": "combustion gas",
+          "role": "exhaust",
+          "evidence": "REPORTED_IN_TEXT",
+          "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+          "split_group": null,
+          "merge_group": null
+        }
+      ],
+      "notes": "Feed and pressurization belong to the service module (vehicle); the engine owns the bipropellant valve, injector, chamber and nozzle. Pressure-fed, no turbomachinery. The oxidizer is N2O4 (TN D-7375 p.13); the fuel is not named in TN D-7375."
+    }
+  ],
+  "assertions": [
+    {
+      "assertion_id": "AS-DB05-US-J-2-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 230000.0
+      },
+      "value_as_printed": "230,000",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": "OP-J2-230K-MR55",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Nominal vacuum thrust (lb)'. In research conflict CF-DB05-J2-THRUST (PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "performance.specific_impulse_vac",
+      "value": {
+        "type": "number",
+        "value": 425.0
+      },
+      "value_as_printed": "425",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": "OP-J2-230K-MR55",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Nominal vacuum specific impulse'; engine or thrust-chamber basis not stated."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 717.0
+      },
+      "value_as_printed": "717",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "NOZZLE_STAGNATION",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": "OP-J2-230K-MR55",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Chamber pressure (psia) (nozzle stagnation)'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-004",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "propellants.mixture_ratio",
+      "value": {
+        "type": "number",
+        "value": 5.5
+      },
+      "value_as_printed": "5.5:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": "OXIDIZER_TO_FUEL",
+        "mixture_ratio_basis": "ENGINE",
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": "OP-J2-230K-MR55",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Engine mixture ratio calibration (O/F)'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "mechanical.mass_dry_basic",
+      "value": {
+        "type": "number",
+        "value": 2754.0
+      },
+      "value_as_printed": "2,754",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Basic engine dry weight (lb)'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "mechanical.mass_dry_with_accessories",
+      "value": {
+        "type": "number",
+        "value": 3492.0
+      },
+      "value_as_printed": "3,492",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'Engine dry weight (lb) (including accessories)'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-007",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 27.5
+      },
+      "value_as_printed": "27.5:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt); text p.2",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-024",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "architecture.feed",
+      "value": {
+        "type": "enum",
+        "token": "PUMP_FED"
+      },
+      "value_as_printed": "Pump-fed, liquid-propellant rocket engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-025",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "propellants.oxidizer",
+      "value": {
+        "type": "enum",
+        "token": "LIQUID_OXYGEN"
+      },
+      "value_as_printed": "Propellants: liquid oxygen & liquid hydrogen",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-026",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "propellants.fuel",
+      "value": {
+        "type": "enum",
+        "token": "LIQUID_HYDROGEN"
+      },
+      "value_as_printed": "Propellants: liquid oxygen & liquid hydrogen",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-027",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "architecture.cycle",
+      "value": {
+        "type": "enum",
+        "token": "GAS_GENERATOR"
+      },
+      "value_as_printed": "Turbine drive: gas generator burning main propellants",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as the turbine drive: 'gas generator burning main propellants'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-028",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "cooling.thrust_chamber",
+      "value": {
+        "type": "enum",
+        "token": "REGENERATIVE"
+      },
+      "value_as_printed": "Tubular-wall thrust chamber, regeneratively cooled",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-029",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-J2-230K"
+      },
+      "field_path": "turbomachinery.arrangement",
+      "value": {
+        "type": "text",
+        "text": "Separate oxidizer & fuel turbopumps"
+      },
+      "value_as_printed": "Separate oxidizer & fuel turbopumps",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "NTRS 20100027318 PDF p.14, Appendix D slide 'J-2 Basic Engine Features' (CP6_0450_J2-3.ppt), 'Description'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-009",
+      "subject": {
+        "kind": "VARIANT",
+        "id": "VAR-J2"
+      },
+      "field_path": "pumps.fuel.type",
+      "value": {
+        "type": "enum",
+        "token": "AXIAL"
+      },
+      "value_as_printed": "The fuel turbopump was an axial machine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "text p.2",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-010",
+      "subject": {
+        "kind": "VARIANT",
+        "id": "VAR-J2"
+      },
+      "field_path": "pumps.ox.type",
+      "value": {
+        "type": "enum",
+        "token": "CENTRIFUGAL"
+      },
+      "value_as_printed": "The oxidizer turbopump was a fairly conventional centrifugal device",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "text p.2",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-011",
+      "subject": {
+        "kind": "VARIANT",
+        "id": "VAR-J2"
+      },
+      "field_path": "turbines.arrangement",
+      "value": {
+        "type": "text",
+        "text": "series turbine arrangement, through the fuel turbopump and then over into the oxidizer turbopump, with a bypass for calibration and a heat exchanger ... before dumping into the thrust chamber at the nozzle midpoint"
+      },
+      "value_as_printed": "series turbine arrangement, through the fuel turbopump and then over into the oxidizer turbopump, with a bypass for calibration and a heat exchanger ... before dumping into the thrust chamber at the nozzle midpoint",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "text p.2 (book p.30)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-J-2-012",
+      "subject": {
+        "kind": "VARIANT",
+        "id": "VAR-J2"
+      },
+      "field_path": "cooling.tube_pattern",
+      "value": {
+        "type": "text",
+        "text": "fully tubular thrust chamber with a fuel inlet at the reduced epsilon portion of the nozzle ... one tube down for every two tubes up"
+      },
+      "value_as_printed": "fully tubular thrust chamber with a fuel inlet at the reduced epsilon portion of the nozzle ... one tube down for every two tubes up",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027318",
+      "locator": "text p.2",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-009",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 16500.0
+      },
+      "value_as_printed": "Vacuum thrust, lb 16,500",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Same table as the 475 psia chamber pressure and the 5:1 mixture ratio."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-010",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "performance.specific_impulse",
+      "value": {
+        "type": "number",
+        "value": 444.4
+      },
+      "value_as_printed": "Specific impulse, sec 444.4",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "UNKNOWN",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The table does not say vacuum or sea level for the specific impulse. Its mixture ratio is carried by the operating point, not restated as a condition."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-017",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 475.0
+      },
+      "value_as_printed": "Chamber pressure, psia 475",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "UNKNOWN",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 475.0
+      },
+      "value_as_printed": "the engine's normal operating point of 475 psia and O/F = 5.0",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "UNKNOWN",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "§4.3 (PDF p.7)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "CR-195478 calls it 'the engine's normal operating point'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-012",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "propellants.mixture_ratio",
+      "value": {
+        "type": "number",
+        "value": 5.0
+      },
+      "value_as_printed": "Mixture ratio 5:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": "OXIDIZER_TO_FUEL",
+        "mixture_ratio_basis": "UNKNOWN",
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: 'Mixture ratio 5:1' is oxidizer to fuel: CR-195478 prints the same point as 'O/F = 5.0' (AS-DB05-US-RL10A-3-3A-006)."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-013",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 61.0
+      },
+      "value_as_printed": "Area ratio 61:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-011",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "number",
+        "value": 305.0
+      },
+      "value_as_printed": "Weight, lb 305",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018888",
+      "locator": "NTRS 19910018888 PDF p.3 'RL10A-3-3A ENGINE' and 'RL10 EVOLUTION' tables",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-014",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "architecture.cycle",
+      "value": {
+        "type": "enum",
+        "token": "EXPANDER"
+      },
+      "value_as_printed": "RL10A-3-3A rocket engines ... This hydrogen/oxygen expander cycle engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 Abstract (PDF p.3)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-015",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "propellants.oxidizer",
+      "value": {
+        "type": "enum",
+        "token": "OXYGEN"
+      },
+      "value_as_printed": "This hydrogen/oxygen expander cycle engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 Abstract (PDF p.3)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'hydrogen/oxygen'; the phase is not part of this statement."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-016",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "propellants.fuel",
+      "value": {
+        "type": "enum",
+        "token": "HYDROGEN"
+      },
+      "value_as_printed": "This hydrogen/oxygen expander cycle engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 Abstract (PDF p.3)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'hydrogen/oxygen'; the phase is not part of this statement."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "pumps.configuration",
+      "value": {
+        "type": "text",
+        "text": "a two-stage fuel turbine which drives a two-stage fuel pump on a shaft, and a single-stage LOX pump through a gear box"
+      },
+      "value_as_printed": "a two-stage fuel turbine which drives a two-stage fuel pump on a shaft, and a single-stage LOX pump through a gear box",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 §3.1 (PDF p.4)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "pumps.fuel.operating_point",
+      "value": {
+        "type": "text",
+        "text": "a fuel flow of 6 lb/sec is pumped to a pressure of 1100 psia"
+      },
+      "value_as_printed": "a fuel flow of 6 lb/sec is pumped to a pressure of 1100 psia",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 §3.1 (PDF p.4)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "pumps.lox.operating_point",
+      "value": {
+        "type": "text",
+        "text": "30 lb/sec of LOX is pumped to 600 psia"
+      },
+      "value_as_printed": "30 lb/sec of LOX is pumped to 600 psia",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 §3.1 (PDF p.4)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-004",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "pumps.fuel.speed_rpm",
+      "value": {
+        "type": "number",
+        "value": 32000.0
+      },
+      "value_as_printed": "The normal operating speed of the fuel pump is 32000 rpm",
+      "unit_as_printed": "rpm",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 §3.1 (PDF p.4)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3A-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3A"
+      },
+      "field_path": "pumps.lox.speed_rpm",
+      "value": {
+        "type": "number",
+        "value": 12800.0
+      },
+      "value_as_printed": "the LOX pump speed is 12800 rpm",
+      "unit_as_printed": "rpm",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19950022693",
+      "locator": "NASA CR-195478 §3.1 (PDF p.4)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3A-475-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 102.0
+      },
+      "value_as_printed": "chamber pressure of 102 psia",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "UNKNOWN",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "In research conflict CF-DB05-SPS-THRUST (PARTIALLY_RESOLVED); shipped for Block I only, by owner decision, and not for Block II or the AJ10-137 in general."
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 21500.0
+      },
+      "value_as_printed": "vacuum thrust of 21 500 pounds",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "In research conflict CF-DB05-SPS-THRUST (PARTIALLY_RESOLVED); shipped for Block I only, by owner decision, and not for Block II or the AJ10-137 in general."
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "performance.specific_impulse",
+      "value": {
+        "type": "number",
+        "value": 309.0
+      },
+      "value_as_printed": "The average specific impulse was 309 seconds",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "UNKNOWN",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "AVERAGE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as 'The average specific impulse'; vacuum or sea level is not stated for it. In research conflict CF-DB05-SPS-THRUST (PARTIALLY_RESOLVED); shipped for Block I only, by owner decision, and not for Block II or the AJ10-137 in general."
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-010",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "propellants.mixture_ratio",
+      "value": {
+        "type": "number",
+        "value": 2.0
+      },
+      "value_as_printed": "The 2:1 ratio was used in the Block I vehicles",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": "OXIDIZER_TO_FUEL",
+        "mixture_ratio_basis": "UNKNOWN",
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "p.3 (PDF p.7)",
+      "access": "OPENED",
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: 'The 2:1 ratio was used in the Block I vehicles'; the same paragraph defines it as the 'oxidizer-to-fuel weight ratio' (O/F)."
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-004",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 62.5
+      },
+      "value_as_printed": "radiation-cooled nozzle (extending from an area ratio of approximately 6:1 to 62.5:1)",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: the exit end of the radiation-cooled nozzle, which extends 'from an area ratio of approximately 6:1 to 62.5:1'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-023",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "architecture.feed",
+      "value": {
+        "type": "enum",
+        "token": "PRESSURE_FED"
+      },
+      "value_as_printed": "The SPS engine (fig. 3) was a nonthrottleable, gimbaled, pressure-fed rocket engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "cooling.zones",
+      "value": {
+        "type": "text",
+        "text": "ablative-cooled thrust chamber, a radiation-cooled nozzle"
+      },
+      "value_as_printed": "ablative-cooled thrust chamber, a radiation-cooled nozzle",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "life.starts_and_duration",
+      "value": {
+        "type": "text",
+        "text": "capable of at least 36 starts and had an engine firing life of 500 seconds"
+      },
+      "value_as_printed": "capable of at least 36 starts and had an engine firing life of 500 seconds",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": "OP-SPS-BLOCK-I-OF2",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-007",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "ignition_start.method",
+      "value": {
+        "type": "enum",
+        "token": "HYPERGOLIC"
+      },
+      "value_as_printed": "Ignition occurred by means of hypergolic reaction in the thrust chamber",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-008",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-SPS-BLOCK-I"
+      },
+      "field_path": "control.bipropellant_valve",
+      "value": {
+        "type": "text",
+        "text": "redundant set of series-parallel ball valves ... actuated by pneumatic pressure ... Gaseous nitrogen, stored in redundant tanks"
+      },
+      "value_as_printed": "redundant set of series-parallel ball valves ... actuated by pneumatic pressure ... Gaseous nitrogen, stored in redundant tanks",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-TND7375",
+      "locator": "TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-AJ10-137-018",
+      "subject": {
+        "kind": "VARIANT",
+        "id": "VAR-AJ10-137"
+      },
+      "field_path": "propellants.combination",
+      "value": {
+        "type": "text",
+        "text": "nitrogen tetroxide ... and A-50 ... roughly a fifty-fifty mix (hydrazine/UDMH)"
+      },
+      "value_as_printed": "nitrogen tetroxide ... and A-50 ... roughly a fifty-fifty mix (hydrazine/UDMH)",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-20100027319",
+      "locator": "NTRS 20100027319 p.63 (PDF p.3)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Configuration unstated in the source; recorded for the variant and not applied to Block I."
+    }
+  ],
+  "conflicts": []
+}

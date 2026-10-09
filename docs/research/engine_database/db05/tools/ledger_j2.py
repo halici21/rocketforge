@@ -58,6 +58,14 @@ A(J2, "ignition_start.spin_start", None, "STDV opens, allowing pressurized GH2 t
   "SRC-DB05-NTRS-19750063889", "MSFC-MAN-503 p.5-7 'Engine Start Sequence'", db0=None)
 A(J2, "ignition_start.ox_turbine_bypass", None, "During the start sequence the normally open oxidizer bypass valve permits a percentage of the gas to bypass the oxidizer turbine", "text", "", {},
   "SRC-DB05-NTRS-19750063889", "MSFC-MAN-503 p.5-7", db0=None)
+# DB-2A supplement (2026-10-09): the 'Description' block of the same slide as the
+# 230,000 lb performance table, re-read from the opened PDF (p.14).
+A(J2, "architecture.feed", None, "Pump-fed, liquid-propellant rocket engine", "pump_fed", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+A(J2, "propellants.oxidizer", None, "Propellants: liquid oxygen & liquid hydrogen", "liquid_oxygen", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+A(J2, "propellants.fuel", None, "Propellants: liquid oxygen & liquid hydrogen", "liquid_hydrogen", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+A(J2, "architecture.cycle", None, "Turbine drive: gas generator burning main propellants", "gas_generator", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+A(J2, "cooling.thrust_chamber", None, "Tubular-wall thrust chamber, regeneratively cooled", "regenerative", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+A(J2, "turbomachinery.arrangement", None, "Separate oxidizer & fuel turbopumps", "text", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
 
 # ---- J-2S ----
 L9 = "NTRS 19940016798 PDF p.9 slide 'J-2S Basic Engine Features' (SC91c-12-1055), page rotated"

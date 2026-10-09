@@ -958,7 +958,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "",
-   "assertions": 13
+   "assertions": 14
   },
   {
    "source_id": "SRC-NTRS-19650013470",
@@ -1106,7 +1106,7 @@
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "VALUES_WITH_ATTRIBUTION",
    "note": "",
-   "assertions": 5
+   "assertions": 6
   },
   {
    "source_id": "SRC-NTRS-19910018906",
@@ -1150,7 +1150,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "DB-0 'title unverified' -> verified.",
-   "assertions": 8
+   "assertions": 11
   },
   {
    "source_id": "SRC-NTRS-20030005845",
@@ -1216,7 +1216,7 @@
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "RIGHTS_REVIEW_REQUIRED",
    "note": "Manufacturer engineer recollection plus manufacturer viewgraphs; printed in NASA publication.",
-   "assertions": 20
+   "assertions": 26
   },
   {
    "source_id": "SRC-NTRS-20100027319",

@@ -41,6 +41,14 @@ A(R33A, "performance.isp_vac", None, "Specific impulse, sec 444.4", 444.4, "s", 
 A(R33A, "mechanical.mass", None, "Weight, lb 305", 305, "lb", {}, "SRC-NTRS-19910018888", L3, db0=None)
 A(R33A, "propellants.mixture_ratio", None, "Mixture ratio 5:1", 5.0, ":1", {}, "SRC-NTRS-19910018888", L3, db0=None)
 A(R33A, "nozzle.area_ratio", None, "Area ratio 61:1", 61, ":1", {}, "SRC-NTRS-19910018888", L3, db0=None)
+# DB-2A supplement (2026-10-09): the abstract names the RL10A-3-3A's cycle and
+# propellants (the 'full expander' sentence in §2.0 is stated for all RL10 models).
+LA = "NASA CR-195478 Abstract (PDF p.3)"
+A(R33A, "architecture.cycle", None, "RL10A-3-3A rocket engines ... This hydrogen/oxygen expander cycle engine", "expander", "", {}, "SRC-NTRS-19950022693", LA, db0=None)
+A(R33A, "propellants.oxidizer", None, "This hydrogen/oxygen expander cycle engine", "oxygen", "", {}, "SRC-NTRS-19950022693", LA, db0=None)
+A(R33A, "propellants.fuel", None, "This hydrogen/oxygen expander cycle engine", "hydrogen", "", {}, "SRC-NTRS-19950022693", LA, db0=None)
+A(R33A, "performance.pc", None, "Chamber pressure, psia 475", 475, "psia", {"pc_station": "UNSTATED"}, "SRC-NTRS-19910018888", L3, db0=None,
+  note="Same 'RL10A-3-3A ENGINE' table as the thrust, Isp, mixture ratio and area ratio above; the 2026-10-08 pass took Pc only from CR-195478.")
 LN = "NRC 2006 (NAP 11780) Appendix D, Table D-4 and text p.256"
 A(RA42, "performance.thrust_vac", None, "Thrust (lb) 22,300", 22300, "lb", {"environment": "UNSTATED (vacuum by context)"}, "SRC-NAP-11780", LN, db0=None)
 A(RA42, "performance.isp_vac", None, "I sp vacuum (sec) 451", 451, "s", {"environment": "vacuum"}, "SRC-NAP-11780", LN, db0=None)

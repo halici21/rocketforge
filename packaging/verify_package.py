@@ -332,6 +332,13 @@ def check_evidence(package: Path, repo: Path) -> list[str]:
             if not corpus.sources[value.source_id].values_may_ship:
                 failures.append(f"evidence: {record.record_id} ships a value from "
                                 f"{value.source_id}, whose policy withholds values")
+    engines = shipped / "engines" / "reference_engines.json"
+    if (source / "engines" / "reference_engines.json").is_file():
+        from rocketforge.application.analysis.reference_engine_catalog import load_reference_engines
+        try:
+            load_reference_engines(engines)
+        except EvidenceError as error:
+            failures.append(f"evidence: the packaged reference-engine corpus does not load: {error}")
     pages = [internal / "ui" / "pages" / "PropulsionEvidencePage.qml"]
     pages += sorted((internal / "ui" / "pages" / "propulsionevidence").glob("*.qml"))
     for page in pages:

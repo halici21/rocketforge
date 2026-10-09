@@ -22,8 +22,8 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 | Downloaded, not read this session | 21 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 250 | `assertions.json` |
-| Assertions promoted (value as printed + locator) | 248 | 219 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertion records | 261 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A supplement transcriptions, below) |
+| Assertions promoted (value as printed + locator) | 259 | 230 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
 | Schematics actually viewed | 15 | `schematics_viewed.json` |
@@ -37,6 +37,19 @@ viewgraphs (NTRS 20100027316), the 1993 J-2S Restart Study (NTRS 19940016798)
 and the 1985 OMS design-evolution paper (NTRS 19850008634). Sources that were
 read now carry `access = fetched`; sources that could not be reached carry
 `access = not_retrieved`.
+
+**DB-2A supplement (2026-10-09).** Preparing the verified seed corpus
+(`docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md`)
+re-opened four documents already read here and transcribed eleven statements
+this pass had left out: the "Description" block of the J-2 slide that carries
+the 230,000 lb table (feed, propellants, turbine drive, chamber cooling,
+turbopumps; NTRS 20100027318 PDF p.14), the cycle and propellants named in the
+abstract of NASA CR-195478 (RL10A-3-3A), the 475 psia chamber pressure printed
+in the same Pratt & Whitney "RL10A-3-3A ENGINE" table as the thrust and Isp
+(NTRS 19910018888 PDF p.3), and the "pressure-fed" engine assembly sentence of
+TN D-7375 (Block I). They are ordinary ledger entries
+(`ledger_j2.py`, `ledger_rl10.py`, `ledger_sps.py`), REPORTED, with locators.
+DB-0.5 stays PARTIAL.
 
 ## Anchors
 

@@ -67,6 +67,20 @@ def test_a_value_its_source_withholds_fails_to_load(package):
     assert any("does not load" in f and "METADATA_ONLY" in f for f in failures)
 
 
+def test_the_reference_engine_seed_corpus_is_packaged_and_must_load(package):
+    corpus = evidence(package) / "engines" / "reference_engines.json"
+    assert corpus.is_file() and verify_package.check_evidence(package, ROOT) == []
+    data = json.loads(corpus.read_text(encoding="utf-8"))
+    data["assertions"][0]["status"] = "INFERRED"
+    corpus.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    failures = verify_package.check_evidence(package, ROOT)
+    assert any("engines/reference_engines.json differs from the source tree" in f for f in failures)
+    assert any("reference-engine corpus does not load" in f and "INFERRED" in f for f in failures)
+    corpus.unlink()
+    failures = verify_package.check_evidence(package, ROOT)
+    assert any("engines/reference_engines.json is missing" in f for f in failures)
+
+
 def test_an_execution_action_on_the_pages_is_named(package):
     folder = package / "_internal" / "ui" / "pages" / "propulsionevidence"
     inspector = folder / "EvidenceInspector.qml"
