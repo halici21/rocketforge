@@ -154,14 +154,38 @@ def test_j2s_is_a_candidate_only(corpus):
 # ------------------------------------------------------------------ F-1
 
 
-def test_f1_ships_no_value_of_the_unresolved_rating(corpus):
+#: The five DB-2A seed sources (their rights notes are DB-2A's own).
+SEED_SOURCES = {"SRC-NTRS-20100027318", "SRC-NTRS-19950022693", "SRC-NTRS-19910018888", "SRC-NASA-TND7375",
+                "SRC-NTRS-20100027319"}
+
+
+def test_f1_ships_the_owner_admitted_table_values_and_no_rating(corpus):
     a = own(corpus, "CFG-F1")
-    assert not any(x.field_path.startswith(("performance.thrust", "performance.specific_impulse")) for x in a.values())
-    every_number = numbers(corpus.assertions)
-    assert every_number.isdisjoint({1522000, 1530000, 1500000, 1748200, 1800000, 265.4, 304.1, 1125, 18616})
+    shipped = {x.field_path: x.value.value for x in a.values() if x.field_path.startswith("performance.")}
+    assert shipped == {"performance.thrust_vac": 1748200, "performance.specific_impulse_sl": 265.4,
+                       "performance.specific_impulse_vac": 304.1, "performance.chamber_pressure": 1125}
+    assert all("owner decision (2026-10-09)" in x.note or "by owner decision" in x.note
+               for x in a.values() if x.field_path.startswith("performance."))
+    pc = next(x for x in a.values() if x.field_path == "performance.chamber_pressure")
+    assert pc.conditions.pressure_station.value == "UNKNOWN"
+    # no sea-level thrust, no canonical rating, no F-1A, no mass
+    assert numbers(corpus.assertions).isdisjoint({1522000, 1530000, 1500000, 1800000, 18616})
+    assert not any(x.field_path == "performance.thrust_sl" for x in a.values())
+    # admitted for CFG-F1 only, never inherited by the variant or family
+    for subject in ("VAR-F1", "FAM-F1"):
+        assert not [x for x in corpus.assertions if x.subject.id == subject and x.field_path.startswith("performance.")]
     r = evaluate_capability(corpus, "CFG-F1", Capability.PERFORMANCE_REFERENCE)
-    assert {g.split(":")[0] for g in r.gaps} == {"thrust", "specific_impulse", "chamber_pressure", "mixture_ratio"}
+    assert {g.split(":")[0] for g in r.gaps} == {"mixture_ratio"}
     assert not [p for p in corpus.operating_points if p.configuration_id == "CFG-F1"]
+
+
+def test_wave1_rights_readings_record_the_owner_review(corpus):
+    wave1_sources = {s.reference.source_id for s in corpus.sources} - SEED_SOURCES
+    assert len(wave1_sources) == 9
+    for s in corpus.sources:
+        if s.reference.source_id in wave1_sources:
+            assert s.rights.review_note.endswith(
+                "Owner-reviewed 2026-10-09 (a RocketForge shipping-policy review, not a legal determination).")
 
 
 def test_f1_mixture_ratio_without_a_printed_direction_is_not_guessed(corpus):

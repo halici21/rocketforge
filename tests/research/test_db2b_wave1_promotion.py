@@ -71,18 +71,26 @@ def test_every_wave1_assertion_is_decided_once_with_a_disposition(research):
 def test_accounting_totals(research):
     """The audit the design note reports, recomputed from the manifest."""
     totals = collections.Counter(v[0] for v in wave1.NOT_PROMOTED.values())
-    assert len(wave1.ASSERTIONS) == 71
-    assert dict(totals) == {"WITHHELD_RIGHTS": 46, "WITHHELD_CONFLICT": 16, "MISSING_REQUIRED_SEMANTICS": 10,
+    assert len(wave1.ASSERTIONS) == 75
+    assert dict(totals) == {"WITHHELD_RIGHTS": 46, "WITHHELD_CONFLICT": 15, "MISSING_REQUIRED_SEMANTICS": 10,
                             "NOT_NEEDED": 14, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 5,
-                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1, "OWNER_DECISION_REQUIRED": 3}
+                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(
         1 for r in research.assertions.values() if r["engine_id"] in wave1.SEED_ENGINES)
 
 
-def test_wave1_records_no_owner_decision():
-    assert all("owner_accepted" not in d for d in wave1.RESEARCH_CONFLICTS.values())
+def test_wave1_records_exactly_the_owners_f1_decisions():
+    assert {c for c, d in wave1.RESEARCH_CONFLICTS.items() if "owner_accepted" in d} == {
+        "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
+    assert set(wave1.OWNER_DECISIONS) == {"CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
+    assert all(v.startswith("owner (Cemil Eray), 2026-10-09") for v in wave1.OWNER_DECISIONS.values())
+    assert set(wave1.OWNER_REVIEWS) == {"DB2A-RIGHTS", "WAVE1-RIGHTS", "DB2A-MANIFEST-METADATA"}
+    assert set(wave1.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"]) == set(wave1.SOURCES)
     merged = promote_db2a.load_manifest().RESEARCH_CONFLICTS
-    assert {c for c, d in merged.items() if "owner_accepted" in d} == {"CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST"}
+    assert {c for c, d in merged.items() if "owner_accepted" in d} == {
+        "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
+    # the sea-level rating stays withheld; the DB-0.5 conflicts are not rewritten
+    assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {"AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"}
 
 
 def test_a_missing_or_unknown_disposition_is_refused(research):
@@ -144,15 +152,70 @@ def test_the_f1_rating_conflict_blocks_its_thrust(research):
     refused(research, m, "withholds AS-DB05-US-F-1-001, which is promoted")
 
 
+def test_the_f1_viewgraph_values_need_the_owners_decision(research):
+    m = manifest()
+    del m.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["owner_accepted"]
+    refused(research, m, "owner_released needs the owner's recorded decision")
+    m = manifest()
+    m.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["owner_accepted"] = "owner, today: accept"
+    refused(research, m, "owner_accepted is not the decision recorded in OWNER_DECISIONS")
+
+
 @pytest.mark.parametrize("aid,field,value,cond", [
     ("AS-DB05-US-F-1-002", "performance.thrust_vac", 1748200, dict(environment="VACUUM")),
     ("AS-DB05-US-F-1-003", "performance.specific_impulse_sl", 265.4, dict(environment="SEA_LEVEL", isp_basis="UNKNOWN")),
-    ("AS-DB05-US-F-1-004", "performance.specific_impulse_vac", 304.1, dict(environment="VACUUM", isp_basis="UNKNOWN")),
+    ("AS-DB05-US-F-1-005", "performance.chamber_pressure", 1125, dict(pressure_basis="ABSOLUTE", pressure_station="UNKNOWN")),
 ])
-@pytest.mark.parametrize("subject", ["CFG-F1", "VAR-F1"])
-def test_the_f1_viewgraph_values_wait_for_the_owner(research, aid, field, value, cond, subject):
-    m = promote(manifest(), db2a_manifest.P(aid, subject, field, ("number", value), "NOMINAL", cond=cond))
-    refused(research, m, f"withholds {aid}, which is promoted")
+@pytest.mark.parametrize("subject", ["VAR-F1", "FAM-F1"])
+def test_the_admitted_f1_values_are_not_inherited(research, aid, field, value, cond, subject):
+    m = manifest()
+    entry(m, aid).update(subject=subject)
+    refused(research, m, f"not filed on {'variant' if subject.startswith('VAR') else 'family'} {subject}")
+
+
+def test_the_f1_sea_level_rating_cannot_be_released(research):
+    m = manifest()
+    d = m.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]
+    d["owner_released"] = (*d["owner_released"], "AS-DB05-US-F-1-001")
+    refused(research, m, "owner_released AS-DB05-US-F-1-001 is a claim of the conflict")
+
+
+def test_a_release_is_only_for_a_value_printed_with_a_withheld_claim(research):
+    m = manifest()
+    d = m.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]
+    d["owner_released"] = (*d["owner_released"], "AS-DB05-US-F-1-011")  # area ratio, another slide
+    refused(research, m, "owner_released AS-DB05-US-F-1-011 is not a promoted assertion printed with a withheld claim")
+
+
+def test_the_f1_chamber_pressure_keeps_its_unknown_station_and_needs_the_owner(research):
+    m = manifest()
+    entry(m, "AS-DB05-US-F-1-005")["conditions"]["pressure_station"] = "NOZZLE_STAGNATION"
+    refused(research, m, "must be UNKNOWN")
+    m = manifest()
+    del m.RESEARCH_CONFLICTS["CF-DB05-F1-PC"]["owner_accepted"]
+    refused(research, m, "not carrying it needs the owner's recorded decision")
+
+
+def test_an_unused_owner_decision_is_refused(research):
+    m = manifest()
+    m.OWNER_DECISIONS["CF-DB05-F1-MASS"] = "owner (Cemil Eray), 2026-10-09: accept the mass"
+    refused(research, m, "CF-DB05-F1-MASS: OWNER_DECISIONS records a decision no conflict uses")
+
+
+def test_an_owner_review_must_be_recorded_for_its_source(research):
+    m = manifest()
+    m.OWNER_REVIEWS["WAVE1-RIGHTS"] = dict(m.OWNER_REVIEWS["WAVE1-RIGHTS"], sources=tuple(
+        s for s in m.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"] if s != "SRC-JSC-19950"))
+    refused(research, m, "SRC-JSC-19950: the rights note says owner-reviewed, but no OWNER_REVIEWS entry lists the source")
+    m = manifest()
+    m.SOURCES["SRC-JSC-19950"]["review_note"] = "government work."
+    refused(research, m, "SRC-JSC-19950: listed by OWNER_REVIEWS WAVE1-RIGHTS, but its rights note does not record the review")
+
+
+def test_an_owner_review_does_not_upgrade_a_withheld_source(research):
+    m = manifest()
+    m.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"] += ("SRC-USA-OMS21002",)
+    refused(research, m, "OWNER_REVIEWS WAVE1-RIGHTS: SRC-USA-OMS21002 is not a shipped source")
 
 
 def test_the_f1_mixture_ratio_direction_is_not_guessed(research):
@@ -388,7 +451,7 @@ def test_a_text_basis_must_be_from_the_page_the_locator_adds(research):
 
 def test_a_withheld_assertion_is_not_a_text_basis(research):
     m = manifest()
-    topology(m, "TOPO-F1")["restate_nodes"]["N-HYP"]["text_basis"] = ("AS-DB05-US-F-1-002",)
+    topology(m, "TOPO-F1")["restate_nodes"]["N-HYP"]["text_basis"] = ("AS-DB05-US-F-1-001",)
     refused(research, m, "is withheld or not shippable")
 
 

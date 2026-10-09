@@ -12,8 +12,10 @@ Block II as of 2003, SLS-adapted). Block IIA ships no configuration: every
 Block IIA statement DB-0.5 holds comes from a document stamped BOEING
 PROPRIETARY.
 
-No ``owner_accepted`` decision is recorded here. Where a value would need one,
-it is withheld with the disposition OWNER_DECISION_REQUIRED or WITHHELD_CONFLICT.
+Owner decisions of 2026-10-09, recorded after the wave was built, are in
+``OWNER_DECISIONS`` (two F-1 conflicts) and ``OWNER_REVIEWS`` (rights readings,
+DB-2A manifest metadata), written out as text. The DB-0.5 conflicts themselves
+are unchanged.
 """
 
 from __future__ import annotations
@@ -61,7 +63,11 @@ def _src(organization, authors, title, year, identifiers, source_type, host, fig
          printed=_NO_NOTICE):
     return dict(organization=organization, authors=authors, title=title, year=year, identifiers=identifiers,
                 source_type=source_type, authority="A", primacy="PRIMARY", host=host, printed=printed,
-                review="CONSISTENT", figures=figures, review_note=review_note)
+                review="CONSISTENT", figures=figures, review_note=review_note + _OWNER_REVIEWED)
+
+
+#: Appended to every Wave-1 rights reading under the owner's review (OWNER_REVIEWS["WAVE1-RIGHTS"]).
+_OWNER_REVIEWED = " Owner-reviewed 2026-10-09 (a RocketForge shipping-policy review, not a legal determination)."
 
 
 SOURCES = {
@@ -188,9 +194,10 @@ CONFIGURATIONS = (
      "NTRS 19940016798 PDF p.9 (the 1993 restart study's baseline)."),
     ("CFG-F1", "VAR-F1", "F-1, as described by Rocketdyne's 'F-1 Engine Characteristics' and 'Basic Features' viewgraphs",
      ("MISSING", "UNKNOWN", "the viewgraphs print no rating epoch; research conflict CF-DB05-F1-RATING is UNRESOLVED"),
-     "NTRS 20100027316 PDF p.16. No value of the 'F-1 Engine Characteristics' table ships: the sea-level "
-     "rating is in an unresolved conflict and the table's other values (vacuum thrust, Isp) await the owner's "
-     "decision on whether the viewgraph's rating may define this configuration."),
+     "NTRS 20100027316 PDF p.16. By owner decision (2026-10-09) the 'F-1 Engine Characteristics' viewgraph "
+     "defines this source-scoped configuration: its vacuum thrust, Isp and chamber pressure ship for it "
+     "alone. This is not a canonical flight-rating epoch: the sea-level thrust rating stays withheld "
+     "(CF-DB05-F1-RATING, UNRESOLVED)."),
     ("CFG-H1-188K-SA10", "VAR-H1", "H-1, 188,000 lb nominal sea-level rating, Saturn I SA-10",
      "Saturn I SA-10 S-I stage (SDES-64-415 Vol. VIII)",
      "Not the H-1 family in general: the SA-10 volume's 188,000 lb engine. The graph is the inboard engine; "
@@ -238,6 +245,9 @@ ALIASES = (
 
 _J2S, _J2SOP = "CFG-J2S", "OP-J2S-MR55"
 _F1 = "CFG-F1"
+_F1_TABLE = ("From the 'F-1 Engine Characteristics' viewgraph, which by owner decision (2026-10-09) defines this "
+             "source-scoped configuration; not a canonical flight-rating epoch. The same table's sea-level thrust "
+             "is withheld (CF-DB05-F1-RATING, UNRESOLVED).")
 _H1 = "CFG-H1-188K-SA10"
 _LM = "CFG-LMDE-FINAL"
 _OMS = "CFG-OMS"
@@ -280,6 +290,18 @@ ASSERTIONS = (
 
     # F-1: 'F-1 Engine Characteristics' (F1-6) and 'F-1 Engine Basic Features' (F1-7)
     P("AS-DB05-US-F-1-011", _F1, "nozzle.area_ratio", ("number", 16), "NOMINAL"),
+    # F-1 'Engine Characteristics' table: owner decisions of 2026-10-09 (CF-DB05-F1-RATING, CF-DB05-F1-PC)
+    P("AS-DB05-US-F-1-002", _F1, "performance.thrust_vac", ("number", 1748200), "NOMINAL",
+      cond=dict(environment="VACUUM"), note=_F1_TABLE),
+    P("AS-DB05-US-F-1-003", _F1, "performance.specific_impulse_sl", ("number", 265.4), "NOMINAL",
+      cond=dict(environment="SEA_LEVEL", isp_basis="UNKNOWN"), note=_F1_TABLE),
+    P("AS-DB05-US-F-1-004", _F1, "performance.specific_impulse_vac", ("number", 304.1), "NOMINAL",
+      cond=dict(environment="VACUUM", isp_basis="UNKNOWN"), note=_F1_TABLE),
+    P("AS-DB05-US-F-1-005", _F1, "performance.chamber_pressure", ("number", 1125), "NOMINAL",
+      cond=dict(pressure_basis="ABSOLUTE", pressure_station="UNKNOWN"),
+      note="Printed as 'Chamber pressure (psia)'; the station is not printed. In research conflict CF-DB05-F1-PC "
+           "(PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision, and not for the F-1 "
+           "variant or family."),
     P("AS-DB05-US-F-1-008", _F1, "mechanical.dimensions", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-010", _F1, "test_history.qualification_life", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-012", _F1, "pumps.configuration", ("text",), "OTHER"),
@@ -417,14 +439,8 @@ NOT_PROMOTED = {
        for i in range(15, 21)},
     # F-1
     "AS-DB05-US-F-1-001": ("WITHHELD_CONFLICT", "sea-level thrust in UNRESOLVED rating-epoch conflict CF-DB05-F1-RATING"),
-    **{f"AS-DB05-US-F-1-00{i}": ("OWNER_DECISION_REQUIRED",
-                                 "a value of the 'F-1 Engine Characteristics' table, whose rating epoch is the "
-                                 "UNRESOLVED CF-DB05-F1-RATING; shipping it would let the viewgraph's rating define "
-                                 "this configuration, the choice the owner made for the J-2 but has not made for the F-1")
-       for i in (2, 3, 4)},
     **{f"AS-DB05-US-F-1-0{i}": ("NOT_NEEDED", "recorded as a text basis of the F-1 graph; not shipped as a value")
        for i in (29, 30, 31, 32)},
-    "AS-DB05-US-F-1-005": ("WITHHELD_CONFLICT", "chamber pressure in PARTIALLY_RESOLVED conflict CF-DB05-F1-PC"),
     "AS-DB05-US-F-1-006": ("MISSING_REQUIRED_SEMANTICS",
                            "printed 'Engine mixture ratio 2.27' without a direction (O/F or F/O)"),
     "AS-DB05-US-F-1-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
@@ -476,6 +492,45 @@ NOT_PROMOTED = {
     "AS-DB05-US-SSME-BLOCK-II-044": ("WRONG_CONFIGURATION", "a predicted value for the 1986 study's enlarged-throat design"),
 }
 
+# ------------------------------------------------------------------ owner decisions (2026-10-09)
+#
+# Written out as text. An ``owner_accepted`` must equal its entry here; a rights
+# note that says "Owner-reviewed" must belong to a source an OWNER_REVIEWS entry lists.
+
+_F1_RATING = ("owner (Cemil Eray), 2026-10-09: accept the 'F-1 Engine Characteristics' viewgraph as defining the "
+              "source-scoped CFG-F1 production configuration; admit 1,748,200 lb vacuum thrust, 265.4 s sea-level "
+              "Isp and 304.1 s vacuum Isp. Not a canonical historical flight-rating epoch; the unresolved "
+              "sea-level-thrust rating conflict stays withheld.")
+_F1_PC = ("owner (Cemil Eray), 2026-10-09: accept F-1 chamber pressure 1,125 psia for CFG-F1 only; measurement "
+          "station UNKNOWN; no family, variant or general F-1 inheritance. The research conflict stays "
+          "PARTIALLY_RESOLVED as recorded in DB-0.5.")
+
+OWNER_DECISIONS = {
+    "CF-DB05-F1-RATING": _F1_RATING,
+    "CF-DB05-F1-PC": _F1_PC,
+}
+
+OWNER_REVIEWS = {
+    "DB2A-RIGHTS": dict(
+        decision="owner (Cemil Eray), 2026-10-09: accept the five DB-2A rights readings as reviewed; no policy "
+                 "upgrade (values ship with attribution, never as public domain).",
+        sources=("SRC-NTRS-20100027318", "SRC-NTRS-19950022693", "SRC-NTRS-19910018888", "SRC-NASA-TND7375",
+                 "SRC-NTRS-20100027319")),
+    "WAVE1-RIGHTS": dict(
+        decision="owner (Cemil Eray), 2026-10-09: accept the Wave-1 rights readings as owner-reviewed. This is a "
+                 "RocketForge shipping-policy review, not a legal determination. All host metadata, printed "
+                 "notices and per-content shipping restrictions are kept; no restrictive source is upgraded "
+                 "because of the review.",
+        sources=("SRC-DB05-NTRS-19940016798", "SRC-DB05-NTRS-20100027316", "SRC-NTRS-19650013470",
+                 "SRC-NASA-TND7143", "SRC-JSC-19950", "SRC-DB05-NTRS-19850008634", "SRC-NTRS-19860012108",
+                 "SRC-IBIBLIO-SSMEOVERVIEW", "SRC-NASA-RS25-FS2025")),
+    "DB2A-MANIFEST-METADATA": dict(
+        decision="owner (Cemil Eray), 2026-10-09: re-approve the DB-2A manifest metadata changes (text_basis, "
+                 "NOT_PROMOTED metadata, literal OWNER_DECISIONS). DB-2A shipped production data stays "
+                 "item-for-item unchanged.",
+        sources=()),
+}
+
 RESEARCH_CONFLICTS = {
     "CF-DB05-J2S-DATES": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-J-2S-015", "AS-DB05-US-J-2S-016", "AS-DB05-US-J-2S-017", "AS-DB05-US-J-2S-018", "AS-DB05-US-J-2S-019", "AS-DB05-US-J-2S-020",),
@@ -483,15 +538,19 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-J2S-CYCLE": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2S-007",), competing={},
                               argument="RESOLVED in DB-0.5: tap-off, Tier A."),
     "CF-DB05-F1-RATING": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018", "AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003",
-                  "AS-DB05-US-F-1-004"),
-                              argument="UNRESOLVED: three primary sea-level ratings with no established epochs. "
-                                       "The same table's vacuum thrust and sea-level and vacuum Isp are withheld "
-                                       "with it, pending the owner's decision."),
-    "CF-DB05-F1-PC": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-005",),
-                          argument="PARTIALLY_RESOLVED: the manufacturer's 1,125 psia (station unstated) is not "
-                                   "shipped without the owner's decision."),
+        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"),
+        owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004"),
+        owner_accepted=_F1_RATING,
+                              argument="UNRESOLVED: three primary sea-level ratings with no established epochs; "
+                                       "they stay withheld. The same table's vacuum thrust and sea-level and "
+                                       "vacuum Isp are released by the owner's decision for CFG-F1 only."),
+    "CF-DB05-F1-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-005",),
+        owner_accepted=_F1_PC,
+        competing={"SRC-WIKI-F1 70 bar (1,015 psi)": "search result, never opened",
+                   "SRC-PURDUE-F1 982 psi": "search result, never opened"},
+                          argument="PARTIALLY_RESOLVED in DB-0.5: the manufacturer's 1,125 psia (station unstated) "
+                                   "against secondary values that may be nozzle-stagnation figures. Shipped for "
+                                   "CFG-F1 only, station UNKNOWN, by owner decision."),
     "CF-DB05-F1-MASS": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-F-1-007",),
                             argument="UNRESOLVED: 18,616 lb has no printed definition."),

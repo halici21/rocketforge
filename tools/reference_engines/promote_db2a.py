@@ -157,7 +157,7 @@ def load_research(db05: pathlib.Path = DB05) -> Research:
 #: Manifest collections merged across the DB-2A and DB-2B Wave 1 manifests.
 _DICTS = ("SEED_SUBJECTS", "SOURCES", "WITHHELD_SOURCES", "WITHHELD_CONTENT_TERMS", "FIELD_RENAMES",
           "OPERATING_POINT_MAP", "CONFIGURATION_MAP", "CONFIGURATION_SOURCES", "NOT_PROMOTED",
-          "RESEARCH_CONFLICTS", "CARRIER_GENERALISATIONS", "SCHEMATICS", "OWNER_DECISIONS")
+          "RESEARCH_CONFLICTS", "CARRIER_GENERALISATIONS", "SCHEMATICS", "OWNER_DECISIONS", "OWNER_REVIEWS")
 _TUPLES = ("SEED_ENGINES", "ACCOUNTED_ENGINES", "DISPOSITIONS", "FAMILIES", "VARIANTS", "CONFIGURATIONS",
            "OPERATING_POINTS", "UNITS", "ALIASES", "ASSERTIONS", "TOPOLOGIES")
 MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest")
@@ -213,6 +213,11 @@ def source_problems(sid: str, research: Research, manifest) -> list[str]:
     spec = manifest.SOURCES.get(sid)
     if spec is None:
         return out + [f"{sid}: not in the manifest's source list"]
+    reviewers = [k for k, r in getattr(manifest, "OWNER_REVIEWS", {}).items() if sid in r["sources"]]
+    if re.search(r"(?i)owner[- ]reviewed", spec.get("review_note", "")) and not reviewers:
+        out.append(f"{sid}: the rights note says owner-reviewed, but no OWNER_REVIEWS entry lists the source")
+    if reviewers and not re.search(r"(?i)owner[- ]reviewed 2026-10-09", spec.get("review_note", "")):
+        out.append(f"{sid}: listed by OWNER_REVIEWS {reviewers[0]}, but its rights note does not record the review")
     if spec.get("review", "NOT_REVIEWED") != "CONSISTENT":
         out.append(f"{sid}: rights review is {spec.get('review', 'NOT_REVIEWED')}; only a reviewed, "
                    "consistent rights reading ships values")
@@ -523,6 +528,18 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
                     and any(research.assertions[aid]["field_path"].startswith(f) for f in fields)}
         shipped = (matched | on_field) & promoted
         open_ = c["resolution"] in ("PARTIALLY_RESOLVED", "UNRESOLVED")
+        released = set(decision.get("owner_released", ()))
+        if released and not str(decision.get("owner_accepted", "")).strip():
+            out.append(f"{cid}: owner_released needs the owner's recorded decision (owner_accepted)")
+        out += [f"{cid}: owner_released {i} is a claim of the conflict; a claim is withheld or carried, "
+                "never released" for i in sorted(released & matched)]
+        if released:
+            # a value printed with a withheld claim, released for its configuration by the owner
+            places = {(research.assertions[i]["source_id"], research.assertions[i]["locator"])
+                      for i in matched & set(decision.get("withhold", ())) if i in research.assertions}
+            out += [f"{cid}: owner_released {i} is not a promoted assertion printed with a withheld claim"
+                    for i in sorted(released) if i not in promoted or i not in research.assertions
+                    or (research.assertions[i]["source_id"], research.assertions[i]["locator"]) not in places]
         if decision["decision"] == "WITHHOLD":
             out += [f"{cid}: claim assertion {i} is not listed as withheld" for i in sorted(matched - set(decision["withhold"]))]
             out += [f"{cid}: withholds {i}, which is promoted" for i in decision["withhold"] if i in promoted]
@@ -540,6 +557,14 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
                 out.append(f"{cid}: RESOLVED, yet promoted assertions come from more than one competing claim")
         else:
             out.append(f"{cid}: unknown decision {decision['decision']!r}")
+    used = {d.get("owner_accepted") for d in manifest.RESEARCH_CONFLICTS.values()}
+    out += [f"{cid}: OWNER_DECISIONS records a decision no conflict uses"
+            for cid, text in getattr(manifest, "OWNER_DECISIONS", {}).items() if text not in used]
+    for key, review in getattr(manifest, "OWNER_REVIEWS", {}).items():
+        if not str(review.get("decision", "")).startswith("owner ("):
+            out.append(f"OWNER_REVIEWS {key}: not a recorded owner decision")
+        out += [f"OWNER_REVIEWS {key}: {sid} is not a shipped source" for sid in review["sources"]
+                if sid not in manifest.SOURCES or sid in manifest.WITHHELD_SOURCES]
     out += [f"{cid}: decided in the manifest but not a DB-0.5 conflict on a seed engine"
             for cid in manifest.RESEARCH_CONFLICTS if cid not in {c['conflict_id'] for c in seed}]
     return out

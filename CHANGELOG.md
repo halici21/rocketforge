@@ -261,6 +261,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   limited to the recorded ones, and notice reading that recognises an explicit
   "no copyright notice". See
   [docs/engineering/design/DB2B_WAVE1_VERIFIED_HISTORICAL_CORPUS.md](docs/engineering/design/DB2B_WAVE1_VERIFIED_HISTORICAL_CORPUS.md).
+- Reference engine corpus, DB-2B Wave 1 owner decisions (2026-10-09): the F-1
+  "Engine Characteristics" viewgraph defines the source-scoped `CFG-F1`, so its
+  vacuum thrust (1,748,200 lb), sea-level and vacuum Isp (265.4 s, 304.1 s) and
+  chamber pressure (1,125 psia, station unknown) now ship for that
+  configuration only. This is not a canonical flight-rating epoch: the F-1
+  sea-level thrust stays withheld, and the DB-0.5 conflicts are unchanged.
+  The Wave-1 rights readings are recorded as owner-reviewed (a shipping-policy
+  review, not a legal determination; no restriction is lifted), and the DB-2A
+  manifest metadata changes are re-approved with DB-2A's shipped data
+  unchanged. The promotion gates now require a recorded owner decision for a
+  value released from a withheld table, refuse an owner decision no conflict
+  uses, and tie an "owner-reviewed" rights note to a recorded review.
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no
