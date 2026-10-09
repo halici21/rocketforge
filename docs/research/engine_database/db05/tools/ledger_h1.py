@@ -43,6 +43,12 @@ for f, v, val, u in [("feed.fuel_discharge_upstream_orifice_B4", "968 PSIA", 968
                      ("gg.fuel_bootstrap_line", "728 PSIA (fuel bootstrap line)", 728, "psia")]:
     A(H, f, None, v, val, u, {"operating_point": "UNSTATED (nominal, SA-10)"}, SRC, LF, db0=None, status="DIGITISED",
       note="Callout read visually from the viewed mechanical schematic; line assignment by callout position.")
+# DB-2B Wave 1 supplement (2026-10-09): propellants and turbine drive, re-read from
+# SDES-64-415 Vol. VIII text.
+A(H, "propellants.oxidizer", None, "The H-1 engine is a single-start, constant-thrust engine that uses LOX and RP-1 as propellant", "liquid_oxygen", "", {}, SRC, L, db0=None)
+A(H, "propellants.fuel", None, "The H-1 engine is a single-start, constant-thrust engine that uses LOX and RP-1 as propellant", "rp_1", "", {}, SRC, L, db0=None)
+A(H, "architecture.cycle", None, "The liquid propellant gas generator (LPGG) burns RP-1 and LOX to generate the hot gases required to operate the two-stage turbine in the turbopump assembly",
+  "gas_generator", "", {}, SRC, "§1.2.1.4 (PDF p.6)", db0=None)
 
 S("SCH-DB05-H1-SA10-F31", engine_ids=[H], source_id=SRC, locator="SDES-64-415 Vol. VIII, Figure 3-1 'H-1 Engine and Hydraulic System - Mechanical Schematic', p.3.3 (PDF p.32 fold-out)",
   title="H-1 Engine and Hydraulic System - Mechanical Schematic", kind="mechanical (line) schematic with finding numbers B1..B305, valve states and pressure callouts; inboard, outboard and hydraulic panels",

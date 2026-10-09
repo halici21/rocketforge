@@ -33,6 +33,13 @@ A(E, "nozzle.area_ratio", None, "thrust chamber assembly extends to a 6:1 area r
 A(E, "nozzle.extension", None, "radiation cooled and was constructed entirely of columbium", "text", "", {}, EV, "PDF p.12", db0=None)
 A(E, "injector.type", None, "like-on-like pattern composed of eight photo-etched platelets ... acoustic cavities", "text", "", {}, EV, "PDF p.11", db0=None)
 A(E, "thrust_chamber.geometry", None, "distance from the injection plane to the throat is 15.9 inches", 15.9, "in", {}, EV, "PDF p.12", db0=None)
+# DB-2B Wave 1 supplement (2026-10-09): propellants of the current OMS, from the
+# abstract of NTRS 19850008634.
+LA = "NTRS 19850008634 PDF p.1 (abstract)"
+A(E, "propellants.oxidizer", None, "The current OMS consists of two identical pods that use nitrogen tetroxide (NTO) and monomethyl-hydrazine (MMH) propellants",
+  "nitrogen_tetroxide", "", {}, EV, LA, db0=None)
+A(E, "propellants.fuel", None, "The current OMS consists of two identical pods that use nitrogen tetroxide (NTO) and monomethyl-hydrazine (MMH) propellants",
+  "monomethylhydrazine", "", {}, EV, LA, db0=None)
 
 S("SCH-DB05-OMS-WB-F21", engine_ids=[E], source_id=WB, locator="USA006500 Rev. A Figure 2-1 'OMS schematic' p.2-1 (PDF p.16)", title="OMS schematic",
   kind="engine line schematic with valves, cooling jacket and flow arrows", viewed_how="rendered at 140 dpi", legible="all labels and arrows legible")

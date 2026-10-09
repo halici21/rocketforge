@@ -22,8 +22,8 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 | Downloaded, not read this session | 21 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 261 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A supplement transcriptions, below) |
-| Assertions promoted (value as printed + locator) | 259 | 230 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertion records | 284 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1 and 10 review supplement transcriptions, below) |
+| Assertions promoted (value as printed + locator) | 282 | 253 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
 | Schematics actually viewed | 15 | `schematics_viewed.json` |
@@ -50,6 +50,29 @@ in the same Pratt & Whitney "RL10A-3-3A ENGINE" table as the thrust and Isp
 TN D-7375 (Block I). They are ordinary ledger entries
 (`ledger_j2.py`, `ledger_rl10.py`, `ledger_sps.py`), REPORTED, with locators.
 DB-0.5 stays PARTIAL.
+
+**DB-2B Wave 1 supplement (2026-10-09).** Expanding the production corpus
+(`docs/engineering/design/DB2B_WAVE1_VERIFIED_HISTORICAL_CORPUS.md`) re-read four
+documents already opened here and transcribed thirteen statements: the
+'Description' block of the J-2S viewgraph (feed, propellants, chamber cooling;
+NTRS 19940016798 PDF p.9), the 'F-1 Engine Basic Features' viewgraph (feed,
+propellants, gas-generator turbine drive; NTRS 20100027316 PDF p.16), the
+propellants and liquid gas generator of the SA-10 H-1 (SDES-64-415 Vol. VIII
+PDF pp.5-6), and the propellants of the current OMS (abstract of NTRS
+19850008634). They are ordinary ledger entries (`ledger_j2.py`, `ledger_f1.py`,
+`ledger_h1.py`, `ledger_oms.py`), REPORTED, with locators. DB-0.5 stays PARTIAL.
+
+**Review supplement (2026-10-09).** The independent review of DB-2B Wave 1 found
+that production graphs cited text passages no ledger entry recorded. Ten
+passages, all from documents already read, were transcribed so that every
+cited text basis is a ledger entry: five from Coffman (the J-2 start tank,
+the heat exchanger for oxygen tank pressurization, the augmented spark igniter,
+the gas generator driving the turbomachinery, the turbine exhaust dumped at the
+2:1 tube split),
+four from Biggs (the single turbine driving both pumps, the fuel path through
+the chamber tubes, the hypergol cartridge, the igniter fuel valve) and the
+'bolt-on aluminum injector' of the TN D-7375 Block I engine assembly. DB-0.5
+stays PARTIAL.
 
 ## Anchors
 

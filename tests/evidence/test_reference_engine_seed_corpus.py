@@ -53,6 +53,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 SHIPPED = ROOT / "rocketforge" / "data" / "evidence" / "engines" / "reference_engines.json"
 DB05 = ROOT / "docs" / "research" / "engine_database" / "db05"
 SEEDS = {"CFG-J2-230K", "CFG-RL10A-3-3A", "CFG-SPS-BLOCK-I"}
+#: The five DB-2A sources. DB-2B Wave 1 adds others; the production boundary is
+#: tested in test_reference_engine_wave1.py.
+SEED_SOURCES = {"SRC-NTRS-20100027318", "SRC-NTRS-19950022693", "SRC-NTRS-19910018888",
+                "SRC-NASA-TND7375", "SRC-NTRS-20100027319"}
+SEED_SCHEMATICS = {"SCH-DB05-J2-COFFMAN-S4", "SCH-DB05-RL10A33A-CR195478-F1", "SCH-DB05-SPS-TND7375-F2"}
 DB05_ENGINE = {"TOPO-J2-230K": "ENG-US-J-2", "TOPO-RL10A-3-3A": "ENG-US-RL10A-3-3A",
                "TOPO-SPS-BLOCK-I": "ENG-US-AJ10-137"}
 
@@ -85,20 +90,11 @@ def status(corpus, cfg, capability):
 # ------------------------------------------------------------------ the boundary
 
 
-def test_exactly_the_three_seed_configurations_ship(corpus):
-    assert {c.configuration_id for c in corpus.configurations} == SEEDS
-    assert {v.designation for v in corpus.variants} == {"J-2", "RL10A-3-3A", "AJ10-137"}
-    assert len(corpus.families) == 3 and len(corpus.operating_points) == 3
-
-
-@pytest.mark.parametrize("name", ["RS-25", "SSME", "F-1", "H-1", "J-2S", "OMS", "AJ10-190", "LMDE", "RD-170",
-                                  "RL10A-4-2", "RL10B-2", "Rutherford", "LR87", "RS-68"])
-def test_no_other_engine_is_migrated(corpus, name):
-    names = [v.designation for v in corpus.variants] + [x.label for x in corpus.configurations]
-    names += [x.name for x in corpus.families] + [x.name for x in corpus.aliases]
-    assert not any(name.lower() == n.lower() or n.lower().startswith(name.lower() + " ") for n in names)
-    assert not any(name.replace("-", "").upper() in aid.replace("-", "") for aid in corpus.assertion_map
-                   if not aid.startswith(("AS-DB05-US-J-2-", "AS-DB05-US-RL10A-3-3A-", "AS-DB05-US-AJ10-137-")))
+def test_the_three_seed_configurations_ship(corpus):
+    assert SEEDS <= {c.configuration_id for c in corpus.configurations}
+    assert {"J-2", "RL10A-3-3A", "AJ10-137"} <= {v.designation for v in corpus.variants}
+    seed_points = [p for p in corpus.operating_points if p.configuration_id in SEEDS]
+    assert len(seed_points) == 3
 
 
 def test_the_shipped_file_is_canonical(corpus):
@@ -129,10 +125,8 @@ def test_every_assertion_is_its_db05_assertion_verbatim(corpus, db05):
 
 
 def test_sources_are_opened_rights_settled_and_hash_matched(corpus, db05):
-    assert {s.source_id for s in corpus.sources} == {
-        "SRC-NTRS-20100027318", "SRC-NTRS-19950022693", "SRC-NTRS-19910018888",
-        "SRC-NASA-TND7375", "SRC-NTRS-20100027319"}
-    for s in corpus.sources:
+    assert SEED_SOURCES <= {s.source_id for s in corpus.sources}
+    for s in (s for s in corpus.sources if s.source_id in SEED_SOURCES):
         doc = db05["documents"][s.source_id]
         assert s.access is SourceAccess.OPENED and s.content_sha256 == doc["sha256"]
         assert s.rights.values is ShippingPolicy.VALUES_WITH_ATTRIBUTION
@@ -297,7 +291,7 @@ def test_the_rl10_drawing_is_a_contractors_not_the_manufacturers(corpus):
 
 
 def test_owner_rights_acceptance_upgrades_no_policy(corpus):
-    for s in corpus.sources:
+    for s in (s for s in corpus.sources if s.source_id in SEED_SOURCES):
         assert "Owner-reviewed 2026-10-09" in s.rights.review_note
         assert s.rights.values is ShippingPolicy.VALUES_WITH_ATTRIBUTION
         assert s.rights.tables is ShippingPolicy.RIGHTS_REVIEW_REQUIRED
@@ -307,7 +301,7 @@ def test_owner_rights_acceptance_upgrades_no_policy(corpus):
 
 
 def test_schematics_are_original_drawings_of_named_provenance(corpus):
-    assert {s.schematic_id: s.provenance for s in corpus.schematics} == {
+    assert {s.schematic_id: s.provenance for s in corpus.schematics if s.schematic_id in SEED_SCHEMATICS} == {
         "SCH-DB05-J2-COFFMAN-S4": SchematicProvenance.ORIGINAL_MANUFACTURER,
         "SCH-DB05-RL10A33A-CR195478-F1": SchematicProvenance.ORIGINAL_CONTRACTOR,
         "SCH-DB05-SPS-TND7375-F2": SchematicProvenance.ORIGINAL_AGENCY}

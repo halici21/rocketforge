@@ -47,6 +47,21 @@ A(F1, "pressurization.heat_exchanger", None, "The heat exchanger expands lox and
 A(F1, "control.valve_count", None, "two main fuel valves per engine ... two main lox valves on each engine", "2+2", "valves", {}, "SRC-DB05-NTRS-19750063889", "MSFC-MAN-503 p.4-5", db0=None)
 A(F1, "ignition_start.hypergol", None, "The IFV prevents thrust chamber ignition until the turbopump pressure has reached 375 psi", 375, "psi", {}, "SRC-DB05-NTRS-19750063889",
   "MSFC-MAN-503 p.4-4 'Hypergol Manifold'", db0=None)
+# DB-2B Wave 1 supplement (2026-10-09): the 'F-1 Engine Basic Features' viewgraph
+# (NTRS 20100027316 PDF p.16), re-read from the rendered page.
+A(F1, "architecture.feed", None, "Pump-fed, liquid-propellant rocket engine", "pump_fed", "", {}, "SRC-DB05-NTRS-20100027316", LF, db0=None)
+A(F1, "propellants.oxidizer", None, "Propellants: Liquid oxygen (LOX) and RP-1", "liquid_oxygen", "", {}, "SRC-DB05-NTRS-20100027316", LF, db0=None)
+A(F1, "propellants.fuel", None, "Propellants: Liquid oxygen (LOX) and RP-1", "rp_1", "", {}, "SRC-DB05-NTRS-20100027316", LF, db0=None)
+A(F1, "architecture.cycle", None, "Turbine drive power from gas generator Burning main propellants", "gas_generator", "", {}, "SRC-DB05-NTRS-20100027316", LF, db0=None)
+# Review supplement (2026-10-09): Biggs passages the production F-1 graph cites
+# as its text basis.
+A(F1, "turbines.drive", None, "It took the single turbine to run the two pumps", "text", "", {}, "SRC-DB05-NTRS-20100027316", "text PDF p.4 (book p.20)", db0=None)
+A(F1, "cooling.fuel_path", None, "The fuel for the thrust chamber went into the middle manifold, then went down the tubes to cool the tubes. It went down half the tubes, then back through the other half of the tubes to another manifold",
+  "text", "", {}, "SRC-DB05-NTRS-20100027316", "text PDF p.5 (book p.21)", db0=None)
+A(F1, "ignition_start.hypergol_cartridge", None, "The hypergol cartridge in the middle of the control system held a fluid that would automatically ignite as it got into the chamber",
+  "text", "", {}, "SRC-DB05-NTRS-20100027316", "text PDF p.5 (book p.21)", db0=None)
+A(F1, "ignition_start.sequence", None, "the igniter fuel valve would open, allowing the fuel to go into the chamber and start the thrust chamber ignition",
+  "text", "", {}, "SRC-DB05-NTRS-20100027316", "text PDF p.5 (book p.21)", db0=None)
 
 S("SCH-DB05-F1-BIGGS-SCHEM", engine_ids=[F1], source_id="SRC-DB05-NTRS-20100027316", locator="PDF p.17, Appendix C slide 'F-1 Engine Schematic'",
   title="F-1 Engine Schematic", kind="pictorial flow schematic, colour legend Fuel/Oxidizer/Hot Gas, flow arrows",

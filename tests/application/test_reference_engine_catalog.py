@@ -31,9 +31,10 @@ def catalog():
     return load_reference_engines()
 
 
-def test_the_catalog_lists_the_three_seeds(catalog):
+def test_the_catalog_lists_every_shipped_configuration(catalog):
     entries = catalog.entries()
-    assert [e.configuration_id for e in entries] == ["CFG-J2-230K", "CFG-RL10A-3-3A", "CFG-SPS-BLOCK-I"]
+    assert [e.configuration_id for e in entries] == sorted(c.configuration_id for c in catalog.corpus.configurations)
+    assert {"CFG-J2-230K", "CFG-RL10A-3-3A", "CFG-SPS-BLOCK-I"} <= {e.configuration_id for e in entries}
     j2 = catalog.entry("CFG-J2-230K")
     assert (j2.designation, j2.family_name) == ("J-2", "J-2")
     assert [p.operating_point_id for p in j2.operating_points] == ["OP-J2-230K-MR55"]
@@ -41,10 +42,13 @@ def test_the_catalog_lists_the_three_seeds(catalog):
 
 
 def test_names_find_exactly_what_is_recorded(catalog):
-    assert [e.configuration_id for e in catalog.find("J-2")] == ["CFG-J2-230K"]
+    assert [e.configuration_id for e in catalog.find("J-2")] == ["CFG-J2-230K", "CFG-J2S"]  # the J-2 family
+    assert [e.configuration_id for e in catalog.find("J-2S")] == ["CFG-J2S"]
     assert [e.configuration_id for e in catalog.find("sps engine")] == ["CFG-SPS-BLOCK-I"]
     assert [e.configuration_id for e in catalog.find("RL10")] == ["CFG-RL10A-3-3A"]
-    assert catalog.find("J-2S") == () and catalog.find("RS-25") == () and catalog.find("J2") == ()
+    assert catalog.find("RD-170") == () and catalog.find("J2") == () and catalog.find("AJ10-190") == ()
+    assert [e.configuration_id for e in catalog.find("SSME")] == [
+        "CFG-RS25-BLOCK-II", "CFG-RS25-SLS", "CFG-RS25-SMALL-THROAT"]
 
 
 def test_own_statements_and_context_are_kept_apart(catalog):
@@ -114,7 +118,7 @@ def test_loading_needs_no_network(monkeypatch):
         raise AssertionError("the catalog opened a network connection")
     monkeypatch.setattr(socket, "socket", refuse)
     monkeypatch.setattr(socket, "create_connection", refuse)
-    assert len(load_reference_engines().entries()) == 3
+    assert len(load_reference_engines().entries()) == 11
 
 
 def test_a_file_that_breaks_a_shipping_rule_is_refused_not_trimmed(tmp_path):

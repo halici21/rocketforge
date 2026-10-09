@@ -100,7 +100,8 @@ WITHHELD_SOURCES = {
         locator_tokens=("MSFC", "19750063889", "Saturn V Flight Manual", "SA-503")),
     "SRC-NTRS-20120016414": dict(
         reason="J-2X paper: its J-2 column names no rating or configuration; not needed",
-        locator_tokens=("20120016414", "J-2X", "System Engineering and Technical Challenges")),
+        locator_tokens=("20120016414", "J-2X", "System Engineering and Technical Challenges"),
+        rights=False),
 }
 
 #: Words that would carry withheld content (what only MSFC-MAN-503 says about the
@@ -306,6 +307,12 @@ CONFIGURATION_MAP = {
 
 #: Every DB-0.5 assertion of a seed engine that is NOT promoted, and why.
 NOT_PROMOTED = {
+    "AS-DB05-US-J-2-030": "recorded as the text basis of the J-2 graph's start tank; not shipped as a value",
+    "AS-DB05-US-J-2-031": "recorded as the text basis of the J-2 graph's heat exchanger; not shipped as a value",
+    "AS-DB05-US-J-2-032": "recorded as the text basis of the J-2 graph's igniter; not shipped as a value",
+    "AS-DB05-US-J-2-033": "recorded as the text basis of the J-2 graph's gas generator; not shipped as a value",
+    "AS-DB05-US-J-2-034": "recorded as the text basis of the J-2 graph's nozzle exhaust dump; not shipped as a value",
+    "AS-DB05-US-AJ10-137-024": "recorded as the text basis of the SPS graph's injector; not shipped as a value",
     "AS-DB05-US-J-2-008": "the 4.5:1 alternate mixture ratio is another operating point, not seeded",
     "AS-DB05-US-J-2-013": "programme history (production count), not an engine property",
     "AS-DB05-US-J-2-014": "the 225,000 lb version is another configuration, not seeded",
@@ -395,6 +402,16 @@ RESEARCH_CONFLICTS = {
                  "Block I section and Aerojet states no configuration; Aerojet's values stay unpromoted."),
 }
 
+#: The owner's recorded decisions. An ``owner_accepted`` in any manifest must
+#: equal the entry here; the promotion refuses any other.
+OWNER_DECISIONS = {
+    "CF-DB05-J2-THRUST": ("owner (Cemil Eray), 2026-10-09: accept the thrust re-scoping for the DB-2A 230,000 lbf / MR 5.5 "
+                       "configuration only. The research conflict stays as recorded in DB-0.5."),
+    "CF-DB05-SPS-THRUST": ("owner (Cemil Eray), 2026-10-09: accept the Block I re-scoping; ship 21,500 lbf vacuum thrust, 102 psia "
+                       "and 309 s for Block I only, never for Block II or the SPS family. The research "
+                       "conflict stays as recorded in DB-0.5."),
+}
+
 # ------------------------------------------------------------------ schematics and topology
 
 #: The only carrier changes a restatement may make, and why.
@@ -419,6 +436,10 @@ SCHEMATICS = {
 }
 
 _MSFC = "MSFC-MAN-503 is withheld (rights conflict unresolved)"
+_S = "AS-DB05-US-AJ10-137-0"
+#: The TN D-7375 transcriptions each restated SPS engine element rests on.
+_SPS_BASIS = {"N-BIPROP": (_S + "08",), "N-INJ": (_S + "24",), "N-TC": (_S + "05",), "N-NOZ": (_S + "05", _S + "04"),
+              "N-AMB": (_S + "05",)}
 _C2 = "NTRS 20100027318 slide J2-4; NTRS 20100027318 text p.2"  # both parts are DB-0.5 graph locators
 
 #: One entry per seed graph. Node ids, component types, ownership, edge order
@@ -442,37 +463,37 @@ TOPOLOGIES = (
              26: "turbine-to-pump drive of each turbopump: shaft or gear not stated in the sources used",
              27: "one drive relation known only from a rights-withheld source (not recorded)"},
          restate_nodes={
-             "N-OTP-P": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'The oxidizer turbopump was a fairly conventional centrifugal device'"),
-             "N-FTP-P": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'The fuel turbopump was an axial machine'"),
-             "N-OTP-T": dict(locator=_C2, reason=f"{_MSFC}; slide draws the turbopump's hot-gas inlet, text p.2 gives the series turbines"),
-             "N-FTP-T": dict(locator=_C2, reason=f"{_MSFC}; slide draws the turbopump's hot-gas inlet, text p.2 gives the series turbines"),
+             "N-OTP-P": dict(text_basis=("AS-DB05-US-J-2-010",), locator=_C2, reason="text basis restated: Coffman text p.2 'The oxidizer turbopump was a fairly conventional centrifugal device'"),
+             "N-FTP-P": dict(text_basis=("AS-DB05-US-J-2-009",), locator=_C2, reason="text basis restated: Coffman text p.2 'The fuel turbopump was an axial machine'"),
+             "N-OTP-T": dict(text_basis=("AS-DB05-US-J-2-011",), locator=_C2, reason=f"{_MSFC}; slide draws the turbopump's hot-gas inlet, text p.2 gives the series turbines"),
+             "N-FTP-T": dict(text_basis=("AS-DB05-US-J-2-011",), locator=_C2, reason=f"{_MSFC}; slide draws the turbopump's hot-gas inlet, text p.2 gives the series turbines"),
              "N-MRCV": dict(evidence="SHOWN_IN_SCHEMATIC", locator="NTRS 20100027318 slide J2-4",
                             label="Mixture ratio control valve",
                             reason="no Coffman text describes it; the text basis and the label's '(PU valve)' "
                                    "came from MSFC-MAN-503 (withheld); label reduced to the slide's own words"),
-             "N-GG": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'The gas generator drove the turbomachinery'"),
-             "N-OTBV": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'with a bypass for calibration'"),
-             "N-HEX": dict(locator=_C2, label="Heat exchanger",
+             "N-GG": dict(locator=_C2, text_basis=("AS-DB05-US-J-2-033",), reason="text basis restated: Coffman text p.2 'The gas generator drove the turbomachinery'"),
+             "N-OTBV": dict(text_basis=("AS-DB05-US-J-2-011",), locator=_C2, reason="text basis restated: Coffman text p.2 'with a bypass for calibration'"),
+             "N-HEX": dict(locator=_C2, text_basis=("AS-DB05-US-J-2-031",), label="Heat exchanger",
                            reason=f"{_MSFC}; label reduced to the slide's 'Heat Exchanger' (its location in the oxidizer turbine exhaust duct was MSFC's); text p.2 'a heat exchanger to heat up oxygen for tank pressurization'"),
-             "N-STANK": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'this start tank that would discharge cold hydrogen through the two turbines'"),
-             "N-TC-COOL": dict(locator=_C2, reason=f"{_MSFC}; slide draws the tubular chamber, text p.2 'a fully tubular thrust chamber'"),
-             "N-NOZ-DUMP": dict(locator="NTRS 20100027318 text p.2", reason=f"{_MSFC}; text p.2 'used the opening at the 2:1 split to dump the hot gas into the nozzle'"),
-             "N-LOX-TANK-PRESS": dict(locator=_C2, reason="text basis restated: Coffman text p.2 'heat up oxygen for tank pressurization'"),
+             "N-STANK": dict(text_basis=("AS-DB05-US-J-2-030",), locator=_C2, reason="text basis restated: Coffman text p.2 'this start tank that would discharge cold hydrogen through the two turbines'"),
+             "N-TC-COOL": dict(locator=_C2, text_basis=("AS-DB05-US-J-2-012",), reason=f"{_MSFC}; slide draws the tubular chamber, text p.2 'a fully tubular thrust chamber'"),
+             "N-NOZ-DUMP": dict(text_basis=("AS-DB05-US-J-2-011", "AS-DB05-US-J-2-034"), locator="NTRS 20100027318 text p.2", reason=f"{_MSFC}; text p.2 'used the opening at the 2:1 split to dump the hot gas into the nozzle'"),
+             "N-LOX-TANK-PRESS": dict(text_basis=("AS-DB05-US-J-2-031",), locator=_C2, reason="text basis restated: Coffman text p.2 'heat up oxygen for tank pressurization'"),
              "N-LH2-TANK-PRESS": dict(evidence="SHOWN_IN_SCHEMATIC", locator="NTRS 20100027318 slide J2-4",
                                       reason="no Coffman text describes it; the text basis was MSFC-MAN-503 (withheld)"),
-             "N-ASI": dict(locator="NTRS 20100027318 text p.4", reason=f"{_MSFC}; text p.4 'ignited by an augmented spark igniter'"),
+             "N-ASI": dict(text_basis=("AS-DB05-US-J-2-032",), locator="NTRS 20100027318 text p.4", reason=f"{_MSFC}; text p.4 'ignited by an augmented spark igniter'"),
          },
          restate_edges={
-             7: dict(locator=_C2, reason=f"{_MSFC}; text p.2 'a heat exchanger to heat up oxygen for tank pressurization'"),
-             8: dict(locator=_C2, reason=f"{_MSFC}; text p.2 'a heat exchanger to heat up oxygen for tank pressurization'"),
+             7: dict(locator=_C2, text_basis=("AS-DB05-US-J-2-031",), reason=f"{_MSFC}; text p.2 'a heat exchanger to heat up oxygen for tank pressurization'"),
+             8: dict(locator=_C2, text_basis=("AS-DB05-US-J-2-031",), reason=f"{_MSFC}; text p.2 'a heat exchanger to heat up oxygen for tank pressurization'"),
              13: dict(evidence="SHOWN_IN_SCHEMATIC", locator="NTRS 20100027318 slide J2-4",
                       role="tap", removes=(" from thrust chamber fuel manifold",),
                       reason=f"{_MSFC}; the 'thrust chamber fuel manifold' wording was MSFC's"),
-             15: dict(locator=_C2, role="spin start through series turbine drive",
+             15: dict(locator=_C2, text_basis=("AS-DB05-US-J-2-030",), role="spin start through series turbine drive",
                       removes=(" (via STDV)",),
                       reason=f"{_MSFC} (the STDV is named there); text p.2 'this start tank that would discharge cold hydrogen through the two turbines'"),
-             18: dict(locator=_C2, reason=f"{_MSFC}; text p.2 'with a bypass for calibration'"),
-             19: dict(locator=_C2, reason=f"{_MSFC}; text p.2 gives the hot-gas path through the heat exchanger before the dump"),
+             18: dict(locator=_C2, text_basis=("AS-DB05-US-J-2-011",), reason=f"{_MSFC}; text p.2 'with a bypass for calibration'"),
+             19: dict(locator=_C2, text_basis=("AS-DB05-US-J-2-011",), reason=f"{_MSFC}; text p.2 gives the hot-gas path through the heat exchanger before the dump"),
          },
          extra_omissions=(),
          notes="Rests on Rocketdyne's viewgraph and Coffman's text only. MSFC-MAN-503, which DB-0.5 also "
@@ -492,7 +513,7 @@ TOPOLOGIES = (
          label="Apollo SPS Block I: service-module pressurization and feed with the engine assembly",
          schematic_ids=("SCH-DB05-SPS-TND7375-F2",), text_source_ids=("SRC-NASA-TND7375",),
          withhold_nodes={}, withhold_edges={},
-         restate_nodes={**{n: dict(locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+         restate_nodes={**{n: dict(text_basis=_SPS_BASIS[n], locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
                                    reason="page range narrowed to the Block I engine-assembly paragraph, which "
                                           "names the ablative-cooled thrust chamber, radiation-cooled nozzle, "
                                           "bolt-on aluminum injector and bipropellant valve")
@@ -505,11 +526,11 @@ TOPOLOGIES = (
                                             "chapter, which states no configuration"),
              11: dict(carrier="fuel", reason="TN D-7375 does not name the fuel; 'A-50' came from the Aerojet "
                                              "chapter, which states no configuration"),
-             12: dict(carrier="N2O4 + fuel", locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
+             12: dict(text_basis=(_S + "08",), carrier="N2O4 + fuel", locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)",
                       reason="TN D-7375 does not name the fuel; page range narrowed"),
-             13: dict(locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
-             14: dict(locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
-             15: dict(locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
+             13: dict(text_basis=(_S + "07",), locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
+             14: dict(text_basis=(_S + "05",), locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
+             15: dict(text_basis=(_S + "05",), locator="TN D-7375 p.5 'Block I Configuration - Engine assembly' (PDF p.9)", reason="page range narrowed"),
          },
          extra_omissions=(),
          notes="Feed and pressurization belong to the service module (vehicle); the engine owns the "

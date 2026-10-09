@@ -245,6 +245,22 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 
   See
   [docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md](docs/engineering/design/DB2A_VERIFIED_REFERENCE_ENGINE_SEED_CORPUS.md).
+- Reference engine corpus, DB-2B Wave 1: the curated, verified reference
+  corpus grows from 3 to 11 engine configurations: J-2S, F-1, H-1 188K
+  (Saturn I SA-10), the LM descent engine (final design), the Space Shuttle
+  OMS engine, and three RS-25 builds (original-throat baseline, Block II as of
+  2003, SLS-adapted). It is not comprehensive coverage, and most new records
+  are deliberately sparse: values in open research conflicts, values from
+  documents with restrictive notices (Boeing-proprietary, copyrighted
+  workbooks and spec sheets) and values a source states for another build are
+  not shipped, and nothing missing is filled in. RS-25 Block IIA ships no
+  configuration (rights). The promotion tool merges the DB-2A and Wave 1
+  manifests into one corpus and adds gates: field-level conflict coverage,
+  per-configuration sources, disposition accounting, graph scope and
+  provenance, recorded text bases for restated graph elements, owner decisions
+  limited to the recorded ones, and notice reading that recognises an explicit
+  "no copyright notice". See
+  [docs/engineering/design/DB2B_WAVE1_VERIFIED_HISTORICAL_CORPUS.md](docs/engineering/design/DB2B_WAVE1_VERIFIED_HISTORICAL_CORPUS.md).
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

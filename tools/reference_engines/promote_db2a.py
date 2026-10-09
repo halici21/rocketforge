@@ -1,4 +1,8 @@
-"""Build the DB-2A seed corpus from DB-0.5 research, entry by entry, through the promotion gates.
+"""Build the reference-engine corpus from DB-0.5 research, entry by entry, through the promotion gates.
+
+The corpus is one file built from the DB-2A seed manifest (``db2a_manifest.py``)
+and the DB-2B Wave 1 manifest (``db2b_wave1_manifest.py``), merged; every gate
+applies to both.
 
 Usage (from the repository root)::
 
@@ -6,7 +10,7 @@ Usage (from the repository root)::
     python tools/reference_engines/promote_db2a.py --check  # exit 1 if it would change
 
 This is a build-time tool. It reads ``docs/research/engine_database/db05`` and
-``db2a_manifest.py`` and writes ``rocketforge/data/evidence/engines/
+the manifests and writes ``rocketforge/data/evidence/engines/
 reference_engines.json``. RocketForge never runs it and never reads research
 files: the shipped JSON is the only thing the application loads.
 
@@ -21,6 +25,7 @@ import json
 import pathlib
 import re
 import sys
+import types
 from dataclasses import dataclass
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -110,6 +115,8 @@ COMPONENT_TYPES = {
     "pump": ComponentType.PUMP, "regulator": ComponentType.REGULATOR, "tank": ComponentType.TANK,
     "tank_pressurization_port": ComponentType.INTERFACE_PORT, "turbine": ComponentType.TURBINE,
     "valve": ComponentType.VALVE, "venturi": ComponentType.VENTURI,
+    "start_cartridge": ComponentType.START_ENERGY_STORE, "lubricant_blender": ComponentType.OTHER,
+    "actuator": ComponentType.ACTUATOR, "actuator_supply": ComponentType.ACTUATOR,
 }
 OWNERS = {"engine": Ownership.ENGINE, "stage": Ownership.STAGE, "vehicle": Ownership.VEHICLE,
           "ambient": Ownership.AMBIENT}
@@ -122,7 +129,7 @@ class PromotionError(Exception):
 
     def __init__(self, problems):
         self.problems = tuple(problems)
-        super().__init__("DB-2A promotion refused:\n  " + "\n  ".join(self.problems))
+        super().__init__("reference-engine promotion refused:\n  " + "\n  ".join(self.problems))
 
 
 @dataclass(frozen=True)
@@ -147,10 +154,38 @@ def load_research(db05: pathlib.Path = DB05) -> Research:
                     for p in sorted((db05 / "topology").glob("*.json"))})
 
 
+#: Manifest collections merged across the DB-2A and DB-2B Wave 1 manifests.
+_DICTS = ("SEED_SUBJECTS", "SOURCES", "WITHHELD_SOURCES", "WITHHELD_CONTENT_TERMS", "FIELD_RENAMES",
+          "OPERATING_POINT_MAP", "CONFIGURATION_MAP", "CONFIGURATION_SOURCES", "NOT_PROMOTED",
+          "RESEARCH_CONFLICTS", "CARRIER_GENERALISATIONS", "SCHEMATICS", "OWNER_DECISIONS")
+_TUPLES = ("SEED_ENGINES", "ACCOUNTED_ENGINES", "DISPOSITIONS", "FAMILIES", "VARIANTS", "CONFIGURATIONS",
+           "OPERATING_POINTS", "UNITS", "ALIASES", "ASSERTIONS", "TOPOLOGIES")
+MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest")
+
+
+def merge_manifests(*modules) -> types.SimpleNamespace:
+    """One manifest from several. A key defined twice must be defined identically."""
+    out: dict = {k: {} for k in _DICTS} | {k: () for k in _TUPLES}
+    problems = []
+    for mod in modules:
+        for k in _DICTS:
+            for key, val in getattr(mod, k, {}).items():
+                if key in out[k] and out[k][key] != val:
+                    problems.append(f"manifest {k}: {key!r} is defined twice, differently")
+                out[k][key] = val
+        for k in _TUPLES:
+            out[k] += tuple(x for x in getattr(mod, k, ()) if not (k == "DISPOSITIONS" and x in out[k]))
+    if problems:
+        raise PromotionError(problems)
+    return types.SimpleNamespace(**out)
+
+
 def load_manifest():
-    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-    import db2a_manifest
-    return db2a_manifest
+    here = str(pathlib.Path(__file__).resolve().parent)
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import importlib
+    return merge_manifests(*(importlib.import_module(name) for name in MANIFESTS))
 
 
 def _subject(ref: str) -> SubjectRef:
@@ -183,14 +218,36 @@ def source_problems(sid: str, research: Research, manifest) -> list[str]:
                    "consistent rights reading ships values")
     if doc.get("rights_values") not in SHIPPABLE_DB05_RIGHTS:
         out.append(f"{sid}: DB-0.5 values rights {doc.get('rights_values')}")
-    if doc.get("ntrs_copyright_determination") != spec["host"]:
-        out.append(f"{sid}: host statement {spec['host']!r} is not what NTRS returned "
-                   f"({doc.get('ntrs_copyright_determination')!r})")
-    if spec["host"] not in PUBLIC_USE:
-        out.append(f"{sid}: host statement {spec['host']} does not permit public use")
-    if re.search(r"(?i)not permitted|reproduction|copyright|proprietary", doc.get("rights_statement_checked", "")):
+    if spec["host"] == "NONE":
+        if doc.get("ntrs_copyright_determination") is not None:
+            out.append(f"{sid}: NTRS returned {doc['ntrs_copyright_determination']!r}; the manifest must record it")
+    else:
+        if doc.get("ntrs_copyright_determination") != spec["host"]:
+            out.append(f"{sid}: host statement {spec['host']!r} is not what NTRS returned "
+                       f"({doc.get('ntrs_copyright_determination')!r})")
+        if spec["host"] not in PUBLIC_USE:
+            out.append(f"{sid}: host statement {spec['host']} does not permit public use")
+    if restrictive_notice(doc.get("rights_statement_checked", "")):
         out.append(f"{sid}: DB-0.5 recorded a restrictive printed notice: {doc['rights_statement_checked']}")
     return out
+
+
+#: Words of a printed notice that reserves rights or forbids reuse.
+_RESTRICTIVE = re.compile(r"(?i)not permitted|reproduction|copyright|proprietary|all (other )?rights (are )?reserved"
+                          r"|\(c\)|\u00a9")
+
+
+def restrictive_notice(statement: str) -> bool:
+    """Whether a DB-0.5 rights statement records a restrictive printed notice.
+
+    Only the explicit finding 'no copyright notice ...' is set aside; any other
+    mention of copyright, reservation, proprietary marking or a reproduction
+    restriction counts.
+    """
+    cleared, n = re.subn(r"(?i)\bno copyright notice(?: on (?:the )?(?:cover|pages read))?", "", statement or "")
+    if n and re.search(r"(?i)\b(but|except|although|however|yet)\b", cleared):
+        return True  # a finding of "no notice" qualified by an exception is not a clean finding
+    return bool(_RESTRICTIVE.search(cleared))
 
 
 def _db05_number(record) -> float | None:
@@ -302,9 +359,15 @@ _KIND_WORDS = {"AVERAGE": r"\baverage\b", "MAXIMUM": r"\bmaximum\b", "MINIMUM": 
 
 
 def _kind_problems(aid, entry, record) -> list[str]:
-    kind, printed = entry["value_kind"], record["value_as_printed"]
-    label = str(record["conditions"].get("label", ""))
-    if _LIMIT_WORDS.search(printed) and kind != "LIMIT":
+    kind = entry["value_kind"]
+    # a word inside a compound modifier ("maximum-rated thrust", "minimum-throttle point")
+    # describes the other noun, not this value
+    printed = re.sub(r"\b\w+(?:-\w+)+\b", " ", record["value_as_printed"])
+    label = re.sub(r"\b\w+(?:-\w+)+\b", " ", f"{record['conditions'].get('label', '')} {record['locator']}")
+    if (re.search(r"(?i)\brequirements?\b", f"{record['value_as_printed']} {record['locator']}")
+            and entry["value"][0] == "number" and kind != "DESIGN_VALUE"):
+        return [f"{aid}: printed as a design requirement; promoted as {kind}, not DESIGN_VALUE"]
+    if _LIMIT_WORDS.search(record["value_as_printed"]) and kind != "LIMIT":
         return [f"{aid}: printed as a limit; promoted as {kind}, which is an operating value"]
     if kind in _KIND_WORDS and not re.search(_KIND_WORDS[kind], f"{printed} {label}", re.I) and not entry["reading"]:
         return [f"{aid}: value kind {kind} is not what the source prints; say how it was read (reading)"]
@@ -337,6 +400,20 @@ def _value_problems(aid, entry, record) -> list[str]:
     return [f"{aid}: unknown value kind {kind!r}"]
 
 
+#: DB-0.5 fields that describe a build, not a family or a variant in general.
+_BUILD_FIELDS = ("performance.", "nozzle.", "propellants.mixture_ratio", "mechanical.mass")
+#: DB-0.5 fields a propulsion unit (stage-level hardware) may carry.
+_UNIT_FIELDS = ("pressurization.", "feed.", "tanks.")
+
+
+#: (source, locator) of each DB-0.5 assertion, set by build_corpus for the scope gate.
+_LOCATORS: dict[str, tuple[str, str]] = {}
+
+
+def research_locator(aid: str) -> tuple[str, str] | None:
+    return _LOCATORS.get(aid)
+
+
 def _scope_problems(aid, entry, record, manifest) -> list[str]:
     out, engine = [], record["engine_id"]
     subject = _subject(entry["subject"])
@@ -354,6 +431,27 @@ def _scope_problems(aid, entry, record, manifest) -> list[str]:
                    "needs a basis (op_basis) citing the assertion that puts it there")
     if entry["operating_point"] is not None and subject.kind is not SubjectKind.CONFIGURATION:
         out.append(f"{aid}: an operating point belongs to a configuration subject")
+    if subject.kind in (SubjectKind.FAMILY, SubjectKind.VARIANT):
+        requirement = entry["value_kind"] == "DESIGN_VALUE"  # a programme requirement belongs above any build
+        build_value = record["field_path"].startswith(_BUILD_FIELDS) or op is not None or configured is not None
+        if build_value and not requirement:
+            out.append(f"{aid}: a performance, geometry or mass value, or one printed for a build or point, is "
+                       f"not filed on {subject.kind.value.lower()} {subject.id}")
+        same_table = [e["db05_id"] for e in manifest.ASSERTIONS
+                      if e["db05_id"] != aid and e["subject"].startswith("CFG-")
+                      and research_locator(e["db05_id"]) == (record["source_id"], record["locator"])]
+        if same_table and not requirement:
+            out.append(f"{aid}: printed in the same place as configuration statements ({same_table[0]}); it is "
+                       f"not filed on {subject.kind.value.lower()} {subject.id}")
+    if subject.kind is SubjectKind.CONFIGURATION and re.search(
+            r"(?i)\brequirements?\b", f"{record['value_as_printed']} {record['locator']}"):
+        out.append(f"{aid}: a design requirement is not a value of configuration {subject.id}")
+    if subject.kind is SubjectKind.PROPULSION_UNIT and not record["field_path"].startswith(_UNIT_FIELDS):
+        out.append(f"{aid}: a propulsion unit carries pressurization, feed or tank statements, not "
+                   f"{record['field_path']}")
+    allowed = getattr(manifest, "CONFIGURATION_SOURCES", {}).get(subject.id)
+    if allowed is not None and record["source_id"] not in allowed:
+        out.append(f"{aid}: {subject.id} takes values from {', '.join(allowed)} only, not {record['source_id']}")
     return out
 
 
@@ -371,18 +469,20 @@ def _condition_problems(aid, entry, record) -> list[str]:
         if cond.get("pressure_basis") != basis:
             out.append(f"{aid}: printed {record['unit_as_printed']!r}; pressure basis must be {basis}")
     if final.startswith(("thrust", "specific_impulse")) and not final.startswith("thrust_chamber"):
-        env = "VACUUM" if db05.get("environment") == "vacuum" else "UNKNOWN"
+        env = {"vacuum": "VACUUM", "sea_level": "SEA_LEVEL"}.get(db05.get("environment"), "UNKNOWN")
         if cond.get("environment") != env:
             out.append(f"{aid}: DB-0.5 environment {db05.get('environment')!r} must be {env}")
     if cond.get("isp_basis", "UNKNOWN") != "UNKNOWN":
         out.append(f"{aid}: no DB-0.5 record states an Isp basis; it stays UNKNOWN")
     if "mixture_ratio" in cond:
         out.append(f"{aid}: a mixture-ratio setting is carried by the operating point, not added as a condition")
-    stated = f"{record['value_as_printed']} {db05.get('mr_basis', '')}"
+    stated = re.sub(r"(?i)inverse of O/F", "", f"{record['value_as_printed']} {db05.get('mr_basis', '')}")
+    if record["field_path"].startswith("gg."):
+        stated += " gas generator"  # the DB-0.5 field itself is the gas generator's
     form = cond.get("mixture_ratio_form")
     if form is not None:
-        marks = {"OXIDIZER_TO_FUEL": ("O/F", "oxidizer-to-fuel", "oxidizer to fuel"),
-                 "FUEL_TO_OXIDIZER": ("F/O", "fuel-to-oxidizer", "fuel to oxidizer")}[form]
+        marks = {"OXIDIZER_TO_FUEL": ("O/F", "oxidizer-to-fuel", "oxidizer to fuel", "lox-to-fuel"),
+                 "FUEL_TO_OXIDIZER": ("F/O", "fuel-to-oxidizer", "fuel to oxidizer", "fuel-to-lox")}[form]
         if not any(m.lower() in f"{stated} {entry['reading']}".lower() for m in marks):
             out.append(f"{aid}: mixture ratio form {form} is not printed ({marks[0]}) nor quoted in the reading")
     basis = cond.get("mixture_ratio_basis", "UNKNOWN")
@@ -412,13 +512,22 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
         if decision is None:
             out.append(f"{cid}: a DB-0.5 conflict on a seed engine has no decision in the manifest")
             continue
+        recorded = getattr(manifest, "OWNER_DECISIONS", {})
+        if "owner_accepted" in decision and decision["owner_accepted"] != recorded.get(cid):
+            out.append(f"{cid}: owner_accepted is not the decision recorded in OWNER_DECISIONS")
         claims = claim_matches(c, research)
         matched = set().union(*claims) if claims else set()
-        shipped = matched & promoted
+        fields = re.findall(r"[A-Za-z][\w-]*(?:\.[\w-]+)+", c["field_path"])
+        on_field = {aid for aid in promoted if aid in research.assertions
+                    and research.assertions[aid]["engine_id"] == c["engine_id"]
+                    and any(research.assertions[aid]["field_path"].startswith(f) for f in fields)}
+        shipped = (matched | on_field) & promoted
         open_ = c["resolution"] in ("PARTIALLY_RESOLVED", "UNRESOLVED")
         if decision["decision"] == "WITHHOLD":
             out += [f"{cid}: claim assertion {i} is not listed as withheld" for i in sorted(matched - set(decision["withhold"]))]
             out += [f"{cid}: withholds {i}, which is promoted" for i in decision["withhold"] if i in promoted]
+            out += [f"{cid}: promoted {i} states the conflict's field {c['field_path']!r}"
+                    for i in sorted(on_field - set(decision["withhold"]))]
         elif decision["decision"] == "CARRIED_NOT":
             if c["resolution"] == "UNRESOLVED":
                 out.append(f"{cid}: UNRESOLVED, so its assertions can only be withheld")
@@ -433,6 +542,44 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
             out.append(f"{cid}: unknown decision {decision['decision']!r}")
     out += [f"{cid}: decided in the manifest but not a DB-0.5 conflict on a seed engine"
             for cid in manifest.RESEARCH_CONFLICTS if cid not in {c['conflict_id'] for c in seed}]
+    return out
+
+
+def disposition_problems(research: Research, manifest) -> list[str]:
+    """Every not-promoted assertion of an accounted engine carries a disposition that checks out."""
+    out = []
+    accounted = set(getattr(manifest, "ACCOUNTED_ENGINES", ()))
+    vocabulary = set(getattr(manifest, "DISPOSITIONS", ()))
+    withheld_by_conflict = {i for d in manifest.RESEARCH_CONFLICTS.values() for i in d.get("withhold", ())}
+    for aid, why in manifest.NOT_PROMOTED.items():
+        record = research.assertions.get(aid)
+        if record is None or record["engine_id"] not in accounted:
+            continue
+        if not (isinstance(why, tuple) and len(why) == 2 and why[0] in vocabulary and str(why[1]).strip()):
+            out.append(f"{aid}: needs a (disposition, reason) pair from {sorted(vocabulary)}")
+            continue
+        disposition = why[0]
+        if disposition in ("WITHHELD_CONFLICT", "OWNER_DECISION_REQUIRED") and aid not in withheld_by_conflict:
+            out.append(f"{aid}: {disposition}, but no research-conflict decision withholds it")
+        sid = record["source_id"]
+        doc = research.documents.get(sid, {})
+        withheld_for_rights = manifest.WITHHELD_SOURCES.get(sid, {}).get("rights", sid in manifest.WITHHELD_SOURCES)
+        if sid in manifest.WITHHELD_SOURCES and not withheld_for_rights and (
+                restrictive_notice(doc.get("rights_statement_checked", ""))
+                or "RESTRICTED_REFERENCE" in (doc.get("rights_values"), doc.get("rights_figures"))
+                or doc.get("rights_values") not in SHIPPABLE_DB05_RIGHTS):
+            out.append(f"{sid}: withheld with rights=False, but its rights record is restrictive")
+            withheld_for_rights = True
+        refused_source = (withheld_for_rights or restrictive_notice(doc.get("rights_statement_checked", ""))
+                          or (doc and doc.get("read_level") != "READ_AND_MINED"))
+        if refused_source and disposition not in ("WITHHELD_RIGHTS", "SOURCE_NOT_OPENED"):
+            out.append(f"{aid}: its source {sid} is refused for rights or access; the disposition must say so, "
+                       f"not {disposition}")
+        if disposition == "WITHHELD_RIGHTS" and not source_problems(record["source_id"], research, manifest):
+            out.append(f"{aid}: WITHHELD_RIGHTS, but its source {record['source_id']} passes the rights gate")
+        if disposition == "SOURCE_NOT_OPENED" and record["source_id"] in research.documents \
+                and research.documents[record["source_id"]].get("read_level") == "READ_AND_MINED":
+            out.append(f"{aid}: SOURCE_NOT_OPENED, but {record['source_id']} was read")
     return out
 
 
@@ -455,19 +602,23 @@ def coverage_problems(research: Research, manifest) -> list[str]:
 def build_source(sid: str, research: Research, manifest) -> EngineSource:
     doc, spec = research.documents[sid], manifest.SOURCES[sid]
     values = ShippingPolicy.VALUES_WITH_ATTRIBUTION
+    url = doc.get("download_url") or doc["url_requested"]
     reference = SourceReference(
         sid, spec["organization"], tuple(spec["authors"]), spec["title"], spec["year"],
-        dict(spec["identifiers"]), doc["download_url"], spec["source_type"], AccessClass.PUBLIC_OPEN,
+        dict(spec["identifiers"]), url, spec["source_type"], AccessClass.PUBLIC_OPEN,
         RIGHTS_IN_RECORD, values, 1)
+    host = (Missing(MissingReason.NOT_REPORTED, f"no repository rights statement: not an NTRS record ({url})")
+            if spec["host"] == "NONE" else
+            RightsNotice(f"NTRS copyright determination: {spec['host']}",
+                         f"NTRS citation API record (copyright.determinationType), retrieved {doc['retrieved_utc']}"))
     rights = RightsRecord(
-        RightsNotice(f"NTRS copyright determination: {spec['host']}",
-                     f"NTRS citation API record (copyright.determinationType), retrieved {doc['retrieved_utc']}"),
+        host,
         Missing(MissingReason.NOT_REPORTED, spec["printed"]),
         values, ShippingPolicy(spec["figures"]), ShippingPolicy.RIGHTS_REVIEW_REQUIRED,
         ShippingPolicy.RIGHTS_REVIEW_REQUIRED, False, RightsReview(spec["review"]), spec["review_note"])
     return EngineSource(reference, SourceAuthority(spec["authority"]), SourcePrimacy(spec["primacy"]),
                         SourceAccess.OPENED, doc["sha256"], None, rights,
-                        f"downloaded {doc['retrieved_utc']} from {doc['download_url']}; read in DB-0.5")
+                        f"downloaded {doc['retrieved_utc']} from {url}; read in DB-0.5")
 
 
 def _conditions(spec: dict) -> Conditions:
@@ -540,6 +691,12 @@ def topology_problems(spec: dict, research: Research, manifest, sources: set[str
     if raw is None:
         return [f"{tid}: no DB-0.5 topology for {spec['engine']}"]
     out = []
+    if spec["scope"][1] not in manifest.SEED_SUBJECTS.get(spec["engine"], ()):
+        out.append(f"{tid}: scope {spec['scope'][1]} is not an identity of {spec['engine']}, whose graph this is")
+    out += [f"{tid}: schematic {s} is not one the DB-0.5 graph rests on"
+            for s in spec["schematic_ids"] if s not in raw["schematic_ids"]]
+    out += [f"{tid}: text source {s} is not one the DB-0.5 graph rests on"
+            for s in spec["text_source_ids"] if s not in raw["text_sources"]]
     nodes = {n["id"]: n for n in raw["nodes"]}
     for nid in (*spec["withhold_nodes"], *spec["restate_nodes"]):
         if nid not in nodes:
@@ -566,14 +723,26 @@ def topology_problems(spec: dict, research: Research, manifest, sources: set[str
     for key, what in spec["restate_nodes"].items():
         if key in nodes:
             out += _restate_problems(f"{tid}: {key}", nodes[key], what, citable, manifest)
+            out += _text_basis_problems(f"{tid}: {key}", nodes[key], what, spec, research)
     for key, what in spec["restate_edges"].items():
         if 0 <= key < len(raw["edges"]):
             out += _restate_problems(f"{tid}: E{key:02d}", raw["edges"][key], what, citable, manifest)
+            out += _text_basis_problems(f"{tid}: E{key:02d}", raw["edges"][key], what, spec, research)
+    omissions = raw["completeness"]["known_omissions"]
+    for old, new in spec.get("restate_omissions", {}).items():
+        if old not in omissions:
+            out.append(f"{tid}: omission {old!r} is not in the DB-0.5 graph")
+        elif new != NEUTRAL_OMISSION and not (old.startswith(new) and len(new) < len(old)
+                                               and old[len(new)] in " ,;(" and new.strip()):
+            out.append(f"{tid}: omission {old!r} can only be cut at a word boundary or replaced by the neutral wording")
     for sid in spec["schematic_ids"]:
         sch = research.schematics.get(sid)
         if sch is None:
             out.append(f"{tid}: schematic {sid} was not viewed in DB-0.5")
             continue
+        figures = research.documents.get(sch["source_id"], {}).get("rights_figures")
+        if figures == "RESTRICTED_REFERENCE":
+            out.append(f"{tid}: schematic {sid} is in a source whose figures are RESTRICTED_REFERENCE")
         if sch["source_id"] in manifest.WITHHELD_SOURCES or sch["source_id"] not in manifest.SOURCES:
             out.append(f"{tid}: schematic {sid} is in {sch['source_id']}, which is not a promoted source")
         drawn = manifest.SCHEMATICS.get(sid, {}).get("provenance")
@@ -590,7 +759,58 @@ def topology_problems(spec: dict, research: Research, manifest, sources: set[str
 _LOWER = {"DERIVED_FROM_BOTH": {"DERIVED_FROM_BOTH", "SHOWN_IN_SCHEMATIC", "REPORTED_IN_TEXT", "INFERRED"},
           "SHOWN_IN_SCHEMATIC": {"SHOWN_IN_SCHEMATIC", "INFERRED"},
           "REPORTED_IN_TEXT": {"REPORTED_IN_TEXT", "INFERRED"}, "INFERRED": {"INFERRED"}}
-_RESTATABLE = {"evidence", "locator", "label", "carrier", "role", "removes", "reason"}
+_RESTATABLE = {"evidence", "locator", "label", "carrier", "role", "removes", "reason", "text_basis"}
+
+
+def _text_basis_problems(where: str, original: dict, change: dict, spec: dict, research: Research) -> list[str]:
+    """A restated locator that keeps a text basis cites the DB-0.5 transcription of that text."""
+    if "locator" not in change:
+        return []
+    evidence = change.get("evidence", original["evidence_status"])
+    if evidence not in ("DERIVED_FROM_BOTH", "REPORTED_IN_TEXT"):
+        return []
+    basis = tuple(change.get("text_basis", ()))
+    if not basis:
+        return [f"{where}: a restated locator with a text basis names the DB-0.5 assertions that record that "
+                "text (text_basis)"]
+    out = []
+    records = []
+    for aid in basis:
+        r = research.assertions.get(aid)
+        if r is None or r["source_id"] not in spec["text_source_ids"]:
+            out.append(f"{where}: text basis {aid} is not a DB-0.5 assertion from one of the graph's text sources")
+        elif aid in _WITHHELD_BASIS:
+            out.append(f"{where}: text basis {aid} is withheld or not shippable ({_WITHHELD_BASIS[aid]})")
+        else:
+            records.append(r)
+    if not records:
+        return out
+    added = [p for p in _parts(change["locator"]) if p not in _parts(original.get("locator", ""))]
+    for part in added:
+        cited = _pages(part)
+        if cited and not any(cited & _pages(r["locator"]) for r in records):
+            out.append(f"{where}: the restated locator cites {part!r}, but no text basis is from that page")
+    quotes = re.findall(r"'([^']{12,})'", change.get("reason", ""))
+    printed = " ".join(_norm_quote(r["value_as_printed"]) for r in records)
+    if quotes and not any(all(_norm_quote(f) in printed for f in q.split("...") if f.strip()) for q in quotes):
+        out.append(f"{where}: none of the passages the reason quotes is in its text basis")
+    return out
+
+
+#: Text bases that may not be cited (filled by build_corpus): withheld or rights-refused assertions.
+_WITHHELD_BASIS: dict[str, str] = {}
+
+
+def _pages(locator: str) -> set[int]:
+    pages = set()
+    for a, b in re.findall(r"pp?\.\s*(\d+)(?:\s*-\s*(\d+))?", locator):
+        pages |= set(range(int(a), int(b or a) + 1))
+    return pages
+
+
+def _norm_quote(text: str) -> str:
+    text = re.sub(r"\s+", " ", text.lower()).strip()
+    return re.sub(r"^(a|an|the) ", "", text)
 
 
 def _norm(text: str) -> str:
@@ -633,6 +853,10 @@ def _restate_problems(where: str, original: dict, change: dict, citable: set[str
     return out
 
 
+#: The one wording that may replace a DB-0.5 omission naming withheld content.
+NEUTRAL_OMISSION = "an element known only from a rights-withheld source (not recorded)"
+
+
 def build_topology(spec: dict, research: Research) -> TopologyGraph:
     raw = research.topologies[spec["engine"]]
     nodes = []
@@ -655,7 +879,8 @@ def build_topology(spec: dict, research: Research) -> TopologyGraph:
             f"E{i:02d}", e["from"], e["to"], kind, carrier, role,
             TopologyEvidence(change.get("evidence", e["evidence_status"])), change.get("locator", e["locator"]),
             _group(e["role"], "split"), _group(e["role"], "merge")))
-    omissions = (*raw["completeness"]["known_omissions"], *spec["withhold_nodes"].values(),
+    restated = spec.get("restate_omissions", {})
+    omissions = (*(restated.get(o, o) for o in raw["completeness"]["known_omissions"]), *spec["withhold_nodes"].values(),
                  *dict.fromkeys(spec["withhold_edges"].values()), *spec["extra_omissions"])
     return TopologyGraph(
         spec["topology_id"], SubjectRef(SubjectKind(spec["scope"][0]), spec["scope"][1]), spec["label"],
@@ -691,12 +916,23 @@ def leak_problems(corpus: EngineEvidenceCorpus, manifest) -> list[str]:
            if any(tok in text for tok in tokens)]
     for cfg, terms in manifest.WITHHELD_CONTENT_TERMS.items():
         terms = tuple(t.lower() for t in terms)
+        units = {u.unit_id for u in corpus.units
+                 if SubjectRef(SubjectKind.CONFIGURATION, cfg) in {m.member for m in u.members}}
         worded = [(a.assertion_id, f"{a.value_as_printed} {a.note}") for a in corpus.assertions
-                  if corpus.configuration_of(a.subject) == cfg or a.subject.kind is SubjectKind.VARIANT]
+                  if corpus.configuration_of(a.subject) == cfg or a.subject.kind is SubjectKind.VARIANT
+                  or (a.subject.kind is SubjectKind.PROPULSION_UNIT and a.subject.id in units)]
         worded += [(c.configuration_id, f"{c.label} {c.notes}") for c in corpus.configurations
                    if c.configuration_id == cfg]
+        config = next((c for c in corpus.configurations if c.configuration_id == cfg), None)
+        if config is not None:
+            variant = next(v for v in corpus.variants if v.variant_id == config.variant_id)
+            family = next(f for f in corpus.families if f.family_id == variant.family_id)
+            worded += [(variant.variant_id, f"{variant.designation} {variant.notes}"),
+                       (family.family_id, f"{family.name} {family.notes}")]
+        worded += [(u.unit_id, f"{u.designation} {u.notes}") for u in corpus.units if u.unit_id in units]
         for t in corpus.topologies:
-            if t.scope != SubjectRef(SubjectKind.CONFIGURATION, cfg):
+            if t.scope != SubjectRef(SubjectKind.CONFIGURATION, cfg) and not (
+                    t.scope.kind is SubjectKind.PROPULSION_UNIT and t.scope.id in units):
                 continue
             worded.append((t.topology_id, " ".join((t.label, t.notes, *t.completeness.known_omissions))))
             worded += [(f"{t.topology_id}.{n.node_id}", n.label) for n in t.nodes]
@@ -710,7 +946,15 @@ def build_corpus(research: Research | None = None, manifest=None) -> EngineEvide
     """The seed corpus, or :class:`PromotionError` naming every entry that failed a gate."""
     research = load_research() if research is None else research
     manifest = load_manifest() if manifest is None else manifest
-    problems = coverage_problems(research, manifest)
+    _WITHHELD_BASIS.clear()
+    for d in manifest.RESEARCH_CONFLICTS.values():
+        _WITHHELD_BASIS.update({i: "withheld by a conflict decision" for i in d.get("withhold", ())})
+    for i, why in manifest.NOT_PROMOTED.items():
+        if isinstance(why, tuple) and why[0] not in ("NOT_NEEDED", "DUPLICATE"):
+            _WITHHELD_BASIS[i] = why[0]
+    _LOCATORS.clear()
+    _LOCATORS.update({aid: (r["source_id"], r["locator"]) for aid, r in research.assertions.items()})
+    problems = coverage_problems(research, manifest) + disposition_problems(research, manifest)
     for entry in manifest.ASSERTIONS:
         problems += assertion_problems(entry, research, manifest)
     promoted = {e["db05_id"] for e in manifest.ASSERTIONS}

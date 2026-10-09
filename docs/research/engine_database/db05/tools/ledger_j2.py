@@ -66,6 +66,18 @@ A(J2, "propellants.fuel", None, "Propellants: liquid oxygen & liquid hydrogen", 
 A(J2, "architecture.cycle", None, "Turbine drive: gas generator burning main propellants", "gas_generator", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
 A(J2, "cooling.thrust_chamber", None, "Tubular-wall thrust chamber, regeneratively cooled", "regenerative", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
 A(J2, "turbomachinery.arrangement", None, "Separate oxidizer & fuel turbopumps", "text", "", {}, "SRC-NTRS-20100027318", L3 + ", 'Description'", db0=None)
+# Review supplement (2026-10-09): Coffman passages the production J-2 graph cites
+# as its text basis, recorded so that every cited passage is a ledger entry.
+A(J2, "ignition_start.start_tank", None, "it was this start tank that would discharge cold hydrogen through the two turbines to get the engine started",
+  "text", "", {}, "SRC-NTRS-20100027318", "text p.2", db0=None)
+A(J2, "pressurization.oxygen", None, "a heat exchanger to heat up oxygen for tank pressurization (or helium in some instances)", "text", "", {},
+  "SRC-NTRS-20100027318", "text p.2", db0=None)
+A(J2, "ignition_start.igniter", None, "The thrust chamber was ignited by an augmented spark igniter in the middle with two spark plugs", "text", "", {},
+  "SRC-NTRS-20100027318", "text p.4", db0=None)
+A(J2, "turbines.drive_source", None, "there was a gas generator that was fed with fuel and oxygen off the main propellants ducts. The gas generator drove the turbomachinery",
+  "text", "", {}, "SRC-NTRS-20100027318", "text p.2", db0=None)
+A(J2, "turbines.exhaust_dump", None, "There was a 2:1 split, and we used the opening at the 2:1 split to dump the hot gas into the nozzle of the thrust chamber",
+  "text", "", {}, "SRC-NTRS-20100027318", "text p.2", db0=None)
 
 # ---- J-2S ----
 L9 = "NTRS 19940016798 PDF p.9 slide 'J-2S Basic Engine Features' (SC91c-12-1055), page rotated"
@@ -91,6 +103,13 @@ for label, val in [("J-2S Engine Development bar start (ATP)", "1965"), ("1st 27
     A(J2S, f"history.timeline.{label}", None, val, val, "date", {}, "SRC-NTRS-20100027318",
       "NTRS 20100027318 PDF p.15, slide 'Apollo Era J-2 Engines' (CP6_0450_J2-5.ppt) timeline", db0=None, status="DIGITISED",
       note="Read from a viewed timeline chart; bar positions approximate, labels printed.")
+# DB-2B Wave 1 supplement (2026-10-09): the 'Description' block of the same J-2S
+# viewgraph (NTRS 19940016798 PDF p.9), re-read from the rendered page.
+L9D = L9 + ", 'Description'"
+A(J2S, "architecture.feed", None, "Pump-fed liquid propellant rocket engine", "pump_fed", "", {}, "SRC-DB05-NTRS-19940016798", L9D, db0=None)
+A(J2S, "propellants.oxidizer", None, "Propellants - liquid oxygen & liquid hydrogen", "liquid_oxygen", "", {}, "SRC-DB05-NTRS-19940016798", L9D, db0=None)
+A(J2S, "propellants.fuel", None, "Propellants - liquid oxygen & liquid hydrogen", "liquid_hydrogen", "", {}, "SRC-DB05-NTRS-19940016798", L9D, db0=None)
+A(J2S, "cooling.thrust_chamber", None, "Tubular-wall thrust chamber, regen cooled", "regenerative", "", {}, "SRC-DB05-NTRS-19940016798", L9D, db0=None)
 
 # ---- schematics ----
 S("SCH-DB05-J2-COFFMAN-S4", engine_ids=[J2], source_id="SRC-NTRS-20100027318", locator="PDF p.15, Appendix D slide 'J-2 Engine Schematic' (CP6_0450_J2-4.ppt)",

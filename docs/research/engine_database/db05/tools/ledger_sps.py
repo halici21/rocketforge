@@ -45,6 +45,9 @@ A(E, "nozzle.materials", None, "columbium down to about the 40:1 area ratio, the
 # DB-2A supplement (2026-10-09): feed system of the Block I engine assembly.
 A(E, "architecture.feed", None, "The SPS engine (fig. 3) was a nonthrottleable, gimbaled, pressure-fed rocket engine", "pressure_fed", "", {"configuration": "Block I"}, TN, L9, db0=None,
   note="TN D-7375 names the oxidizer (N2O4, p.13) but not the fuel; propellant identity for the SPS is printed only in the Aerojet chapter, configuration unstated.")
+# Review supplement (2026-10-09): the injector of the Block I engine assembly,
+# cited by the production SPS graph.
+A(E, "injector.type", None, "a bolt-on aluminum injector", "text", "", {"configuration": "Block I"}, TN, L9, db0=None)
 
 S("SCH-DB05-SPS-TND7375-F2", engine_ids=[E], source_id=TN, locator="TN D-7375 Figure 2 'Service propulsion subsystem propellant feed assembly', p.4 (PDF p.8)",
   title="Service propulsion subsystem propellant feed assembly", kind="pictorial/line schematic of the SM pressurization and feed system",

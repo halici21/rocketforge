@@ -34,8 +34,8 @@ def research():
 
 
 def manifest(**changes):
-    m = types.SimpleNamespace(**{k: copy.deepcopy(getattr(db2a_manifest, k))
-                                 for k in dir(db2a_manifest) if k.isupper()})
+    """The merged DB-2A + DB-2B Wave 1 manifest the shipped file is built from, deep-copied."""
+    m = types.SimpleNamespace(**copy.deepcopy(vars(promote_db2a.load_manifest())))
     for k, v in changes.items():
         setattr(m, k, v)
     return m

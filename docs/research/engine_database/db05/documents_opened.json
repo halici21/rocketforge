@@ -180,7 +180,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "NEW source (not in DB-0).",
-   "assertions": 5
+   "assertions": 7
   },
   {
    "source_id": "SRC-DB05-NTRS-19940016798",
@@ -202,7 +202,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "NEW source. Scanned rotated; OCR unusable; pages read visually.",
-   "assertions": 11
+   "assertions": 15
   },
   {
    "source_id": "SRC-DB05-NTRS-20100027316",
@@ -224,7 +224,7 @@
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "RIGHTS_REVIEW_REQUIRED",
    "note": "NEW source (not in DB-0).",
-   "assertions": 17
+   "assertions": 25
   },
   {
    "source_id": "SRC-DTIC-AD0368743",
@@ -958,7 +958,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "",
-   "assertions": 14
+   "assertions": 15
   },
   {
    "source_id": "SRC-NTRS-19650013470",
@@ -980,7 +980,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "DB-0 described it as '1965 NASA report on the H-1 engine / S-I(B) propulsion'; it is the SA-10 vehicle-specific functional description (S-I stage, eight engines).",
-   "assertions": 25
+   "assertions": 28
   },
   {
    "source_id": "SRC-NTRS-19650013471",
@@ -1216,7 +1216,7 @@
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "RIGHTS_REVIEW_REQUIRED",
    "note": "Manufacturer engineer recollection plus manufacturer viewgraphs; printed in NASA publication.",
-   "assertions": 26
+   "assertions": 31
   },
   {
    "source_id": "SRC-NTRS-20100027319",
