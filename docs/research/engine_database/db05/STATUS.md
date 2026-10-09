@@ -16,13 +16,15 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 
 | Measure | Count | Where |
 | --- | --- | --- |
+| Access records (every source attempted) | 94 | `documents_opened.json` |
 | Documents read and mined (page-level locators) | 30 (Tier A 27, Tier B 3) | `documents_opened.json`, `read_level = READ_AND_MINED` |
 | Documents whose identity was verified but not mined | 11 | `IDENTITY_VERIFIED_ONLY` |
 | Downloaded, not read this session | 21 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertions promoted (value as printed + locator) | 248 | `assertions.json` (221 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED) |
-| Assertions rejected / not promoted | 2 | stale-text value; model-tuning parameter |
+| Assertion records | 250 | `assertions.json` |
+| Assertions promoted (value as printed + locator) | 248 | 219 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
 | Schematics actually viewed | 15 | `schematics_viewed.json` |
 | Verified topology graphs | 9 | `topology/*.json` |
