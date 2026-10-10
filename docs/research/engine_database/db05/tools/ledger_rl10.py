@@ -15,7 +15,8 @@ D("SRC-NAP-11780", identifier="NRC (2006) doi:10.17226/11780, Appendix D pp.255-
   tier="B", rights_checked="National Academies Press web edition; (c) National Academy of Sciences; read online, not reproducible", rights_class="VALUES_WITH_ATTRIBUTION",
   figures_rights="RESTRICTED_REFERENCE", note="Secondary compilation by a review committee (Tier B); values traceable to manufacturers but not first-hand.")
 D("SRC-ULA-DIV-INAUGURAL", identifier="AIAA paper PDF hosted by ulalaunch.com", title="Critical events of the inaugural launch of the Boeing Delta IV expendable launch vehicle",
-  tier="B", rights_checked="AIAA paper (pp. carry 'American Institute of Aeronautics and Astronautics'); copyright notice not printed on pages read", rights_class="VALUES_WITH_ATTRIBUTION")
+  tier="B", rights_checked="AIAA paper (each page carries the header 'American Institute of Aeronautics and Astronautics'); no copyright notice on pages read (extracted text of all 9 pages re-checked 2026-10-10)", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="Rights wording re-checked in DB-2B Wave 2 (2026-10-10): the finding is unchanged, the wording now states it as a finding of no notice.")
 D("SRC-ULA-DIV-GPSIIISV02", identifier="ULA mission booklet div_gpsiiisv02_mob.pdf", title="Delta IV GPS III SV02 mission overview", tier="A",
   rights_checked="'Copyright (c) 2019 United Launch Alliance' printed p.1", rights_class="VALUES_WITH_ATTRIBUTION")
 BLOCK("SRC-L3HARRIS-RL10-SPEC", "l3harris.com spec-sheet URL and three alternates return HTTP 404/403")

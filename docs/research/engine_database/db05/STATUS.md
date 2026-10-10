@@ -16,19 +16,19 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 
 | Measure | Count | Where |
 | --- | --- | --- |
-| Access records (every source attempted) | 94 | `documents_opened.json` |
-| Documents read and mined (page-level locators) | 30 (Tier A 27, Tier B 3) | `documents_opened.json`, `read_level = READ_AND_MINED` |
-| Documents whose identity was verified but not mined | 11 | `IDENTITY_VERIFIED_ONLY` |
-| Downloaded, not read this session | 21 | `FETCHED_NOT_READ` (not evidence) |
+| Access records (every source attempted) | 109 | `documents_opened.json` |
+| Documents read and mined (page-level locators) | 41 (Tier A 36, Tier B 5) | `documents_opened.json`, `read_level = READ_AND_MINED` |
+| Documents whose identity was verified but not mined | 19 | `IDENTITY_VERIFIED_ONLY` |
+| Downloaded, not read this session | 17 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 285 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1 and 11 review supplement transcriptions, below) |
-| Assertions promoted (value as printed + locator) | 283 | 254 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertion records | 340 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1, 11 review supplement and 55 DB-2B Wave 2 transcriptions, below) |
+| Assertions promoted (value as printed + locator) | 338 | 309 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
-| Schematics actually viewed | 15 | `schematics_viewed.json` |
-| Verified topology graphs | 9 | `topology/*.json` |
-| Conflict outcomes | 29 records: 30 DB-0 conflict ids addressed (25 of the 36 P0), 5 new conflicts | `conflicts.json` |
+| Schematics actually viewed | 16 | `schematics_viewed.json` |
+| Verified topology graphs | 10 | `topology/*.json` |
+| Conflict outcomes | 32 records: 30 DB-0 conflict ids addressed (25 of the 36 P0), 8 new conflicts | `conflicts.json` |
 | Regression candidates | 5 | `regression_candidates.json` |
 
 Four new sources were added to `data/sources.json` (`SRC-DB05-*`): the Saturn V
@@ -155,6 +155,39 @@ Lab pages, patents, enginehistory.org chapters, Apollo flight evaluations);
 176 of the 206 DB-0 conflicts (11 of them P0). Two exploratory downloads (RL10A-3-3 design
 report NTRS 19670005471; J-2 AS-501 flight analysis NTRS 19680026222) are leads
 and are not registered.
+
+**DB-2B Wave 2 supplement (2026-10-10).** A narrow source-completion pass for the
+seven Wave 2 targets only (RL10A-4-2, RL10B-2, RD-170, IPD, RS-68A, LR87,
+Rutherford), in `tools/ledger_wave2.py`. Already-downloaded documents were read
+first (the four Rocket Lab sources), then registered leads, then targeted
+NTRS and web discovery; every new document was fetched by `fetch.py` (hash,
+NTRS rights metadata) before it was read. 55 assertions were transcribed:
+
+- RS-68A: NASA MSFC, Ares V and RS-68B (NTRS 20090014109) for the changes
+  from the RS-68, and a NASA launch-day blog for identity and a 702,000 lb
+  thrust with no environment; the manufacturer data sheet is still HTTP 404
+  (new conflict CF-DB05-RS68A-THRUST against its DB-0 search excerpt).
+- LR87AJ-11: the General Dynamics Convair Titan IIIE/Centaur D-1T systems
+  summary (NTRS 19750004937): rated thrust, vacuum Isp, propellants, flows,
+  expansion ratio, cycle and feed; Figure 6-20 viewed and transcribed as a
+  graph of one subassembly (16 nodes, 18 edges). No other LR87 variant was
+  supported by an opened document.
+- IPD: the NGLT programme paper (NTRS 20050243602) and an IPD model paper
+  (NTRS 20060004818); the DTIC and AFRL papers stay blocked, and two NTRS
+  records are abstracts only.
+- RD-170: a NASA MSFC CFD paper (NTRS 19950002748) describing the engine
+  (four nozzles, regeneratively cooled, kerosene and liquid oxygen); no
+  manufacturer document was reached.
+- RL10B-2 and RL10A-4-2: the AIAA inaugural-launch paper (RL10B-2 propellants
+  and nozzle) and a Lockheed Martin conference paper (RL10A-4 variant map;
+  printed copyright). NASA's RL10 transition paper covers only the RL10A-3-3A/B.
+- Rutherford: the four Rocket Lab sources (press kit 2017, releases of 2018
+  and 2020, Electron page), all carrying a Rocket Lab copyright; two
+  epoch conflicts recorded (CF-DB05-RUTHERFORD-SL-THRUST, -VAC-THRUST).
+
+The rights wording of SRC-ULA-DIV-INAUGURAL was re-checked (all 9 pages) and
+restated as a finding of no notice; the finding itself is unchanged. DB-0.5
+stays PARTIAL.
 
 ## Reproducing
 

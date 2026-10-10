@@ -225,6 +225,21 @@
    "legibility": "all labels legible",
    "db0_schematic_id": null,
    "note": "Not a manufacturer schematic. Edges are 'shown' only in the sense that Rockwell drew them."
+  },
+  {
+   "schematic_id": "SCH-DB05-LR87AJ11-GD-F620",
+   "engine_ids": [
+    "ENG-US-LR87-AJ-11"
+   ],
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.210 (report p.6-22), Figure 6-20",
+   "title_as_printed": "LR87AJ-11 propellant fill and bleed schematic",
+   "kind": "pictorial fill-and-bleed schematic, legend Fuel/Oxidizer/Lube oil and component symbols",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered at 110 and 200 dpi",
+   "legibility": "labels and legend legible; line shading legible; unshaded lines (empty at fill) not identifiable by fluid",
+   "db0_schematic_id": null,
+   "note": "Both subassemblies drawn with the vehicle tanks above. Drawn in a programme contractor's report."
   }
  ]
 }

@@ -1,0 +1,302 @@
+{
+ "notice": "DB-0.5 research evidence. Not a production runtime asset. Every record here was produced by opening the document itself in session 2026-10-08 (see documents_opened.json); search summaries were not used as evidence.",
+ "engine_id": "ENG-US-LR87-AJ-11",
+ "configuration": "LR87AJ-11, Titan IIIE stage I (CASD-LVP73-007), subassembly 1 of 2",
+ "schematic_ids": [
+  "SCH-DB05-LR87AJ11-GD-F620"
+ ],
+ "text_sources": [
+  "SRC-DB05-NTRS-19750004937"
+ ],
+ "completeness": {
+  "declared_complete": false,
+  "known_omissions": [
+   "subassembly 2 (identical, per the text)",
+   "lube oil pump, reservoir and heat exchanger circuit",
+   "gas cooler and autogenous tank pressurization",
+   "pressure sequencing valve, LTCV pot and actuator linkages",
+   "fluid heater fluid circuit",
+   "regenerative cooling path through the chamber",
+   "cavitating venturis and balance orifices",
+   "prevalves and fill and bleed lines",
+   "instrumentation and pressure switch"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "N-FTANK",
+   "component_type": "tank",
+   "label": "Stage I fuel tank",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-OTANK",
+   "component_type": "tank",
+   "label": "Stage I oxidizer tank",
+   "subsystem": "vehicle",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-FP",
+   "component_type": "pump",
+   "label": "Fuel pump (turbopump)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-OP",
+   "component_type": "pump",
+   "label": "Oxidizer pump (turbopump)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-TURB",
+   "component_type": "turbine",
+   "label": "Turbine (turbopump)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "id": "N-GG",
+   "component_type": "gas_generator",
+   "label": "Gas generator",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "id": "N-FCV",
+   "component_type": "check_valve",
+   "label": "Fuel check valve (gas generator)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-OCV",
+   "component_type": "check_valve",
+   "label": "Oxidizer check valve (gas generator)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-SC",
+   "component_type": "start_cartridge",
+   "label": "Start cartridge",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-OV",
+   "component_type": "valve",
+   "label": "Oxidizer valve (thrust chamber valve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "id": "N-FV",
+   "component_type": "valve",
+   "label": "Fuel valve (thrust chamber valve)",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "id": "N-ACT",
+   "component_type": "actuator",
+   "label": "Thrust chamber valve actuator",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-TC",
+   "component_type": "combustion_chamber",
+   "label": "Thrust chamber",
+   "subsystem": "engine",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "id": "N-SKIRT",
+   "component_type": "nozzle_extension",
+   "label": "Ablative skirt",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-FH",
+   "component_type": "heat_exchanger",
+   "label": "Fluid heater (in the turbine exhaust)",
+   "subsystem": "engine",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "id": "N-AMB",
+   "component_type": "ambient",
+   "label": "Ambient (turbine exhaust overboard)",
+   "subsystem": "ambient",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N-FTANK",
+   "to": "N-FP",
+   "fluid": "fuel",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-OTANK",
+   "to": "N-OP",
+   "fluid": "oxidizer",
+   "role": "feed",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-OP",
+   "to": "N-OV",
+   "fluid": "oxidizer",
+   "role": "pump discharge to thrust chamber valve",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-OV",
+   "to": "N-TC",
+   "fluid": "oxidizer",
+   "role": "main oxidizer to thrust chamber",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-FP",
+   "to": "N-FV",
+   "fluid": "fuel",
+   "role": "pump discharge to thrust chamber valve",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-FV",
+   "to": "N-TC",
+   "fluid": "fuel",
+   "role": "main fuel to thrust chamber",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-FP",
+   "to": "N-FCV",
+   "fluid": "fuel",
+   "role": "gas generator bootstrap from the discharge line",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "from": "N-OP",
+   "to": "N-OCV",
+   "fluid": "oxidizer",
+   "role": "gas generator bootstrap from the discharge line",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "from": "N-FCV",
+   "to": "N-GG",
+   "fluid": "fuel",
+   "role": "gas generator fuel",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-OCV",
+   "to": "N-GG",
+   "fluid": "oxidizer",
+   "role": "gas generator oxidizer",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-GG",
+   "to": "N-TURB",
+   "fluid": "hot gas",
+   "role": "turbine drive",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.208"
+  },
+  {
+   "from": "N-SC",
+   "to": "N-TURB",
+   "fluid": "hot gas",
+   "role": "start spin-up",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-FP",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-OP",
+   "fluid": "none",
+   "role": "mechanical_shaft",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-TURB",
+   "to": "N-FH",
+   "fluid": "hot gas",
+   "role": "turbine exhaust",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-FH",
+   "to": "N-AMB",
+   "fluid": "hot gas",
+   "role": "turbine exhaust overboard",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-TC",
+   "to": "N-SKIRT",
+   "fluid": "hot gas",
+   "role": "nozzle flow",
+   "evidence_status": "SHOWN_IN_SCHEMATIC",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+  },
+  {
+   "from": "N-FP",
+   "to": "N-ACT",
+   "fluid": "fuel",
+   "role": "fuel pressure actuates the thrust chamber valves",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.211"
+  }
+ ],
+ "note": "provenance_class = ORIGINAL_CONTRACTOR (drawn in General Dynamics Convair's Titan IIIE/Centaur systems summary). Regenerative cooling is stated in the text (PDF p.32) but its path is not drawn."
+}

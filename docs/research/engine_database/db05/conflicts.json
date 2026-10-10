@@ -699,6 +699,74 @@
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "unit",
    "explanation": "250 kgf/cm2 = 3,556 psi (DERIVED: 250 x 14.223 = 3,556), so the two are one value. 266.7 bar (journalism) remains unsupported."
+  },
+  {
+   "conflict_id": "CF-DB05-RS68A-THRUST",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-RS-68A",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "Each engine produces 702,000 pounds of thrust (environment not printed)",
+     "SRC-NASA-PSP-BLOG-WORKHORSE",
+     "NASA blog 2018-08-11"
+    ],
+    [
+     "705,000 lbf sea level (DB-0 search-result excerpt; data sheet HTTP 404, never opened)",
+     "SRC-L3H-RS68A-DS",
+     "DB-0"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The only opened statement is NASA's 702,000 lb with no environment. The manufacturer figure was seen only in a search excerpt; whether the two are one rating rounded differently is not established."
+  },
+  {
+   "conflict_id": "CF-DB05-RUTHERFORD-SL-THRUST",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-NZ-RUTHERFORD",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "24 kN (5,500 lbf) (31 Jan 2018)",
+     "SRC-RL-500-TESTS",
+     "release"
+    ],
+    [
+     "now produce 5,600 lbf (up from 5,500 lbf) (4 Aug 2020)",
+     "SRC-RKLB-PAYLOAD-INCREASE",
+     "release"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The 2020 release itself says the sea-level engine went from 5,500 to 5,600 lbf: two epochs, not a disagreement."
+  },
+  {
+   "conflict_id": "CF-DB05-RUTHERFORD-VAC-THRUST",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-NZ-RUTHERFORD-VACUUM",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "max thrust of 24 kN (5,500 lbf) (31 Jan 2018)",
+     "SRC-RL-500-TESTS",
+     "release"
+    ],
+    [
+     "now produces a max thrust of 5,800 lbf (4 Aug 2020)",
+     "SRC-RKLB-PAYLOAD-INCREASE",
+     "release"
+    ],
+    [
+     "Total Thrust: 25.8 kN (5,800 lbf) (as retrieved 2026)",
+     "SRC-RL-ELECTRON-PAGE",
+     "Electron page"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 2020 release says 'now', so 5,800 lbf is a later epoch than 5,500 lbf, but it does not say what changed; the 2018 vacuum figure equals the 2018 sea-level figure."
   }
  ]
 }

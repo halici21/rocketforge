@@ -316,8 +316,8 @@ def _convert(path: pathlib.Path) -> EngineEvidenceCorpus:
 DB05_GRAPHS = sorted((DB05 / "topology").glob("*.json"))
 
 
-def test_all_nine_db05_topologies_are_found():
-    assert len(DB05_GRAPHS) == 9
+def test_all_ten_db05_topologies_are_found():
+    assert len(DB05_GRAPHS) == 10  # DB-2B Wave 2 added the LR87AJ-11 graph
 
 
 @pytest.mark.parametrize("path", DB05_GRAPHS, ids=lambda p: p.stem)

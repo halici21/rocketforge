@@ -14356,7 +14356,7 @@
     "ENG-NZ-RUTHERFORD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Payload increase primarily from battery advances.",
    "branches": [
     "commercial",
@@ -14427,7 +14427,7 @@
     "ENG-NZ-RUTHERFORD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Not examined in detail.",
    "branches": [
     "commercial"
@@ -14498,7 +14498,7 @@
     "ENG-NZ-RUTHERFORD-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Stage 1: 9 sea-level Rutherford, lift-off 190 kN (43,000 lbf), peak 224 kN (50,600 lbf); stage 2: 1 vacuum Rutherford 25.8 kN (5,800 lbf); brushless DC motors + LiPo batteries drive impeller pumps.",
    "branches": [
     "commercial"
@@ -14589,7 +14589,7 @@
     "ENG-NZ-RUTHERFORD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Surfaced; contents not captured. Likely Rutherford data of 2017 vintage.",
    "branches": [
     "commercial"
@@ -25224,6 +25224,321 @@
    "primary": "primary",
    "rights": "VALUES_WITH_ATTRIBUTION",
    "rights_basis": "NTRS PUBLIC_USE_PERMITTED; Rocketdyne viewgraphs reproduced in a NASA publication",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19720022122",
+   "title": "Investigation of characteristics of feed system instabilities",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "Martin Marietta MCR-72-107; NTRS 19720022122",
+   "url": "https://ntrs.nasa.gov/citations/19720022122",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19730004741",
+   "title": "Empirical evaluation of pump inlet compliance",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "Aerospace Corp. ATR-73(7257)-1; NTRS 19730004741",
+   "url": "https://ntrs.nasa.gov/citations/19730004741",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "title": "Titan IIIE/Centaur D-1T Systems Summary",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "General Dynamics Convair report CASD-LVP73-007; NTRS 19750004937",
+   "url": "https://ntrs.nasa.gov/citations/19750004937",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; no copyright, proprietary or reproduction notice in the extracted text of any page (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19750013258",
+   "title": "Titan/Centaur T/C-1 post flight evaluation report",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NASA TM; NTRS 19750013258",
+   "url": "https://ntrs.nasa.gov/citations/19750013258",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19950002748",
+   "title": "CFD assessment of the carbon monoxide and nitric oxide formation from RD-170 hot-fire testing",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 19950002748 (conference paper; Wang, McConnaughey, Warsi, NASA MSFC)",
+   "url": "https://ntrs.nasa.gov/citations/19950002748",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; no copyright, proprietary or reproduction notice in the extracted text of any page (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19950025328",
+   "title": "CFD assessment of the pollutant environment from RD-170 propulsion system testing",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 19950025328 (conference paper; Wang, McConnaughey, Warsi)",
+   "url": "https://ntrs.nasa.gov/citations/19950025328",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20050243602",
+   "title": "Advanced Development Projects for Constellation From The Next Generation Launch Technology Program Elements",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20050243602 (conference paper; Huebner, Saiyed, Swith)",
+   "url": "https://ntrs.nasa.gov/citations/20050243602",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; no copyright, proprietary or reproduction notice in the extracted text of any page (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20060004818",
+   "title": "Uncertainty Evaluation of Computational Model Used to Support the Integrated Powerhead Demonstrator Project",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20060004818 (preprint; Steele, Molder, Hudson et al.)",
+   "url": "https://ntrs.nasa.gov/citations/20060004818",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; no copyright, proprietary or reproduction notice in the extracted text of any page (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20090014109",
+   "title": "Ares V and RS-68B",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20090014109 (conference paper; Creech, Taylor, Bellamy, NASA MSFC)",
+   "url": "https://ntrs.nasa.gov/citations/20090014109",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS PUBLIC_USE_PERMITTED; export control NO; no copyright, proprietary or reproduction notice in the extracted text of any page (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20090014116",
+   "title": "Update on the Ares V to Support Heavy Lift for U.S. Space Exploration Policy",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20090014116 (presentation; Creech, NASA MSFC)",
+   "url": "https://ntrs.nasa.gov/citations/20090014116",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20100032986",
+   "title": "Liquid Rocket Engine Testing - Historical Lecture: Simulated Altitude Testing at AEDC",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20100032986 (Dougherty)",
+   "url": "https://ntrs.nasa.gov/citations/20100032986",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20140011176",
+   "title": "RL10 Engine Ability to Transition from Atlas to Shuttle/Centaur Program",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 20140011176 (Baumeister, NASA GRC)",
+   "url": "https://ntrs.nasa.gov/citations/20140011176",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-NASA-PSP-BLOG-WORKHORSE",
+   "title": "Workhorse Rocket to Carry NASA's Parker Solar Probe",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NASA Science blog, Parker Solar Probe, 2018-08-11 'Workhorse Rocket to Carry NASA's Parker Solar Probe'",
+   "url": "https://science.nasa.gov/blogs/parker-solar-probe/2018/08/11/workhorse-rocket-to-carry-nasas-parker-solar-probe/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NASA web page (US Government work); no copyright notice in the page text (checked 2026-10-10)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-NASA-PSP-PRESSKIT-2018",
+   "title": "Parker Solar Probe (press kit)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NASA Parker Solar Probe press kit, August 2018",
+   "url": "https://www.nasa.gov/wp-content/uploads/2018/02/parkersolarprobe_presskit_august2018_final.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NASA publication (US Government work)",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-ULA-CENTAUR-ICLT4",
+   "title": "The Centaur Upper Stage Vehicle",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "4th Int. Conf. on Launcher Technology, Liege, 3-6 Dec 2002 (Rudman, Austad, Lockheed Martin); PDF hosted by ulalaunch.com",
+   "url": "https://www.ulalaunch.com/docs/default-source/upper-stages/the-centaur-upper-stage-vehicle.pdf",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "'Copyright 2002 Lockheed Martin Corporation' printed p.2",
    "engines": [],
    "locators": "",
    "access": "fetched",

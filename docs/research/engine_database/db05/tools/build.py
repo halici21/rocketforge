@@ -3,7 +3,7 @@ import json, collections, sys
 from pathlib import Path
 
 import ledger
-import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170  # noqa: F401
+import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170, ledger_wave2  # noqa: F401
 
 HERE = Path(__file__).parent
 PKG = Path(__file__).resolve().parents[2]
