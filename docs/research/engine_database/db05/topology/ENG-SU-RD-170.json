@@ -15,7 +15,8 @@
    "valves and control",
    "start system",
    "gimbal",
-   "exact LP pump drive taps"
+   "exact LP pump drive taps",
+   "how the kick pump is fed (drawn beside the HP fuel pump, no line between them)"
   ]
  },
  "nodes": [
@@ -104,8 +105,8 @@
   {
    "from": "N-LPFP",
    "to": "N-HPFP",
-   "fluid": "RP-1",
-   "role": "feed",
+   "fluid": "fuel",
+   "role": "feed (arrow drawn at the shared border of the HP fuel and kick pump boxes)",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
   },
@@ -121,30 +122,22 @@
    "from": "N-HPOP",
    "to": "N-LPOP",
    "fluid": "LOX",
-   "role": "LP ox pump turbine drive (liquid)",
+   "role": "return line to the LP ox pump",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
   },
   {
-   "from": "N-HPFP",
+   "from": "N-KICK",
    "to": "N-LPFP",
-   "fluid": "RP-1",
-   "role": "LP fuel pump drive (liquid)",
-   "evidence_status": "SHOWN_IN_SCHEMATIC",
-   "locator": "NTRS 19910018906 p.569 (reconstruction)"
-  },
-  {
-   "from": "N-HPFP",
-   "to": "N-KICK",
-   "fluid": "RP-1",
-   "role": "kick pump",
+   "fluid": "fuel",
+   "role": "return line to the LP fuel pump (drawn from the kick pump column)",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
   },
   {
    "from": "N-KICK",
    "to": "N-PB",
-   "fluid": "RP-1",
+   "fluid": "fuel",
    "role": "preburner fuel",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
@@ -152,7 +145,7 @@
   {
    "from": "N-HPFP",
    "to": "N-COOL",
-   "fluid": "RP-1",
+   "fluid": "fuel",
    "role": "chamber coolant (to other three chambers too)",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
@@ -160,7 +153,7 @@
   {
    "from": "N-COOL",
    "to": "N-TCA",
-   "fluid": "RP-1",
+   "fluid": "fuel",
    "role": "fuel to injector",
    "evidence_status": "SHOWN_IN_SCHEMATIC",
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
@@ -198,5 +191,5 @@
    "locator": "NTRS 19910018906 p.569 (reconstruction)"
   }
  ],
- "note": "provenance_class = THIRD_PARTY_RECONSTRUCTION. Every SHOWN_IN_SCHEMATIC here means 'drawn by Rockwell', not 'drawn by NPO Energomash'. Not usable as TOPOLOGY capability without a manufacturer source."
+ "note": "provenance_class = THIRD_PARTY_RECONSTRUCTION. Every SHOWN_IN_SCHEMATIC here means 'drawn by Rockwell', not 'drawn by NPO Energomash'. Not usable as TOPOLOGY capability without a manufacturer source. Re-transcribed 2026-10-10 (DB-2B Wave 2 review): the figure labels the fuel line 'FUEL' (not RP-1); the LP fuel pump's return line rises from the kick pump column; no line joins the HP fuel pump and the kick pump; 'turbine drive' is not printed."
 }

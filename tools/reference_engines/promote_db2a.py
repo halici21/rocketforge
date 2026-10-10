@@ -117,6 +117,8 @@ COMPONENT_TYPES = {
     "valve": ComponentType.VALVE, "venturi": ComponentType.VENTURI,
     "start_cartridge": ComponentType.START_ENERGY_STORE, "lubricant_blender": ComponentType.OTHER,
     "actuator": ComponentType.ACTUATOR, "actuator_supply": ComponentType.ACTUATOR,
+    "booster_pump": ComponentType.BOOSTER_PUMP, "preburner_ox_rich": ComponentType.PREBURNER,
+    "thrust_chamber": ComponentType.THRUST_CHAMBER,
 }
 OWNERS = {"engine": Ownership.ENGINE, "stage": Ownership.STAGE, "vehicle": Ownership.VEHICLE,
           "ambient": Ownership.AMBIENT}
@@ -160,7 +162,7 @@ _DICTS = ("SEED_SUBJECTS", "SOURCES", "WITHHELD_SOURCES", "WITHHELD_CONTENT_TERM
           "RESEARCH_CONFLICTS", "CARRIER_GENERALISATIONS", "SCHEMATICS", "OWNER_DECISIONS", "OWNER_REVIEWS")
 _TUPLES = ("SEED_ENGINES", "ACCOUNTED_ENGINES", "DISPOSITIONS", "FAMILIES", "VARIANTS", "CONFIGURATIONS",
            "OPERATING_POINTS", "UNITS", "ALIASES", "ASSERTIONS", "TOPOLOGIES")
-MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest")
+MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest", "db2b_wave2_manifest")
 
 
 def merge_manifests(*modules) -> types.SimpleNamespace:

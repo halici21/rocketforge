@@ -6065,10 +6065,12 @@
    "engine_id": "ENG-US-IPD",
    "field_path": "identity.contractors",
    "operating_point": null,
-   "value_as_printed": "AFRL has contracts with Pratt Whitney Rocketdyne and Aerojet",
+   "value_as_printed": "Currently, AFRL has contracts with Pratt Whitney Rocketdyne and Aerojet",
    "value": "text",
    "unit_as_printed": "",
-   "conditions": {},
+   "conditions": {
+    "epoch": "2005"
+   },
    "status": "REPORTED",
    "evidence_status": "SOURCE_VERIFIED",
    "disposition": "PROMOTED",
@@ -6506,6 +6508,27 @@
    "access": "fetched",
    "db0_link": null,
    "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-IPD-013",
+   "engine_id": "ENG-US-IPD",
+   "field_path": "performance.thrust",
+   "operating_point": null,
+   "value_as_printed": "the goal of designing, fabricating, and testing a 250k-lb-thrust, full-flow, staged-combustion cycle engine",
+   "value": 250000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "environment": "UNSTATED",
+    "kind": "programme goal"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20050243602",
+   "locator": "NTRS 20050243602 p.5",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "The programme's design goal, printed in the document that states it."
   }
  ]
 }

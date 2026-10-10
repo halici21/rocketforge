@@ -15,9 +15,10 @@ D("SRC-DB05-NTRS-20090014116", identifier="NTRS 20090014116 (presentation; Creec
   tier="A", rights_checked="NTRS GOV_PUBLIC_USE_PERMITTED; export control NO", rights_class="PUBLIC_DOMAIN_GOV",
   note="Opened; RS-68B and J-2X only, no RS-68A value.")
 D("SRC-NASA-PSP-BLOG-WORKHORSE", identifier="NASA Science blog, Parker Solar Probe, 2018-08-11 'Workhorse Rocket to Carry NASA's Parker Solar Probe'",
-  title="Workhorse Rocket to Carry NASA's Parker Solar Probe", tier="A",
+  title="Workhorse Rocket to Carry NASA's Parker Solar Probe", tier="E",
   rights_checked="NASA web page (US Government work); no copyright notice in the page text (checked 2026-10-10)", rights_class="VALUES_WITH_ATTRIBUTION",
-  note="Agency launch-day blog, not an engine document: identity and a headline thrust only.")
+  note="Agency launch-day blog, not an engine document: identity and a headline thrust only. Graded E (a blog, "
+       "per the DB-1 authority vocabulary): discovery or conflict context only.")
 D("SRC-NASA-PSP-PRESSKIT-2018", identifier="NASA Parker Solar Probe press kit, August 2018", title="Parker Solar Probe (press kit)", tier="A",
   rights_checked="NASA publication (US Government work)", rights_class="PUBLIC_DOMAIN_GOV", note="Opened (42 pp.); no RS-68 or RS-68A statement.")
 D("SRC-DB05-NTRS-19750004937", identifier="General Dynamics Convair report CASD-LVP73-007; NTRS 19750004937", title="Titan IIIE/Centaur D-1T Systems Summary",
@@ -164,8 +165,8 @@ T(LR11, configuration="LR87AJ-11, Titan IIIE stage I (CASD-LVP73-007), subassemb
       ("N-OCV", "N-GG", "oxidizer", "gas generator oxidizer", SH, LF),
       ("N-GG", "N-TURB", "hot gas", "turbine drive", BO, f"{LF}; PDF p.208"),
       ("N-SC", "N-TURB", "hot gas", "start spin-up", SH, LF),
-      ("N-TURB", "N-FP", "none", "mechanical_shaft", SH, LF),
-      ("N-TURB", "N-OP", "none", "mechanical_shaft", SH, LF),
+      ("N-TURB", "N-FP", "none", "geared drive (gear train)", BO, f"{LF}; PDF p.211"),
+      ("N-TURB", "N-OP", "none", "geared drive (gear train)", BO, f"{LF}; PDF p.211"),
       ("N-TURB", "N-FH", "hot gas", "turbine exhaust", SH, LF),
       ("N-FH", "N-AMB", "hot gas", "turbine exhaust overboard", SH, LF),
       ("N-TC", "N-SKIRT", "hot gas", "nozzle flow", SH, LF),
@@ -196,7 +197,8 @@ A(RA42, "identity.sibling_variants", None, "The Titan Centaur uses the RL10A- 4-
 N = "SRC-DB05-NTRS-20050243602"
 A(IPD, "identity.programme", None, "The Integrated Powerhead Demonstrator (IPD) Program began in 1994 at the Air Force Research Laboratory (AFRL) with the goal of designing, fabricating, and testing a 250k-lb-thrust, full-flow, staged-combustion cycle engine.",
   "text", "", {}, N, "NTRS 20050243602 p.5", db0=None)
-A(IPD, "identity.contractors", None, "AFRL has contracts with Pratt Whitney Rocketdyne and Aerojet", "text", "", {}, N, "NTRS 20050243602 p.5", db0=None)
+A(IPD, "identity.contractors", None, "Currently, AFRL has contracts with Pratt Whitney Rocketdyne and Aerojet", "text", "", {"epoch": "2005"}, N,
+  "NTRS 20050243602 p.5", db0=None)
 A(IPD, "turbomachinery.components", None, "Component testing of the oxygen turbopump and preburner was completed by October 2003, and the hydrogen turbopump and preburner component testing was completed by August 2004.",
   "text", "", {}, N, "NTRS 20050243602 p.6", db0=None)
 A(IPD, "test_history.engine", None, "To date, the IPD has performed 6 successful startup sequence tests, and the latest test achieved approximately 90% power level at the peak of this start- transient test.",
@@ -256,3 +258,8 @@ C("CF-DB05-RUTHERFORD-VAC-THRUST", engine_id=RUTV, field_path="performance.thrus
           ["Total Thrust: 25.8 kN (5,800 lbf) (as retrieved 2026)", EP, "Electron page"]],
   resolution="PARTIALLY_RESOLVED", kind="different_epoch",
   explanation="The 2020 release says 'now', so 5,800 lbf is a later epoch than 5,500 lbf, but it does not say what changed; the 2018 vacuum figure equals the 2018 sea-level figure.")
+
+# ------------------------------------------------------------------ review supplement (2026-10-10)
+A(IPD, "performance.thrust", None, "the goal of designing, fabricating, and testing a 250k-lb-thrust, full-flow, staged-combustion cycle engine",
+  250000, "lb", {"environment": "UNSTATED", "kind": "programme goal"}, N, "NTRS 20050243602 p.5", db0=None,
+  note="The programme's design goal, printed in the document that states it.")

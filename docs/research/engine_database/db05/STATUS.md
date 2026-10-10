@@ -22,8 +22,8 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 | Downloaded, not read this session | 17 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 340 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1, 11 review supplement and 55 DB-2B Wave 2 transcriptions, below) |
-| Assertions promoted (value as printed + locator) | 338 | 309 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertion records | 341 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1, 11 review supplement and 56 DB-2B Wave 2 transcriptions, below) |
+| Assertions promoted (value as printed + locator) | 339 | 310 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
 | Schematics actually viewed | 16 | `schematics_viewed.json` |
@@ -186,8 +186,16 @@ NTRS rights metadata) before it was read. 55 assertions were transcribed:
   epoch conflicts recorded (CF-DB05-RUTHERFORD-SL-THRUST, -VAC-THRUST).
 
 The rights wording of SRC-ULA-DIV-INAUGURAL was re-checked (all 9 pages) and
-restated as a finding of no notice; the finding itself is unchanged. DB-0.5
-stays PARTIAL.
+restated as a finding of no notice; the finding itself is unchanged.
+
+The Wave 2 independent review corrected transcriptions: the RD-170
+reconstruction graph (2026-10-08) was re-read against its figure (fuel line
+labelled "FUEL", not RP-1; the LP fuel pump's return line rises from the kick
+pump; no line joins the HP fuel pump and the kick pump, now an omission;
+"turbine drive" not printed); the LR87AJ-11 turbine-to-pump edges are geared
+drives (report p.6-23 'through a gear train'); the IPD contractor statement
+keeps its printed "Currently,"; and the NGLT paper's 250k-lb-thrust goal was
+added (AS-DB05-US-IPD-013). DB-0.5 stays PARTIAL.
 
 ## Reproducing
 

@@ -253,17 +253,17 @@
    "from": "N-TURB",
    "to": "N-FP",
    "fluid": "none",
-   "role": "mechanical_shaft",
-   "evidence_status": "SHOWN_IN_SCHEMATIC",
-   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+   "role": "geared drive (gear train)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.211"
   },
   {
    "from": "N-TURB",
    "to": "N-OP",
    "fluid": "none",
-   "role": "mechanical_shaft",
-   "evidence_status": "SHOWN_IN_SCHEMATIC",
-   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20"
+   "role": "geared drive (gear train)",
+   "evidence_status": "DERIVED_FROM_BOTH",
+   "locator": "NTRS 19750004937 PDF p.210 Figure 6-20; PDF p.211"
   },
   {
    "from": "N-TURB",

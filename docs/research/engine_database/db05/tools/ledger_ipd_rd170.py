@@ -57,21 +57,22 @@ T(RD, configuration="RD-170 as reconstructed by Rockwell from 1989 display photo
   ],
   edges=[
       ("N-LPOP", "N-HPOP", "LOX", "feed", SH, LS),
-      ("N-LPFP", "N-HPFP", "RP-1", "feed", SH, LS),
+      ("N-LPFP", "N-HPFP", "fuel", "feed (arrow drawn at the shared border of the HP fuel and kick pump boxes)", SH, LS),
       ("N-HPOP", "N-PB", "LOX", "preburner oxidizer", SH, LS),
-      ("N-HPOP", "N-LPOP", "LOX", "LP ox pump turbine drive (liquid)", SH, LS),
-      ("N-HPFP", "N-LPFP", "RP-1", "LP fuel pump drive (liquid)", SH, LS),
-      ("N-HPFP", "N-KICK", "RP-1", "kick pump", SH, LS),
-      ("N-KICK", "N-PB", "RP-1", "preburner fuel", SH, LS),
-      ("N-HPFP", "N-COOL", "RP-1", "chamber coolant (to other three chambers too)", SH, LS),
-      ("N-COOL", "N-TCA", "RP-1", "fuel to injector", SH, LS),
+      ("N-HPOP", "N-LPOP", "LOX", "return line to the LP ox pump", SH, LS),
+      ("N-KICK", "N-LPFP", "fuel", "return line to the LP fuel pump (drawn from the kick pump column)", SH, LS),
+      ("N-KICK", "N-PB", "fuel", "preburner fuel", SH, LS),
+      ("N-HPFP", "N-COOL", "fuel", "chamber coolant (to other three chambers too)", SH, LS),
+      ("N-COOL", "N-TCA", "fuel", "fuel to injector", SH, LS),
       ("N-PB", "N-TURB", "ox-rich gas", "turbine drive", SH, LS),
       ("N-TURB", "N-TCA", "ox-rich gas", "turbine exhaust to chambers (to other three chambers too)", SH, LS),
       ("N-TURB", "N-HPOP", "none", "mechanical_shaft", SH, LS),
       ("N-TURB", "N-HPFP", "none", "mechanical_shaft", SH, LS),
   ],
-  omissions=["three of four chambers", "valves and control", "start system", "gimbal", "exact LP pump drive taps"],
-  note="provenance_class = THIRD_PARTY_RECONSTRUCTION. Every SHOWN_IN_SCHEMATIC here means 'drawn by Rockwell', not 'drawn by NPO Energomash'. Not usable as TOPOLOGY capability without a manufacturer source.")
+  omissions=["three of four chambers", "valves and control", "start system", "gimbal", "exact LP pump drive taps",
+             "how the kick pump is fed (drawn beside the HP fuel pump, no line between them)"],
+  note="provenance_class = THIRD_PARTY_RECONSTRUCTION. Every SHOWN_IN_SCHEMATIC here means 'drawn by Rockwell', not 'drawn by NPO Energomash'. Not usable as TOPOLOGY capability without a manufacturer source. "
+       "Re-transcribed 2026-10-10 (DB-2B Wave 2 review): the figure labels the fuel line 'FUEL' (not RP-1); the LP fuel pump's return line rises from the kick pump column; no line joins the HP fuel pump and the kick pump; 'turbine drive' is not printed.")
 
 C("CF-DB05-RD170-PB", engine_id=RD, field_path="preburners.count", db0_conflict_id="CF-R2_USSR-R2-1",
   claims=[["1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies", RS, "PDF p.16"], ["two Ox-Rich Preburn boxes drawn", RS, "PDF p.19 reconstruction"]],

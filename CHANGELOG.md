@@ -300,6 +300,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   statements in printed order, never drops a heading or a statement without
   its own value, applies to text values only, and needs a recorded owner
   decision. No shipped value changed.
+- Reference engine corpus, DB-2B Wave 2: five more configurations from
+  harder evidence — RL10B-2 (Delta IV second stage), RD-170 (from secondary
+  sources only, with Rockwell's reconstruction kept as a third-party graph),
+  the Integrated Powerhead Demonstrator, RS-68A (identity and its changes
+  from the RS-68) and the LR87AJ-11 (Titan IIIE stage I, with its contractor
+  schematic). RL10A-4-2 and Rutherford ship nothing: every document that
+  states them is copyrighted. Values in open conflicts, a manufacturer's
+  values known only second-hand, a mixture ratio without a printed direction
+  and the copyrighted sources' content are withheld, and nothing is filled
+  in. No owner decision is recorded. The corpus is a curated reference, not a
+  comprehensive engine database. See
+  [docs/engineering/design/DB2B_WAVE2_DIFFICULT_INTERNATIONAL_CORPUS.md](docs/engineering/design/DB2B_WAVE2_DIFFICULT_INTERNATIONAL_CORPUS.md).
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

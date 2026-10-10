@@ -45,8 +45,10 @@ def test_names_find_exactly_what_is_recorded(catalog):
     assert [e.configuration_id for e in catalog.find("J-2")] == ["CFG-J2-230K", "CFG-J2S"]  # the J-2 family
     assert [e.configuration_id for e in catalog.find("J-2S")] == ["CFG-J2S"]
     assert [e.configuration_id for e in catalog.find("sps engine")] == ["CFG-SPS-BLOCK-I"]
-    assert [e.configuration_id for e in catalog.find("RL10")] == ["CFG-RL10A-3-3A"]
-    assert catalog.find("RD-170") == () and catalog.find("J2") == () and catalog.find("AJ10-190") == ()
+    assert [e.configuration_id for e in catalog.find("RL10")] == ["CFG-RL10A-3-3A", "CFG-RL10B-2-DIV"]
+    assert [e.configuration_id for e in catalog.find("RD-170")] == ["CFG-RD-170"]
+    assert catalog.find("RL10A-4-2") == () and catalog.find("Rutherford") == ()  # Wave 2: rights, nothing shipped
+    assert catalog.find("J2") == () and catalog.find("AJ10-190") == ()
     assert [e.configuration_id for e in catalog.find("SSME")] == [
         "CFG-RS25-BLOCK-II", "CFG-RS25-SLS", "CFG-RS25-SMALL-THROAT"]
 
@@ -118,7 +120,7 @@ def test_loading_needs_no_network(monkeypatch):
         raise AssertionError("the catalog opened a network connection")
     monkeypatch.setattr(socket, "socket", refuse)
     monkeypatch.setattr(socket, "create_connection", refuse)
-    assert len(load_reference_engines().entries()) == 11
+    assert len(load_reference_engines().entries()) == 16
 
 
 def test_a_file_that_breaks_a_shipping_rule_is_refused_not_trimmed(tmp_path):

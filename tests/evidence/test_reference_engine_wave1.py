@@ -46,9 +46,12 @@ SHIPPED = ROOT / "rocketforge" / "data" / "evidence" / "engines" / "reference_en
 SEEDS = {"CFG-J2-230K", "CFG-RL10A-3-3A", "CFG-SPS-BLOCK-I"}
 WAVE1 = {"CFG-J2S", "CFG-F1", "CFG-H1-188K-SA10", "CFG-LMDE-FINAL", "CFG-OMS",
          "CFG-RS25-SMALL-THROAT", "CFG-RS25-BLOCK-II", "CFG-RS25-SLS"}
+#: The DB-2B Wave 2 configurations (tests/evidence/test_reference_engine_wave2.py holds them).
+WAVE2 = {"CFG-RL10B-2-DIV", "CFG-RD-170", "CFG-IPD", "CFG-RS-68A", "CFG-LR87-AJ-11-T3E"}
 #: The DB-0.5 engines whose assertions may appear in production.
 ALLOWED_ENGINES = ("J-2-", "RL10A-3-3A-", "AJ10-137-", "J-2S-", "F-1-", "H-1-188K-", "LMDE-", "AJ10-190-",
-                   "SSME-BLOCK-I-", "SSME-BLOCK-IIA-", "SSME-BLOCK-II-")
+                   "SSME-BLOCK-I-", "SSME-BLOCK-IIA-", "SSME-BLOCK-II-",
+                   "RL10B-2-", "IPD-", "RS-68A-", "LR87-AJ-11-", "AS-DB05-SU-RD-170-")  # the last five: Wave 2
 
 
 @pytest.fixture(scope="module")
@@ -71,14 +74,16 @@ def numbers(assertions):
 # ------------------------------------------------------------------ boundary
 
 
-def test_only_the_seeds_and_the_wave1_configurations_ship(corpus):
-    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1
+def test_only_the_seeds_and_the_wave_configurations_ship(corpus):
+    """Rescoped by Wave 2: the seeds and Wave 1 stay; anything else is a Wave 2 target."""
+    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1 | WAVE2
     assert {v.designation for v in corpus.variants} == {
-        "J-2", "RL10A-3-3A", "AJ10-137", "J-2S", "F-1", "H-1", "LM descent engine", "OMS engine", "RS-25"}
+        "J-2", "RL10A-3-3A", "AJ10-137", "J-2S", "F-1", "H-1", "LM descent engine", "OMS engine", "RS-25",
+        "RL10B-2", "RD-170", "IPD", "RS-68A", "LR87AJ-11"}
 
 
-@pytest.mark.parametrize("name", ["RD-170", "RL10A-4-2", "RL10B-2", "IPD", "Rutherford", "LR87", "RS-68",
-                                  "LE-7", "LE-9", "Vulcain", "Vinci", "YF-"])
+@pytest.mark.parametrize("name", ["RL10A-4-2", "Rutherford", "Merlin", "Raptor", "BE-3", "BE-4", "RD-180",
+                                  "RD-191", "LE-7", "LE-9", "Vulcain", "Vinci", "YF-"])
 def test_no_later_target_is_migrated(corpus, name):
     text = json.dumps([[v.designation, v.notes] for v in corpus.variants]
                       + [[c.label, c.notes] for c in corpus.configurations]
@@ -90,6 +95,7 @@ def test_every_assertion_comes_from_an_allowed_engine(corpus):
     for aid in corpus.assertion_map:
         assert aid.removeprefix("AS-DB05-US-").startswith(ALLOWED_ENGINES), aid
     assert not any(aid.startswith("AS-DB05-US-SSME-BLOCK-IIA-") for aid in corpus.assertion_map)
+    assert not any(aid.startswith(("AS-DB05-US-RL10A-4-2-", "AS-DB05-NZ-")) for aid in corpus.assertion_map)
 
 
 def test_the_corpus_is_admitted_canonical_and_conflict_free(corpus):
@@ -200,7 +206,11 @@ def test_f1_qualification_life_ships_as_qualification_information_only(corpus):
 
 
 def test_wave1_rights_readings_record_the_owner_review(corpus):
-    wave1_sources = {s.reference.source_id for s in corpus.sources} - SEED_SOURCES
+    wave2_sources = {s.reference.source_id for s in corpus.sources
+                     if any(a.source_id == s.reference.source_id for a in corpus.assertions
+                            if a.subject.id in WAVE2 or a.subject.id in ("VAR-IPD", "VAR-RS-68A"))}
+    wave2_sources |= {"SRC-NTRS-19910018906"}  # the RD-170 graph's text source
+    wave1_sources = {s.reference.source_id for s in corpus.sources} - SEED_SOURCES - wave2_sources
     assert len(wave1_sources) == 9
     for s in corpus.sources:
         if s.reference.source_id in wave1_sources:
@@ -261,7 +271,7 @@ def test_lmde_final_design_only(corpus):
     g = next(t for t in corpus.topologies if t.topology_id == "TOPO-LM-DPS-FINAL")
     assert set(g.schematic_ids) == {"SCH-DB05-LMDE-TND7143-F3", "SCH-DB05-LMDE-TND7143-F7"}
     assert "SCH-DB05-LMDE-TND7143-F6" not in {s.schematic_id for s in corpus.schematics}
-    text = json.dumps(corpus_to_dict(corpus)["topologies"]) + json.dumps(
+    text = json.dumps([t for t in corpus_to_dict(corpus)["topologies"] if t["topology_id"] == "TOPO-LM-DPS-FINAL"]) + json.dumps(
         [c.notes for c in corpus.configurations if c.configuration_id == "CFG-LMDE-FINAL"])
     for term in ("helium injection", "helium-injection", "fixed-area", "Fig. 6", "Figure 6"):
         assert term.lower() not in text.lower()

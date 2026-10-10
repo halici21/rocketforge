@@ -356,7 +356,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "IPD section pp.5-6: programme identity, objectives and test status.",
-   "assertions": 4
+   "assertions": 5
   },
   {
    "source_id": "SRC-DB05-NTRS-20060004818",
@@ -1098,11 +1098,11 @@
    "read_level": "READ_AND_MINED",
    "identifier_verified": "NASA Science blog, Parker Solar Probe, 2018-08-11 'Workhorse Rocket to Carry NASA's Parker Solar Probe'",
    "title_as_printed": "Workhorse Rocket to Carry NASA's Parker Solar Probe",
-   "tier": "A",
+   "tier": "E",
    "rights_statement_checked": "NASA web page (US Government work); no copyright notice in the page text (checked 2026-10-10)",
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "VALUES_WITH_ATTRIBUTION",
-   "note": "Agency launch-day blog, not an engine document: identity and a headline thrust only.",
+   "note": "Agency launch-day blog, not an engine document: identity and a headline thrust only. Graded E (a blog, per the DB-1 authority vocabulary): discovery or conflict context only.",
    "assertions": 2
   },
   {
