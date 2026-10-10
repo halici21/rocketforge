@@ -30,7 +30,8 @@ for f, v, val, u in [("performance.thrust_sl", "Poussee au sol - 740 ts (metric 
                      ("performance.pc", "Pression dans la chambre de combustion - 250 kgs/cm2", 250, "kgf/cm2")]:
     A(RD, f, None, v, val, u, {"origin": "manufacturer placard as transcribed by Rockwell"}, RS, LP, db0=None,
       note="Manufacturer value reported second-hand; placard not opened directly. Rockwell's English conversion on the same slide: 1,631,404 / 1,776,908 lb; 3,556 psi.")
-A(RD, "architecture.layout", None, "1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies", "1 TPA / 2 PB / 4 TCA", "", {}, RS, "PDF p.16 (Rockwell text beside the placard)", db0=None)
+A(RD, "architecture.layout", None, "This engine (RD-170) is recognized as a propulsion module & consists of 1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies", "1 TPA / 2 PB / 4 TCA", "", {}, RS, "PDF p.16 (Rockwell text beside the placard)", db0=None,
+  note="Re-transcribed whole 2026-10-10 (DB-2B Wave 2 review): the bullet's opening frame was missing.")
 A(RD, "pumps.shaft_order", None, "single shaft assembly with high pressure fuel pump on the bottom, high pressure oxygen pump in the middle & turbine on top", "text", "", {}, RS, "PDF p.15", db0=None,
   status="INFERRED", note="Rockwell inference from display photographs.")
 A(RD, "propellants.mixture_ratio", None, "MR 2.58", 2.58, ":1", {}, RS, "PDF p.16 (Rockwell summary)", db0=None, note="Same document uses MR = 2.47 as its power-balance baseline (PDF p.22, p.26).")

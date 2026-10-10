@@ -72,11 +72,15 @@ def test_rights_refused_targets_and_sources_ship_nothing(corpus):
     assert "rutherford" not in names.lower() and "rl10a-4-2" not in names.lower()
 
 
-def test_wave2_rights_readings_are_not_owner_reviewed(corpus):
+def test_wave2_rights_readings_record_the_owner_review(corpus):
+    """Owner decision 2026-10-10: a shipping-policy review, not a legal determination; nothing upgraded."""
+    wave2_sources = {"SRC-ULA-DIV-INAUGURAL", "SRC-NTRS-19910018906", "SRC-DB05-NTRS-19950002748", "SRC-NTRS-IPD-WPB",
+                     "SRC-DB05-NTRS-20050243602", "SRC-DB05-NTRS-20090014109", "SRC-DB05-NTRS-19750004937"}
     for s in corpus.sources:
-        if any(a.source_id == s.reference.source_id for a in corpus.assertions
-               if a.subject.id in WAVE2 or a.subject.id in ("VAR-IPD", "VAR-RS-68A")):
-            assert "owner" not in s.rights.review_note.lower(), s.reference.source_id
+        if s.reference.source_id in wave2_sources:
+            assert s.rights.review_note.endswith(
+                "Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination).")
+            assert s.rights.values.value == "VALUES_WITH_ATTRIBUTION"
 
 
 # ------------------------------------------------------------------ RL10B-2
@@ -118,7 +122,9 @@ def test_rd170_graph_is_what_rockwell_drew(corpus):
 def test_rd170_ships_no_placard_value_and_no_mixture_ratio(corpus):
     a = own(corpus, "CFG-RD-170")
     assert not any(x.field_path.startswith(("performance.", "propellants.mixture_ratio")) for x in a.values())
-    assert {x.source_id for x in a.values()} == {"SRC-DB05-NTRS-19950002748"}
+    assert {x.source_id for x in a.values()} == {"SRC-DB05-NTRS-19950002748", "SRC-NTRS-19910018906"}
+    layout = a["AS-DB05-SU-RD-170-006"]
+    assert "CONFIRMED_SECONDARY" in layout.note and "secondary" in layout.note
     body = text(corpus, "CFG-RD-170")
     assert not any(n in body for n in ("740 t", "806 t", "2.58", "2.47", "kgs/cm2", "3,556"))
     fuel = next(x for x in a.values() if x.field_path == "propellants.fuel")

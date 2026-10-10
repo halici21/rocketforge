@@ -222,8 +222,11 @@ def source_problems(sid: str, research: Research, manifest) -> list[str]:
     reviewers = [k for k, r in getattr(manifest, "OWNER_REVIEWS", {}).items() if sid in r["sources"]]
     if _OWNER_REVIEW_WORDS.search(spec.get("review_note", "")) and not reviewers:
         out.append(f"{sid}: the rights note says owner-reviewed, but no OWNER_REVIEWS entry lists the source")
-    if reviewers and not re.search(r"(?i)owner[- ]reviewed 2026-10-09", spec.get("review_note", "")):
-        out.append(f"{sid}: listed by OWNER_REVIEWS {reviewers[0]}, but its rights note does not record the review")
+    for key in reviewers:
+        # the note must record the review on the date the owner's recorded decision carries
+        dated = re.search(r"\d{4}-\d{2}-\d{2}", manifest.OWNER_REVIEWS[key].get("decision", ""))
+        if not dated or not re.search(rf"(?i)owner[- ]reviewed {dated.group(0)}", spec.get("review_note", "")):
+            out.append(f"{sid}: listed by OWNER_REVIEWS {key}, but its rights note does not record the review")
     if spec.get("review", "NOT_REVIEWED") != "CONSISTENT":
         out.append(f"{sid}: rights review is {spec.get('review', 'NOT_REVIEWED')}; only a reviewed, "
                    "consistent rights reading ships values")
@@ -266,10 +269,27 @@ def _db05_number(record) -> float | None:
     return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
 
 
+#: A unit's exponent: the 2 of 'kgs/cm2', 'lb/in2', 'm/s^2' or 'ft**2' is part of the unit, not a value.
+#: Only an exponent of 1-3 on a length or time unit counts, written either as a caret or double star, or
+#: glued to a length unit right after a slash; it may not run on into another digit or a decimal. So
+#: 'O/F2.27', 'T/W73' and 'kg/s1727' keep their numbers. A superscript ('cm\u00b2') is never read as a
+#: number in the first place (it is not a decimal digit). A spaced or slash-less exponent ('cm 2',
+#: 'per cm2') is still read as a number: that only ever links more, and withholds more.
+_EXPONENT_END = r"(?!\d|[.,]\d)"
+_UNIT_EXPONENT = re.compile(
+    rf"(?<![A-Za-z])((?:cm|mm|m|in|ft|s|sec))(?:\^|\*\*)[1-3]{_EXPONENT_END}"
+    rf"|(?<=/)((?:cm|mm|m|in|ft))[1-3]{_EXPONENT_END}")
+
+
+def _strip_unit_exponents(text: str) -> str:
+    return _UNIT_EXPONENT.sub(lambda m: m.group(1) or m.group(2), text)
+
+
 def _whole_numbers(text: str) -> set[float]:
-    """Numbers as printed, thousands separators joined ('21 500', '230,000'); 0 and 1 dropped."""
+    """Numbers as printed, thousands separators joined ('21 500', '230,000'); 0 and 1 dropped. A unit's
+    exponent ('kgs/cm2', 'm/s^2') is not a number of the claim."""
     found = set()
-    for m in re.finditer(r"\d{1,3}(?:[ ,]\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?", text):
+    for m in re.finditer(r"\d{1,3}(?:[ ,]\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?", _strip_unit_exponents(text)):
         value = float(m.group(0).replace(",", "").replace(" ", ""))
         if value not in (0.0, 1.0):
             found.add(value)

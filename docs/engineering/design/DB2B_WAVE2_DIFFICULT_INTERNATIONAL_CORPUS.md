@@ -10,8 +10,8 @@ ship nothing.
 It is a curated, verified reference corpus, not a complete or worldwide
 engine database.
 
-**Status: see the final report of the Wave 2 change.** No owner decision
-is recorded by Wave 2; the decisions it needs are listed below.
+**Status: see the final report of the Wave 2 change.** The owner's decisions
+of 2026-10-10 are recorded below; none releases a value.
 
 ## Preflight: the text-excerpt rule
 
@@ -75,20 +75,20 @@ Capabilities are evaluated by `capabilities.py`, not set by hand.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | RL10A-4-2 | RESEARCH_VERIFIED_BUT_NOT_SHIPPABLE | 10 | 0 | — | — | — | — | — |
 | RL10B-2 (`CFG-RL10B-2-DIV`) | PROMOTED_PARTIAL | 14 | 5 | SUPPORTED | PARTIAL | PARTIAL | NOT_SUPPORTED | NOT_SUPPORTED |
-| RD-170 (`CFG-RD-170`) | PROMOTED_PARTIAL | 12 | 3 | SUPPORTED | PARTIAL | NOT_SUPPORTED | PARTIAL (9 / 12, reconstruction) | NOT_SUPPORTED |
+| RD-170 (`CFG-RD-170`) | PROMOTED_PARTIAL | 12 | 4 | SUPPORTED | PARTIAL | NOT_SUPPORTED | PARTIAL (9 / 12, reconstruction) | NOT_SUPPORTED |
 | IPD (`CFG-IPD`) | PROMOTED_PARTIAL (ACCESS_BLOCKED for the key papers) | 13 | 8 | SUPPORTED | SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED |
 | RS-68A (`CFG-RS-68A`) | PROMOTED_PARTIAL | 6 | 3 | SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED |
 | LR87AJ-11 (`CFG-LR87-AJ-11-T3E`) | PROMOTED_PARTIAL | 19 | 15 | SUPPORTED | SUPPORTED | PARTIAL | SUPPORTED (16 / 18) | NOT_SUPPORTED |
 | Rutherford (sea level, vacuum) | RESEARCH_VERIFIED_BUT_NOT_SHIPPABLE | 14 | 0 | — | — | — | — | — |
 
 The IPD count includes variant-level statements (`VAR-IPD`). Totals: 88
-research assertions considered, 34 promoted; not promoted: 33 WITHHELD_RIGHTS,
-5 WITHHELD_CONFLICT, 4 SECONDHAND_MANUFACTURER_VALUE, 4
+research assertions considered, 35 promoted; not promoted: 33 WITHHELD_RIGHTS,
+4 WITHHELD_CONFLICT, 4 SECONDHAND_MANUFACTURER_VALUE, 4
 MISSING_REQUIRED_SEMANTICS, 3 DUPLICATE, 2 WRONG_CONFIGURATION, 1
 INFERRED_ONLY, 1 NOT_NEEDED, 1 DISCOVERY_ONLY_SOURCE. A test recomputes these.
 
 Production after Wave 2: 16 configurations (3 DB-2A + 8 Wave 1 + 5 Wave 2),
-152 assertions, 21 sources, 9 schematics, 8 topology graphs, no conflicts.
+153 assertions, 21 sources, 9 schematics, 8 topology graphs, no conflicts.
 Every DB-2A and Wave 1 record is unchanged.
 
 ### RL10A-4-2
@@ -124,9 +124,9 @@ manufacturer's statement known only through Rockwell's transcription, so they
 are withheld (SECONDHAND_MANUFACTURER_VALUE, and the chamber pressure is in a
 conflict). Both mixture ratios stay withheld (UNRESOLVED CF-DB05-RD170-MR).
 Rockwell's layout sentence ("1 turbopump assembly driven by 2 preburners
-which feed 4 thrust chamber assemblies") is withheld because the frozen
-conflict matcher reads the "2" of "kgs/cm2" as a number it shares with
-CF-DB05-RD170-PC; the gate was not changed for it. The graph is Rockwell's
+which feed 4 thrust chamber assemblies") ships as Rockwell's secondary
+statement; it was withheld until the owner's matcher fix (2026-10-10), because
+the matcher read the "2" of "kgs/cm2" as a claim value. The graph is Rockwell's
 reconstruction from display photographs, kept as THIRD_PARTY_RECONSTRUCTION,
 so TOPOLOGY is PARTIAL; its fuel line is "fuel", as drawn. The fuel is filed
 as printed, "Kerosene", not RP-1.
@@ -195,34 +195,45 @@ is drawn from "electric-pump-fed".
 Records poorer than the research because of rights: RL10A-4-2 (NAP, Lockheed
 Martin), RL10B-2 performance (NAP, ULA booklet), RS-68A (ULA and L3Harris
 material not opened), Rutherford (Rocket Lab). Rights readings for the seven
-Wave 2 sources that ship are the author's (checked 2026-10-10, recorded per
-source); none is owner-reviewed.
+Wave 2 sources that ship were checked 2026-10-10, recorded per source, and
+accepted as owner-reviewed on 2026-10-10 (no policy upgraded).
 
-## Owner decisions required
+## Owner decisions (2026-10-10)
 
-Wave 2 records none. These are withheld until the owner decides:
+Recorded as written in `OWNER_REVIEWS` of the Wave 2 manifest. None releases a
+value; the DB-0.5 conflicts are not rewritten.
 
-1. **RS-68A thrust** (CF-DB05-RS68A-THRUST; AS-DB05-US-RS-68A-002): NASA blog
-   "Each engine produces 702,000 pounds of thrust" (no environment) against
-   705,000 lbf sea level from a DB-0 search excerpt of the manufacturer data
-   sheet (never opened). Choices: keep withheld (the blog is discovery only);
-   or rule that this NASA blog may speak for the RS-68A as an agency source,
-   which would admit 702,000 lb with environment UNKNOWN (PERFORMANCE becomes
-   PARTIAL; regression stays NOT_SUPPORTED).
-2. **RD-170 placard values** (AS-DB05-SU-RD-170-001..004): 740 t sea level,
-   806 t vacuum, 308 s and 336 s, as Rockwell transcribed the 1989 display.
-   Choices: keep withheld; or admit them as secondary values attributed to
-   the placard (their DB-0.5 records carry no environment condition, so they
-   would ship with environment UNKNOWN unless the transcription is
-   corrected).
-3. **Wave 2 rights readings** for the seven shipped sources (as given for
-   Wave 1).
-4. **Machinery additions and research corrections**: the three dispositions,
-   the three component words, the restated rights wording of
-   `SRC-ULA-DIV-INAUGURAL`, and the re-transcribed RD-170 reconstruction.
-5. **The conflict matcher's unit-digit match** ("kgs/cm2"), which withholds
-   Rockwell's RD-170 layout sentence: keep, or change the frozen matcher in a
-   separate, reviewed change.
+1. **RS-68A-002: KEEP WITHHELD.** The NASA blog's 702,000 lb is not promoted;
+   the blog's authority is not upgraded.
+2. **RD-170 001–004: KEEP WITHHELD** from production performance; kept in
+   research as Rockwell's secondary transcriptions, not manufacturer values;
+   no thrust or Isp environment is inferred.
+3. **Wave 2 rights readings: ACCEPTED as Owner-reviewed 2026-10-10** (a
+   RocketForge shipping-policy review, not a legal determination; no policy
+   upgraded). The seven shipped Wave 2 sources' rights notes record it.
+4. **Mechanism additions ACCEPTED as implemented in c039cac** (three
+   dispositions, three component mappings, the INAUGURAL rights restatement,
+   the corrected RD-170 transcription), with the RD-170 graph kept
+   THIRD_PARTY_RECONSTRUCTION and no generalisation beyond their documented
+   semantics.
+5. **Conflict-number matcher FIXED.** A unit's exponent (`kgs/cm2`, `kg/cm2`,
+   `kgf/cm²`, `lb/in2`, `m/s^2`, `ft**2`) is no longer read as a claim value;
+   real values (2.27 O/F, 20 starts, 2,250 seconds) still are, including values
+   glued to a slash label (`O/F2.27`, `T/W73`, `lb/sec1,727`). Only an exponent
+   of 1–3 on a length or time unit is set aside, written with `^`/`**` or glued
+   to a length unit after a slash; a spaced or slash-less exponent (`cm 2`,
+   `per cm2`) is still counted, which can only withhold more
+   (`tests/research/test_conflict_number_matcher.py`). Rockwell's sentence was
+   re-transcribed whole (its "This engine (RD-170) is recognized as a propulsion
+   module" frame had been dropped). Rockwell's RD-170 layout
+   sentence was then re-evaluated through every gate, not promoted for the fix
+   alone: it is Rockwell's own statement (REPORTED), from a shipped secondary
+   source inside the configuration's sources, and its preburner count is
+   CONFIRMED_SECONDARY in DB-0.5, which does not block. It ships, attributed as
+   secondary, and CF-DB05-RD170-PB carries it.
+
+The owner-review check now binds a rights note to the date of the recorded
+review that lists its source (it was fixed to 2026-10-09).
 
 ## Independent review
 

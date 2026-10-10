@@ -9,7 +9,8 @@ Targets: RL10A-4-2, RL10B-2, RD-170, IPD, RS-68A, LR87 (only LR87AJ-11 is suppor
 opened document), Rutherford (sea level and vacuum). RL10A-4-2 and Rutherford ship nothing:
 every document that states them carries a copyright notice.
 
-No owner decision is recorded here. Where shipping a value would need one, it is withheld.
+The owner's decisions of 2026-10-10 are recorded as text in ``OWNER_REVIEWS``. None of them releases
+a value: they keep two disputes withheld, review the rights readings, and accept the machinery added.
 """
 
 from __future__ import annotations
@@ -20,7 +21,7 @@ SEED_ENGINES = ("ENG-US-RL10A-4-2", "ENG-US-RL10B-2", "ENG-SU-RD-170", "ENG-US-I
                 "ENG-US-LR87-AJ-11", "ENG-NZ-RUTHERFORD", "ENG-NZ-RUTHERFORD-VACUUM")
 ACCOUNTED_ENGINES = SEED_ENGINES
 
-#: Wave 2 adds two reasons the earlier vocabulary had no word for; both only withhold.
+#: Wave 2 adds three reasons the earlier vocabulary had no word for; all three only withhold.
 DISPOSITIONS = ("WITHHELD_CONFLICT", "WITHHELD_RIGHTS", "WRONG_CONFIGURATION", "WRONG_OPERATING_POINT",
                 "SOURCE_SCOPE_TOO_BROAD", "SOURCE_NOT_OPENED", "MISSING_REQUIRED_SEMANTICS", "DUPLICATE",
                 "NOT_NEEDED", "OWNER_DECISION_REQUIRED",
@@ -61,7 +62,11 @@ def _src(organization, authors, title, year, identifiers, source_type, host, fig
          authority="A", primacy="PRIMARY", printed=_NO_NOTICE):
     return dict(organization=organization, authors=authors, title=title, year=year, identifiers=identifiers,
                 source_type=source_type, authority=authority, primacy=primacy, host=host, printed=printed,
-                review="CONSISTENT", figures=figures, review_note=review_note)
+                review="CONSISTENT", figures=figures, review_note=review_note + _OWNER_REVIEWED)
+
+
+#: Appended to every Wave 2 rights reading under the owner's review (OWNER_REVIEWS["WAVE2-RIGHTS"]).
+_OWNER_REVIEWED = " Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
 
 
 SOURCES = {
@@ -194,6 +199,9 @@ ASSERTIONS = (
     P("AS-DB05-US-RL10B-2-013", _RB2, "propellants.fuel", ("enum", "LIQUID_HYDROGEN"), "NOMINAL"),
     P("AS-DB05-US-RL10B-2-014", _RB2, "nozzle.extension", ("text",), "OTHER"),
     # RD-170: secondary descriptions
+    P("AS-DB05-SU-RD-170-006", _RD, "architecture.layout", ("text",), "OTHER",
+      note="Rockwell's reading of the 1989 display (a secondary source). The preburner count is "
+           "CONFIRMED_SECONDARY in DB-0.5: no manufacturer document states it."),
     P("AS-DB05-SU-RD-170-010", _RD, "architecture.layout", ("text",), "OTHER",
       note="A NASA analyst's description (secondary)."),
     P("AS-DB05-SU-RD-170-011", _RD, "propellants.oxidizer", ("enum", "LIQUID_OXYGEN"), "NOMINAL"),
@@ -270,10 +278,6 @@ NOT_PROMOTED = {
     **{f"AS-DB05-SU-RD-170-00{i}": _PLACARD for i in range(1, 5)},
     "AS-DB05-SU-RD-170-005": ("WITHHELD_CONFLICT", "placard chamber pressure in PARTIALLY_RESOLVED CF-DB05-RD170-PC "
                                                    "(and known only through Rockwell's transcription)"),
-    "AS-DB05-SU-RD-170-006": ("WITHHELD_CONFLICT", "Rockwell's layout sentence; the conflict gate matches it to "
-                                                   "CF-DB05-RD170-PC (the '2' of 'kgs/cm2' against its '2 preburners'), "
-                                                   "so it is withheld; the NASA description (AS-DB05-SU-RD-170-010) "
-                                                   "carries the four-chamber layout and the graph shows the preburners"),
     "AS-DB05-SU-RD-170-007": ("INFERRED_ONLY", "Rockwell's inference of the shaft order from display photographs"),
     "AS-DB05-SU-RD-170-008": ("WITHHELD_CONFLICT", "mixture ratio in UNRESOLVED intra-document conflict CF-DB05-RD170-MR"),
     "AS-DB05-SU-RD-170-009": ("WITHHELD_CONFLICT", "mixture ratio in UNRESOLVED intra-document conflict CF-DB05-RD170-MR"),
@@ -309,6 +313,39 @@ NOT_PROMOTED = {
     **{f"AS-DB05-NZ-RUTHERFORD-VACUUM-{i:03d}": _RKLB for i in range(1, 5)},
 }
 
+# ------------------------------------------------------------------ owner decisions (2026-10-10), as written
+
+OWNER_REVIEWS = {
+    "WAVE2-RS68A-THRUST": dict(
+        decision="owner (Cemil Eray), 2026-10-10: RS-68A-002: KEEP WITHHELD. Do not promote the NASA-blog 702,000 "
+                 "lb value. The environment is unstated and the competing manufacturer 705,000 lbf value exists "
+                 "only as unopened/search-summary evidence. Do not upgrade the blog's evidence authority.",
+        sources=()),
+    "WAVE2-RD170-PLACARD": dict(
+        decision="owner (Cemil Eray), 2026-10-10: RD-170 assertions 001-004: KEEP WITHHELD from production "
+                 "performance. Preserve them in research as Rockwell secondary transcriptions. Do not treat them as "
+                 "manufacturer-original values. Do not infer thrust/Isp environment.",
+        sources=()),
+    "WAVE2-RIGHTS": dict(
+        decision="owner (Cemil Eray), 2026-10-10: Wave-2 rights readings: ACCEPT as Owner-reviewed 2026-10-10. This "
+                 "is a RocketForge shipping-policy review, not a legal determination. Preserve all existing "
+                 "per-content restrictions and do not upgrade any withholding/shipping policy.",
+        sources=("SRC-ULA-DIV-INAUGURAL", "SRC-NTRS-19910018906", "SRC-DB05-NTRS-19950002748", "SRC-NTRS-IPD-WPB",
+                 "SRC-DB05-NTRS-20050243602", "SRC-DB05-NTRS-20090014109", "SRC-DB05-NTRS-19750004937")),
+    "WAVE2-MECHANISM": dict(
+        decision="owner (Cemil Eray), 2026-10-10: ACCEPT the Wave-2 mechanism additions as implemented in c039cac: "
+                 "three new dispositions; three component mappings; INAUGURAL rights-text restatement; corrected "
+                 "RD-170 topology transcription. Preserve RD-170 topology provenance as THIRD_PARTY_RECONSTRUCTION. "
+                 "Do not generalize these additions beyond their documented semantics.",
+        sources=()),
+    "WAVE2-MATCHER": dict(
+        decision="owner (Cemil Eray), 2026-10-10: FIX the conflict-number matcher: numeric unit exponents such as "
+                 "the \"2\" in kgs/cm2 must not be treated as scientific claim values. Re-evaluate the affected "
+                 "RD-170 sentence through all existing admission gates. Do not auto-promote it merely because the "
+                 "false numeric conflict disappears.",
+        sources=()),
+}
+
 RESEARCH_CONFLICTS = {
     "CF-DB05-RL10A42-THRUST-ISP": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-RL10A-4-2-001", "AS-DB05-US-RL10A-4-2-002", "AS-DB05-US-RL10A-4-2-007"),
@@ -321,13 +358,12 @@ RESEARCH_CONFLICTS = {
         competing={"AS-DB05-US-RL10B-2-010": "ULA booklet (copyrighted), agrees", "AS-DB05-US-RL10B-2-001": "NAP "
                    "(copyrighted), agrees"},
         argument="RESOLVED in DB-0.5: three opened sources print 24,750; only the uncopyrighted one is carried."),
-    "CF-DB05-RD170-PB": dict(decision="CARRIED_NOT", touches=(), competing={},
-        argument="CONFIRMED_SECONDARY: two preburners is Rockwell's reading of display photographs. No claim "
-                 "assertion is carried (the layout sentence is withheld under CF-DB05-RD170-PC); the graph, a "
-                 "third-party reconstruction, draws the two preburner boxes."),
+    "CF-DB05-RD170-PB": dict(decision="CARRIED_NOT", touches=("AS-DB05-SU-RD-170-006",), competing={},
+        argument="CONFIRMED_SECONDARY: two preburners is Rockwell's reading of display photographs; carried as "
+                 "Rockwell's statement from a secondary source, and drawn in its third-party reconstruction."),
     "CF-DB05-RD170-MR": dict(decision="WITHHOLD", withhold=("AS-DB05-SU-RD-170-008", "AS-DB05-SU-RD-170-009"),
         argument="UNRESOLVED: two values in one document; neither is attributed to the manufacturer."),
-    "CF-DB05-RD170-PC": dict(decision="WITHHOLD", withhold=("AS-DB05-SU-RD-170-005", "AS-DB05-SU-RD-170-006"),
+    "CF-DB05-RD170-PC": dict(decision="WITHHOLD", withhold=("AS-DB05-SU-RD-170-005",),
         argument="PARTIALLY_RESOLVED: a unit question on a value known only through a transcription."),
     "CF-DB05-RS68A-THRUST": dict(decision="WITHHOLD", withhold=("AS-DB05-US-RS-68A-002",),
         argument="PARTIALLY_RESOLVED: a NASA blog's 702,000 lb (no environment) against a manufacturer figure seen "

@@ -312,6 +312,14 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   in. No owner decision is recorded. The corpus is a curated reference, not a
   comprehensive engine database. See
   [docs/engineering/design/DB2B_WAVE2_DIFFICULT_INTERNATIONAL_CORPUS.md](docs/engineering/design/DB2B_WAVE2_DIFFICULT_INTERNATIONAL_CORPUS.md).
+- Reference engine corpus, DB-2B Wave 2 owner decisions (2026-10-10): the
+  RS-68A blog thrust and the RD-170 placard values stay withheld; the Wave 2
+  rights readings are owner-reviewed (a shipping-policy review, not a legal
+  determination); the Wave 2 mechanism additions are accepted. The conflict
+  matcher no longer reads a unit's exponent ("kgs/cm2", "m/s^2") as a claim
+  value; Rockwell's RD-170 layout sentence, re-evaluated through every gate,
+  now ships as a secondary statement. The owner-review check binds a rights
+  note to the date of the recorded review.
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

@@ -70,8 +70,8 @@ def test_every_wave2_assertion_is_decided_once(research):
 
 def test_accounting_totals(research):
     totals = collections.Counter(v[0] for v in wave2.NOT_PROMOTED.values())
-    assert len(wave2.ASSERTIONS) == 34
-    assert dict(totals) == {"WITHHELD_RIGHTS": 33, "WITHHELD_CONFLICT": 5, "SECONDHAND_MANUFACTURER_VALUE": 4,
+    assert len(wave2.ASSERTIONS) == 35
+    assert dict(totals) == {"WITHHELD_RIGHTS": 33, "WITHHELD_CONFLICT": 4, "SECONDHAND_MANUFACTURER_VALUE": 4,
                             "MISSING_REQUIRED_SEMANTICS": 4, "DUPLICATE": 3, "WRONG_CONFIGURATION": 2,
                             "INFERRED_ONLY": 1, "NOT_NEEDED": 1, "DISCOVERY_ONLY_SOURCE": 1}
     assert len(wave2.ASSERTIONS) + sum(totals.values()) == 88
@@ -89,14 +89,42 @@ def test_rights_refused_targets_ship_nothing():
 # ------------------------------------------------------------------ no owner decision
 
 
-def test_wave2_records_no_owner_decision():
-    assert not hasattr(wave2, "OWNER_DECISIONS") and not hasattr(wave2, "OWNER_REVIEWS")
+def test_wave2_owner_decisions_are_recorded_and_release_nothing():
+    """Owner decisions of 2026-10-10, as written: two disputes kept withheld, the rights readings reviewed,
+    the mechanism accepted, the matcher fixed. None of them releases a value."""
+    assert not hasattr(wave2, "OWNER_DECISIONS")
+    assert set(wave2.OWNER_REVIEWS) == {"WAVE2-RS68A-THRUST", "WAVE2-RD170-PLACARD", "WAVE2-RIGHTS", "WAVE2-MECHANISM",
+                                        "WAVE2-MATCHER"}
+    assert all(r["decision"].startswith("owner (Cemil Eray), 2026-10-10: ") for r in wave2.OWNER_REVIEWS.values())
+    assert "KEEP WITHHELD" in wave2.OWNER_REVIEWS["WAVE2-RS68A-THRUST"]["decision"]
+    assert "KEEP WITHHELD" in wave2.OWNER_REVIEWS["WAVE2-RD170-PLACARD"]["decision"]
     assert not [c for c, d in wave2.RESEARCH_CONFLICTS.items() if {"owner_accepted", "owner_released", "owner_scope"} & set(d)]
     merged = promote_db2a.load_manifest()
     assert set(merged.OWNER_DECISIONS) == {"CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
-    for sid, spec in wave2.SOURCES.items():
-        assert not promote_db2a._OWNER_REVIEW_WORDS.search(spec["review_note"]), sid
-        assert not any(sid in r["sources"] for r in merged.OWNER_REVIEWS.values()), sid
+    assert set(wave2.OWNER_REVIEWS["WAVE2-RIGHTS"]["sources"]) == set(wave2.SOURCES)
+    for spec in wave2.SOURCES.values():
+        assert spec["review_note"].endswith(
+            "Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination).")
+    # the decisions keep their values out
+    assert "AS-DB05-US-RS-68A-002" in wave2.NOT_PROMOTED
+    assert all(f"AS-DB05-SU-RD-170-00{i}" in wave2.NOT_PROMOTED for i in range(1, 5))
+
+
+def test_an_owner_review_note_must_carry_the_reviews_date(research):
+    m = manifest()
+    m.SOURCES["SRC-NTRS-IPD-WPB"]["review_note"] = m.SOURCES["SRC-NTRS-IPD-WPB"]["review_note"].replace(
+        "2026-10-10", "2026-10-09")
+    refused(research, m, "SRC-NTRS-IPD-WPB: listed by OWNER_REVIEWS WAVE2-RIGHTS, but its rights note does not record the review")
+
+
+def test_the_rd170_layout_sentence_passes_every_gate_on_its_merits(research):
+    """Re-evaluated after the matcher fix: Rockwell's own statement (REPORTED), from a shipped secondary
+    source inside the configuration's sources; its preburner count is CONFIRMED_SECONDARY (not blocking)."""
+    m = manifest()
+    assert entry(m, "AS-DB05-SU-RD-170-006")["subject"] == "CFG-RD-170"
+    assert m.RESEARCH_CONFLICTS["CF-DB05-RD170-PB"]["touches"] == ("AS-DB05-SU-RD-170-006",)
+    m.RESEARCH_CONFLICTS["CF-DB05-RD170-PB"]["touches"] = ()
+    refused(research, m, "promoted claim assertion AS-DB05-SU-RD-170-006 is not listed in touches")
 
 
 def test_a_wave2_value_cannot_be_owner_released_without_a_recorded_decision(research):

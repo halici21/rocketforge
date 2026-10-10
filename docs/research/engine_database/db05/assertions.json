@@ -5397,7 +5397,7 @@
    "engine_id": "ENG-SU-RD-170",
    "field_path": "architecture.layout",
    "operating_point": null,
-   "value_as_printed": "1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies",
+   "value_as_printed": "This engine (RD-170) is recognized as a propulsion module & consists of 1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies",
    "value": "1 TPA / 2 PB / 4 TCA",
    "unit_as_printed": "",
    "conditions": {},
@@ -5408,7 +5408,7 @@
    "locator": "PDF p.16 (Rockwell text beside the placard)",
    "access": "fetched",
    "db0_link": null,
-   "note": ""
+   "note": "Re-transcribed whole 2026-10-10 (DB-2B Wave 2 review): the bullet's opening frame was missing."
   },
   {
    "assertion_id": "AS-DB05-SU-RD-170-007",

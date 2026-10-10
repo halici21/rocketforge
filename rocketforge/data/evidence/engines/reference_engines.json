@@ -40,7 +40,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no notice on the pages. The programme's systems summary for NASA."
+        "review_note": "NTRS government public use; no notice on the pages. The programme's systems summary for NASA. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-10T12:09:55Z from https://ntrs.nasa.gov/api/citations/19750004937/downloads/19750004937.pdf; read in DB-0.5"
     },
@@ -176,7 +176,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no notice on the pages. A NASA analysis of an RD-170 test, not an engine document."
+        "review_note": "NTRS government public use; no notice on the pages. A NASA analysis of an RD-170 test, not an engine document. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-10T12:10:31Z from https://ntrs.nasa.gov/api/citations/19950002748/downloads/19950002748.pdf; read in DB-0.5"
     },
@@ -221,7 +221,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no notice on the pages."
+        "review_note": "NTRS government public use; no notice on the pages. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-10T12:10:16Z from https://ntrs.nasa.gov/api/citations/20050243602/downloads/20050243602.pdf; read in DB-0.5"
     },
@@ -267,7 +267,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS permits public use; no notice on the pages. Describes the RS-68A relative to the RS-68."
+        "review_note": "NTRS permits public use; no notice on the pages. Describes the RS-68A relative to the RS-68. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-10T12:09:42Z from https://ntrs.nasa.gov/api/citations/20090014109/downloads/20090014109.pdf; read in DB-0.5"
     },
@@ -701,7 +701,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use. A Western analysis of Soviet engines compiled from public-domain sources (p.12 lists them); its RD-170 schematic is a reconstruction from display photographs."
+        "review_note": "NTRS government public use. A Western analysis of Soviet engines compiled from public-domain sources (p.12 lists them); its RD-170 schematic is a reconstruction from display photographs. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-08T18:08:13Z from https://ntrs.nasa.gov/api/citations/19910018906/downloads/19910018906.pdf; read in DB-0.5"
     },
@@ -877,7 +877,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no notice on the pages."
+        "review_note": "NTRS government public use; no notice on the pages. Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-08T18:08:43Z from https://ntrs.nasa.gov/api/citations/20040084662/downloads/20040084662.pdf; read in DB-0.5"
     },
@@ -921,7 +921,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "No repository rights statement (a PDF hosted by ulalaunch.com). Each page carries the AIAA header; no copyright notice was found in the extracted text of its 9 pages (re-checked 2026-10-10)."
+        "review_note": "No repository rights statement (a PDF hosted by ulalaunch.com). Each page carries the AIAA header; no copyright notice was found in the extracted text of its 9 pages (re-checked 2026-10-10). Owner-reviewed 2026-10-10 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-08T18:09:10Z from https://www.ulalaunch.com/docs/default-source/evolution/critical-events-of-the-inaugural-launch-of-the-boeing-delta-iv-expendable-launch-vehicle.pdf; read in DB-0.5"
     }
@@ -9423,6 +9423,44 @@
       "schematic_id": null,
       "derivation": null,
       "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-SU-RD-170-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RD-170"
+      },
+      "field_path": "architecture.layout",
+      "value": {
+        "type": "text",
+        "text": "This engine (RD-170) is recognized as a propulsion module & consists of 1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies"
+      },
+      "value_as_printed": "This engine (RD-170) is recognized as a propulsion module & consists of 1 turbopump assembly driven by 2 preburners which feed 4 thrust chamber assemblies",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NTRS-19910018906",
+      "locator": "PDF p.16 (Rockwell text beside the placard)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Rockwell's reading of the 1989 display (a secondary source). The preburner count is CONFIRMED_SECONDARY in DB-0.5: no manufacturer document states it."
     },
     {
       "assertion_id": "AS-DB05-SU-RD-170-010",
