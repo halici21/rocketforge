@@ -197,7 +197,9 @@ CONFIGURATIONS = (
      "NTRS 20100027316 PDF p.16. By owner decision (2026-10-09) the 'F-1 Engine Characteristics' viewgraph "
      "defines this source-scoped configuration: its vacuum thrust, Isp and chamber pressure ship for it "
      "alone. This is not a canonical flight-rating epoch: the sea-level thrust rating stays withheld "
-     "(CF-DB05-F1-RATING, UNRESOLVED), and so does every other value of that table the owner did not admit."),
+     "(CF-DB05-F1-RATING, UNRESOLVED), and so does every other value of that table the owner did not admit. "
+     "The table's qualification life (starts and duration) ships by owner decision (2026-10-10) as "
+     "qualification-life information only."),
     ("CFG-H1-188K-SA10", "VAR-H1", "H-1, 188,000 lb nominal sea-level rating, Saturn I SA-10",
      "Saturn I SA-10 S-I stage (SDES-64-415 Vol. VIII)",
      "Not the H-1 family in general: the SA-10 volume's 188,000 lb engine. The graph is the inboard engine; "
@@ -302,6 +304,13 @@ ASSERTIONS = (
       note="Printed as 'Chamber pressure (psia)'; the station is not printed. In research conflict CF-DB05-F1-PC "
            "(PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision, and not for the F-1 "
            "variant or family."),
+    # owner decision of 2026-10-10: the qualification life, as two of the cell's three printed parts
+    P("AS-DB05-US-F-1-010", _F1, "test_history.qualification_life", ("text", "Starts 20; Duration 2,250 seconds"),
+      "OTHER",
+      note="Qualification-life information from the 'F-1 Engine Characteristics' table, admitted for this "
+           "configuration only by owner decision (2026-10-10). Not a nominal operating life, a demonstrated flight "
+           "life, an operating-point performance datum, a family or variant value, or a regression quantity. The "
+           "cell's printed mission duration is not admitted; the printed text is kept verbatim as provenance."),
     P("AS-DB05-US-F-1-008", _F1, "mechanical.dimensions", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-012", _F1, "pumps.configuration", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-015", _F1, "ignition_start.method", ("text",), "OTHER"),
@@ -444,10 +453,6 @@ NOT_PROMOTED = {
                            "printed 'Engine mixture ratio 2.27' without a direction (O/F or F/O)"),
     "AS-DB05-US-F-1-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
     "AS-DB05-US-F-1-009": ("NOT_NEEDED", "production deliveries, not an engine property"),
-    "AS-DB05-US-F-1-010": ("OWNER_DECISION_REQUIRED",
-                           "qualification life printed in the 'F-1 Engine Characteristics' table, whose rating epoch "
-                           "is the UNRESOLVED CF-DB05-F1-RATING; the owner's decision of 2026-10-09 admits the "
-                           "table's vacuum thrust and Isp, not this value"),
     "AS-DB05-US-F-1-017": ("WRONG_CONFIGURATION", "1.8 million lb is the F-1A (footnote 4: 'F-1A was rated at 1.8 "
                                                   "million pounds force')"),
     **{f"AS-DB05-US-F-1-0{i}": _MSFC for i in range(18, 25)},
@@ -508,8 +513,17 @@ _F1_PC = ("owner (Cemil Eray), 2026-10-09: accept F-1 chamber pressure 1,125 psi
           "station UNKNOWN; no family, variant or general F-1 inheritance. The research conflict stays "
           "PARTIALLY_RESOLVED as recorded in DB-0.5.")
 
+_F1_QUAL = ("owner (Cemil Eray), 2026-10-10: ACCEPT F-1-010 for CFG-F1 only. Ship the source-reported "
+            "qualification-life characteristic: Starts: 20; Duration: 2,250 seconds. Preserve it specifically as "
+            "qualification-life information. It must NOT be interpreted as: nominal operating life, demonstrated "
+            "flight life, an operating-point performance datum, a family/variant value, a regression quantity. It "
+            "must not independently raise PERFORMANCE_REFERENCE or REGRESSION_CANDIDATE capability. (Owner's "
+            "answer, 2026-10-10: the printed mission duration is not admitted; the verbatim cell is kept as "
+            "provenance.)")
+
+#: A conflict the owner decided more than once carries every decision, each as written.
 OWNER_DECISIONS = {
-    "CF-DB05-F1-RATING": _F1_RATING,
+    "CF-DB05-F1-RATING": (_F1_RATING, _F1_QUAL),
     "CF-DB05-F1-PC": _F1_PC,
 }
 
@@ -532,6 +546,11 @@ OWNER_REVIEWS = {
                  "NOT_PROMOTED metadata, literal OWNER_DECISIONS). DB-2A shipped production data stays "
                  "item-for-item unchanged.",
         sources=()),
+    "DB2A-MANIFEST-AJ10-137-025": dict(
+        decision="owner (Cemil Eray), 2026-10-10: ACCEPT the DB-2A manifest metadata addition AJ10-137-025. It "
+                 "remains NOT_PROMOTED and exists to provide ledger-backed source text for the SPS mixture-ratio "
+                 "direction rule. DB-2A shipped payload must remain item-for-item identical to commit 3902512.",
+        sources=()),
 }
 
 RESEARCH_CONFLICTS = {
@@ -541,9 +560,9 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-J2S-CYCLE": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2S-007",), competing={},
                               argument="RESOLVED in DB-0.5: tap-off, Tier A."),
     "CF-DB05-F1-RATING": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018", "AS-DB05-US-F-1-010"),
-        owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004"),
-        owner_accepted=_F1_RATING, owner_scope="CFG-F1",
+        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"),
+        owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004", "AS-DB05-US-F-1-010"),
+        owner_accepted=(_F1_RATING, _F1_QUAL), owner_scope="CFG-F1",
                               argument="UNRESOLVED: three primary sea-level ratings with no established epochs; "
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),

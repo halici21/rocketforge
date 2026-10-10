@@ -171,15 +171,32 @@ def test_f1_ships_the_owner_admitted_table_values_and_no_rating(corpus):
     # no sea-level thrust, no canonical rating, no F-1A, no mass
     assert numbers(corpus.assertions).isdisjoint({1522000, 1530000, 1500000, 1800000, 18616})
     assert not any(x.field_path == "performance.thrust_sl" for x in a.values())
-    # the rest of the table waits for the owner (qualification life, mass, mixture ratio)
-    assert not any(x.field_path.startswith(("test_history.", "mechanical.mass", "propellants.mixture_ratio"))
-                   for x in a.values())
+    # the rest of the table waits for the owner (mass, mixture ratio)
+    assert not any(x.field_path.startswith(("mechanical.mass", "propellants.mixture_ratio")) for x in a.values())
     # admitted for CFG-F1 only, never inherited by the variant or family
     for subject in ("VAR-F1", "FAM-F1"):
         assert not [x for x in corpus.assertions if x.subject.id == subject and x.field_path.startswith("performance.")]
     r = evaluate_capability(corpus, "CFG-F1", Capability.PERFORMANCE_REFERENCE)
     assert {g.split(":")[0] for g in r.gaps} == {"mixture_ratio"}
     assert not [p for p in corpus.operating_points if p.configuration_id == "CFG-F1"]
+
+
+def test_f1_qualification_life_ships_as_qualification_information_only(corpus):
+    """Owner decision of 2026-10-10: Starts 20 and Duration 2,250 seconds, for CFG-F1 only; the
+    printed mission duration is not admitted; the verbatim cell stays as provenance."""
+    a = corpus.assertion_map["AS-DB05-US-F-1-010"]
+    assert a.subject.id == "CFG-F1" and a.field_path == "test_history.qualification_life"
+    assert a.value.text == "Starts 20; Duration 2,250 seconds"
+    assert a.value_as_printed == "Starts 20; Duration 2,250 seconds; mission duration 165 seconds"
+    assert a.operating_point_id is None and a.value_kind.value == "OTHER"
+    for words in ("nominal operating life", "demonstrated flight life", "operating-point performance datum",
+                  "regression quantity", "mission duration is not admitted"):
+        assert words in a.note
+    assert not [x for x in corpus.assertions if x.subject.id in ("VAR-F1", "FAM-F1")
+                and x.field_path.startswith("test_history.")]
+    # it raises neither performance nor regression
+    for cap, status in ((Capability.PERFORMANCE_REFERENCE, "PARTIAL"), (Capability.REGRESSION_CANDIDATE, "NOT_SUPPORTED")):
+        assert evaluate_capability(corpus, "CFG-F1", cap).status.value == status
 
 
 def test_wave1_rights_readings_record_the_owner_review(corpus):

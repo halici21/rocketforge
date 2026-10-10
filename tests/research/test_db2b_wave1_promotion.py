@@ -71,10 +71,10 @@ def test_every_wave1_assertion_is_decided_once_with_a_disposition(research):
 def test_accounting_totals(research):
     """The audit the design note reports, recomputed from the manifest."""
     totals = collections.Counter(v[0] for v in wave1.NOT_PROMOTED.values())
-    assert len(wave1.ASSERTIONS) == 74
+    assert len(wave1.ASSERTIONS) == 75
     assert dict(totals) == {"WITHHELD_RIGHTS": 46, "WITHHELD_CONFLICT": 15, "MISSING_REQUIRED_SEMANTICS": 10,
                             "NOT_NEEDED": 14, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 5,
-                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1, "OWNER_DECISION_REQUIRED": 1}
+                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(
         1 for r in research.assertions.values() if r["engine_id"] in wave1.SEED_ENGINES)
 
@@ -83,15 +83,20 @@ def test_wave1_records_exactly_the_owners_f1_decisions():
     assert {c for c, d in wave1.RESEARCH_CONFLICTS.items() if "owner_accepted" in d} == {
         "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
     assert set(wave1.OWNER_DECISIONS) == {"CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
-    assert all(v.startswith("owner (Cemil Eray), 2026-10-09") for v in wave1.OWNER_DECISIONS.values())
-    assert set(wave1.OWNER_REVIEWS) == {"DB2A-RIGHTS", "WAVE1-RIGHTS", "DB2A-MANIFEST-METADATA"}
+    assert wave1.OWNER_DECISIONS["CF-DB05-F1-PC"].startswith("owner (Cemil Eray), 2026-10-09")
+    first, second = wave1.OWNER_DECISIONS["CF-DB05-F1-RATING"]
+    assert first.startswith("owner (Cemil Eray), 2026-10-09") and second.startswith("owner (Cemil Eray), 2026-10-10")
+    assert "ACCEPT F-1-010 for CFG-F1 only" in second and "Starts: 20; Duration: 2,250 seconds" in second
+    assert set(wave1.OWNER_REVIEWS) == {"DB2A-RIGHTS", "WAVE1-RIGHTS", "DB2A-MANIFEST-METADATA",
+                                        "DB2A-MANIFEST-AJ10-137-025"}
+    assert "AJ10-137-025" in wave1.OWNER_REVIEWS["DB2A-MANIFEST-AJ10-137-025"]["decision"]
+    assert "AS-DB05-US-AJ10-137-025" in db2a_manifest.NOT_PROMOTED
     assert set(wave1.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"]) == set(wave1.SOURCES)
     merged = promote_db2a.load_manifest().RESEARCH_CONFLICTS
     assert {c for c, d in merged.items() if "owner_accepted" in d} == {
         "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
     # the sea-level rating stays withheld; the DB-0.5 conflicts are not rewritten
-    assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {
-        "AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018", "AS-DB05-US-F-1-010"}
+    assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {"AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"}
 
 
 def test_a_missing_or_unknown_disposition_is_refused(research):
@@ -537,27 +542,44 @@ def test_a_table_mate_of_a_withheld_rating_cannot_ship_without_the_owner(researc
 
 
 def test_a_release_names_only_values_the_owner_names(research):
-    """Confirmed bypass: an id added to owner_released, with the owner's words unchanged, shipped."""
+    """Confirmed bypass (post-change review): an id added to owner_released, with the owner's words
+    unchanged, shipped. Here: the whole qualification-life cell, whose mission duration the owner
+    did not admit."""
     m = manifest()
-    m.NOT_PROMOTED.pop("AS-DB05-US-F-1-010")
-    d = _rating(m)
-    d["withhold"] = ("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018")
-    d["owner_released"] += ("AS-DB05-US-F-1-010",)
-    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life", ("text",),
-                                   "OTHER"))
+    entry(m, "AS-DB05-US-F-1-010")["value"] = ("text",)
     refused(research, m, "AS-DB05-US-F-1-010 ('Starts 20; Duration 2,250 seconds; mission duration 165 seconds') "
                          "is not a value the owner's recorded decision names")
-
-
-def test_the_unadmitted_f1_qualification_life_waits_for_the_owner(research):
-    m = promote(manifest(), db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life",
-                                            ("text",), "OTHER"))
-    refused(research, m, "withholds AS-DB05-US-F-1-010, which is promoted")
     m = manifest()
-    _rating(m)["withhold"] = ("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018")
-    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life",
-                                   ("text",), "OTHER"))
+    entry(m, "AS-DB05-US-F-1-010")["value"] = ("text", "Starts 20; Duration 2,250 seconds; mission duration 165 seconds")
+    refused(research, m, "is not a value the owner's recorded decision names")
+
+
+def test_the_f1_qualification_life_needs_its_own_owner_decision(research):
+    m = manifest()
+    _rating(m)["owner_accepted"] = m.OWNER_DECISIONS["CF-DB05-F1-RATING"][0]
+    m.OWNER_DECISIONS["CF-DB05-F1-RATING"] = m.OWNER_DECISIONS["CF-DB05-F1-RATING"][0]
+    refused(research, m, "AS-DB05-US-F-1-010 ('Starts 20; Duration 2,250 seconds') is not a value the owner's "
+                         "recorded decision names")
+    m = manifest()
+    d = _rating(m)
+    d["owner_released"] = tuple(i for i in d["owner_released"] if i != "AS-DB05-US-F-1-010")
     refused(research, m, "AS-DB05-US-F-1-010 is printed in the same table as a withheld rating claim")
+
+
+def test_admitted_text_is_only_what_the_source_prints(research):
+    m = manifest()
+    entry(m, "AS-DB05-US-F-1-010")["value"] = ("text", "Starts 20; Duration 3,000 seconds")
+    refused(research, m, "admitted text ['Duration 3,000 seconds'] is not printed in")
+    m = manifest()
+    entry(m, "AS-DB05-US-F-1-010")["value"] = ("text", " ; ")
+    refused(research, m, "AS-DB05-US-F-1-010: admitted text [] is not printed in")
+
+
+@pytest.mark.parametrize("subject", ["VAR-F1", "FAM-F1"])
+def test_the_f1_qualification_life_is_not_inherited(research, subject):
+    m = manifest()
+    entry(m, "AS-DB05-US-F-1-010")["subject"] = subject
+    refused(research, m, f"AS-DB05-US-F-1-010 is authorised by the owner for CFG-F1, but is filed on {subject}")
 
 
 def test_an_owner_decision_is_scoped_to_the_configuration_it_names(research):

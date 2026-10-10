@@ -405,6 +405,11 @@ def _value_problems(aid, entry, record) -> list[str]:
             return [f"{aid}: token {token} is not DB-0.5's value {record['value']!r}"]
         return []
     if kind == "text":
+        if len(entry["value"]) > 1:
+            parts = [p.strip() for p in str(entry["value"][1]).split(";") if p.strip()]
+            missing = [p for p in parts if p not in record["value_as_printed"]]
+            if not parts or missing:
+                return [f"{aid}: admitted text {missing or parts!r} is not printed in {record['value_as_printed']!r}"]
         return []
     return [f"{aid}: unknown value kind {kind!r}"]
 
@@ -531,6 +536,11 @@ def claim_matches(conflict: dict, research: Research) -> list[set[str]]:
     return out
 
 
+def _owner_text(decision) -> str:
+    """One owner decision, or several recorded for the same conflict, as text."""
+    return " ".join(decision) if isinstance(decision, tuple) else str(decision or "")
+
+
 def _named_in(printed: str, text: str) -> bool:
     """Every number of a printed value appears, as printed, in the owner's text (or the whole
     printed text does, if it has no number)."""
@@ -545,7 +555,7 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
     subjects = {e["db05_id"]: e["subject"] for e in manifest.ASSERTIONS}
     # values carried by an open conflict's recorded owner decision
     owner_carried = {i for d in manifest.RESEARCH_CONFLICTS.values()
-                     if d.get("decision") == "CARRIED_NOT" and str(d.get("owner_accepted", "")).strip()
+                     if d.get("decision") == "CARRIED_NOT" and _owner_text(d.get("owner_accepted")).strip()
                      for i in d.get("touches", ())}
     seed = [c for c in research.conflicts.values() if c["engine_id"] in manifest.SEED_ENGINES]
     for c in seed:
@@ -566,7 +576,7 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
         shipped = (matched | on_field) & promoted
         open_ = c["resolution"] in ("PARTIALLY_RESOLVED", "UNRESOLVED")
         released = set(decision.get("owner_released", ()))
-        if released and not str(decision.get("owner_accepted", "")).strip():
+        if released and not _owner_text(decision.get("owner_accepted")).strip():
             out.append(f"{cid}: owner_released needs the owner's recorded decision (owner_accepted)")
         out += [f"{cid}: owner_released {i} is a claim of the conflict; a claim is withheld or carried, "
                 "never released" for i in sorted(released & matched)]
@@ -586,7 +596,8 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
                     "only when released by the owner's recorded decision (owner_released) or carried by one"
                     for i in sorted(mates - released - owner_carried)]
         scope = decision.get("owner_scope")
-        recorded_text = str(recorded.get(cid, ""))
+        recorded_text = _owner_text(recorded.get(cid))
+        entries = {e["db05_id"]: e for e in manifest.ASSERTIONS}
         named = set(re.findall(r"\bCFG-[A-Z0-9-]*[A-Z0-9]", recorded_text))
         if (released or named) and "owner_accepted" in decision:
             if scope is None or {scope} != named:
@@ -596,9 +607,11 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
             out += [f"{cid}: {i} is authorised by the owner for {scope}, but is filed on {subjects.get(i)}"
                     for i in sorted(authorised) if subjects.get(i) != scope]
             # the owner's words name each value they admit, as printed
-            out += [f"{cid}: {i} ({research.assertions[i]['value_as_printed']!r}) is not a value the owner's "
-                    "recorded decision names" for i in sorted(authorised)
-                    if i in research.assertions and not _named_in(research.assertions[i]["value_as_printed"], recorded_text)]
+            admitted = {i: (_admitted_text(entries[i], research.assertions[i]) if i in entries
+                           else research.assertions[i]["value_as_printed"])
+                       for i in authorised if i in research.assertions}
+            out += [f"{cid}: {i} ({text!r}) is not a value the owner's recorded decision names"
+                    for i, text in sorted(admitted.items()) if not _named_in(text, recorded_text)]
         if decision["decision"] == "WITHHOLD":
             out += [f"{cid}: claim assertion {i} is not listed as withheld" for i in sorted(matched - set(decision["withhold"]))]
             out += [f"{cid}: withholds {i}, which is promoted" for i in decision["withhold"] if i in promoted]
@@ -607,7 +620,7 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
         elif decision["decision"] == "CARRIED_NOT":
             if c["resolution"] == "UNRESOLVED":
                 out.append(f"{cid}: UNRESOLVED, so its assertions can only be withheld")
-            elif open_ and not str(decision.get("owner_accepted", "")).strip():
+            elif open_ and not _owner_text(decision.get("owner_accepted")).strip():
                 out.append(f"{cid}: {c['resolution']} in DB-0.5; not carrying it needs the owner's recorded "
                            "decision (owner_accepted), otherwise withhold its claims")
             out += [f"{cid}: promoted claim assertion {i} is not listed in touches" for i in sorted(shipped - set(decision["touches"]))]
@@ -718,6 +731,12 @@ def _conditions(spec: dict) -> Conditions:
     return Conditions(**kw)
 
 
+def _admitted_text(entry: dict, record: dict) -> str:
+    """A text value as shipped: the printed text, or the printed parts the manifest admits."""
+    text = entry["value"][0] == "text" and len(entry["value"]) > 1
+    return str(entry["value"][1]) if text else record["value_as_printed"]
+
+
 def build_assertion(entry: dict, research: Research) -> Assertion:
     record = research.assertions[entry["db05_id"]]
     kind = entry["value"][0]
@@ -726,7 +745,7 @@ def build_assertion(entry: dict, research: Research) -> Assertion:
     elif kind == "enum":
         value, unit = EnumValue(entry["value"][1]), ""
     else:
-        value, unit = TextValue(record["value_as_printed"]), ""
+        value, unit = TextValue(_admitted_text(entry, record)), ""
     note = " ".join(x for x in (entry["note"], f"Read as: {entry['reading']}." if entry["reading"] else "") if x)
     return Assertion(
         entry["db05_id"], _subject(entry["subject"]), entry["field_path"], value, record["value_as_printed"],

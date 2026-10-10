@@ -285,6 +285,14 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   without an owner decision, is withheld pending one. One TN D-7375 sentence
   (already read) was transcribed so the SPS Block I ratio's direction rests on
   a record. DB-2A's shipped data is unchanged.
+- Reference engine corpus, owner decisions of 2026-10-10: the F-1
+  qualification life ships for `CFG-F1` only as "Starts 20; Duration 2,250
+  seconds", qualification-life information that raises no capability; the
+  printed mission duration is not admitted and the source cell is kept
+  verbatim as provenance. The DB-2A manifest addition AJ10-137-025 (not
+  promoted) is accepted; DB-2A's shipped data is unchanged. A text value may
+  now ship a verbatim extract of its printed text, checked against the
+  owner's words when an owner decision releases it.
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no
