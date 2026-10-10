@@ -273,6 +273,18 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   unchanged. The promotion gates now require a recorded owner decision for a
   value released from a withheld table, refuse an owner decision no conflict
   uses, and tie an "owner-reviewed" rights note to a recorded review.
+- Reference engine corpus, owner-gate review (2026-10-10): the post-change
+  review found the F-1 table's release was not enforced (the values shipped
+  even with every owner record removed) and could name values the owner had
+  not. Values printed in the same table as a withheld rating-epoch claim now
+  ship only by a recorded owner release that names them as printed and binds
+  them to the configuration the decision names; an owner decision must be its
+  own conflict's; any wording claiming an owner review needs a recorded one;
+  and a mixture-ratio direction must come from a DB-0.5 record, not the
+  author's reading. The F-1 qualification life, which shipped from that table
+  without an owner decision, is withheld pending one. One TN D-7375 sentence
+  (already read) was transcribed so the SPS Block I ratio's direction rests on
+  a record. DB-2A's shipped data is unchanged.
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

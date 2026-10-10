@@ -198,6 +198,10 @@ def _subject(ref: str) -> SubjectRef:
 # ------------------------------------------------------------------ gates
 
 
+#: Wording that claims the owner reviewed, approved or accepted something.
+_OWNER_REVIEW_WORDS = re.compile(r"(?i)\bowner[- ]?(review|approv|accept)|\b(reviewed|approved|accepted) by the owner")
+
+
 def source_problems(sid: str, research: Research, manifest) -> list[str]:
     """Why this source may not supply shipped evidence."""
     out = []
@@ -214,7 +218,7 @@ def source_problems(sid: str, research: Research, manifest) -> list[str]:
     if spec is None:
         return out + [f"{sid}: not in the manifest's source list"]
     reviewers = [k for k, r in getattr(manifest, "OWNER_REVIEWS", {}).items() if sid in r["sources"]]
-    if re.search(r"(?i)owner[- ]reviewed", spec.get("review_note", "")) and not reviewers:
+    if _OWNER_REVIEW_WORDS.search(spec.get("review_note", "")) and not reviewers:
         out.append(f"{sid}: the rights note says owner-reviewed, but no OWNER_REVIEWS entry lists the source")
     if reviewers and not re.search(r"(?i)owner[- ]reviewed 2026-10-09", spec.get("review_note", "")):
         out.append(f"{sid}: listed by OWNER_REVIEWS {reviewers[0]}, but its rights note does not record the review")
@@ -488,12 +492,31 @@ def _condition_problems(aid, entry, record) -> list[str]:
     if form is not None:
         marks = {"OXIDIZER_TO_FUEL": ("O/F", "oxidizer-to-fuel", "oxidizer to fuel", "lox-to-fuel"),
                  "FUEL_TO_OXIDIZER": ("F/O", "fuel-to-oxidizer", "fuel to oxidizer", "fuel-to-lox")}[form]
-        if not any(m.lower() in f"{stated} {entry['reading']}".lower() for m in marks):
-            out.append(f"{aid}: mixture ratio form {form} is not printed ({marks[0]}) nor quoted in the reading")
+        if not any(m.lower() in f"{stated} {_recorded_reading(entry, record)}".lower() for m in marks):
+            out.append(f"{aid}: mixture ratio form {form} is not printed ({marks[0]}) nor in a DB-0.5 record "
+                       "the reading cites or quotes")
     basis = cond.get("mixture_ratio_basis", "UNKNOWN")
     if basis != "UNKNOWN" and basis.lower().replace("_", " ") not in stated.lower():
         out.append(f"{aid}: mixture ratio basis {basis} is not printed; it stays UNKNOWN")
     return out
+
+
+#: Every DB-0.5 assertion, set by build_corpus for gates that check a reading against the record.
+_RESEARCH: dict[str, dict] = {}
+
+
+def _recorded_reading(entry: dict, record: dict) -> str:
+    """The parts of a reading that DB-0.5 records: the printed text of an assertion of the same
+    engine the reading cites by id, and any quoted phrase printed by an assertion of the same
+    source and page. The author's own words are not evidence."""
+    reading = entry["reading"]
+    out = [r["value_as_printed"] for aid, r in _RESEARCH.items()
+           if aid in reading and r["engine_id"] == record["engine_id"]]
+    pages = _pages(record["locator"]) or {record["locator"]}
+    same_page = [r["value_as_printed"].lower() for r in _RESEARCH.values()
+                 if r["source_id"] == record["source_id"] and (_pages(r["locator"]) or {r["locator"]}) & pages]
+    out += [q for q in re.findall(r"'([^']+)'", reading) if any(q.lower() in p for p in same_page)]
+    return " ".join(out)
 
 
 def claim_matches(conflict: dict, research: Research) -> list[set[str]]:
@@ -508,8 +531,22 @@ def claim_matches(conflict: dict, research: Research) -> list[set[str]]:
     return out
 
 
+def _named_in(printed: str, text: str) -> bool:
+    """Every number of a printed value appears, as printed, in the owner's text (or the whole
+    printed text does, if it has no number)."""
+    numbers = re.findall(r"\d[\d,]*(?:\.\d+)?", printed)
+    if not numbers:
+        return printed.strip().lower() in text.lower()
+    return all(re.search(rf"(?<![\d.,]){re.escape(n)}(?![\d]|[.,]\d)", text) for n in numbers)
+
+
 def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[str]:
     out = []
+    subjects = {e["db05_id"]: e["subject"] for e in manifest.ASSERTIONS}
+    # values carried by an open conflict's recorded owner decision
+    owner_carried = {i for d in manifest.RESEARCH_CONFLICTS.values()
+                     if d.get("decision") == "CARRIED_NOT" and str(d.get("owner_accepted", "")).strip()
+                     for i in d.get("touches", ())}
     seed = [c for c in research.conflicts.values() if c["engine_id"] in manifest.SEED_ENGINES]
     for c in seed:
         cid = c["conflict_id"]
@@ -533,13 +570,35 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
             out.append(f"{cid}: owner_released needs the owner's recorded decision (owner_accepted)")
         out += [f"{cid}: owner_released {i} is a claim of the conflict; a claim is withheld or carried, "
                 "never released" for i in sorted(released & matched)]
+        places = {(research.assertions[i]["source_id"], research.assertions[i]["locator"])
+                  for i in matched & set(decision.get("withhold", ())) if i in research.assertions}
         if released:
             # a value printed with a withheld claim, released for its configuration by the owner
-            places = {(research.assertions[i]["source_id"], research.assertions[i]["locator"])
-                      for i in matched & set(decision.get("withhold", ())) if i in research.assertions}
             out += [f"{cid}: owner_released {i} is not a promoted assertion printed with a withheld claim"
                     for i in sorted(released) if i not in promoted or i not in research.assertions
                     or (research.assertions[i]["source_id"], research.assertions[i]["locator"]) not in places]
+        if decision["decision"] == "WITHHOLD" and open_ and c["kind"] == "different_epoch":
+            # an open rating epoch leaves every value of the table that prints it undefined
+            # until the owner says which configuration the table describes
+            mates = {aid for aid in promoted - matched if aid in research.assertions
+                     and (research.assertions[aid]["source_id"], research.assertions[aid]["locator"]) in places}
+            out += [f"{cid}: promoted {i} is printed in the same table as a withheld rating claim; it ships "
+                    "only when released by the owner's recorded decision (owner_released) or carried by one"
+                    for i in sorted(mates - released - owner_carried)]
+        scope = decision.get("owner_scope")
+        recorded_text = str(recorded.get(cid, ""))
+        named = set(re.findall(r"\bCFG-[A-Z0-9-]*[A-Z0-9]", recorded_text))
+        if (released or named) and "owner_accepted" in decision:
+            if scope is None or {scope} != named:
+                out.append(f"{cid}: owner_scope {scope!r} is not the configuration the owner's decision names "
+                           f"({', '.join(sorted(named)) or 'none'})")
+            authorised = released | (set(decision.get("touches", ())) if decision["decision"] == "CARRIED_NOT" else set())
+            out += [f"{cid}: {i} is authorised by the owner for {scope}, but is filed on {subjects.get(i)}"
+                    for i in sorted(authorised) if subjects.get(i) != scope]
+            # the owner's words name each value they admit, as printed
+            out += [f"{cid}: {i} ({research.assertions[i]['value_as_printed']!r}) is not a value the owner's "
+                    "recorded decision names" for i in sorted(authorised)
+                    if i in research.assertions and not _named_in(research.assertions[i]["value_as_printed"], recorded_text)]
         if decision["decision"] == "WITHHOLD":
             out += [f"{cid}: claim assertion {i} is not listed as withheld" for i in sorted(matched - set(decision["withhold"]))]
             out += [f"{cid}: withholds {i}, which is promoted" for i in decision["withhold"] if i in promoted]
@@ -557,9 +616,9 @@ def conflict_problems(research: Research, manifest, promoted: set[str]) -> list[
                 out.append(f"{cid}: RESOLVED, yet promoted assertions come from more than one competing claim")
         else:
             out.append(f"{cid}: unknown decision {decision['decision']!r}")
-    used = {d.get("owner_accepted") for d in manifest.RESEARCH_CONFLICTS.values()}
-    out += [f"{cid}: OWNER_DECISIONS records a decision no conflict uses"
-            for cid, text in getattr(manifest, "OWNER_DECISIONS", {}).items() if text not in used]
+    out += [f"{cid}: OWNER_DECISIONS records a decision its conflict does not use"
+            for cid, text in getattr(manifest, "OWNER_DECISIONS", {}).items()
+            if manifest.RESEARCH_CONFLICTS.get(cid, {}).get("owner_accepted") != text]
     for key, review in getattr(manifest, "OWNER_REVIEWS", {}).items():
         if not str(review.get("decision", "")).startswith("owner ("):
             out.append(f"OWNER_REVIEWS {key}: not a recorded owner decision")
@@ -971,6 +1030,8 @@ def build_corpus(research: Research | None = None, manifest=None) -> EngineEvide
     """The seed corpus, or :class:`PromotionError` naming every entry that failed a gate."""
     research = load_research() if research is None else research
     manifest = load_manifest() if manifest is None else manifest
+    _RESEARCH.clear()
+    _RESEARCH.update(research.assertions)
     _WITHHELD_BASIS.clear()
     for d in manifest.RESEARCH_CONFLICTS.values():
         _WITHHELD_BASIS.update({i: "withheld by a conflict decision" for i in d.get("withhold", ())})

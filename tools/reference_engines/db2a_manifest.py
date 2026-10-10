@@ -313,6 +313,7 @@ NOT_PROMOTED = {
     "AS-DB05-US-J-2-033": "recorded as the text basis of the J-2 graph's gas generator; not shipped as a value",
     "AS-DB05-US-J-2-034": "recorded as the text basis of the J-2 graph's nozzle exhaust dump; not shipped as a value",
     "AS-DB05-US-AJ10-137-024": "recorded as the text basis of the SPS graph's injector; not shipped as a value",
+    "AS-DB05-US-AJ10-137-025": "recorded as the printed direction (oxidizer-to-fuel) of the Block I 2:1 ratio; not shipped as a value",
     "AS-DB05-US-J-2-008": "the 4.5:1 alternate mixture ratio is another operating point, not seeded",
     "AS-DB05-US-J-2-013": "programme history (production count), not an engine property",
     "AS-DB05-US-J-2-014": "the 225,000 lb version is another configuration, not seeded",

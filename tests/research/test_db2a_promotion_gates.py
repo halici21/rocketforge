@@ -162,7 +162,7 @@ def test_a_mixture_ratio_direction_needs_print_or_a_reading(research):
     m = manifest()
     e = entry(m, "AS-DB05-US-RL10A-3-3A-012")
     e["reading"] = "trust me"
-    refused(research, m, "is not printed (O/F) nor quoted in the reading")
+    refused(research, m, "is not printed (O/F) nor in a DB-0.5 record the reading cites or quotes")
     m = manifest()
     entry(m, "AS-DB05-US-RL10A-3-3A-012")["conditions"]["mixture_ratio_form"] = "FUEL_TO_OXIDIZER"
     refused(research, m, "is not printed (F/O)")

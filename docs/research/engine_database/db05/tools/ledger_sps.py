@@ -48,6 +48,8 @@ A(E, "architecture.feed", None, "The SPS engine (fig. 3) was a nonthrottleable, 
 # Review supplement (2026-10-09): the injector of the Block I engine assembly,
 # cited by the production SPS graph.
 A(E, "injector.type", None, "a bolt-on aluminum injector", "text", "", {"configuration": "Block I"}, TN, L9, db0=None)
+A(E, "propellants.mixture_ratio_definition", None, "the SPS could supply a specific impulse of 3 to 5 seconds higher if the oxidizer-to-fuel weight ratio was 1.6: 1 rather than 2: 1",
+  "text", "", {}, TN, "p.3 (PDF p.7)", db0=None)
 
 S("SCH-DB05-SPS-TND7375-F2", engine_ids=[E], source_id=TN, locator="TN D-7375 Figure 2 'Service propulsion subsystem propellant feed assembly', p.4 (PDF p.8)",
   title="Service propulsion subsystem propellant feed assembly", kind="pictorial/line schematic of the SM pressurization and feed system",

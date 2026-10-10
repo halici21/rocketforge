@@ -60,9 +60,11 @@ additive (the DB-2A part of the build is unchanged):
 | OWNER_DECISION_REQUIRED, like WITHHELD_CONFLICT, must be withheld by a conflict decision; a value from a source refused for rights must carry WITHHELD_RIGHTS | review finding: the F-1 vacuum thrust could be promoted; a rights-withheld value could be relabelled NOT_NEEDED |
 | `owner_accepted` must equal the decision recorded in `OWNER_DECISIONS`, the two DB-2A owner decisions written out as text, not derived from the conflicts it checks | review finding: an invented `owner_accepted` was guarded only by a test |
 | "No copyright notice" is set aside only as an exact finding, and not when followed by but, except, although, however or yet | review finding: the earlier rule cut at the next punctuation |
-| A WITHHOLD decision may list `owner_released` values printed with a withheld claim; that needs the recorded owner decision, and a claim of the conflict is never released | the owner's F-1 decision admits the table's vacuum thrust and Isp while the sea-level rating stays withheld |
-| Every `OWNER_DECISIONS` entry must be the `owner_accepted` of some conflict decision | no recorded decision floats free of the conflict it decides |
-| A rights note that says "Owner-reviewed" must belong to a source an `OWNER_REVIEWS` entry lists, every listed source must record the review, and only a shipped source can be listed | an owner review is recorded once, as text, and never upgrades a withheld source |
+| An open WITHHOLD conflict of DB-0.5 kind `different_epoch` (an unsettled rating epoch) withholds the whole table that prints its claim: every other value printed at the same source and locator ships only if the decision lists it in `owner_released` or another conflict's recorded owner decision carries it. A release needs the recorded owner decision, never covers a claim of the conflict, covers only values printed at the same source and locator as a withheld claim, and covers only values whose printed numbers (or printed text) appear in the owner's recorded words | the owner's F-1 decision admits the table's vacuum thrust and Isp while the sea-level rating stays withheld; post-change review: the release was not mandatory (with every owner record removed the values still shipped), and an id added to the release list shipped without the owner's words naming it |
+| A recorded owner decision that names a configuration (`CFG-…`) binds every value it releases or carries to that configuration (`owner_scope`) | post-change review: nothing tied the F-1 values to `CFG-F1` beyond the manifest entry; a later F-1 configuration could have taken them |
+| Every `OWNER_DECISIONS` entry must be the `owner_accepted` of its own conflict | post-change review: the same words recorded under an unrelated conflict passed |
+| A rights note that claims an owner review ("owner-reviewed", "owner-approved", "approved by the owner" and the like) must belong to a source an `OWNER_REVIEWS` entry lists, every listed source must record the review, and only a shipped source can be listed | an owner review is recorded once, as text, and never upgrades a withheld source; post-change review: other wordings escaped the check |
+| A mixture-ratio direction must be printed, or be in a DB-0.5 record the reading cites by id (same engine) or quotes (same source and page); the author's own words are not evidence | post-change review, a DB-2A-era rule: a reading saying "O/F" admitted the F-1 2.27 with a direction nothing prints. The SPS Block I reading's quoted TN D-7375 phrase was transcribed (AJ10-137-025); the RL10 reading cites AS-DB05-US-RL10A-3-3A-006. No shipped value changed |
 
 ## Targets
 
@@ -71,7 +73,7 @@ Capabilities are evaluated by `capabilities.py`, not set by hand.
 | Configuration | Disposition | Considered | Promoted | IDENTITY | ARCHITECTURE | PERFORMANCE | TOPOLOGY | REGRESSION |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | J-2S (`CFG-J2S`) | PROMOTED | 24 | 13 | SUPPORTED | SUPPORTED | SUPPORTED | NOT_SUPPORTED | SUPPORTED (eligible only) |
-| F-1 (`CFG-F1`) | PROMOTED_PARTIAL | 32 | 16 | SUPPORTED | SUPPORTED | PARTIAL | SUPPORTED (15 nodes / 19 edges) | NOT_SUPPORTED |
+| F-1 (`CFG-F1`) | PROMOTED_PARTIAL | 32 | 15 | SUPPORTED | SUPPORTED | PARTIAL | SUPPORTED (15 nodes / 19 edges) | NOT_SUPPORTED |
 | H-1 188K, SA-10 (`CFG-H1-188K-SA10`) | PROMOTED_PARTIAL | 28 | 14 | SUPPORTED | SUPPORTED | PARTIAL | SUPPORTED (19 / 25) | NOT_SUPPORTED |
 | LM descent engine, final (`CFG-LMDE-FINAL`) | PROMOTED_PARTIAL | 14 | 13 | SUPPORTED | NOT_SUPPORTED | NOT_SUPPORTED | SUPPORTED (17 / 21, unit graph) | NOT_SUPPORTED |
 | Shuttle OMS engine (`CFG-OMS`) | PROMOTED_PARTIAL | 14 | 9 | SUPPORTED | PARTIAL | PARTIAL | NOT_SUPPORTED | NOT_SUPPORTED |
@@ -80,14 +82,15 @@ Capabilities are evaluated by `capabilities.py`, not set by hand.
 | RS-25 SLS-adapted (`CFG-RS25-SLS`) | PROMOTED_PARTIAL | (as above) | (as above) | SUPPORTED | NOT_SUPPORTED | PARTIAL | NOT_SUPPORTED | NOT_SUPPORTED |
 | RS-25 Block IIA | WITHHELD (rights) | 19 | 0 | — | — | — | — | — |
 
-Totals over the six targets: 177 research assertions considered, 75 promoted;
+Totals over the six targets: 177 research assertions considered, 74 promoted;
 not promoted: 46 WITHHELD_RIGHTS, 15 WITHHELD_CONFLICT, 14 NOT_NEEDED (four of
 them the F-1 graph's recorded text bases), 10 MISSING_REQUIRED_SEMANTICS, 10
-SOURCE_SCOPE_TOO_BROAD, 5 WRONG_CONFIGURATION, 1 WRONG_OPERATING_POINT, 1
-DUPLICATE. A test recomputes these from the manifest. (Before the owner's
-decisions: 71 promoted, 16 WITHHELD_CONFLICT, 3 OWNER_DECISION_REQUIRED.)
+SOURCE_SCOPE_TOO_BROAD, 5 WRONG_CONFIGURATION, 1 OWNER_DECISION_REQUIRED, 1
+WRONG_OPERATING_POINT, 1 DUPLICATE. A test recomputes these from the manifest.
+(Before the owner's decisions: 71 promoted, 16 WITHHELD_CONFLICT, 3
+OWNER_DECISION_REQUIRED.)
 
-Production after Wave 1: 11 configurations (3 DB-2A + 8 Wave 1), 118
+Production after Wave 1: 11 configurations (3 DB-2A + 8 Wave 1), 117
 assertions, 14 sources, 7 schematics, 6 topology graphs, no conflicts.
 
 ### J-2S
@@ -114,7 +117,11 @@ the UNRESOLVED rating-epoch conflict CF-DB05-F1-RATING, which releases the
 other three only through its recorded owner decision; the chamber pressure is
 carried in PARTIALLY_RESOLVED CF-DB05-F1-PC for `CFG-F1` only. None of these
 values is filed on the F-1 variant or family. The 18,616 lb mass stays in
-UNRESOLVED CF-DB05-F1-MASS. PERFORMANCE stays PARTIAL: no mixture ratio
+UNRESOLVED CF-DB05-F1-MASS. The same table's qualification life ("Starts 20;
+Duration 2,250 seconds; mission duration 165 seconds", AS-DB05-US-F-1-010)
+shipped in `3f8d02a` although that table's values were meant to wait for the
+owner; the owner's decision does not name it, so it is now withheld as
+OWNER_DECISION_REQUIRED. PERFORMANCE stays PARTIAL: no mixture ratio
 with a direction is printed. The printed "Engine mixture ratio 2.27" has no direction
 (O/F or F/O), so it is not shipped (MISSING_REQUIRED_SEMANTICS). The 1.8
 million lb figure is the F-1A (Biggs's footnote). MSFC-MAN-503's F-1 values are
@@ -228,6 +235,13 @@ Recorded as text in `db2b_wave1_manifest.py` (`OWNER_DECISIONS`,
 The two DB-2A `owner_accepted` decisions remain and apply only to their J-2
 and SPS Block I records.
 
+### Owner decision requested (post-change review, 2026-10-10)
+
+5. **F-1 qualification life (AS-DB05-US-F-1-010)**, printed in the same
+   "F-1 Engine Characteristics" table: may it ship for `CFG-F1`? Decision 1
+   accepts the viewgraph as defining the configuration but names only the
+   vacuum thrust and the two Isp values, so it is withheld until decided.
+
 ## Not done, by design
 
 No other engine was migrated (RD-170, RL10A-4-2, RL10B-2, IPD, Rutherford,
@@ -240,5 +254,5 @@ no record designs an engine.
 | Test file | What it holds |
 | --- | --- |
 | `tests/evidence/test_reference_engine_wave1.py` | the production boundary; capability results per configuration; per target: J-2S architecture without a graph and no J-2 leakage, no F-1 thrust or canonical rating and no guessed mixture-ratio direction, F-1 graph without the withheld manual, H-1 missing values stay missing and callouts do not ship, LMDE final design only with stage equipment outside the engine and requirements at variant level, OMS 313 s kept and 316 s absent with no guessed MR or Pc, RS-25 configurations distinct through a round trip, no Block IIA value or rights-restricted source or figure, open conflicts blocking only their fields |
-| `tests/research/test_db2b_wave1_promotion.py` | a regression test for each review finding (unrecorded text basis, compound kind words, F-1 viewgraph values, build values on a family, variant or unit, withheld RS-25 and LMDE wording in notes, rights-withheld value relabelled, invented owner decision, notices qualified by an exception; and from the second review: a text basis from another page, a withheld text basis, a quote not in the basis, a reading excusing a requirement kind or a family build value, a requirement on a configuration, a build statement generalised to its variant, owner decisions as written text, a restricted source withheld as out of scope, L3Harris and Block IIA wording in RS-25 and variant notes; and for the owner decisions: a release without the recorded decision, admitted F-1 values not inherited by variant or family, the sea-level rating never released, a release only for a value printed with a withheld claim, the F-1 chamber pressure station, an unused owner decision, owner reviews tied to their sources and never upgrading a withheld source); exhaustive accounting and its totals; no Wave-1 owner decision; disposition checks; manifest merge; a gate refusal for each hazard above (J-2 graph or value under J-2S, F-1 thrust and MR direction, F-1 withheld wording, H-1 callouts, digitised callout as a value, LMDE development schematic and wording, programme requirement as a final value, OMS workbook values and graph, filled OMS environment, false NTRS host, Block IIA value under Block II, cross-build source, Boeing schematic as topology, open-conflict field coverage) and the restrictive-notice reading |
+| `tests/research/test_db2b_wave1_promotion.py` | a regression test for each review finding (unrecorded text basis, compound kind words, F-1 viewgraph values, build values on a family, variant or unit, withheld RS-25 and LMDE wording in notes, rights-withheld value relabelled, invented owner decision, notices qualified by an exception; and from the second review: a text basis from another page, a withheld text basis, a quote not in the basis, a reading excusing a requirement kind or a family build value, a requirement on a configuration, a build statement generalised to its variant, owner decisions as written text, a restricted source withheld as out of scope, L3Harris and Block IIA wording in RS-25 and variant notes; and for the owner decisions: a release without the recorded decision, admitted F-1 values not inherited by variant or family, the sea-level rating never released, a release only for a value printed with a withheld claim, the F-1 chamber pressure station, an unused owner decision, owner reviews tied to their sources and never upgrading a withheld source; and from the post-change review of the owner gates: a table-mate of a withheld rating shipped without any owner record, a release beyond the owner's words, the unadmitted F-1 qualification life, the decision's configuration scope and a later F-1 configuration, another engine's decision, a released value keeping its own conflict, a mixture-ratio direction from the reading alone and the DB-2A readings' records, owner-review wordings, an unknown source in a review); exhaustive accounting and its totals; the recorded Wave-1 owner decisions; disposition checks; manifest merge; a gate refusal for each hazard above (J-2 graph or value under J-2S, F-1 thrust and MR direction, F-1 withheld wording, H-1 callouts, digitised callout as a value, LMDE development schematic and wording, programme requirement as a final value, OMS workbook values and graph, filled OMS environment, false NTRS host, Block IIA value under Block II, cross-build source, Boeing schematic as topology, open-conflict field coverage) and the restrictive-notice reading |
 | DB-2A tests | rescoped from "the corpus is the three seeds" to "the three seeds are present, unchanged"; the catalog lists every configuration |

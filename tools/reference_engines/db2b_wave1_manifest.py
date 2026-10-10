@@ -197,7 +197,7 @@ CONFIGURATIONS = (
      "NTRS 20100027316 PDF p.16. By owner decision (2026-10-09) the 'F-1 Engine Characteristics' viewgraph "
      "defines this source-scoped configuration: its vacuum thrust, Isp and chamber pressure ship for it "
      "alone. This is not a canonical flight-rating epoch: the sea-level thrust rating stays withheld "
-     "(CF-DB05-F1-RATING, UNRESOLVED)."),
+     "(CF-DB05-F1-RATING, UNRESOLVED), and so does every other value of that table the owner did not admit."),
     ("CFG-H1-188K-SA10", "VAR-H1", "H-1, 188,000 lb nominal sea-level rating, Saturn I SA-10",
      "Saturn I SA-10 S-I stage (SDES-64-415 Vol. VIII)",
      "Not the H-1 family in general: the SA-10 volume's 188,000 lb engine. The graph is the inboard engine; "
@@ -303,7 +303,6 @@ ASSERTIONS = (
            "(PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision, and not for the F-1 "
            "variant or family."),
     P("AS-DB05-US-F-1-008", _F1, "mechanical.dimensions", ("text",), "OTHER"),
-    P("AS-DB05-US-F-1-010", _F1, "test_history.qualification_life", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-012", _F1, "pumps.configuration", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-015", _F1, "ignition_start.method", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-016", _F1, "fluids.rp1_multipurpose", ("text",), "OTHER"),
@@ -445,6 +444,10 @@ NOT_PROMOTED = {
                            "printed 'Engine mixture ratio 2.27' without a direction (O/F or F/O)"),
     "AS-DB05-US-F-1-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
     "AS-DB05-US-F-1-009": ("NOT_NEEDED", "production deliveries, not an engine property"),
+    "AS-DB05-US-F-1-010": ("OWNER_DECISION_REQUIRED",
+                           "qualification life printed in the 'F-1 Engine Characteristics' table, whose rating epoch "
+                           "is the UNRESOLVED CF-DB05-F1-RATING; the owner's decision of 2026-10-09 admits the "
+                           "table's vacuum thrust and Isp, not this value"),
     "AS-DB05-US-F-1-017": ("WRONG_CONFIGURATION", "1.8 million lb is the F-1A (footnote 4: 'F-1A was rated at 1.8 "
                                                   "million pounds force')"),
     **{f"AS-DB05-US-F-1-0{i}": _MSFC for i in range(18, 25)},
@@ -538,14 +541,14 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-J2S-CYCLE": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2S-007",), competing={},
                               argument="RESOLVED in DB-0.5: tap-off, Tier A."),
     "CF-DB05-F1-RATING": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"),
+        withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018", "AS-DB05-US-F-1-010"),
         owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004"),
-        owner_accepted=_F1_RATING,
+        owner_accepted=_F1_RATING, owner_scope="CFG-F1",
                               argument="UNRESOLVED: three primary sea-level ratings with no established epochs; "
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),
     "CF-DB05-F1-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-005",),
-        owner_accepted=_F1_PC,
+        owner_accepted=_F1_PC, owner_scope="CFG-F1",
         competing={"SRC-WIKI-F1 70 bar (1,015 psi)": "search result, never opened",
                    "SRC-PURDUE-F1 982 psi": "search result, never opened"},
                           argument="PARTIALLY_RESOLVED in DB-0.5: the manufacturer's 1,125 psia (station unstated) "

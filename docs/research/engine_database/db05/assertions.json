@@ -4667,6 +4667,24 @@
    "note": ""
   },
   {
+   "assertion_id": "AS-DB05-US-AJ10-137-025",
+   "engine_id": "ENG-US-AJ10-137",
+   "field_path": "propellants.mixture_ratio_definition",
+   "operating_point": null,
+   "value_as_printed": "the SPS could supply a specific impulse of 3 to 5 seconds higher if the oxidizer-to-fuel weight ratio was 1.6: 1 rather than 2: 1",
+   "value": "text",
+   "unit_as_printed": "",
+   "conditions": {},
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-NASA-TND7375",
+   "locator": "p.3 (PDF p.7)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
    "assertion_id": "AS-DB05-US-LMDE-001",
    "engine_id": "ENG-US-LMDE",
    "field_path": "performance.throttle_ratio",

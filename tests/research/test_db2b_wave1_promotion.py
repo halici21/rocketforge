@@ -71,10 +71,10 @@ def test_every_wave1_assertion_is_decided_once_with_a_disposition(research):
 def test_accounting_totals(research):
     """The audit the design note reports, recomputed from the manifest."""
     totals = collections.Counter(v[0] for v in wave1.NOT_PROMOTED.values())
-    assert len(wave1.ASSERTIONS) == 75
+    assert len(wave1.ASSERTIONS) == 74
     assert dict(totals) == {"WITHHELD_RIGHTS": 46, "WITHHELD_CONFLICT": 15, "MISSING_REQUIRED_SEMANTICS": 10,
                             "NOT_NEEDED": 14, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 5,
-                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1}
+                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 1, "OWNER_DECISION_REQUIRED": 1}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(
         1 for r in research.assertions.values() if r["engine_id"] in wave1.SEED_ENGINES)
 
@@ -90,7 +90,8 @@ def test_wave1_records_exactly_the_owners_f1_decisions():
     assert {c for c, d in merged.items() if "owner_accepted" in d} == {
         "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
     # the sea-level rating stays withheld; the DB-0.5 conflicts are not rewritten
-    assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {"AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"}
+    assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {
+        "AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018", "AS-DB05-US-F-1-010"}
 
 
 def test_a_missing_or_unknown_disposition_is_refused(research):
@@ -199,7 +200,10 @@ def test_the_f1_chamber_pressure_keeps_its_unknown_station_and_needs_the_owner(r
 def test_an_unused_owner_decision_is_refused(research):
     m = manifest()
     m.OWNER_DECISIONS["CF-DB05-F1-MASS"] = "owner (Cemil Eray), 2026-10-09: accept the mass"
-    refused(research, m, "CF-DB05-F1-MASS: OWNER_DECISIONS records a decision no conflict uses")
+    refused(research, m, "CF-DB05-F1-MASS: OWNER_DECISIONS records a decision its conflict does not use")
+    m = manifest()  # the same words, recorded under a conflict that does not carry them
+    m.OWNER_DECISIONS["CF-DB05-F1-MASS"] = m.OWNER_DECISIONS["CF-DB05-F1-PC"]
+    refused(research, m, "CF-DB05-F1-MASS: OWNER_DECISIONS records a decision its conflict does not use")
 
 
 def test_an_owner_review_must_be_recorded_for_its_source(research):
@@ -514,3 +518,123 @@ def test_withheld_wording_cannot_ride_in_a_variant_note(research):
     m.VARIANTS = tuple((v[:3] + ("The SSME; Block IIA HPFTP 34,311 rpm.",)) if v[0] == "VAR-RS25" else v
                        for v in m.VARIANTS)
     refused(research, m, "carries withheld wording")
+
+
+# ------------------------------------------------------------------ post-change review of the owner gates (2026-10-10)
+
+
+def _rating(m):
+    return m.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]
+
+
+def test_a_table_mate_of_a_withheld_rating_cannot_ship_without_the_owner(research):
+    """Confirmed bypass: with every owner record removed, the F-1 table values still shipped."""
+    m = manifest()
+    d = _rating(m)
+    del d["owner_released"], d["owner_accepted"], d["owner_scope"]
+    del m.OWNER_DECISIONS["CF-DB05-F1-RATING"]
+    refused(research, m, "AS-DB05-US-F-1-002 is printed in the same table as a withheld rating claim")
+
+
+def test_a_release_names_only_values_the_owner_names(research):
+    """Confirmed bypass: an id added to owner_released, with the owner's words unchanged, shipped."""
+    m = manifest()
+    m.NOT_PROMOTED.pop("AS-DB05-US-F-1-010")
+    d = _rating(m)
+    d["withhold"] = ("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018")
+    d["owner_released"] += ("AS-DB05-US-F-1-010",)
+    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life", ("text",),
+                                   "OTHER"))
+    refused(research, m, "AS-DB05-US-F-1-010 ('Starts 20; Duration 2,250 seconds; mission duration 165 seconds') "
+                         "is not a value the owner's recorded decision names")
+
+
+def test_the_unadmitted_f1_qualification_life_waits_for_the_owner(research):
+    m = promote(manifest(), db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life",
+                                            ("text",), "OTHER"))
+    refused(research, m, "withholds AS-DB05-US-F-1-010, which is promoted")
+    m = manifest()
+    _rating(m)["withhold"] = ("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018")
+    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-010", "CFG-F1", "test_history.qualification_life",
+                                   ("text",), "OTHER"))
+    refused(research, m, "AS-DB05-US-F-1-010 is printed in the same table as a withheld rating claim")
+
+
+def test_an_owner_decision_is_scoped_to_the_configuration_it_names(research):
+    m = manifest()
+    _rating(m)["owner_scope"] = "CFG-H1-188K-SA10"
+    refused(research, m, "owner_scope 'CFG-H1-188K-SA10' is not the configuration the owner's decision names (CFG-F1)")
+    m = manifest()
+    del m.RESEARCH_CONFLICTS["CF-DB05-F1-PC"]["owner_scope"]
+    refused(research, m, "CF-DB05-F1-PC: owner_scope None is not the configuration the owner's decision names")
+
+
+def test_an_owner_decision_does_not_carry_to_a_later_configuration(research):
+    m = manifest()
+    m.SEED_SUBJECTS["ENG-US-F-1"] = (*m.SEED_SUBJECTS["ENG-US-F-1"], "CFG-F1-LATER")
+    m.CONFIGURATIONS = (*m.CONFIGURATIONS, ("CFG-F1-LATER",) + next(c for c in m.CONFIGURATIONS if c[0] == "CFG-F1")[1:])
+    entry(m, "AS-DB05-US-F-1-002")["subject"] = "CFG-F1-LATER"
+    refused(research, m, "AS-DB05-US-F-1-002 is authorised by the owner for CFG-F1, but is filed on CFG-F1-LATER")
+    m = manifest()
+    m.SEED_SUBJECTS["ENG-US-F-1"] = (*m.SEED_SUBJECTS["ENG-US-F-1"], "CFG-F1-LATER")
+    m.CONFIGURATIONS = (*m.CONFIGURATIONS, ("CFG-F1-LATER",) + next(c for c in m.CONFIGURATIONS if c[0] == "CFG-F1")[1:])
+    entry(m, "AS-DB05-US-F-1-005")["subject"] = "CFG-F1-LATER"
+    refused(research, m, "AS-DB05-US-F-1-005 is authorised by the owner for CFG-F1, but is filed on CFG-F1-LATER")
+
+
+def test_another_engines_owner_decision_cannot_authorise_the_f1(research):
+    m = manifest()
+    _rating(m)["owner_accepted"] = m.OWNER_DECISIONS["CF-DB05-J2-THRUST"]
+    refused(research, m, "CF-DB05-F1-RATING: owner_accepted is not the decision recorded in OWNER_DECISIONS")
+
+
+def test_a_released_value_keeps_its_own_conflict(research):
+    m = manifest()
+    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-007", "CFG-F1", "mechanical.mass", ("number", 18616), "NOMINAL"))
+    _rating(m)["owner_released"] += ("AS-DB05-US-F-1-007",)
+    refused(research, m, "CF-DB05-F1-MASS: withholds AS-DB05-US-F-1-007, which is promoted")
+
+
+def test_a_mixture_ratio_direction_is_not_supplied_by_the_reading_alone(research):
+    """Confirmed bypass (since DB-2A): a reading saying 'O/F' shipped the F-1 2.27 with a direction
+    no record prints."""
+    m = manifest()
+    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-006", "CFG-F1", "propellants.mixture_ratio", ("number", 2.27),
+                                   "NOMINAL", reading="read as O/F",
+                                   cond=dict(mixture_ratio_form="OXIDIZER_TO_FUEL", mixture_ratio_basis="ENGINE")))
+    _rating(m)["owner_released"] += ("AS-DB05-US-F-1-006",)
+    refused(research, m, "AS-DB05-US-F-1-006: mixture ratio form OXIDIZER_TO_FUEL is not printed (O/F) nor in a "
+                         "DB-0.5 record the reading cites or quotes")
+
+
+def test_the_db2a_mixture_ratio_readings_rest_on_records(research):
+    """The two DB-2A readings that state a direction are backed by DB-0.5 records: the RL10 one
+    cites AS-DB05-US-RL10A-3-3A-006 ('O/F = 5.0'); the SPS one quotes TN D-7375 p.3, transcribed
+    as AS-DB05-US-AJ10-137-025."""
+    assert "oxidizer-to-fuel weight ratio" in research.assertions["AS-DB05-US-AJ10-137-025"]["value_as_printed"]
+    m = manifest()
+    entry(m, "AS-DB05-US-AJ10-137-010")["reading"] = "the same paragraph defines it as the 'oxidizer-to-fuel ratio' (O/F)"
+    refused(research, m, "AS-DB05-US-AJ10-137-010: mixture ratio form OXIDIZER_TO_FUEL is not printed")
+    m = manifest()
+    entry(m, "AS-DB05-US-RL10A-3-3A-012")["reading"] = "CR-195478 prints the same point as 'O/F = 5.0'"
+    refused(research, m, "AS-DB05-US-RL10A-3-3A-012: mixture ratio form OXIDIZER_TO_FUEL is not printed")
+
+
+@pytest.mark.parametrize("note", ["Reviewed and approved by the owner.", "Owner-approved 2026-10-09.",
+                                  "owner accepted this reading"])
+def test_any_owner_review_wording_needs_a_recorded_review(research, note):
+    m = manifest()
+    m.SOURCES["SRC-NTRS-19860012108"]["review_note"] = note
+    m.OWNER_REVIEWS["WAVE1-RIGHTS"] = dict(m.OWNER_REVIEWS["WAVE1-RIGHTS"], sources=tuple(
+        s for s in m.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"] if s != "SRC-NTRS-19860012108"))
+    refused(research, m, "SRC-NTRS-19860012108: the rights note says owner-reviewed")
+
+
+def test_an_owner_review_lists_only_known_shipped_sources(research):
+    m = manifest()
+    m.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"] += ("SRC-NTRS-99999999",)
+    refused(research, m, "OWNER_REVIEWS WAVE1-RIGHTS: SRC-NTRS-99999999 is not a shipped source")
+
+
+def test_db2a_rights_review_is_the_five_seed_sources():
+    assert set(wave1.OWNER_REVIEWS["DB2A-RIGHTS"]["sources"]) == set(db2a_manifest.SOURCES)

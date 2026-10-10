@@ -171,6 +171,9 @@ def test_f1_ships_the_owner_admitted_table_values_and_no_rating(corpus):
     # no sea-level thrust, no canonical rating, no F-1A, no mass
     assert numbers(corpus.assertions).isdisjoint({1522000, 1530000, 1500000, 1800000, 18616})
     assert not any(x.field_path == "performance.thrust_sl" for x in a.values())
+    # the rest of the table waits for the owner (qualification life, mass, mixture ratio)
+    assert not any(x.field_path.startswith(("test_history.", "mechanical.mass", "propellants.mixture_ratio"))
+                   for x in a.values())
     # admitted for CFG-F1 only, never inherited by the variant or family
     for subject in ("VAR-F1", "FAM-F1"):
         assert not [x for x in corpus.assertions if x.subject.id == subject and x.field_path.startswith("performance.")]

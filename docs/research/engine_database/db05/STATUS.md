@@ -22,8 +22,8 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 | Downloaded, not read this session | 21 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 284 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1 and 10 review supplement transcriptions, below) |
-| Assertions promoted (value as printed + locator) | 282 | 253 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
+| Assertion records | 285 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1 and 11 review supplement transcriptions, below) |
+| Assertions promoted (value as printed + locator) | 283 | 254 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
 | Schematics actually viewed | 15 | `schematics_viewed.json` |
@@ -73,6 +73,12 @@ four from Biggs (the single turbine driving both pumps, the fuel path through
 the chamber tubes, the hypergol cartridge, the igniter fuel valve) and the
 'bolt-on aluminum injector' of the TN D-7375 Block I engine assembly. DB-0.5
 stays PARTIAL.
+
+**Owner-gate review supplement (2026-10-10).** The post-change review of the
+owner-decision gates found that the SPS Block I 2:1 ratio's direction
+(oxidizer-to-fuel) rested on a reading quoting a TN D-7375 p.3 sentence no
+ledger entry held. That sentence was transcribed (AS-DB05-US-AJ10-137-025,
+from the page already read). DB-0.5 stays PARTIAL.
 
 ## Anchors
 

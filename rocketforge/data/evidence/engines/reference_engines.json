@@ -761,7 +761,7 @@
         "missing": "UNKNOWN",
         "note": "the viewgraphs print no rating epoch; research conflict CF-DB05-F1-RATING is UNRESOLVED"
       },
-      "notes": "NTRS 20100027316 PDF p.16. By owner decision (2026-10-09) the 'F-1 Engine Characteristics' viewgraph defines this source-scoped configuration: its vacuum thrust, Isp and chamber pressure ship for it alone. This is not a canonical flight-rating epoch: the sea-level thrust rating stays withheld (CF-DB05-F1-RATING, UNRESOLVED)."
+      "notes": "NTRS 20100027316 PDF p.16. By owner decision (2026-10-09) the 'F-1 Engine Characteristics' viewgraph defines this source-scoped configuration: its vacuum thrust, Isp and chamber pressure ship for it alone. This is not a canonical flight-rating epoch: the sea-level thrust rating stays withheld (CF-DB05-F1-RATING, UNRESOLVED), and so does every other value of that table the owner did not admit."
     },
     {
       "configuration_id": "CFG-H1-188K-SA10",
@@ -6025,44 +6025,6 @@
       "admissibility": "ADMITTED",
       "source_id": "SRC-DB05-NTRS-20100027316",
       "locator": "NTRS 20100027316 PDF p.16, slide 'F-1 Engine Characteristics' (CP6_0450_Apollo 11 F1-6.ppt) (photo captions)",
-      "access": "OPENED",
-      "operating_point_id": null,
-      "epoch": null,
-      "normalized": null,
-      "first_stated_by": null,
-      "schematic_id": null,
-      "derivation": null,
-      "note": ""
-    },
-    {
-      "assertion_id": "AS-DB05-US-F-1-010",
-      "subject": {
-        "kind": "CONFIGURATION",
-        "id": "CFG-F1"
-      },
-      "field_path": "test_history.qualification_life",
-      "value": {
-        "type": "text",
-        "text": "Starts 20; Duration 2,250 seconds; mission duration 165 seconds"
-      },
-      "value_as_printed": "Starts 20; Duration 2,250 seconds; mission duration 165 seconds",
-      "unit_as_printed": "",
-      "conditions": {
-        "environment": null,
-        "power_level": null,
-        "mixture_ratio": null,
-        "mixture_ratio_form": null,
-        "mixture_ratio_basis": null,
-        "pressure_basis": null,
-        "pressure_station": null,
-        "isp_basis": null,
-        "qualifiers": []
-      },
-      "value_kind": "OTHER",
-      "status": "REPORTED",
-      "admissibility": "ADMITTED",
-      "source_id": "SRC-DB05-NTRS-20100027316",
-      "locator": "NTRS 20100027316 PDF p.16, slide 'F-1 Engine Characteristics' (CP6_0450_Apollo 11 F1-6.ppt)",
       "access": "OPENED",
       "operating_point_id": null,
       "epoch": null,
