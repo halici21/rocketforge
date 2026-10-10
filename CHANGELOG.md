@@ -293,6 +293,13 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   promoted) is accepted; DB-2A's shipped data is unchanged. A text value may
   now ship a verbatim extract of its printed text, checked against the
   owner's words when an owner decision releases it.
+- Reference engine corpus, text-excerpt rule (Wave 2 preflight review): an
+  excerpt took any substring of the printed text, so it could drop a
+  negation, "maximum", a configuration name, a value kind, "approximately", a
+  ratio direction or a parenthetical limit. An excerpt is now whole printed
+  statements in printed order, never drops a heading or a statement without
+  its own value, applies to text values only, and needs a recorded owner
+  decision. No shipped value changed.
 
 ### Research
 - DB-0 liquid engine research map (documentation and research data only; no

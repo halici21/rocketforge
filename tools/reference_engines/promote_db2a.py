@@ -405,13 +405,42 @@ def _value_problems(aid, entry, record) -> list[str]:
             return [f"{aid}: token {token} is not DB-0.5's value {record['value']!r}"]
         return []
     if kind == "text":
-        if len(entry["value"]) > 1:
-            parts = [p.strip() for p in str(entry["value"][1]).split(";") if p.strip()]
-            missing = [p for p in parts if p not in record["value_as_printed"]]
-            if not parts or missing:
-                return [f"{aid}: admitted text {missing or parts!r} is not printed in {record['value_as_printed']!r}"]
-        return []
+        return _excerpt_problems(aid, entry, record) if len(entry["value"]) > 1 else []
     return [f"{aid}: unknown value kind {kind!r}"]
+
+
+def _excerpt_problems(aid, entry, record) -> list[str]:
+    """A text value may ship some of the ``;``-separated statements its source prints, never a
+    reworded or shortened one: whole statements, in printed order, and only statements that do
+    not scope the others. Whether what is left keeps its meaning is the owner's call, so an
+    excerpt also needs an owner decision that releases or carries it (``excerpt_owner_problems``)."""
+    if isinstance(record["value"], (int, float)):
+        return [f"{aid}: DB-0.5 holds a number ({record['value']!r}); an excerpt is for text values only"]
+    printed = [p.strip() for p in record["value_as_printed"].split(";") if p.strip()]
+    parts = [p.strip() for p in str(entry["value"][1]).split(";") if p.strip()]
+    if not parts:
+        return [f"{aid}: an empty excerpt"]
+    not_whole = [p for p in parts if p not in printed]
+    if not_whole:
+        return [f"{aid}: excerpt {not_whole!r} is not a whole printed statement of {record['value_as_printed']!r} "
+                "(a statement is shipped whole or not at all)"]
+    if [p for p in printed if p in parts] != parts or len(set(parts)) != len(parts):
+        return [f"{aid}: excerpt {parts!r} does not keep the printed order of {record['value_as_printed']!r}"]
+    dropped = [p for p in printed if p not in parts]
+    context = [p for p in dropped if ":" in p or not re.search(r"\d", p)]
+    if context:
+        return [f"{aid}: excerpt drops {context!r}, which reads as context for the statements kept "
+                "(a heading or a statement without its own value)"]
+    return []
+
+
+def excerpt_owner_problems(manifest) -> list[str]:
+    """An excerpt ships only where a recorded owner decision releases or carries the assertion."""
+    owned = {i for d in manifest.RESEARCH_CONFLICTS.values() if _owner_text(d.get("owner_accepted")).strip()
+             for i in (*d.get("owner_released", ()), *(d.get("touches", ()) if d.get("decision") == "CARRIED_NOT" else ()))}
+    return [f"{e['db05_id']}: a text excerpt needs a recorded owner decision that releases or carries it"
+            for e in manifest.ASSERTIONS
+            if e["value"][0] == "text" and len(e["value"]) > 1 and e["db05_id"] not in owned]
 
 
 #: DB-0.5 fields that describe a build, not a family or a variant in general.
@@ -1064,6 +1093,7 @@ def build_corpus(research: Research | None = None, manifest=None) -> EngineEvide
         problems += assertion_problems(entry, research, manifest)
     promoted = {e["db05_id"] for e in manifest.ASSERTIONS}
     problems += conflict_problems(research, manifest, promoted)
+    problems += excerpt_owner_problems(manifest)
     problems += op_basis_problems(research, manifest)
     used = {research.assertions[i]["source_id"] for i in promoted if i in research.assertions}
     for spec in manifest.TOPOLOGIES:

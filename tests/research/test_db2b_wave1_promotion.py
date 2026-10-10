@@ -569,10 +569,10 @@ def test_the_f1_qualification_life_needs_its_own_owner_decision(research):
 def test_admitted_text_is_only_what_the_source_prints(research):
     m = manifest()
     entry(m, "AS-DB05-US-F-1-010")["value"] = ("text", "Starts 20; Duration 3,000 seconds")
-    refused(research, m, "admitted text ['Duration 3,000 seconds'] is not printed in")
+    refused(research, m, "excerpt ['Duration 3,000 seconds'] is not a whole printed statement of")
     m = manifest()
     entry(m, "AS-DB05-US-F-1-010")["value"] = ("text", " ; ")
-    refused(research, m, "AS-DB05-US-F-1-010: admitted text [] is not printed in")
+    refused(research, m, "AS-DB05-US-F-1-010: an empty excerpt")
 
 
 @pytest.mark.parametrize("subject", ["VAR-F1", "FAM-F1"])
