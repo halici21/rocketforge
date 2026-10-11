@@ -240,6 +240,21 @@
    "legibility": "labels and legend legible; line shading legible; unshaded lines (empty at fill) not identifiable by fluid",
    "db0_schematic_id": null,
    "note": "Both subassemblies drawn with the vehicle tanks above. Drawn in a programme contractor's report."
+  },
+  {
+   "schematic_id": "SCH-DB05-LE9-IHI-FIG2",
+   "engine_ids": [
+    "ENG-JP-LE-9"
+   ],
+   "source_id": "SRC-JAXA-AA1740298002",
+   "locator": "IHI技報 57(3) p.59 (PDF p.2) 第2図 'LE-9 エンジンサイクル (2)'",
+   "title_as_printed": "LE-9 エンジンサイクル / LE-9 engine cycle",
+   "kind": "engine cycle diagram, colour (LOX blue, LH2 red), flow arrows; credited to the paper's reference (2), so a reproduction in an IHI paper",
+   "verification": "VERIFIED_VIEWED",
+   "viewed_how": "rendered PDF page at 120 dpi",
+   "legibility": true,
+   "db0_schematic_id": null,
+   "note": "Labels: LOX, OTP, MOV, LH2, FTP, MFV, CCV (燃焼室冷却バルブ, chamber cooling valve), TCV (推力コントロールバルブ, thrust control valve), ノズル. Not transcribed: rights restricted (AIREX copyright statement) and a 2017 development-era figure."
   }
  ]
 }

@@ -2306,7 +2306,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Carried from round-1 (not re-searched in round 2). Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Vulcain 2: ~1,390 kN (139 t) vacuum thrust, '20% performance gain'. HM7B: 67 kN (6.7 t) vacuum, burn up to 15 min 45 s.",
    "branches": [
     "anchor_eu_asia",
@@ -2834,7 +2834,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Nozzle ~3 m long, three telescoping cones (two stowed, deployed after stage separation).",
    "branches": [
     "europe"
@@ -3755,7 +3755,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Carried from round-1 (not re-searched in round 2). Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Snippet: 'The Vulcain 2 engine had a new nozzle to allow exhaust from the turbopumps to be reinjected into the main system, thus improving the engine performance at high altitude.' Also new oxygen turbopump; thrust described as ~137-138 t (search-summary paraphrase, low confidence).",
    "branches": [
     "anchor_eu_asia",
@@ -3780,7 +3780,7 @@
     "ENG-FR-VULCAIN-2-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Vinci can reignite up to four times in flight.",
    "branches": [
     "europe"
@@ -3871,7 +3871,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Carried from round-1 (not re-searched in round 2). Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Search summary attributed LOX TP 13,600 rpm ~3 MW, LH2 TP 34,000 rpm ~12 MW, total flow 235 kg/s, H2 41.2 kg/s to Vulcain 2, BUT the page title is 'Vulcain engine' and these numbers may describe the ORIGINAL Vulcain (Vulcain 1). Variant attribution unresolved.",
    "branches": [
     "anchor_eu_asia",
@@ -4057,7 +4057,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Engine tested with reinforced nozzle extension modified to correct the Dec 2002 malfunction.",
    "branches": [
     "r2_asia"
@@ -4126,7 +4126,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Vinci expander cycle needs no gas generator to drive its two turbopumps (LH2, LOX); 60 s hot fire (2005 per summary) with turbopumps at full speed and full pressure in chamber and turbopumps.",
    "branches": [
     "anchor_eu_asia"
@@ -4149,7 +4149,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Early ESA text: reignitable up to five times; a later test ran 500 s at 18 t vacuum thrust (from 'Ariane 6 is taking shape').",
    "branches": [
     "europe"
@@ -4172,7 +4172,7 @@
     "ENG-FR-VULCAIN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Used since 1996; engine weighs 1686 kg (as summarised - may be Vulcain 2 figure).",
    "branches": [
     "europe"
@@ -4310,7 +4310,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Abstract: high-performance chamber cooling and high-performance hydrogen turbopump; design concepts from HM7 and Vulcain experience. Exact title not seen.",
    "branches": [
     "anchor_eu_asia"
@@ -5888,7 +5888,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page.",
    "branches": [
     "europe"
@@ -5911,7 +5911,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page.",
    "branches": [
     "anchor_eu_asia",
@@ -5981,7 +5981,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Expander: limited components, high Isp of closed cycle, low turbine gas temperature; restart & throttle capability.",
    "branches": [
     "europe"
@@ -6004,7 +6004,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Lead only; no content seen.",
    "branches": [
     "r2_asia",
@@ -6029,7 +6029,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Abstract: electrically actuated valves (opening and operating point adjustable in acceptance firing), HIP brazing for main combustion chamber, open impellers for turbopumps (cost reduction).",
    "id_collision_titles": [
     "Design and Development Status of LE-9 Engine for H3 Launch Vehicle"
@@ -6057,7 +6057,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Lead only; no content seen.",
    "branches": [
     "r2_asia",
@@ -6365,7 +6365,7 @@
     "ENG-CN-YF-77"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Abstract: 700 kN, O/F 5.5, GG; vs YF-75 ~9x thrust, ~2.7x pressure, ~9x mass flow; fuel TP rotor cracking and combustion-instability chamber damage solved.",
    "id_collision_titles": [
     "IAC-13-C4.1 paper 17679 (YF-77 related; title not seen)"
@@ -6392,7 +6392,7 @@
     "ENG-CN-YF-75"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Title via search only",
    "branches": [
     "asia_other"
@@ -6531,7 +6531,7 @@
     "ENG-CN-YF-100"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Carried from round-1.",
    "branches": [
     "asia_other",
@@ -6578,7 +6578,7 @@
     "ENG-CN-YF-115"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Title only via search; '180 kN' upper-stage LOX/kerosene engine = YF-115 class (INFERRED)",
    "branches": [
     "asia_other"
@@ -6624,7 +6624,7 @@
     "ENG-CN-YF-100"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Lead only.",
    "branches": [
     "r2_asia"
@@ -6959,7 +6959,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "body text (page unknown); PDF https://repository.exst.jaxa.jp/dspace/bitstream/a-is/835996/1/AA1740298002.pdf",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Garbled PDF text contains 'nominal speed 41 600 rpm', compared as lower than LE-7A; which turbopump is NOT legible. States thrust ~1500 kN level, ~1.4x LE-7A; MHI = engine system, IHI = turbopumps.",
    "branches": [
     "r2_asia",
@@ -7596,7 +7596,7 @@
    "source_type": "JAXA report/paper",
    "identifier": "AA1740298002",
    "url": "https://repository.exst.jaxa.jp/dspace/bitstream/a-is/835996/1/AA1740298002.pdf",
-   "tier": "B",
+   "tier": "A",
    "primary": "primary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "JAXA repository; JAXA-RR terms not viewed.",
@@ -7605,7 +7605,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "figures not seen (text layer garbled in summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "LE-7A 'two-stage combustion' vs LE-9 expander bleed; LE-9 1,500 kN class.",
    "branches": [
     "r2_schem"
@@ -7651,7 +7651,7 @@
     "ENG-JP-LE-7"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "LE-7 86 tf SL thrust per search summary",
    "branches": [
     "asia_other"
@@ -7674,7 +7674,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Search summary said a JAXA document gives LE-9 150 t thrust used in 2- or 3-engine configurations; attribution to this specific PDF is uncertain.",
    "branches": [
     "r2_asia"
@@ -7850,7 +7850,7 @@
     "ENG-JP-LE-7A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Appeared in LE-7A search; content not retrieved; unverified relevance",
    "branches": [
     "asia_other"
@@ -9002,7 +9002,7 @@
     "ENG-JP-LE-7A"
    ],
    "locators": "LE-7A vs LE-7 comparison table (rows: 混合比, 液水/液酸ターボポンプ回転数, プリバーナガス温度, 比推力, 推力)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Search summary drew on three 1997 MEXT PDFs (19970409_6, 19970514_4, 19970521_9); which PDF holds the comparison table is NOT certain (attributed here to 19970409_6). OCR is garbled in places (e.g. thrust unit 'Ionf'). Development-phase values.",
    "branches": [
     "r2_asia"
@@ -9069,7 +9069,7 @@
     "ENG-JP-LE-7A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Carried from round-1 asia_other: 112 ton vac, 440 s vac.",
    "branches": [
     "asia_other",
@@ -9093,7 +9093,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Carried from round-1: 150 ton vac thrust, 425 s vac.",
    "branches": [
     "asia_other",
@@ -9141,7 +9141,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "'World's first large-thrust engine using the expander bleed cycle'; varied injector element lengths and resonator for stability.",
    "branches": [
     "taxonomy"
@@ -12314,7 +12314,7 @@
     "ENG-FR-VULCAIN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. PDF text reportedly OCR-garbled. Reported Vulcain I: 1025 kN (230,000 lb) vac, Isp 431.6 s, Pc 100 bar (1450 psi), mass 1300 kg (2860 lb), separate LH2 and LOX turbopumps, GG; first ignition Jul 1990, first full-power Dec 1990.",
    "branches": [
     "europe"
@@ -13546,7 +13546,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "States pipelines already installed for reinjecting turbine exit gases uniformly into divergent portion to cool it; proposes ~3 injection points (proposal, not flown).",
    "branches": [
     "taxonomy"
@@ -15296,7 +15296,7 @@
     "ENG-FR-VINCI"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Requirement: max 4 ignitions per mission, max 900 s burn; 20 firings in one 300 s test; 1569 s cumulative in one test.",
    "branches": [
     "europe"
@@ -25539,6 +25539,48 @@
    "primary": "primary",
    "rights": "RESTRICTED_REFERENCE",
    "rights_basis": "'Copyright 2002 Lockheed Martin Corporation' printed p.2",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-JDSE-2021-YF100",
+   "title": "“长征五号”火箭液氧煤油发动机总体技术 (General Technical Review of Long March 5 Liquid Oxygen Kerosene Engine)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "深空探测学报 (Journal of Deep Space Exploration) 2021, DOI 10.15982/j.issn.2096-9287.2021.20210003 (陈建华 CHEN Jianhua et al.)",
+   "url": "http://jdse.bit.edu.cn/sktcxb/article/doi/10.15982/j.issn.2096-9287.2021.20210003?viewType=HTML",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "'Copyright © 北京理工大学出版社 (Beijing Institute of Technology Press)' in the journal site data; the journal's open-access and copyright pages render only through scripts and were not read",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19910018905",
+   "title": "A review of liquid rocket propulsion programs in Japan",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": null,
+   "source_type": "document",
+   "identifier": "NTRS 19910018905 (conference paper; C. L. Merkle, Pennsylvania State Univ.; Space Transportation Propulsion Technology Symposium, Penn State, 25-29 June 1990, Vol. 2 pp.527-550)",
+   "url": "https://ntrs.nasa.gov/citations/19910018905",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; no copyright notice on pages read (extracted text of every page checked 2026-10-11)",
    "engines": [],
    "locators": "",
    "access": "fetched",

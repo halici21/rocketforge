@@ -22,7 +22,7 @@ queue still holds unread items (Rutherford, LR87, RS-68A were not started).
 | Downloaded, not read this session | 17 | `FETCHED_NOT_READ` (not evidence) |
 | Reached, but no evidence on the page | 3 | `FETCHED_NOT_EVIDENCE` |
 | Access blocked | 29 | `ACCESS_BLOCKED`, reason per record |
-| Assertion records | 341 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1, 11 review supplement and 56 DB-2B Wave 2 transcriptions, below) |
+| Assertion records | 452 | `assertions.json` (250 from the 2026-10-08 pass + 11 DB-2A, 13 DB-2B Wave 1, 11 review supplement, 56 DB-2B Wave 2 and 111 DB-2B Wave 3 transcriptions, below) |
 | Assertions promoted (value as printed + locator) | 339 | 310 REPORTED, 28 DIGITISED from viewed schematics, 1 INFERRED |
 | Assertions rejected / not promoted | 2 (both REPORTED) | stale-text value; model-tuning parameter |
 | DB-0 anchor assertions re-checked | 172 | `db0_dispositions.json` |
@@ -196,6 +196,27 @@ pump; no line joins the HP fuel pump and the kick pump, now an omission;
 drives (report p.6-23 'through a gear train'); the IPD contractor statement
 keeps its printed "Currently,"; and the NGLT paper's 250k-lb-thrust goal was
 added (AS-DB05-US-IPD-013). DB-0.5 stays PARTIAL.
+
+**DB-2B Wave 3 supplement (2026-10-11).** A targeted pass for the Wave 3
+targets only: LE-7, LE-7A, LE-9, Vulcain, Vulcain 2, Vinci, YF-75, YF-75D,
+YF-100 and the conditional seventh target YF-77 (chosen from the DB-0
+registry). Every document was downloaded and read; Japanese and Chinese
+statements are recorded as printed, with a RocketForge reading gloss that is
+not a translation source. Scanned or font-mangled pages were read from
+rendered images (the NASDA 1997 scan, the IHI paper). 111 assertions
+(`ledger_wave3.py`), 6 conflicts (LE-7 and LE-7A epochs, LE-9 thrust level,
+Vulcain thrust and turbopumps, Vinci epoch), 1 schematic viewed (LE-9 cycle,
+IHI技報 Fig. 2; not transcribed: restricted), 4 access blocks (EUCASS 403,
+Safran 403, an ESA page 404, IAF 429). Two new sources: NTRS 19910018905
+(a US panel's 1990 review of Japanese programmes) and the 2021 YF-100 paper
+in 深空探测学报. Every Japanese, European and Chinese primary document opened
+carries a copyright notice or restrictive host terms; the NASDA 1997 table on
+mext.go.jp needs a rights review. After this pass the research files hold
+61 documents read and mined, 30 identity-verified, 33 access-blocked,
+4 fetched without evidence,
+17 schematics viewed and 38 conflict outcomes. See
+`docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md`. DB-0.5
+stays PARTIAL.
 
 ## Reproducing
 

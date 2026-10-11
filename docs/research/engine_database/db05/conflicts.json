@@ -767,6 +767,147 @@
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
    "explanation": "The 2020 release says 'now', so 5,800 lbf is a later epoch than 5,500 lbf, but it does not say what changed; the 2018 vacuum figure equals the 2018 sea-level figure."
+  },
+  {
+   "conflict_id": "CF-DB05-LE7-EPOCH",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-JP-LE-7",
+   "field_path": "performance.thrust_vac, performance.isp",
+   "claims": [
+    [
+     "Thrust = 265,000 lbf. vac; Specific Impulse = 451 sec (Status - Development, June 1990)",
+     "SRC-DB05-NTRS-19910018905",
+     "PDF p.18"
+    ],
+    [
+     "推力（真空中） 110 tonf; 比推力 445．6 sec (主要諸元, April 1997)",
+     "SRC-MEXT-SAC-1997",
+     "PDF p.7"
+    ],
+    [
+     "approximately 110 tons in a vacuum",
+     "SRC-JAXA-H2",
+     "H-II page"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "1990 figures are for the engine in development (a US panel's summary); 1997 and later agency figures describe the flying engine. No opened document says what changed between them."
+  },
+  {
+   "conflict_id": "CF-DB05-LE7A-EPOCH",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-JP-LE-7A",
+   "field_path": "performance.thrust_vac, performance.isp, mechanical",
+   "claims": [
+    [
+     "推力（真空中） 110 tonf; 比推力 441 sec; 全長 3765 mm (prototype development, April 1997)",
+     "SRC-MEXT-SAC-1997",
+     "PDF p.7"
+    ],
+    [
+     "1100kN（112tonf）; 440s; 3.7m (reference column, Sept 2017)",
+     "SRC-JAXA-PRESS-LE9-2017",
+     "PDF p.3"
+    ],
+    [
+     "Thrust (vacuum) 112 ton; Isp (vacuum) 440sec; Length 3,670mm (as retrieved 2026)",
+     "SRC-MHI-LE7A",
+     "Main specifications"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 1997 values are the engine's specifications during development; the 2017 and manufacturer values describe the flying engine. No opened document records the change; nothing from one epoch fills the other."
+  },
+  {
+   "conflict_id": "CF-DB05-LE9-THRUST-LEVEL",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-JP-LE-9",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "1471kN (150tonf)",
+     "SRC-JAXA-PRESS-LE9-2017",
+     "PDF p.3"
+    ],
+    [
+     "1 500 kN レベル (abstract)",
+     "SRC-JAXA-AA1740298002",
+     "PDF p.1"
+    ],
+    [
+     "エンジン推力は 1 471 kN",
+     "SRC-JAXA-AA1740298002",
+     "PDF p.2"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "'1 500 kN level' is the same paper's class statement; its own §2.3 prints 1 471 kN."
+  },
+  {
+   "conflict_id": "CF-DB05-VULCAIN-THRUST",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-FR-VULCAIN",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "Vacuum Thrust 1025 kN (230,000 lb) (June 1990, in development)",
+     "SRC-NTRS-19910018907",
+     "PDF p.10"
+    ],
+    [
+     "115 tonnes of thrust in vacuum in its initial version",
+     "SRC-ESA-VULCAIN",
+     "Vulcain page"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 1990 briefing itself says thrust and combustion-pressure increases were under way (p.2): the 1990 value is pre-growth. The flown value is known only from ESA's restricted page; the change is not documented."
+  },
+  {
+   "conflict_id": "CF-DB05-VULCAIN-TURBOPUMPS",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-FR-VULCAIN",
+   "field_path": "turbines.speed, turbines.power",
+   "claims": [
+    [
+     "LH2 34,200 rpm / 11,300 kW; LOX 13,000 rpm / 2,900 kW (June 1990)",
+     "SRC-NTRS-19910018907",
+     "PDF p.10"
+    ],
+    [
+     "LOX 13 600 rpm, 3 MW; LH2 34 000 rpm, 12 MW",
+     "SRC-ESA-VULCAIN",
+     "Vulcain page"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Development-era and later agency figures differ; whether by epoch or rounding is not established."
+  },
+  {
+   "conflict_id": "CF-DB05-VINCI-EPOCH",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-FR-VINCI",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "Vinci will provide 18 tonnes of thrust in vacuum with a specific impulse of 465 sec (July 2005, a target)",
+     "SRC-ESA-VINCI-60S",
+     "news"
+    ],
+    [
+     "180 Kn of thrust (June 2024, environment not printed)",
+     "SRC-ESA-A6ENGINES",
+     "Vinci section"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated."
   }
  ]
 }
