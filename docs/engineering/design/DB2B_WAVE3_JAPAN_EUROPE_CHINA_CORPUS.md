@@ -1,13 +1,14 @@
 # DB-2B Wave 3 — Japan / Europe / China reference-engine expansion
 
 Status: PARTIAL. Every target was evaluated honestly. One configuration ships; everything else is research
-evidence withheld by the frozen gates, or waiting on an owner decision.
+evidence withheld by the frozen gates. The owner's decisions of 2026-10-12 (below) keep it withheld.
 Baseline: `1265486` (DB-3A). Branch `claude/sweet-volta-55s7ii`.
 
 Frozen and unchanged: the DB-1 schema; source, rights and conflict admission; value-kind and Missing
 semantics; the text-basis, excerpt and mixture-ratio gates; the owner mechanisms; topology provenance; the
-number matcher; and the DB-3A presentation contract. No gate was added or loosened. No owner decision was
-made or used: the Wave 3 manifest's `OWNER_DECISIONS` and `OWNER_REVIEWS` are empty.
+number matcher; and the DB-3A presentation contract. No gate was added or loosened. Wave 3 itself made
+no owner decision. The owner's decisions of 2026-10-12 are recorded literally in `OWNER_REVIEWS`; none
+releases a value, `OWNER_DECISIONS` is empty, and no conflict carries `owner_accepted` or `owner_released`.
 
 Two instruction files named by the task are not in the repository and were not fabricated:
 `CLAUDE_OPUS_5_5_REPO_INSTRUCTIONS_v4` and `grafify_rocket_forge_prompt.txt`.
@@ -82,9 +83,9 @@ determinations) or which has no host statement, and which carries no restrictive
 
 | Source | Host / notice | Outcome |
 |---|---|---|
-| NTRS 19910018905 (Merkle, Penn State, 1990) | NTRS GOV_PUBLIC_USE_PERMITTED; no notice | Ships (B, SECONDARY), on the author's rights reading, not owner-reviewed (Q4) |
+| NTRS 19910018905 (Merkle, Penn State, 1990) | NTRS GOV_PUBLIC_USE_PERMITTED; no notice | Ships (B, SECONDARY); rights reading owner-reviewed 2026-10-12 (Q4) |
 | NTRS 19910018907 (Rice, Orbital Technologies, 1990) | NTRS GOV_PUBLIC_USE_PERMITTED; no notice | Shippable source; its Vulcain table is held by a conflict |
-| NASDA 委12-6 (1997) on mext.go.jp | MEXT terms (CC BY 4.0-compatible) exclude third-party content; NASDA is a third party | RIGHTS_REVIEW_REQUIRED (Q1) |
+| NASDA 委12-6 (1997) on mext.go.jp | MEXT terms (CC BY 4.0-compatible) exclude third-party content; NASDA is a third party | Not cleared for shipping (owner, Q1) |
 | JAXA 資料37-3 (2017), JAXA H-II page | JAXA Terms of Use: press, research, education or private use only | Restricted |
 | IHI技報 57(3) in AIREX | "items protected by copyright unless otherwise indicated" | Restricted |
 | MHI product pages and Technical Review | © MHI | Restricted |
@@ -140,7 +141,21 @@ owner decision).
 Intentionally missing: every LE-7 performance value, its mixture-ratio direction, its Pc station and its Isp
 environment.
 
-## Owner decisions required
+## Owner decisions (2026-10-12)
+
+Recorded word for word in `tools/reference_engines/db2b_wave3_manifest.py`, `OWNER_REVIEWS`. They release
+nothing, and the DB-0.5 conflict history is not rewritten.
+
+| Question | Key | Decision |
+|---|---|---|
+| Q1 | `WAVE3-MEXT-NASDA-1997` | DO NOT CLEAR FOR SHIPPING. MEXT hosting is not sufficient evidence of redistribution permission; values, tables and figures stay withheld without explicit rights evidence. |
+| Q2 | `WAVE3-1990-TABLE-MATES` | KEEP WITHHELD. No `owner_released`; the 1990 review sources remain secondary evidence. |
+| Q3 | `WAVE3-1990-SECONDARY-VALUES` | KEEP WITHHELD FROM PRODUCTION PERFORMANCE; preserved in research with provenance and conflicts (the RD-170 precedent). |
+| Q4 | `WAVE3-NTRS-RIGHTS` | ACCEPT the rights reading of `SRC-DB05-NTRS-19910018905` as Owner-reviewed 2026-10-12: a RocketForge shipping-policy review, not a legal determination. Tier (B), authority and primacy (SECONDARY) and every per-content policy are preserved. |
+
+`SRC-NTRS-19910018907` ships nothing, so the Q4 review names only the shipped source.
+
+## Owner questions as asked (before the decisions)
 
 **Q1 — NASDA 1997 table on mext.go.jp** (`SRC-MEXT-SAC-1997`, AS-DB05-JP-LE-7-015…022 and
 AS-DB05-JP-LE-7A-001…011).

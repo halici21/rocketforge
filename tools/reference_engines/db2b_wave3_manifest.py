@@ -16,11 +16,13 @@ What ships is small, and the reasons are the evidence's, not the tooling's:
   NASDA's paper is third-party content under those terms. Its rights stay RIGHTS_REVIEW_REQUIRED: an owner
   decision, not a reading this wave may make.
 * The two NTRS documents (US 1990 symposium reviews of Japanese and European programmes) are shippable sources
-  on the author's rights reading (NTRS government public use, no notice), which is not owner-reviewed,
+  (NTRS government public use, no notice; the shipped one's reading owner-reviewed 2026-10-12),
   but each engine's figures in them are a third party's summary of the developer's numbers, and their rating
   tables sit in open epoch conflicts. Only the LE-7 architecture, stated on a separate overview slide, ships.
 
-No owner decision is made or used here: ``OWNER_DECISIONS`` and ``OWNER_REVIEWS`` are empty.
+The owner's decisions of 2026-10-12 are recorded as text in ``OWNER_REVIEWS``. None of them releases a value:
+three keep material withheld, and one reviews the rights reading of the one new shipped source.
+``OWNER_DECISIONS`` stays empty and no conflict carries ``owner_accepted`` or ``owner_released``.
 """
 
 from __future__ import annotations
@@ -45,6 +47,8 @@ CONFIGURATION_SOURCES = {_LE7: ("SRC-DB05-NTRS-19910018905",)}
 # ------------------------------------------------------------------ sources
 
 _NO_NOTICE = "no copyright notice on pages read (extracted text of every page checked 2026-10-11)"
+#: Appended to the rights reading the owner reviewed (OWNER_REVIEWS["WAVE3-NTRS-RIGHTS"]).
+_OWNER_REVIEWED = " Owner-reviewed 2026-10-12 (a RocketForge shipping-policy review, not a legal determination)."
 
 SOURCES = {
     "SRC-DB05-NTRS-19910018905": dict(
@@ -54,7 +58,8 @@ SOURCES = {
         host="GOV_PUBLIC_USE_PERMITTED", printed=_NO_NOTICE, review="CONSISTENT", figures="VALUES_WITH_ATTRIBUTION",
         review_note="NTRS government public use; no notice on the pages. A US panel's June 1990 review of Japanese "
                     "programmes (Space Transportation Propulsion Technology Symposium, Penn State), compiled from "
-                    "the open literature and laboratory visits: secondary for any Japanese engine fact."),
+                    "the open literature and laboratory visits: secondary for any Japanese engine fact."
+                    + _OWNER_REVIEWED),
 }
 
 _JAXA = "JAXA Terms of Use: use without permission only for press, research, education or private use"
@@ -248,6 +253,32 @@ CARRIER_GENERALISATIONS = {}
 SCHEMATICS = {}
 TOPOLOGIES = ()
 
-#: No owner decision is made or used by Wave 3. Questions for the owner are listed in the design note.
+# ------------------------------------------------------------------ owner decisions (2026-10-12), as written
+
+#: No conflict decision is made by the owner: nothing is released or carried.
 OWNER_DECISIONS = {}
-OWNER_REVIEWS = {}
+
+OWNER_REVIEWS = {
+    "WAVE3-MEXT-NASDA-1997": dict(
+        decision="owner (Cemil Eray), 2026-10-12: MEXT-hosted NASDA 1997 source: DO NOT CLEAR FOR SHIPPING. Keep the "
+                 "current rights-review-required / non-shippable status. MEXT hosting is not sufficient evidence of "
+                 "redistribution permission. Do not ship its values, tables or figures without explicit rights "
+                 "evidence.",
+        sources=()),
+    "WAVE3-1990-TABLE-MATES": dict(
+        decision="owner (Cemil Eray), 2026-10-12: Vulcain and LE-7 1990 review table-mate values: KEEP WITHHELD. Do "
+                 "not add owner_released. Their position beside conflicted rows does not justify production "
+                 "admission, and the 1990 review sources remain secondary evidence.",
+        sources=()),
+    "WAVE3-1990-SECONDARY-VALUES": dict(
+        decision="owner (Cemil Eray), 2026-10-12: 1990 secondary performance values: KEEP WITHHELD FROM PRODUCTION "
+                 "PERFORMANCE. Preserve them in research with their provenance/conflicts. Apply the same conservative "
+                 "precedent used for RD-170 secondary values.",
+        sources=()),
+    "WAVE3-NTRS-RIGHTS": dict(
+        decision="owner (Cemil Eray), 2026-10-12: New NTRS source rights reading: ACCEPT as Owner-reviewed "
+                 "2026-10-12. This is a RocketForge shipping-policy review, not a legal determination. Preserve source "
+                 "tier, authority, printed notices and all per-content policies. Do not upgrade secondary evidence to "
+                 "primary/manufacturer evidence.",
+        sources=("SRC-DB05-NTRS-19910018905",)),
+}

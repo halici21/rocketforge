@@ -90,14 +90,51 @@ def test_every_wave3_research_assertion_is_decided_once(research):
     assert len(ids) == 111
 
 
-def test_only_existing_dispositions_and_no_owner_decisions_are_used():
+def test_only_existing_dispositions_are_used_and_no_owner_decision_releases_anything():
     assert not hasattr(wave3, "DISPOSITIONS")  # the Wave 1/2 vocabulary only
     earlier = set(promote_db2a.merge_manifests(*(importlib.import_module(n) for n in promote_db2a.MANIFESTS[:-1]))
                   .DISPOSITIONS)
     assert {why[0] for why in wave3.NOT_PROMOTED.values()} <= earlier
-    assert wave3.OWNER_DECISIONS == {} and wave3.OWNER_REVIEWS == {}
+    assert wave3.OWNER_DECISIONS == {}
     assert not any("owner_accepted" in d or "owner_released" in d for d in wave3.RESEARCH_CONFLICTS.values())
-    assert not any(re.search(r"(?i)owner[- ]reviewed", s.get("review_note", "")) for s in wave3.SOURCES.values())
+
+
+#: The owner's decisions of 2026-10-12, word for word.
+OWNER_TEXT = {
+    "WAVE3-MEXT-NASDA-1997": "MEXT-hosted NASDA 1997 source: DO NOT CLEAR FOR SHIPPING.",
+    "WAVE3-1990-TABLE-MATES": "Vulcain and LE-7 1990 review table-mate values: KEEP WITHHELD. Do not add owner_released.",
+    "WAVE3-1990-SECONDARY-VALUES": "1990 secondary performance values: KEEP WITHHELD FROM PRODUCTION PERFORMANCE.",
+    "WAVE3-NTRS-RIGHTS": "New NTRS source rights reading: ACCEPT as Owner-reviewed 2026-10-12.",
+}
+
+
+def test_the_owner_decisions_are_recorded_literally_and_release_nothing(research):
+    assert set(wave3.OWNER_REVIEWS) == set(OWNER_TEXT)
+    for key, text in OWNER_TEXT.items():
+        decision = wave3.OWNER_REVIEWS[key]["decision"]
+        assert decision.startswith("owner (Cemil Eray), 2026-10-12: ") and text in decision, key
+    # only the rights review names a source, and that source was already shipping
+    assert {k: r["sources"] for k, r in wave3.OWNER_REVIEWS.items() if r["sources"]} == {
+        "WAVE3-NTRS-RIGHTS": ("SRC-DB05-NTRS-19910018905",)}
+    note = wave3.SOURCES["SRC-DB05-NTRS-19910018905"]["review_note"]
+    assert note.endswith("Owner-reviewed 2026-10-12 (a RocketForge shipping-policy review, not a legal determination).")
+    # tier and authority are preserved: secondary, not upgraded
+    spec = wave3.SOURCES["SRC-DB05-NTRS-19910018905"]
+    assert (spec["authority"], spec["primacy"]) == ("B", "SECONDARY")
+    # nothing more ships than before the decisions: the same three assertions
+    assert {e["db05_id"] for e in wave3.ASSERTIONS} == {
+        "AS-DB05-JP-LE-7-001", "AS-DB05-JP-LE-7-002", "AS-DB05-JP-LE-7-003"}
+    assert "SRC-MEXT-SAC-1997" in wave3.WITHHELD_SOURCES
+    held = {i for d in wave3.RESEARCH_CONFLICTS.values() for i in d.get("withhold", ())}
+    table_mates = {a for a, why in wave3.NOT_PROMOTED.items() if why[0] == "OWNER_DECISION_REQUIRED"}
+    assert table_mates and table_mates <= held
+
+
+def test_an_owner_review_cannot_cover_a_withheld_source(research):
+    m = manifest()
+    m.OWNER_REVIEWS["WAVE3-MEXT-NASDA-1997"] = dict(m.OWNER_REVIEWS["WAVE3-MEXT-NASDA-1997"],
+                                                    sources=("SRC-MEXT-SAC-1997",))
+    refused(research, m, "OWNER_REVIEWS WAVE3-MEXT-NASDA-1997: SRC-MEXT-SAC-1997 is not a shipped source")
 
 
 def test_wave3_adds_only_its_records_and_changes_nothing_shipped(research):

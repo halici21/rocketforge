@@ -15,8 +15,9 @@ is not feature-complete, so a 1.0.0 would overstate it — see
     (LOX/LH2, staged combustion).
   - **Withheld:** every other target. Its primary sources carry copyright notices or restrictive terms, or
     its figures sit in open epoch conflicts.
-  - **Owner decisions:** four owner questions are listed and none is decided. They include the rights
-    reading of the one newly shipped source, which is the author's and not owner-reviewed.
+  - **Owner decisions (2026-10-12), recorded literally:** the MEXT-hosted NASDA 1997 table is not cleared
+    for shipping; the 1990 review table-mates and secondary performance values stay withheld; the rights
+    reading of the newly shipped NTRS source is accepted as owner-reviewed. Nothing more is released.
   - **Earlier records:** every record shipped before is unchanged.
   See [docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md](docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md).
 - Reference Engines (DB-3A): a read-only workspace in the **Reference**
