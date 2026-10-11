@@ -56,7 +56,7 @@ ApplicationWindow {
         currentPageIndex === Navigation.indexOfKey("tradestudy")
     // Workspaces with a contextual inspector: Trade Study's study inspector,
     // the shared selection readout of Nozzle Lab and Isentropic, and the
-    // Propulsion Database's provenance.
+    // Propulsion Database's and Reference Engines' provenance.
     readonly property bool hasInspector: isTradeStudyPage
         || currentPageIndex === Navigation.indexOfKey("nozzlelab")
         || currentPageIndex === Navigation.indexOfKey("isentropic")
@@ -64,6 +64,7 @@ ApplicationWindow {
         || currentPageIndex === Navigation.indexOfKey("obliqueshock")
         || currentPageIndex === Navigation.indexOfKey("thermochem")
         || currentPageIndex === Navigation.indexOfKey("evidence")
+        || currentPageIndex === Navigation.indexOfKey("engines")
     // The inspector belongs to the workspace that opened it.
     onCurrentPageIndexChanged: ShellContext.inspectorOpen = false
 

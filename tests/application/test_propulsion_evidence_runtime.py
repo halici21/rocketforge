@@ -385,7 +385,8 @@ def test_browsing_evidence_solves_nothing(run):
 
 def test_the_route_renders_the_controller_state(run):
     assert run["nav_index"] >= 0 and run["title_matches"]
-    assert run["reference_family_items"] == [11, run["nav_index"]]    # beside Equation Library
+    # beside Equation Library, and before Reference Engines (DB-3A, appended last)
+    assert run["reference_family_items"][:2] == [11, run["nav_index"]]
     # options come from the shipped records, never from a list in QML
     assert run["status_options"] == run["corpus_status_options"]
     assert "REGRESSION_LOCKED" in run["status_options"]

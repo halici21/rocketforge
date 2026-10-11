@@ -7,6 +7,7 @@ import "../data"
 import "../pages/tradestudy"
 import "../pages/thermochemistry"
 import "../pages/propulsionevidence"
+import "../pages/referenceengines"
 
 /*
  * The contextual Inspector's content, for whichever workspace is open.
@@ -36,6 +37,7 @@ Item {
                        : root.pageKey === "obliqueshock" ? obliqueShock
                        : root.pageKey === "thermochem" ? sweepPoint
                        : root.pageKey === "evidence" ? evidence
+                       : root.pageKey === "engines" ? engines
                        : null
     }
 
@@ -44,6 +46,11 @@ Item {
     Component {
         id: evidence
         EvidenceInspector { onCloseRequested: root.closeRequested() }
+    }
+
+    Component {
+        id: engines
+        EngineInspector { onCloseRequested: root.closeRequested() }
     }
 
     Component {

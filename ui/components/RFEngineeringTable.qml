@@ -488,7 +488,20 @@ Item {
                         width: root.widthFor(index)
                         height: line.height
 
+                        // A left-aligned word cell longer than its column ends
+                        // in a visible ellipsis instead of printing over the next
+                        // column, and hovering it shows the whole text. Number
+                        // cells are untouched.
+                        HoverHandler { id: cellHover; enabled: cellText.truncated }
+                        ToolTip.visible: cellHover.hovered && cellText.truncated
+                        ToolTip.delay: 300
+                        ToolTip.text: cellText.raw
+
                         Text {
+                            id: cellText
+                            width: root.alignsLeft(index) && !speciesCell
+                                   ? parent.width - Metrics.spacing.m * 2 : implicitWidth
+                            elide: root.alignsLeft(index) && !speciesCell ? Text.ElideRight : Text.ElideNone
                             anchors.right: root.alignsLeft(index)
                                            ? undefined : parent.right
                             anchors.left: root.alignsLeft(index)

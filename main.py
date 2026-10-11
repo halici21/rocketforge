@@ -85,6 +85,9 @@ from rocketforge.application.analysis.line_controller import LineController
 from rocketforge.application.analysis.propulsion_evidence_controller import (
     PropulsionEvidenceController,
 )
+from rocketforge.application.analysis.reference_engine_controller import (
+    ReferenceEngineController,
+)
 from rocketforge.application.analysis.trade_study_controller import (
     TradeStudyController,
 )
@@ -365,6 +368,14 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     propulsion_evidence = PropulsionEvidenceController(parent, thermochemistry=thermochemistry)
     qmlRegisterSingletonInstance(PropulsionEvidenceController, QML_URI, 1, 0,
                                  "PropulsionEvidence", propulsion_evidence)
+
+    # The Reference Engines database (DB-3A): the shipped reference-engine
+    # corpus, read-only. It loads and admits the corpus once, here; browsing,
+    # filtering, inspecting and drawing a topology solve nothing and import no
+    # provider, physics or comparison code. No record drives a design or a solver.
+    reference_engines = ReferenceEngineController(parent)
+    qmlRegisterSingletonInstance(ReferenceEngineController, QML_URI, 1, 0,
+                                 "ReferenceEngines", reference_engines)
 
     # The liquid-engine requirement (LIQ-2): design intent, not a calculation.
     # It references the LIQ-1 propellant catalogue by key and calls no

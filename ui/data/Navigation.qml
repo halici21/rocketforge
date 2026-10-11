@@ -124,7 +124,12 @@ QtObject {
           computedNote: "Regulated stored gas and blowdown with a perfect gas; autogenous and warm gas are intent only" },
         { key: "feednetwork", label: "Feed Network", page: "FeedNetworkPage.qml",
           computed: true, solverNote: "RocketForge feed network · engineering.line, Sutton Eqs. 11-6, 11-7",
-          computedNote: "Series line losses from tank outlet to injector inlet; no cavitation, transients or pumps" }
+          computedNote: "Series line losses from tank outlet to injector inlet; no cavitation, transients or pumps" },
+        // Reference (DB-3A): the shipped reference-engine corpus, read-only.
+        // Appended last so no existing index moves.
+        { key: "engines", label: "Reference Engines", page: "ReferenceEnginesPage.qml",
+          computed: true, solverNote: "Shipped reference-engine records, read-only",
+          computedNote: "Values as printed, capabilities, topology and sources; nothing is solved" }
     ]
 
     readonly property string flowDomain: "COMPRESSIBLE FLOW"
@@ -262,7 +267,7 @@ QtObject {
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",
             hasStatus: false,
-            groups: [ { label: "", items: [11, 18] } ]
+            groups: [ { label: "", items: [11, 18, 29] } ]
         }
     ]
 

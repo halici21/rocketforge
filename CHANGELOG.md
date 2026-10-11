@@ -9,6 +9,20 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference Engines (DB-3A): a read-only workspace in the **Reference**
+  family over the curated, source-backed reference engine database.
+  - Find a configuration by name, designation, family or alias, and filter by
+    capability status or recorded cycle.
+  - Read values as printed, with their conditions; an unknown condition stays
+    unknown.
+  - See the five capabilities one by one (regression candidate is eligibility
+    only), and what the performance reference lacks.
+  - Read a RocketForge drawing of each shipped topology graph: original or
+    third-party reconstruction, its omissions, and engine versus stage or
+    vehicle ownership. Positions are presentation only.
+  - Inspect each source's authority and rights separately.
+  - Nothing is edited or solved, and no record drives a design or a solver.
+  See [docs/engineering/design/DB3A_REFERENCE_ENGINE_DATABASE_UI.md](docs/engineering/design/DB3A_REFERENCE_ENGINE_DATABASE_UI.md).
 - Build identity. Every package names the commit it was built from: in
   `rocketforge_build.json` beside the executable, in the executable's own
   version resource, and in Settings, which shows the build and offers **Copy

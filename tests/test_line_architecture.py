@@ -291,7 +291,7 @@ QT_PROVIDED = {
     "Keys", "ScrollBar", "Flickable", "ListView", "GridView", "MouseArea",
     "Rectangle", "Column", "Row", "Grid", "Loader", "Timer", "Gradient",
     "GradientStop", "FontMetrics", "TextMetrics", "TextInput", "TextEdit",
-    "Accessible",
+    "Accessible", "ToolTip",
 }
 
 #: Controllers registered as QML singletons in ``main.py``.
@@ -302,6 +302,7 @@ CONTROLLER_SINGLETONS = {
     "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
     "PropellantTrade", "ChamberSizing", "ChamberGeometry", "Injector",
     "PropellantInventory", "PropellantTanks", "PropellantManagement", "TankPressurization", "FeedNetwork",
+    "ReferenceEngines",
 }
 
 
