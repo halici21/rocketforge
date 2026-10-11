@@ -427,13 +427,13 @@ def test_nothing_is_read_from_research_or_the_network_at_runtime(run):
     assert run["opened_research"] == [], run["opened_research"]
     assert run["sockets"] == []
     # building the controller reads only the shipped engine corpus, and solves nothing
-    assert run["construction"]["calls"] == 0 and run["construction"]["configurations"] == 16
+    assert run["construction"]["calls"] == 0 and run["construction"]["configurations"] == 17
     assert run["construction"]["opened"]
     assert all("rocketforge/data/evidence/engines" in p for p in run["construction"]["opened"]), \
         run["construction"]["opened"]
     # browsing reads no file at all
     assert run["opened"] == [], run["opened"]
-    assert run["visited"] == 16
+    assert run["visited"] == 17
 
 
 def test_the_route_sits_in_the_reference_family_and_renders_the_controller(run):
@@ -441,7 +441,7 @@ def test_the_route_sits_in_the_reference_family_and_renders_the_controller(run):
     assert run["reference_family_items"] == [11, run["nav_evidence"], run["nav_index"]]
     assert run["title_matches"]
     assert run["initial_selected"] == run["first_library_row"]      # deterministic
-    assert run["library_rows"] == run["controller_rows"] == 16
+    assert run["library_rows"] == run["controller_rows"] == 17
 
 
 def test_search_and_filters_come_from_the_corpus(run):

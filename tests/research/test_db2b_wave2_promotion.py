@@ -305,9 +305,12 @@ def test_the_build_is_deterministic(research):
 def test_wave2_adds_only_its_targets(research):
     """The corpus without the Wave 2 manifest is exactly the shipped corpus minus Wave 2's records."""
     import importlib
-    earlier = promote_db2a.merge_manifests(*(importlib.import_module(n) for n in promote_db2a.MANIFESTS[:-1]))
+    names = promote_db2a.MANIFESTS
+    upto = names.index("db2b_wave2_manifest")  # later waves are not Wave 2's to account for
+    earlier = promote_db2a.merge_manifests(*(importlib.import_module(n) for n in names[:upto]))
+    through = promote_db2a.merge_manifests(*(importlib.import_module(n) for n in names[:upto + 1]))
     before = corpus_to_dict(promote_db2a.build_corpus(research, earlier))
-    after = corpus_to_dict(promote_db2a.build_corpus(research, manifest()))
+    after = corpus_to_dict(promote_db2a.build_corpus(research, through))
     for kind, items in before.items():
         if isinstance(items, list):
             new = {json.dumps(x, sort_keys=True) for x in after[kind]}

@@ -32,7 +32,7 @@ def _all_facts(catalog, cfg):
 
 def test_the_library_lists_every_configuration_in_a_fixed_order(catalog):
     rows = view.library_rows(catalog, view.visible_entries(catalog, view.EngineFilter()))
-    assert len(rows) == len(catalog.entries()) == 16
+    assert len(rows) == len(catalog.entries()) == 17
     keys = [(r["section"].casefold(), r["title"].casefold()) for r in rows]
     assert keys == sorted(keys)
     assert sum(r["sectionStart"] for r in rows) == len({r["section"] for r in rows})
@@ -72,7 +72,7 @@ def test_filters_use_the_backend_vocabulary_and_agree_with_it(catalog):
             assert got == want
     # a capability alone narrows nothing: the pair is the filter
     alone = view.visible_entries(catalog, view.EngineFilter(capability="TOPOLOGY"))
-    assert len(alone) == 16
+    assert len(alone) == 17
 
 
 def test_the_cycle_filter_offers_only_recorded_cycles_and_names_absence(catalog):
@@ -387,7 +387,7 @@ def test_the_controller_selects_deterministically_and_follows_filters(controller
     controller.setSearch("zz no match")
     assert controller.emptyState == "no-match" and controller.selectedConfigurationId == ""
     controller.clearFilters()
-    assert controller.emptyState == "" and controller.visibleCount == 16
+    assert controller.emptyState == "" and controller.visibleCount == 17
 
 
 def test_the_controller_refuses_what_it_does_not_offer(controller):

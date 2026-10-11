@@ -120,7 +120,7 @@ def test_loading_needs_no_network(monkeypatch):
         raise AssertionError("the catalog opened a network connection")
     monkeypatch.setattr(socket, "socket", refuse)
     monkeypatch.setattr(socket, "create_connection", refuse)
-    assert len(load_reference_engines().entries()) == 16
+    assert len(load_reference_engines().entries()) == 17
 
 
 def test_a_file_that_breaks_a_shipping_rule_is_refused_not_trimmed(tmp_path):

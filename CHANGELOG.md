@@ -9,6 +9,16 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference engine corpus, DB-2B Wave 3 (Japan, Europe, China). Ten targets were evaluated against the
+  frozen admission rules: LE-7, LE-7A, LE-9, Vulcain, Vulcain 2, Vinci, YF-75, YF-75D, YF-100 and YF-77.
+  - **Ships:** one configuration, the LE-7 as a US panel described it in 1990, with its architecture only
+    (LOX/LH2, staged combustion).
+  - **Withheld:** every other target. Its primary sources carry copyright notices or restrictive terms, or
+    its figures sit in open epoch conflicts.
+  - **Owner decisions:** four owner questions are listed and none is decided. They include the rights
+    reading of the one newly shipped source, which is the author's and not owner-reviewed.
+  - **Earlier records:** every record shipped before is unchanged.
+  See [docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md](docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md).
 - Reference Engines (DB-3A): a read-only workspace in the **Reference**
   family over the curated, source-backed reference engine database.
   - Find a configuration by name, designation, family or alias, and filter by

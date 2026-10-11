@@ -90,6 +90,49 @@
     },
     {
       "reference": {
+        "source_id": "SRC-DB05-NTRS-19910018905",
+        "organization": "Pennsylvania State University (for the NASA symposium)",
+        "authors": [
+          "Charles L. Merkle"
+        ],
+        "title": "A review of liquid rocket propulsion programs in Japan",
+        "year": 1991,
+        "identifiers": {
+          "NTRS": "19910018905"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19910018905/downloads/19910018905.pdf",
+        "source_type": "conference paper",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "B",
+      "primacy": "SECONDARY",
+      "access": "OPENED",
+      "content_sha256": "fb4dc3f401ae832abffd6686557548a6172082d223b40989c3537f1486e3ca06",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-11T10:31:50Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright notice on pages read (extracted text of every page checked 2026-10-11)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no notice on the pages. A US panel's June 1990 review of Japanese programmes (Space Transportation Propulsion Technology Symposium, Penn State), compiled from the open literature and laboratory visits: secondary for any Japanese engine fact."
+      },
+      "access_note": "downloaded 2026-10-11T10:31:50Z from https://ntrs.nasa.gov/api/citations/19910018905/downloads/19910018905.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
         "source_id": "SRC-DB05-NTRS-19940016798",
         "organization": "Rockwell International, Rocketdyne Division (NASA contract NAS8-39210)",
         "authors": [
@@ -986,6 +1029,11 @@
       "family_id": "FAM-LR87",
       "name": "LR87",
       "notes": "Aerojet Titan first-stage engines; only the LR87AJ-11 is supported by an opened document here."
+    },
+    {
+      "family_id": "FAM-LE7",
+      "name": "LE-7",
+      "notes": "NASDA/JAXA first-stage LOX/LH2 engines (LE-7, LE-7A); only the LE-7 is carried, and only its architecture."
     }
   ],
   "variants": [
@@ -1072,6 +1120,12 @@
       "family_id": "FAM-LR87",
       "designation": "LR87AJ-11",
       "notes": ""
+    },
+    {
+      "variant_id": "VAR-LE-7",
+      "family_id": "FAM-LE7",
+      "designation": "LE-7",
+      "notes": "The H-II first-stage engine. Not the LE-7A: no LE-7A statement is filed here."
     }
   ],
   "configurations": [
@@ -1213,6 +1267,16 @@
       "label": "LR87AJ-11, Titan IIIE stage I engine (General Dynamics Convair CASD-LVP73-007)",
       "effective": "Titan IIIE stage I, as of the September 1973 systems summary",
       "notes": "A pair of identical subassemblies on one frame (report p.6-19). No other LR87 variant is carried: none was supported by an opened document."
+    },
+    {
+      "configuration_id": "CFG-LE7-H2-1990-REVIEW",
+      "variant_id": "VAR-LE-7",
+      "label": "LE-7, H-II first-stage engine as a US panel described it in June 1990",
+      "effective": {
+        "missing": "NOT_AUDITED",
+        "note": "described during H-II development (June 1990 review); the flight effectivity of the statement is not established"
+      },
+      "notes": "Architecture only, from the review's H-II overview slide (NTRS 19910018905 p.16). The same review's LE-7 figures (p.18) sit in the open epoch conflict CF-DB05-LE7-EPOCH and are a panel's summary of NASDA's numbers, so none ships; NASDA's own 1997 table is withheld pending a rights review."
     }
   ],
   "operating_points": [
@@ -10563,6 +10627,120 @@
       "schematic_id": null,
       "derivation": null,
       "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-JP-LE-7-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LE7-H2-1990-REVIEW"
+      },
+      "field_path": "propellants.oxidizer",
+      "value": {
+        "type": "enum",
+        "token": "LIQUID_OXYGEN"
+      },
+      "value_as_printed": "First Stage -- LE-7 - LOX/LH2",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19910018905",
+      "locator": "NTRS 19910018905 PDF p.16 (proceedings p.542) 'H-II LAUNCH VEHICLE', bullet 'First Stage -- LE-7' (read from the page image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'LOX/LH2' under 'First Stage -- LE-7' on the review's H-II overview slide (secondary)."
+    },
+    {
+      "assertion_id": "AS-DB05-JP-LE-7-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LE7-H2-1990-REVIEW"
+      },
+      "field_path": "propellants.fuel",
+      "value": {
+        "type": "enum",
+        "token": "LIQUID_HYDROGEN"
+      },
+      "value_as_printed": "First Stage -- LE-7 - LOX/LH2",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19910018905",
+      "locator": "NTRS 19910018905 PDF p.16 (proceedings p.542) 'H-II LAUNCH VEHICLE', bullet 'First Stage -- LE-7' (read from the page image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'LOX/LH2' under 'First Stage -- LE-7' on the review's H-II overview slide (secondary)."
+    },
+    {
+      "assertion_id": "AS-DB05-JP-LE-7-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LE7-H2-1990-REVIEW"
+      },
+      "field_path": "architecture.cycle",
+      "value": {
+        "type": "enum",
+        "token": "STAGED_COMBUSTION"
+      },
+      "value_as_printed": "First Stage -- LE-7 - Staged Combustion",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19910018905",
+      "locator": "NTRS 19910018905 PDF p.16 (proceedings p.542) 'H-II LAUNCH VEHICLE', bullet 'First Stage -- LE-7' (read from the page image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'Staged Combustion' (secondary). No rich side is printed and none is inferred."
     }
   ],
   "conflicts": []

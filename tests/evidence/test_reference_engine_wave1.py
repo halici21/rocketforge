@@ -48,10 +48,13 @@ WAVE1 = {"CFG-J2S", "CFG-F1", "CFG-H1-188K-SA10", "CFG-LMDE-FINAL", "CFG-OMS",
          "CFG-RS25-SMALL-THROAT", "CFG-RS25-BLOCK-II", "CFG-RS25-SLS"}
 #: The DB-2B Wave 2 configurations (tests/evidence/test_reference_engine_wave2.py holds them).
 WAVE2 = {"CFG-RL10B-2-DIV", "CFG-RD-170", "CFG-IPD", "CFG-RS-68A", "CFG-LR87-AJ-11-T3E"}
+#: The DB-2B Wave 3 configurations (tests/research/test_db2b_wave3_promotion.py holds them).
+WAVE3 = {"CFG-LE7-H2-1990-REVIEW"}
 #: The DB-0.5 engines whose assertions may appear in production.
 ALLOWED_ENGINES = ("J-2-", "RL10A-3-3A-", "AJ10-137-", "J-2S-", "F-1-", "H-1-188K-", "LMDE-", "AJ10-190-",
                    "SSME-BLOCK-I-", "SSME-BLOCK-IIA-", "SSME-BLOCK-II-",
-                   "RL10B-2-", "IPD-", "RS-68A-", "LR87-AJ-11-", "AS-DB05-SU-RD-170-")  # the last five: Wave 2
+                   "RL10B-2-", "IPD-", "RS-68A-", "LR87-AJ-11-", "AS-DB05-SU-RD-170-",  # these five: Wave 2
+                   "AS-DB05-JP-LE-7-")  # Wave 3: the LE-7 only (not the LE-7A)
 
 
 @pytest.fixture(scope="module")
@@ -75,19 +78,23 @@ def numbers(assertions):
 
 
 def test_only_the_seeds_and_the_wave_configurations_ship(corpus):
-    """Rescoped by Wave 2: the seeds and Wave 1 stay; anything else is a Wave 2 target."""
-    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1 | WAVE2
+    """Rescoped by Waves 2 and 3: the seeds and Wave 1 stay; anything else is a later wave's target."""
+    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1 | WAVE2 | WAVE3
     assert {v.designation for v in corpus.variants} == {
         "J-2", "RL10A-3-3A", "AJ10-137", "J-2S", "F-1", "H-1", "LM descent engine", "OMS engine", "RS-25",
-        "RL10B-2", "RD-170", "IPD", "RS-68A", "LR87AJ-11"}
+        "RL10B-2", "RD-170", "IPD", "RS-68A", "LR87AJ-11", "LE-7"}
 
 
 @pytest.mark.parametrize("name", ["RL10A-4-2", "Rutherford", "Merlin", "Raptor", "BE-3", "BE-4", "RD-180",
                                   "RD-191", "LE-7", "LE-9", "Vulcain", "Vinci", "YF-"])
 def test_no_later_target_is_migrated(corpus, name):
-    text = json.dumps([[v.designation, v.notes] for v in corpus.variants]
-                      + [[c.label, c.notes] for c in corpus.configurations]
-                      + [[f.name] for f in corpus.families] + [[a.name] for a in corpus.aliases])
+    """Wave 3 carries the LE-7 alone: 'LE-7' may appear in its own records only; every other later-target name
+    is checked everywhere, the LE-7 records included."""
+    own = name == "LE-7"
+    text = json.dumps([[v.designation, v.notes] for v in corpus.variants if not (own and v.variant_id == "VAR-LE-7")]
+                      + [[c.label, c.notes] for c in corpus.configurations if not (own and c.configuration_id in WAVE3)]
+                      + [[f.name] for f in corpus.families if not (own and f.family_id == "FAM-LE7")]
+                      + [[a.name] for a in corpus.aliases])
     assert name.lower() not in text.lower()
 
 
@@ -210,7 +217,8 @@ def test_wave1_rights_readings_record_the_owner_review(corpus):
                      if any(a.source_id == s.reference.source_id for a in corpus.assertions
                             if a.subject.id in WAVE2 or a.subject.id in ("VAR-IPD", "VAR-RS-68A"))}
     wave2_sources |= {"SRC-NTRS-19910018906"}  # the RD-170 graph's text source
-    wave1_sources = {s.reference.source_id for s in corpus.sources} - SEED_SOURCES - wave2_sources
+    wave3_sources = {"SRC-DB05-NTRS-19910018905"}
+    wave1_sources = {s.reference.source_id for s in corpus.sources} - SEED_SOURCES - wave2_sources - wave3_sources
     assert len(wave1_sources) == 9
     for s in corpus.sources:
         if s.reference.source_id in wave1_sources:
