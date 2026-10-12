@@ -53,8 +53,9 @@ Item {
         "propulsion": "Ideal rocket performance from a solved chamber",
         "tradestudy": "Parametric sweeps and evaluated design spaces",
         "fluids": "Fluid states and distributed line friction",
-        "liquidengine": "Requirement, propellant trade, thrust-chamber sizing and chamber geometry",
-        "reference": "Relations the modules implement"
+        "liquidengine": "Requirement, propellant trade, thrust-chamber sizing, chamber geometry and injector",
+        "propulsionsystem": "Propellant inventory, tanks, propellant management, pressurization and feed lines",
+        "reference": "Equations, the propulsion database and reference engines"
     })
 
     Flickable {

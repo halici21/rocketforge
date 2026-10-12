@@ -167,7 +167,7 @@ def _drive() -> dict:
     workspaces = (
         ("normalshock", normal, "normalShockTable", "normalShockRelationChart", 0,
          "normalShockInputDrawer", "normalShockTableSettings", "normalShockHeaderStatus"),
-        ("obliqueshock", oblique, "obliqueShockTable", "obliqueShockSweepChart", 1,
+        ("obliqueshock", oblique, "obliqueShockTable", "obliqueShockSweepChart", 0,
          "obliqueShockInputDrawer", "obliqueShockTableSettings", "obliqueShockHeaderStatus"),
     )
     for key, ctrl, table_name, chart_name, chart_section, drawer_name, settings_name, header in workspaces:
@@ -181,7 +181,7 @@ def _drive() -> dict:
         view["missing_names"] = sorted(set(n for n in missing
                                            if not window.findChildren(QObject, n)))
         # the input drawer: closed over a valid result, and the reader's choice
-        section(1 if key == "normalshock" else 0)
+        section(1)                                  # Calculator on both pages
         drawer = named(drawer_name)
         view["drawer_default_open"] = drawer.property("open")
         call_void(drawer, "setOpenByUser", True)
@@ -252,7 +252,7 @@ def _drive() -> dict:
     settle(0.3)
     normal.regenerateTable()
     settle(0.3)
-    page("obliqueshock", 0)
+    page("obliqueshock", 1)
     oblique.setProperty("mach1", 2.5)
     settle(0.4)
     out["control_solves"] = {k: solves[k] - before[k] for k in solves}
@@ -376,6 +376,24 @@ def test_coming_back_shows_the_selection_the_workspace_holds(key):
 
 def test_no_qml_warnings():
     assert result()["warnings"] == []
+
+
+def test_an_oblique_table_row_opens_the_calculator_that_solves_it():
+    """Activating a row solves that deflection in the Calculator, so it opens the Calculator.
+
+    The section is named, not numbered, here: R3-A moved Relation first, and the request
+    must follow the Calculator wherever it sits.
+    """
+    import re
+
+    pages = PROJECT_ROOT / "ui" / "pages"
+    sections = re.search(r'objectName: "obliqueShockSections".*?model: \[(.*?)\]',
+                         (pages / "ObliqueShockPage.qml").read_text(encoding="utf-8"), re.S).group(1)
+    names = re.findall(r'"([^"]+)"', sections)
+    table = (pages / "obliqueshock" / "ObliqueShockTable.qml").read_text(encoding="utf-8")
+    handler = table[table.index("onRowActivated:"):]
+    requested = int(re.search(r"ObliqueShock\.requestTab\((\d+)\)", handler).group(1))
+    assert names[requested] == "Calculator", (names, requested)
 
 
 if __name__ == "__main__":

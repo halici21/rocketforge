@@ -8,6 +8,17 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 
 ## [Unreleased]
 
+### Changed
+- Simplification R3-A (see [docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md](docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md)):
+  - The Compare, Charts and Gas Properties placeholder pages are removed. No status bar says
+    "mock data" any more; the Equation Library states that it holds reference relations.
+  - When a Liquid Engine or Propulsion System page is blocked by an upstream result that is missing,
+    stale, refused or mismatched, its message now has an "Open <page>" button. The button only navigates; nothing is solved.
+  - Oblique Shock opens on its Relation chart, like every other compressible-flow page.
+  - Home describes every family, including Propulsion System.
+  - Navigation families name their pages by key; unused navigation lists and three unused QML visuals
+    are deleted.
+
 ### Added
 - Reference engine regression acceptance (DB-4A): a read-only review of every current `REGRESSION_CANDIDATE`
   (J-2 230K, J-2S), quantity by quantity, against RocketForge's ideal performance model.

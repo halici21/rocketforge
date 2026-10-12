@@ -36,7 +36,7 @@ ACCESS_VIOLATION = 0xC0000005
 #: Thermochemistry named by the stabilization program.
 ROUTES = {
     "nozzle_operating_point_to_thermochemistry": (
-        "solve,page:isentropic,section:0,page:obliqueshock,section:0,section:1,"
+        "solve,page:isentropic,section:0,page:obliqueshock,section:1,section:0,"
         "page:nozzlelab,section:0,section:1,page:thermochem,section:1,"
         "page:nozzlelab,section:1,page:thermochem,page:nozzlelab,section:1,page:thermochem"),
     "nozzle_regime_map_to_thermochemistry": (

@@ -199,6 +199,7 @@ def _drive() -> dict:
 
     index = nav.indexOfKey("evidence")
     out["nav_index"] = index
+    out["nav_equations"] = nav.indexOfKey("equations")
     out["reference_family_items"] = [f["groups"][0]["items"] for f in plain(nav.property("families"))
                                      if f["key"] == "reference"][0]
     window.setProperty("currentPageIndex", index); settle(0.8); step("enter page")
@@ -386,7 +387,7 @@ def test_browsing_evidence_solves_nothing(run):
 def test_the_route_renders_the_controller_state(run):
     assert run["nav_index"] >= 0 and run["title_matches"]
     # beside Equation Library, and before Reference Engines (DB-3A, appended last)
-    assert run["reference_family_items"][:2] == [11, run["nav_index"]]
+    assert run["reference_family_items"][:2] == [run["nav_equations"], run["nav_index"]]
     # options come from the shipped records, never from a list in QML
     assert run["status_options"] == run["corpus_status_options"]
     assert "REGRESSION_LOCKED" in run["status_options"]

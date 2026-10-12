@@ -322,20 +322,16 @@ ApplicationWindow {
 
         StatusBar {
             Layout.fillWidth: true
-            // On a computed page the mock flow chips are dropped rather than
-            // shown: "Supersonic · Case 01" beside a subsonic computed result
-            // is the status bar asserting something false. The trailing text
-            // still says where the numbers came from. Home is neither a
-            // compressible-flow calculator nor a computed workspace -- it
-            // reports on other workspaces' own state rather than solving
-            // anything itself, so it gets neither the mock chips nor a
-            // solver sentence, both of which would misdescribe it.
-            items: window.appMode === "engine" ? engineStatus
-                 : isHomePage ? []
-                 : (computed ? [] : MockData.statusChips)
+            // The trailing text says where the numbers on screen came from.
+            // Home reports on other workspaces' own state rather than solving
+            // anything itself, so it gets no solver sentence, which would
+            // misdescribe it.
+            // No analysis page shows flow chips: every page either computes its
+            // numbers or (Equation Library) is a reference page with its own note.
+            items: window.appMode === "engine" ? engineStatus : []
             trailing: window.appMode === "engine" ? "No solver in this build"
                     : isHomePage ? "Workbench overview"
-                    : (computed ? solverNote : MockData.solverStatus)
+                    : solverNote
             computed: window.appMode === "analysis"
                       && Navigation.items[window.currentPageIndex] !== undefined
                       && Navigation.items[window.currentPageIndex].computed === true
@@ -371,8 +367,7 @@ ApplicationWindow {
                     return "No values are shown"
                 if (currentItem !== undefined && currentItem.computedNote !== undefined)
                     return currentItem.computedNote
-                return computed ? "Values computed by RocketForge"
-                                : "All values are mock data"
+                return "Values computed by RocketForge"
             }
 
             readonly property var engineStatus: [

@@ -230,6 +230,7 @@ def _drive() -> dict:
     index = nav.indexOfKey("engines")
     out["nav_index"] = index
     out["nav_evidence"] = nav.indexOfKey("evidence")
+    out["nav_equations"] = nav.indexOfKey("equations")
     out["reference_family_items"] = [f["groups"][0]["items"] for f in plain(nav.property("families"))
                                      if f["key"] == "reference"][0]
     window.setProperty("currentPageIndex", index); settle(0.8); step("enter page")
@@ -438,7 +439,7 @@ def test_nothing_is_read_from_research_or_the_network_at_runtime(run):
 
 def test_the_route_sits_in_the_reference_family_and_renders_the_controller(run):
     assert run["nav_index"] >= 0
-    assert run["reference_family_items"] == [11, run["nav_evidence"], run["nav_index"]]
+    assert run["reference_family_items"] == [run["nav_equations"], run["nav_evidence"], run["nav_index"]]
     assert run["title_matches"]
     assert run["initial_selected"] == run["first_library_row"]      # deterministic
     assert run["library_rows"] == run["controller_rows"] == 17

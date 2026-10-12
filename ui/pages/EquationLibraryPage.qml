@@ -23,7 +23,7 @@ Item {
         RFPageHeader {
             Layout.fillWidth: true
             title: "Equation Library"
-            subtitle: "Relations the compressible-flow modules will implement"
+            subtitle: "Relations the compressible-flow modules implement"
 
             trailing: Component {
                 RFStatusChip {

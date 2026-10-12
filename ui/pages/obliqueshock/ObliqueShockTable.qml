@@ -23,7 +23,7 @@ import "../../components"
  * filled in.
  *
  * The table is an interactive data surface (RFEngineeringTable's shared
- * contract, as on Isentropic): a row selects the Study's sweep curve at that
+ * contract, as on Isentropic): a row selects the Relation's sweep curve at that
  * exact θ and the inspector; a range draws a quiet interval on the curve (it
  * never zooms it) and can be opened as a lens or pinned as a table snapshot
  * in the one AnalysisSession. Nothing here is recomputed or re-solved.
@@ -398,7 +398,7 @@ Item {
                 // deflection at its own M₁, γ and branch (said in the footer).
                 onRowActivated: function (row) {
                     ObliqueShock.setDeflectionAndSolve(ObliqueShock.tableModel.machAt(row))
-                    ObliqueShock.requestTab(0)
+                    ObliqueShock.requestTab(1)                // the Calculator section
                 }
             }
 

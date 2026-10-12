@@ -12,8 +12,11 @@ import "../components"
 Item {
     id: page
 
+    signal workspaceRequested(int index)
+
     RFSystemWorkspace {
         anchors.fill: parent
+        onWorkspaceRequested: (index) => page.workspaceRequested(index)
         controller: PropellantInventory
         prefix: "inventory"
         title: "Propellant Inventory"

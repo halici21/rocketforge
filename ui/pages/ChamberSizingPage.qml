@@ -24,6 +24,9 @@ import "../components"
 Item {
     id: page
 
+    // Bubbled by WorkspaceHost: an issue's link opens its upstream page.
+    signal workspaceRequested(int index)
+
     component Note: Text {
         Layout.fillWidth: true
         visible: text !== ""
@@ -149,16 +152,17 @@ Item {
                     }
 
                     Repeater {
+                        id: issueList
                         model: ChamberSizing.issues
-                        delegate: Text {
+                        delegate: RFIssueLine {
                             objectName: "sizingIssue"
                             required property var modelData
-                            Layout.fillWidth: true
+                            required property int index
                             text: modelData.message
-                            color: Theme.warning
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.meta
-                            wrapMode: Text.WordWrap
+                            code: modelData.code
+                            // one button per upstream page, not one per reason
+                            showLink: firstForPage(issueList.model, index)
+                            onOpenRequested: (target) => page.workspaceRequested(target)
                         }
                     }
                     Note { objectName: "sizingMessage"; text: ChamberSizing.message }

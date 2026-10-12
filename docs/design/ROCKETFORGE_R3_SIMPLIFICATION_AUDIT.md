@@ -25,7 +25,7 @@ What remains is ranked by impact on a first-time user.
 
 | # | Finding | Where | Proposed simplification | Risk |
 |---|---|---|---|---|
-| U1 | **Three placeholder pages ship in the navigation.** Compare, Charts and Gas Properties show "Module UI will be implemented in a later phase", empty dashed boxes, and a status bar reading "No solver in this build · All values are mock data". | FLOW family, REF family | Remove them from `Navigation.items` (keep the files or delete them, owner's choice). The status bar then never says "mock data" anywhere in a shipped build. | Low; navigation tests and the nav smoke list need their keys removed. |
+| U1 | **Three placeholder pages ship in the page list.** Compare, Charts and Gas Properties show "Module UI will be implemented in a later phase", empty dashed boxes, and a status bar reading "No solver in this build · All values are mock data". (Correction during R3-A: the family rail already omits them; they are reached with the rail's Up/Down keys, which step through every page.) The Equation Library also showed the mock status chips. | `Navigation.items` | Remove them from `Navigation.items` (keep the files or delete them, owner's choice). The status bar then never says "mock data" anywhere in a shipped build. | Low; navigation tests and the nav smoke list need their keys removed. |
 | U2 | **The design chain is ten separate pages, each opening empty.** Engine Requirement → Propellant Trade → Thrust Chamber Sizing → Chamber Geometry → Injector; Propellant Inventory → Tank Geometry → Propellant Management → Tank Pressurization → Feed Network. Each downstream page opens on "Not computed yet" and an orange sentence naming the upstream page, which is not a link. | ENG, SYS families | (a) Make the upstream sentence a button that navigates there. (b) Add one compact chain strip at the top of every chain page: the steps, each with its state (not run / done / stale), clickable. No page is merged, no solve is automated. | Low for (a); medium for (b) (new shared component, read-only over existing controller state). |
 | U3 | **Empty right-hand provenance column.** On the chain pages and Fluid Properties/Line, a 20–25 % wide column says "Shown with a result…" and is otherwise empty until a solve. | 12 pages | Collapse the column while there is no result and let the input card use the width; show it with the result. | Low–medium (layout only; test the 1366×768 layout). |
 | U4 | **Wording density.** Most cards carry two or three hedging sentences ("Nothing is computed until you do", "Nothing is solved until you do", "Shown with a result: …"), the header carries two chips that restate the subtitle, and the status bar restates both. | all pages | One empty-state sentence per card; keep the scientific scope chip, drop sentences that only repeat it. Scientific caveats (ideal, no efficiency, not a cycle) stay — those are the product's discipline, not noise. | Low, but text is pinned by tests; each removal is checked against `rf-scientific-ui-contract`. |
@@ -95,8 +95,39 @@ Each phase is one commit series, Base suite green, `git diff --check` clean, and
 5. **R3-E (performance):** P1–P3, each with before/after numbers.
 6. **R3-F (optional):** U2(b) chain strip.
 
-## Owner decisions needed
+## R3-A — done
 
-- U1: delete the placeholder page files, or keep them out of navigation for a later phase?
-- U6: one first-tab rule for every compressible page, or keep Oblique Shock and Nozzle Lab as they are?
-- U4: approve the wording rule (one empty-state sentence per card; scientific scope chips stay).
+- **U1:** Compare, Charts and Gas Properties and their shared `ModulePlaceholderPage.qml` are deleted
+  and gone from `Navigation.items`. The Equation Library, which solves nothing, carries its own
+  status-bar notes ("Reference relations") instead of the mock chips. No status bar text says "mock data" any more.
+- **Navigation:** family members are named by key and resolved with `Navigation.keys()`, so removing
+  a page moved no family. The unread per-domain row lists (`flowRows` … `engineItems`) are deleted.
+- **C4:** `MockScientificPlot.qml`, `NozzleVisualization.qml` and `MockLineSeries.qml` (read only by
+  the other two) are deleted, so `ui/visuals/` is gone. `MockData.qml` keeps only
+  what is still read: the Engine Design nozzle outline and the equation text.
+- **U2(a):** a new `RFIssueLine` shows an issue and, when the issue names an unsolved upstream page,
+  a quiet "Open <page>" button. It covers the four Liquid Engine pages that have an upstream page (Propellant
+  Trade, Thrust Chamber Sizing, Chamber Geometry, Injector, through their own Repeaters) and the five
+  Propulsion System pages (through `RFSystemWorkspace`). The map covers a missing, stale, refused or
+  mismatched upstream result; in every case the fix is on that page. The map from issue code to page
+  is `Navigation.upstreamPageOfIssue`. `tests/application/test_issue_links.py` pins the reviewed map; checks that the
+  backend message names the page the map opens; checks that every message that sends the person to
+  another page, and every upstream-result code, has a link; and, in the running application, checks
+  that each link opens its page, once, and solves nothing. Specs that describe the removed pages are
+  history and are not rewritten; the route table in `docs/engineering/07_ui_integration_contracts.md`
+  marks them removed.
+- **U6:** Oblique Shock opens on Relation (the θ–β–M study), then Calculator, then Table, like every
+  other compressible page.
+- **U8:** Home describes all eight families.
+
+Noted for R3-B: the status bar's trailing dot always shows in the warning colour, on every page, so it
+carries no state.
+
+## Owner decisions (2026-10-12)
+
+- U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history
+  and return only as real modules.
+- U6: **one rule for every compressible page**: each opens on its visual relation surface.
+- U4: **wording rule approved**: one empty-state sentence per card; sentences that only repeat a chip,
+  the subtitle or the status bar go; scientific scope chips and caveats (ideal, no efficiency, not a
+  cycle) stay. Each removal is checked against `rf-scientific-ui-contract`.

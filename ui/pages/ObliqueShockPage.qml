@@ -15,10 +15,11 @@ import "obliqueshock"
  * oblique-shock module — which in turn takes every property ratio from the
  * verified normal-shock module.
  *
+ *   Relation    the θ–β–M relation for M₁, and the generated deflection
+ *               sweep plotted against θ. First, as on every compressible
+ *               page: the page opens on its visual relation.
  *   Calculator  the solved shock: the inputs drawer, β (or both branches),
  *               the jumps, the detached state, and the θ–β–M diagram.
- *   Study       the θ–β–M relation for M₁, and the generated deflection
- *               sweep plotted against θ.
  *   Table       that sweep as an engineering table: rows, ranges, the lens,
  *               pinned blocks, each row on the branch it was generated on.
  *
@@ -76,7 +77,7 @@ Item {
         RFSegmentedControl {
             objectName: "obliqueShockSections"
             Layout.preferredWidth: 340
-            model: ["Calculator", "Study", "Table"]
+            model: ["Relation", "Calculator", "Table"]
             currentIndex: page.section
             onSelected: function (index) { page.section = index }
         }
@@ -91,8 +92,8 @@ Item {
             Layout.fillHeight: true
             currentIndex: page.section
 
-            ObliqueShockCalculator {}
             ObliqueShockCharts {}
+            ObliqueShockCalculator {}
             ObliqueShockTable {}
         }
     }

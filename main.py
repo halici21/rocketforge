@@ -18,10 +18,10 @@ nothing: its provider gateway defers every provider import to first use, so a
 launch that never opens that workspace never loads NASA CEA and never reads a
 thermodynamic database.
 
-No engineering equation lives here or in QML. Every fundamental compressible
-page now shows computed results, the Nozzle Lab included; the remaining analysis
-pages still show the placeholder values in ``ui/data/MockData.qml`` until their
-own modules are built.
+No engineering equation lives here or in QML. Every analysis page shows
+computed results or, for the Equation Library, reference relations as text;
+``ui/data/MockData.qml`` holds only that text and the Engine Design nozzle
+outline.
 """
 
 from __future__ import annotations

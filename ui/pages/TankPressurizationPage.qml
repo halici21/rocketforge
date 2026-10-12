@@ -13,8 +13,11 @@ import "../components"
 Item {
     id: page
 
+    signal workspaceRequested(int index)
+
     RFSystemWorkspace {
         anchors.fill: parent
+        onWorkspaceRequested: (index) => page.workspaceRequested(index)
         controller: TankPressurization
         prefix: "pressurization"
         title: "Tank Pressurization"

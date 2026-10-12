@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import RocketForge 1.0
 import "../theme"
 import "../components"
-import "../data"
 
 /*
  * A single quiet line of context. Text separated by middots rather than a row
@@ -12,8 +11,8 @@ import "../data"
 Item {
     id: root
 
-    property var items: MockData.statusChips
-    property string trailing: MockData.solverStatus
+    property var items: []
+    property string trailing: ""
     // Whether the page currently shown computes its numbers. The status bar
     // used to state flatly that everything was mock data; that stopped being
     // true when the first analysis module was connected, and a status bar
@@ -25,8 +24,7 @@ Item {
     // NASA CEA and then mapped and validated by RocketForge, and on a machine
     // with no provider it shows no values at all. A status bar that
     // misreports the origin of what is on screen is worse than no status bar.
-    property string originNote: computed ? "Values computed by RocketForge"
-                                         : "All values are mock data"
+    property string originNote: computed ? "Values computed by RocketForge" : ""
 
     implicitHeight: Metrics.statusBarHeight
 
