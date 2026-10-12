@@ -21,7 +21,8 @@ mode is revoked; prior *scientific* acceptance stands and was preserved.
 2. **Placeholder routes removed from production navigation.** Compare,
    Charts and Gas Properties are `ModulePlaceholderPage` skeletons and are
    no longer reachable as product features. Their code and routes are
-   untouched.
+   untouched. (R3-A, 2026-10-12, later deleted the pages, their routes and
+   the skeleton.)
 3. **Home.** The five-row "No result yet" inventory became a Continue
    section (only what genuinely has something to continue) over a Start
    section (the families, no status text).

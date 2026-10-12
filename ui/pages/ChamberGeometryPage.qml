@@ -22,6 +22,9 @@ import "../components"
 Item {
     id: page
 
+    // Bubbled by WorkspaceHost: an issue's link opens its upstream page.
+    signal workspaceRequested(int index)
+
     component Note: Text {
         Layout.fillWidth: true
         visible: text !== ""
@@ -163,16 +166,17 @@ Item {
                     }
 
                     Repeater {
+                        id: issueList
                         model: ChamberGeometry.issues
-                        delegate: Text {
+                        delegate: RFIssueLine {
                             objectName: "geometryIssue"
                             required property var modelData
-                            Layout.fillWidth: true
+                            required property int index
                             text: modelData.message
-                            color: Theme.warning
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.meta
-                            wrapMode: Text.WordWrap
+                            code: modelData.code
+                            // one button per upstream page, not one per reason
+                            showLink: firstForPage(issueList.model, index)
+                            onOpenRequested: (target) => page.workspaceRequested(target)
                         }
                     }
                     Note { objectName: "geometryMessage"; text: ChamberGeometry.message }
@@ -190,7 +194,7 @@ Item {
                         visible: !ChamberGeometry.hasResult
                         title: "Not computed yet"
                         body: "State L*, Ac/At and the converging half-angle, then press "
-                              + "Compute. Nothing is computed until you do."
+                              + "Compute."
                     }
 
                     Flickable {
@@ -327,7 +331,10 @@ Item {
             }
 
             // ---- advisories, model, provenance --------------------------
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ChamberGeometry.hasResult || ChamberGeometry.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Geometry basis"
@@ -346,11 +353,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ChamberGeometry.hasResult
-                            text: "Shown with a result: advisories, the model and where the "
-                                  + "throat came from."
-                        }
 
                         RFSectionLabel { text: "Advisories"; visible: ChamberGeometry.noteRows.length > 0 }
                         Repeater {

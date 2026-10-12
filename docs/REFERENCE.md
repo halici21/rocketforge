@@ -49,10 +49,9 @@ rocket/
     │   ├── Typography.qml      families, sizes, weights, tracking
     │   ├── Metrics.qml         spacing scale, radii, shell dimensions
     │   └── Motion.qml          durations and easing curves
-    ├── components/             the RF* control library (27 components)
+    ├── components/             the RF* control library (47 components)
     ├── shell/                  TopBar, SideNav, WorkspaceHost, StatusBar, SettingsPanel
-    ├── pages/                  analysis modules + the shared placeholder skeleton
-    ├── visuals/                NozzleVisualization, MockScientificPlot, MockLineSeries
+    ├── pages/                  analysis modules
     ├── data/                   Navigation (information architecture) and MockData
     │   └── qmldir
     └── engine/                 the Engine Design mode
@@ -109,8 +108,8 @@ Analysis pages call into `rocketforge/application/analysis/` controllers,
 which are thin Qt adapters over the real, frozen physics in
 `rocketforge/physics/` and `rocketforge/engineering/` — see
 [Verification and freeze status](#verification-and-freeze-status).
-`ui/data/MockData.qml` is now vestigial (only the unbuilt Equation Library
-page still reads it). Everything the engine mode displays still comes from
+`ui/data/MockData.qml` holds only hand-authored text and shapes: the Equation
+Library's relations and the outline the Engine Design nozzle schematic draws. Everything the engine mode displays still comes from
 `ui/engine/model/MockEngineData.qml`; replacing that mock layer with a real
 backend is the next major phase, gated on wiring real component solvers into
 Engine Design's own workspaces.
@@ -340,10 +339,7 @@ the application agreeing with every other.
 | `RFMenu` / `RFMenuItem` | Popup surface and menu row |
 | `RFTooltip` | Tooltip matched to the panels rather than the platform |
 | `RFScrollBar` | Thin auto-fading scrollbar |
-
-Visuals: `NozzleVisualization` (contour + axial pressure trace on one shared
-axial axis, shock station crossing both), `MockScientificPlot` (ratio curves
-with a cursor inspector), `MockLineSeries` (one polyline in a plot surface).
+| `RFIssueLine` | One reason a study cannot run yet, with an "Open <page>" link when the fix is on an upstream page |
 
 No Qt Quick Controls default styling is visible anywhere: Qt controls are used
 for behaviour, and every painted part is replaced.
@@ -429,11 +425,6 @@ engine from a cycle template.
   study evaluation the user explicitly requests
 * Nozzle Lab — nozzle drawing, back-pressure control, operating-band scale
 * Equation Library — reference relations as static rich text
-
-**Analysis mode — placeholders** (real page frame and header, reserved anatomy,
-no backend)
-
-Compare · Charts · Gas Properties
 
 **Engine Design mode — a real topology editor, zero component physics**
 
@@ -530,9 +521,6 @@ Specifically:
   future functionality.
 * **The command palette is engine-mode only.** `Ctrl+K` does nothing in
   Analysis mode.
-* **Charts, Compare, and Gas Properties are planned, unbuilt modules** — they
-  render the shared "not yet built" skeleton (`ModulePlaceholderPage.qml`),
-  not results.
 * Window minimum is 1120×700. Below roughly 800 px of height the dense analysis
   pages scroll rather than compress; in engine mode the toolbar sheds its view
   selector and detail toggle as the canvas narrows.

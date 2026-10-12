@@ -38,6 +38,7 @@ from PySide6.QtGui import QGuiApplication
 from ..formatting import EM_DASH, format_engineering
 from ..species_notation import species_label
 from ..visualization.selection import AnalysisSelection
+from . import pressure_units
 from . import thermochemistry_presets as presets
 from . import thermochemistry_reference as reference
 from . import thermochemistry_sweep as sweep
@@ -81,18 +82,11 @@ from .thermochemistry_solid_service import (
     solid_ingredient_options,
     solve_solid_case,
 )
+from .pressure_units import PRESSURE_UNITS
 from .thermochemistry_table_model import ThermoTableModel
 
 __all__ = ["ThermochemistryController"]
 
-#: Pressure units the input accepts. Display only -- the case, the request and
-#: every stored result stay in pascals, and changing the unit re-renders
-#: without re-solving (Phase 5D §106, §107).
-PRESSURE_UNITS: tuple[dict, ...] = (
-    {"key": "Pa", "label": "Pa", "to_pa": 1.0, "decimals": 0, "step": 1.0e5},
-    {"key": "bar", "label": "bar", "to_pa": 1.0e5, "decimals": 3, "step": 1.0},
-    {"key": "MPa", "label": "MPa", "to_pa": 1.0e6, "decimals": 4, "step": 0.1},
-)
 
 #: Display-only floors for the composition table. Every one of these hides
 #: rows; none of them changes the result. The label says "display" for exactly
@@ -468,17 +462,11 @@ class ThermochemistryController(QObject):
         self.sweepChanged.emit()
 
     def _pressure_factor(self) -> float:
-        for unit in PRESSURE_UNITS:
-            if unit["key"] == self._pressure_unit:
-                return float(unit["to_pa"])
-        return 1.0
+        return pressure_units.to_pa(self._pressure_unit)
 
     @Property("QVariantMap", notify=inputsChanged)
     def pressureUnitInfo(self):
-        for unit in PRESSURE_UNITS:
-            if unit["key"] == self._pressure_unit:
-                return dict(unit)
-        return dict(PRESSURE_UNITS[0])
+        return pressure_units.unit_info(self._pressure_unit)
 
     @Property(str, notify=inputsChanged)
     def fuelRangeText(self) -> str:

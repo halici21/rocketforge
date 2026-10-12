@@ -92,13 +92,23 @@ def test_the_page_is_registered_in_the_navigation_model():
     assert 'key: "performance"' in navigation
 
 
-def test_the_navigation_no_longer_advertises_performance_as_planned():
-    """It exists now, so listing it under "planned" would be false."""
+def test_the_navigation_offers_performance_as_a_real_page_and_nothing_unbuilt():
+    """Performance is a family member, and every family member is a page that exists.
+
+    (The old "planned" list, which once had to stop naming Performance, is gone: the
+    navigation now lists only pages that are built.)
+    """
     navigation = _strip_qml_comments(
         (UI / "data" / "Navigation.qml").read_text(encoding="utf-8"))
-    planned = re.search(r"engineItems:\s*\[(.*?)\]", navigation, re.DOTALL)
-    assert planned is not None
-    assert '"Performance"' not in planned.group(1)
+    pages = dict(re.findall(r'key: "(\w+)",\s*label: "[^"]+",\s*page: "([^"]+)"', navigation))
+    families = navigation[navigation.index("readonly property var families:"):]
+    members = [k for group in re.findall(r"keys\(\[(.*?)\]\)", families, re.DOTALL)
+               for k in re.findall(r'"(\w+)"', group)]
+    assert "performance" in members
+    assert members and set(members) <= set(pages), set(members) - set(pages)
+    for key, page in pages.items():
+        assert (UI / "pages" / page).exists(), (key, page)
+    assert "engineItems" not in navigation
 
 
 def test_the_sidebar_renders_the_performance_domain():

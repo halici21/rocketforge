@@ -25,10 +25,10 @@ inspection:
 | `fanno` | `FannoPage.qml` | placeholder | `physics.compressible.fanno` | yes |
 | `rayleigh` | `RayleighPage.qml` | placeholder | `physics.compressible.rayleigh` | yes |
 | `nozzlelab` | `NozzleLabPage.qml` | **built** | `physics.compressible.nozzle` | yes — last |
-| `compare` | `ComparePage.qml` | placeholder | `Case` / `SweepResult` (`02` §6) | after the modules |
-| `charts` | `ChartsPage.qml` | placeholder | sweep APIs across all modules | after the modules |
+| `compare` | `ComparePage.qml` | removed in R3-A (2026-10-12) | `Case` / `SweepResult` (`02` §6) | after the modules |
+| `charts` | `ChartsPage.qml` | removed in R3-A (2026-10-12) | sweep APIs across all modules | after the modules |
 | `equations` | `EquationLibraryPage.qml` | **built** (10 mock entries) | the equation registry (`02` §9) | yes — cheap and high value |
-| `gases` | `GasPropertiesPage.qml` | placeholder | `PerfectGas` + a gas library | yes |
+| `gases` | `GasPropertiesPage.qml` | removed in R3-A (2026-10-12) | `PerfectGas` + a gas library | yes |
 
 The two built analysis pages bracket the work: Isentropic proves the whole chain
 (service → controller → view model → existing widgets) on the simplest module,

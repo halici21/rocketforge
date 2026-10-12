@@ -24,6 +24,9 @@ import "../components"
 Item {
     id: page
 
+    // Bubbled by WorkspaceHost: an issue's link opens its upstream page.
+    signal workspaceRequested(int index)
+
     component Note: Text {
         Layout.fillWidth: true
         visible: text !== ""
@@ -149,16 +152,17 @@ Item {
                     }
 
                     Repeater {
+                        id: issueList
                         model: ChamberSizing.issues
-                        delegate: Text {
+                        delegate: RFIssueLine {
                             objectName: "sizingIssue"
                             required property var modelData
-                            Layout.fillWidth: true
+                            required property int index
                             text: modelData.message
-                            color: Theme.warning
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.meta
-                            wrapMode: Text.WordWrap
+                            code: modelData.code
+                            // one button per upstream page, not one per reason
+                            showLink: firstForPage(issueList.model, index)
+                            onOpenRequested: (target) => page.workspaceRequested(target)
                         }
                     }
                     Note { objectName: "sizingMessage"; text: ChamberSizing.message }
@@ -176,7 +180,7 @@ Item {
                         visible: !ChamberSizing.hasResult
                         title: "Not sized yet"
                         body: "Select a trade candidate, state the nozzle if the trade had "
-                              + "none, then press Size. Nothing is solved until you do."
+                              + "none, then press Size."
                     }
 
                     Flickable {
@@ -261,7 +265,10 @@ Item {
             // The operating point is shown once, beside the inputs; this side
             // holds what the result adds to it. It scrolls: the solver notes
             // and the model's assumptions are long and are never cut.
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ChamberSizing.hasResult || ChamberSizing.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Sizing basis"
@@ -280,11 +287,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ChamberSizing.hasResult
-                            text: "Shown with a result: the nozzle it was sized at, the "
-                                  + "regime, the solver's notes and the model."
-                        }
                         KeyValue {
                             visible: ChamberSizing.hasResult
                             itemName: "sizingAssumption"

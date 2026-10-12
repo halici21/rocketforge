@@ -134,8 +134,6 @@ because the jump between them is the result.*
 - **Performance is the ideal-rocket model**, with no efficiency factors and no
   nozzle contour design.
 - **No unit conversion.** The unit indicator is fixed to SI.
-- **Charts, Compare and Gas Properties** are planned modules that are not built
-  yet.
 - **Verified on Windows 11**, where the 3D view needs Qt Quick 3D and a 3D-capable
   renderer. Without them the 2D view stays and says why.
 

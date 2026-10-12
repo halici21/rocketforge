@@ -12,10 +12,9 @@ Item {
 
     property int currentIndex: 0
 
-    // Bubbled from whichever page is loaded, when it has one -- today only
-    // HomePage.qml requests navigation of its own accord. A generic
-    // pass-through rather than special-casing Home by name, so a future
-    // workspace overview page needs no change here.
+    // Bubbled from whichever page is loaded, when it has one: Home's rows and
+    // the issue links on the Liquid Engine and Propulsion System pages. A
+    // generic pass-through, so a new page that navigates needs no change here.
     signal workspaceRequested(int index)
     signal engineRequested()
 

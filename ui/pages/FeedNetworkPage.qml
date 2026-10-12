@@ -13,14 +13,17 @@ import "../components"
 Item {
     id: page
 
+    signal workspaceRequested(int index)
+
     RFSystemWorkspace {
         anchors.fill: parent
+        onWorkspaceRequested: (index) => page.workspaceRequested(index)
         controller: FeedNetwork
         prefix: "feed"
         title: "Feed Network"
         subtitle: "Pressure losses from tank outlet to injector inlet and the margin of each tank pressure over the requirement"
         scopeText: "Single-phase, steady · no cavitation, transients, pumps or cooling channels"
         upstreamText: "From Tank Pressurization and Injector & Feed Pressure: compute both first, on the same sizing."
-        emptyBody: "Add each branch's components from the tank outlet to the injector inlet, state the liquid and the LIQ-6 term assignments, then press Compute. Nothing is computed until you do."
+        emptyBody: "Add each branch's components from the tank outlet to the injector inlet, state the liquid and the LIQ-6 term assignments, then press Compute."
     }
 }

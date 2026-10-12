@@ -33,6 +33,10 @@ Item {
     property string upstreamText: ""
     property string emptyBody: ""
 
+    // An issue's link asks for its upstream page; the page forwards this to
+    // WorkspaceHost.
+    signal workspaceRequested(int index)
+
     // Read once per change, not once per field binding.
     readonly property var sections: controller ? controller.inputSections : []
 
@@ -414,16 +418,17 @@ Item {
                             }
                         }
                         Repeater {
+                            id: issueList
                             model: ws.controller.issues
-                            delegate: Text {
+                            delegate: RFIssueLine {
                                 objectName: ws.prefix + "Issue"
                                 required property var modelData
-                                Layout.fillWidth: true
+                                required property int index
                                 text: modelData.message
-                                color: Theme.warning
-                                font.family: Typography.sans
-                                font.pixelSize: Typography.meta
-                                wrapMode: Text.WordWrap
+                                code: modelData.code
+                                // one button per upstream page, not one per reason
+                                showLink: firstForPage(issueList.model, index)
+                                onOpenRequested: (target) => ws.workspaceRequested(target)
                             }
                         }
                         Note { objectName: ws.prefix + "Message"; text: ws.controller.message }
@@ -476,7 +481,10 @@ Item {
                 }
             }
 
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ws.controller.hasResult || ws.controller.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Model and provenance"
@@ -495,11 +503,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ws.controller.hasResult
-                            text: "Shown with a result: advisories, the model and where "
-                                  + "every upstream number came from."
-                        }
 
                         RFSectionLabel {
                             text: "Advisories"

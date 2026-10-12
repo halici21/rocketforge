@@ -23,6 +23,9 @@ import "../components"
 Item {
     id: page
 
+    // Bubbled by WorkspaceHost: an issue's link opens its upstream page.
+    signal workspaceRequested(int index)
+
     function indexOfKey(options, key) {
         for (var i = 0; i < options.length; ++i)
             if (options[i].key === key) return i
@@ -418,16 +421,17 @@ Item {
                             }
                         }
                         Repeater {
+                            id: issueList
                             model: Injector.issues
-                            delegate: Text {
+                            delegate: RFIssueLine {
                                 objectName: "injectorIssue"
                                 required property var modelData
-                                Layout.fillWidth: true
+                                required property int index
                                 text: modelData.message
-                                color: Theme.warning
-                                font.family: Typography.sans
-                                font.pixelSize: Typography.meta
-                                wrapMode: Text.WordWrap
+                                code: modelData.code
+                                // one button per upstream page, not one per reason
+                                showLink: firstForPage(issueList.model, index)
+                                onOpenRequested: (target) => page.workspaceRequested(target)
                             }
                         }
                         Note { objectName: "injectorMessage"; text: Injector.message }
@@ -444,7 +448,7 @@ Item {
                             visible: !Injector.hasResult
                             title: "Not computed yet"
                             body: "State Δp, Cd and the density for both branches, then press "
-                                  + "Compute. Nothing is computed until you do."
+                                  + "Compute."
                         }
 
                         GridLayout {
@@ -475,7 +479,10 @@ Item {
             }
 
             // ---- advisories, density, model, provenance -----------------
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: Injector.hasResult || Injector.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Study basis"
@@ -494,11 +501,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !Injector.hasResult
-                            text: "Shown with a result: advisories, where each density came "
-                                  + "from, the model and where the flows came from."
-                        }
 
                         RFSectionLabel { text: "Advisories"; visible: Injector.noteRows.length > 0 }
                         Repeater {

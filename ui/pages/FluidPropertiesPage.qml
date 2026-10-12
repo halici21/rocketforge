@@ -157,11 +157,11 @@ Item {
                 RFBoundNumberField {
                     id: pressureField
                     Layout.preferredWidth: 210
-                    label: "Pressure  [Pa]"
-                    value: FluidProperties.pressure
-                    digits: 0
-                    step: 10000
-                    onValueEdited: function (v) { FluidProperties.setPressure(v) }
+                    label: "Pressure"
+                    value: FluidProperties.pressureDisplay
+                    digits: FluidProperties.pressureUnitInfo.decimals
+                    step: FluidProperties.pressureUnitInfo.step
+                    onValueEdited: function (v) { FluidProperties.setPressureDisplay(v) }
 
                     HoverHandler { id: pressureHover }
                     RFTooltip {
@@ -169,6 +169,22 @@ Item {
                         text: "This state's own pressure. There is no default: "
                               + "the phase, and therefore every property, "
                               + "depends on it."
+                    }
+                }
+
+                // The display unit, from the one shared pressure-unit table. The case keeps
+                // pascals; choosing a unit only re-renders the field (R3-B).
+                RFComboBox {
+                    objectName: "fluidPropertiesPressureUnit"
+                    Layout.preferredWidth: 84
+                    label: "Unit"
+                    model: FluidProperties.pressureUnits.map(function (u) { return u.label })
+                    currentIndex: FluidProperties.pressureUnits.findIndex(function (u) {
+                        return u.key === FluidProperties.pressureUnit })
+                    onActivated: function (index) {
+                        var units = FluidProperties.pressureUnits
+                        if (index >= 0 && index < units.length)
+                            FluidProperties.pressureUnit = units[index].key
                     }
                 }
 
@@ -307,7 +323,10 @@ Item {
                 }
             }
 
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it was an empty titled panel (R3-B).
             RFPanel {
+                visible: FluidProperties.provenanceRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: false
                 Layout.alignment: Qt.AlignTop

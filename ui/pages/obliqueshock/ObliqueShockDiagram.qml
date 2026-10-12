@@ -35,7 +35,7 @@ Item {
     property bool showComparison: false
     property bool showSonicGuide: true
     // The chart's objectName: two diagrams are alive at once (Calculator and
-    // Study), so each owner names its own.
+    // Relation), so each owner names its own.
     property string chartName: "obliqueShockDiagram"
 
     // A property of the controller (notify: M₁, γ, branch), so the curve

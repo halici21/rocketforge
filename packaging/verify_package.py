@@ -62,7 +62,7 @@ EXE_NAME = "RocketForge.exe"
 #: The route the navigation crash took, run twice through: Isentropic ->
 #: Oblique Shock -> Nozzle Lab -> Operating point -> Thermochemistry, then
 #: Operating point <-> Thermochemistry. Must finish with no warning.
-CRASH_ROUTE = ("solve,page:isentropic,section:0,page:obliqueshock,section:0,section:1,"
+CRASH_ROUTE = ("solve,page:isentropic,section:0,page:obliqueshock,section:1,section:0,"
                "page:nozzlelab,section:0,section:1,page:thermochem,section:1,"
                "page:nozzlelab,section:1,page:thermochem,page:nozzlelab,section:1,"
                "page:thermochem")

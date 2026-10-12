@@ -27,6 +27,9 @@ RFNumberField {
     property int decimals: -1
 
     readonly property int effectiveDecimals: decimals >= 0 ? decimals : digits
+    // A step is written at the field's own precision, not the base default of 3
+    // (a 0.4321 MPa step must not land on a 1 kPa grid).
+    stepDecimals: effectiveDecimals
 
     signal valueEdited(real newValue)
 
@@ -42,6 +45,17 @@ RFNumberField {
     }
 
     onValueChanged: control._show(value)
+
+    // A display-unit switch moves `value` and the decimals together, in either
+    // order. If the value arrives first it is shown at the old decimals (0.35
+    // at 0 decimals reads "0"), and a later step would start from that text, so
+    // the text is re-rendered whenever the decimals change. Guarded: a
+    // re-render is not an edit.
+    onEffectiveDecimalsChanged: {
+        _guard = true
+        control.text = control.value.toFixed(control.effectiveDecimals)
+        _guard = false
+    }
 
     onTextChanged: {
         if (_guard)

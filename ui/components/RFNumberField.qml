@@ -19,6 +19,9 @@ Item {
     property string unit: ""
     property real step: 0.01
     property int decimals: 3
+    // The precision a step is written at. A derived field whose own precision
+    // is bound elsewhere (RFBoundNumberField) sets this; otherwise `decimals`.
+    property int stepDecimals: decimals
     property bool showSteppers: true
     property alias text: input.text
     property alias readOnly: input.readOnly
@@ -36,7 +39,7 @@ Item {
         var current = parseFloat(input.text)
         if (isNaN(current))
             current = 0
-        input.text = (current + direction * root.step).toFixed(root.decimals)
+        input.text = (current + direction * root.step).toFixed(root.stepDecimals)
         root.edited()
     }
 

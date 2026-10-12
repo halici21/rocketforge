@@ -5,9 +5,9 @@ import QtQuick
  * Navigation — the application's information architecture.
  *
  * `items` is the flat, ordered list of reachable pages; its index is the page
- * index used by the workspace.  `flowRows` is the render list for the sidebar
- * (group headings interleaved with item references), so adding a module means
- * adding one entry to each list and one file in pages/.
+ * index used by the workspace. `families` is what the rail shows, naming its
+ * pages by key, so adding a module means adding one entry to `items`, its key
+ * to a family, and one file in pages/.
  */
 QtObject {
     readonly property var items: [
@@ -17,7 +17,8 @@ QtObject {
         // Home at all and opened on legacy IsentropicPage.qml instead.
         { key: "home", label: "Home", page: "HomePage.qml" },
         // `computed` marks a module whose numbers come from the engineering
-        // backend rather than from MockData. Absent means not yet connected.
+        // backend rather than from MockData. Absent means a reference page
+        // (Home, Equation Library) that solves nothing.
         { key: "isentropic",  label: "Isentropic Flow",  page: "IsentropicPage.qml", computed: true },
         { key: "massflow",    label: "Mass Flow",        page: "MassFlowPage.qml", computed: true },
         { key: "normalshock", label: "Normal Shock",     page: "NormalShockPage.qml", computed: true },
@@ -26,10 +27,11 @@ QtObject {
         { key: "fanno",       label: "Fanno Flow",       page: "FannoPage.qml", computed: true },
         { key: "rayleigh",    label: "Rayleigh Flow",    page: "RayleighPage.qml", computed: true },
         { key: "nozzlelab",   label: "Nozzle Lab",       page: "NozzleLabPage.qml", computed: true },
-        { key: "compare",     label: "Compare",          page: "ComparePage.qml" },
-        { key: "charts",      label: "Charts",           page: "ChartsPage.qml" },
-        { key: "equations",   label: "Equation Library", page: "EquationLibraryPage.qml" },
-        { key: "gases",       label: "Gas Properties",   page: "GasPropertiesPage.qml" },
+        // A reference page: it solves nothing, so its notes say so and the
+        // status bar shows them instead of a solver.
+        { key: "equations",   label: "Equation Library", page: "EquationLibraryPage.qml",
+          solverNote: "Reference relations",
+          computedNote: "The relations the compressible-flow modules implement; nothing is solved" },
         // Chemistry. A second analysis domain, not a compressible module: its
         // numbers come from a thermochemistry provider rather than from
         // rocketforge.physics.compressible.
@@ -126,148 +128,70 @@ QtObject {
           computed: true, solverNote: "RocketForge feed network · engineering.line, Sutton Eqs. 11-6, 11-7",
           computedNote: "Series line losses from tank outlet to injector inlet; no cavitation, transients or pumps" },
         // Reference (DB-3A): the shipped reference-engine corpus, read-only.
-        // Appended last so no existing index moves.
         { key: "engines", label: "Reference Engines", page: "ReferenceEnginesPage.qml",
           computed: true, solverNote: "Shipped reference-engine records, read-only",
           computedNote: "Values as printed, capabilities, topology and sources; nothing is solved" }
     ]
 
-    readonly property string flowDomain: "COMPRESSIBLE FLOW"
-
-    readonly property var flowRows: [
-        { kind: "group", label: "Fundamentals" },
-        { kind: "item",  index: 1 },
-        { kind: "item",  index: 2 },
-        { kind: "group", label: "Wave systems" },
-        { kind: "item",  index: 3 },
-        { kind: "item",  index: 4 },
-        { kind: "item",  index: 5 },
-        { kind: "group", label: "Duct flow" },
-        { kind: "item",  index: 6 },
-        { kind: "item",  index: 7 },
-        { kind: "group", label: "Applications" },
-        { kind: "item",  index: 8 },
-        { kind: "group", label: "Analysis" },
-        { kind: "item",  index: 9 },
-        { kind: "item",  index: 10 },
-        { kind: "group", label: "Reference" },
-        { kind: "item",  index: 11 },
-        { kind: "item",  index: 12 }
-    ]
-
-    // The second analysis domain. One workspace with four views of one
-    // chamber-equilibrium result, so it is a single navigation entry rather
-    // than a group of pages.
-    readonly property string chemistryDomain: "THERMOCHEMISTRY"
-
-    readonly property var chemistryRows: [
-        { kind: "item", index: 13 }
-    ]
-
-    // The third analysis domain. Separate from THERMOCHEMISTRY because it is a
-    // different question answered by a different owner: chemistry states what
-    // the products are, and this states what a nozzle does with them.
-    readonly property string performanceDomain: "ROCKET PERFORMANCE"
-
-    readonly property var performanceRows: [
-        { kind: "item", index: 14 }
-    ]
-
-    // The fourth analysis domain, and the only one that computes no physics.
-    // Separate from the three below it because it consumes them rather than
-    // extending any one of them.
-    readonly property string studyDomain: "TRADE STUDY"
-
-    readonly property var studyRows: [
-        { kind: "item", index: 15 }
-    ]
-
-    // Fluid properties. Its own domain rather than a member of another,
-    // because it sits *beneath* the others: thermochemistry, performance and
-    // trade study all start from a propellant state, and this is what a
-    // propellant state is made of.
-    readonly property string fluidDomain: "FLUIDS AND FEED"
-
-    readonly property var fluidRows: [
-        { kind: "item", index: 16 },
-        { kind: "item", index: 17 }
-    ]
-
-    // Fifth domain of the product.  Present in the architecture, deliberately
-    // inert until the engine modules are built. "Performance" is no longer
-    // listed here: it exists, so advertising it as planned would be wrong.
-    readonly property string engineDomain: "ROCKET ENGINE"
-    readonly property var engineItems: [
-        "Chamber", "Nozzle Contour", "Cooling", "Feed System", "Engine Cycles"
-    ]
-
     // ---- Analysis Experience R2: progressive-disclosure families --------
     // A family is what the narrow rail shows permanently; its groups are
-    // what the contextual drawer reveals once that family is active. This
-    // is additive alongside items/flowRows/etc rather than a replacement --
-    // every existing index, indexOfKey() and pageSource() caller (Main.qml,
-    // WorkspaceState, every capture script this whole program has built)
-    // keeps working unchanged. `hasStatus: true` marks a family whose
-    // members carry persistent solve state (rendered with RFBrowserItem,
-    // two lines); false means the legacy compressible-flow/reference
+    // what the contextual drawer reveals once that family is active. Group
+    // members are named by key and resolved to page indices here, so adding
+    // or removing a page never shifts a family. `hasStatus: true` marks a
+    // family whose members carry persistent solve state (rendered with
+    // RFBrowserItem, two lines); false means the compressible-flow/reference
     // treatment (RFNavItem, one line, no persistent state to show).
-    // Compare (9), Charts (10) and Gas Properties (12) are deliberately
-    // absent from every group below: all three are still `Later phase`
-    // placeholder skeletons (ui/pages/ModulePlaceholderPage.qml consumers)
-    // with no real functionality, so they are unreachable from production
-    // navigation per this program's own audit -- their routes and QML
-    // still exist and still work if opened directly (indexOfKey/
-    // pageSource are unchanged), they are just not offered as a normal
-    // product feature.
     readonly property var families: [
         {
             key: "compressible", label: "Compressible Flow", short: "FLOW", icon: "flow",
             hasStatus: false,
             groups: [
-                { label: "Fundamentals", items: [1, 2] },
-                { label: "Wave systems", items: [3, 4, 5] },
-                { label: "Duct flow", items: [6, 7] },
-                { label: "Nozzle", items: [8] }
+                { label: "Fundamentals", items: keys(["isentropic", "massflow"]) },
+                { label: "Wave systems", items: keys(["normalshock", "obliqueshock", "prandtlmeyer"]) },
+                { label: "Duct flow", items: keys(["fanno", "rayleigh"]) },
+                { label: "Nozzle", items: keys(["nozzlelab"]) }
             ]
         },
         {
             key: "thermochem", label: "Thermochemistry", short: "CHEM", icon: "chem",
             hasStatus: true,
-            groups: [ { label: "", items: [13] } ]
+            groups: [ { label: "", items: keys(["thermochem"]) } ]
         },
         {
             key: "propulsion", label: "Rocket Performance", short: "PROP", icon: "prop",
             hasStatus: true,
-            groups: [ { label: "", items: [14] } ]
+            groups: [ { label: "", items: keys(["performance"]) } ]
         },
         {
             key: "tradestudy", label: "Trade Study", short: "TRADE", icon: "trade",
             hasStatus: true,
-            groups: [ { label: "", items: [15] } ]
+            groups: [ { label: "", items: keys(["tradestudy"]) } ]
         },
         {
             key: "fluids", label: "Fluids and Feed", short: "FLUID", icon: "fluid",
             hasStatus: true,
-            groups: [ { label: "", items: [16, 17] } ]
+            groups: [ { label: "", items: keys(["fluidproperties", "line"]) } ]
         },
         {
             // The liquid engine being designed, starting from what is wanted
             // of it. No persistent solve state: a requirement is not a result.
             key: "liquidengine", label: "Liquid Engine", short: "ENG", icon: "target",
             hasStatus: false,
-            groups: [ { label: "", items: [19, 20, 21, 22, 23] } ]
+            groups: [ { label: "", items: keys(["requirement", "propellanttrade", "chambersizing",
+                                                 "chambergeometry", "injector"]) } ]
         },
         {
             // The stage around the engine: inventory, tanks, propellant
             // management, pressurization and feed lines (SYS gates).
             key: "propulsionsystem", label: "Propulsion System", short: "SYS", icon: "tank",
             hasStatus: false,
-            groups: [ { label: "", items: [24, 25, 26, 27, 28] } ]
+            groups: [ { label: "", items: keys(["propellantinventory", "tankgeometry", "propellantmanagement",
+                                                 "tankpressurization", "feednetwork"]) } ]
         },
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",
             hasStatus: false,
-            groups: [ { label: "", items: [11, 18, 29] } ]
+            groups: [ { label: "", items: keys(["equations", "evidence", "engines"]) } ]
         }
     ]
 
@@ -293,6 +217,63 @@ QtObject {
                     return f
         }
         return -1
+    }
+
+    // The page an issue code points at, for the issue codes that mean "an
+    // upstream page has not been solved, is stale, was refused, or does not
+    // match": in every case the fix is on that page. The backend's message
+    // names the same page or its study; tests/application/test_issue_links.py
+    // checks that the two agree. A code that is not here has no link.
+    readonly property var upstreamPageOfIssue: ({
+        "REQUIREMENT_INCOMPLETE": "requirement",
+        "BURN_TIME_UNRESOLVED": "requirement",
+        "NO_TRADE": "propellanttrade",
+        "TRADE_STALE": "propellanttrade",
+        "TRADE_MISMATCH": "propellanttrade",
+        "NO_SELECTION": "propellanttrade",
+        "SELECTION_FAILED": "propellanttrade",
+        "SELECTION_INCOMPLETE": "propellanttrade",
+        "NO_SIZING": "chambersizing",
+        "SIZING_STALE": "chambersizing",
+        "SIZING_REFUSED": "chambersizing",
+        "SIZING_INCOMPLETE": "chambersizing",
+        "REQUIREMENT_MISMATCH": "chambersizing",
+        "NO_INJECTOR": "injector",
+        "INJECTOR_STALE": "injector",
+        "INJECTOR_REFUSED": "injector",
+        "INJECTOR_MISMATCH": "injector",
+        "NO_INVENTORY": "propellantinventory",
+        "INVENTORY_INCOMPLETE": "propellantinventory",
+        "INVENTORY_STALE": "propellantinventory",
+        "INVENTORY_REFUSED": "propellantinventory",
+        "NO_TANKS": "tankgeometry",
+        "TANKS_STALE": "tankgeometry",
+        "TANKS_REFUSED": "tankgeometry",
+        "TANKS_MISMATCH": "tankgeometry",
+        "NO_MANAGEMENT": "propellantmanagement",
+        "MANAGEMENT_STALE": "propellantmanagement",
+        "MANAGEMENT_REFUSED": "propellantmanagement",
+        "NO_PRESSURIZATION": "tankpressurization",
+        "PRESSURIZATION_STALE": "tankpressurization",
+        "PRESSURIZATION_REFUSED": "tankpressurization"
+    })
+
+    function upstreamPageOf(code) {
+        var key = upstreamPageOfIssue[code]
+        return key === undefined ? -1 : indexOfKey(key)
+    }
+
+    // Page indices of the given keys, in order. A key that names no page is a
+    // programming error, so it fails loudly instead of yielding -1.
+    function keys(list) {
+        var out = []
+        for (var i = 0; i < list.length; ++i) {
+            var index = indexOfKey(list[i])
+            if (index < 0)
+                throw new Error("Navigation: no page with key " + list[i])
+            out.push(index)
+        }
+        return out
     }
 
     function indexOfKey(key) {

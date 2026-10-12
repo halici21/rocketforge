@@ -12,14 +12,17 @@ import "../components"
 Item {
     id: page
 
+    signal workspaceRequested(int index)
+
     RFSystemWorkspace {
         anchors.fill: parent
+        onWorkspaceRequested: (index) => page.workspaceRequested(index)
         controller: PropellantInventory
         prefix: "inventory"
         title: "Propellant Inventory"
         subtitle: "Usable, available, residual and loaded propellant per branch at the sized flows and the requirement's burn time"
         scopeText: "Mass budget · no tanks, pressurization or cycle flows"
         upstreamText: "From Thrust Chamber Sizing and the Engine Requirement: size a selected trade candidate and state a burn time first."
-        emptyBody: "State how each branch's unavailable propellant, reserve and allowances are given, then press Compute. Nothing is computed until you do."
+        emptyBody: "State how each branch's unavailable propellant, reserve and allowances are given, then press Compute."
     }
 }
