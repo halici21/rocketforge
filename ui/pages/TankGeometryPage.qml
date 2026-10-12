@@ -24,6 +24,6 @@ Item {
         subtitle: "Liquid, ullage and tank volume and the internal geometry of each branch's tank"
         scopeText: "Internal geometry · no wall, mass, insulation or common bulkhead"
         upstreamText: "From Propellant Inventory: compute a complete inventory first. An unresolved load has no volume."
-        emptyBody: "State each tank's density, ullage, shape and the dimension that fixes it, then press Compute. Nothing is computed until you do."
+        emptyBody: "State each tank's density, ullage, shape and the dimension that fixes it, then press Compute."
     }
 }

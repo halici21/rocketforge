@@ -24,6 +24,6 @@ Item {
         subtitle: "Pressurant mass and bottle volume, or blowdown pressure evolution, and the margin over each branch's required tank pressure"
         scopeText: "Perfect gas · autogenous and warm gas are intent only"
         upstreamText: "From Propellant Management: compute it first."
-        emptyBody: "State each branch's pressurization mode, pressurant and states, then press Compute. Nothing is computed until you do."
+        emptyBody: "State each branch's pressurization mode, pressurant and states, then press Compute."
     }
 }

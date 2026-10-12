@@ -123,6 +123,37 @@ Each phase is one commit series, Base suite green, `git diff --check` clean, and
 Noted for R3-B: the status bar's trailing dot always shows in the warning colour, on every page, so it
 carries no state.
 
+## R3-B — done
+
+- **U3:** a side panel with nothing to show before a result is hidden until it has something (a
+  result, or an advisory), and the input card takes the width. On Thrust Chamber Sizing, Chamber
+  Geometry, Injector and the five Propulsion System pages (through `RFSystemWorkspace`) the panel held
+  only "Shown with a result: …", and those four sentences, which can no longer be seen, are deleted. On
+  Fluid Properties and Line it was an empty titled panel. (The Phase 0 table, row U3, described all of
+  them as holding the sentence; only the first group did.) On Fluid Properties a refused outcome's
+  diagnostic rows now sit only in the page's empty state, which already shows the same text. Propellant Trade's side panel holds the selection control before a
+  result and stays.
+- **U4:** "Nothing is computed / solved / evaluated until you do" is deleted from nine empty states;
+  each repeated the instruction just before it ("then press Compute"). "Nothing is chosen for you" stays:
+  it says that no candidate is picked automatically. Scope chips and model caveats are untouched.
+- **Status bar:** the trailing dot, always in the warning colour and so carrying no state, is removed.
+- **U5:** Fluid Properties and Line take their pressure in Pa, bar or MPa. One table
+  (`application/analysis/pressure_units.py`) now serves these and Thermochemistry. The case keeps
+  pascals; `pressureDisplay`/`setPressureDisplay` convert at the boundary, so QML does no arithmetic.
+  A unit change re-renders the field only: no evaluation, no staleness
+  (`tests/application/test_pressure_units.py`). The default stays Pa. Results keep the service's own
+  units. The field's step comes from the unit table, so in Pa it is now 1e5 Pa (it was 1e4 on Fluid
+  Properties and 5e4 on Line).
+- **Review fix:** a unit switch moved the field's value before its decimals, so 0.35 MPa read "0" and the
+  next step wrote a wrong pressure (Thermochemistry had the same defect). `RFBoundNumberField` now
+  re-renders, without emitting an edit, whenever its decimals change; a QML-level test switches units
+  in both orders and checks the text and that no edit is emitted.
+- **Confirmation-review fix:** `RFNumberField.nudge()` wrote a step at the base default of 3 decimals,
+  whatever the field showed, so an MPa step landed on a 1 kPa grid. A new `stepDecimals` (default:
+  `decimals`, so plain fields are unchanged) is bound to the field's own precision in
+  `RFBoundNumberField`; the same test steps 0.4321 MPa to 0.5321. This applies to every bound field: a
+  step is now written at the precision the field displays.
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history

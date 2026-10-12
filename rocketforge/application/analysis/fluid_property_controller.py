@@ -1,7 +1,8 @@
 """The Qt facade for the Fluid Properties workspace.
 
 The only file in this feature that imports Qt. It holds no equation, no
-physical constant, no unit conversion and no provider import: every number it
+physical constant and no provider import, and converts only the pressure field's
+display unit (``pressure_units``; the case stays in pascals): every number it
 publishes was computed by :mod:`fluid_property_service` from
 ``rocketforge.physics.fluids``, and every string it publishes was written
 there.
@@ -25,6 +26,7 @@ from typing import Any
 from PySide6.QtCore import Property, QObject, Signal, Slot
 
 from . import fluid_property_provider as gateway
+from . import pressure_units
 from . import fluid_property_service as service
 
 __all__ = ["FluidPropertyController"]
@@ -40,6 +42,7 @@ class FluidPropertyController(QObject):
     def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self._case = service.DEFAULT_CASE
+        self._pressure_unit = pressure_units.DEFAULT_UNIT
         self._outcome = service.EMPTY
         self._availability: Any | None = None
         # Mirrors LineController/ThermochemistryController's own resultStale
@@ -125,6 +128,41 @@ class FluidPropertyController(QObject):
     def setPressure(self, value: float) -> None:
         self._case = self._case.replace(pressure=float(value))
         self._mark_dirty()
+
+    # -- the pressure field's display unit (R3-B) ---------------------------
+    # Display only: the case holds pascals, and choosing a unit re-renders the
+    # field without changing the case, so it neither re-evaluates nor stales.
+
+    @Property("QVariantList", constant=True)
+    def pressureUnits(self):
+        return [dict(unit) for unit in pressure_units.PRESSURE_UNITS]
+
+    @Property(str, notify=inputsChanged)
+    def pressureUnit(self) -> str:
+        return self._pressure_unit
+
+    @pressureUnit.setter
+    def pressureUnit(self, value: str) -> None:
+        if value == self._pressure_unit:
+            return
+        if not any(unit["key"] == value for unit in pressure_units.PRESSURE_UNITS):
+            return
+        self._pressure_unit = str(value)
+        self.inputsChanged.emit()
+
+    @Property("QVariantMap", notify=inputsChanged)
+    def pressureUnitInfo(self):
+        return pressure_units.unit_info(self._pressure_unit)
+
+    @Property(float, notify=inputsChanged)
+    def pressureDisplay(self) -> float:
+        """The case's pressure in the chosen unit."""
+        return float(self._case.pressure) / pressure_units.to_pa(self._pressure_unit)
+
+    @Slot(float)
+    def setPressureDisplay(self, value: float) -> None:
+        """Set the case's pressure from a value in the chosen unit."""
+        self.setPressure(float(value) * pressure_units.to_pa(self._pressure_unit))
 
     # -- the calculation ---------------------------------------------------
 

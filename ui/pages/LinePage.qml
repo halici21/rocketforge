@@ -137,11 +137,11 @@ Item {
                     RFBoundNumberField {
                         id: pressureField
                         Layout.preferredWidth: 230
-                        label: "Line inlet pressure  [Pa]"
-                        value: Line.pressure
-                        digits: 0
-                        step: 50000
-                        onValueEdited: function (v) { Line.setPressure(v) }
+                        label: "Line inlet pressure"
+                        value: Line.pressureDisplay
+                        digits: Line.pressureUnitInfo.decimals
+                        step: Line.pressureUnitInfo.step
+                        onValueEdited: function (v) { Line.setPressureDisplay(v) }
 
                         HoverHandler { id: pressureHover }
                         RFTooltip {
@@ -150,6 +150,22 @@ Item {
                                   + "properties are evaluated at, and the "
                                   + "pressure the friction loss is subtracted "
                                   + "from. This is not a chamber pressure."
+                        }
+                    }
+
+                    // The display unit, from the one shared pressure-unit table. The case keeps
+                    // pascals; choosing a unit only re-renders the field (R3-B).
+                    RFComboBox {
+                        objectName: "linePressureUnit"
+                        Layout.preferredWidth: 84
+                        label: "Unit"
+                        model: Line.pressureUnits.map(function (u) { return u.label })
+                        currentIndex: Line.pressureUnits.findIndex(function (u) {
+                            return u.key === Line.pressureUnit })
+                        onActivated: function (index) {
+                            var units = Line.pressureUnits
+                            if (index >= 0 && index < units.length)
+                                Line.pressureUnit = units[index].key
                         }
                     }
 
@@ -386,7 +402,10 @@ Item {
                 }
             }
 
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it was an empty titled panel (R3-B).
             RFPanel {
+                visible: Line.provenanceRows.length > 0 || Line.assumptionRows.length > 0
                 Layout.preferredWidth: 400
                 Layout.fillHeight: true
                 title: "Provenance and assumptions"

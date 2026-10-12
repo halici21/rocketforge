@@ -180,7 +180,7 @@ Item {
                         visible: !ChamberSizing.hasResult
                         title: "Not sized yet"
                         body: "Select a trade candidate, state the nozzle if the trade had "
-                              + "none, then press Size. Nothing is solved until you do."
+                              + "none, then press Size."
                     }
 
                     Flickable {
@@ -265,7 +265,10 @@ Item {
             // The operating point is shown once, beside the inputs; this side
             // holds what the result adds to it. It scrolls: the solver notes
             // and the model's assumptions are long and are never cut.
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ChamberSizing.hasResult || ChamberSizing.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Sizing basis"
@@ -284,11 +287,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ChamberSizing.hasResult
-                            text: "Shown with a result: the nozzle it was sized at, the "
-                                  + "regime, the solver's notes and the model."
-                        }
                         KeyValue {
                             visible: ChamberSizing.hasResult
                             itemName: "sizingAssumption"

@@ -98,15 +98,5 @@ Item {
             font.family: Typography.sans
             font.pixelSize: Typography.status
         }
-
-        Rectangle {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: Metrics.spacing.xs
-            width: 5
-            height: 5
-            radius: 2.5
-            color: Theme.warning
-            opacity: 0.8
-        }
     }
 }

@@ -233,8 +233,7 @@ Item {
                         Layout.fillHeight: true
                         visible: !PropellantTrade.hasResult
                         title: "No trade yet"
-                        body: "Resolve the study inputs above, then run the trade. "
-                              + "Nothing is evaluated until you do."
+                        body: "Resolve the study inputs above, then run the trade."
                     }
 
                     Flickable {

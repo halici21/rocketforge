@@ -194,7 +194,7 @@ Item {
                         visible: !ChamberGeometry.hasResult
                         title: "Not computed yet"
                         body: "State L*, Ac/At and the converging half-angle, then press "
-                              + "Compute. Nothing is computed until you do."
+                              + "Compute."
                     }
 
                     Flickable {
@@ -331,7 +331,10 @@ Item {
             }
 
             // ---- advisories, model, provenance --------------------------
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ChamberGeometry.hasResult || ChamberGeometry.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Geometry basis"
@@ -350,11 +353,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ChamberGeometry.hasResult
-                            text: "Shown with a result: advisories, the model and where the "
-                                  + "throat came from."
-                        }
 
                         RFSectionLabel { text: "Advisories"; visible: ChamberGeometry.noteRows.length > 0 }
                         Repeater {

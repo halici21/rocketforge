@@ -24,6 +24,6 @@ Item {
         subtitle: "Management intent per branch, outlet-coverage declaration and the liquid and gas volumes through the burn"
         scopeText: "Intent and bookkeeping · slosh dynamics not modelled"
         upstreamText: "From Propellant Inventory and Tank Geometry & Packaging: compute both first."
-        emptyBody: "State how each branch keeps liquid at its outlet and in what acceleration environment, then press Compute. Nothing is computed until you do."
+        emptyBody: "State how each branch keeps liquid at its outlet and in what acceleration environment, then press Compute."
     }
 }

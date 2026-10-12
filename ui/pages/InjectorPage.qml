@@ -448,7 +448,7 @@ Item {
                             visible: !Injector.hasResult
                             title: "Not computed yet"
                             body: "State Δp, Cd and the density for both branches, then press "
-                                  + "Compute. Nothing is computed until you do."
+                                  + "Compute."
                         }
 
                         GridLayout {
@@ -479,7 +479,10 @@ Item {
             }
 
             // ---- advisories, density, model, provenance -----------------
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: Injector.hasResult || Injector.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Study basis"
@@ -498,11 +501,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !Injector.hasResult
-                            text: "Shown with a result: advisories, where each density came "
-                                  + "from, the model and where the flows came from."
-                        }
 
                         RFSectionLabel { text: "Advisories"; visible: Injector.noteRows.length > 0 }
                         Repeater {

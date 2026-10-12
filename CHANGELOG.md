@@ -9,11 +9,23 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Changed
-- Simplification R3-A (see [docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md](docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md)):
+- Simplification R3-B:
+  - Side panels that were empty, or only said "Shown with a result", before a result are hidden until
+    there is one; the inputs use the width. Repeated "Nothing is computed until you do" sentences and
+    the status bar's stateless warning dot are removed.
+  - Fluid Properties and Line take pressure in Pa, bar or MPa, from the same unit table as
+    Thermochemistry. Values are still stored and solved in pascals; Pa stays the default.
+  - Fixed: switching a pressure unit could show the value rounded at the old unit's decimals (0.35 MPa
+    as "0"), and the next step then wrote a wrong pressure. Thermochemistry was affected too.
+  - Fixed: a field's step was written at 3 decimals whatever the field showed, so a step in MPa landed
+    on a 1 kPa grid. It is now written at the field's own precision.
+- Simplification R3-A, see
+  [docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md](docs/design/ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md):
   - The Compare, Charts and Gas Properties placeholder pages are removed. No status bar says
     "mock data" any more; the Equation Library states that it holds reference relations.
   - When a Liquid Engine or Propulsion System page is blocked by an upstream result that is missing,
-    stale, refused or mismatched, its message now has an "Open <page>" button. The button only navigates; nothing is solved.
+    stale, refused or mismatched, its message now has an "Open <page>" button. The button only
+    navigates; nothing is solved.
   - Oblique Shock opens on its Relation chart, like every other compressible-flow page.
   - Home describes every family, including Propulsion System.
   - Navigation families name their pages by key; unused navigation lists and three unused QML visuals

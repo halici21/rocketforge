@@ -481,7 +481,10 @@ Item {
                 }
             }
 
+            // Hidden until it has something to show, so the inputs use the width;
+            // before a result it held only a sentence saying so (R3-B).
             RFPanel {
+                visible: ws.controller.hasResult || ws.controller.noteRows.length > 0
                 Layout.preferredWidth: 380
                 Layout.fillHeight: true
                 title: "Model and provenance"
@@ -500,11 +503,6 @@ Item {
                         width: parent.width - Metrics.spacing.m
                         spacing: Metrics.spacing.m
 
-                        Note {
-                            visible: !ws.controller.hasResult
-                            text: "Shown with a result: advisories, the model and where "
-                                  + "every upstream number came from."
-                        }
 
                         RFSectionLabel {
                             text: "Advisories"
