@@ -9,6 +9,15 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference engine regression acceptance (DB-4A): a read-only review of every current `REGRESSION_CANDIDATE`
+  (J-2 230K, J-2S), quantity by quantity, against RocketForge's ideal performance model.
+  - **Accepted:** 0 hard regressions, 0 validation comparisons and 0 efficiency comparisons.
+  - **Why:** the candidates' thrust and Isp are delivered engine ratings, the model is ideal, the engine
+    mixture ratio is not the thrust chamber's, and the Isp basis and engine size are not recorded.
+  - **Usable as model inputs:** chamber pressure (nozzle stagnation) and area ratio.
+  - No solver is run, nothing is calibrated, and the evidence corpus is unchanged. `REGRESSION_CANDIDATE`
+    stays eligibility only.
+  See [docs/engineering/design/DB4A_REFERENCE_ENGINE_REGRESSION_ACCEPTANCE.md](docs/engineering/design/DB4A_REFERENCE_ENGINE_REGRESSION_ACCEPTANCE.md).
 - Reference engine corpus, DB-2B Wave 3 (Japan, Europe, China). Ten targets were evaluated against the
   frozen admission rules: LE-7, LE-7A, LE-9, Vulcain, Vulcain 2, Vinci, YF-75, YF-75D, YF-100 and YF-77.
   - **Ships:** one configuration, the LE-7 as a US panel described it in 1990, with its architecture only
