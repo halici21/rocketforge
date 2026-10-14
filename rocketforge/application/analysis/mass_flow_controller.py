@@ -27,6 +27,7 @@ from .mass_flow_service import (
     mode_info,
     solve,
 )
+from .stored_property import clamp_precision, stored_property
 
 __all__ = ["MassFlowController"]
 
@@ -106,41 +107,11 @@ class MassFlowController(AnalysisBehaviour, QObject):
 
     mode = Property(str, _get_mode, _set_mode, notify=inputsChanged)
 
-    def _get_input(self) -> float:
-        return self._input
+    inputValue = stored_property(float, "_input", inputsChanged, recalculate=True)
 
-    def _set_input(self, value: float) -> None:
-        if float(value) == self._input:
-            return
-        self._input = float(value)
-        self.inputsChanged.emit()
-        self._recalculate()
+    gamma = stored_property(float, "_gamma", inputsChanged, recalculate=True)
 
-    inputValue = Property(float, _get_input, _set_input, notify=inputsChanged)
-
-    def _get_gamma(self) -> float:
-        return self._gamma
-
-    def _set_gamma(self, value: float) -> None:
-        if float(value) == self._gamma:
-            return
-        self._gamma = float(value)
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    gamma = Property(float, _get_gamma, _set_gamma, notify=inputsChanged)
-
-    def _get_branch(self) -> str:
-        return self._branch
-
-    def _set_branch(self, value: str) -> None:
-        if value == self._branch:
-            return
-        self._branch = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    branch = Property(str, _get_branch, _set_branch, notify=inputsChanged)
+    branch = stored_property(str, "_branch", inputsChanged, recalculate=True, coerce=None)
 
     @Property(bool, notify=inputsChanged)
     def branchRequired(self) -> bool:
@@ -171,53 +142,13 @@ class MassFlowController(AnalysisBehaviour, QObject):
             gas_constant=self._gas_constant,
         )
 
-    def _get_area(self) -> float:
-        return self._area
+    area = stored_property(float, "_area", stateChanged, recalculate=True)
 
-    def _set_area(self, value: float) -> None:
-        if float(value) == self._area:
-            return
-        self._area = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
+    stagnationPressure = stored_property(float, "_stagnation_pressure", stateChanged, recalculate=True)
 
-    area = Property(float, _get_area, _set_area, notify=stateChanged)
+    stagnationTemperature = stored_property(float, "_stagnation_temperature", stateChanged, recalculate=True)
 
-    def _get_p0(self) -> float:
-        return self._stagnation_pressure
-
-    def _set_p0(self, value: float) -> None:
-        if float(value) == self._stagnation_pressure:
-            return
-        self._stagnation_pressure = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
-
-    stagnationPressure = Property(float, _get_p0, _set_p0, notify=stateChanged)
-
-    def _get_t0(self) -> float:
-        return self._stagnation_temperature
-
-    def _set_t0(self, value: float) -> None:
-        if float(value) == self._stagnation_temperature:
-            return
-        self._stagnation_temperature = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
-
-    stagnationTemperature = Property(float, _get_t0, _set_t0, notify=stateChanged)
-
-    def _get_r(self) -> float:
-        return self._gas_constant
-
-    def _set_r(self, value: float) -> None:
-        if float(value) == self._gas_constant:
-            return
-        self._gas_constant = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
-
-    gasConstant = Property(float, _get_r, _set_r, notify=stateChanged)
+    gasConstant = stored_property(float, "_gas_constant", stateChanged, recalculate=True)
 
     @Property(bool, notify=stateChanged)
     def dimensionalAvailable(self) -> bool:
@@ -240,17 +171,7 @@ class MassFlowController(AnalysisBehaviour, QObject):
     # choking check
     # ------------------------------------------------------------------
 
-    def _get_receiver_ratio(self) -> float:
-        return self._receiver_ratio
-
-    def _set_receiver_ratio(self, value: float) -> None:
-        if float(value) == self._receiver_ratio:
-            return
-        self._receiver_ratio = float(value)
-        self.inputsChanged.emit()
-
-    receiverPressureRatio = Property(float, _get_receiver_ratio, _set_receiver_ratio,
-                                     notify=inputsChanged)
+    receiverPressureRatio = stored_property(float, "_receiver_ratio", inputsChanged)
 
     @Property("QVariantMap", notify=inputsChanged)
     def chokingCheck(self):
@@ -279,14 +200,7 @@ class MassFlowController(AnalysisBehaviour, QObject):
     def _compute(self):
         return solve(self._mode, self._input, self._gamma, self._state(), self._branch)
 
-    def _get_precision(self) -> int:
-        return self._precision
-
-    def _set_precision(self, value: int) -> None:
-        if self._set_precision_value(value):
-            self.resultsChanged.emit()
-
-    precision = Property(int, _get_precision, _set_precision, notify=resultsChanged)
+    precision = stored_property(int, "_precision", resultsChanged, coerce=clamp_precision)
 
     @Property("QVariantList", notify=resultsChanged)
     def results(self):
@@ -363,54 +277,15 @@ class MassFlowController(AnalysisBehaviour, QObject):
     def tableModel(self):
         return self._table_model
 
-    def _get_table_gamma(self) -> float:
-        return self._table_gamma
+    tableGamma = stored_property(float, "_table_gamma", tableSettingsChanged)
 
-    def _set_table_gamma(self, value: float) -> None:
-        if self._set_table_setting("_table_gamma", float(value)):
-            self.tableSettingsChanged.emit()
+    tableStart = stored_property(float, "_table_start", tableSettingsChanged)
 
-    tableGamma = Property(float, _get_table_gamma, _set_table_gamma,
-                          notify=tableSettingsChanged)
+    tableEnd = stored_property(float, "_table_end", tableSettingsChanged)
 
-    def _get_table_start(self) -> float:
-        return self._table_start
+    tableStep = stored_property(float, "_table_step", tableSettingsChanged)
 
-    def _set_table_start(self, value: float) -> None:
-        if self._set_table_setting("_table_start", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStart = Property(float, _get_table_start, _set_table_start,
-                          notify=tableSettingsChanged)
-
-    def _get_table_end(self) -> float:
-        return self._table_end
-
-    def _set_table_end(self, value: float) -> None:
-        if self._set_table_setting("_table_end", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableEnd = Property(float, _get_table_end, _set_table_end, notify=tableSettingsChanged)
-
-    def _get_table_step(self) -> float:
-        return self._table_step
-
-    def _set_table_step(self, value: float) -> None:
-        if self._set_table_setting("_table_step", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStep = Property(float, _get_table_step, _set_table_step,
-                         notify=tableSettingsChanged)
-
-    def _get_table_convention(self) -> str:
-        return self._table_convention
-
-    def _set_table_convention(self, value: str) -> None:
-        if self._set_table_setting("_table_convention", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableConvention = Property(str, _get_table_convention, _set_table_convention,
-                               notify=tableSettingsChanged)
+    tableConvention = stored_property(str, "_table_convention", tableSettingsChanged)
 
     def _get_table_precision(self) -> int:
         return self._table_precision
@@ -422,15 +297,7 @@ class MassFlowController(AnalysisBehaviour, QObject):
     tablePrecision = Property(int, _get_table_precision, _set_table_precision,
                               notify=tableSettingsChanged)
 
-    def _get_include_sonic(self) -> bool:
-        return self._include_sonic
-
-    def _set_include_sonic(self, value: bool) -> None:
-        if self._set_table_setting("_include_sonic", bool(value)):
-            self.tableSettingsChanged.emit()
-
-    includeSonic = Property(bool, _get_include_sonic, _set_include_sonic,
-                            notify=tableSettingsChanged)
+    includeSonic = stored_property(bool, "_include_sonic", tableSettingsChanged)
 
     def _build_table(self):
         return generate_table(

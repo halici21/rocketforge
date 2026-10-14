@@ -30,6 +30,7 @@ from .fanno_service import (
     mode_info,
     solve,
 )
+from .stored_property import stored_property
 
 __all__ = ["FannoController"]
 
@@ -107,44 +108,11 @@ class FannoController(AnalysisBehaviour, QObject):
 
     mode = Property(str, _get_mode, _set_mode, notify=inputsChanged)
 
-    def _get_input(self) -> float:
-        return self._input
+    inputValue = stored_property(float, "_input", inputsChanged, recalculate=True)
 
-    def _set_input(self, value: float) -> None:
-        value = float(value)
-        if value == self._input:
-            return
-        self._input = value
-        self.inputsChanged.emit()
-        self._recalculate()
+    gamma = stored_property(float, "_gamma", inputsChanged, recalculate=True)
 
-    inputValue = Property(float, _get_input, _set_input, notify=inputsChanged)
-
-    def _get_gamma(self) -> float:
-        return self._gamma
-
-    def _set_gamma(self, value: float) -> None:
-        value = float(value)
-        if value == self._gamma:
-            return
-        self._gamma = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    gamma = Property(float, _get_gamma, _set_gamma, notify=inputsChanged)
-
-    def _get_branch(self) -> str:
-        return self._branch
-
-    def _set_branch(self, value: str) -> None:
-        value = str(value)
-        if value == self._branch:
-            return
-        self._branch = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    branch = Property(str, _get_branch, _set_branch, notify=inputsChanged)
+    branch = stored_property(str, "_branch", inputsChanged, recalculate=True)
 
     @Property(str, notify=inputsChanged)
     def inputSymbol(self) -> str:
@@ -202,46 +170,11 @@ class FannoController(AnalysisBehaviour, QObject):
     segmentEnabled = Property(bool, _get_segment_enabled, _set_segment_enabled,
                               notify=ductChanged)
 
-    def _get_segment_mach(self) -> float:
-        return self._segment_mach
+    segmentMach = stored_property(float, "_segment_mach", ductChanged, recalculate=True)
 
-    def _set_segment_mach(self, value: float) -> None:
-        value = float(value)
-        if value == self._segment_mach:
-            return
-        self._segment_mach = value
-        self.ductChanged.emit()
-        self._recalculate()
+    ductSource = stored_property(str, "_duct_source", ductChanged, recalculate=True)
 
-    segmentMach = Property(float, _get_segment_mach, _set_segment_mach,
-                           notify=ductChanged)
-
-    def _get_duct_source(self) -> str:
-        return self._duct_source
-
-    def _set_duct_source(self, value: str) -> None:
-        value = str(value)
-        if value == self._duct_source:
-            return
-        self._duct_source = value
-        self.ductChanged.emit()
-        self._recalculate()
-
-    ductSource = Property(str, _get_duct_source, _set_duct_source, notify=ductChanged)
-
-    def _get_duct_parameter(self) -> float:
-        return self._duct_parameter
-
-    def _set_duct_parameter(self, value: float) -> None:
-        value = float(value)
-        if value == self._duct_parameter:
-            return
-        self._duct_parameter = value
-        self.ductChanged.emit()
-        self._recalculate()
-
-    ductParameter = Property(float, _get_duct_parameter, _set_duct_parameter,
-                             notify=ductChanged)
+    ductParameter = stored_property(float, "_duct_parameter", ductChanged, recalculate=True)
 
     def _get_convention(self) -> str:
         return self._convention
@@ -283,45 +216,11 @@ class FannoController(AnalysisBehaviour, QObject):
     def frictionRelation(self) -> str:
         return "f_D = 4 f_F"
 
-    def _get_friction_factor(self) -> float:
-        return self._friction_factor
+    frictionFactor = stored_property(float, "_friction_factor", ductChanged, recalculate=True)
 
-    def _set_friction_factor(self, value: float) -> None:
-        value = float(value)
-        if value == self._friction_factor:
-            return
-        self._friction_factor = value
-        self.ductChanged.emit()
-        self._recalculate()
+    ductLength = stored_property(float, "_length", ductChanged, recalculate=True)
 
-    frictionFactor = Property(float, _get_friction_factor, _set_friction_factor,
-                              notify=ductChanged)
-
-    def _get_length(self) -> float:
-        return self._length
-
-    def _set_length(self, value: float) -> None:
-        value = float(value)
-        if value == self._length:
-            return
-        self._length = value
-        self.ductChanged.emit()
-        self._recalculate()
-
-    ductLength = Property(float, _get_length, _set_length, notify=ductChanged)
-
-    def _get_diameter(self) -> float:
-        return self._diameter
-
-    def _set_diameter(self, value: float) -> None:
-        value = float(value)
-        if value == self._diameter:
-            return
-        self._diameter = value
-        self.ductChanged.emit()
-        self._recalculate()
-
-    hydraulicDiameter = Property(float, _get_diameter, _set_diameter, notify=ductChanged)
+    hydraulicDiameter = stored_property(float, "_diameter", ductChanged, recalculate=True)
 
     @Property(float, notify=ductChanged)
     def effectiveDuctParameter(self) -> float:
@@ -482,54 +381,15 @@ class FannoController(AnalysisBehaviour, QObject):
     def tableModel(self):
         return self._table_model
 
-    def _get_table_gamma(self) -> float:
-        return self._table_gamma
+    tableGamma = stored_property(float, "_table_gamma", tableSettingsChanged)
 
-    def _set_table_gamma(self, value: float) -> None:
-        if self._set_table_setting("_table_gamma", float(value)):
-            self.tableSettingsChanged.emit()
+    tableStart = stored_property(float, "_table_start", tableSettingsChanged)
 
-    tableGamma = Property(float, _get_table_gamma, _set_table_gamma,
-                          notify=tableSettingsChanged)
+    tableEnd = stored_property(float, "_table_end", tableSettingsChanged)
 
-    def _get_table_start(self) -> float:
-        return self._table_start
+    tableStep = stored_property(float, "_table_step", tableSettingsChanged)
 
-    def _set_table_start(self, value: float) -> None:
-        if self._set_table_setting("_table_start", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStart = Property(float, _get_table_start, _set_table_start,
-                          notify=tableSettingsChanged)
-
-    def _get_table_end(self) -> float:
-        return self._table_end
-
-    def _set_table_end(self, value: float) -> None:
-        if self._set_table_setting("_table_end", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableEnd = Property(float, _get_table_end, _set_table_end, notify=tableSettingsChanged)
-
-    def _get_table_step(self) -> float:
-        return self._table_step
-
-    def _set_table_step(self, value: float) -> None:
-        if self._set_table_setting("_table_step", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStep = Property(float, _get_table_step, _set_table_step,
-                         notify=tableSettingsChanged)
-
-    def _get_table_branch(self) -> str:
-        return self._table_branch
-
-    def _set_table_branch(self, value: str) -> None:
-        if self._set_table_setting("_table_branch", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableBranch = Property(str, _get_table_branch, _set_table_branch,
-                           notify=tableSettingsChanged)
+    tableBranch = stored_property(str, "_table_branch", tableSettingsChanged)
 
     def _get_table_precision(self) -> int:
         return self._table_precision

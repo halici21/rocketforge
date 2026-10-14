@@ -154,6 +154,54 @@ carries no state.
   `RFBoundNumberField`; the same test steps 0.4321 MPa to 0.5321. This applies to every bound field: a
   step is now written at the precision the field displays.
 
+## R3-C — done
+
+Correction to C1: the seven controllers hold **103** hand-written setter triples, not 109 (the count
+included six setters in other controllers).
+
+- **Helper:** `rocketforge/application/analysis/stored_property.py`, one function. It returns the
+  `Property` the hand-written triple built: convert, return if the value is already held, store,
+  emit the notify signal, and `_recalculate()` only when asked. It is built at class-definition time,
+  with no registry, metaclass or later mutation. Its getter and setter are named after the attribute
+  (`get_gamma`) so a traceback says which property it was.
+- **Replaced: 73 of 103.** Isentropic 3, Mass Flow 15, Normal Shock 10, Oblique Shock 9,
+  Prandtl–Meyer 8, Fanno 14, Rayleigh 14. They come from one script that matched each setter body
+  exactly against the accepted shapes. Seven of those shapes cover the inputs and the
+  `_set_table_setting` table settings, which turned out to be the same pattern without the
+  recalculation; one covers the readout precision (`coerce=clamp_precision`).
+- **Kept by hand: 30**, because their setters do something else:
+  - the five `mode` setters reset the input to the new mode's default;
+  - `tablePrecision` updates the table model;
+  - `compareEnabled` refreshes a summary;
+  - Oblique Shock's `mach1`, `gamma` and `branch` also emit `curveChanged`;
+  - the Prandtl–Meyer expansion inputs recompute the expansion;
+  - Fanno's convention converts the friction factor;
+  - the segment and heat toggles drop an outcome;
+  - Fanno and Rayleigh `precision` emit two signals;
+  - Isentropic `inputValue` and `gamma` compare the raw value before converting it. These two stay
+    exact rather than being folded in.
+- **Cleanup:** `AnalysisBehaviour._set_table_setting` had no caller left and is deleted. The two
+  precision setters in the base use the same `clamp_precision`.
+- **Proof:**
+  - `tests/application/test_compressible_property_surface.py` compares every one of 372 properties
+    (name, Qt type, read/write, notify signature or constant, and the uniform flags) and all 155
+    signal and slot signatures against a literal captured at 3ec5f0f before any edit.
+  - `tests/application/test_stored_property.py` checks the helper alone, and then that each of the
+    73 built properties reads its own attribute, leaves its controller's other helper-built
+    properties alone, notifies on its own signal, and is silent on a repeat value. Each property's
+    `recalculate` choice is pinned by the existing controller tests, not by this file; the review
+    checked every one against the pre-refactor setter.
+  - Five deliberately broken helpers and one renamed property each fail these tests:
+    1. a late-bound attribute;
+    2. one shared signal;
+    3. a float that becomes a QVariant;
+    4. a missing notify signal;
+    5. a read-only property.
+  - A behaviour trace, kept outside the repo, records every readable value and every signal count
+    after each of 289 writes on the seven controllers. It is byte-for-byte identical before and after.
+  - The seven pages are pixel-identical before and after.
+- **Not changed:** QML, physics, services, providers, tolerances.
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history

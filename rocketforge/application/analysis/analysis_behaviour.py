@@ -33,6 +33,7 @@ from PySide6.QtGui import QGuiApplication
 from ..formatting import format_engineering
 from .engineering_table_model import EngineeringTableModel
 from .presentation import MAX_TABLE_ROWS
+from .stored_property import clamp_precision
 
 __all__ = ["AnalysisBehaviour", "column_dicts", "MAX_TABLE_ROWS"]
 
@@ -101,7 +102,7 @@ class AnalysisBehaviour:
 
     def _set_precision_value(self, value: int) -> bool:
         """Clamp and store the readout precision. True if it changed."""
-        value = max(3, min(12, int(value)))
+        value = clamp_precision(value)
         if value == self._precision:
             return False
         self._precision = value
@@ -175,15 +176,8 @@ class AnalysisBehaviour:
     # table
     # ------------------------------------------------------------------
 
-    def _set_table_setting(self, attribute: str, value) -> bool:
-        """Store one table setting. True if it changed, so the caller can notify."""
-        if getattr(self, attribute) == value:
-            return False
-        setattr(self, attribute, value)
-        return True
-
     def _set_table_precision_value(self, value: int) -> bool:
-        value = max(3, min(12, int(value)))
+        value = clamp_precision(value)
         if value == self._table_precision:
             return False
         self._table_precision = value

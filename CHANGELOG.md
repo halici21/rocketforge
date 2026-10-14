@@ -9,6 +9,10 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Changed
+- Simplification R3-C (code only): 73 of the 103 hand-written property getter/setter/`Property`
+  triples in the seven compressible-flow controllers are now one `stored_property(...)` line each.
+  The QML-visible surface is unchanged and pinned by a test against the pre-refactor capture; no
+  page, value or signal changes.
 - Simplification R3-B:
   - Side panels that were empty, or only said "Shown with a result", before a result are hidden until
     there is one; the inputs use the width. Repeated "Nothing is computed until you do" sentences and
