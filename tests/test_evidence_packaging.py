@@ -29,6 +29,10 @@ def package(tmp_path):
     pages.mkdir(parents=True)
     shutil.copy(ROOT / "ui" / "pages" / "PropulsionEvidencePage.qml", pages)
     shutil.copytree(ROOT / "ui" / "pages" / "propulsionevidence", pages / "propulsionevidence")
+    # The evidence Inspector's body is a shared component since R3-D; the real package ships it.
+    components = internal / "ui" / "components"
+    components.mkdir(parents=True)
+    shutil.copy(ROOT / "ui" / "components" / "RFProvenanceInspector.qml", components)
     return tmp_path / "RocketForge"
 
 
@@ -87,6 +91,17 @@ def test_an_execution_action_on_the_pages_is_named(package):
     inspector.write_text(inspector.read_text(encoding="utf-8") + "\n// calculate(\n",
                          encoding="utf-8")
     assert any("EvidenceInspector.qml carries 'calculate('" in f
+               for f in verify_package.check_evidence(package, ROOT))
+
+
+def test_the_shared_inspector_body_is_scanned_like_the_page_it_came_from(package):
+    """R3-D moved the evidence Inspector's body into RFProvenanceInspector; the scan follows it."""
+    shared = package / "_internal" / "ui" / "components" / "RFProvenanceInspector.qml"
+    shared.write_text(shared.read_text(encoding="utf-8") + "\n// calculate(\n", encoding="utf-8")
+    assert any("RFProvenanceInspector.qml carries 'calculate('" in f
+               for f in verify_package.check_evidence(package, ROOT))
+    shared.unlink()
+    assert any("RFProvenanceInspector.qml is missing" in f
                for f in verify_package.check_evidence(package, ROOT))
 
 

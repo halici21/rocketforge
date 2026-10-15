@@ -31,6 +31,7 @@ from .isentropic_service import (
     generate_table,
     solve,
 )
+from .stored_property import clamp_precision, stored_property
 
 __all__ = ["IsentropicController"]
 
@@ -157,29 +158,9 @@ class IsentropicController(QObject):
 
     gamma = Property(float, _get_gamma, _set_gamma, notify=inputsChanged)
 
-    def _get_branch(self) -> str:
-        return self._branch
+    branch = stored_property(str, "_branch", inputsChanged, recalculate=True, coerce=None)
 
-    def _set_branch(self, value: str) -> None:
-        if value == self._branch:
-            return
-        self._branch = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    branch = Property(str, _get_branch, _set_branch, notify=inputsChanged)
-
-    def _get_precision(self) -> int:
-        return self._precision
-
-    def _set_precision(self, value: int) -> None:
-        value = max(3, min(12, int(value)))
-        if value == self._precision:
-            return
-        self._precision = value
-        self.resultsChanged.emit()
-
-    precision = Property(int, _get_precision, _set_precision, notify=resultsChanged)
+    precision = stored_property(int, "_precision", resultsChanged, coerce=clamp_precision)
 
     @Property(bool, notify=inputsChanged)
     def branchRequired(self) -> bool:
@@ -378,17 +359,7 @@ class IsentropicController(QObject):
     tablePrecision = Property(int, _get_table_precision, _set_table_precision,
                               notify=tableSettingsChanged)
 
-    def _get_include_sonic(self) -> bool:
-        return self._include_sonic
-
-    def _set_include_sonic(self, value: bool) -> None:
-        if bool(value) == self._include_sonic:
-            return
-        self._include_sonic = bool(value)
-        self.tableSettingsChanged.emit()
-
-    includeSonic = Property(bool, _get_include_sonic, _set_include_sonic,
-                            notify=tableSettingsChanged)
+    includeSonic = stored_property(bool, "_include_sonic", tableSettingsChanged)
 
     @Slot()
     def regenerateTable(self) -> None:

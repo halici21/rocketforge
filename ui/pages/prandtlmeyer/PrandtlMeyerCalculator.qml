@@ -32,14 +32,6 @@ Item {
 
     readonly property var columns: [["Flow"], ["Stagnation state"]]
 
-    function rowsIn(group) {
-        var out = []
-        for (var i = 0; i < PrandtlMeyer.results.length; ++i)
-            if (PrandtlMeyer.results[i].group === group)
-                out.push(PrandtlMeyer.results[i])
-        return out
-    }
-
     function expansionRowsIn(group) {
         var out = []
         for (var i = 0; i < PrandtlMeyer.expansionResults.length; ++i)
@@ -252,75 +244,13 @@ Item {
                     Layout.topMargin: Metrics.spacing.s
                     spacing: Metrics.spacing.xl
 
-                    Repeater {
-                        model: page.columns
-
-                        delegate: ColumnLayout {
-                            id: column
-                            required property var modelData
-
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignTop
-                            spacing: Metrics.spacing.m
-
-                            Repeater {
-                                model: column.modelData
-
-                                delegate: ColumnLayout {
-                                    id: group
-                                    required property var modelData
-                                    readonly property var groupRows: page.rowsIn(modelData)
-
-                                    Layout.fillWidth: true
-                                    spacing: Metrics.spacing.xs
-                                    visible: groupRows.length > 0
-
-                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
-
-                                    Repeater {
-                                        model: group.groupRows
-
-                                        delegate: RowLayout {
-                                            required property var modelData
-                                            Layout.fillWidth: true
-                                            Layout.preferredHeight: 26
-                                            spacing: Metrics.spacing.m
-
-                                            Text {
-                                                Layout.preferredWidth: 186
-                                                text: Notation.rich(modelData.label)
-                                                textFormat: Notation.textFormat(modelData.label)
-                                                elide: Text.ElideRight
-                                                clip: true              // RichText does not elide
-                                                color: Theme.textSecondary
-                                                font.family: Typography.sans
-                                                font.pixelSize: Typography.body
-                                            }
-
-                                            Text {
-                                                Layout.fillWidth: true
-                                                text: modelData.value
-                                                      + (modelData.unit ? " " + modelData.unit : "")
-                                                color: modelData.available ? Theme.text
-                                                                           : Theme.textMuted
-                                                font.family: Typography.mono
-                                                font.pixelSize: modelData.emphasis
-                                                    ? Typography.readoutMedium
-                                                    : Typography.readoutSmall
-                                                font.weight: modelData.emphasis
-                                                    ? Typography.medium : Typography.regular
-
-                                                TapHandler {
-                                                    onSingleTapped: PrandtlMeyer.copyText(modelData.value)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            Item { Layout.fillHeight: true }
-                        }
+                    RFGroupedReadout {
+                        columns: page.columns
+                        results: PrandtlMeyer.results
+                        labelWidth: 186
+                        rowHeight: 26
+                        clipLabels: true
+                        onCopyRequested: (value) => PrandtlMeyer.copyText(value)
                     }
                 }
 

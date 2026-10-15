@@ -18,6 +18,7 @@ Item {
     RFSystemWorkspace {
         anchors.fill: parent
         onWorkspaceRequested: (index) => page.workspaceRequested(index)
+        chainKey: "tankpressurization"
         controller: TankPressurization
         prefix: "pressurization"
         title: "Tank Pressurization"

@@ -37,6 +37,7 @@ from .oblique_shock_service import (
     mode_info,
     solve,
 )
+from .stored_property import clamp_precision, stored_property
 
 __all__ = ["ObliqueShockController"]
 
@@ -129,17 +130,7 @@ class ObliqueShockController(AnalysisBehaviour, QObject):
 
     mode = Property(str, _get_mode, _set_mode, notify=inputsChanged)
 
-    def _get_input(self) -> float:
-        return self._input
-
-    def _set_input(self, value: float) -> None:
-        if float(value) == self._input:
-            return
-        self._input = float(value)
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    inputValue = Property(float, _get_input, _set_input, notify=inputsChanged)
+    inputValue = stored_property(float, "_input", inputsChanged, recalculate=True)
 
     def _get_mach1(self) -> float:
         return self._mach1
@@ -230,14 +221,7 @@ class ObliqueShockController(AnalysisBehaviour, QObject):
     def _compute(self):
         return solve(self._mode, self._input, self._mach1, self._gamma, self._branch)
 
-    def _get_precision(self) -> int:
-        return self._precision
-
-    def _set_precision(self, value: int) -> None:
-        if self._set_precision_value(value):
-            self.resultsChanged.emit()
-
-    precision = Property(int, _get_precision, _set_precision, notify=resultsChanged)
+    precision = stored_property(int, "_precision", resultsChanged, coerce=clamp_precision)
 
     @Property("QVariantList", notify=resultsChanged)
     def results(self):
@@ -367,74 +351,19 @@ class ObliqueShockController(AnalysisBehaviour, QObject):
     def tableModel(self):
         return self._table_model
 
-    def _get_table_gamma(self) -> float:
-        return self._table_gamma
+    tableGamma = stored_property(float, "_table_gamma", tableSettingsChanged)
 
-    def _set_table_gamma(self, value: float) -> None:
-        if self._set_table_setting("_table_gamma", float(value)):
-            self.tableSettingsChanged.emit()
+    tableMach1 = stored_property(float, "_table_mach1", tableSettingsChanged)
 
-    tableGamma = Property(float, _get_table_gamma, _set_table_gamma,
-                          notify=tableSettingsChanged)
+    tableStart = stored_property(float, "_table_start", tableSettingsChanged)
 
-    def _get_table_mach1(self) -> float:
-        return self._table_mach1
+    tableEnd = stored_property(float, "_table_end", tableSettingsChanged)
 
-    def _set_table_mach1(self, value: float) -> None:
-        if self._set_table_setting("_table_mach1", float(value)):
-            self.tableSettingsChanged.emit()
+    tableStep = stored_property(float, "_table_step", tableSettingsChanged)
 
-    tableMach1 = Property(float, _get_table_mach1, _set_table_mach1,
-                          notify=tableSettingsChanged)
+    tableConvention = stored_property(str, "_table_convention", tableSettingsChanged)
 
-    def _get_table_start(self) -> float:
-        return self._table_start
-
-    def _set_table_start(self, value: float) -> None:
-        if self._set_table_setting("_table_start", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStart = Property(float, _get_table_start, _set_table_start,
-                          notify=tableSettingsChanged)
-
-    def _get_table_end(self) -> float:
-        return self._table_end
-
-    def _set_table_end(self, value: float) -> None:
-        if self._set_table_setting("_table_end", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableEnd = Property(float, _get_table_end, _set_table_end, notify=tableSettingsChanged)
-
-    def _get_table_step(self) -> float:
-        return self._table_step
-
-    def _set_table_step(self, value: float) -> None:
-        if self._set_table_setting("_table_step", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStep = Property(float, _get_table_step, _set_table_step,
-                         notify=tableSettingsChanged)
-
-    def _get_table_convention(self) -> str:
-        return self._table_convention
-
-    def _set_table_convention(self, value: str) -> None:
-        if self._set_table_setting("_table_convention", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableConvention = Property(str, _get_table_convention, _set_table_convention,
-                               notify=tableSettingsChanged)
-
-    def _get_table_branch(self) -> str:
-        return self._table_branch
-
-    def _set_table_branch(self, value: str) -> None:
-        if self._set_table_setting("_table_branch", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableBranch = Property(str, _get_table_branch, _set_table_branch,
-                           notify=tableSettingsChanged)
+    tableBranch = stored_property(str, "_table_branch", tableSettingsChanged)
 
     def _get_table_precision(self) -> int:
         return self._table_precision

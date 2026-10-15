@@ -234,133 +234,22 @@ Item {
                 }
             }
 
-            RFPanel {
+            RFReferenceComparisonPanel {
                 id: comparison
-                title: "Reference comparison"
                 Layout.preferredWidth: 372
                 Layout.fillHeight: true
                 visible: PrandtlMeyer.compareEnabled && PrandtlMeyer.referenceAvailable
-                contentSpacing: Metrics.spacing.s
 
-                readonly property var summary: PrandtlMeyer.comparisonSummary
-                readonly property var rowDetail: page.selectedRow >= 0
-                                                 ? PrandtlMeyer.comparisonForRow(page.selectedRow) : []
-
-                trailing: Component {
-                    RFStatusChip {
-                        text: comparison.summary.status !== undefined ? comparison.summary.status : "—"
-                        tone: comparison.summary.status === "PASS" ? "success" : "warning"
-                        showDot: false
-                    }
-                }
-
-                RFSectionLabel { text: "Whole table" }
-
-                Repeater {
-                    model: [
-                        { k: "Rows compared", v: comparison.summary.rows !== undefined ? comparison.summary.rows : 0 },
-                        { k: "Values compared", v: comparison.summary.values !== undefined ? comparison.summary.values : 0 },
-                        { k: "Within printed precision", v: comparison.summary.pass !== undefined ? comparison.summary.pass : 0 },
-                        { k: "Needing review", v: comparison.summary.review !== undefined ? comparison.summary.review : 0 },
-                        { k: "Max relative difference", v: comparison.summary.maxRelative !== undefined ? comparison.summary.maxRelative : "—" }
-                    ]
-
-                    delegate: RowLayout {
-                        required property var modelData
-                        Layout.fillWidth: true
-                        spacing: Metrics.spacing.s
-
-                        Text {
-                            Layout.fillWidth: true
-                            text: modelData.k
-                            color: Theme.textSecondary
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.bodySmall
-                        }
-                        Text {
-                            text: String(modelData.v)
-                            color: Theme.text
-                            font.family: Typography.mono
-                            font.pixelSize: Typography.bodySmall
-                        }
-                    }
-                }
-
-                RFDivider {}
-
-                RFSectionLabel {
-                    readonly property string plainText: page.selectedRow >= 0
+                summary: PrandtlMeyer.comparisonSummary
+                rowDetail: page.selectedRow >= 0
+                           ? PrandtlMeyer.comparisonForRow(page.selectedRow) : []
+                rowSelected: page.selectedRow >= 0
+                rowTitle: page.selectedRow >= 0
                           ? "Row · M = " + PrandtlMeyer.tableModel.machAt(page.selectedRow).toFixed(4)
                           : "Select a row"
-                    text: Notation.sectionRich(plainText)
-                    textFormat: Notation.textFormat(plainText)
-                }
-
-                Text {
-                    Layout.fillWidth: true
-                    visible: page.selectedRow >= 0 && comparison.rowDetail.length === 0
-                    text: "No reference row at this Mach number. Appendix C prints discrete "
-                          + "values and nothing is interpolated between them."
-                    wrapMode: Text.WordWrap
-                    lineHeight: Typography.proseLineHeight
-                    lineHeightMode: Text.ProportionalHeight
-                    color: Theme.textMuted
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.meta
-                }
-
-                Repeater {
-                    model: comparison.rowDetail
-
-                    delegate: RowLayout {
-                        required property var modelData
-                        Layout.fillWidth: true
-                        spacing: Metrics.spacing.s
-
-                        Text {
-                            Layout.preferredWidth: 52
-                            text: Notation.rich(modelData.label)
-                            textFormat: Notation.textFormat(modelData.label)
-                            color: Theme.textSecondary
-                            font.family: Typography.sans
-                            font.pixelSize: Typography.bodySmall
-                        }
-                        Text {
-                            Layout.fillWidth: true
-                            text: modelData.computed
-                            color: Theme.text
-                            font.family: Typography.mono
-                            font.pixelSize: Typography.bodySmall
-                        }
-                        Text {
-                            Layout.preferredWidth: 84
-                            text: modelData.reference
-                            color: Theme.textSecondary
-                            font.family: Typography.mono
-                            font.pixelSize: Typography.bodySmall
-                        }
-                        RFStatusChip {
-                            Layout.preferredWidth: 44
-                            text: modelData.status
-                            tone: modelData.status === "PASS" ? "success" : "warning"
-                            showDot: false
-                        }
-                    }
-                }
-
-                Item { Layout.fillHeight: true }
-
-                Text {
-                    Layout.fillWidth: true
-                    text: "Published values are rounded to four significant figures. A difference "
-                          + "inside that rounding is agreement, not error."
-                    wrapMode: Text.WordWrap
-                    lineHeight: Typography.proseLineHeight
-                    lineHeightMode: Text.ProportionalHeight
-                    color: Theme.textMuted
-                    font.family: Typography.sans
-                    font.pixelSize: Typography.meta
-                }
+                noRowText: "No reference row at this Mach number. Appendix C prints discrete "
+                           + "values and nothing is interpolated between them."
+                columnHeadings: false
             }
         }
     }

@@ -27,6 +27,7 @@ from .rayleigh_service import (
     mode_info,
     solve,
 )
+from .stored_property import stored_property
 
 __all__ = ["RayleighController"]
 
@@ -100,44 +101,11 @@ class RayleighController(AnalysisBehaviour, QObject):
 
     mode = Property(str, _get_mode, _set_mode, notify=inputsChanged)
 
-    def _get_input(self) -> float:
-        return self._input
+    inputValue = stored_property(float, "_input", inputsChanged, recalculate=True)
 
-    def _set_input(self, value: float) -> None:
-        value = float(value)
-        if value == self._input:
-            return
-        self._input = value
-        self.inputsChanged.emit()
-        self._recalculate()
+    gamma = stored_property(float, "_gamma", inputsChanged, recalculate=True)
 
-    inputValue = Property(float, _get_input, _set_input, notify=inputsChanged)
-
-    def _get_gamma(self) -> float:
-        return self._gamma
-
-    def _set_gamma(self, value: float) -> None:
-        value = float(value)
-        if value == self._gamma:
-            return
-        self._gamma = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    gamma = Property(float, _get_gamma, _set_gamma, notify=inputsChanged)
-
-    def _get_branch(self) -> str:
-        return self._branch
-
-    def _set_branch(self, value: str) -> None:
-        value = str(value)
-        if value == self._branch:
-            return
-        self._branch = value
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    branch = Property(str, _get_branch, _set_branch, notify=inputsChanged)
+    branch = stored_property(str, "_branch", inputsChanged, recalculate=True)
 
     @Property(str, notify=inputsChanged)
     def inputSymbol(self) -> str:
@@ -197,84 +165,17 @@ class RayleighController(AnalysisBehaviour, QObject):
 
     heatEnabled = Property(bool, _get_heat_enabled, _set_heat_enabled, notify=heatChanged)
 
-    def _get_heat_mach(self) -> float:
-        return self._heat_mach
+    heatMach = stored_property(float, "_heat_mach", heatChanged, recalculate=True)
 
-    def _set_heat_mach(self, value: float) -> None:
-        value = float(value)
-        if value == self._heat_mach:
-            return
-        self._heat_mach = value
-        self.heatChanged.emit()
-        self._recalculate()
+    heatInput = stored_property(str, "_heat_input", heatChanged, recalculate=True)
 
-    heatMach = Property(float, _get_heat_mach, _set_heat_mach, notify=heatChanged)
+    temperatureRatio = stored_property(float, "_ratio", heatChanged, recalculate=True)
 
-    def _get_heat_input(self) -> str:
-        return self._heat_input
+    heat = stored_property(float, "_heat", heatChanged, recalculate=True)
 
-    def _set_heat_input(self, value: str) -> None:
-        value = str(value)
-        if value == self._heat_input:
-            return
-        self._heat_input = value
-        self.heatChanged.emit()
-        self._recalculate()
+    gasConstant = stored_property(float, "_gas_constant", heatChanged, recalculate=True)
 
-    heatInput = Property(str, _get_heat_input, _set_heat_input, notify=heatChanged)
-
-    def _get_ratio(self) -> float:
-        return self._ratio
-
-    def _set_ratio(self, value: float) -> None:
-        value = float(value)
-        if value == self._ratio:
-            return
-        self._ratio = value
-        self.heatChanged.emit()
-        self._recalculate()
-
-    temperatureRatio = Property(float, _get_ratio, _set_ratio, notify=heatChanged)
-
-    def _get_heat(self) -> float:
-        return self._heat
-
-    def _set_heat(self, value: float) -> None:
-        value = float(value)
-        if value == self._heat:
-            return
-        self._heat = value
-        self.heatChanged.emit()
-        self._recalculate()
-
-    heat = Property(float, _get_heat, _set_heat, notify=heatChanged)
-
-    def _get_gas_constant(self) -> float:
-        return self._gas_constant
-
-    def _set_gas_constant(self, value: float) -> None:
-        value = float(value)
-        if value == self._gas_constant:
-            return
-        self._gas_constant = value
-        self.heatChanged.emit()
-        self._recalculate()
-
-    gasConstant = Property(float, _get_gas_constant, _set_gas_constant,
-                           notify=heatChanged)
-
-    def _get_t01(self) -> float:
-        return self._t01
-
-    def _set_t01(self, value: float) -> None:
-        value = float(value)
-        if value == self._t01:
-            return
-        self._t01 = value
-        self.heatChanged.emit()
-        self._recalculate()
-
-    inletStagnationTemperature = Property(float, _get_t01, _set_t01, notify=heatChanged)
+    inletStagnationTemperature = stored_property(float, "_t01", heatChanged, recalculate=True)
 
     @Property("QVariantList", notify=heatChanged)
     def heatResults(self):
@@ -420,54 +321,15 @@ class RayleighController(AnalysisBehaviour, QObject):
     def tableModel(self):
         return self._table_model
 
-    def _get_table_gamma(self) -> float:
-        return self._table_gamma
+    tableGamma = stored_property(float, "_table_gamma", tableSettingsChanged)
 
-    def _set_table_gamma(self, value: float) -> None:
-        if self._set_table_setting("_table_gamma", float(value)):
-            self.tableSettingsChanged.emit()
+    tableStart = stored_property(float, "_table_start", tableSettingsChanged)
 
-    tableGamma = Property(float, _get_table_gamma, _set_table_gamma,
-                          notify=tableSettingsChanged)
+    tableEnd = stored_property(float, "_table_end", tableSettingsChanged)
 
-    def _get_table_start(self) -> float:
-        return self._table_start
+    tableStep = stored_property(float, "_table_step", tableSettingsChanged)
 
-    def _set_table_start(self, value: float) -> None:
-        if self._set_table_setting("_table_start", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStart = Property(float, _get_table_start, _set_table_start,
-                          notify=tableSettingsChanged)
-
-    def _get_table_end(self) -> float:
-        return self._table_end
-
-    def _set_table_end(self, value: float) -> None:
-        if self._set_table_setting("_table_end", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableEnd = Property(float, _get_table_end, _set_table_end, notify=tableSettingsChanged)
-
-    def _get_table_step(self) -> float:
-        return self._table_step
-
-    def _set_table_step(self, value: float) -> None:
-        if self._set_table_setting("_table_step", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStep = Property(float, _get_table_step, _set_table_step,
-                         notify=tableSettingsChanged)
-
-    def _get_table_branch(self) -> str:
-        return self._table_branch
-
-    def _set_table_branch(self, value: str) -> None:
-        if self._set_table_setting("_table_branch", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableBranch = Property(str, _get_table_branch, _set_table_branch,
-                           notify=tableSettingsChanged)
+    tableBranch = stored_property(str, "_table_branch", tableSettingsChanged)
 
     def _get_table_precision(self) -> int:
         return self._table_precision

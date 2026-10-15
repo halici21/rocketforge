@@ -37,6 +37,7 @@ from .normal_shock_service import (
     mode_info,
     solve,
 )
+from .stored_property import clamp_precision, stored_property
 
 __all__ = ["NormalShockController"]
 
@@ -130,29 +131,9 @@ class NormalShockController(AnalysisBehaviour, QObject):
 
     mode = Property(str, _get_mode, _set_mode, notify=inputsChanged)
 
-    def _get_input(self) -> float:
-        return self._input
+    inputValue = stored_property(float, "_input", inputsChanged, recalculate=True)
 
-    def _set_input(self, value: float) -> None:
-        if float(value) == self._input:
-            return
-        self._input = float(value)
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    inputValue = Property(float, _get_input, _set_input, notify=inputsChanged)
-
-    def _get_gamma(self) -> float:
-        return self._gamma
-
-    def _set_gamma(self, value: float) -> None:
-        if float(value) == self._gamma:
-            return
-        self._gamma = float(value)
-        self.inputsChanged.emit()
-        self._recalculate()
-
-    gamma = Property(float, _get_gamma, _set_gamma, notify=inputsChanged)
+    gamma = stored_property(float, "_gamma", inputsChanged, recalculate=True)
 
     @Property(str, notify=inputsChanged)
     def inputSymbol(self) -> str:
@@ -180,31 +161,9 @@ class NormalShockController(AnalysisBehaviour, QObject):
         return UpstreamState(pressure=self._upstream_pressure,
                              temperature=self._upstream_temperature)
 
-    def _get_upstream_pressure(self) -> float:
-        return self._upstream_pressure
+    upstreamPressure = stored_property(float, "_upstream_pressure", stateChanged, recalculate=True)
 
-    def _set_upstream_pressure(self, value: float) -> None:
-        if float(value) == self._upstream_pressure:
-            return
-        self._upstream_pressure = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
-
-    upstreamPressure = Property(float, _get_upstream_pressure, _set_upstream_pressure,
-                                notify=stateChanged)
-
-    def _get_upstream_temperature(self) -> float:
-        return self._upstream_temperature
-
-    def _set_upstream_temperature(self, value: float) -> None:
-        if float(value) == self._upstream_temperature:
-            return
-        self._upstream_temperature = float(value)
-        self.stateChanged.emit()
-        self._recalculate()
-
-    upstreamTemperature = Property(float, _get_upstream_temperature,
-                                   _set_upstream_temperature, notify=stateChanged)
+    upstreamTemperature = stored_property(float, "_upstream_temperature", stateChanged, recalculate=True)
 
     @Property(bool, notify=stateChanged)
     def dimensionalAvailable(self) -> bool:
@@ -243,14 +202,7 @@ class NormalShockController(AnalysisBehaviour, QObject):
         self.resultsChanged.emit()
         self.referenceChanged.emit()
 
-    def _get_precision(self) -> int:
-        return self._precision
-
-    def _set_precision(self, value: int) -> None:
-        if self._set_precision_value(value):
-            self.resultsChanged.emit()
-
-    precision = Property(int, _get_precision, _set_precision, notify=resultsChanged)
+    precision = stored_property(int, "_precision", resultsChanged, coerce=clamp_precision)
 
     @Property("QVariantList", notify=resultsChanged)
     def results(self):
@@ -345,55 +297,15 @@ class NormalShockController(AnalysisBehaviour, QObject):
     def tableModel(self):
         return self._table_model
 
-    def _get_table_gamma(self) -> float:
-        return self._table_gamma
+    tableGamma = stored_property(float, "_table_gamma", tableSettingsChanged)
 
-    def _set_table_gamma(self, value: float) -> None:
-        if self._set_table_setting("_table_gamma", float(value)):
-            self.tableSettingsChanged.emit()
+    tableStart = stored_property(float, "_table_start", tableSettingsChanged)
 
-    tableGamma = Property(float, _get_table_gamma, _set_table_gamma,
-                          notify=tableSettingsChanged)
+    tableEnd = stored_property(float, "_table_end", tableSettingsChanged)
 
-    def _get_table_start(self) -> float:
-        return self._table_start
+    tableStep = stored_property(float, "_table_step", tableSettingsChanged)
 
-    def _set_table_start(self, value: float) -> None:
-        if self._set_table_setting("_table_start", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStart = Property(float, _get_table_start, _set_table_start,
-                          notify=tableSettingsChanged)
-
-    def _get_table_end(self) -> float:
-        return self._table_end
-
-    def _set_table_end(self, value: float) -> None:
-        if self._set_table_setting("_table_end", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableEnd = Property(float, _get_table_end, _set_table_end,
-                        notify=tableSettingsChanged)
-
-    def _get_table_step(self) -> float:
-        return self._table_step
-
-    def _set_table_step(self, value: float) -> None:
-        if self._set_table_setting("_table_step", float(value)):
-            self.tableSettingsChanged.emit()
-
-    tableStep = Property(float, _get_table_step, _set_table_step,
-                         notify=tableSettingsChanged)
-
-    def _get_table_convention(self) -> str:
-        return self._table_convention
-
-    def _set_table_convention(self, value: str) -> None:
-        if self._set_table_setting("_table_convention", str(value)):
-            self.tableSettingsChanged.emit()
-
-    tableConvention = Property(str, _get_table_convention, _set_table_convention,
-                               notify=tableSettingsChanged)
+    tableConvention = stored_property(str, "_table_convention", tableSettingsChanged)
 
     def _get_table_precision(self) -> int:
         return self._table_precision

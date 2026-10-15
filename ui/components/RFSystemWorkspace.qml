@@ -32,6 +32,8 @@ Item {
     property string scopeText: ""
     property string upstreamText: ""
     property string emptyBody: ""
+    // This page's key in the Propulsion System chain, for the chain strip.
+    property string chainKey: ""
 
     // An issue's link asks for its upstream page; the page forwards this to
     // WorkspaceHost.
@@ -345,6 +347,14 @@ Item {
                     }
                 }
             }
+        }
+
+        // Where this page sits in its design chain, and each step's state (R3-F).
+        RFDesignChainStrip {
+            Layout.fillWidth: true
+            chain: "propulsionsystem"
+            currentKey: ws.chainKey
+            onOpenRequested: (index) => ws.workspaceRequested(index)
         }
 
         RowLayout {

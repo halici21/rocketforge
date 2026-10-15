@@ -154,6 +154,225 @@ carries no state.
   `RFBoundNumberField`; the same test steps 0.4321 MPa to 0.5321. This applies to every bound field: a
   step is now written at the precision the field displays.
 
+## R3-C — done
+
+Correction to C1: the seven controllers hold **103** hand-written setter triples, not 109 (the count
+included six setters in other controllers).
+
+- **Helper:** `rocketforge/application/analysis/stored_property.py`, one function. It returns the
+  `Property` the hand-written triple built: convert, return if the value is already held, store,
+  emit the notify signal, and `_recalculate()` only when asked. It is built at class-definition time,
+  with no registry, metaclass or later mutation. Its getter and setter are named after the attribute
+  (`get_gamma`) so a traceback says which property it was.
+- **Replaced: 73 of 103.** Isentropic 3, Mass Flow 15, Normal Shock 10, Oblique Shock 9,
+  Prandtl–Meyer 8, Fanno 14, Rayleigh 14. They come from one script that matched each setter body
+  exactly against the accepted shapes. Seven of those shapes cover the inputs and the
+  `_set_table_setting` table settings, which turned out to be the same pattern without the
+  recalculation; one covers the readout precision (`coerce=clamp_precision`).
+- **Kept by hand: 30**, because their setters do something else:
+  - the five `mode` setters reset the input to the new mode's default;
+  - `tablePrecision` updates the table model;
+  - `compareEnabled` refreshes a summary;
+  - Oblique Shock's `mach1`, `gamma` and `branch` also emit `curveChanged`;
+  - the Prandtl–Meyer expansion inputs recompute the expansion;
+  - Fanno's convention converts the friction factor;
+  - the segment and heat toggles drop an outcome;
+  - Fanno and Rayleigh `precision` emit two signals;
+  - Isentropic `inputValue` and `gamma` compare the raw value before converting it. These two stay
+    exact rather than being folded in.
+- **Cleanup:** `AnalysisBehaviour._set_table_setting` had no caller left and is deleted. The two
+  precision setters in the base use the same `clamp_precision`.
+- **Proof:**
+  - `tests/application/test_compressible_property_surface.py` compares every one of 372 properties
+    (name, Qt type, read/write, notify signature or constant, and the uniform flags) and all 155
+    signal and slot signatures against a literal captured at 3ec5f0f before any edit.
+  - `tests/application/test_stored_property.py` checks the helper alone, and then that each of the
+    73 built properties reads its own attribute, leaves its controller's other helper-built
+    properties alone, notifies on its own signal, and is silent on a repeat value. Each property's
+    `recalculate` choice is pinned by the existing controller tests, not by this file; the review
+    checked every one against the pre-refactor setter.
+  - Five deliberately broken helpers and one renamed property each fail these tests:
+    1. a late-bound attribute;
+    2. one shared signal;
+    3. a float that becomes a QVariant;
+    4. a missing notify signal;
+    5. a read-only property.
+  - A behaviour trace, kept outside the repo, records every readable value and every signal count
+    after each of 289 writes on the seven controllers. It is byte-for-byte identical before and after.
+  - The seven pages are pixel-identical before and after.
+- **Not changed:** QML, physics, services, providers, tolerances.
+
+## R3-D — done
+
+Four shared components in `ui/components/`, each replacing copies that were identical apart from
+named parameters. Page files: −1,191 / +89 lines; the components add 593.
+
+| Component | Replaces | Page parameters |
+|---|---|---|
+| `RFProvenanceInspector` (C3) | the Reference Engines and Propulsion Database Inspector bodies | controller readout, objectName prefix, "‹ Record" rule and action, wording; Reference Engines adds its "Source ›" button through `extraTools` |
+| `RFReferenceCheckTable` | the calculator reference-check table (Isentropic, Normal Shock) | the rows |
+| `RFGroupedReadout` | the grouped result readout and its `rowsIn` filter (Fanno, Rayleigh, Prandtl–Meyer, Mass Flow) | label width, row height, label clipping, Mass Flow's "Dimensional" note |
+| `RFReferenceComparisonPanel` | the table's published-appendix comparison panel (Isentropic, Normal Shock, Prandtl–Meyer) | row title, appendix sentence, column headings (not on Prandtl–Meyer), Isentropic's citation note, Normal Shock's review note, and each page's own `rowDetail` binding |
+
+Every objectName that tests or tools use is kept (`engineInspectorValue`, `evidenceInspectRecord`,
+`normalShockComparison`, …).
+
+**Kept local, deliberately:**
+- The Nozzle and Oblique Shock readouts, which use a different layout: a grid, a compact mode, a
+  different structure.
+- The remaining short shared runs (12–19 lines) in the table settings and input drawers. They are
+  interleaved with fields each page has and its siblings do not, so one component would need a
+  parameter per page.
+
+**Review fix:**
+- **What the first review found:** in the Reference Engines graph, source, capability, node and
+  edge readings, the "‹ Record" button sat 8 px left of its old place. The "Source ›" slot was a laid-out row, kept
+  visible by its child even when that child was hidden, and it took a spacing gap.
+- **The fix:** the slot's visibility is now an explicit flag, `extraToolsShown`, which the page sets
+  to exactly the old button's condition.
+- **The proof:** the capture set gained the graph, assertion and source readings, all
+  pixel-identical. The confirmation review measured the button positions in all nine readings, at
+  1920×1080 and 1280×800, against HEAD: identical.
+
+**Package safeguard kept whole:** `verify_package` scans the evidence pages for forbidden words. The
+Inspector body moved into `RFProvenanceInspector`, so that file is now scanned too.
+`tests/test_evidence_packaging.py` proves the scan catches a forbidden word in it and a missing copy.
+
+**Proof:**
+- Each page was captured from the running application in the states that show the components:
+  - each calculator;
+  - Mass Flow with the dimensional state incomplete, so its note shows;
+  - the two calculators with the check open;
+  - the three tables with the comparison on, at three published rows and one row off the grid
+    ("No reference row");
+  - both Inspectors open in every reading kind that changes their header: for Reference Engines the
+    record, the graph, an assertion row with its "Source ›" and a source; for the Propulsion
+    Database the record and a datum row.
+- The captures were taken from a pristine 9982243 worktree and from the R3-D tree. Across all 28
+  scenarios the sorted visible texts are identical, there are no QML warnings, and pixels differ by
+  at most 2 of 255. That is the run-to-run noise measured between two runs of the same tree
+  (animation and opacity rounding); it moves between pages from run to run.
+- The runtime tests that drive these pages (Reference Engines, Propulsion Database, shock workspaces,
+  interactive analysis, lifecycle, visual polish) pass.
+
+## R3-E — closed: measured; no code change; P1 not adopted by owner decision
+
+R3-E was to make each of P1–P3 with before/after numbers. The measurements decided all three. None
+changes code.
+
+**P1, provider pre-import: NOT ADOPTED (owner decision, 2026-10-15).**
+- **What it costs today.** Measured in the CEA environment:
+  - `import cea`: 0.25 s.
+  - `import CoolProp.CoolProp`: 0.85 s.
+  - The Thermochemistry gateway's availability probe: 0.05 s.
+  - The rest of a first visit to Thermochemistry (≈ 1.6 s in Phase 0) is mostly building its large
+    QML page, which a pre-import does not touch.
+  - So P1 could save at most ≈ 0.85 s on the first visit to Fluid Properties or Line, and ≈ 0.25 s
+    on the first visit to Thermochemistry.
+- **Why it was not done.** Pre-importing after the window is shown contradicts a documented runtime
+  contract. `main.py` says the thermochemistry gateway "defers every provider import to first use,
+  so a launch that never opens that workspace never loads NASA CEA and never reads a thermodynamic
+  database". CLAUDE.md likewise describes the providers as reached through lazy gateways.
+- **Owner decision (2026-10-15): preserve lazy loading.** The measured benefit is insufficient to
+  justify violating the lazy-loading invariant. NASA CEA and CoolProp are not preloaded after start
+  up: a provider or workspace the user never opens must not incur its provider-loading cost. No
+  preload or background provider initialisation is implemented. This is a deliberate architecture
+  decision, not an open item.
+
+**P2, compiled QML: confirmed; no change.**
+- The package ships `.qml` source only, with no `qmlcachegen` output.
+- Qt compiles the QML on first launch and keeps it in its disk cache
+  (`%LOCALAPPDATA%\RocketForge\cache\qmlcache`).
+- Source run, median of 3 runs each, `build_engine()` plus `Main.qml` load:
+
+  | Disk cache | QML load | Total from start |
+  |---|---|---|
+  | Cold: empty cache, Qt writes it | 2.50 s | 3.51 s |
+  | Warm: cache filled | 1.36 s | 2.35 s |
+  | Disabled: compiled in memory each time | 1.39 s | 2.37 s |
+
+- Reading the cache is no faster than compiling in memory. The cold-start extra (≈ 1.1 s) is the
+  one-time cost of writing the cache.
+- Shipping precompiled QML would remove only that first-launch write, and it ties the package to
+  the exact Qt build. Not adopted.
+- In the packaged app (670e2c6, `--selftest-workspaces`, a 44 s run) the three modes differ by less
+  than the run's own noise.
+
+**P3, test-suite time: measured; no safe change.**
+- The suite takes ≈ 10 min. About a third of that is 36 test modules that start the application in
+  a subprocess.
+- Eleven of them, the `*_runtime.py` and issue-link instruments, wrap every service entry point in a
+  fresh process and count calls from launch. A fresh process is their oracle.
+- `test_shell_navigation_smoke.py` runs one subprocess per route, on purpose. That is how a crash is
+  attributed to its route, and how the QV4 garbage-collector crash is reproduced from a clean
+  state.
+- The rest already use one process per module. Merging them would save ≈ 20 s, about 3 % of the
+  suite, at the cost of state leaking between pages.
+- Not changed.
+
+## R3-F — done
+
+U2(b): one compact chain strip, `ui/components/RFDesignChainStrip.qml`, under the header of every
+design-chain page.
+
+**Where it appears.** The five Liquid Engine pages place it themselves. The five Propulsion System
+pages get it through `RFSystemWorkspace` (`chainKey`).
+
+**What each step shows.** The chain's five steps in order, each with its state, read from the
+controllers' properties and nothing else:
+- The requirement is Stated or Incomplete (`isComplete`, the same rule as its page's chip).
+- Every other step is Done (a current, usable result), Stale (`resultStale`) or Not run.
+- A result that is not usable shows a label in the warning colour, and is never Done:
+  - a refused result (`resultOk` false) shows its page's "Refused";
+  - an incomplete Propulsion System study shows its page's "Computed · incomplete". Its `resultOk` is
+    true, because `ok` only means "not refused". Its page already shows it in the warning tone, and
+    an incomplete inventory is refused by the tanks and management studies;
+  - a trade in which no candidate solved shows "No usable candidate". Its page says "Evaluated" for
+    any trade, but nothing in it can be selected, so nothing can be sized from it.
+
+**Python changes.** Two read-only Qt properties, notified on `resultChanged`, are the only Python
+changes in R3-F:
+- `SystemStudyController.resultStatus`: "ok", "warning", "incomplete", "refused", or "";
+- `PropellantTradeController.resultOk`: some candidate solved.
+
+Neither controller is one of the seven whose surface R3-C froze.
+
+A Propulsion System study with advisories ("Computed with advisories") is usable downstream, so its
+step reads Done, although its page shows it in the warning tone.
+
+**Interaction.** The page's own step is marked and is not a link. Any other step opens its page by
+click, Enter or Space, or by an assistive technology's press action. It does this through the same
+`workspaceRequested` path as the issue links.
+
+**What it does not do.** No page is merged. Nothing is solved, started or probed. No state is held in
+QML. The steps share the width about equally (within a few pixels), and every label fits at 1366×768.
+
+**Review fixes.** Three review rounds each found one way an unusable result still read Done:
+1. a refused result, because `hasResult` is true for any stored result;
+2. an incomplete Propulsion System study;
+3. a trade with no usable candidate.
+
+The strip now reads `resultOk` and `resultStatus` as described above. The step delegates also persist
+across state changes, so focus is kept.
+
+**Proof.** `tests/application/test_chain_strip.py` runs the real shell in a subprocess with every
+service entry point counted. It checks:
+- on each of the ten pages: the order, the current step, and the states with nothing solved;
+- that a click and Enter navigate with zero service calls, and that clicking the current step does
+  nothing;
+- that stating the requirement turns its step Stated.
+
+With NASA CEA installed it also checks:
+- running the trade turns its step Done, and changing the requirement then turns it Stale;
+- a real sizing, first at an area ratio of 100000 (refused) and then with the trade's own nozzle
+  (usable), reads as its page says each time;
+- an inventory computed with its terms unresolved, which is incomplete, shows "Computed · incomplete";
+- a trade at an O/F of 500, where no candidate solves, shows "No usable candidate".
+
+With any of these checks removed from the strip, the test fails. It passed in both environments
+(14 + 4 skipped without CEA, 18 with), with no QML warnings. The existing runtime tests of all ten
+pages pass with the strip in place, including "browsing neither solves nor probes".
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history

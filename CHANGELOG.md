@@ -9,6 +9,17 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Changed
+- Simplification R3 closed (R3-A to R3-F). R3-E measured start-up and test-suite performance and
+  changed no code. Providers stay lazily loaded by owner decision: NASA CEA and CoolProp are loaded
+  only when a workspace that needs them is first opened, as before.
+- Simplification R3-D (interface code only): the Inspector of the two evidence workspaces, the
+  calculators' reference-check table, the grouped result readout and the tables' reference
+  comparison panel are now four shared components instead of copies in each page. Pages look and
+  behave as before.
+- Simplification R3-C (code only): 73 of the 103 hand-written property getter/setter/`Property`
+  triples in the seven compressible-flow controllers are now one `stored_property(...)` line each.
+  The QML-visible surface is unchanged and pinned by a test against the pre-refactor capture; no
+  page, value or signal changes.
 - Simplification R3-B:
   - Side panels that were empty, or only said "Shown with a result", before a result are hidden until
     there is one; the inputs use the width. Repeated "Nothing is computed until you do" sentences and
@@ -32,6 +43,12 @@ is not feature-complete, so a 1.0.0 would overstate it — see
     are deleted.
 
 ### Added
+- Design-chain strip (R3-F): every Liquid Engine and Propulsion System page shows its chain's five
+  steps under the header, each marked Done, Stale or Not run (the requirement: Stated or
+  Incomplete), with the current page highlighted. A refused or incomplete result shows its page's
+  own label ("Refused", "Computed · incomplete"), and a trade with no candidate that solved shows
+  "No usable candidate", in the warning colour, never Done. A step opens its page; nothing is run or
+  solved.
 - Reference engine regression acceptance (DB-4A): a read-only review of every current `REGRESSION_CANDIDATE`
   (J-2 230K, J-2S), quantity by quantity, against RocketForge's ideal performance model.
   - **Accepted:** 0 hard regressions, 0 validation comparisons and 0 efficiency comparisons.
