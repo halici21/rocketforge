@@ -307,6 +307,69 @@ changes code.
   suite, at the cost of state leaking between pages.
 - Not changed.
 
+## R3-F — done
+
+U2(b): one compact chain strip, `ui/components/RFDesignChainStrip.qml`, under the header of every
+design-chain page.
+
+**Where it appears.** The five Liquid Engine pages place it themselves. The five Propulsion System
+pages get it through `RFSystemWorkspace` (`chainKey`).
+
+**What each step shows.** The chain's five steps in order, each with its state, read from the
+controllers' properties and nothing else:
+- The requirement is Stated or Incomplete (`isComplete`, the same rule as its page's chip).
+- Every other step is Done (a current, usable result), Stale (`resultStale`) or Not run.
+- A result that is not usable shows a label in the warning colour, and is never Done:
+  - a refused result (`resultOk` false) shows its page's "Refused";
+  - an incomplete Propulsion System study shows its page's "Computed · incomplete". Its `resultOk` is
+    true, because `ok` only means "not refused". Its page already shows it in the warning tone, and
+    an incomplete inventory is refused by the tanks and management studies;
+  - a trade in which no candidate solved shows "No usable candidate". Its page says "Evaluated" for
+    any trade, but nothing in it can be selected, so nothing can be sized from it.
+
+**Python changes.** Two read-only Qt properties, notified on `resultChanged`, are the only Python
+changes in R3-F:
+- `SystemStudyController.resultStatus`: "ok", "warning", "incomplete", "refused", or "";
+- `PropellantTradeController.resultOk`: some candidate solved.
+
+Neither controller is one of the seven whose surface R3-C froze.
+
+A Propulsion System study with advisories ("Computed with advisories") is usable downstream, so its
+step reads Done, although its page shows it in the warning tone.
+
+**Interaction.** The page's own step is marked and is not a link. Any other step opens its page by
+click, Enter or Space, or by an assistive technology's press action. It does this through the same
+`workspaceRequested` path as the issue links.
+
+**What it does not do.** No page is merged. Nothing is solved, started or probed. No state is held in
+QML. The steps share the width about equally (within a few pixels), and every label fits at 1366×768.
+
+**Review fixes.** Three review rounds each found one way an unusable result still read Done:
+1. a refused result, because `hasResult` is true for any stored result;
+2. an incomplete Propulsion System study;
+3. a trade with no usable candidate.
+
+The strip now reads `resultOk` and `resultStatus` as described above. The step delegates also persist
+across state changes, so focus is kept.
+
+**Proof.** `tests/application/test_chain_strip.py` runs the real shell in a subprocess with every
+service entry point counted. It checks:
+- on each of the ten pages: the order, the current step, and the states with nothing solved;
+- that a click and Enter navigate with zero service calls, and that clicking the current step does
+  nothing;
+- that stating the requirement turns its step Stated.
+
+With NASA CEA installed it also checks:
+- running the trade turns its step Done, and changing the requirement then turns it Stale;
+- a real sizing, first at an area ratio of 100000 (refused) and then with the trade's own nozzle
+  (usable), reads as its page says each time;
+- an inventory computed with its terms unresolved, which is incomplete, shows "Computed · incomplete";
+- a trade at an O/F of 500, where no candidate solves, shows "No usable candidate".
+
+With any of these checks removed from the strip, the test fails. It passed in both environments
+(14 + 4 skipped without CEA, 18 with), with no QML warnings. The existing runtime tests of all ten
+pages pass with the strip in place, including "browsing neither solves nor probes".
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history

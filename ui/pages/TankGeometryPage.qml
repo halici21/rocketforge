@@ -18,6 +18,7 @@ Item {
     RFSystemWorkspace {
         anchors.fill: parent
         onWorkspaceRequested: (index) => page.workspaceRequested(index)
+        chainKey: "tankgeometry"
         controller: PropellantTanks
         prefix: "tanks"
         title: "Tank Geometry & Packaging"

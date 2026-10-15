@@ -17,6 +17,7 @@ Item {
     RFSystemWorkspace {
         anchors.fill: parent
         onWorkspaceRequested: (index) => page.workspaceRequested(index)
+        chainKey: "propellantinventory"
         controller: PropellantInventory
         prefix: "inventory"
         title: "Propellant Inventory"

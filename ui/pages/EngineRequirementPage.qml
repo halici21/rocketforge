@@ -27,6 +27,9 @@ import "../components"
 Item {
     id: page
 
+    // Bubbled by WorkspaceHost: the chain strip opens another step.
+    signal workspaceRequested(int index)
+
     function indexOfKey(options, key) {
         for (var i = 0; i < options.length; ++i)
             if (options[i].key === key)
@@ -93,6 +96,14 @@ Item {
                     }
                 }
             }
+        }
+
+        // Where this page sits in its design chain, and each step's state (R3-F).
+        RFDesignChainStrip {
+            Layout.fillWidth: true
+            chain: "liquidengine"
+            currentKey: "requirement"
+            onOpenRequested: (index) => page.workspaceRequested(index)
         }
 
         RowLayout {

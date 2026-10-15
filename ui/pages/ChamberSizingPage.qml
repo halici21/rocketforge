@@ -89,6 +89,14 @@ Item {
             }
         }
 
+        // Where this page sits in its design chain, and each step's state (R3-F).
+        RFDesignChainStrip {
+            Layout.fillWidth: true
+            chain: "liquidengine"
+            currentKey: "chambersizing"
+            onOpenRequested: (index) => page.workspaceRequested(index)
+        }
+
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true

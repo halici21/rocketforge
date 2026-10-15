@@ -18,6 +18,7 @@ Item {
     RFSystemWorkspace {
         anchors.fill: parent
         onWorkspaceRequested: (index) => page.workspaceRequested(index)
+        chainKey: "feednetwork"
         controller: FeedNetwork
         prefix: "feed"
         title: "Feed Network"

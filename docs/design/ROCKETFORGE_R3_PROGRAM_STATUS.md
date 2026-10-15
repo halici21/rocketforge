@@ -14,8 +14,8 @@ Branch: `claude/r3-simplification`, fast-forward pushes only. Master is not merg
 | R3-B | U3, U4, U5 | accepted | `3ec5f0f` |
 | R3-C | C1 property helper + frozen surface test | accepted | `9982243` |
 | R3-D | C2/C3 shared table, readout, inspector components, per-page parity | accepted | `ea01220` |
-| R3-E | P1–P3 performance, before/after numbers | P2, P3 closed by measurement (no code change); **P1 held for an owner decision** | this commit (see git log) |
-| R3-F | U2(b) chain strip (marked optional in the audit) | **current** | — |
+| R3-E | P1–P3 performance, before/after numbers | P2, P3 closed by measurement (no code change); **P1 held for an owner decision** | `6d8e374` |
+| R3-F | U2(b) chain strip (marked optional in the audit) | accepted | this commit (see git log) |
 
 ## Frozen decisions and invariants
 
@@ -37,6 +37,7 @@ Branch: `claude/r3-simplification`, fast-forward pushes only. Master is not merg
 
 ## Last verification
 
-R3-D: Base 9531 passed, 448 skipped; 28 capture scenarios against a pristine 9982243 tree, texts
-identical, pixels within the 2/255 run-to-run noise, 0 QML warnings; first review 1 material (fixed),
-confirmation review 0 material.
+R3-F: `test_chain_strip.py` 18 passed with NASA CEA, 14 + 4 skipped without; three review rounds
+(each closing one way an unusable result read Done) and a final confirmation, recorded in the R3-F
+commit message. Base 9545 passed, 452 skipped. Program state: every gate closed except R3-E P1, which
+waits for the owner (see Blockers).

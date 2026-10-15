@@ -40,6 +40,12 @@ is not feature-complete, so a 1.0.0 would overstate it — see
     are deleted.
 
 ### Added
+- Design-chain strip (R3-F): every Liquid Engine and Propulsion System page shows its chain's five
+  steps under the header, each marked Done, Stale or Not run (the requirement: Stated or
+  Incomplete), with the current page highlighted. A refused or incomplete result shows its page's
+  own label ("Refused", "Computed · incomplete"), and a trade with no candidate that solved shows
+  "No usable candidate", in the warning colour, never Done. A step opens its page; nothing is run or
+  solved.
 - Reference engine regression acceptance (DB-4A): a read-only review of every current `REGRESSION_CANDIDATE`
   (J-2 230K, J-2S), quantity by quantity, against RocketForge's ideal performance model.
   - **Accepted:** 0 hard regressions, 0 validation comparisons and 0 efficiency comparisons.

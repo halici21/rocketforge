@@ -252,6 +252,17 @@ class SystemStudyController(QObject):
         return self._result is not None and self._result.ok
 
     @Property(str, notify=resultChanged)
+    def resultStatus(self) -> str:
+        """The result's status ("ok", "warning", "incomplete", "refused"), or "" with none.
+
+        `resultOk` is only "not refused". An incomplete study is ok yet not complete -- an
+        incomplete inventory is refused by the tanks and management studies (an unknown load has
+        no volume) -- so the design-chain strip reads this as well, and shows the page's own
+        "Computed · incomplete" instead of done.
+        """
+        return "" if self._result is None else self._result.status.value
+
+    @Property(str, notify=resultChanged)
     def statusLabel(self) -> str:
         if self._result is None:
             return "Not computed"

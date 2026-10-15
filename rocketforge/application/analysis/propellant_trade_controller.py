@@ -296,6 +296,15 @@ class PropellantTradeController(QObject):
     def resultStale(self) -> bool:
         return self._stale
 
+    @Property(bool, notify=resultChanged)
+    def resultOk(self) -> bool:
+        """Whether the trade has a candidate that solved: one that can be selected and sized.
+
+        A trade in which every candidate failed is still a result ("Evaluated"), but nothing in
+        it can be chosen; the design-chain strip shows it as an issue, not as done.
+        """
+        return self._result is not None and any(c.ok for c in self._result.candidates)
+
     @Property(str, notify=resultChanged)
     def message(self) -> str:
         return self._message
