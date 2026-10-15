@@ -5,9 +5,25 @@
 The canonical continuity record for the R3 program. Read this first when resuming. The gate list and
 the per-gate scope come from the "Proposed phases" section of
 [ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md](ROCKETFORGE_R3_SIMPLIFICATION_AUDIT.md), and the evidence
-for each closed gate is in its "R3-x — done" section there. No R4 is defined.
+for each closed gate is in its "R3-x — done" section there.
 
-Branch: `claude/r3-simplification`, fast-forward pushes only. Master is not merged into.
+Branch: `claude/r3-simplification` (kept; fast-forward pushes only while the program ran).
+
+**Integrated into master (2026-10-15).** PR #8 (`9e0f260`) had squash-merged Phase 0, R3-A and R3-B;
+its tree equals `3ec5f0f`. Merge `9bb649c` brought R3-C to the closure `77ee4ff` into master with
+their history. Every conflict came from that squash and resolved to the branch side, and the merged
+tree is identical to `77ee4ff`'s.
+
+## Next program
+
+None is defined. A search of `docs/`, CHANGELOG and the history after the closure found no R4 or other
+open program:
+- the engine-database line ends at DB-4A. Any further reference-engine case needs the owner decisions
+  in its §7, and the model capabilities in its §9 are deferred;
+- LIQ-7 Pump Foundation is PAUSED (DB-4A §9, `docs/research/engine_database/DB0_RESEARCH_OVERVIEW.md`)
+  and has no written definition.
+
+Starting a next program is the owner's call.
 
 | Gate | Scope (audit) | State | Commit |
 |---|---|---|---|
@@ -46,3 +62,6 @@ None. R3-E P1 was closed by the owner's decision to preserve lazy loading (not a
   14 + 4 skipped without; final review 0 material.
 - R3 closure: documentation only (this record, the audit's R3-E section, CHANGELOG); the lazy-provider
   and architecture tests re-run green. Program closed.
+- Master integration (`9bb649c`): the R3 invariant tests (architecture, frozen surface, stored
+  property, chain strip, issue links, pressure units) gave 127 passed, 4 skipped; the lazy-provider
+  file gave 52 passed; full Base suite 9565 passed, 432 skipped, 0 failed (20 more run than on the branch worktree because this checkout has the untracked `acceptance/` evidence).
