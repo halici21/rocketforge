@@ -13,9 +13,9 @@ Branch: `claude/r3-simplification`, fast-forward pushes only. Master is not merg
 | R3-A | U1, C4, U2(a), U8 (+U6 by owner decision) | accepted | `2f09a10` |
 | R3-B | U3, U4, U5 | accepted | `3ec5f0f` |
 | R3-C | C1 property helper + frozen surface test | accepted | `9982243` |
-| R3-D | C2/C3 shared table, readout, inspector components, per-page parity | accepted | this commit (see git log) |
-| R3-E | P1–P3 performance, before/after numbers | **current** | — |
-| R3-F | U2(b) chain strip (marked optional in the audit) | after R3-E | — |
+| R3-D | C2/C3 shared table, readout, inspector components, per-page parity | accepted | `ea01220` |
+| R3-E | P1–P3 performance, before/after numbers | P2, P3 closed by measurement (no code change); **P1 held for an owner decision** | this commit (see git log) |
+| R3-F | U2(b) chain strip (marked optional in the audit) | **current** | — |
 
 ## Frozen decisions and invariants
 
@@ -32,7 +32,8 @@ Branch: `claude/r3-simplification`, fast-forward pushes only. Master is not merg
 
 ## Blockers
 
-None.
+- R3-E P1 (background provider pre-import) contradicts the documented lazy-provider contract
+  (`main.py`, CLAUDE.md). It saves at most ≈ 0.85 s once. The owner must choose; see the audit's R3-E section.
 
 ## Last verification
 

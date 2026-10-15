@@ -255,6 +255,58 @@ Inspector body moved into `RFProvenanceInspector`, so that file is now scanned t
 - The runtime tests that drive these pages (Reference Engines, Propulsion Database, shock workspaces,
   interactive analysis, lifecycle, visual polish) pass.
 
+## R3-E — measured; no code change; P1 awaits an owner decision
+
+R3-E was to make each of P1–P3 with before/after numbers. The measurements decided all three. None
+changes code.
+
+**P1, provider pre-import: not done, owner decision needed.**
+- **What it costs today.** Measured in the CEA environment:
+  - `import cea`: 0.25 s.
+  - `import CoolProp.CoolProp`: 0.85 s.
+  - The Thermochemistry gateway's availability probe: 0.05 s.
+  - The rest of a first visit to Thermochemistry (≈ 1.6 s in Phase 0) is mostly building its large
+    QML page, which a pre-import does not touch.
+  - So P1 could save at most ≈ 0.85 s on the first visit to Fluid Properties or Line, and ≈ 0.25 s
+    on the first visit to Thermochemistry.
+- **Why it is not done.** Pre-importing after the window is shown contradicts a documented runtime
+  contract. `main.py` says the thermochemistry gateway "defers every provider import to first use,
+  so a launch that never opens that workspace never loads NASA CEA and never reads a thermodynamic
+  database". CLAUDE.md likewise describes the providers as reached through lazy gateways.
+- **The decision.** Keep that contract, or trade it for the saving above. It is the owner's, and
+  P1 is held until it is made.
+
+**P2, compiled QML: confirmed; no change.**
+- The package ships `.qml` source only, with no `qmlcachegen` output.
+- Qt compiles the QML on first launch and keeps it in its disk cache
+  (`%LOCALAPPDATA%\RocketForge\cache\qmlcache`).
+- Source run, median of 3 runs each, `build_engine()` plus `Main.qml` load:
+
+  | Disk cache | QML load | Total from start |
+  |---|---|---|
+  | Cold: empty cache, Qt writes it | 2.50 s | 3.51 s |
+  | Warm: cache filled | 1.36 s | 2.35 s |
+  | Disabled: compiled in memory each time | 1.39 s | 2.37 s |
+
+- Reading the cache is no faster than compiling in memory. The cold-start extra (≈ 1.1 s) is the
+  one-time cost of writing the cache.
+- Shipping precompiled QML would remove only that first-launch write, and it ties the package to
+  the exact Qt build. Not adopted.
+- In the packaged app (670e2c6, `--selftest-workspaces`, a 44 s run) the three modes differ by less
+  than the run's own noise.
+
+**P3, test-suite time: measured; no safe change.**
+- The suite takes ≈ 10 min. About a third of that is 36 test modules that start the application in
+  a subprocess.
+- Eleven of them, the `*_runtime.py` and issue-link instruments, wrap every service entry point in a
+  fresh process and count calls from launch. A fresh process is their oracle.
+- `test_shell_navigation_smoke.py` runs one subprocess per route, on purpose. That is how a crash is
+  attributed to its route, and how the QV4 garbage-collector crash is reproduced from a clean
+  state.
+- The rest already use one process per module. Merging them would save ≈ 20 s, about 3 % of the
+  suite, at the cost of state leaking between pages.
+- Not changed.
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history
