@@ -202,6 +202,59 @@ included six setters in other controllers).
   - The seven pages are pixel-identical before and after.
 - **Not changed:** QML, physics, services, providers, tolerances.
 
+## R3-D — done
+
+Four shared components in `ui/components/`, each replacing copies that were identical apart from
+named parameters. Page files: −1,191 / +89 lines; the components add 593.
+
+| Component | Replaces | Page parameters |
+|---|---|---|
+| `RFProvenanceInspector` (C3) | the Reference Engines and Propulsion Database Inspector bodies | controller readout, objectName prefix, "‹ Record" rule and action, wording; Reference Engines adds its "Source ›" button through `extraTools` |
+| `RFReferenceCheckTable` | the calculator reference-check table (Isentropic, Normal Shock) | the rows |
+| `RFGroupedReadout` | the grouped result readout and its `rowsIn` filter (Fanno, Rayleigh, Prandtl–Meyer, Mass Flow) | label width, row height, label clipping, Mass Flow's "Dimensional" note |
+| `RFReferenceComparisonPanel` | the table's published-appendix comparison panel (Isentropic, Normal Shock, Prandtl–Meyer) | row title, appendix sentence, column headings (not on Prandtl–Meyer), Isentropic's citation note, Normal Shock's review note, and each page's own `rowDetail` binding |
+
+Every objectName that tests or tools use is kept (`engineInspectorValue`, `evidenceInspectRecord`,
+`normalShockComparison`, …).
+
+**Kept local, deliberately:**
+- The Nozzle and Oblique Shock readouts, which use a different layout: a grid, a compact mode, a
+  different structure.
+- The remaining short shared runs (12–19 lines) in the table settings and input drawers. They are
+  interleaved with fields each page has and its siblings do not, so one component would need a
+  parameter per page.
+
+**Review fix:**
+- **What the first review found:** in the Reference Engines graph, source, capability, node and
+  edge readings, the "‹ Record" button sat 8 px left of its old place. The "Source ›" slot was a laid-out row, kept
+  visible by its child even when that child was hidden, and it took a spacing gap.
+- **The fix:** the slot's visibility is now an explicit flag, `extraToolsShown`, which the page sets
+  to exactly the old button's condition.
+- **The proof:** the capture set gained the graph, assertion and source readings, all
+  pixel-identical. The confirmation review measured the button positions in all nine readings, at
+  1920×1080 and 1280×800, against HEAD: identical.
+
+**Package safeguard kept whole:** `verify_package` scans the evidence pages for forbidden words. The
+Inspector body moved into `RFProvenanceInspector`, so that file is now scanned too.
+`tests/test_evidence_packaging.py` proves the scan catches a forbidden word in it and a missing copy.
+
+**Proof:**
+- Each page was captured from the running application in the states that show the components:
+  - each calculator;
+  - Mass Flow with the dimensional state incomplete, so its note shows;
+  - the two calculators with the check open;
+  - the three tables with the comparison on, at three published rows and one row off the grid
+    ("No reference row");
+  - both Inspectors open in every reading kind that changes their header: for Reference Engines the
+    record, the graph, an assertion row with its "Source ›" and a source; for the Propulsion
+    Database the record and a datum row.
+- The captures were taken from a pristine 9982243 worktree and from the R3-D tree. Across all 28
+  scenarios the sorted visible texts are identical, there are no QML warnings, and pixels differ by
+  at most 2 of 255. That is the run-to-run noise measured between two runs of the same tree
+  (animation and opacity rounding); it moves between pages from run to run.
+- The runtime tests that drive these pages (Reference Engines, Propulsion Database, shock workspaces,
+  interactive analysis, lifecycle, visual polish) pass.
+
 ## Owner decisions (2026-10-12)
 
 - U1: **remove the placeholder pages from navigation and delete their files.** They stay in git history

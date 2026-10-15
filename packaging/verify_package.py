@@ -341,6 +341,8 @@ def check_evidence(package: Path, repo: Path) -> list[str]:
             failures.append(f"evidence: the packaged reference-engine corpus does not load: {error}")
     pages = [internal / "ui" / "pages" / "PropulsionEvidencePage.qml"]
     pages += sorted((internal / "ui" / "pages" / "propulsionevidence").glob("*.qml"))
+    # The evidence Inspector's body is the shared component (R3-D); it is scanned as the page was.
+    pages += [internal / "ui" / "components" / "RFProvenanceInspector.qml"]
     for page in pages:
         if not page.is_file():
             failures.append(f"evidence: {page.relative_to(package)} is missing")

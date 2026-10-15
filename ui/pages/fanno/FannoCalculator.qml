@@ -33,14 +33,6 @@ Item {
 
     readonly property var columns: [["Flow", "Starred state"], ["Choking limit"]]
 
-    function rowsIn(group) {
-        var out = []
-        for (var i = 0; i < Fanno.results.length; ++i)
-            if (Fanno.results[i].group === group)
-                out.push(Fanno.results[i])
-        return out
-    }
-
     function segmentRowsIn(group) {
         var out = []
         for (var i = 0; i < Fanno.segmentResults.length; ++i)
@@ -347,74 +339,10 @@ Item {
                     spacing: Metrics.spacing.xl
                     visible: Fanno.valid
 
-                    Repeater {
-                        model: page.columns
-
-                        delegate: ColumnLayout {
-                            id: column
-                            required property var modelData
-
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignTop
-                            spacing: Metrics.spacing.m
-
-                            Repeater {
-                                model: column.modelData
-
-                                delegate: ColumnLayout {
-                                    id: group
-                                    required property var modelData
-                                    readonly property var groupRows: page.rowsIn(modelData)
-
-                                    Layout.fillWidth: true
-                                    spacing: Metrics.spacing.xs
-                                    visible: groupRows.length > 0
-
-                                    RFSectionLabel { text: Notation.sectionRich(group.modelData); textFormat: Notation.textFormat(group.modelData) }
-
-                                    Repeater {
-                                        model: group.groupRows
-
-                                        delegate: RowLayout {
-                                            required property var modelData
-                                            Layout.fillWidth: true
-                                            Layout.preferredHeight: 25
-                                            spacing: Metrics.spacing.m
-
-                                            Text {
-                                                Layout.preferredWidth: 210
-                                                text: Notation.rich(modelData.label)
-                                                textFormat: Notation.textFormat(modelData.label)
-                                                elide: Text.ElideRight
-                                                color: Theme.textSecondary
-                                                font.family: Typography.sans
-                                                font.pixelSize: Typography.body
-                                            }
-
-                                            Text {
-                                                Layout.fillWidth: true
-                                                text: modelData.value
-                                                      + (modelData.unit ? " " + modelData.unit : "")
-                                                color: modelData.available ? Theme.text
-                                                                           : Theme.textMuted
-                                                font.family: Typography.mono
-                                                font.pixelSize: modelData.emphasis
-                                                    ? Typography.readoutMedium
-                                                    : Typography.readoutSmall
-                                                font.weight: modelData.emphasis
-                                                    ? Typography.medium : Typography.regular
-
-                                                TapHandler {
-                                                    onSingleTapped: Fanno.copyText(modelData.value)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            Item { Layout.fillHeight: true }
-                        }
+                    RFGroupedReadout {
+                        columns: page.columns
+                        results: Fanno.results
+                        onCopyRequested: (value) => Fanno.copyText(value)
                     }
                 }
 

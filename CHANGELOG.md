@@ -9,6 +9,10 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Changed
+- Simplification R3-D (interface code only): the Inspector of the two evidence workspaces, the
+  calculators' reference-check table, the grouped result readout and the tables' reference
+  comparison panel are now four shared components instead of copies in each page. Pages look and
+  behave as before.
 - Simplification R3-C (code only): 73 of the 103 hand-written property getter/setter/`Property`
   triples in the seven compressible-flow controllers are now one `stored_property(...)` line each.
   The QML-visible surface is unchanged and pinned by a test against the pre-refactor capture; no
