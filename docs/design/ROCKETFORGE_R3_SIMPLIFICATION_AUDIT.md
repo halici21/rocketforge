@@ -255,12 +255,12 @@ Inspector body moved into `RFProvenanceInspector`, so that file is now scanned t
 - The runtime tests that drive these pages (Reference Engines, Propulsion Database, shock workspaces,
   interactive analysis, lifecycle, visual polish) pass.
 
-## R3-E — measured; no code change; P1 awaits an owner decision
+## R3-E — closed: measured; no code change; P1 not adopted by owner decision
 
 R3-E was to make each of P1–P3 with before/after numbers. The measurements decided all three. None
 changes code.
 
-**P1, provider pre-import: not done, owner decision needed.**
+**P1, provider pre-import: NOT ADOPTED (owner decision, 2026-10-15).**
 - **What it costs today.** Measured in the CEA environment:
   - `import cea`: 0.25 s.
   - `import CoolProp.CoolProp`: 0.85 s.
@@ -269,12 +269,15 @@ changes code.
     QML page, which a pre-import does not touch.
   - So P1 could save at most ≈ 0.85 s on the first visit to Fluid Properties or Line, and ≈ 0.25 s
     on the first visit to Thermochemistry.
-- **Why it is not done.** Pre-importing after the window is shown contradicts a documented runtime
+- **Why it was not done.** Pre-importing after the window is shown contradicts a documented runtime
   contract. `main.py` says the thermochemistry gateway "defers every provider import to first use,
   so a launch that never opens that workspace never loads NASA CEA and never reads a thermodynamic
   database". CLAUDE.md likewise describes the providers as reached through lazy gateways.
-- **The decision.** Keep that contract, or trade it for the saving above. It is the owner's, and
-  P1 is held until it is made.
+- **Owner decision (2026-10-15): preserve lazy loading.** The measured benefit is insufficient to
+  justify violating the lazy-loading invariant. NASA CEA and CoolProp are not preloaded after start
+  up: a provider or workspace the user never opens must not incur its provider-loading cost. No
+  preload or background provider initialisation is implemented. This is a deliberate architecture
+  decision, not an open item.
 
 **P2, compiled QML: confirmed; no change.**
 - The package ships `.qml` source only, with no `qmlcachegen` output.

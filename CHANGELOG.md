@@ -9,6 +9,9 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Changed
+- Simplification R3 closed (R3-A to R3-F). R3-E measured start-up and test-suite performance and
+  changed no code. Providers stay lazily loaded by owner decision: NASA CEA and CoolProp are loaded
+  only when a workspace that needs them is first opened, as before.
 - Simplification R3-D (interface code only): the Inspector of the two evidence workspaces, the
   calculators' reference-check table, the grouped result readout and the tables' reference
   comparison panel are now four shared components instead of copies in each page. Pages look and
