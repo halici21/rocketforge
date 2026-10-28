@@ -392,8 +392,9 @@ RESEARCH_CONFLICTS = {
         argument="UNRESOLVED in DB-0.5: whether Rocket Lab's 311 s is a sea-level Isp is open; the release sentence and the Electron "
                  "page panel that print it are withheld with it (Rutherford values are not carried anyway, rights)."),
     # DB-0 conflict encyclopedia pass (2026-10-28)
-    "CF-DB05-E-R2_US_CLASSIC-A42-1": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia family value against a 404 page; nothing ships from these sources."),
+    "CF-DB05-E-R2_US_CLASSIC-A42-1": dict(decision="WITHHOLD", withhold=("AS-DB05-US-RL10A-4-2-003",),
+        argument="PARTIALLY_RESOLVED in DB-0.5: the NRC Table D-4 prints 84:1 for the RL10A-4-2 against the AIAA guide's 85:1 "
+                 "(404); the NRC area ratio is withheld with it (NAP values are not carried anyway, rights)."),
     "CF-DB05-E-R2_US_CLASSIC-B2-4": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: encyclopedia revisions and a 404 page; nothing ships from these sources."),
     "CF-DB05-E-R2_SCHEM-R2-1": dict(decision="WITHHOLD", withhold=(),

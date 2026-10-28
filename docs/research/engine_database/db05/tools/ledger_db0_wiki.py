@@ -34,7 +34,9 @@ D("SRC-LLMPEDIA-HM7B", identifier=_REG["SRC-LLMPEDIA-HM7B"]["url"], title=_REG["
 _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "NF": "fetched; not in the current revision's text",
         "N": "not opened (refused, 404, unreachable, or never fetched)",
-        "X": "no source id (DB-0 search summary or brief)"}
+        "X": "no source id (DB-0 search summary or brief)",
+        "D4": "NRC 2006 (NAP 11780) Appendix D, Table D-4 (opened in an earlier DB-0.5 pass)",
+        "J97": "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -60,9 +62,12 @@ K("CF-R2_US_CLASSIC-RS-7", "ENG-US-SSME-BLOCK-II", "turbines.HPFT.discharge_temp
   "Both values come from one flight-readiness chart that the mirror would not serve on retry (connection failed). "
   + _PRIMARY)
 K("CF-R2_US_CLASSIC-A42-1", "ENG-US-RL10A-4-2", "nozzle.area_ratio",
-  [("85:1", "SRC-AIAA-VEHGUIDE-ATLAS", "N"), ("nozzle_ratio '84:1 or 280:1'", "SRC-WIKI-RL10", "T")],
-  "UNRESOLVED", "different_variant",
-  "The encyclopedia gives '84:1 or 280:1' for the family, not an RL10A-4-2 row; the AIAA page returns 404. " + _PRIMARY)
+  [("85:1", "SRC-AIAA-VEHGUIDE-ATLAS", "N"), ("nozzle_ratio '84:1 or 280:1'", "SRC-WIKI-RL10", "T"),
+   ("Nozzle area ratio 84:1 (RL10A-4-2 column)", "SRC-NAP-11780", "D4")],
+  "PARTIALLY_RESOLVED", "rounding_or_source",
+  "The NRC comparison table prints 84:1 for the RL10A-4-2 itself, matching the encyclopedia's 84:1 rather than the "
+  "AIAA guide's 85:1 (that page returns 404, so its wording cannot be checked). The NRC report is a secondary, not a "
+  "manufacturer datasheet, so the value is better supported but not settled.")
 K("CF-R2_US_CLASSIC-B2-4", "ENG-US-RL10B-2", "mechanical.mass / control.gimbal_actuation",
   [("dry_weight 301 kg; electro-mechanical", "SRC-WIKI-RL10", "T"), ("277 kg (older revision)", "SRC-WIKI-RL10", "NF"),
    ("hydraulic nozzle gimbal (stage)", "SRC-AIAA-VEHGUIDE-DELTA", "N")],
@@ -70,12 +75,17 @@ K("CF-R2_US_CLASSIC-B2-4", "ENG-US-RL10B-2", "mechanical.mass / control.gimbal_a
   "The current revision prints 301 kg; 277 kg was an older revision. The gimbal actuator wording is about the stage on one "
   "side and the engine on the other. " + _PRIMARY)
 K("CF-R2_ASIA-R2A-2", "ENG-JP-LE-7A", "performance.pc",
-  [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T")],
+  [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
+   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97")],
   "UNRESOLVED", "rating_or_rounding",
-  "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. " + _PRIMARY)
+  "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. The one primary "
+  "opened, a NASDA report of a 1997 development firing, prints 'about 120 kgf/cm2a' main combustion pressure, which is "
+  "11.77 MPa (117.7 bar) DERIVED: below both claims, and a development-test reading, not the flight rating. That "
+  "12.0 MPa is a rounded 120 kgf/cm2 is possible but not shown. No rating document was reached.")
 K("CF-ASIA_OTHER-1", "ENG-JP-LE-7A", "performance.pc",
-  [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T")],
-  "UNRESOLVED", "rating_or_rounding", "Same pair as CF-DB05-E-R2_ASIA-R2A-2.")
+  [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
+   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97")],
+  "UNRESOLVED", "rating_or_rounding", "Same claims and reading as CF-DB05-E-R2_ASIA-R2A-2.")
 K("CF-R2_ASIA-R2A-3", "ENG-JP-LE-9", "performance.pc",
   [("chamber_pressure 10.0 MPa", "SRC-WIKI-LE9", "T"), ("12.4 MPa (archived snapshot)", "SRC-WIKI-LE9", "NF")],
   "EXPLAINED", "different_epoch",
@@ -392,3 +402,10 @@ K("CF-TAXONOMY-TAX-6", "ENG-US-DELPHIN", "performance.thrust_sl",
   "UNRESOLVED", "rating_or_rounding",
   "The article gives 32,500 lbf for five engines (6,500 lbf each DERIVED); the press kit returns 404, so its 6,300 "
   "against 6,500 lbf cannot be checked.")
+
+D("SRC-DB05-NASDA-LE7A-FT6-1997", identifier="宇宙開発委員会 第16回 資料 委16-4 (1997-05-14), MEXT archive PDF",
+  title="LE－7Aエンジン燃焼試験結果（種子島第6回）について", tier="A",
+  rights_checked="Japanese government committee document on the MEXT site; reuse terms not reviewed",
+  rights_class="RIGHTS_REVIEW_REQUIRED",
+  note="3 pages, text layer. Read for the LE-7A pc conflicts only: development firing test 6 (1997-05-09), 277 s, main "
+       "combustion pressure about 120 kgf/cm2a, LH2 turbopump about 41,600 rpm, LOX turbopump about 18,100 rpm.")

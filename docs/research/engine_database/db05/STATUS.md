@@ -682,3 +682,13 @@ these files as design evidence and stress-test input only; they are not
 production data.
 DB-2 Production Engine Corpus: NOT STARTED.
 LIQ-7 Pump Foundation: PAUSED.
+
+## LE-7A and RL10A-4-2 primaries (2026-10-29)
+
+- NASDA 委16-4 (1997-05-14, MEXT archive) opened as SRC-DB05-NASDA-LE7A-FT6-1997: LE-7A development firing test 6
+  printed main combustion pressure about 120 kgf/cm2a (11.77 MPa DERIVED). It was added as a claim to
+  CF-DB05-E-R2_ASIA-R2A-2 and CF-DB05-E-ASIA_OTHER-1. These stay UNRESOLVED because a development-test reading is not
+  the flight rating.
+- CF-DB05-E-R2_US_CLASSIC-A42-1 is now PARTIALLY_RESOLVED: NRC Table D-4 prints 84:1 for the RL10A-4-2 against
+  AIAA's 85:1. The NRC area ratio is withheld in the wave-2 manifest.
+- Still open with no primary reached: Vulcain 2 pc and area ratio, RS-68A pc, RL10B-2 mass, YF-77.

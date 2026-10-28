@@ -778,6 +778,28 @@
    "assertions": 2
   },
   {
+   "source_id": "SRC-DB05-NASDA-LE7A-FT6-1997",
+   "url_requested": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 176254,
+   "sha256": "a357ee245495f1389a835b3de79c61eedd47e5d0ebb6ad5e97cdd76afb551b57",
+   "pdf_pages": 3,
+   "retrieved_utc": "2026-10-28T21:16:27Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "宇宙開発委員会 第16回 資料 委16-4 (1997-05-14), MEXT archive PDF",
+   "title_as_printed": "LE－7Aエンジン燃焼試験結果（種子島第6回）について",
+   "tier": "A",
+   "rights_statement_checked": "Japanese government committee document on the MEXT site; reuse terms not reviewed",
+   "rights_values": "RIGHTS_REVIEW_REQUIRED",
+   "rights_figures": "RIGHTS_REVIEW_REQUIRED",
+   "note": "3 pages, text layer. Read for the LE-7A pc conflicts only: development firing test 6 (1997-05-09), 277 s, main combustion pressure about 120 kgf/cm2a, LH2 turbopump about 41,600 rpm, LOX turbopump about 18,100 rpm.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-NTRS-19660014225",
    "url_requested": "https://ntrs.nasa.gov/citations/19660014225",
    "download_url": "https://ntrs.nasa.gov/api/citations/19660014225/downloads/19660014225.pdf",

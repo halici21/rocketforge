@@ -6471,5 +6471,20 @@
   "text_chars": 2683,
   "ok": true,
   "file": "SRC-DB05-NTRS-20000025317.pdf"
+ },
+ "SRC-DB05-NASDA-LE7A-FT6-1997": {
+  "source_id": "SRC-DB05-NASDA-LE7A-FT6-1997",
+  "url": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf",
+  "time_utc": "2026-10-28T21:16:27Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf",
+  "bytes": 176254,
+  "sha256": "a357ee245495f1389a835b3de79c61eedd47e5d0ebb6ad5e97cdd76afb551b57",
+  "is_pdf": true,
+  "pages": 3,
+  "text_chars": 1766,
+  "ok": true,
+  "file": "SRC-DB05-NASDA-LE7A-FT6-1997.pdf"
  }
 }

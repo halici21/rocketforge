@@ -25777,6 +25777,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NASDA-LE7A-FT6-1997",
+   "title": "LE-7Aエンジン燃焼試験結果（種子島第6回）について (委16-4)",
+   "authors": [],
+   "organization": "宇宙開発事業団 (NASDA), via MEXT 宇宙開発委員会",
+   "year": 1997,
+   "source_type": "committee report",
+   "identifier": "宇宙開発委員会 第16回 資料 委16-4 (1997-05-14)",
+   "url": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "rights_basis": "Japanese government committee document republished by MEXT; MEXT site terms not reviewed for reuse.",
+   "engines": [
+    "ENG-JP-LE-7A"
+   ],
+   "locators": "p.1 (1) 第6回燃焼試験結果",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): LE-7A development firing test 6 (1997-05-09), 277 s; main combustion pressure ~120 kgf/cm2a.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

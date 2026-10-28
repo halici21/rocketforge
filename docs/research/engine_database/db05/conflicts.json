@@ -4205,11 +4205,16 @@
      "nozzle_ratio '84:1 or 280:1'",
      "SRC-WIKI-RL10",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Nozzle area ratio 84:1 (RL10A-4-2 column)",
+     "SRC-NAP-11780",
+     "NRC 2006 (NAP 11780) Appendix D, Table D-4 (opened in an earlier DB-0.5 pass)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_variant",
-   "explanation": "The encyclopedia gives '84:1 or 280:1' for the family, not an RL10A-4-2 row; the AIAA page returns 404. No primary document opened; the record stays open."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rounding_or_source",
+   "explanation": "The NRC comparison table prints 84:1 for the RL10A-4-2 itself, matching the encyclopedia's 84:1 rather than the AIAA guide's 85:1 (that page returns 404, so its wording cannot be checked). The NRC report is a secondary, not a manufacturer datasheet, so the value is better supported but not settled."
   },
   {
    "conflict_id": "CF-DB05-E-R2_US_CLASSIC-B2-4",
@@ -4252,11 +4257,16 @@
      "Combustion chamber pressure: 12.0 MPa (1,740 psi)",
      "SRC-WIKI-LE7",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)",
+     "SRC-DB05-NASDA-LE7A-FT6-1997",
+     "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. No primary document opened; the record stays open."
+   "explanation": "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. The one primary opened, a NASDA report of a 1997 development firing, prints 'about 120 kgf/cm2a' main combustion pressure, which is 11.77 MPa (117.7 bar) DERIVED: below both claims, and a development-test reading, not the flight rating. That 12.0 MPa is a rounded 120 kgf/cm2 is possible but not shown. No rating document was reached."
   },
   {
    "conflict_id": "CF-DB05-E-ASIA_OTHER-1",
@@ -4273,11 +4283,16 @@
      "Combustion chamber pressure: 12.0 MPa (1,740 psi)",
      "SRC-WIKI-LE7",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)",
+     "SRC-DB05-NASDA-LE7A-FT6-1997",
+     "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "Same pair as CF-DB05-E-R2_ASIA-R2A-2."
+   "explanation": "Same claims and reading as CF-DB05-E-R2_ASIA-R2A-2."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-3",
