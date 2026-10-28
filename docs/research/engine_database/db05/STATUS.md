@@ -483,7 +483,7 @@ record returned HTTP 403 and was not retried.
 | CF-R2_US_CLASSIC-H1-2 | CF-DB05-H1-ISP-MASS | PARTIALLY_RESOLVED: Purdue's 263 s / 2,009 lb sit beside a 205,000 lb rating; the S-IB-4 primary average is 262.60 s; no primary H-1 mass has been opened. |
 | CF-R2_US_CLASSIC-LR-1 | CF-DB05-LR87-GIMBAL | EXPLAINED: 5° is for the Stage I chambers, 4° for the Stage II LR91-AJ-5. |
 | CF-US_HIST-19 | CF-DB05-LR87-7-PC | UNRESOLVED: Astronautix prints 47.00 bar (LR87-7) against 54.00 bar (LR87-5) as DB-0 said. It also prints a different area ratio (9 against 8), so the difference may be a real design difference rather than a typing error. |
-| CF-US_HIST-05 | CF-DB05-LR91-AJ11-MR | UNRESOLVED: Purdue's 1.78:1 is confirmed as printed, but its row mixes propellants. Next place to look: the Titan IIIE/Centaur summary (NTRS 19750004937). |
+| CF-US_HIST-05 | CF-DB05-LR91-AJ11-MR | RESOLVED: the Titan IIIE/Centaur summary (NTRS 19750004937, p.6-27) prints 1.79, and its flows (203 / 114 lb/s) give Purdue's 1.78. The 1.86 was never opened. |
 
 The AEHS page also prints the F-1 chamber pressure as "1,125 psig"; this was
 added to CF-DB05-F1-PC as a withheld competing claim.

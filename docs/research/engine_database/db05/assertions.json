@@ -10730,6 +10730,111 @@
    "access": "fetched",
    "db0_link": null,
    "note": "Same table: 105,000 lb vacuum, Isp 316 s vacuum, 1,314 lb, 860 psia, 49.2:1; propellants printed 'LOX/RP-1 or storables, ground tested with LOX/LH2', so the row may mix variants."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-002",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "Mixture Ratio 1.79",
+   "value": 1.79,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "Titan IIIE Stage II (LR91AJ-11)",
+    "environment": "vacuum (including roll nozzle)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: oxidizer 203 lb/sec and fuel 114 lb/sec, a ratio of 1.78 DERIVED."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-003",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "Vacuum Thrust, lb (including Roll Nozzle) 101,000",
+   "value": 101000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "Titan IIIE Stage II (LR91AJ-11)",
+    "environment": "vacuum (including roll nozzle)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-004",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value_as_printed": "Vacuum Specific Impulse, sec (including Roll Nozzle) 318.7",
+   "value": 318.7,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "Titan IIIE Stage II (LR91AJ-11)",
+    "environment": "vacuum (including roll nozzle)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-005",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "performance.mass_flow_total",
+   "operating_point": null,
+   "value_as_printed": "Total Flow Rate, lb/sec 317",
+   "value": 317,
+   "unit_as_printed": "lb/s",
+   "conditions": {
+    "configuration": "Titan IIIE Stage II (LR91AJ-11)",
+    "environment": "vacuum (including roll nozzle)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: operating cycle 225 sec."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-006",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value_as_printed": "Expansion Ratio 49.2:1",
+   "value": 49.2,
+   "unit_as_printed": ":1",
+   "conditions": {
+    "configuration": "Titan IIIE Stage II (LR91AJ-11)",
+    "environment": "vacuum (including roll nozzle)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19750004937",
+   "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
   }
  ]
 }

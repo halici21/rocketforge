@@ -1228,11 +1228,16 @@
      "Mixture Ratio 1.78:1",
      "SRC-PURDUE-LR91AJ11",
      "page text"
+    ],
+    [
+     "Mixture Ratio 1.79 (oxidizer 203 / fuel 114 lb/sec)",
+     "SRC-DB05-NTRS-19750004937",
+     "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "source_grade",
-   "explanation": "The Purdue value is confirmed as printed, but its table names no rating and mixes propellant combinations. The Titan IIIE/Centaur systems summary (NTRS 19750004937), read for the LR87-AJ-11, was not mined for the second stage; it is the next place to look."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The General Dynamics Convair Titan IIIE/Centaur systems summary prints 1.79 for the LR91AJ-11, and its flows (203 / 114 lb/sec) give 1.78, Purdue's figure; its 49.2:1 also matches Purdue. The 1.86 was never opened and names no variant or rating."
   }
  ]
 }

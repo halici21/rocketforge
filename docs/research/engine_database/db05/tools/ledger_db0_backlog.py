@@ -129,10 +129,21 @@ A(LR91_11, "propellants.mixture_ratio", None, "Mixture Ratio 1.78:1", 1.78, "(-)
   "Purdue 'Engine statistics' table (page text)", db0=None,
   note="Same table: 105,000 lb vacuum, Isp 316 s vacuum, 1,314 lb, 860 psia, 49.2:1; propellants printed 'LOX/RP-1 or "
        "storables, ground tested with LOX/LH2', so the row may mix variants.")
+GD = "SRC-DB05-NTRS-19750004937"
+LG = "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)"
+_G = {"configuration": "Titan IIIE Stage II (LR91AJ-11)", "environment": "vacuum (including roll nozzle)"}
+A(LR91_11, "propellants.mixture_ratio", None, "Mixture Ratio 1.79", 1.79, "(-)", _G, GD, LG, db0=None,
+  note="Same table: oxidizer 203 lb/sec and fuel 114 lb/sec, a ratio of 1.78 DERIVED.")
+A(LR91_11, "performance.thrust_vac", None, "Vacuum Thrust, lb (including Roll Nozzle) 101,000", 101000, "lb", _G, GD, LG, db0=None)
+A(LR91_11, "performance.isp_vac", None, "Vacuum Specific Impulse, sec (including Roll Nozzle) 318.7", 318.7, "s", _G, GD, LG, db0=None)
+A(LR91_11, "performance.mass_flow_total", None, "Total Flow Rate, lb/sec 317", 317, "lb/s", _G, GD, LG, db0=None,
+  note="Same table: operating cycle 225 sec.")
+A(LR91_11, "nozzle.area_ratio", None, "Expansion Ratio 49.2:1", 49.2, ":1", _G, GD, LG, db0=None)
 C("CF-DB05-LR91-AJ11-MR", engine_id=LR91_11, field_path="propellants.mixture_ratio", db0_conflict_id="CF-US_HIST-05",
   claims=[["1.86", "SRC-WIKI-LR91", "DB-0 infobox summary (never opened)"],
-          ["Mixture Ratio 1.78:1", P91, "page text"]],
-  resolution="UNRESOLVED", kind="source_grade",
-  explanation="The Purdue value is confirmed as printed, but its table names no rating and mixes propellant combinations. "
-              "The Titan IIIE/Centaur systems summary (NTRS 19750004937), read for the LR87-AJ-11, was not mined for the "
-              "second stage; it is the next place to look.")
+          ["Mixture Ratio 1.78:1", P91, "page text"],
+          ["Mixture Ratio 1.79 (oxidizer 203 / fuel 114 lb/sec)", GD, LG]],
+  resolution="RESOLVED", kind="primary_value_found",
+  explanation="The General Dynamics Convair Titan IIIE/Centaur systems summary prints 1.79 for the LR91AJ-11, and its "
+              "flows (203 / 114 lb/sec) give 1.78, Purdue's figure; its 49.2:1 also matches Purdue. The 1.86 was never "
+              "opened and names no variant or rating.")
