@@ -374,6 +374,13 @@ RESEARCH_CONFLICTS = {
         withhold=("AS-DB05-NZ-RUTHERFORD-VACUUM-002", "AS-DB05-NZ-RUTHERFORD-VACUUM-003",
                   "AS-DB05-NZ-RUTHERFORD-VACUUM-004"),
         argument="PARTIALLY_RESOLVED epochs; and the sources are copyrighted."),
+    # DB-0 conflict backlog pass (2026-10-28)
+    "CF-DB05-IPD-THRUST": dict(decision="CARRIED_NOT",
+        touches=("AS-DB05-US-IPD-006", "AS-DB05-US-IPD-010", "AS-DB05-US-IPD-011", "AS-DB05-US-IPD-013"),
+        competing={"AS-DB05-US-IPD-001": "not promoted; the same 250K lbf (1.1 MN)",
+                   "SRC-DTIC-ADA397910 / SRC-FLIGHTGLOBAL-IPD": "search results (access blocked / never opened); the same class"},
+        argument="EXPLAINED in DB-0.5: one 250,000 lbf design class, rounded differently. The matcher ties the programme and "
+                 "promoted propellant statements, which print it in the same sentence; no thrust value ships."),
 }
 
 CARRIER_GENERALISATIONS = {}

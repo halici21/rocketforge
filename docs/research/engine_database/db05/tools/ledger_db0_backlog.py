@@ -176,3 +176,13 @@ C("CF-DB05-VINCI-IGNITIONS", engine_id="ENG-FR-VINCI", field_path="operation.res
   explanation="ESA's 2024 page gives four ignitions, the same as 'three restarts' once the first ignition is counted. The "
               "'five times' is on an earlier ESA test-news page that DB-0.5 verified but did not transcribe; whether it was "
               "a design goal is not shown by an opened document.")
+
+# ------------------------------------------------------------------ IPD (Wave 2)
+C("CF-DB05-IPD-THRUST", engine_id="ENG-US-IPD", field_path="performance.thrust", db0_conflict_id="CF-R2_SCHEM-R2-14",
+  claims=[["a 250K lbf (1.1 MN) thrust cryogenic hydrogen/oxygen engine", "SRC-NTRS-IPD-WPB", "abstract"],
+          ["a 250k-lb-thrust, full-flow, staged-combustion", "SRC-DB05-NTRS-20050243602", "text"],
+          ["1,112,000 N (250,000 lbf)", "SRC-DTIC-ADA397910", "DB-0 search summary (access blocked)"],
+          ["250,000 lb (1,110 kN)", "SRC-FLIGHTGLOBAL-IPD", "DB-0 search summary (never opened)"]],
+  resolution="EXPLAINED", kind="rating_or_rounding",
+  explanation="Every value is the 250,000 lbf design class, converted and rounded differently (1.1 MN, 1,110 kN, "
+              "1,112,000 N). The opened NASA documents print it as a programme goal, not a measured rating.")

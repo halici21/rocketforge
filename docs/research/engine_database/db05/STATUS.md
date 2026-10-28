@@ -519,7 +519,15 @@ New conflicts:
 
 Wave 3 withholds their claims; nothing of these engines shipped before.
 
-52 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
+CF-DB05-IPD-THRUST (DB-0 R2-14): EXPLAINED. Every value is the same 250,000
+lbf design class, rounded differently. It is carried as not affecting the
+promoted IPD statements that print it.
+
+Rutherford's "311 s" sea-level Isp (COM-13) stays open: the Rocket Lab release
+was not re-downloaded, because a browser-agent download was refused as a
+bot-check bypass.
+
+53 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
 remains rests on unopened search summaries (Wikipedia, mirrors, Bilibili,
 HandWiki) or on sources that refused access. Examples: LE-7A pc, Vulcain 2
 thrust/pc/area ratio, YF-77/YF-100, and the RD-180, LE-9 and HM7B remainder.
