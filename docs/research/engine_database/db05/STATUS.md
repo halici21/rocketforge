@@ -290,6 +290,26 @@ it now has 22 Tier A assertions (contractor design estimates):
   A-3-3 is not its design estimate; its origin is not established.
 - RL10A-3-3 is not a seed engine; nothing promoted.
 
+## H-1 200K supplement (2026-10-28)
+
+Two Chrysler Space Division reports on Saturn IB stage S-IB-4 (flown on
+AS-204), found by NTRS search for the 200K/205K ratings CF-DB05-H1-THRUST
+held as secondary-only:
+
+- Final Static Test Report, Stage S-IB-4 (NTRS 19660014225, 25 Feb 1966):
+  "All engines produced thrust values within the specified limits of 200K±3
+  percent" (Section 2, p.5). The measured thrust is in a Confidential
+  Supplement that is not part of the document.
+- Final Flight Performance Prediction for AS-204, S-IB-4 (NTRS 19680003903,
+  20 Nov 1967), Table 5: average engine at sea level from Rocketdyne engine
+  logs 200.53 kips, Isp 262.60 s, MR 2.2168 (static tests SA-32/SA-33:
+  201.57 / 201.36 kips).
+- Four assertions on ENG-US-H-1-200K (not a seed engine; nothing promoted).
+  CF-DB05-H1-THRUST stays PARTIALLY_RESOLVED: 200K is now primary, 205K is
+  still secondary-only.
+- 'Description and status of the Saturn IB program' (NTRS 19660063404) was
+  tried and returned HTTP 404 (citation without PDF); it stays a lead.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

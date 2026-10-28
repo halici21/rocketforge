@@ -3043,5 +3043,95 @@
   "text_chars": 67022,
   "ok": true,
   "file": "SRC-DB05-NTRS-19700009516.pdf"
+ },
+ "SRC-DB05-NTRS-19660014225": {
+  "source_id": "SRC-DB05-NTRS-19660014225",
+  "url": "https://ntrs.nasa.gov/citations/19660014225",
+  "time_utc": "2026-10-28T17:30:01Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Saturn S-IB stage  Final static test report, stage S-IB-4",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19660014225,
+   "ear": "NO",
+   "id": "feae17e3b27141ab9ccfa2b104806687",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-CR-74418",
+   "Report Number: NASA-CR-74418"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19660014225/downloads/19660014225.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19660014225/downloads/19660014225.pdf",
+  "bytes": 7984511,
+  "sha256": "52de0ef09d2617e20cd6d10ef987f9e0eb99c1ee32d19fa6dbfe2744c5404c58",
+  "is_pdf": true,
+  "pages": 174,
+  "text_chars": 198760,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19660014225.pdf"
+ },
+ "SRC-DB05-NTRS-19680003903": {
+  "source_id": "SRC-DB05-NTRS-19680003903",
+  "url": "https://ntrs.nasa.gov/citations/19680003903",
+  "time_utc": "2026-10-28T17:30:07Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Final flight performance prediction for Saturn AS-204 LM propulsion system S-IB-4 stage",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19680003903,
+   "ear": "NO",
+   "id": "239d9e30841d4495ac808438b72ea822",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-CR-91467",
+   "TR-P&VE-67-58",
+   "Report Number: NASA-CR-91467",
+   "Report Number: TR-P&VE-67-58"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19680003903/downloads/19680003903.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19680003903/downloads/19680003903.pdf",
+  "bytes": 1403351,
+  "sha256": "9d3e595b43ef2c4ad07009ce7b9495315e48eb29b52eaa5f7cf021809aefa99d",
+  "is_pdf": true,
+  "pages": 38,
+  "text_chars": 28644,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19680003903.pdf"
+ },
+ "SRC-DB05-NTRS-19660063404": {
+  "source_id": "SRC-DB05-NTRS-19660063404",
+  "url": "https://ntrs.nasa.gov/citations/19660063404",
+  "time_utc": "2026-10-28T17:30:11Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Description and status of the Saturn IB PROGRAM.",
+  "ntrs_copyright": "OTHER",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19660063404,
+   "ear": "NO",
+   "id": "5d2e60eb260a4ab79fdcb0cc3710429c",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": null,
+  "download_url": "https://ntrs.nasa.gov/api/citations/19660063404/downloads/19660063404.pdf",
+  "http": "404",
+  "content_type": "application/json; charset=utf-8",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19660063404/downloads/19660063404.pdf",
+  "bytes": 40,
+  "sha256": "25d270f1a4ab503440f2d8a11da3f607a3e611c317528d91aaed52996b5c03cc",
+  "is_pdf": false,
+  "ok": false,
+  "file": "SRC-DB05-NTRS-19660063404.pdf"
  }
 }

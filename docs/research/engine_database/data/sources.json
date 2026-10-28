@@ -25651,6 +25651,48 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19660014225",
+   "title": "Saturn S-IB Stage Final Static Test Report, Stage S-IB-4",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1966,
+   "source_type": "static test report",
+   "identifier": "Chrysler Corporation Space Division, 25 Feb 1966; NASA-CR-74418; contract NAS8-4016; NTRS 19660014225",
+   "url": "https://ntrs.nasa.gov/citations/19660014225",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; NASA contractor report; no restrictive notice on pages read",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19680003903",
+   "title": "Final Flight Performance Prediction for Saturn AS-204 LM Propulsion System, S-IB-4 Stage",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1967,
+   "source_type": "flight performance prediction",
+   "identifier": "Chrysler Corporation Space Division TR-P&VE-67-58, 20 Nov 1967; NASA-CR-91467; NTRS 19680003903",
+   "url": "https://ntrs.nasa.gov/citations/19680003903",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; NASA contractor report; no restrictive notice on pages read",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

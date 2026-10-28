@@ -9562,6 +9562,96 @@
    "access": "fetched",
    "db0_link": null,
    "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-200K-001",
+   "engine_id": "ENG-US-H-1-200K",
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value_as_printed": "All engines produced thrust values within the specified limits of 200K±3 percent",
+   "value": 200000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "environment": "UNSTATED (stage acceptance firing limit)",
+    "stage": "S-IB-4",
+    "tolerance": "±3 percent",
+    "tests": "SA-32, SA-33"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19660014225",
+   "locator": "S-IB-4 Final Static Test Report p.5 (PDF p.14) Section 2 'Engine Systems'; repeated in the Summary p.1 (PDF p.10) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Printed as '200K'. The rating the S-IB-4 engines were accepted against; the measured values are in the unavailable Confidential Supplement."
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-200K-002",
+   "engine_id": "ENG-US-H-1-200K",
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value_as_printed": "200.53",
+   "value": 200530,
+   "unit_as_printed": "Kips",
+   "conditions": {
+    "environment": "sea level",
+    "stage": "S-IB-4 (eight engines, H-4058..H-4062, H-7062..H-7065)",
+    "basis": "Rocketdyne engine logs (Past-76 program), average engine"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19680003903",
+   "locator": "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same row: static test analysis 201.57 (SA-32) and 201.36 (SA-33) kips; flight prediction 201.98 kips."
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-200K-003",
+   "engine_id": "ENG-US-H-1-200K",
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value_as_printed": "262.60",
+   "value": 262.6,
+   "unit_as_printed": "sec",
+   "conditions": {
+    "environment": "sea level",
+    "stage": "S-IB-4 (eight engines, H-4058..H-4062, H-7062..H-7065)",
+    "basis": "Rocketdyne engine logs (Past-76 program), average engine"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19680003903",
+   "locator": "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-200K-004",
+   "engine_id": "ENG-US-H-1-200K",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "2.2168",
+   "value": 2.2168,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "environment": "sea level",
+    "stage": "S-IB-4 (eight engines, H-4058..H-4062, H-7062..H-7065)",
+    "basis": "Rocketdyne engine logs (Past-76 program), average engine",
+    "mr_basis": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-19680003903",
+   "locator": "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
   }
  ]
 }

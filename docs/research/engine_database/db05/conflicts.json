@@ -463,11 +463,21 @@
      "188,000 pounds (nominal rating) at sea level, SA-10",
      "SRC-NTRS-19650013470",
      "§1.2 p.1.1"
+    ],
+    [
+     "within the specified limits of 200K±3 percent, S-IB-4 (added 2026-10-28)",
+     "SRC-DB05-NTRS-19660014225",
+     "Section 2 p.5"
+    ],
+    [
+     "average engine 200.53 kips at sea level, S-IB-4 Rocketdyne engine logs (added 2026-10-28)",
+     "SRC-DB05-NTRS-19680003903",
+     "Table 5 p.13"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "Primary value confirmed for the SA-10 (188K) configuration and attached to ENG-US-H-1-188K, not the family anchor. 200K/205K ratings remain secondary-only."
+   "explanation": "Primary value confirmed for the SA-10 (188K) configuration and attached to ENG-US-H-1-188K, not the family anchor. The 200K rating is now primary for Saturn IB stage S-IB-4 (Chrysler acceptance limit 200K±3 percent; Rocketdyne sea-level engine logs average 200.53 kips) and attached to ENG-US-H-1-200K. The 205K rating remains secondary-only."
   },
   {
    "conflict_id": "CF-DB05-RL10A33A-MR-ISP",
