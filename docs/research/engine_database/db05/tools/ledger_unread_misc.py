@@ -30,7 +30,7 @@ D("SRC-AEHS-RPE", identifier="enginehistory.org 'U.S. Manned Rocket Propulsion E
        "its own record, SRC-EH-RPE0931.")
 D("SRC-ENGINEHISTORY-RPE0812", identifier="enginehistory.org/Rockets/RPE08.11/RPE08.12.shtml", title="Rocket Propulsion Evolution 8.12 (F-1)",
   tier="D", rights_checked="page footer copyright Aircraft Engine Historical Society, Inc.", rights_class="VALUES_WITH_ATTRIBUTION",
-  note="Secondary component description of the F-1; read, not mined: no value in it beats the Tier A F-1 records.")
+  note="Secondary component description of the F-1. Its one value used is the dry weight (ledger_f1_betts.py).")
 D("SRC-ENGINEHISTORY-RPE0822", identifier="enginehistory.org/Rockets/RPE08.22/RPE08.22.shtml", title="Rocket Propulsion Evolution 8.22 (J-2)",
   tier="D", rights_checked="page footer copyright Aircraft Engine Historical Society, Inc.", rights_class="VALUES_WITH_ATTRIBUTION",
   note="Secondary J-2 history; read, not mined. Its engine comparison table gives no source per cell, so it cannot settle "

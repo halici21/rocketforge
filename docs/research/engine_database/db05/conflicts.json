@@ -451,11 +451,16 @@
      "Thrust Chamber Pressure 1105 psia (Figure 19; added 2026-10-28)",
      "SRC-DB05-NTRS-19700009516",
      "p.37"
+    ],
+    [
+     "Chamber Pressure, ns (psia) 982 (2013 MSFC presentation)",
+     "SRC-DB05-NTRS-20140011656",
+     "slide 13"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "primary_value_found",
-   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch separates the two primary values is not established."
+   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch separates the two primary values is not established. Added 2026-10-28 (second pass): a 2013 NASA MSFC presentation prints 982 psia labelled 'ns', the usual abbreviation for nozzle stagnation. That is the first opened primary-agency document to give the lower value a station, but the slide defines neither 'ns' nor its source, so the reading is INFERRED."
   },
   {
    "conflict_id": "CF-DB05-F1-MASS",
@@ -474,14 +479,19 @@
      "text p.4"
     ],
     [
-     "~18,500 lb dry",
+     "approximately 18,500 lb dry",
      "SRC-ENGINEHISTORY-RPE0812",
-     "DB-0"
+     "engine description"
+    ],
+    [
+     "Weight (lb) 18,616 (2013 MSFC presentation)",
+     "SRC-DB05-NTRS-20140011656",
+     "slide 13"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "definition",
-   "explanation": "18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight."
+   "explanation": "18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. Added 2026-10-28: MSFC's 2013 deck repeats 18,616 lb, again undefined; the AEHS page (opened, Tier D) says 'approximately 18,500 lb dry'. No primary document names the definition."
   },
   {
    "conflict_id": "CF-DB05-H1-THRUST",

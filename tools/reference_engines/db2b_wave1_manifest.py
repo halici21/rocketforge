@@ -519,6 +519,13 @@ NOT_PROMOTED = {
                                                         "not the design the seed ships") for i in range(15, 21)},
     "AS-DB05-US-LMDE-021": ("WRONG_CONFIGURATION", "LM-10's approximate 54.0:1, unexplained against the design's "
                                                    "47.5:1 skirt; not the design the seed ships"),
+    # F-1 'Waking a Giant' pass (2026-10-28), recorded after the wave
+    "AS-DB05-US-F-1-039": ("WITHHELD_CONFLICT", "982 psia printed 'ns', a competing claim in CF-DB05-F1-PC; the owner kept "
+                                                "1,125 psia"),
+    "AS-DB05-US-F-1-040": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
+    "AS-DB05-US-F-1-041": ("NOT_NEEDED", "total propellant flow, a field the CFG-F1 record does not carry"),
+    "AS-DB05-US-F-1-042": ("WITHHELD_RIGHTS", "AEHS RPE08.12: Tier D page under the society's copyright; also a mass "
+                                              "claim in UNRESOLVED conflict CF-DB05-F1-MASS"),
 }
 
 # ------------------------------------------------------------------ owner decisions (2026-10-09)
@@ -590,12 +597,13 @@ RESEARCH_CONFLICTS = {
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),
     "CF-DB05-F1-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-005",),
-        withhold=("AS-DB05-US-F-1-038",),
+        withhold=("AS-DB05-US-F-1-038", "AS-DB05-US-F-1-039"),
         owner_accepted=_F1_PC, owner_scope="CFG-F1",
         competing={"SRC-WIKI-F1 70 bar (1,015 psi)": "search result, never opened",
                    "SRC-PURDUE-F1 982 psi": "search result, never opened",
                    "AS-DB05-US-F-1-038": "MSFC AS-504 summary Figure 19, 1105 psia, station unstated; withheld "
-                                         "by the owner's decision of 2026-10-28"},
+                                         "by the owner's decision of 2026-10-28",
+                   "AS-DB05-US-F-1-039": "MSFC 2013 deck, 982 psia printed 'ns' (nozzle stagnation, INFERRED); withheld"},
                           argument="PARTIALLY_RESOLVED in DB-0.5: the manufacturer's 1,125 psia (station unstated) "
                                    "against secondary values that may be nozzle-stagnation figures and MSFC's "
                                    "1105 psia (station unstated). Shipped for CFG-F1 only, station UNKNOWN, by "
@@ -611,7 +619,7 @@ RESEARCH_CONFLICTS = {
                                              "2.27:1. Shipping a mixture ratio for CFG-F1 is an owner decision; "
                                              "until then it is withheld."),
     "CF-DB05-F1-MASS": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-007",),
+        withhold=("AS-DB05-US-F-1-007", "AS-DB05-US-F-1-040", "AS-DB05-US-F-1-042"),
                             argument="UNRESOLVED: 18,616 lb has no printed definition."),
     "CF-DB05-LMDE-REPORTNO": dict(decision="CARRIED_NOT", touches=(), competing={},
                                   argument="RESOLVED in DB-0.5 (report number verified); no value involved."),

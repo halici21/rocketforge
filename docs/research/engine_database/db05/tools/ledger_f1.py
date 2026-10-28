@@ -127,12 +127,18 @@ C("CF-DB05-F1-RATING", engine_id=F1, field_path="performance.thrust_sl rating ep
   explanation="Three primary values: 1.5 Mlbf design goal, 1.530 Mlbf in the SA-503 crew manual, 1.522 Mlbf in a 2006 Rocketdyne slide. Which flights carried which rating is not established by the opened documents.")
 C("CF-DB05-F1-PC", engine_id=F1, field_path="performance.pc", db0_conflict_id="CF-R2_US_CLASSIC-F1-1",
   claims=[["1,125 psia (station unstated)", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["70 bar (1,015 psi)", "SRC-WIKI-F1", "DB-0"], ["982 psi", "SRC-PURDUE-F1", "DB-0"],
-          ["Thrust Chamber Pressure 1105 psia (Figure 19; added 2026-10-28)", "SRC-DB05-NTRS-19700009516", "p.37"]],
+          ["Thrust Chamber Pressure 1105 psia (Figure 19; added 2026-10-28)", "SRC-DB05-NTRS-19700009516", "p.37"],
+          ["Chamber Pressure, ns (psia) 982 (2013 MSFC presentation)", "SRC-DB05-NTRS-20140011656", "slide 13"]],
   resolution="PARTIALLY_RESOLVED", kind="primary_value_found",
   explanation="Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. "
               "Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch "
-              "separates the two primary values is not established.")
+              "separates the two primary values is not established. Added 2026-10-28 (second pass): a 2013 NASA MSFC presentation prints "
+              "982 psia labelled 'ns', the usual abbreviation for nozzle stagnation. That is the first opened primary-agency document "
+              "to give the lower value a station, but the slide defines neither 'ns' nor its source, so the reading is INFERRED.")
 C("CF-DB05-F1-MASS", engine_id=F1, field_path="mechanical.mass", db0_conflict_id="CF-R2_US_CLASSIC-F1-2",
   claims=[["18,616 lb", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["designed ... with a weight of 18,000 pounds", "SRC-DB05-NTRS-20100027316", "text p.4"],
-          ["~18,500 lb dry", "SRC-ENGINEHISTORY-RPE0812", "DB-0"]],
-  resolution="UNRESOLVED", kind="definition", explanation="18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight.")
+          ["approximately 18,500 lb dry", "SRC-ENGINEHISTORY-RPE0812", "engine description"],
+          ["Weight (lb) 18,616 (2013 MSFC presentation)", "SRC-DB05-NTRS-20140011656", "slide 13"]],
+  resolution="UNRESOLVED", kind="definition", explanation="18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. "
+              "Added 2026-10-28: MSFC's 2013 deck repeats 18,616 lb, again undefined; the AEHS page (opened, Tier D) says 'approximately "
+              "18,500 lb dry'. No primary document names the definition.")

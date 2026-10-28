@@ -1281,7 +1281,7 @@
  "SRC-ENGINEHISTORY-RPE0812": {
   "source_id": "SRC-ENGINEHISTORY-RPE0812",
   "url": "https://enginehistory.org/Rockets/RPE08.11/RPE08.12.shtml",
-  "time_utc": "2026-10-08T18:10:19Z",
+  "time_utc": "2026-10-28T19:34:07Z",
   "http": "200",
   "content_type": "text/html",
   "effective_url": "https://enginehistory.org/Rockets/RPE08.11/RPE08.12.shtml",
@@ -3146,5 +3146,36 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-EH-RPE0931.html"
+ },
+ "SRC-DB05-NTRS-20140011656": {
+  "source_id": "SRC-DB05-NTRS-20140011656",
+  "url": "https://ntrs.nasa.gov/citations/20140011656",
+  "time_utc": "2026-10-28T19:34:02Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Waking a Giant: Bringing the Saturn F-1 Engine Back to Life",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 20140011656,
+   "ear": "NO",
+   "id": "e4cacfa4f13a46efa4f008e3a3efcb3d",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "M13-3060",
+   "Report Number: M13-3060"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/20140011656/downloads/20140011656.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/20140011656/downloads/20140011656.pdf",
+  "bytes": 3208900,
+  "sha256": "ee8d75e6e2546d72cb65817c4e2eb2c2f8f0ece99626e8b056b41e0b9e23470c",
+  "is_pdf": true,
+  "pages": 28,
+  "text_chars": 8177,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-20140011656.pdf"
  }
 }

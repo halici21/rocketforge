@@ -10326,6 +10326,104 @@
    "access": "fetched",
    "db0_link": null,
    "note": "The reference sentence matters: a set point referenced to an ambient-vented bellows reads as gauge pressure on the ground and as absolute pressure in vacuum. Same section: tanks filled to 3,600 ± 50 psia, 4,400 psia maximum; relief diaphragm 219 ± 6 psig."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-039",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber Pressure, ns (psia) 982",
+   "value": 982,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "pc_station": "printed 'ns' (not defined on the slide)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20140011656",
+   "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Slide 8 prints the same 982 psia without the 'ns'. 'ns' is the usual abbreviation for nozzle stagnation (INFERRED; the deck gives no legend). Competing claim in CF-DB05-F1-PC."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-040",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight (lb) 18,616",
+   "value": 18616,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "definition": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20140011656",
+   "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Slide 8: 'Weight: 18,616 lb'. Same number as the 2006 Rocketdyne slide F1-6, again without a definition."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-041",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.mass_flow_total",
+   "operating_point": null,
+   "value_as_printed": "Engine Propellant Flow Rate: 5,737 lb/s",
+   "value": 5737,
+   "unit_as_printed": "lb/s",
+   "conditions": {},
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20140011656",
+   "locator": "slide 8 'What is the F-1 Engine?' (PDF p.8, viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1A-001",
+   "engine_id": "ENG-US-F-1A",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber Pressure, ns (psia) ... F-1A 1,161",
+   "value": 1161,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "pc_station": "printed 'ns'"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20140011656",
+   "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same column: 1,800,000 lbf sea level, 269.7 s sea level, MR 2.27, 16:1, 19,000 lb."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-042",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "weighed approximately 18,500 lb dry",
+   "value": 18500,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "definition": "dry"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-RPE0812",
+   "locator": "AEHS RPE08.12 engine description (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Tier D secondary compilation; the only opened source that names a definition (dry), and it is an approximation."
   }
  ]
 }

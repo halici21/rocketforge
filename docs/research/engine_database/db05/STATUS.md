@@ -398,6 +398,29 @@ files rebuild byte for byte.
   - JSC-11174 Rev E Volume I: sections 1-9 only. The OMS and MPS drawings DB-0
     cited are in later sections.
 
+## F-1 "Waking a Giant" supplement (2026-10-28)
+
+An NTRS title search on the F-1 mass and chamber-pressure conflicts found
+Betts (NASA MSFC), "Waking a Giant: Bringing the Saturn F-1 Engine Back to
+Life" (NTRS 20140011656, 2013, GOV_PUBLIC_USE_PERMITTED). Its slides 8 and 13
+were viewed as images.
+
+- **Chamber pressure.** Slide 13's F-1 / F-1A comparison prints "Chamber
+  Pressure, ns (psia) 982" (F-1A: 1,161). The slide does not define "ns".
+  Reading it as nozzle stagnation is INFERRED.
+  - This is the first opened agency document to attach any station to the
+    lower F-1 value. CF-DB05-F1-PC stays PARTIALLY_RESOLVED.
+  - The owner's 1,125 psia decision is unchanged, and 982 is a withheld
+    competing claim.
+- **Mass.**
+  - The deck repeats 18,616 lb without a definition.
+  - The AEHS F-1 page (Tier D) says "approximately 18,500 lb dry". It is the
+    only opened source that names a definition.
+  - CF-DB05-F1-MASS stays UNRESOLVED.
+- **Assertions.** Four F-1 assertions (039-042) and one F-1A, none promoted.
+  The total propellant flow of 5,737 lb/s is NOT_NEEDED: CFG-F1 has no such
+  field.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

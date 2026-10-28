@@ -3,7 +3,7 @@ import json, collections, sys
 from pathlib import Path
 
 import ledger
-import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170, ledger_wave2, ledger_wave3, ledger_f1_rating, ledger_j2_as501, ledger_rl10a33, ledger_h1_200k, ledger_sps_apollo9, ledger_ssme_unread, ledger_lmde_a15, ledger_unread_misc  # noqa: F401
+import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170, ledger_wave2, ledger_wave3, ledger_f1_rating, ledger_j2_as501, ledger_rl10a33, ledger_h1_200k, ledger_sps_apollo9, ledger_ssme_unread, ledger_lmde_a15, ledger_unread_misc, ledger_f1_betts  # noqa: F401
 
 HERE = Path(__file__).parent
 PKG = Path(__file__).resolve().parents[2]
@@ -98,7 +98,7 @@ for eid, t in ledger.TOPOLOGIES.items():
     (OUT / "topology" / f"{eid}.json").write_text(json.dumps({"notice": NOTICE, **t}, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 # ---- sources.json update: access state + new sources ----
-DOC_TYPES = {"SRC-DB05-NTRS-19750063889": ("flight manual", 1968), "SRC-DB05-NTRS-19660014225": ("static test report", 1966), "SRC-DB05-NTRS-19680003903": ("flight performance prediction", 1967), "SRC-DB05-NTRS-20100027316": ("conference chapter + viewgraphs", 2006),
+DOC_TYPES = {"SRC-DB05-NTRS-20140011656": ("presentation", 2013), "SRC-DB05-NTRS-19750063889": ("flight manual", 1968), "SRC-DB05-NTRS-19660014225": ("static test report", 1966), "SRC-DB05-NTRS-19680003903": ("flight performance prediction", 1967), "SRC-DB05-NTRS-20100027316": ("conference chapter + viewgraphs", 2006),
              "SRC-DB05-NTRS-19680026222": ("flight performance report", 1968), "SRC-DB05-NTRS-19940016798": ("contractor final report", 1993),
              "SRC-DB05-NTRS-19670005471": ("design report", 1967), "SRC-DB05-NTRS-19850008634": ("technical paper", 1985),
              "SRC-DB05-NTRS-19700009516": ("technical information summary", 1969)}
