@@ -16,11 +16,16 @@
      "186 psig primary / 191 psig secondary",
      "SRC-EH-RPE0931",
      "DB-0 search summary"
+    ],
+    [
+     "tank pressures 180 / 178 psia (oxidizer / fuel) at liftoff; regulator outlet not printed",
+     "SRC-APOLLO9-SPS-FFE",
+     "p.36 (PDF p.41)"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "definition_or_epoch",
-   "explanation": "Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages."
+   "explanation": "Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages. Added 2026-10-28: Apollo 9 (Block II) tank pressures sit at 175-183 psia, consistent with 180 psia, but the report gives no regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22)."
   },
   {
    "conflict_id": "CF-DB05-RS25-AREARATIO",
@@ -598,11 +603,16 @@
      "20,500 lbf",
      "SRC-WIKI-AJ10",
      "DB-0, not seen"
+    ],
+    [
+     "20728 pounds, 313.9 s, MR 1.587 at standard inlet conditions (Apollo 9 flight, Block II engine S/N 62); upper acceptance test specification limit 20705 pounds",
+     "SRC-APOLLO9-SPS-FFE",
+     "p.25 (PDF p.30)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_configuration",
-   "explanation": "The 21,500 lb value is printed for the Block I (O/F 2:1) engine; 20,000 lb is Aerojet's nominal. A Block II flight rating was not found in the pages read; 20,500 lbf remains unsupported by an opened primary document."
+   "explanation": "The 21,500 lb value is printed for the Block I (O/F 2:1) engine; 20,000 lb is Aerojet's nominal. A Block II flight rating was not found in the pages read; 20,500 lbf remains unsupported by an opened primary document. Added 2026-10-28: the Apollo 9 evaluation gives one Block II engine's flight value (20,728 lb, 0.9% above its acceptance-based model) and the upper acceptance limit (20,705 lb), but no nominal Block II rating."
   },
   {
    "conflict_id": "CF-DB05-LMDE-REPORTNO",

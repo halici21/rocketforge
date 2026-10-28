@@ -349,6 +349,10 @@ NOT_PROMOTED = {
     **{f"AS-DB05-US-J-2-{n:03d}": "AS-501 flight reconstruction (R-7450-1), not a rating; not the seeded configuration"
        for n in range(37, 46)},
     "AS-DB05-US-J-2-046": "one AS-501 engine's acceptance-test chamber pressure, station unstated; not the seeded configuration",
+    # Apollo 9 SPS pass (2026-10-28): TRW's flight evaluation of one Block II engine (CSM 104, S/N 62)
+    **{f"AS-DB05-US-AJ10-137-{n:03d}": "Apollo 9 flight evaluation: Block II engine S/N 62; Block II is not seeded"
+       for n in range(26, 36)},
+    "AS-DB05-US-AJ10-137-036": "Apollo 9 tank pressures beside the unresolved regulator conflict (CF-DB05-SPS-REG); Block II, not seeded",
 }
 
 # ------------------------------------------------------------------ research conflicts
@@ -366,7 +370,7 @@ NOT_PROMOTED = {
 # owner's DB-2A decisions of 2026-10-09; the DB-0.5 conflicts themselves are unchanged.
 
 RESEARCH_CONFLICTS = {
-    "CF-DB05-SPS-REG": dict(decision="WITHHOLD", withhold=("AS-DB05-US-AJ10-137-011",),
+    "CF-DB05-SPS-REG": dict(decision="WITHHOLD", withhold=("AS-DB05-US-AJ10-137-011", "AS-DB05-US-AJ10-137-036"),
                             argument="Regulated helium pressure is in UNRESOLVED conflict; not promoted."),
     "CF-DB05-J2-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2-003",),
                           competing={"Coffman text p.2 'a little over 700 psia'": "not transcribed as an assertion; consistent with 717",
@@ -408,7 +412,9 @@ RESEARCH_CONFLICTS = {
                        "conflict stays as recorded in DB-0.5.",
         competing={"AS-DB05-US-AJ10-137-014": "Aerojet 'general configuration' 20,000 lb; configuration "
                                               "not stated, not promoted",
-                   "SRC-WIKI-AJ10 20,500 lbf": "search result, never opened"},
+                   "SRC-WIKI-AJ10 20,500 lbf": "search result, never opened",
+                   "AS-DB05-US-AJ10-137-026 / -029": "Apollo 9 Block II engine S/N 62: 20,728 lb flight value and "
+                                                     "20,705 lb upper acceptance limit; Block II, not promoted"},
         argument="PARTIALLY_RESOLVED in DB-0.5 because no Block II flight rating was found. Its Block I "
                  "claim (21 500 lb, 102 psia, 309 s) stands against Aerojet's configuration-unstated 20,000 lb, "
                  "100 psi, 314.5 s. Re-scoping (owner-accepted): the Block I values are printed in TN D-7375's "

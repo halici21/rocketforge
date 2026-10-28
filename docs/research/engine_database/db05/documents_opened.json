@@ -131,12 +131,19 @@
    "bytes": 9450985,
    "sha256": "a50aa981f7dd68d2a14daa7b0f23aef232dc50be7cd9e3fedfea200233339f61",
    "pdf_pages": 78,
-   "retrieved_utc": "2026-10-08T18:07:03Z",
+   "retrieved_utc": "2026-10-28T18:44:52Z",
    "ntrs_copyright_determination": null,
    "ntrs_title": null,
    "ntrs_export_control": null,
-   "read_level": "FETCHED_NOT_READ",
-   "status_note": "downloaded; not inspected in this session"
+   "read_level": "READ_AND_MINED",
+   "identifier_verified": "TRW 11176-H311-R0-00, 4 Aug 1969 (R. J. Smith, TRW Propulsion Technology Section); NASA-TM-X-62907; Apollo 9 mission report supplement 5; NTRS 19700019020 (copy read from ibiblio.org/apollo)",
+   "title_as_printed": "Apollo 9 CSM 104 Service Propulsion System Final Flight Evaluation",
+   "tier": "A",
+   "rights_statement_checked": "NTRS 19700019020 GOV_PUBLIC_USE_PERMITTED; export control NO (EAR/ITAR NO); distribution PUBLIC; TRW report prepared for NASA MSC, no restrictive notice on pages read",
+   "rights_values": "PUBLIC_DOMAIN_GOV",
+   "rights_figures": "PUBLIC_DOMAIN_GOV",
+   "note": "78 pages. Text pp.1-41 and Tables 2, 5, 6 viewed as images; Figures 1-24 (PDF pp.55-78) are time-history plots, not schematics, so the DB-0 lead SCH-AJ10-137-R2-2 'Apollo 9 SPS pressurization system' has no drawing here.",
+   "assertions": 11
   },
   {
    "source_id": "SRC-CNES-A5-TECH",

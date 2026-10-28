@@ -106,6 +106,9 @@ X(RD, 8, "RECLASSIFIED", "NTRS 19910018906 p.15: Rockwell inference from photogr
 X(RD, 15, "CONFIRMED", "250 kgf/cm2 = 24.52 MPa (DERIVED reproduces)")
 
 C("CF-DB05-SPS-REG", engine_id=SPS, field_path="pressurization.regulator_setpoints",
-  claims=[["regulated to 180 psia", "SRC-NASA-TND7375", "p.3 (PDF p.7)"], ["186 psig primary / 191 psig secondary", "SRC-EH-RPE0931", "DB-0 search summary"]],
+  claims=[["regulated to 180 psia", "SRC-NASA-TND7375", "p.3 (PDF p.7)"], ["186 psig primary / 191 psig secondary", "SRC-EH-RPE0931", "DB-0 search summary"],
+          ["tank pressures 180 / 178 psia (oxidizer / fuel) at liftoff; regulator outlet not printed", "SRC-APOLLO9-SPS-FFE", "p.36 (PDF p.41)"]],
   resolution="UNRESOLVED", kind="definition_or_epoch",
-  explanation="Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages.")
+  explanation="Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages. "
+              "Added 2026-10-28: Apollo 9 (Block II) tank pressures sit at 175-183 psia, consistent with 180 psia, but the report gives no "
+              "regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22).")

@@ -101,6 +101,10 @@ T(E, configuration="Apollo SPS, Block I text with Fig. 2 feed assembly", schemat
 
 C("CF-DB05-SPS-THRUST", engine_id=E, field_path="performance.thrust_vac", db0_conflict_id="CF-SPACECRAFT-1",
   claims=[["21 500 pounds vacuum, 102 psia, 309 s (Block I section)", TN, "p.5"], ["20,000 pounds, 100 psi, 314.5 s (general configuration)", "SRC-NTRS-20100027319", "p.63"],
-          ["20,500 lbf", "SRC-WIKI-AJ10", "DB-0, not seen"]],
+          ["20,500 lbf", "SRC-WIKI-AJ10", "DB-0, not seen"],
+          ["20728 pounds, 313.9 s, MR 1.587 at standard inlet conditions (Apollo 9 flight, Block II engine S/N 62); upper acceptance test specification limit 20705 pounds",
+           "SRC-APOLLO9-SPS-FFE", "p.25 (PDF p.30)"]],
   resolution="PARTIALLY_RESOLVED", kind="different_configuration",
-  explanation="The 21,500 lb value is printed for the Block I (O/F 2:1) engine; 20,000 lb is Aerojet's nominal. A Block II flight rating was not found in the pages read; 20,500 lbf remains unsupported by an opened primary document.")
+  explanation="The 21,500 lb value is printed for the Block I (O/F 2:1) engine; 20,000 lb is Aerojet's nominal. A Block II flight rating was not found in the pages read; 20,500 lbf remains unsupported by an opened primary document. "
+              "Added 2026-10-28: the Apollo 9 evaluation gives one Block II engine's flight value (20,728 lb, 0.9% above its acceptance-based model) "
+              "and the upper acceptance limit (20,705 lb), but no nominal Block II rating.")

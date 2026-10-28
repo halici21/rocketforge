@@ -310,6 +310,36 @@ held as secondary-only:
 - 'Description and status of the Saturn IB program' (NTRS 19660063404) was
   tried and returned HTTP 404 (citation without PDF); it stays a lead.
 
+## Apollo 9 SPS supplement (2026-10-28)
+
+SRC-APOLLO9-SPS-FFE was the first of the 17 `FETCHED_NOT_READ` downloads to
+be read: TRW 11176-H311-R0-00 (NASA-TM-X-62907, 4 Aug 1969), the final
+flight evaluation of the CSM 104 service propulsion system. NTRS 19700019020
+marks it GOV_PUBLIC_USE_PERMITTED and not export controlled. CSM 104 is a
+Block II spacecraft (engine S/N 62, injector S/N 120).
+
+- Flight performance at standard inlet conditions (burns 2 and 3, p.25):
+  20,728 lb vacuum thrust, 313.9 s, MR 1.587. That is 0.9% above the preflight
+  model built from acceptance data, which is outside its ±0.73% 3-sigma band.
+  It is also just above the upper acceptance specification limit of 20,705 lb.
+- Predicted Isp 313.0 s ±1.59 s (3-sigma). Table 2 engine constants:
+  c\* 5934.3 ft/s, initial throat area 121.6021 in². Standard inlet conditions
+  are 162 / 169 psia (oxidizer / fuel) at 70 °F.
+- Tables 5 and 6 (calculated): chamber pressure 100 and 102 psia.
+- Tank pressures were 180 / 178 psia at liftoff. The report prints no helium
+  regulator set point. It notes that the regulator stems were replaced before
+  flight (p.22).
+- Eleven assertions on ENG-US-AJ10-137 (026-036); none promoted. The DB-2A
+  manifest lists them as Block II (not seeded) and withholds -036 under
+  CF-DB05-SPS-REG.
+- CF-DB05-SPS-THRUST stays PARTIALLY_RESOLVED. These are flight and acceptance
+  values for one Block II engine; the report gives no nominal Block II rating.
+- CF-DB05-SPS-REG stays UNRESOLVED. The flight tank pressures are consistent
+  with 180 psia but do not settle 186 / 191 psig.
+- Figures 1-24 are time-history plots. The DB-0 schematic lead
+  SCH-AJ10-137-R2-2 ("Apollo 9 SPS pressurization system") has no drawing in
+  this document.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

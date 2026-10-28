@@ -865,7 +865,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "pressurization system discussion",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round-1 id reused.",
    "id_collision_titles": [
     "Apollo 9 Service Propulsion System Final Flight Evaluation (project technical report)"
