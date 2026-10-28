@@ -493,9 +493,37 @@ Promotion:
 - Wave 1: the four AEHS F-1 values are WITHHELD_RIGHTS (pinned total 53 → 57), and the pump-flow conflict withholds its claims.
 - No shipped value changed, and the shipped files rebuild byte for byte.
 
-37 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. Most of the
-rest are on non-US engines (Vulcain 2, RD-180, LE-9, HM7B, ...), whose DB-0
-claims are search summaries of web pages.
+**Second step, Wave 2/3 engines (same day).**
+
+Several DB-0.5 conflicts filed in the wave passes already covered DB-0
+conflicts but did not link them. They are now linked:
+
+| DB-0.5 conflict | Now linked to DB-0 conflicts |
+|---|---|
+| CF-DB05-RUTHERFORD-SL-THRUST | COM-12, ANCHOR_US_MODERN-5 |
+| CF-DB05-RUTHERFORD-VAC-THRUST | COM-11, ANCHOR_US_MODERN-4, R2_SCHEM-R2-11 |
+| CF-DB05-LE7A-EPOCH | R2A-1, ASIA_OTHER-2 (Isp) |
+| CF-DB05-VULCAIN-THRUST | EUROPE-1 |
+| CF-DB05-VULCAIN-TURBOPUMPS | R2A-19 |
+
+On R2A-19: the 1990 NASA briefing prints 13,000 rpm for the Vulcain 1, so that
+number does not identify Vulcain 2's new LOX pump.
+
+New conflicts:
+
+| DB-0.5 conflict | DB-0 conflicts | Result |
+|---|---|---|
+| CF-DB05-LE9-ISP | R2A-4, ASIA_OTHER-4, TAX-2 | RESOLVED: JAXA, MHI and IAC all print 425 s. |
+| CF-DB05-VULCAIN-MASS | EUROPE-2, EUROPE-5 | UNRESOLVED: both opened masses (1300 kg in 1990; ESA 1686 kg) are for the first Vulcain. EUROPE-5's Vulcain 2 attribution is not supported. |
+| CF-DB05-VINCI-IGNITIONS | EUROPE-7 | PARTIALLY_RESOLVED: ESA 2024 gives four ignitions, which equals three restarts. The earlier "five" was not transcribed. |
+
+Wave 3 withholds their claims; nothing of these engines shipped before.
+
+52 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
+remains rests on unopened search summaries (Wikipedia, mirrors, Bilibili,
+HandWiki) or on sources that refused access. Examples: LE-7A pc, Vulcain 2
+thrust/pc/area ratio, YF-77/YF-100, and the RD-180, LE-9 and HM7B remainder.
+They need a primary document first.
 
 ## Reproducing
 

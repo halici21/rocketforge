@@ -147,3 +147,32 @@ C("CF-DB05-LR91-AJ11-MR", engine_id=LR91_11, field_path="propellants.mixture_rat
   explanation="The General Dynamics Convair Titan IIIE/Centaur systems summary prints 1.79 for the LR91AJ-11, and its "
               "flows (203 / 114 lb/sec) give 1.78, Purdue's figure; its 49.2:1 also matches Purdue. The 1.86 was never "
               "opened and names no variant or rating.")
+
+# ------------------------------------------------------------------ Wave 3 engines: DB-0 conflicts on opened values
+C("CF-DB05-LE9-ISP", engine_id="ENG-JP-LE-9", field_path="performance.isp_vac",
+  db0_conflict_id="CF-R2_ASIA-R2A-4; CF-ASIA_OTHER-4; CF-TAXONOMY-TAX-2",
+  claims=[["Isp(vacuum) 425sec", "SRC-MHI-LE9", "Main specifications"],
+          ["425s (Sept 2017 press release)", "SRC-JAXA-PRESS-LE9-2017", "PDF p.3"],
+          ["LOX/LH2, 1471kN, 425s, 2410kg (2017 abstract)", "SRC-IAC-LE9-2017", "abstract"],
+          ["426 s; 432 s (development-era snapshot)", "SRC-WIKI-LE9", "DB-0 search summary (never opened)"]],
+  resolution="RESOLVED", kind="primary_value_found",
+  explanation="JAXA, MHI and the 2017 IAC abstract all print 425 s. The 426 s and the earlier 432 s are encyclopedia "
+              "revisions never opened.")
+C("CF-DB05-VULCAIN-MASS", engine_id="ENG-FR-VULCAIN", field_path="mechanical.mass", db0_conflict_id="CF-EUROPE-2; CF-EUROPE-5",
+  claims=[["Engine Mass 1300 kg (2860 lbs) (June 1990, in development)", "SRC-NTRS-19910018907", "PDF p.10"],
+          ["The Vulcain engine was 3 m high, 1.76 m in diameter and weighed 1686 kg", "SRC-ESA-VULCAIN", "Vulcain page"],
+          ["1300 kg; 1800 kg (Vulcain 2)", "SRC-HANDWIKI-VULCAIN", "DB-0 search summary (never opened)"]],
+  resolution="UNRESOLVED", kind="different_epoch",
+  explanation="Both opened values are for the first Vulcain: the 1990 briefing describes it in development; the ESA page "
+              "describes 'the Ariane 5 Vulcain engine ... in its initial version' and gives 1686 kg. DB-0's CF-EUROPE-5 "
+              "set that 1686 kg against a Vulcain 2 mass; on the page it belongs to Vulcain 1, so CF-EUROPE-5 has no "
+              "opened Vulcain 2 value. Whether 1300 kg became 1686 kg by growth or by a different definition is not stated.")
+C("CF-DB05-VINCI-IGNITIONS", engine_id="ENG-FR-VINCI", field_path="operation.restarts", db0_conflict_id="CF-EUROPE-7",
+  claims=[["It can ignite up to four times in a single Ariane 6 flight", "SRC-ESA-A6ENGINES", "Vinci section"],
+          ["up to 3 restarts", "SRC-WIKI-VINCI", "DB-0 search summary (never opened)"],
+          ["max 4 ignitions per mission", "SRC-SAFRAN-VINCI-2018", "DB-0 search summary (HTTP 403)"],
+          ["up to five times", "SRC-ESA-VINCI-HOTFIRE", "identity-verified only; value not transcribed"]],
+  resolution="PARTIALLY_RESOLVED", kind="definition",
+  explanation="ESA's 2024 page gives four ignitions, the same as 'three restarts' once the first ignition is counted. The "
+              "'five times' is on an earlier ESA test-news page that DB-0.5 verified but did not transcribe; whether it was "
+              "a design goal is not shown by an opened document.")

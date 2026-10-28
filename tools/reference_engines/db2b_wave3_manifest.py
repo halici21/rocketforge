@@ -247,6 +247,17 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-VINCI-EPOCH": dict(decision="WITHHOLD",
         withhold=("AS-DB05-FR-VINCI-002", "AS-DB05-FR-VINCI-004"),
         argument="UNRESOLVED: a 2005 development target and a 2024 figure; neither shippable (rights)."),
+    # DB-0 conflict backlog pass (2026-10-28)
+    "CF-DB05-LE9-ISP": dict(decision="CARRIED_NOT", touches=(), competing={"SRC-WIKI-LE9 426 s / 432 s": "search result, never opened"},
+        argument="RESOLVED: JAXA, MHI and IAC print 425 s; nothing of LE-9 ships (rights)."),
+    "CF-DB05-VULCAIN-MASS": dict(decision="WITHHOLD",
+        withhold=("AS-DB05-FR-VULCAIN-009", "AS-DB05-FR-VULCAIN-017", "AS-DB05-FR-VULCAIN-018"),
+        argument="UNRESOLVED: 1990 development mass against ESA's later page, both for the first Vulcain (the "
+                 "matcher also ties ESA's LOX pump line, '3 MW'); neither "
+                 "shippable anyway."),
+    "CF-DB05-VINCI-IGNITIONS": dict(decision="WITHHOLD", withhold=("AS-DB05-FR-VINCI-003",),
+        argument="PARTIALLY_RESOLVED: four ignitions (ESA 2024) against an earlier untranscribed 'five'; ESA page "
+                 "withheld for rights anyway."),
 }
 
 CARRIER_GENERALISATIONS = {}

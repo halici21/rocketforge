@@ -373,27 +373,34 @@ C("CF-DB05-LE7-EPOCH", engine_id=LE7, field_path="performance.thrust_vac, perfor
   explanation="1990 figures are for the engine in development (a US panel's summary); 1997 and later agency figures describe the "
               "flying engine. No opened document says what changed between them.")
 C("CF-DB05-LE7A-EPOCH", engine_id=LE7A, field_path="performance.thrust_vac, performance.isp, mechanical",
+  db0_conflict_id="CF-R2_ASIA-R2A-1; CF-ASIA_OTHER-2",
   claims=[["推力（真空中） 110 tonf; 比推力 441 sec; 全長 3765 mm (prototype development, April 1997)", MEXT, "PDF p.7"],
           ["1100kN（112tonf）; 440s; 3.7m (reference column, Sept 2017)", JAXA17, "PDF p.3"],
           ["Thrust (vacuum) 112 ton; Isp (vacuum) 440sec; Length 3,670mm (as retrieved 2026)", MHI7A, "Main specifications"]],
   resolution="UNRESOLVED", kind="different_epoch",
   explanation="The 1997 values are the engine's specifications during development; the 2017 and manufacturer values describe the "
-              "flying engine. No opened document records the change; nothing from one epoch fills the other.")
+              "flying engine. No opened document records the change; nothing from one epoch fills the other. "
+              "Linked 2026-10-28 to the DB-0 Isp conflicts: their 429 s / 442 s short- and long-nozzle values are an "
+              "encyclopedia's, never opened; no opened document names the nozzle the 440 s or 441 s belongs to.")
 C("CF-DB05-LE9-THRUST-LEVEL", engine_id=LE9, field_path="performance.thrust_vac",
   claims=[["1471kN (150tonf)", JAXA17, "PDF p.3"], ["1 500 kN レベル (abstract)", IHI, "PDF p.1"], ["エンジン推力は 1 471 kN", IHI, "PDF p.2"]],
   resolution="EXPLAINED", kind="rating_or_rounding",
   explanation="'1 500 kN level' is the same paper's class statement; its own §2.3 prints 1 471 kN.")
-C("CF-DB05-VULCAIN-THRUST", engine_id=VUL, field_path="performance.thrust_vac",
+C("CF-DB05-VULCAIN-THRUST", engine_id=VUL, field_path="performance.thrust_vac", db0_conflict_id="CF-EUROPE-1",
   claims=[["Vacuum Thrust 1025 kN (230,000 lb) (June 1990, in development)", RICE, "PDF p.10"],
           ["115 tonnes of thrust in vacuum in its initial version", ESAVUL, "Vulcain page"]],
   resolution="PARTIALLY_RESOLVED", kind="different_epoch",
   explanation="The 1990 briefing itself says thrust and combustion-pressure increases were under way (p.2): the 1990 value is "
-              "pre-growth. The flown value is known only from ESA's restricted page; the change is not documented.")
-C("CF-DB05-VULCAIN-TURBOPUMPS", engine_id=VUL, field_path="turbines.speed, turbines.power",
+              "pre-growth. The flown value is known only from ESA's restricted page; the change is not documented. "
+              "Linked 2026-10-28 to DB-0's CF-EUROPE-1, whose 1140 kN is a HandWiki mirror, never opened.")
+C("CF-DB05-VULCAIN-TURBOPUMPS", engine_id=VUL, field_path="turbines.speed, turbines.power", db0_conflict_id="CF-R2_ASIA-R2A-19",
   claims=[["LH2 34,200 rpm / 11,300 kW; LOX 13,000 rpm / 2,900 kW (June 1990)", RICE, "PDF p.10"],
           ["LOX 13 600 rpm, 3 MW; LH2 34 000 rpm, 12 MW", ESAVUL, "Vulcain page"]],
   resolution="UNRESOLVED", kind="different_epoch",
-  explanation="Development-era and later agency figures differ; whether by epoch or rounding is not established.")
+  explanation="Development-era and later agency figures differ; whether by epoch or rounding is not established. "
+              "Linked 2026-10-28 to DB-0's CF-R2_ASIA-R2A-19, filed on the Vulcain 2: it took 13,000 rpm for Vulcain 2's "
+              "new LOX pump and 13,600 rpm for Vulcain 1, but the 1990 NASA briefing prints 13,000 rpm for the Vulcain 1 "
+              "in development, so 13,000 rpm alone does not identify the Vulcain 2 pump.")
 C("CF-DB05-VINCI-EPOCH", engine_id=VINCI, field_path="performance.thrust",
   claims=[["Vinci will provide 18 tonnes of thrust in vacuum with a specific impulse of 465 sec (July 2005, a target)", ESAVI05, "news"],
           ["180 Kn of thrust (June 2024, environment not printed)", ESAA6, "Vinci section"]],

@@ -250,10 +250,12 @@ A(RUT, "performance.stage_thrust", None, "First Stage 9 Sea-level Rutherford Eng
 A(RUTV, "performance.thrust_vac", None, "Second Stage Single Vacuum Rutherford Engine Total Thrust: 25.8 kN (5,800 lbf) ISP: 343 seconds",
   5800, "lbf", {"epoch": "as retrieved 2026-10-08"}, EP, "Electron page, 'Rutherford Engine' panel", db0=None)
 C("CF-DB05-RUTHERFORD-SL-THRUST", engine_id=RUT, field_path="performance.thrust_sl",
+  db0_conflict_id="CF-COMMERCIAL-COM-12; CF-ANCHOR_US_MODERN-5",
   claims=[["24 kN (5,500 lbf) (31 Jan 2018)", T18, "release"], ["now produce 5,600 lbf (up from 5,500 lbf) (4 Aug 2020)", T20, "release"]],
   resolution="EXPLAINED", kind="different_epoch",
   explanation="The 2020 release itself says the sea-level engine went from 5,500 to 5,600 lbf: two epochs, not a disagreement.")
 C("CF-DB05-RUTHERFORD-VAC-THRUST", engine_id=RUTV, field_path="performance.thrust_vac",
+  db0_conflict_id="CF-COMMERCIAL-COM-11; CF-ANCHOR_US_MODERN-4; CF-R2_SCHEM-R2-11",
   claims=[["max thrust of 24 kN (5,500 lbf) (31 Jan 2018)", T18, "release"], ["now produces a max thrust of 5,800 lbf (4 Aug 2020)", T20, "release"],
           ["Total Thrust: 25.8 kN (5,800 lbf) (as retrieved 2026)", EP, "Electron page"]],
   resolution="PARTIALLY_RESOLVED", kind="different_epoch",
