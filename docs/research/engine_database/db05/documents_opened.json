@@ -183,6 +183,28 @@
    "assertions": 2
   },
   {
+   "source_id": "SRC-DB05-NTRS-19680026222",
+   "url_requested": "https://ntrs.nasa.gov/citations/19680026222",
+   "download_url": "https://ntrs.nasa.gov/api/citations/19680026222/downloads/19680026222.pdf",
+   "http_status": "200",
+   "bytes": 14593234,
+   "sha256": "e2ceeb56795e3d79723e2747161183005abcd896eae6bb2a23de6026c7f06db1",
+   "pdf_pages": 320,
+   "retrieved_utc": "2026-10-28T15:03:01Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "J-2 engine performance analysis flight AS-501 /Apollo 4/ S-2 and S-4B stages",
+   "ntrs_export_control": "NO",
+   "read_level": "READ_AND_MINED",
+   "identifier_verified": "Rocketdyne R-7450-1, 17 May 1968; NASA-CR-61991; contract NAS8-19; NTRS 19680026222",
+   "title_as_printed": "J-2 Engine Performance Analysis of Flight AS-501 (Apollo 4), S-II and S-IVB Stages",
+   "tier": "A",
+   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; no reproduction notice found in the extracted text (poor OCR)",
+   "rights_values": "VALUES_WITH_ATTRIBUTION",
+   "rights_figures": "VALUES_WITH_ATTRIBUTION",
+   "note": "320-page scan. Summary (PDF p.22), Table 10 (PDF p.78), Table 11 (PDF p.81), Table 16 (PDF p.122) and Table 28 (PDF p.266) were viewed as images. Engines: S-II J2026, J2043, J2030, J2035, J2028; S-IVB J2031.",
+   "assertions": 10
+  },
+  {
    "source_id": "SRC-DB05-NTRS-19700009516",
    "url_requested": "https://ntrs.nasa.gov/citations/19700009516",
    "download_url": "https://ntrs.nasa.gov/api/citations/19700009516/downloads/19700009516.pdf",

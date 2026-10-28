@@ -185,9 +185,11 @@ T(J2, configuration="J-2 (Saturn S-II/S-IVB), configuration of the Rocketdyne sl
 
 C("CF-DB05-J2-PC", engine_id=J2, field_path="performance.pc", db0_conflict_id="CF-R2_US_CLASSIC-J2-2",
   claims=[["717 psia (nozzle stagnation)", "SRC-NTRS-20100027318", "slide J2-3"], ["a little over 700 psia", "SRC-NTRS-20100027318", "text p.2"],
-          ["763 psi", "SRC-WIKI-J2", "DB-0 search summary"]],
+          ["763 psi", "SRC-WIKI-J2", "DB-0 search summary"],
+          ["776.3 psia 'Thrust Chamber Pressure', engine J2026 acceptance (added 2026-10-28)", "SRC-DB05-NTRS-19680026222", "Table 11 p.71"]],
   resolution="RESOLVED", kind="primary_value_found",
-  explanation="Primary manufacturer value 717 psia at nozzle stagnation for the 230,000 lb / MR 5.5 J-2. 763 psi has no support in any opened primary document; it may be an injector-face value or a different rating (not verified).")
+  explanation="Primary manufacturer value 717 psia at nozzle stagnation for the 230,000 lb / MR 5.5 J-2. 763 psi has no support in any opened primary document; it may be an injector-face value or a different rating (not verified). "
+              "R-7450-1 prints 776.3 psia for one AS-501 engine at acceptance, station unstated (its figures plot injector-end pressure): a pressure in the 760-780 psia range does exist for a 225,000 lb-class engine, but no opened document ties 763 psi to a station or rating.")
 C("CF-DB05-J2-MASS", engine_id=J2, field_path="mechanical.mass", db0_conflict_id="CF-R2_US_CLASSIC-J2-3",
   claims=[["2,754 lb basic engine dry; 3,492 lb including accessories", "SRC-NTRS-20100027318", "slide J2-3"], ["3492 lb", "SRC-NTRS-20120016414", "Table 1"],
           ["3,942 lb dry", "SRC-WIKI-J2", "DB-0"], ["3,480 lb", "SRC-PURDUE-J2", "DB-0"], ["3,170 lb", "SRC-ASTRONAUTIX-J2", "DB-0"]],
@@ -195,9 +197,13 @@ C("CF-DB05-J2-MASS", engine_id=J2, field_path="mechanical.mass", db0_conflict_id
   explanation="Two primary definitions exist (basic vs including accessories). 3,480 is close to 3,492; 3,942 looks like a transposition of 3,492 (INFERRED, not verified); 3,170 matches neither primary value.")
 C("CF-DB05-J2-THRUST", engine_id=J2, field_path="performance.thrust_vac", db0_conflict_id="CF-R2_US_CLASSIC-J2-1; CF-US_HIST-10",
   claims=[["230,000 lb nominal vacuum", "SRC-NTRS-20100027318", "slide J2-3"], ["225,000-pound version (qualification; 59 delivered)", "SRC-NTRS-20100027318", "text p.3"],
-          ["230 klbf", "SRC-NTRS-20120016414", "Table 1"], ["232,250 lbf", "SRC-WIKI-J2", "DB-0"]],
+          ["230 klbf", "SRC-NTRS-20120016414", "Table 1"], ["232,250 lbf", "SRC-WIKI-J2", "DB-0"],
+          ["AS-501 S-II five-engine average 225,362.8 lb, high mixture ratio region (flight reconstruction; added 2026-10-28)", "SRC-DB05-NTRS-19680026222", "Table 16 p.107"],
+          ["AS-501 S-IVB engine J2031 223,278 lb, first burn (flight reconstruction; added 2026-10-28)", "SRC-DB05-NTRS-19680026222", "Table 28 p.248"]],
   resolution="PARTIALLY_RESOLVED", kind="different_epoch",
-  explanation="Primary text confirms two ratings (225,000 lb, then 230,000 lb). Which flights used which rating, and the 232,250 lbf figure, are not established by opened documents (AEDC reports blocked).")
+  explanation="Primary text confirms two ratings (225,000 lb, then 230,000 lb). Which flights used which rating, and the 232,250 lbf figure, are not established by opened documents (AEDC reports blocked). "
+              "The AS-501 flight report (R-7450-1, opened 2026-10-28) shows the first Saturn V's six J-2 engines flying at about 223,000-225,000 lb at the high mixture ratio, "
+              "consistent with the 225,000 lb version, but it names no rating, so effectivity is still not established by a rating statement.")
 C("CF-DB05-J2S-DATES", engine_id=J2S, field_path="history dates", db0_conflict_id="CF-US_HIST-22; CF-TAXONOMY-TAX-5",
   claims=[["J-2S development bar 1965-1972; 1st 27.5:1 test 2/66; 1st 40:1 test 6/68; ready for qual 10/71; final report 3/74", "SRC-NTRS-20100027318", "slide J2-5"]],
   resolution="PARTIALLY_RESOLVED", kind="different_event",

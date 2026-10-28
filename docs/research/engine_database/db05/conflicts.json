@@ -250,11 +250,16 @@
      "763 psi",
      "SRC-WIKI-J2",
      "DB-0 search summary"
+    ],
+    [
+     "776.3 psia 'Thrust Chamber Pressure', engine J2026 acceptance (added 2026-10-28)",
+     "SRC-DB05-NTRS-19680026222",
+     "Table 11 p.71"
     ]
    ],
    "resolution": "RESOLVED",
    "kind": "primary_value_found",
-   "explanation": "Primary manufacturer value 717 psia at nozzle stagnation for the 230,000 lb / MR 5.5 J-2. 763 psi has no support in any opened primary document; it may be an injector-face value or a different rating (not verified)."
+   "explanation": "Primary manufacturer value 717 psia at nozzle stagnation for the 230,000 lb / MR 5.5 J-2. 763 psi has no support in any opened primary document; it may be an injector-face value or a different rating (not verified). R-7450-1 prints 776.3 psia for one AS-501 engine at acceptance, station unstated (its figures plot injector-end pressure): a pressure in the 760-780 psia range does exist for a 225,000 lb-class engine, but no opened document ties 763 psi to a station or rating."
   },
   {
    "conflict_id": "CF-DB05-J2-MASS",
@@ -317,11 +322,21 @@
      "232,250 lbf",
      "SRC-WIKI-J2",
      "DB-0"
+    ],
+    [
+     "AS-501 S-II five-engine average 225,362.8 lb, high mixture ratio region (flight reconstruction; added 2026-10-28)",
+     "SRC-DB05-NTRS-19680026222",
+     "Table 16 p.107"
+    ],
+    [
+     "AS-501 S-IVB engine J2031 223,278 lb, first burn (flight reconstruction; added 2026-10-28)",
+     "SRC-DB05-NTRS-19680026222",
+     "Table 28 p.248"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "Primary text confirms two ratings (225,000 lb, then 230,000 lb). Which flights used which rating, and the 232,250 lbf figure, are not established by opened documents (AEDC reports blocked)."
+   "explanation": "Primary text confirms two ratings (225,000 lb, then 230,000 lb). Which flights used which rating, and the 232,250 lbf figure, are not established by opened documents (AEDC reports blocked). The AS-501 flight report (R-7450-1, opened 2026-10-28) shows the first Saturn V's six J-2 engines flying at about 223,000-225,000 lb at the high mixture ratio, consistent with the 225,000 lb version, but it names no rating, so effectivity is still not established by a rating statement."
   },
   {
    "conflict_id": "CF-DB05-J2S-DATES",

@@ -154,7 +154,8 @@ Rutherford, LR87 and RS-68A anchors; 21 downloaded documents not read (Rocket
 Lab pages, patents, enginehistory.org chapters, Apollo flight evaluations);
 176 of the 206 DB-0 conflicts (11 of them P0). Two exploratory downloads (RL10A-3-3 design
 report NTRS 19670005471; J-2 AS-501 flight analysis NTRS 19680026222) are leads
-and are not registered.
+and are not registered. (The J-2 AS-501 analysis was read and registered on
+2026-10-28; see the J-2 AS-501 flight supplement below.)
 
 **DB-2B Wave 2 supplement (2026-10-10).** A narrow source-completion pass for the
 seven Wave 2 targets only (RL10A-4-2, RL10B-2, RD-170, IPD, RS-68A, LR87,
@@ -242,10 +243,26 @@ opened for the first time and its S-IC section viewed as images.
 - Eight assertions (6 F-1, 2 J-2); none promoted. The DB-2A and DB-2B Wave 1
   manifests account for each.
 
-Lead opened but not mined: Rocketdyne R-7450-1, J-2 performance analysis of
-flight AS-501 (NTRS 19680026222, 320 pp., 17 May 1968). Its tables give
-flight-reconstructed thrust, mixture ratio and Isp per engine, not ratings;
-the OCR is poor and the tables need reading from images. DB-0.5 stays PARTIAL.
+## J-2 AS-501 flight supplement (2026-10-28)
+
+Rocketdyne R-7450-1, J-2 performance analysis of flight AS-501 (NTRS
+19680026222, 320 pp., 17 May 1968), read from rendered pages (Tables 10, 11,
+16, 28; the OCR is unusable for tables):
+
+- S-II, five-engine average, high mixture ratio region (156-426 s): 225,362.8
+  lb, MR 5.45114, Isp 424.46 s; after the mixture ratio cutback: 187,236 lb,
+  MR 4.67886, Isp 429.17 s (Table 16). S-IVB engine J2031, first burn: 223,278
+  lb, MR 5.5231, Isp 423.28 s (Table 28). These are flight reconstructions;
+  the report names no rating.
+- CF-DB05-J2-THRUST stays PARTIALLY_RESOLVED: the first Saturn V's J-2 engines
+  flew at about 223,000-225,000 lb, consistent with the 225,000 lb version,
+  but no opened document states which rating each flight used.
+- Engine J2026's acceptance 'Thrust Chamber Pressure' is 776.3 psia (Table 11,
+  station unstated; the figures plot injector-end pressure). Added to
+  CF-DB05-J2-PC as context for the unsupported 763 psi; the conflict stays
+  RESOLVED at 717 psia nozzle stagnation.
+- Ten J-2 assertions (037-046); none promoted. The DB-2A manifest accounts
+  for each. DB-0.5 stays PARTIAL.
 
 ## Reproducing
 

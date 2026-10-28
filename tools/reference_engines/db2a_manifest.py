@@ -344,6 +344,11 @@ NOT_PROMOTED = {
     # F-1 rating-epoch research pass (2026-10-28): the SA-503 engine data table's J-2 stage nominals
     "AS-DB05-US-J-2-035": "MSFC-MAN-503: rights conflict unresolved, payload withheld",
     "AS-DB05-US-J-2-036": "MSFC-MAN-503: rights conflict unresolved, payload withheld",
+    # J-2 AS-501 flight pass (2026-10-28): R-7450-1 flight reconstructions of the AS-501 engines, which the
+    # report gives no rating for; they are not the 230,000 lb configuration's nominal point
+    **{f"AS-DB05-US-J-2-{n:03d}": "AS-501 flight reconstruction (R-7450-1), not a rating; not the seeded configuration"
+       for n in range(37, 46)},
+    "AS-DB05-US-J-2-046": "one AS-501 engine's acceptance-test chamber pressure, station unstated; not the seeded configuration",
 }
 
 # ------------------------------------------------------------------ research conflicts
@@ -365,7 +370,8 @@ RESEARCH_CONFLICTS = {
                             argument="Regulated helium pressure is in UNRESOLVED conflict; not promoted."),
     "CF-DB05-J2-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2-003",),
                           competing={"Coffman text p.2 'a little over 700 psia'": "not transcribed as an assertion; consistent with 717",
-                                     "SRC-WIKI-J2 763 psi": "search result, never opened"},
+                                     "SRC-WIKI-J2 763 psi": "search result, never opened",
+                                     "AS-DB05-US-J-2-046": "R-7450-1 776.3 psia: one AS-501 engine at acceptance, station unstated; not promoted"},
                           argument="RESOLVED in DB-0.5 in favour of 717 psia at nozzle stagnation."),
     "CF-DB05-J2-MASS": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2-005", "AS-DB05-US-J-2-006"),
                             competing={"AS-DB05-US-J-2-017": "not promoted (J-2X paper)",
@@ -378,7 +384,9 @@ RESEARCH_CONFLICTS = {
                        "configuration only. The research conflict stays as recorded in DB-0.5.",
         competing={"AS-DB05-US-J-2-014": "225,000 lb version: a different configuration, not seeded",
                    "AS-DB05-US-J-2-015": "not promoted; it agrees (230 klbf)",
-                   "SRC-WIKI-J2 232,250 lbf": "search result, never opened; configuration unknown"},
+                   "SRC-WIKI-J2 232,250 lbf": "search result, never opened; configuration unknown",
+                   "AS-DB05-US-J-2-037 / -043": "R-7450-1 AS-501 flight reconstructions (225,362.8 and 223,278 lb); "
+                                                "no rating named; not promoted"},
         argument="PARTIALLY_RESOLVED in DB-0.5 because flight effectivity of the two ratings and the "
                  "232,250 lbf figure are not established. Re-scoping (owner-accepted): the seed configuration "
                  "is defined by the 230,000 lb rating itself and no opened source gives another value for it, "
