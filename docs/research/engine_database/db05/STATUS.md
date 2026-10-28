@@ -434,6 +434,40 @@ downloaded and scanned, but none settles its conflict, so none is registered:
 The LE-7, LE-7A, Vulcain and Vinci epoch conflicts need agency or
 manufacturer documents that NTRS does not hold.
 
+**Web search outside NTRS (2026-10-28).** The same open conflicts were searched
+on the open web. Nothing new became evidence:
+
+- **CF-DB05-RL10B2-PC-ISP:** the three L3Harris RL10 spec-sheet URLs and the
+  RL10 product page all return HTTP 404, so the manufacturer sheet is still
+  unreachable. (A retry with a browser user agent was refused and not
+  pursued.)
+- **CF-DB05-VINCI-EPOCH:** ESA's "All engines for Ariane 6 complete
+  qualification tests" (15 Oct 2020) dates qualification to October 2018 and
+  counts more than 140 tests, but prints no thrust. The IAC-18 ArianeGroup
+  abstract (Haeseler) prints no thrust or Isp either.
+- **CF-DB05-VULCAIN-TURBOPUMPS:** only encyclopedia pages and datasets were
+  found, and these are not evidence.
+- **CF-DB05-RS25-PUMPPOWER:** search only re-finds the L3Harris RS-25 sheet
+  already opened, which prints 71,140 / 23,260 hp without a power level.
+- **CF-DB05-LE7-EPOCH:** the 1998 J-STAGE LE-7 LH2 turbopump paper
+  (JJSASS 46(539)) is free to read, but its PDF never downloaded completely.
+  It stays a lead and is not registered, because the registry takes only
+  sources DB-0 listed or documents that were opened. Its abstract has no
+  numbers.
+
+**Decision on the LM-10 area ratio (2026-10-28, taken under the owner's
+standing instruction to decide without asking).** LM-10's approximate 54.0:1 is
+kept as a note on AS-DB05-US-LMDE-021 and is not filed as a `C()` conflict:
+
+- The shipped LMDE cooling-zones text (AS-DB05-US-LMDE-010) describes the
+  design in TN D-7143, and nothing in it is shown wrong for that design.
+- The Apollo 15 value is for one flight engine, carries an "approximate" flag,
+  and no opened document gives a reason for the difference.
+- Withholding shipped data on that basis would change production without
+  evidence.
+
+The owner can reverse this; filing the conflict would require withholding -010.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`
