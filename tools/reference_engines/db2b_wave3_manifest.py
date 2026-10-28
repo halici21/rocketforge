@@ -274,6 +274,25 @@ RESEARCH_CONFLICTS = {
         argument="UNRESOLVED in DB-0.5: no manufacturer datasheet reached; no Vulcain 2 thrust ships."),
     "CF-DB05-W-ANCHOR_EU_ASIA-4": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: ESA page gave no text; no Vulcain 2 flow ships."),
+    # DB-0 conflict encyclopedia pass (2026-10-28)
+    "CF-DB05-E-R2_ASIA-R2A-2": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia 12.0 MPa against a 404 page; nothing ships from these sources."),
+    "CF-DB05-E-ASIA_OTHER-1": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia 12.0 MPa against a 404 page; nothing ships from these sources."),
+    "CF-DB05-E-R2_ASIA-R2A-3": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="EXPLAINED in DB-0.5: two revisions of one encyclopedia article; nothing ships from these sources."),
+    "CF-DB05-E-ASIA_OTHER-3": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="EXPLAINED in DB-0.5: two revisions of one encyclopedia article; nothing ships from these sources."),
+    "CF-DB05-E-R2_ASIA-R2A-13": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: infobox against prose of one encyclopedia article; nothing ships from these sources."),
+    "CF-DB05-E-EUROPE-3": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia revisions; nothing ships from these sources."),
+    "CF-DB05-E-EUROPE-4": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia value against a refused journal table; nothing ships from these sources."),
+    "CF-DB05-E-ANCHOR_EU_ASIA-2": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia value against refused pages; nothing ships from these sources."),
+    "CF-DB05-E-ANCHOR_EU_ASIA-3": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: encyclopedia value against a refused journal table; nothing ships from these sources."),
 }
 
 CARRIER_GENERALISATIONS = {}

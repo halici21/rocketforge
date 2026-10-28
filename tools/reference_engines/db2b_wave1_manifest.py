@@ -671,6 +671,9 @@ RESEARCH_CONFLICTS = {
                                   argument="UNRESOLVED: approximations and single-configuration values."),
     "CF-DB05-W-R2_US_CLASSIC-RS-3": dict(decision="CARRIED_NOT", touches=(), competing={"AS-DB05-US-SSME-BLOCK-II-010": "not promoted in this wave; 6.03:1", "SRC-L3HARRIS-RS25-WEB 6.0": "the same ratio rounded, same manufacturer"},
         argument="EXPLAINED in DB-0.5: the specification sheet 6.03:1 and the web page 6.0 are one ratio rounded."),
+    # DB-0 conflict encyclopedia pass (2026-10-28)
+    "CF-DB05-E-R2_US_CLASSIC-RS-7": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: one flight-readiness chart, unreachable on retry; nothing ships from these sources."),
 }
 
 SCHEMATICS = {

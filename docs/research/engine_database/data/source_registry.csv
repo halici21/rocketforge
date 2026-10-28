@@ -209,7 +209,7 @@ SRC-FORUM-BITOG-PWHPFTP,Space Shuttle Info (forum post quoting Pratt & Whitney w
 SRC-FRANCOWIKI-PSLV,Polar Satellite Launch Vehicle (French Wikipedia mirror),franco.wiki / fr.wikipedia,,web encyclopedia,,https://franco.wiki/fr/Polar_Satellite_Launch_Vehicle.html,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-PS4-ENGINE-L-2-5
 SRC-FRONTIER-SOYUZ5,Russia's New Soyuz-5 Rocket Roars to Life with World's Most Powerful 'Tsar Engine',Frontier India,,news/blog,,https://frontierindia.com/russias-new-soyuz-5-rocket-roars-to-life-with-worlds-most-powerful-tsar-engine/,E,tertiary,VALUES_WITH_ATTRIBUTION,fetched,ENG-RU-RD-171MV
 SRC-FRWIKI-KRE075,KRE-075 (French Wikipedia mirror),franco.wiki / fr.wikipedia,,web encyclopedia,,https://franco.wiki/fr/KRE-075.html,D,tertiary,OPEN_LICENSE,search_result_only,ENG-KR-KRE-075
-SRC-FRWIKI-VIKING,Viking (moteur-fusée) [French Wikipedia mirror],techno-science.net / franco.wiki mirrors of fr.wikipedia,,web encyclopedia,,https://www.techno-science.net/fr/definitions/viking-moteur-fusee,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VIKING-5C
+SRC-FRWIKI-VIKING,Viking (moteur-fusée) [French Wikipedia mirror],techno-science.net / franco.wiki mirrors of fr.wikipedia,,web encyclopedia,,https://www.techno-science.net/fr/definitions/viking-moteur-fusee,D,tertiary,OPEN_LICENSE,not_retrieved,ENG-FR-VIKING-5C
 SRC-GE-CQ50-CN,"苍穹-50 release (Galactic Energy, Chinese news item aid 266)",Galactic Energy (星河动力),,manufacturer press release,,https://galactic-energy.cn/index.php/Show/cid/24/aid/266,A,primary,RIGHTS_REVIEW_REQUIRED,search_result_only,ENG-CN-WELKIN
 SRC-GE-WELKIN-EN,WELKIN reusable LOX/kerosene engine (Galactic Energy product page),Galactic Energy (星河动力),,manufacturer web page,,https://www.galactic-energy.cn/index.php/En/List/cid/18,A,primary,RIGHTS_REVIEW_REQUIRED,fetched,ENG-CN-WELKIN
 SRC-GENERALSTAFF-J2S-STUDY-1969,"J-2S Improvement Study, System Description (report D5-15772-2, 30 April 1969)",Boeing/NASA study (summary says Rocketdyne; D5- prefix suggests Boeing - unverified),1969,contractor study report,D5-15772-2; NTRS 19690072871 (unverified),https://www.generalstaff.org/Space/Saturn/J-2S_Study_30_April_69.pdf,B,primary,RIGHTS_REVIEW_REQUIRED,not_retrieved,ENG-US-J-2S
@@ -366,7 +366,7 @@ SRC-L3HARRIS-RS25-WEB,RS-25 Engine (capabilities web page),L3Harris,,manufacture
 SRC-LAW-EU-DB-DIRECTIVE,Directive 96/9/EC on the legal protection of databases,European Parliament and Council,1996,legislation,"Directive 96/9/EC (OJ L 77, 27.3.1996)",https://eur-lex.europa.eu/eli/dir/1996/9/oj,A,primary,OPEN_LICENSE,not_retrieved,
 SRC-LAW-FEIST,"Feist Publications, Inc. v. Rural Telephone Service Co., 499 U.S. 340 (1991)",US Supreme Court,1991,court decision,499 U.S. 340,,A,primary,PUBLIC_DOMAIN_GOV,not_retrieved,
 SRC-LLMPEDIA,LLMpedia (AI-generated encyclopedia) pages on RD-170/171/107/108/253/0120/NK-33,LLMpedia (scads.ai),,AI-generated encyclopedia,,https://llmpedia.scads.ai/deepseek/RD-171.html,E,tertiary,UNKNOWN,search_result_only,
-SRC-LLMPEDIA-HM7B,HM7B (LLM-generated),LLMpedia (ScaDS.AI),,LLM-generated encyclopedia,,https://llmpedia.scads.ai/gpt-5-mini/HM7B.html,E,tertiary,UNKNOWN,search_result_only,ENG-FR-HM7B
+SRC-LLMPEDIA-HM7B,HM7B (LLM-generated),LLMpedia (ScaDS.AI),,LLM-generated encyclopedia,,https://llmpedia.scads.ai/gpt-5-mini/HM7B.html,E,tertiary,UNKNOWN,fetched,ENG-FR-HM7B
 SRC-LOC-HAER-CA2408,"HAER CA-2408: Titan II 395-D Launch Complex, Vandenberg",Library of Congress / NPS HAER,,HAER survey (metadata),HAER CA-2408 (loc.gov item ca4641),https://www.loc.gov/item/ca4641,A,primary,PUBLIC_DOMAIN_GOV,search_result_only,ENG-US-LR87-AJ-5
 SRC-LOC-TX1115,Library of Congress item tx1115,Library of Congress,,unknown (possibly HAER/HABS record),tx1115,https://www.loc.gov/item/tx1115,A,UNKNOWN,UNKNOWN,search_result_only,
 SRC-LPRE-NPOEM-RD0120UP,"Modernisation of RD0120 feed units (A.V. Ivanov, A.I. Dmitrenko) - PDF 'NPOEM_RD0120_up'",KBKhA authors; hosted by software.lpre.de,,journal/conference article,,https://software.lpre.de/resources/articles/NPOEM_RD0120_up.pdf,B,primary,RESTRICTED_REFERENCE,fetched,ENG-RU-KVD-1; ENG-SU-11D57; ENG-SU-RD-0120
@@ -822,37 +822,37 @@ SRC-WEVOLVER-MERLIN,Merlin Engine (Merlin-1D) spec page,Wevolver,,web spec page,
 SRC-WIGHT-BLACKARROW,Black Arrow History,Wight Aviation Museum,,museum web page,,https://wightaviationmuseum.org.uk/black-arrow-history,D,secondary,RIGHTS_REVIEW_REQUIRED,search_result_only,ENG-GB-GAMMA-2; ENG-GB-GAMMA-8
 SRC-WIKI-11D428,11D428 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/11D428,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-11D428; ENG-RU-11D428A; ENG-RU-11D428A-16
 SRC-WIKI-AEONR,Relativity Space / Aeon R (Wikipedia),Wikipedia,,web encyclopedia,,https://wikipedia.com/wiki/Aeon_R,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-AEON-1; ENG-US-AEON-R; ENG-US-AEON-VAC-TERRAN-R
-SRC-WIKI-AESTUS,Aestus,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aestus,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-AESTUS; ENG-DE-AESTUS-II
+SRC-WIKI-AESTUS,Aestus,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aestus,D,tertiary,OPEN_LICENSE,fetched,ENG-DE-AESTUS; ENG-DE-AESTUS-II
 SRC-WIKI-AGGREGAT,Aggregat (rocket family),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aggregat,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-A1-ENGINE; ENG-DE-A3-ENGINE; ENG-DE-A5-ENGINE
 SRC-WIKI-AGNIKUL,AgniKul Cosmos (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/AgniKul_Cosmos,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-AGNILET
 SRC-WIKI-AJ10,AJ10,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/AJ10,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-AJ10-101; ENG-US-AJ10-104; ENG-US-AJ10-104D; ENG-US-AJ10-118; ENG-US-AJ10-118A; ENG-US-AJ10-118D; ENG-US-AJ10-118E; ENG-US-AJ10-137; ENG-US-AJ10-190; ENG-US-AJ10-37; ENG-US-AJ10-42
-SRC-WIKI-AJ26,"AJ-26 (Wikipedia, via kiwix mirror) (English Wikipedia article)",Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://kiwix.lema.org/wikipedia_en_all_mini_2024-02/A/AJ-26,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-AJ26-58; ENG-US-AJ26-59; ENG-US-AJ26-62
+SRC-WIKI-AJ26,"AJ-26 (Wikipedia, via kiwix mirror) (English Wikipedia article)",Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://kiwix.lema.org/wikipedia_en_all_mini_2024-02/A/AJ-26,D,tertiary,OPEN_LICENSE,not_retrieved,ENG-US-AJ26-58; ENG-US-AJ26-59; ENG-US-AJ26-62
 SRC-WIKI-AKATSUKI,Akatsuki (spacecraft) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Akatsuki_(spacecraft),D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-AKATSUKI-OME
 SRC-WIKI-ANTARES,Antares (rocket) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Antares_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-181; ENG-US-AJ26-58; ENG-US-AJ26-62
-SRC-WIKI-ARIANE1,Ariane 1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Ariane_1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-HM7A
+SRC-WIKI-ARIANE1,Ariane 1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Ariane_1,D,tertiary,OPEN_LICENSE,fetched,ENG-FR-HM7A
 SRC-WIKI-ARIANE3,Ariane 3,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Ariane_3,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VIKING-4B
-SRC-WIKI-ASTRA-ROCKET,Astra Rocket (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Astra_Rocket,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-AETHER; ENG-US-DELPHIN
+SRC-WIKI-ASTRA-ROCKET,Astra Rocket (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Astra_Rocket,D,tertiary,OPEN_LICENSE,fetched,ENG-US-AETHER; ENG-US-DELPHIN
 SRC-WIKI-ASTRIS-ENGINE,Astris (rocket engine) / Astris (rocket stage),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Astris_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-ASTRIS
 SRC-WIKI-ATLASG,Atlas G,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Atlas_G,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-LR89-NA-7
-SRC-WIKI-ATLASII,Atlas II,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Atlas_II,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RS-56-OBA; ENG-US-RS-56-OSA
+SRC-WIKI-ATLASII,Atlas II,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Atlas_II,D,secondary,OPEN_LICENSE,fetched,ENG-US-RS-56-OBA; ENG-US-RS-56-OSA
 SRC-WIKI-ATLASIII,Atlas III,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Atlas_III,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RL10A-4-1
 SRC-WIKI-AUTOGENOUS,Autogenous pressurization,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Autogenous_pressurization,D,tertiary,OPEN_LICENSE,search_result_only,
-SRC-WIKI-BE3,BE-3 (Wikipedia; includes BE-1/BE-2 history),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BE-3,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-BE-1; ENG-US-BE-2
-SRC-WIKI-BE3U,BE-3U (mirror of Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.com/wiki/BE-3U,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-BE-3U
-SRC-WIKI-BE4,Wikipedia: BE-4,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BE-4,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-BE-4
+SRC-WIKI-BE3,BE-3 (Wikipedia; includes BE-1/BE-2 history),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BE-3,D,tertiary,OPEN_LICENSE,fetched,ENG-US-BE-1; ENG-US-BE-2
+SRC-WIKI-BE3U,BE-3U (mirror of Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.com/wiki/BE-3U,D,tertiary,OPEN_LICENSE,fetched,ENG-US-BE-3U
+SRC-WIKI-BE4,Wikipedia: BE-4,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BE-4,D,tertiary,OPEN_LICENSE,fetched,ENG-US-BE-4
 SRC-WIKI-BELL8000,Bell Model 8000 family (XLR81),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Bell_Model_8000_family,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-BELL-8001; ENG-US-BELL-8048; ENG-US-BELL-8081; ENG-US-BELL-8096; ENG-US-BELL-8247
 SRC-WIKI-BELLX2,Bell X-2,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Bell_X-2,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR25-CW-1
 SRC-WIKI-BETA,Armstrong Siddeley Beta,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Armstrong_Siddeley_Beta,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-BETA
-SRC-WIKI-BLUEGHOST,Firefly Aerospace Blue Ghost (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Firefly_Aerospace_Blue_Ghost,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-LEROS-4-ET; ENG-US-SPECTRE
-SRC-WIKI-BMW109558,BMW 109-558 / Henschel Hs 117,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BMW_109-558,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-BMW-109-558
+SRC-WIKI-BLUEGHOST,Firefly Aerospace Blue Ghost (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Firefly_Aerospace_Blue_Ghost,D,tertiary,OPEN_LICENSE,fetched,ENG-GB-LEROS-4-ET; ENG-US-SPECTRE
+SRC-WIKI-BMW109558,BMW 109-558 / Henschel Hs 117,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BMW_109-558,D,tertiary,OPEN_LICENSE,fetched,ENG-DE-BMW-109-558
 SRC-WIKI-BMW109718,BMW 109-718,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BMW_109-718,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-BMW-109-718
 SRC-WIKI-BT4,BT-4 (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/BT-4_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-BT-4; ENG-JP-HBT-5
 SRC-WIKI-CE20,CE-20 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/CE-20,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-CE-20
-SRC-WIKI-CE75,CE-7.5 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/CE-7.5,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-CE-7-5; ENG-IN-CE-7-5-STEERING-ENGINE
+SRC-WIKI-CE75,CE-7.5 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/CE-7.5,D,tertiary,OPEN_LICENSE,fetched,ENG-IN-CE-7-5; ENG-IN-CE-7-5-STEERING-ENGINE
 SRC-WIKI-CORA,Cora (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Cora_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-CORALIE-ENGINE
 SRC-WIKI-CORPORALE,Corporal E,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Corporal_E,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XF30L20000
-SRC-WIKI-CURIE,Curie (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Curie_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-NZ-CURIE; ENG-NZ-HYPERCURIE
-SRC-WIKI-CZ1,Long March 1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Long_March_1,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-1; ENG-CN-YF-3A
+SRC-WIKI-CURIE,Curie (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Curie_(rocket_engine),D,tertiary,OPEN_LICENSE,fetched,ENG-NZ-CURIE; ENG-NZ-HYPERCURIE
+SRC-WIKI-CZ1,Long March 1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Long_March_1,D,secondary,OPEN_LICENSE,fetched,ENG-CN-YF-1; ENG-CN-YF-3A
 SRC-WIKI-CZ1D,Long March 1D,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Long_March_1D,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-1B
 SRC-WIKI-CZ2F,Long March 2F,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Long_March_2F,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-20B; ENG-CN-YF-24
 SRC-WIKI-CZ3,Long March 3,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Long_March_3,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-73
@@ -863,7 +863,7 @@ SRC-WIKI-DELTAK,Delta-K,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wi
 SRC-WIKI-DIAMANT,Diamant,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Diamant,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VALOIS; ENG-FR-VEXIN-B
 SRC-WIKI-DRACO,SpaceX Draco (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Draco,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-DRACO
 SRC-WIKI-DRAGON2,SpaceX Dragon 2 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Dragon_2,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-DRACO; ENG-US-SUPERDRACO
-SRC-WIKI-ELECTRON,Rocket Lab Electron (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocket_Lab_Electron,D,tertiary,OPEN_LICENSE,search_result_only,ENG-NZ-CURIE; ENG-NZ-HYPERCURIE
+SRC-WIKI-ELECTRON,Rocket Lab Electron (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocket_Lab_Electron,D,tertiary,OPEN_LICENSE,fetched,ENG-NZ-CURIE; ENG-NZ-HYPERCURIE
 SRC-WIKI-EMERAUDE,Emeraude (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Emeraude_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VEXIN-B
 SRC-WIKI-ENERGOMASH,NPO Energomash,Wikipedia,,web encyclopedia,,https://wikipedia.com/wiki/OKB-456,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-214; ENG-SU-RD-216
 SRC-WIKI-ENZIAN,Enzian,Wikipedia,,web encyclopedia,,https://www.wikipedia.org/wiki/Enzian,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-HWK-109-739; ENG-DE-KONRAD-VFK-613-A01
@@ -874,11 +874,11 @@ SRC-WIKI-F1,Rocketdyne F-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org
 SRC-WIKI-F9FT,Falcon 9 Full Thrust,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Falcon_9_Full_Thrust,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-MERLIN-1D-BLOCK-5
 SRC-WIKI-GAMMA,Bristol Siddeley Gamma,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Bristol_Siddeley_Gamma,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-GAMMA-2; ENG-GB-GAMMA-201; ENG-GB-GAMMA-301; ENG-GB-GAMMA-8
 SRC-WIKI-H1,Rocketdyne H-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_H-1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-H-1; ENG-US-H-1-165K; ENG-US-H-1-205K
-SRC-WIKI-HM7B,HM7B,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/HM7B,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-HM4; ENG-FR-HM7; ENG-FR-HM7B
+SRC-WIKI-HM7B,HM7B,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/HM7B,D,tertiary,OPEN_LICENSE,fetched,ENG-FR-HM4; ENG-FR-HM7; ENG-FR-HM7B
 SRC-WIKI-HS14,Hwasong-14 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Hwasong-14,D,tertiary,OPEN_LICENSE,search_result_only,ENG-KP-HWASONG-14-15-MAIN-ENGINE-PAEKTUSAN; ENG-KP-HWASONG-14-MAIN-ENGINE
-SRC-WIKI-HS15,Hwasong-15 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Hwasong-15,D,tertiary,OPEN_LICENSE,search_result_only,ENG-KP-HWASONG-14-15-MAIN-ENGINE-PAEKTUSAN; ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE
+SRC-WIKI-HS15,Hwasong-15 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Hwasong-15,D,tertiary,OPEN_LICENSE,fetched,ENG-KP-HWASONG-14-15-MAIN-ENGINE-PAEKTUSAN; ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE
 SRC-WIKI-HWK109500,Walter HWK 109-500,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Walter_HWK_109-500,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-HWK-109-500
-SRC-WIKI-HWK109507,Walter HWK 109-507 / Henschel Hs 293,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Walter_HWK_109-507,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-HWK-109-507
+SRC-WIKI-HWK109507,Walter HWK 109-507 / Henschel Hs 293,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Walter_HWK_109-507,D,tertiary,OPEN_LICENSE,fetched,ENG-DE-HWK-109-507
 SRC-WIKI-HWK109509,Walter HWK 109-509,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Walter_HWK_109-509,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-HWK-109-509
 SRC-WIKI-IM1,IM-1 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/IM-1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-VR900
 SRC-WIKI-J2,Rocketdyne J-2,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_J-2,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-J-2; ENG-US-J-2S
@@ -886,7 +886,7 @@ SRC-WIKI-J2X,J-2X,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/J-2
 SRC-WIKI-JUPITERA,Jupiter-A,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Jupiter-A,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-NAA-75-110-A-6
 SRC-WIKI-K1,Kistler K-1 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Kistler_K-1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-AJ26-58; ENG-US-AJ26-60
 SRC-WIKI-KBKHA,Chemical Automatics Design Bureau (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/Chemical_Automatics_Design_Bureau,D,tertiary,OPEN_LICENSE,search_result_only,
-SRC-WIKI-KBKHM,A.M. Isayev Chemical Engineering Design Bureau,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/A.M._Isayev_Chemical_Engineering_Design_Bureau,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-S5-92; ENG-SU-4D10; ENG-SU-S2-253
+SRC-WIKI-KBKHM,A.M. Isayev Chemical Engineering Design Bureau,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/A.M._Isayev_Chemical_Engineering_Design_Bureau,D,tertiary,OPEN_LICENSE,fetched,ENG-RU-S5-92; ENG-SU-4D10; ENG-SU-S2-253
 SRC-WIKI-KESTREL,SpaceX Kestrel,Wikipedia,,web encyclopedia,,https://www.wikipedia.com/wiki/Kestrel_2,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-KESTREL; ENG-US-KESTREL-2
 SRC-WIKI-KRE075,KRE-075 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/KRE-075,D,tertiary,OPEN_LICENSE,search_result_only,ENG-KR-KRE-075; ENG-KR-KRE-075-2ND-STAGE
 SRC-WIKI-KSR3,KARI KSR-3 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/KARI_KSR-3,D,tertiary,OPEN_LICENSE,search_result_only,ENG-KR-KSR-III-ENGINE
@@ -896,66 +896,66 @@ SRC-WIKI-KVD1,KVD-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/K
 SRC-WIKI-LAE,Liquid apogee engine (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Liquid_apogee_engine,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-LAM-440-N
 SRC-WIKI-LAUNCHERONE,LauncherOne (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LauncherOne,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-NEWTONFOUR; ENG-US-NEWTONTHREE
 SRC-WIKI-LE5,"LE-5 (Wikipedia, incl. LE-5A/5B/5B-2/5B-3 table)",Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LE-5,D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-LE-5; ENG-JP-LE-5A; ENG-JP-LE-5B; ENG-JP-LE-5B-2; ENG-JP-LE-5B-3
-SRC-WIKI-LE7,"LE-7 (Wikipedia, incl. LE-7A)",Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LE-7,D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-LE-7; ENG-JP-LE-7A
-SRC-WIKI-LE9,LE-9 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LE-9,D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-LE-9
-SRC-WIKI-LEROS,LEROS (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LEROS,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-LEROS-1B; ENG-GB-LEROS-1C; ENG-GB-LEROS-2B; ENG-GB-LEROS-4; ENG-GB-LEROS-4-ET
+SRC-WIKI-LE7,"LE-7 (Wikipedia, incl. LE-7A)",Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LE-7,D,tertiary,OPEN_LICENSE,fetched,ENG-JP-LE-7; ENG-JP-LE-7A
+SRC-WIKI-LE9,LE-9 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LE-9,D,tertiary,OPEN_LICENSE,fetched,ENG-JP-LE-9
+SRC-WIKI-LEROS,LEROS (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LEROS,D,tertiary,OPEN_LICENSE,fetched,ENG-GB-LEROS-1B; ENG-GB-LEROS-1C; ENG-GB-LEROS-2B; ENG-GB-LEROS-4; ENG-GB-LEROS-4-ET
 SRC-WIKI-LONGYUN,"Longyun (rocket engine) (Wikipedia mirror, 2026-03 dump)",Wikipedia (kiwix mirror),,web encyclopedia,,https://wiki.krisyotam.com/content/wikipedia_en_all_nopic_2026-03/Longyun,D,tertiary,OPEN_LICENSE,search_result_only,ENG-CN-LONGYUN
 SRC-WIKI-LR101,Rocketdyne LR-101,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_LR-101,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-LR101
 SRC-WIKI-LR87,Aerojet LR87,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aerojet_LR87,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-LR87-AJ-3; ENG-US-LR87-AJ-5
 SRC-WIKI-LR91,LR91,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/LR91,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-LR91-AJ-11; ENG-US-LR91-AJ-3; ENG-US-LR91-AJ-5; ENG-US-LR91-AJ-7
 SRC-WIKI-LYNX,XCOR Lynx (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/XCOR_Lynx,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-XR-5K18
-SRC-WIKI-M1,Aerojet M-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aerojet_M-1,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-M-1
+SRC-WIKI-M1,Aerojet M-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Aerojet_M-1,D,secondary,OPEN_LICENSE,fetched,ENG-US-M-1
 SRC-WIKI-M10,M10 (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/M10_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-IT-M10; ENG-IT-MIRA
 SRC-WIKI-MA5,MA-5 (rocket stage),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/MA-5_(rocket_stage),D,secondary,OPEN_LICENSE,search_result_only,ENG-US-LR105-NA-7; ENG-US-LR89-NA-7
 SRC-WIKI-MA5A,MA-5A,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/MA-5A,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RS-56-OBA
-SRC-WIKI-MARC60,MARC-60 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/MARC-60,D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-MB-60
+SRC-WIKI-MARC60,MARC-60 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/MARC-60,D,tertiary,OPEN_LICENSE,fetched,ENG-JP-MB-60
 SRC-WIKI-MASTEN,Masten Space Systems (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Masten_Space_Systems,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-CYCLOPS
-SRC-WIKI-MERLIN,Wikipedia: SpaceX Merlin,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Merlin,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-MERLIN-1A; ENG-US-MERLIN-1B; ENG-US-MERLIN-1C; ENG-US-MERLIN-1C-VACUUM; ENG-US-MERLIN-1D; ENG-US-MERLIN-1D-BLOCK-5; ENG-US-MERLIN-1D-VACUUM-SHORT-NOZZLE
+SRC-WIKI-MERLIN,Wikipedia: SpaceX Merlin,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Merlin,D,tertiary,OPEN_LICENSE,fetched,ENG-US-MERLIN-1A; ENG-US-MERLIN-1B; ENG-US-MERLIN-1C; ENG-US-MERLIN-1C-VACUUM; ENG-US-MERLIN-1D; ENG-US-MERLIN-1D-BLOCK-5; ENG-US-MERLIN-1D-VACUUM-SHORT-NOZZLE
 SRC-WIKI-MIURA1,Miura 1 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Miura_1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-ES-TEPREL-B
 SRC-WIKI-MIURA5,Miura 5 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Miura_5,D,tertiary,OPEN_LICENSE,search_result_only,ENG-ES-TEPREL-C; ENG-ES-TEPREL-C-VAC
 SRC-WIKI-N1,N-I (rocket) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/N-I_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-LE-3
 SRC-WIKI-NARO1,Naro-1 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Naro-1,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-151
-SRC-WIKI-NK15,NK-15 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/NK-15,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-NK-33A; ENG-SU-NK-15; ENG-SU-NK-15V; ENG-SU-NK-43
-SRC-WIKI-NK33,NK-33 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/NK-33,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-NK-33; ENG-US-AJ26-58; ENG-US-AJ26-62
+SRC-WIKI-NK15,NK-15 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/NK-15,D,tertiary,OPEN_LICENSE,fetched,ENG-RU-NK-33A; ENG-SU-NK-15; ENG-SU-NK-15V; ENG-SU-NK-43
+SRC-WIKI-NK33,NK-33 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/NK-33,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-NK-33; ENG-US-AJ26-58; ENG-US-AJ26-62
 SRC-WIKI-NK43,NK-43 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://wikipedia.com/wiki/NK-43,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-NK-43
 SRC-WIKI-NK9,NK-9 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/NK-9,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-NK-31; ENG-SU-NK-9; ENG-SU-NK-9V; ENG-SU-RD-111
 SRC-WIKI-NOZZLEEXT,Nozzle extension,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Nozzle_extension,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RL10B-2
 SRC-WIKI-NURI,Nuri (rocket) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Nuri_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-KR-KRE-007; ENG-KR-KRE-075
 SRC-WIKI-OAMS,Orbit Attitude and Maneuvering System (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Orbit_Attitude_and_Maneuvering_System,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-GEMINI-OAMS-100-LBF-THRUSTER
 SRC-WIKI-OMS,Orbital Maneuvering System (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Orbital_Maneuvering_System,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-AJ10-190
-SRC-WIKI-OTRAG,OTRAG (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/OTRAG,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-OTRAG-CRPU-ENGINE
+SRC-WIKI-OTRAG,OTRAG (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/OTRAG,D,tertiary,OPEN_LICENSE,fetched,ENG-DE-OTRAG-CRPU-ENGINE
 SRC-WIKI-PGM11,PGM-11 Redstone,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/PGM-11_Redstone,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-NAA-75-110-A-7
-SRC-WIKI-PGM19,PGM-19 Jupiter,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/PGM-19_Jupiter,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-S-3D
+SRC-WIKI-PGM19,PGM-19 Jupiter,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/PGM-19_Jupiter,D,secondary,OPEN_LICENSE,fetched,ENG-US-S-3D
 SRC-WIKI-PROMETHEUS,Prometheus (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Prometheus_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-PROMETHEUS
 SRC-WIKI-R27,R-27 (ballistic missile),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/R-27_(ballistic_missile),D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-4D10
-SRC-WIKI-R4D,R-4D (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/R-4D,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-R-4D; ENG-US-R-4D-11; ENG-US-R-4D-CASSINI-MAIN-ENGINE
-SRC-WIKI-RAPTOR,Wikipedia: SpaceX Raptor,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Raptor,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RAPTOR; ENG-US-RAPTOR-1; ENG-US-RAPTOR-2; ENG-US-RAPTOR-3; ENG-US-RAPTOR-DEVELOPMENT
+SRC-WIKI-R4D,R-4D (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/R-4D,D,tertiary,OPEN_LICENSE,fetched,ENG-US-R-4D; ENG-US-R-4D-11; ENG-US-R-4D-CASSINI-MAIN-ENGINE
+SRC-WIKI-RAPTOR,Wikipedia: SpaceX Raptor,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SpaceX_Raptor,D,tertiary,OPEN_LICENSE,fetched,ENG-US-RAPTOR; ENG-US-RAPTOR-1; ENG-US-RAPTOR-2; ENG-US-RAPTOR-3; ENG-US-RAPTOR-DEVELOPMENT
 SRC-WIKI-RD0109,RD-0109 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0109,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0105; ENG-SU-RD-0109; ENG-SU-RD-109
 SRC-WIKI-RD0110,RD-0110 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0110,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0110
 SRC-WIKI-RD0110R,RD-0110R (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0110R,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-0110R
-SRC-WIKI-RD0120,RD-0120 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0120,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0120
+SRC-WIKI-RD0120,RD-0120 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0120,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-0120
 SRC-WIKI-RD0124,RD-0124 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0124,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-0124; ENG-RU-RD-0124A
 SRC-WIKI-RD0210,RD-0210 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0210,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0210; ENG-SU-RD-0211
 SRC-WIKI-RD0229,RD-0229,Wikipedia,,web encyclopedia,,https://www.wikipedia.org/wiki/RD-0229,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0228; ENG-SU-RD-0229
 SRC-WIKI-RD0233,RD-0233,Wikipedia,,web encyclopedia,,https://Www.wikipedia.org/wiki/RD-0233,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0233; ENG-SU-RD-0234
 SRC-WIKI-RD0236,RD-0236,Wikipedia,,web encyclopedia,,https://Www.Wikipedia.org/wiki/RD-0236,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0236
 SRC-WIKI-RD0243,RD-0243,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-0243,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0243; ENG-SU-RD-0244; ENG-SU-RD-0245
-SRC-WIKI-RD107,RD-107 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-107,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-107; ENG-SU-RD-107-8D74K; ENG-SU-RD-107A; ENG-SU-RD-107MM; ENG-SU-RD-108; ENG-SU-RD-108A; ENG-SU-RD-108MM; ENG-SU-RD-117; ENG-SU-RD-118
+SRC-WIKI-RD107,RD-107 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-107,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-107; ENG-SU-RD-107-8D74K; ENG-SU-RD-107A; ENG-SU-RD-107MM; ENG-SU-RD-108; ENG-SU-RD-108A; ENG-SU-RD-108MM; ENG-SU-RD-117; ENG-SU-RD-118
 SRC-WIKI-RD170,RD-170 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-170,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-171MV; ENG-SU-RD-170; ENG-SU-RD-171
 SRC-WIKI-RD191,RD-191 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-191,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-151; ENG-RU-RD-191; ENG-RU-RD-193
 SRC-WIKI-RD214,RD-214,Wikipedia,,web encyclopedia,,https://www.wikipedia.org/wiki/RD-214,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-214
-SRC-WIKI-RD215,RD-215,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-215,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-215; ENG-SU-RD-216; ENG-SU-RD-217; ENG-SU-RD-218; ENG-SU-RD-219
+SRC-WIKI-RD215,RD-215,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-215,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-215; ENG-SU-RD-216; ENG-SU-RD-217; ENG-SU-RD-218; ENG-SU-RD-219
 SRC-WIKI-RD250,RD-250,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-250,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-250; ENG-SU-RD-251; ENG-SU-RD-252; ENG-SU-RD-261; ENG-SU-RD-262
 SRC-WIKI-RD253,RD-253 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-253,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-275; ENG-RU-RD-275M; ENG-SU-RD-253
-SRC-WIKI-RD263,RD-263,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-263,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-263; ENG-SU-RD-264; ENG-SU-RD-268
-SRC-WIKI-RD270,RD-270 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-270,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-270
-SRC-WIKI-RD58,RD-58 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-58,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-11D58
+SRC-WIKI-RD263,RD-263,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-263,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-263; ENG-SU-RD-264; ENG-SU-RD-268
+SRC-WIKI-RD270,RD-270 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-270,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-270
+SRC-WIKI-RD58,RD-58 (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-58,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-11D58
 SRC-WIKI-RD8,RD-8,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-8,D,tertiary,OPEN_LICENSE,search_result_only,ENG-UA-RD-8
 SRC-WIKI-RD861,RD-861,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-861,D,tertiary,OPEN_LICENSE,search_result_only,ENG-UA-RD-861
 SRC-WIKI-RD864,RD-864,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RD-864,D,tertiary,OPEN_LICENSE,search_result_only,ENG-UA-RD-864
 SRC-WIKI-RFAONE,RFA One (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RFA_One,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-HELIX; ENG-DE-HELIX-VAC
-SRC-WIKI-RL10,RL10,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RL10,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RL10A-4-2; ENG-US-RL10B-2
-SRC-WIKI-RL60,RL60 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RL60,D,tertiary,OPEN_LICENSE,search_result_only,ENG-JP-MB-60
+SRC-WIKI-RL10,RL10,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RL10,D,tertiary,OPEN_LICENSE,fetched,ENG-US-RL10A-4-2; ENG-US-RL10B-2
+SRC-WIKI-RL60,RL60 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RL60,D,tertiary,OPEN_LICENSE,fetched,ENG-JP-MB-60
 SRC-WIKI-ROKOT,Rokot,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rokot,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-0233; ENG-SU-RD-0234; ENG-SU-RD-0235; ENG-SU-RD-0236
 SRC-WIKI-ROTARYROCKET,Rotary Rocket,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rotary_Rocket,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-ROTON-ROTARY-ENGINE
 SRC-WIKI-ROTON,Rotary Rocket (Wikipedia),Wikipedia,,web encyclopedia,,https://en.Wikipedia.com/wiki/Roton_SSTO,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-ROTON-ROTARY-ENGINE
@@ -964,34 +964,34 @@ SRC-WIKI-RS2200,RS-2200,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wi
 SRC-WIKI-RS25,RS-25 (and older 'Space Shuttle main engine' article/mirrors),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-25,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RS-25E; ENG-US-SSME-BLOCK-II
 SRC-WIKI-RS27,RS-27,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-27,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RS-27; ENG-US-RS-27A
 SRC-WIKI-RS27A,RS-27A (Wikipedia article/mirror),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-27A,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RS-27A
-SRC-WIKI-RS56,RS-56,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-56,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-RS-56-OBA; ENG-US-RS-56-OSA
-SRC-WIKI-RS68,Wikipedia: RS-68,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-68,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RS-68; ENG-US-RS-68A
+SRC-WIKI-RS56,RS-56,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-56,D,secondary,OPEN_LICENSE,fetched,ENG-US-RS-56-OBA; ENG-US-RS-56-OSA
+SRC-WIKI-RS68,Wikipedia: RS-68,Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-68,D,tertiary,OPEN_LICENSE,fetched,ENG-US-RS-68; ENG-US-RS-68A
 SRC-WIKI-RS88,RS-88 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/RS-88,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-RS-88; ENG-US-STARLINER-LAE
 SRC-WIKI-RUTHERFORD,Wikipedia: Rutherford (rocket engine),Wikimedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rutherford_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-NZ-RUTHERFORD; ENG-NZ-RUTHERFORD-VACUUM
 SRC-WIKI-RZ2,Rolls-Royce RZ.2,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rolls-Royce_RZ.2,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-RZ-1; ENG-GB-RZ-2
 SRC-WIKI-S15400,S1.5400,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/S1.5400,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-11D33; ENG-SU-11D33M
-SRC-WIKI-S3D,Rocketdyne S-3D,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_S-3D,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-S-3D
+SRC-WIKI-S3D,Rocketdyne S-3D,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_S-3D,D,secondary,OPEN_LICENSE,fetched,ENG-US-S-3D
 SRC-WIKI-S5142,S5.142 (Wikipedia),Wikipedia,,web encyclopedia,,https://www.Wikipedia.org/wiki/S5.142,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-S5-142
 SRC-WIKI-S580,S5.80 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/S5.80,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-11D426; ENG-RU-S5-80
 SRC-WIKI-S592,S5.92,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/S5.92,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-S5-92
-SRC-WIKI-S598M,S5.98M,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/S5.98M,D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-S5-98M
+SRC-WIKI-S598M,S5.98M,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/S5.98M,D,tertiary,OPEN_LICENSE,fetched,ENG-RU-S5-98M
 SRC-WIKI-SCREAMER,Armstrong Siddeley Screamer,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Armstrong_Siddeley_Screamer,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-SCREAMER
 SRC-WIKI-SE2000,SE-2000 / SCE-200 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SE-2000,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-SCE-200
-SRC-WIKI-SEPR84,SEPR 84 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SEPR_84,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-SEPR-841; ENG-FR-SEPR-844
+SRC-WIKI-SEPR84,SEPR 84 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SEPR_84,D,tertiary,OPEN_LICENSE,fetched,ENG-FR-SEPR-841; ENG-FR-SEPR-844
 SRC-WIKI-SKYROOT,Skyroot Aerospace (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Skyroot_Aerospace,D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-DHAWAN-1; ENG-IN-DHAWAN-2
 SRC-WIKI-SKYRORA,Skyrora (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Skyrora,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-SKYLARK-L-ENGINE
 SRC-WIKI-SM64,SM-64 Navaho,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SM-64_Navaho,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR83-NA-1
-SRC-WIKI-SOYUZ-CSG,Soyuz at the Guiana Space Centre,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Soyuz_at_the_Guiana_Space_Centre,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-107A
+SRC-WIKI-SOYUZ-CSG,Soyuz at the Guiana Space Centre,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Soyuz_at_the_Guiana_Space_Centre,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-107A
 SRC-WIKI-SOYUZ5,Soyuz-5 (rocket) (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/Soyuz-5_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-RU-RD-0124MS; ENG-RU-RD-171MV
-SRC-WIKI-SOYUZFG,Soyuz-FG,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Soyuz-FG,D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-107A; ENG-SU-RD-108A
+SRC-WIKI-SOYUZFG,Soyuz-FG,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Soyuz-FG,D,tertiary,OPEN_LICENSE,fetched,ENG-SU-RD-107A; ENG-SU-RD-108A
 SRC-WIKI-SPECTRE,de Havilland Spectre,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/De_Havilland_Spectre,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-DOUBLE-SPECTRE; ENG-GB-SPECTRE
 SRC-WIKI-SPRITE,de Havilland Sprite,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/De_Havilland_Sprite,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-SPRITE; ENG-GB-SUPER-SPRITE
 SRC-WIKI-SPUTNIK-LV,Sputnik (rocket) (English Wikipedia article),Wikimedia Foundation / Wikipedia contributors,,web encyclopedia,,https://en.wikipedia.org/wiki/Sputnik_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-SU-RD-108
 SRC-WIKI-STENTOR,Armstrong Siddeley Stentor / Blue Steel (missile),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Armstrong_Siddeley_Stentor,D,tertiary,OPEN_LICENSE,search_result_only,ENG-GB-STENTOR
-SRC-WIKI-SUPERDRACO,SuperDraco (Wikipedia) and its talk page,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SuperDraco,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-SUPERDRACO
+SRC-WIKI-SUPERDRACO,SuperDraco (Wikipedia) and its talk page,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/SuperDraco,D,tertiary,OPEN_LICENSE,fetched,ENG-US-SUPERDRACO
 SRC-WIKI-TAIFUN,Taifun (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Taifun_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-TAIFUN-F-ENGINE
 SRC-WIKI-TAPOFF,Combustion tap-off cycle,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Combustion_tap-off_cycle,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-J-2S
-SRC-WIKI-TEPREL,TEPREL (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.com/wiki/TEPREL,D,tertiary,OPEN_LICENSE,search_result_only,ENG-ES-TEPREL-B; ENG-ES-TEPREL-C; ENG-ES-TEPREL-C-VAC
+SRC-WIKI-TEPREL,TEPREL (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.com/wiki/TEPREL,D,tertiary,OPEN_LICENSE,fetched,ENG-ES-TEPREL-B; ENG-ES-TEPREL-C; ENG-ES-TEPREL-C-VAC
 SRC-WIKI-TH11,TH-11,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TH-11,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-TH-11
 SRC-WIKI-TH12,TH-12,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TH-12,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-TH-12
 SRC-WIKI-THIEL,Walter Thiel,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Walter_Thiel,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-A4-ENGINE
@@ -999,30 +999,30 @@ SRC-WIKI-TL3,Tianlong-3,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wi
 SRC-WIKI-TQ12,TQ-12 (kiwix mirror 2023-10),Wikipedia,,web encyclopedia,,https://kaweah.freedombox.rocks/kiwix/wikipedia_en_all_maxi_2023-10/TQ-12,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-TQ-12
 SRC-WIKI-TQ15,TQ-15,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TQ-15,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-TQ-11; ENG-CN-TQ-12A; ENG-CN-TQ-15A
 SRC-WIKI-TR106,TR-106 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TR-106,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-TR-106
-SRC-WIKI-TR107,TR-107 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TR-107,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-TR-107
-SRC-WIKI-TR201,TR-201,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TR-201,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-TR-201
-SRC-WIKI-TRONADOR,Tronador (rocket) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Tronador_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-AR-MT-B; ENG-AR-RS-2; ENG-AR-TRONADOR-II-ENGINES; ENG-AR-VEX-1A-ENGINE
+SRC-WIKI-TR107,TR-107 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TR-107,D,tertiary,OPEN_LICENSE,fetched,ENG-US-TR-107
+SRC-WIKI-TR201,TR-201,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/TR-201,D,secondary,OPEN_LICENSE,fetched,ENG-US-TR-201
+SRC-WIKI-TRONADOR,Tronador (rocket) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Tronador_(rocket),D,tertiary,OPEN_LICENSE,fetched,ENG-AR-MT-B; ENG-AR-RS-2; ENG-AR-TRONADOR-II-ENGINES; ENG-AR-VEX-1A-ENGINE
 SRC-WIKI-UH25,UH 25 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/UH_25,D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VIKING-5C
 SRC-WIKI-VANGUARD,Vanguard (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vanguard_(rocket),D,secondary,OPEN_LICENSE,search_result_only,ENG-US-X-405
 SRC-WIKI-VECTORR,Vector-R (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vector-R,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-LP-2
 SRC-WIKI-VERONIQUE,Veronique (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/V%C3%A9ronique_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VERONIQUE-ENGINE
 SRC-WIKI-VESTA,Vesta (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vesta_(rocket),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VESTA-ENGINE
-SRC-WIKI-VIKAS,Vikas (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vikas_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-VIKAS; ENG-IN-VIKAS-4; ENG-IN-VIKAS-4B; ENG-IN-VIKAS-HIGH-THRUST; ENG-IN-VIKAS-X
-SRC-WIKI-VIKING,Viking (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Viking_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VIKING-2; ENG-FR-VIKING-2B; ENG-FR-VIKING-4; ENG-FR-VIKING-4B; ENG-FR-VIKING-5; ENG-FR-VIKING-5B; ENG-FR-VIKING-5C; ENG-FR-VIKING-6
+SRC-WIKI-VIKAS,Vikas (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vikas_(rocket_engine),D,tertiary,OPEN_LICENSE,fetched,ENG-IN-VIKAS; ENG-IN-VIKAS-4; ENG-IN-VIKAS-4B; ENG-IN-VIKAS-HIGH-THRUST; ENG-IN-VIKAS-X
+SRC-WIKI-VIKING,Viking (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Viking_(rocket_engine),D,tertiary,OPEN_LICENSE,fetched,ENG-FR-VIKING-2; ENG-FR-VIKING-2B; ENG-FR-VIKING-4; ENG-FR-VIKING-4B; ENG-FR-VIKING-5; ENG-FR-VIKING-5B; ENG-FR-VIKING-5C; ENG-FR-VIKING-6
 SRC-WIKI-VIKING-PROGRAM,Viking program (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Viking_program,D,tertiary,OPEN_LICENSE,search_result_only,ENG-US-MR-80
 SRC-WIKI-VIKING-SOUNDING-ROCKET,Viking (rocket),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Viking_(rocket),D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR10-RM-2
 SRC-WIKI-VIKRAM,Vikram (rocket family) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vikram_(rocket_family),D,tertiary,OPEN_LICENSE,search_result_only,ENG-IN-RAMAN
 SRC-WIKI-VINCI,Vinci (rocket engine),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vinci_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-FR-VINCI
-SRC-WIKI-VULCAIN,Vulcain (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vulcain_(rocket_engine),D,tertiary,OPEN_LICENSE,search_result_only,ENG-EU-VULCAIN; ENG-FR-VULCAIN; ENG-FR-VULCAIN-2; ENG-FR-VULCAIN-2-1
-SRC-WIKI-WACCORPORAL,WAC Corporal,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/WAC_Corporal,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-38ALDW-1500
+SRC-WIKI-VULCAIN,Vulcain (rocket engine) (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Vulcain_(rocket_engine),D,tertiary,OPEN_LICENSE,fetched,ENG-EU-VULCAIN; ENG-FR-VULCAIN; ENG-FR-VULCAIN-2; ENG-FR-VULCAIN-2-1
+SRC-WIKI-WACCORPORAL,WAC Corporal,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/WAC_Corporal,D,secondary,OPEN_LICENSE,fetched,ENG-US-38ALDW-1500
 SRC-WIKI-WASSERFALL,Wasserfall,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Wasserfall,D,tertiary,OPEN_LICENSE,search_result_only,ENG-DE-WASSERFALL-ENGINE
-SRC-WIKI-WELKIN,Galactic Energy Welkin (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Galactic_Energy_Welkin,D,tertiary,OPEN_LICENSE,search_result_only,ENG-CN-WELKIN; ENG-CN-WELKIN-VAC
+SRC-WIKI-WELKIN,Galactic Energy Welkin (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Galactic_Energy_Welkin,D,tertiary,OPEN_LICENSE,fetched,ENG-CN-WELKIN; ENG-CN-WELKIN-VAC
 SRC-WIKI-X405,GE X-405 (XLR50),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/GE_X-405,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-X-405
 SRC-WIKI-XLR11,Reaction Motors XLR11,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Reaction_Motors_XLR11,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR11; ENG-US-XLR11-RM-5; ENG-US-XLR8-RM-5
 SRC-WIKI-XLR129,Pratt & Whitney XLR-129,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Pratt_%26_Whitney_XLR-129,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR129-P-1
-SRC-WIKI-XLR99,Reaction Motors XLR99,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/XLR99,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XLR99-RM-1
+SRC-WIKI-XLR99,Reaction Motors XLR99,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/XLR99,D,secondary,OPEN_LICENSE,fetched,ENG-US-XLR99-RM-1
 SRC-WIKI-XRS2200,Rocketdyne XRS-2200,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_XRS-2200,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XRS-2200
-SRC-WIKI-YF1,YF-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-1,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-1; ENG-CN-YF-1B; ENG-CN-YF-2
+SRC-WIKI-YF1,YF-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-1,D,secondary,OPEN_LICENSE,fetched,ENG-CN-YF-1; ENG-CN-YF-1B; ENG-CN-YF-2
 SRC-WIKI-YF100,YF-100 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-100,D,tertiary,OPEN_LICENSE,search_result_only,ENG-CN-YF-100
 SRC-WIKI-YF115,YF-115,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-115,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-115
 SRC-WIKI-YF130,YF-130,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-130,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-130
@@ -1032,10 +1032,10 @@ SRC-WIKI-YF23,YF-23 (rocket engine),Wikipedia,,web encyclopedia,,https://en.wiki
 SRC-WIKI-YF24,YF-24 (riteme mirror),Wikipedia,,web encyclopedia,,https://wiki.riteme.site/wiki/YF-24,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-22; ENG-CN-YF-22B; ENG-CN-YF-24
 SRC-WIKI-YF3,YF-3 (kiwix mirror),Wikipedia,,web encyclopedia,,https://kiwix.lema.org/wikipedia_en_all_mini_2024-02/A/YF-3,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-3; ENG-CN-YF-3A
 SRC-WIKI-YF40,YF-40,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-40,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-40
-SRC-WIKI-YF73,YF-73,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-73,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-73
+SRC-WIKI-YF73,YF-73,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-73,D,secondary,OPEN_LICENSE,fetched,ENG-CN-YF-73
 SRC-WIKI-YF75,YF-75,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-75,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-75
 SRC-WIKI-YF75D,YF-75D,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-75D,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-75D
-SRC-WIKI-YF77,YF-77 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-77,D,tertiary,OPEN_LICENSE,search_result_only,ENG-CN-YF-77
+SRC-WIKI-YF77,YF-77 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-77,D,tertiary,OPEN_LICENSE,fetched,ENG-CN-YF-77
 SRC-WIKI-YZ,Yuanzheng,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Yuanzheng,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-50D
 SRC-WIKI-ZQ3,Zhuque-3,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Zhuque-3,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-TQ-12A; ENG-CN-TQ-12B; ENG-CN-TQ-15B
 SRC-WIKI2007-F1,F-1 (rocket engine) [2007 Wikipedia mirror],classicistranieri.com mirror of Wikipedia,,web encyclopedia,,https://wikipedia2007.classicistranieri.com/f/-/1/F-1_%28rocket_engine%29.html,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-F-1A

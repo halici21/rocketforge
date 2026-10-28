@@ -615,9 +615,45 @@ change nothing that ships. COM-13 withholds the two Rutherford statements that
 print 311 s (Rutherford values were not carried anyway, for rights reasons).
 RS-3 is CARRIED_NOT.
 
-175 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. The other
-86 cite only encyclopedia summaries, pages without a URL, or sources that
-refused access, so the next step for each is a primary document.
+175 of the 261 DB-0 conflict records had a DB-0.5 counterpart after the web pass.
+
+**DB-0 conflict encyclopedia pass (same day), `tools/ledger_db0_wiki.py`.** The
+last 86 DB-0 conflicts cite only encyclopedia pages, URL-less search summaries,
+or sources that had failed. 58 English Wikipedia articles (current revision, CC
+BY-SA) and one machine-generated encyclopedia page were fetched and read. They
+are encyclopedia pages, so they settle what the cited page says, not what an
+engine does. The 7 sources that had failed with a connection error were retried
+once and failed again; a French encyclopedia page and a mirror refused (403, 401). Blue Origin pages answer 429 and
+the L3Harris datasheets and AIAA vehicle guides 404.
+
+81 records were filed (`CF-DB05-E-*`): 25 EXPLAINED, 3 PARTIALLY_RESOLVED, 53
+UNRESOLVED. Most of the explained ones were never engine conflicts:
+
+- Two revisions of one article: LE-9 10.0 against 12.4 MPa, BE-4 134 against 140
+  bar, TEPREL-C 50 against 75 kN, BE-3U open expander against expander bleed.
+- DB-0 misreadings: CE-7.5 "75 kN max" is the 75 bar chamber pressure; TR-107
+  "half the thrust" is said of the TR-106; the NK-15 page's 1,753 kN / 14.50 MPa
+  / 331 s set is NK-33 data; BMW 109-558 3.7 / 0.588 kN and 375 / 60 kgf are one
+  thrust profile in two units.
+- Variants or operating points on one page: SEPR 841 TX2 against SEPR 844
+  kerosene; SuperDraco 71 kN per engine, 32,000 lbf per pod, 68.17 kN as
+  throttled in tests; Raptor 1 185 tf nominal against ~225 t demonstrated;
+  Merlin 1D 282 / 311 s flagged by the article itself as outdated.
+
+Five DB-0 conflicts were not filed, because a ledger claim must cite a source:
+RD-170 turbine power, the A-4 propellant load, the Arroway cycle and the RD-253
+index carry no source id, and the H-1 188K '188,00' is a single truncated figure
+on a 404 page. Filing that last one would withhold the promoted primary H-1
+thrust. The skipped five are listed in `NOT_FILED` in the module.
+
+Fourteen of the new records sit on seed engines and have manifest decisions;
+none withholds or touches a shipped value.
+
+256 of the 261 DB-0 conflict records now have a DB-0.5 counterpart; the other
+five are the `NOT_FILED` set. Every DB-0 conflict has now been reviewed. 
+Closing the 132 UNRESOLVED records in the ledger needs primary
+documents. The ones blocking seed engines are LE-7A pc, Vulcain 2 pc and area
+ratio, RS-68A pc, the RL10A-4-2 area ratio, RL10B-2 mass and YF-77 performance.
 
 ## Reproducing
 

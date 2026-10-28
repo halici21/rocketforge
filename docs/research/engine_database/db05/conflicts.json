@@ -4168,6 +4168,1712 @@
    "resolution": "EXPLAINED",
    "kind": "different_epoch",
    "explanation": "A vehicle-level scheme that changed between prototypes; not an engine attribute. Recorded so it is not ingested as one."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_US_CLASSIC-RS-7",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-7",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "turbines.HPFT.discharge_temperature",
+   "claims": [
+    [
+     "1,615 R (Block II row)",
+     "SRC-NASA-HOPSON-STS104-FRR-2001",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "1,601 R (other row)",
+     "SRC-NASA-HOPSON-STS104-FRR-2001",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "Both values come from one flight-readiness chart that the mirror would not serve on retry (connection failed). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_US_CLASSIC-A42-1",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-A42-1",
+   "engine_id": "ENG-US-RL10A-4-2",
+   "field_path": "nozzle.area_ratio",
+   "claims": [
+    [
+     "85:1",
+     "SRC-AIAA-VEHGUIDE-ATLAS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "nozzle_ratio '84:1 or 280:1'",
+     "SRC-WIKI-RL10",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The encyclopedia gives '84:1 or 280:1' for the family, not an RL10A-4-2 row; the AIAA page returns 404. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_US_CLASSIC-B2-4",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-B2-4",
+   "engine_id": "ENG-US-RL10B-2",
+   "field_path": "mechanical.mass / control.gimbal_actuation",
+   "claims": [
+    [
+     "dry_weight 301 kg; electro-mechanical",
+     "SRC-WIKI-RL10",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "277 kg (older revision)",
+     "SRC-WIKI-RL10",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "hydraulic nozzle gimbal (stage)",
+     "SRC-AIAA-VEHGUIDE-DELTA",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition_or_epoch",
+   "explanation": "The current revision prints 301 kg; 277 kg was an older revision. The gimbal actuator wording is about the stage on one side and the engine on the other. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-2",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-2",
+   "engine_id": "ENG-JP-LE-7A",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "121 bar (1750 psi)",
+     "SRC-AIAA-VG-H2A",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Combustion chamber pressure: 12.0 MPa (1,740 psi)",
+     "SRC-WIKI-LE7",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ASIA_OTHER-1",
+   "db0_conflict_id": "CF-ASIA_OTHER-1",
+   "engine_id": "ENG-JP-LE-7A",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "121 bar (1750 psi)",
+     "SRC-AIAA-VG-H2A",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Combustion chamber pressure: 12.0 MPa (1,740 psi)",
+     "SRC-WIKI-LE7",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Same pair as CF-DB05-E-R2_ASIA-R2A-2."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-3",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-3",
+   "engine_id": "ENG-JP-LE-9",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "chamber_pressure 10.0 MPa",
+     "SRC-WIKI-LE9",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "12.4 MPa (archived snapshot)",
+     "SRC-WIKI-LE9",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Two revisions of one encyclopedia article: the current one prints 10.0 MPa; 12.4 MPa is not in it and was a development-era snapshot. Neither is a JAXA or MHI value."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ASIA_OTHER-3",
+   "db0_conflict_id": "CF-ASIA_OTHER-3",
+   "engine_id": "ENG-JP-LE-9",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "chamber_pressure 10.0 MPa",
+     "SRC-WIKI-LE9",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "12.4 MPa (archived snapshot)",
+     "SRC-WIKI-LE9",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Same pair as CF-DB05-E-R2_ASIA-R2A-3."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-13",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-13",
+   "engine_id": "ENG-CN-YF-77",
+   "field_path": "performance.thrust_sl / pc / isp / burn_time",
+   "claims": [
+    [
+     "518 kN SL, 10.1 MPa, 428.0 / 316.7 s",
+     "SRC-WIKI-YF77",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "'dual 510 kN (sea level)'; 10.2 MPa, 430 s",
+     "SRC-WIKI-YF77",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "The current infobox prints 518 kN, 10.1 MPa and 428.0 / 316.7 s, while its own prose says 510 kN at sea level; 10.2 MPa and 430 s are not in the current revision. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SCHEM-R2-1",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-1",
+   "engine_id": "ENG-US-RS-68A",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "1580 psia",
+     "SRC-L3H-RS68A-DS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Chamber pressure 1,488 psi (10.26 MPa)",
+     "SRC-WIKI-RS68",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL returns 404. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SCHEM-R2-2",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-2",
+   "engine_id": "ENG-US-RS-68A",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "411 s",
+     "SRC-L3H-RS68A-DS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "RS-68A: 411.9 s",
+     "SRC-WIKI-RS68",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "0.2 percent apart; the datasheet returns 404. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-3",
+   "db0_conflict_id": "CF-EUROPE-3",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "'2': 1359 kN",
+     "SRC-WIKI-VULCAIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1340 kN (comparison table)",
+     "SRC-WIKI-VULCAIN",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-4",
+   "db0_conflict_id": "CF-EUROPE-4",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "'2': 117.3 bar",
+     "SRC-WIKI-VULCAIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "115 bar",
+     "SRC-MECAIND-2020-T1",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The journal table refused access (HTTP 403). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_EU_ASIA-2",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-2",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "'2': 117.3 bar",
+     "SRC-WIKI-VULCAIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "115 bar",
+     "SRC-MECAIND-2020-T1",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "115 bar",
+     "SRC-CLASSICISTRANIERI-VULCAIN",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 115 bar is in a journal table (403) and an old encyclopedia mirror (403); the current article prints 117.3 bar. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_EU_ASIA-3",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-3",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "nozzle.area_ratio",
+   "claims": [
+    [
+     "'2': 58.2:1",
+     "SRC-WIKI-VULCAIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "58.5",
+     "SRC-MECAIND-2020-T1",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-6",
+   "db0_conflict_id": "CF-R2_USSR-R2-6",
+   "engine_id": "ENG-SU-RD-0120",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "210 kgf/cm2 = 20.6 MPa at 100 %",
+     "SRC-JAXA-61856043",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "chamber_pressure 21.9 MPa",
+     "SRC-WIKI-RD0120",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "The encyclopedia's infobox quotes 106 % thrust next to its figures; 21.9 / 20.6 is 1.063, consistent with 106 % against 100 %, but the JAXA paper returned 503 and nothing opened states it."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-10",
+   "db0_conflict_id": "CF-R2_USSR-R2-10",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field_path": "propellants.consumed",
+   "claims": [
+    [
+     "9,700 kg / 62 s",
+     "SRC-NASM-A19600013000",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "9,000 kg / 60 s",
+     "SRC-NASM-A19790951000",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Both Smithsonian records were unreachable on retry. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-11",
+   "db0_conflict_id": "CF-R2_USSR-R2-11",
+   "engine_id": "ENG-SU-RD-107A",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "vac: 1,021.3 kN",
+     "SRC-WIKI-SOYUZFG",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "vac: 1,019.93 kN",
+     "SRC-WIKI-SOYUZ-CSG",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "thrust(Vac) 1,020 kN",
+     "SRC-WIKI-RD107",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "Three encyclopedia pages within 0.14 percent: one value at different precision."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-12",
+   "db0_conflict_id": "CF-R2_USSR-R2-12",
+   "engine_id": "ENG-SU-RD-216",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "RD-216 (GRAU index: 8D514)",
+     "SRC-WIKI-RD215",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): 11D614. The article gives 8D514 for the RD-216 module; 11D614 has no source. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-13",
+   "db0_conflict_id": "CF-R2_USSR-R2-13",
+   "engine_id": "ENG-SU-RD-263",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "thrust(Vac) 1128 kN",
+     "SRC-WIKI-RD263",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1130 kN",
+     "SRC-WIKI-RD263",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "The current revision prints 1,128 kN; 1,130 kN is the same rounded."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-14",
+   "db0_conflict_id": "CF-R2_USSR-R2-14",
+   "engine_id": "ENG-SU-RD-264",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "RD-263 ... GRAU index: 15D117",
+     "SRC-WIKI-RD263",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): RD-264 = 15D117. The article attaches 15D117 to the RD-263, so the unsourced 'RD-264 = 15D117' contradicts it. Not settled from a primary."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-15",
+   "db0_conflict_id": "CF-R2_USSR-R2-15",
+   "engine_id": "ENG-RU-S5-92",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "S5.144: Used on the control module 17D61 of the Ikar",
+     "SRC-WIKI-KBKHM",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "Unsourced DB-0 claim(s): 17D61. The design-bureau article uses 17D61 for the Ikar control module, not for an engine; the unsourced claim attaches it to the S5.92."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-17",
+   "db0_conflict_id": "CF-R2_USSR-R2-17",
+   "engine_id": "ENG-SU-RD-270",
+   "field_path": "history.end",
+   "claims": [
+    [
+     "Date 1962-1968 (infobox)",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "designed ... in 1960-1970 (prose)",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "One article gives two spans, infobox against prose. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-USSR-17",
+   "db0_conflict_id": "CF-USSR-17",
+   "engine_id": "ENG-SU-RD-270",
+   "field_path": "history.period",
+   "claims": [
+    [
+     "Date 1962-1968 (infobox)",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "designed ... in 1960-1970 (prose)",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "Same pair as CF-DB05-E-R2_USSR-R2-17."
+  },
+  {
+   "conflict_id": "CF-DB05-E-TAXONOMY-TAX-4",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-4",
+   "engine_id": "ENG-SU-RD-270",
+   "field_path": "history.cancellation",
+   "claims": [
+    [
+     "designed ... in 1960-1970",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Date 1962-1968",
+     "SRC-WIKI-RD270",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "Same pair as CF-DB05-E-R2_USSR-R2-17."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-18",
+   "db0_conflict_id": "CF-R2_USSR-R2-18",
+   "engine_id": "ENG-RU-S5-98M",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "Specific impulse, vacuum 328.6 seconds",
+     "SRC-WIKI-S598M",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): 326 s. The second value has no source. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-11",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-11",
+   "engine_id": "ENG-RU-S5-98M",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "Specific impulse, vacuum 328.6 seconds",
+     "SRC-WIKI-S598M",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): 328.1 s; ~326 s (Briz-KM). Only the encyclopedia value has a source. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_USSR-R2-19",
+   "db0_conflict_id": "CF-R2_USSR-R2-19",
+   "engine_id": "ENG-SU-11D58M",
+   "field_path": "performance.thrust_vac / isp_vac",
+   "claims": [
+    [
+     "Thrust, vacuum 79.46 kN; 353 s (infobox)",
+     "SRC-WIKI-RD58",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Thrust (Vac) 83.4 kN (variant table)",
+     "SRC-WIKI-RD58",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "83.40 kN, 349 s, 78 bar",
+     "SRC-ASTRONAUTIX-RD58",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "One article: an infobox value and a variant table whose columns are separate RD-58 versions. Which column is the 11D58M is not settled; the Astronautica mirror was unreachable."
+  },
+  {
+   "conflict_id": "CF-DB05-E-USSR-11",
+   "db0_conflict_id": "CF-USSR-11",
+   "engine_id": "ENG-SU-NK-15",
+   "field_path": "performance.thrust_vac / pc / isp_vac",
+   "claims": [
+    [
+     "thrust(Vac) 1544 kN, 7.85 MPa, 318 s",
+     "SRC-WIKI-NK15",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1753 kN, 14.50 MPa, 331 s",
+     "SRC-WIKI-NK15",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "The current revision prints only 1,544 kN / 7.85 MPa / 318 s. 1,753 kN, 14.50 MPa and 331 s match the NK-33 (the NK-33 article prints 14.83 MPa and 331 s), so the second set was an NK-33 figure on the NK-15 page."
+  },
+  {
+   "conflict_id": "CF-DB05-E-USSR-12",
+   "db0_conflict_id": "CF-USSR-12",
+   "engine_id": "ENG-SU-NK-33",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "14D15",
+     "SRC-WIKI-NK33",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": null,
+   "explanation": "The English article does not print 14D15 (it cites 11D111 for the NK-33); the Russian news page in CF-DB05-W-R2_USSR-R2-5 does. Index assignment not settled from a primary."
+  },
+  {
+   "conflict_id": "CF-DB05-E-USSR-13",
+   "db0_conflict_id": "CF-USSR-13",
+   "engine_id": "ENG-US-AJ26-59",
+   "field_path": "lineage",
+   "claims": [
+    [
+     "NK-43 -> AJ26-59",
+     "SRC-WIKI-AJ26",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "NK-43 variant listed as AJ26-60",
+     "SRC-WIKI-NK33",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The mirror refused access (401) and the NK-33 article's text does not carry the claim. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-8",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-8",
+   "engine_id": "ENG-IN-VIKAS",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "maximum thrust of 725 kN (original); upgraded ... 800 kN",
+     "SRC-WIKI-VIKAS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Thrust 821 kN (infobox)",
+     "SRC-WIKI-VIKAS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "850 kN (older infobox)",
+     "SRC-WIKI-VIKAS",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "799 kN PSLV / 846 kN GSLV HT",
+     "SRC-VAJIRAM-VIKAS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "One article describes successive builds: 725 kN original, 800 kN after the 58.5 bar uprate, 6 % more from 2018. The values are epochs, not readings of one rating (see the SpaceNews 52.5-58.5 bar record)."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-11",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-11",
+   "engine_id": "ENG-IN-CE-7-5",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "Maximum thrust (Vacuum) - 73.55 kN",
+     "SRC-WIKI-CE75",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Chamber pressure 5.8 MPa (58 bar) / 7.5 MPa (75 bar)",
+     "SRC-WIKI-CE75",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "unit",
+   "explanation": "The '75 kN max' was a misreading: the 75 on the page is the 75 bar chamber pressure; the thrust is 73.55 kN."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-18",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-18",
+   "engine_id": "ENG-FR-VIKING-5C",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "58.5 bar",
+     "SRC-FRWIKI-VIKING",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "chamber_pressure 5.5 MPa",
+     "SRC-WIKI-VIKING",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The French page refused access (HTTP 403). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-25",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-25",
+   "engine_id": "ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE",
+   "field_path": "geometry.chamber_count",
+   "claims": [
+    [
+     "Engine 1 Paektusan ... 788 kN",
+     "SRC-WIKI-HS15",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "two combustors fed by common turbopump",
+     "SRC-WIKI-HS15",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "One article: one engine with two combustors on a common turbopump. Counting, not conflict."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-26",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-26",
+   "engine_id": "ENG-AR-MT-B",
+   "field_path": "propellants",
+   "claims": [
+    [
+     "Second stage Powered by 1 MT-B ... LOX / RP-1",
+     "SRC-WIKI-TRONADOR",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "MMH / N2O4 pressurised",
+     "SRC-WIKI-TRONADOR",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The current revision gives LOX / RP-1 for the MT-B; the MMH / N2O4 wording is not in it (earlier designs). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-27",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-27",
+   "engine_id": "ENG-AR-VEX-1A-ENGINE",
+   "field_path": "history.test_date",
+   "claims": [
+    [
+     "26 Feb 2014",
+     "SRC-WIKI-TRONADOR",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "In March 2014, a suborbital prototype named VEx-1A failed",
+     "SRC-WIKI-TRONADOR",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The current revision gives March 2014 only. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-29",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-29",
+   "engine_id": "ENG-CN-WELKIN-VAC",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "600 kN",
+     "SRC-ORBITCODEX-PALLAS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Thrust, vacuum 500 kilonewtons",
+     "SRC-WIKI-WELKIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The 500 kN is the Welkin's vacuum thrust on the encyclopedia page, not a separate vacuum engine; the 600 kN page refused access. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-31",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-31",
+   "engine_id": "ENG-ES-TEPREL-C-VAC",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "50 kN",
+     "SRC-WIKI-TEPREL",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "Thrust, vacuum 75 kN (17,000 lbf)",
+     "SRC-WIKI-TEPREL",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "75 kN",
+     "SRC-SATNOW-TEPRELC",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The current revision prints 75 kN in vacuum, the SatNow figure DB-0 cited; the 50 kN was an earlier revision."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-32",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-32",
+   "engine_id": "ENG-FR-SEPR-841",
+   "field_path": "propellants.fuel",
+   "claims": [
+    [
+     "nitric acid oxidiser and TX2 (tri-ethylamine xylidine) fuel",
+     "SRC-WIKI-SEPR84",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "the TX2 fuel of the SEPR 841 was replaced with ... kerosene in the SEPR 844",
+     "SRC-WIKI-SEPR84",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "The article gives TX2 for the SEPR 841 and kerosene for the later SEPR 844."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-33",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-33",
+   "engine_id": "ENG-DE-OTRAG-CRPU-ENGINE",
+   "field_path": "propellants.oxidizer",
+   "claims": [
+    [
+     "N2O4 (stage infobox)",
+     "SRC-WIKI-OTRAG",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): nitric acid. The article's infobox says N2O4; the nitric acid claim has no source. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_ASIA-R2A-34",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-34",
+   "engine_id": "ENG-JP-MB-60",
+   "field_path": "aliases.name",
+   "claims": [
+    [
+     "MARC-60 ... also known as MB-60, MB-XX, and RS-73",
+     "SRC-WIKI-MARC60",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "MARC-60 (MB-60), same thrust class ... designed as a joint effort by Boeing and Mitsubishi",
+     "SRC-WIKI-RL60",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Both articles name MB-60 an alias of MARC-60; the RL60 article lists it as a comparable engine, not as the RL60."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-1",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-1",
+   "engine_id": "ENG-US-SUPERDRACO",
+   "field_path": "performance.isp_sl",
+   "claims": [
+    [
+     "specific_impulse_sea_level 235 s",
+     "SRC-WIKI-SUPERDRACO",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "~240 s (derived)",
+     "SRC-WIKI-SUPERDRACO",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The article prints 235 s; the ~240 s was a DB-0 derivation, not a printed value. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-2",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-2",
+   "engine_id": "ENG-US-SUPERDRACO",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "71 kN (16,000 lbf), individually; 32,000 lbf, dual-engine cluster",
+     "SRC-WIKI-SUPERDRACO",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "capable of 73,000 newtons ... throttled to 68,170 newtons during DragonFly testing",
+     "SRC-WIKI-SUPERDRACO",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_operating_point",
+   "explanation": "One article: 71 kN per engine, 32,000 lbf per two-engine pod, 73 kN capability and 68.17 kN as throttled in tests."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-8",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-8",
+   "engine_id": "ENG-GB-LEROS-4-ET",
+   "field_path": "propellants.fuel",
+   "claims": [
+    [
+     "LEROS 4-ET MMH / MON 1310 N",
+     "SRC-WIKI-LEROS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "The engine uses MON and hydrazine",
+     "SRC-WIKI-BLUEGHOST",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Two encyclopedia articles disagree (MMH against hydrazine); no Nammo document opened."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-15",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-15",
+   "engine_id": "ENG-US-E-2",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "326 s ('Launcher says')",
+     "SRC-CONTROL-E2-TEST",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Unsourced DB-0 claim(s): 365 s. The trade page refused access (HTTP 403); 365 s has no source."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-17",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-17",
+   "engine_id": "ENG-NZ-CURIE",
+   "field_path": "propellants",
+   "claims": [
+    [
+     "In August 2020 Rocket Lab indicated that the kick stage uses an unspecified liquid bi-propellant",
+     "SRC-WIKI-CURIE",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Viscous liquid monopropellant ... [citation needed]",
+     "SRC-WIKI-ELECTRON",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The Curie article separates the original monopropellant engine from the 2020 bipropellant version; the Electron article's stage box keeps the older, uncited entry."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-19",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-19",
+   "engine_id": "ENG-US-TR-107",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "Thrust, sea-level 4,900 kN (1,100,000 lbf)",
+     "SRC-WIKI-TR107",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "TR-106 engine, a similar throttleable engine of about half the thrust",
+     "SRC-WIKI-TR107",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "DB-0 inverted the sentence: the TR-106 has about half the TR-107's thrust, not the other way round. No conflict."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SCHEM-R2-4",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-4",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "330 (tonnes of thrust, not bar)",
+     "SRC-WIKI-RAPTOR",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "unit",
+   "explanation": "Unsourced DB-0 claim(s): 250 bar. The 330 found on the article is a thrust goal in tonnes, not a chamber pressure; the 250 bar has no source. See CF-DB05-W-COMMERCIAL-COM-7 for the reported 300-330 bar."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SCHEM-R2-6",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-6",
+   "engine_id": "ENG-US-BE-4",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "134 bar (older revision via mirror)",
+     "SRC-WIKI-BE4",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "chamber_pressure 140 bar",
+     "SRC-WIKI-BE4",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Two revisions: the current one prints 140 bar. Neither is a Blue Origin value."
+  },
+  {
+   "conflict_id": "CF-DB05-E-R2_SCHEM-R2-10",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-10",
+   "engine_id": "ENG-US-R-4D-11",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "315.5 s at 300:1; 311 s at 164:1",
+     "SRC-L3H-LHX-SPECSHEET-2024",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "specific_impulse_vacuum 312 s",
+     "SRC-WIKI-R4D",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_configuration",
+   "explanation": "The specification sheet returns 404; the encyclopedia gives one family value without an area ratio. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-04",
+   "db0_conflict_id": "CF-US_HIST-04",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "performance.thrust_sl / performance.pc",
+   "claims": [
+    [
+     "663,000 pounds-force (2,950 kN) at sea level (prose)",
+     "SRC-WIKI-RS68",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "RS-68: 2,950 kN (660,000 lbf) (infobox)",
+     "SRC-WIKI-RS68",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "RS-68A Pc 1,580 psia",
+     "SRC-L3H-RS68A-DS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "Both thrusts are 2,950 kN, converted and rounded differently in one article. The pressure part is CF-DB05-E-R2_SCHEM-R2-1."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-09",
+   "db0_conflict_id": "CF-US_HIST-09",
+   "engine_id": "ENG-US-XLR99-RM-1",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "The basic engine has a mass of 910 lb",
+     "SRC-WIKI-XLR99",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "915 lb",
+     "SRC-NMUSAF-XLR99",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The museum fact sheet refused access (HTTP 403). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-12",
+   "db0_conflict_id": "CF-US_HIST-12",
+   "engine_id": "ENG-US-S-3D",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "134,908 pounds of thrust (600.1 kN) at sea level",
+     "SRC-WIKI-S3D",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "engine_power 150,000 lbf (Jupiter)",
+     "SRC-WIKI-PGM19",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "150,000-205,000 lb depending on model",
+     "SRC-NMUSAF-LR79",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Two articles: the S-3D at 134,908 lbf and the Jupiter missile's engine at 150,000 lbf; the museum's range (403) suggests several models. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-14",
+   "db0_conflict_id": "CF-US_HIST-14",
+   "engine_id": "ENG-US-38ALDW-1500",
+   "field_path": "propellants.fuel",
+   "claims": [
+    [
+     "RFNA + furfuryl alcohol",
+     "SRC-WIKI-WACCORPORAL",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "aniline (+RFNA)",
+     "SRC-CALTECH-THESIS310",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The Caltech thesis page was unreachable on retry. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-16",
+   "db0_conflict_id": "CF-US_HIST-16",
+   "engine_id": "ENG-US-RS-56-OSA",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "RS-56-OSA: 60,500 lbf (269.0 kN) sea level",
+     "SRC-WIKI-RS56",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1 x RS-56-OSA Maximum thrust 386 kN (87,000 lbf)",
+     "SRC-WIKI-ATLASII",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "Two articles: a sea-level engine figure and a stage 'maximum' (likely vacuum) figure. Neither names the condition fully. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-20",
+   "db0_conflict_id": "CF-US_HIST-20",
+   "engine_id": "ENG-US-TR-201",
+   "field_path": "history.period",
+   "claims": [
+    [
+     "Date 1972-1988 (infobox)",
+     "SRC-WIKI-TR201",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "77 during its Delta career between 1974 and 1988",
+     "SRC-WIKI-TR201",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Development-to-retirement span against flight span, in one article."
+  },
+  {
+   "conflict_id": "CF-DB05-E-US_HIST-23",
+   "db0_conflict_id": "CF-US_HIST-23",
+   "engine_id": "ENG-US-M-1",
+   "field_path": "history.cancellation",
+   "claims": [
+    [
+     "Development abandoned at pre-prototype stage",
+     "SRC-WIKI-M1",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The article states abandonment but DB-0's conflict was about the date, which it does not settle."
+  },
+  {
+   "conflict_id": "CF-DB05-E-COMMERCIAL-COM-5",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-5",
+   "engine_id": "ENG-US-MERLIN-1A",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "produced 340 kN (76,000 lbf) of thrust",
+     "SRC-WIKI-MERLIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "340 kN / 77,000 lbf",
+     "SRC-WIKI-MERLIN",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "unit",
+   "explanation": "340 kN is 76,435 lbf DERIVED; the current revision prints 76,000 lbf. 77,000 was an older rounding."
+  },
+  {
+   "conflict_id": "CF-DB05-E-COMMERCIAL-COM-8",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-8",
+   "engine_id": "ENG-US-RAPTOR-1",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "Raptor 1: 185 tf",
+     "SRC-WIKI-RAPTOR",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Max demonstrated Raptor thrust is ~225 tons (Musk post, cited)",
+     "SRC-WIKI-RAPTOR",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_operating_point",
+   "explanation": "A nominal value and a maximum demonstrated in test, in one article."
+  },
+  {
+   "conflict_id": "CF-DB05-E-COMMERCIAL-COM-9",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-9",
+   "engine_id": "ENG-US-BE-4",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "550,000 lbf (development period)",
+     "SRC-BLUE-ULA-PARTNERSHIP",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "640,000 lbf (2,846 kN)",
+     "SRC-BLUE-ENGINES",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_configuration",
+   "explanation": "Both Blue Origin pages returned HTTP 429 (rate limit). ULA's fact sheet gives 550,000 lbf for Vulcan (CF-DB05-W-R2_SCHEM-R2-5)."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_US_MODERN-1",
+   "db0_conflict_id": "CF-ANCHOR_US_MODERN-1",
+   "engine_id": "ENG-US-BE-4",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "640,000 lbf (2,846 kN)",
+     "SRC-BLUE-ENGINES-PAGE",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "550,000 lbf",
+     "SRC-BLUE-PRESS-BE4-EARLY",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "No URLs registered for these two Blue Origin pages. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-COMMERCIAL-COM-10",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-10",
+   "engine_id": "ENG-US-BE-3U",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "160,000 / 173,000 lbf",
+     "SRC-BLUE-NEWS-BE3U-MISC",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "320,000 -> 400,000 lbf for two engines",
+     "SRC-BLUE-NG-UPGRADE",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "200,000 lbf",
+     "SRC-BLUE-ENGINES",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "All Blue Origin pages returned HTTP 429. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_US_MODERN-2",
+   "db0_conflict_id": "CF-ANCHOR_US_MODERN-2",
+   "engine_id": "ENG-US-BE-3U",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "200,000 lbf",
+     "SRC-BLUE-ENGINES-PAGE",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "173,000 / 160,000 lbf; stage 320,000 -> 400,000 lbf",
+     "SRC-BLUE-PRESS-BE3U-UPDATES",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "No URLs registered. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-TAXONOMY-TAX-1",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-1",
+   "engine_id": "ENG-US-BE-3U",
+   "field_path": "cycle",
+   "claims": [
+    [
+     "open expander",
+     "SRC-WIKI-BE3U",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "Cycle Expander bleed",
+     "SRC-WIKI-BE3U",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The current revision says expander bleed; 'open expander' was an earlier wording."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_US_MODERN-3",
+   "db0_conflict_id": "CF-ANCHOR_US_MODERN-3",
+   "engine_id": "ENG-US-BE-3U",
+   "field_path": "cycle",
+   "claims": [
+    [
+     "open expander",
+     "SRC-BLUE-ENGINES-PAGE",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Cycle Expander bleed",
+     "SRC-WIKI-BE3",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "The encyclopedia now says expander bleed; the maker's page (no URL registered) was not opened. 'Open expander' and 'expander bleed' name the same cycle family."
+  },
+  {
+   "conflict_id": "CF-DB05-E-COMMERCIAL-COM-17",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-17",
+   "engine_id": "ENG-US-MERLIN-1D-BLOCK-5",
+   "field_path": "performance.isp",
+   "claims": [
+    [
+     "282 s SL / 311 s vac, flagged 'Figures ... do not reflect current engine performance'",
+     "SRC-WIKI-MERLIN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "282 / 311 s (c. 2013)",
+     "SRC-SLR-F9-SMA",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The article itself marks 282 / 311 s as outdated; they are the c. 2013 figures, not Block 5 values."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-8",
+   "db0_conflict_id": "CF-EUROPE-8",
+   "engine_id": "ENG-FR-HM7B",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "Chamber pressure 3.7 MPa (37 bar)",
+     "SRC-WIKI-HM7B",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "increasing the chamber pressure from 30 to 35 bar",
+     "SRC-WIKI-HM7B",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "One article: an infobox of 37 bar and a history line ending at 35 bar. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ANCHOR_EU_ASIA-6",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-6",
+   "engine_id": "ENG-FR-HM7B",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "Chamber pressure 3.7 MPa (37 bar); from 30 to 35 bar",
+     "SRC-WIKI-HM7B",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "Chamber pressure 35.3 bar",
+     "SRC-LLMPEDIA-HM7B",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "intra_document",
+   "explanation": "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-10",
+   "db0_conflict_id": "CF-EUROPE-10",
+   "engine_id": "ENG-DE-AESTUS",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "thrust(Vac) 29.6 kN",
+     "SRC-WIKI-AESTUS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "2.7 t (~26.5 kN)",
+     "SRC-ESA-EPS",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The ESA page was unreachable on retry. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-11",
+   "db0_conflict_id": "CF-EUROPE-11",
+   "engine_id": "ENG-DE-AESTUS",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "chamber_pressure 11 bar",
+     "SRC-WIKI-AESTUS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "10.0 bar",
+     "SRC-MECAIND-2020-T1",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The journal table refused access (HTTP 403). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-12",
+   "db0_conflict_id": "CF-EUROPE-12",
+   "engine_id": "ENG-DE-AESTUS",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "mixture_ratio 1.9",
+     "SRC-WIKI-AESTUS",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "2.05",
+     "SRC-MECAIND-2020-T1",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The journal table refused access (HTTP 403). No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-23",
+   "db0_conflict_id": "CF-EUROPE-23",
+   "engine_id": "ENG-DE-BMW-109-558",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "3.7 kN for 33 s, followed by 0.588 kN for 24 s",
+     "SRC-WIKI-BMW109558",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "375 kg falling to 60 kg",
+     "SRC-NASM-BMW109558",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "unit",
+   "explanation": "375 kgf is 3.68 kN and 60 kgf 0.588 kN DERIVED: the two describe the same two-level thrust in different units."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-24",
+   "db0_conflict_id": "CF-EUROPE-24",
+   "engine_id": "ENG-DE-HWK-109-507",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "590 kgf for 10 s",
+     "SRC-WIKI-HWK109507",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "600 -> 400 kg over 10 s",
+     "SRC-NASM-HWK109507",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The current revision says the burn lasted about 10 s but prints no thrust; the Smithsonian record refused access. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-EUROPE-28",
+   "db0_conflict_id": "CF-EUROPE-28",
+   "engine_id": "ENG-FR-HM7",
+   "field_path": "identity.designation",
+   "claims": [
+    [
+     "HM7 (history section)",
+     "SRC-WIKI-HM7B",
+     "fetched; not in the current revision's text"
+    ],
+    [
+     "Third stage Powered by 1 HM7-A",
+     "SRC-WIKI-ARIANE1",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "HM7-A is the Ariane 1 build of the HM7; the names describe one engine at two levels."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ASIA_OTHER-6",
+   "db0_conflict_id": "CF-ASIA_OTHER-6",
+   "engine_id": "ENG-CN-YF-1",
+   "field_path": "geometry.chamber_count",
+   "claims": [
+    [
+     "YF-1: Configuration Chamber 1",
+     "SRC-WIKI-YF1",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1 YF-2A (4 x YF-1A)",
+     "SRC-WIKI-CZ1",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "The YF-1 is single-chamber; the YF-2A is a four-engine module of YF-1A. Naming, not conflict."
+  },
+  {
+   "conflict_id": "CF-DB05-E-ASIA_OTHER-9",
+   "db0_conflict_id": "CF-ASIA_OTHER-9",
+   "engine_id": "ENG-CN-YF-73",
+   "field_path": "history.first_flight",
+   "claims": [
+    [
+     "First flight 1984-01-29",
+     "SRC-WIKI-YF73",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "1987-01-29 (mirror copies)",
+     "SRC-WIKI-YF73",
+     "fetched; not in the current revision's text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "The article prints 1984-01-29; the mirror's 1987 is a transcription slip (same day and month)."
+  },
+  {
+   "conflict_id": "CF-DB05-E-SPACECRAFT-5",
+   "db0_conflict_id": "CF-SPACECRAFT-5",
+   "engine_id": "ENG-US-R-42",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "~4.53 kg",
+     "SRC-L3H-BIPROP-2023",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "~6.58 kg",
+     "SRC-L3H-BIPROP-2024",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-SPACECRAFT-6",
+   "db0_conflict_id": "CF-SPACECRAFT-6",
+   "engine_id": "ENG-US-R-40B",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "~10.5 kg",
+     "SRC-L3H-BIPROP-2023",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "~15.9 kg",
+     "SRC-L3H-BIPROP-2024",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-SPACECRAFT-7",
+   "db0_conflict_id": "CF-SPACECRAFT-7",
+   "engine_id": "ENG-US-MR-103J",
+   "field_path": "performance.thrust_range",
+   "claims": [
+    [
+     "upper 1.13 N",
+     "SRC-L3H-MONO-2023",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "upper 1.19 N",
+     "SRC-L3H-MONO-2025",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-SPACECRAFT-8",
+   "db0_conflict_id": "CF-SPACECRAFT-8",
+   "engine_id": "ENG-US-MR-111G",
+   "field_path": "performance.thrust_range",
+   "claims": [
+    [
+     "1.8-4.9 N",
+     "SRC-L3H-MONO-2023",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "0.9-5.7 N",
+     "SRC-L3H-MONO-2025",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-E-TAXONOMY-TAX-6",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-6",
+   "engine_id": "ENG-US-DELPHIN",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "6,300 lbf",
+     "SRC-ASTRA-R31-PRESSKIT",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "6,500 lbf",
+     "SRC-ASTRA-R31-PRESSKIT",
+     "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Powered by 5 Delphin, Maximum thrust c. 32,500 lbf (145 kN)",
+     "SRC-WIKI-ASTRA-ROCKET",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The article gives 32,500 lbf for five engines (6,500 lbf each DERIVED); the press kit returns 404, so its 6,300 against 6,500 lbf cannot be checked."
   }
  ]
 }
