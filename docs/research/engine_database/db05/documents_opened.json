@@ -1130,6 +1130,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "url_requested": "https://ntrs.nasa.gov/citations/20000025317",
+   "download_url": "https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf",
+   "http_status": "200",
+   "bytes": 4176171,
+   "sha256": "6f6c22f2395a61a8068aaeac862973e2f954926953e468ff11cc991c75e0470b",
+   "pdf_pages": 64,
+   "retrieved_utc": "2026-10-28T21:05:52Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "Liquid Rocket Propulsion: RS-68 and Linear Aerospike",
+   "ntrs_export_control": "NO",
+   "read_level": "READ_AND_MINED",
+   "identifier_verified": "NTRS 20000025317 (50th IAF Congress, Amsterdam, 11-12 October 1999)",
+   "title_as_printed": "Liquid Rocket Propulsion: RS-68 & Linear Aerospike (Terry Murphy, Rocketdyne Propulsion & Power, The Boeing Company)",
+   "tier": "B",
+   "rights_statement_checked": "NTRS determination GOV_PUBLIC_USE_PERMITTED, but the slides are Boeing-authored; not export controlled",
+   "rights_values": "RIGHTS_REVIEW_REQUIRED",
+   "rights_figures": "RIGHTS_REVIEW_REQUIRED",
+   "note": "64 scanned slides without a text layer; the 'RS-68 Engine Performance Baseline' slide (PDF p.11) was rendered and read.",
+   "assertions": 7
+  },
+  {
    "source_id": "SRC-DB05-NTRS-20010067310",
    "url_requested": "https://ntrs.nasa.gov/citations/20010067310",
    "download_url": "https://ntrs.nasa.gov/api/citations/20010067310/downloads/20010067310.pdf",

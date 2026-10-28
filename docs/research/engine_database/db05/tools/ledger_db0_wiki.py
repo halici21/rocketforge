@@ -276,9 +276,12 @@ K("CF-R2_SCHEM-R2-10", "ENG-US-R-4D-11", "performance.isp_vac",
 K("CF-US_HIST-04", "ENG-US-RS-68", "performance.thrust_sl / performance.pc",
   [("663,000 pounds-force (2,950 kN) at sea level (prose)", "SRC-WIKI-RS68", "T"), ("RS-68: 2,950 kN (660,000 lbf) (infobox)", "SRC-WIKI-RS68", "T"),
    ("RS-68A Pc 1,580 psia", "SRC-L3H-RS68A-DS", "N")],
-  "EXPLAINED", "rating_or_rounding",
-  "Both thrusts are 2,950 kN, converted and rounded differently in one article. The pressure part is "
-  "CF-DB05-E-R2_SCHEM-R2-1.")
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "The encyclopedia's 663,000 and 660,000 lbf are one 2,950 kN rounded two ways. Rocketdyne's 1999 baseline (NTRS "
+  "20000025317, p.11) rates the RS-68 at 650 klbf sea level, 745 klbf vacuum and 1,410 psia before first flight, so the "
+  "encyclopedia's 663,000 lbf and 1,488 psi are a later rating with no primary opened. NASA's 2009 Ares V paper gives "
+  "the RS-68A as 39,000 lbf above the RS-68; 663,000 + 39,000 = 702,000 lbf DERIVED matches NASA's 702,000 lb for the "
+  "RS-68A (CF-DB05-RS68A-THRUST), which supports 663,000 lbf as the flown RS-68 rating without a document saying so.")
 K("CF-US_HIST-09", "ENG-US-XLR99-RM-1", "mechanical.mass",
   [("The basic engine has a mass of 910 lb", "SRC-WIKI-XLR99", "T"), ("915 lb", "SRC-NMUSAF-XLR99", "N")],
   "UNRESOLVED", "rating_or_rounding", "The museum fact sheet refused access (HTTP 403). " + _PRIMARY)

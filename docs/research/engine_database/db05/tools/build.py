@@ -3,7 +3,7 @@ import json, collections, sys
 from pathlib import Path
 
 import ledger
-import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170, ledger_wave2, ledger_wave3, ledger_f1_rating, ledger_j2_as501, ledger_rl10a33, ledger_h1_200k, ledger_sps_apollo9, ledger_ssme_unread, ledger_lmde_a15, ledger_unread_misc, ledger_f1_betts, ledger_db0_backlog, ledger_rd180_nk33, ledger_db0_web, ledger_db0_wiki  # noqa: F401
+import ledger_db0, ledger_rs25, ledger_rs25b, ledger_j2, ledger_f1, ledger_h1, ledger_rl10, ledger_sps, ledger_lmde, ledger_oms, ledger_ipd_rd170, ledger_wave2, ledger_wave3, ledger_f1_rating, ledger_j2_as501, ledger_rl10a33, ledger_h1_200k, ledger_sps_apollo9, ledger_ssme_unread, ledger_lmde_a15, ledger_unread_misc, ledger_f1_betts, ledger_db0_backlog, ledger_rd180_nk33, ledger_db0_web, ledger_db0_wiki, ledger_rs68  # noqa: F401
 
 HERE = Path(__file__).parent
 PKG = Path(__file__).resolve().parents[2]
@@ -101,7 +101,8 @@ for eid, t in ledger.TOPOLOGIES.items():
 DOC_TYPES = {"SRC-DB05-NTRS-20140011656": ("presentation", 2013), "SRC-DB05-NTRS-19950013232": ("technical memorandum", 1995), "SRC-DB05-NTRS-20010067310": ("conference paper", 2001), "SRC-DB05-NTRS-19750063889": ("flight manual", 1968), "SRC-DB05-NTRS-19660014225": ("static test report", 1966), "SRC-DB05-NTRS-19680003903": ("flight performance prediction", 1967), "SRC-DB05-NTRS-20100027316": ("conference chapter + viewgraphs", 2006),
              "SRC-DB05-NTRS-19680026222": ("flight performance report", 1968), "SRC-DB05-NTRS-19940016798": ("contractor final report", 1993),
              "SRC-DB05-NTRS-19670005471": ("design report", 1967), "SRC-DB05-NTRS-19850008634": ("technical paper", 1985),
-             "SRC-DB05-NTRS-19700009516": ("technical information summary", 1969)}
+             "SRC-DB05-NTRS-19700009516": ("technical information summary", 1969),
+             "SRC-DB05-NTRS-20000025317": ("conference presentation", 1999)}
 by_id = {s["source_id"]: s for s in sources["sources"]}
 read = {d["source_id"]: d for d in docs if d["read_level"] in ("READ_AND_MINED", "IDENTITY_VERIFIED_ONLY")}
 for sid, d in read.items():

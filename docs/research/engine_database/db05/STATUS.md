@@ -655,6 +655,18 @@ Closing the 132 UNRESOLVED records in the ledger needs primary
 documents. The ones blocking seed engines are LE-7A pc, Vulcain 2 pc and area
 ratio, RS-68A pc, the RL10A-4-2 area ratio, RL10B-2 mass and YF-77 performance.
 
+**RS-68 baseline (2026-10-29), `tools/ledger_rs68.py`.** An NTRS search for the
+seed-engine gaps found Rocketdyne's 1999 IAF Congress slides (NTRS 20000025317,
+scanned). The "RS-68 Engine Performance Baseline" slide gives 745 / 650 klbf
+vac / sea level, 1,410 psia (836 throttled), MR 6.0, 410 s average vacuum Isp,
+expansion ratio 21.5 and under 15,000 lb. That is a pre-flight rating, so
+CF-DB05-E-US_HIST-04 is PARTIALLY_RESOLVED: the encyclopedia's 663,000 lbf and
+1,488 psi are a later rating with no primary. NASA's 2009 Ares V paper (already
+in the ledger) gives the RS-68A as 39,000 lbf above the RS-68, and
+663,000 + 39,000 = 702,000 lbf matches NASA's RS-68A figure. Still no primary
+for the RS-68A chamber pressure or Isp; the paper prints only RS-68B values
+(414.2 s, 797 klbf vac). Nothing changes on the shipped RS-68A.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

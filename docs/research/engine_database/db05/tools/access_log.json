@@ -6443,5 +6443,33 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-WIKI-YF77.html"
+ },
+ "SRC-DB05-NTRS-20000025317": {
+  "source_id": "SRC-DB05-NTRS-20000025317",
+  "url": "https://ntrs.nasa.gov/citations/20000025317",
+  "time_utc": "2026-10-28T21:05:52Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Liquid Rocket Propulsion: RS-68 and Linear Aerospike",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 20000025317,
+   "ear": "NO",
+   "id": "d441e57566e7498d87270f2cd844217e",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": null,
+  "download_url": "https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf",
+  "bytes": 4176171,
+  "sha256": "6f6c22f2395a61a8068aaeac862973e2f954926953e468ff11cc991c75e0470b",
+  "is_pdf": true,
+  "pages": 64,
+  "text_chars": 2683,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-20000025317.pdf"
  }
 }

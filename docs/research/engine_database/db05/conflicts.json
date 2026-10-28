@@ -5231,9 +5231,9 @@
      "not opened (refused, 404, unreachable, or never fetched)"
     ]
    ],
-   "resolution": "EXPLAINED",
-   "kind": "rating_or_rounding",
-   "explanation": "Both thrusts are 2,950 kN, converted and rounded differently in one article. The pressure part is CF-DB05-E-R2_SCHEM-R2-1."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The encyclopedia's 663,000 and 660,000 lbf are one 2,950 kN rounded two ways. Rocketdyne's 1999 baseline (NTRS 20000025317, p.11) rates the RS-68 at 650 klbf sea level, 745 klbf vacuum and 1,410 psia before first flight, so the encyclopedia's 663,000 lbf and 1,488 psi are a later rating with no primary opened. NASA's 2009 Ares V paper gives the RS-68A as 39,000 lbf above the RS-68; 663,000 + 39,000 = 702,000 lbf DERIVED matches NASA's 702,000 lb for the RS-68A (CF-DB05-RS68A-THRUST), which supports 663,000 lbf as the flown RS-68 rating without a document saying so."
   },
   {
    "conflict_id": "CF-DB05-E-US_HIST-09",

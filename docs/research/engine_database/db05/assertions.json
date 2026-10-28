@@ -11668,6 +11668,155 @@
    "access": "fetched",
    "db0_link": null,
    "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-001",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "Thrust, vac, klbf 745 (Rated) / 440 (Throttled)",
+   "value": 745,
+   "unit_as_printed": "klbf",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-002",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value_as_printed": "Thrust, s/l, klbf 650 (Rated) / N/A (Throttled)",
+   "value": 650,
+   "unit_as_printed": "klbf",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-003",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber pressure, psia 1410 (Rated) / 836 (Throttled)",
+   "value": 1410,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated",
+    "pc_station": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-004",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "Engine mixture ratio 6.0",
+   "value": 6.0,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-005",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value_as_printed": "Isp, vacuum, sec 410 Avg",
+   "value": 410,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated",
+    "basis": "average"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-006",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value_as_printed": "Expansion ratio 21.5",
+   "value": 21.5,
+   "unit_as_printed": ":1",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-RS-68-007",
+   "engine_id": "ENG-US-RS-68",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight, lb < 15,000",
+   "value": "< 15000",
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "RS-68 baseline (1999, before first flight)",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
   }
  ]
 }

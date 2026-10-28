@@ -25756,6 +25756,27 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20000025317",
+   "title": "Liquid Rocket Propulsion: RS-68 & Linear Aerospike (Terry Murphy, Rocketdyne Propulsion & Power, The Boeing Company)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1999,
+   "source_type": "conference presentation",
+   "identifier": "NTRS 20000025317 (50th IAF Congress, Amsterdam, 11-12 October 1999)",
+   "url": "https://ntrs.nasa.gov/citations/20000025317",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED, but the slides are Boeing-authored; not export controlled",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
