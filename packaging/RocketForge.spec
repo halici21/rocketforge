@@ -216,6 +216,23 @@ else:
     print("[rocketforge] PySide6-Addons not installed; building without the 3D "
           "view. Install requirements-3d.txt for the official desktop build.")
 
+# ---------------------------------------------------------------------------
+# No OpenSSL from the build shell's PATH.
+#
+# PyInstaller's Qt hook gives the qopensslbackend TLS plugin the OpenSSL it
+# finds on PATH (libssl-3-x64.dll / libcrypto-3-x64.dll from miniforge or Git
+# for Windows), so the package carried whatever that machine had. Nothing in
+# RocketForge opens a network connection; without those files Qt uses its
+# schannel backend. Python's own libssl-3.dll / libcrypto-3.dll (for _ssl)
+# have other names and stay.
+# ---------------------------------------------------------------------------
+_PATH_OPENSSL = {"libssl-3-x64.dll", "libcrypto-3-x64.dll"}
+_before = len(a.binaries)
+a.binaries = [b for b in a.binaries
+              if os.path.basename(b[0]).lower() not in _PATH_OPENSSL]
+print("[rocketforge] dropped %d OpenSSL files picked up from PATH"
+      % (_before - len(a.binaries)))
+
 pyz = PYZ(a.pure)
 
 exe = EXE(

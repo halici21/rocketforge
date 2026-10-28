@@ -51,7 +51,7 @@ UNKNOWN = "unknown"
 APPLICATION_PATHS = ("main.py", "rocketforge", "ui", "assets", "packaging",
                      "build_exe.bat", "requirements.txt",
                      "requirements-thermochemistry.txt",
-                     "requirements-fluids.txt")
+                     "requirements-fluids.txt", "requirements-3d.txt")
 
 #: Every key a manifest must carry.
 MANIFEST_KEYS = ("schema", "product", "version", "commit", "describe", "branch",

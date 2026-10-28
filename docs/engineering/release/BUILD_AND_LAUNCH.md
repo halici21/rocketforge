@@ -53,7 +53,7 @@ the engineering backend's own version and is independent of both.
 To create or repair the desktop shortcut after a verified build:
 
 ```powershell
-$exe = Resolve-Path dist\RocketForge\RocketForge.exe
+$exe = (Resolve-Path dist\RocketForge\RocketForge.exe).Path
 $lnk = (New-Object -ComObject WScript.Shell).CreateShortcut(
     (Join-Path ([Environment]::GetFolderPath('Desktop')) 'RocketForge.lnk'))
 $lnk.TargetPath = $exe; $lnk.WorkingDirectory = Split-Path $exe
