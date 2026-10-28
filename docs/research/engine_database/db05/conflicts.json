@@ -1357,6 +1357,182 @@
    "resolution": "EXPLAINED",
    "kind": "rating_or_rounding",
    "explanation": "Every value is the 250,000 lbf design class, converted and rounded differently (1.1 MN, 1,110 kN, 1,112,000 N). The opened NASA documents print it as a programme goal, not a measured rating."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-PC",
+   "db0_conflict_id": "CF-ANCHOR_USSR-1; CF-USSR-4",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "Chamber pressure (psia) 3,560 (1995 estimate)",
+     "SRC-DB05-NTRS-19950013232",
+     "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
+    ],
+    [
+     "a chamber pressure of 3,734 psia (2001)",
+     "SRC-DB05-NTRS-20010067310",
+     "NTRS 20010067310 p.2 engine bullet list (text layer)"
+    ],
+    [
+     "3722 psia",
+     "SRC-SFN-RD180-2000",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "261.7 kgf/cm2; >280 atm with 10% certification margin",
+     "SRC-PNP-RD180",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "266.7 bar",
+     "SRC-KOD-RD180",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 1995 NASA value (3,560 psia) is an estimate for an engine not yet built. The 2001 NASA paper prints 3,734 psia, Purdue's figure. 261.7 kgf/cm2 is 3,722 psi DERIVED, the Spaceflight Now value, so the unopened Russian figure and the 2001 NASA one differ by 0.3 percent; station and gauge are printed by none. 266.7 bar and the margin claim stay unopened."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-MASS",
+   "db0_conflict_id": "CF-ANCHOR_USSR-6",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "Dry weight (lb) 11,675 (1995 estimate)",
+     "SRC-DB05-NTRS-19950013232",
+     "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
+    ],
+    [
+     "Total system dry weight 11,675 lbs. (2001)",
+     "SRC-DB05-NTRS-20010067310",
+     "NTRS 20010067310 p.2 engine bullet list (text layer)"
+    ],
+    [
+     "11,675 lb ('weight')",
+     "SRC-PURDUE-RD180",
+     "page table (fetched; small page)"
+    ],
+    [
+     "5,480 kg dry (12,081 lb derived)",
+     "SRC-GLAVKOSMOS-RD180",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "11,675 lb first appears as the 1995 NASA estimate and is repeated unchanged in 2001 and by Purdue, so the three are one figure. The 5,480 kg is the manufacturer's (as DB-0 reported it), never opened; whether the built engine differs from the estimate, or the definitions differ, is not established."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-THROTTLE",
+   "db0_conflict_id": "CF-ANCHOR_USSR-3",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.throttle_range",
+   "claims": [
+    [
+     "Throttle range (%) 50 (1995 estimate)",
+     "SRC-DB05-NTRS-19950013232",
+     "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
+    ],
+    [
+     "50 – 100 % continuous throttling (2001)",
+     "SRC-DB05-NTRS-20010067310",
+     "NTRS 20010067310 p.2 engine bullet list (text layer)"
+    ],
+    [
+     "47%-100%; 40 to 100 percent continuous throttling",
+     "SRC-SFN-RD180-2002",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "100-47%",
+     "SRC-GLAVKOSMOS-RD180",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both opened NASA documents give a 50 percent floor; the 47 and 40 percent floors are from pages never opened. Whether the floor was lowered after 2001 is not shown."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-MR",
+   "db0_conflict_id": "CF-ANCHOR_USSR-5",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "Mixture ratio 2.6 (1995 estimate)",
+     "SRC-DB05-NTRS-19950013232",
+     "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
+    ],
+    [
+     "2.6:1",
+     "SRC-PURDUE-RD180",
+     "page table (fetched; small page)"
+    ],
+    [
+     "2.72",
+     "SRC-SFN-RD180-2000",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Purdue's 2.6 is the 1995 NASA estimate's figure. The 2.72 was never opened; no opened document gives a mixture ratio for the built engine."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-THRUST",
+   "db0_conflict_id": "CF-ANCHOR_USSR-7",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.thrust_sl / performance.thrust_vac",
+   "claims": [
+    [
+     "Nominal thrust (lb) Sea level 827,000 / Vacuum 900,000 (1995 estimate)",
+     "SRC-DB05-NTRS-19950013232",
+     "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
+    ],
+    [
+     "860,200 lb SL / 933,400 lb vac",
+     "SRC-SFN-RD180-2000",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "860,400 lb SL / 933,000 lb vac",
+     "SRC-PURDUE-RD180",
+     "DB-0 search summary"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 1995 figures are pre-design estimates, and the same study asks for a 5 percent uprate. The two 860k / 933k figures agree with each other but neither was opened as evidence of the delivered rating."
+  },
+  {
+   "conflict_id": "CF-DB05-NK33-PC-THRUST",
+   "db0_conflict_id": "CF-R2_USSR-R2-4",
+   "engine_id": "ENG-SU-NK-33",
+   "field_path": "performance.pc / performance.thrust",
+   "claims": [
+    [
+     "Thrust (vac/SL), klbf 377 / 338; Main Chamber Pressure, psi 2,109",
+     "SRC-NAS-DEPS-068011",
+     "Aerojet ASEB presentation slide 12 'NK-33 Features And Performance' (PDF p.13, text layer)"
+    ],
+    [
+     "Thrust in Vacuum 339,000 lbf; Chamber Pressure 2109 psia (AJ26-NK33A)",
+     "SRC-PURDUE-AJ26",
+     "page table"
+    ],
+    [
+     "14.83 MPa (2,151 psi); 1510 kN SL; 1680 kN vac",
+     "SRC-WIKI-NK33",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "Aerojet prints 338 klbf sea level and 377 klbf vacuum. Purdue's 339,000 lbf labelled 'vacuum' is the sea-level figure: its own Isp pair (331 / 297) is Aerojet's, so the label is the slip. 2,109 is printed by both (psi by Aerojet, psia by Purdue). The 14.83 MPa (2,151 psi) was never opened; whether it is another station or absolute against gauge is not established."
   }
  ]
 }

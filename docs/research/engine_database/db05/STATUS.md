@@ -527,7 +527,29 @@ Rutherford's "311 s" sea-level Isp (COM-13) stays open: the Rocket Lab release
 was not re-downloaded, because a browser-agent download was refused as a
 bot-check bypass.
 
-53 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
+**RD-180 and NK-33 (same day), `tools/ledger_rd180_nk33.py`.** Neither engine is
+seeded. An NTRS search for "RD-180" found two NASA documents:
+- NASA-TM-108475 (MSFC, Jan 1995), a pre-design vehicle study. Its Figure 40 gives proposed engine data derived from the RD-170: 827,000 / 900,000 lb, 309 / 337 s, 3,560 psia, MR 2.6, 50 %, 11,675 lb dry.
+- Ross (NTRS 20010067310, 2001), which describes the engine tested at MSFC: 3,734 psia, 50–100 %, 11,675 lb dry.
+
+The Aerojet 2012 ASEB slides give the NK-33 at 100 %: 377 / 338 klbf, 331 / 297 s, 2,109 psi, MR 2.6, 27.7:1 and 2,985 lbm.
+
+Findings:
+- Purdue's RD-180 11,675 lb, 3,734 psia and 2.6 trace to these two NASA documents.
+- Purdue's NK-33 "339,000 lbf vacuum" is the sea-level figure, mislabelled.
+
+New conflicts:
+
+| DB-0.5 conflict | DB-0 conflicts | Result |
+|---|---|---|
+| CF-DB05-RD180-PC | ANCHOR_USSR-1, USSR-4 | PARTIALLY_RESOLVED |
+| CF-DB05-RD180-MASS | ANCHOR_USSR-6 | PARTIALLY_RESOLVED |
+| CF-DB05-RD180-MR | ANCHOR_USSR-5 | PARTIALLY_RESOLVED |
+| CF-DB05-RD180-THROTTLE | ANCHOR_USSR-3 | UNRESOLVED |
+| CF-DB05-RD180-THRUST | ANCHOR_USSR-7 | UNRESOLVED |
+| CF-DB05-NK33-PC-THRUST | R2_USSR-R2-4 | PARTIALLY_RESOLVED |
+
+60 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
 remains rests on unopened search summaries (Wikipedia, mirrors, Bilibili,
 HandWiki) or on sources that refused access. Examples: LE-7A pc, Vulcain 2
 thrust/pc/area ratio, YF-77/YF-100, and the RD-180, LE-9 and HM7B remainder.

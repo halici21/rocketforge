@@ -9571,7 +9571,7 @@
     "ENG-US-AJ26-62"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: 100% throttle main chamber Pc 2,109 psi; 377 klbf vac, 338 klbf SL; Isp 331 vac / 297 SL; main chamber MR 2.6:1. Which AJ26 variant is described not stated.",
    "branches": [
     "r2_ussr"
@@ -13952,7 +13952,7 @@
    "identifier": "",
    "primary": "secondary",
    "locators": "URL only",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Retrieved ONLY as a WebSearch result excerpt/summary on 2026-10-08; the document itself could not be opened (WebFetch DNS failure for all hosts, proxy 403). Value-to-source attribution is from the search summary and is not page-verified. Mirror/alt URL also seen: https://engineering.purdue.edu/AAE/research/propulsion/Info/jets/rockets/liquids/rd180",
    "source_id": "SRC-PURDUE-RD180",
    "title": "RD-180 (Pratt & Whitney and NPO Energomash)",
@@ -25707,6 +25707,48 @@
    "primary": "primary",
    "rights": "PUBLIC_DOMAIN_GOV",
    "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; NASA presentation, no copyright notice on slides read",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19950013232",
+   "title": "A 20k Payload Launch Vehicle Fast Track Development Concept Using an RD-180 Engine and a Centaur Upper Stage",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1995,
+   "source_type": "technical memorandum",
+   "identifier": "NASA-TM-108475; NTRS 19950013232 (compiled by R. Toelle, MSFC, January 1995)",
+   "url": "https://ntrs.nasa.gov/citations/19950013232",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; NASA technical memorandum",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20010067310",
+   "title": "Gas Emission Measurements from the RD 180 Rocket Engine Tests at the NASA Marshall Space Flight Center",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 2001,
+   "source_type": "conference paper",
+   "identifier": "NTRS 20010067310 (H. Richard Ross, Lockheed Martin Stennis Operations, 2001)",
+   "url": "https://ntrs.nasa.gov/citations/20010067310",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "PUBLIC_DOMAIN_GOV",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor paper for NASA SSC",
    "engines": [],
    "locators": "",
    "access": "fetched",

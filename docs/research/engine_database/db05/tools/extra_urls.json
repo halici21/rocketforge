@@ -77,5 +77,10 @@
  "SRC-PURDUE-H1": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/h1",
  "SRC-PURDUE-LR91AJ11": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/lr91aj11",
  "SRC-ASTRONAUTIX-LR87": "http://www.astronautix.com/l/lr87-5.html",
- "SRC-TMS-TITAN2": "https://www.themilitarystandard.com/missile/titan2/startsequence/"
+ "SRC-TMS-TITAN2": "https://www.themilitarystandard.com/missile/titan2/startsequence/",
+ "SRC-PURDUE-RD180": "https://engineering.purdue.edu/~propulsi/propulsion/rockets/liquids/rd180.html",
+ "SRC-PURDUE-AJ26": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/aj26nk33a",
+ "SRC-NAS-DEPS-068011": "https://sites.nationalacademies.org/cs/groups/depssite/documents/webpage/deps_068011.pdf",
+ "SRC-DB05-NTRS-20010067310": "https://ntrs.nasa.gov/citations/20010067310",
+ "SRC-DB05-NTRS-19950013232": "https://ntrs.nasa.gov/citations/19950013232"
 }
