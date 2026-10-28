@@ -489,11 +489,16 @@
      "A-3-3: Isp 442; A-3-3a: 444",
      "SRC-NAP-11780",
      "Table D-2"
+    ],
+    [
+     "RL10A-3-3 design estimate: nominal specific impulse 444 sec at 5.0:1 (added 2026-10-28)",
+     "SRC-DB05-NTRS-19670005471",
+     "p.ix; Table V-1"
     ]
    ],
    "resolution": "EXPLAINED",
    "kind": "different_variant",
-   "explanation": "Two Tier A sources give O/F 5.0 for the RL10A-3-3A. 442.4 s is the RL10A-3-3 value in the P&W evolution table (NAP prints 442 for A-3-3); the DB-0 Purdue pairing of 442.4 s with 5.5:1 mixes variants (INFERRED)."
+   "explanation": "Two Tier A sources give O/F 5.0 for the RL10A-3-3A. 442.4 s is the RL10A-3-3 value in the P&W evolution table (NAP prints 442 for A-3-3); the DB-0 Purdue pairing of 442.4 s with 5.5:1 mixes variants (INFERRED). The 1966 RL10A-3-3 design report (PWA FR-1769) estimates 444 s at 5.0:1 for the A-3-3 as well, so 442 for the A-3-3 is not its design estimate; whether 442 is a later delivered value is not established. The RL10A-3-3A values are unaffected."
   },
   {
    "conflict_id": "CF-DB05-RL10B2-PC-ISP",
@@ -985,6 +990,27 @@
    "resolution": "RESOLVED",
    "kind": "primary_value_found",
    "explanation": "The AS-504 summary prints the direction the Rocketdyne slide left out: 2.27 is oxidizer to fuel (LOX : RP-1)."
+  },
+  {
+   "conflict_id": "CF-DB05-RL10A33-PC",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-RL10A-3-3",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "a nominal design chamber pressure of 400 psia",
+     "SRC-DB05-NTRS-19670005471",
+     "p.ix"
+    ],
+    [
+     "Chamber pressure (throat total), psia 385.2; (injector face static) 394.6",
+     "SRC-DB05-NTRS-19670005471",
+     "Table V-1 p.V-1"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "intra_document",
+   "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so."
   }
  ]
 }

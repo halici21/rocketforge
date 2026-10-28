@@ -183,6 +183,28 @@
    "assertions": 2
   },
   {
+   "source_id": "SRC-DB05-NTRS-19670005471",
+   "url_requested": "https://ntrs.nasa.gov/citations/19670005471",
+   "download_url": "https://ntrs.nasa.gov/api/citations/19670005471/downloads/19670005471.pdf",
+   "http_status": "200",
+   "bytes": 3634292,
+   "sha256": "3bf7ed58e021ac9ca6406399b3c9ee39a55dd27e32e0f9dcf7632c230d542768",
+   "pdf_pages": 94,
+   "retrieved_utc": "2026-10-28T17:24:42Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "RL10A-3-3 rocket engine  Design report",
+   "ntrs_export_control": "NO",
+   "read_level": "READ_AND_MINED",
+   "identifier_verified": "PWA FR-1769, 28 Feb 1966; NASA-CR-80920; contract NAS8-15494; NTRS 19670005471",
+   "title_as_printed": "Design Report for RL10A-3-3 Rocket Engine",
+   "tier": "A",
+   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; no reproduction notice found in the extracted text",
+   "rights_values": "VALUES_WITH_ATTRIBUTION",
+   "rights_figures": "VALUES_WITH_ATTRIBUTION",
+   "note": "94 pages. Introduction (PDF p.10), Table IV-1 (PDF p.41) and Table V-1 (PDF pp.42-44) viewed as images; Section I read from text. Values are the contractor's design estimates, not test or flight data.",
+   "assertions": 22
+  },
+  {
    "source_id": "SRC-DB05-NTRS-19680026222",
    "url_requested": "https://ntrs.nasa.gov/citations/19680026222",
    "download_url": "https://ntrs.nasa.gov/api/citations/19680026222/downloads/19680026222.pdf",

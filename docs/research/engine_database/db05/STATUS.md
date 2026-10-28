@@ -154,8 +154,8 @@ Rutherford, LR87 and RS-68A anchors; 21 downloaded documents not read (Rocket
 Lab pages, patents, enginehistory.org chapters, Apollo flight evaluations);
 176 of the 206 DB-0 conflicts (11 of them P0). Two exploratory downloads (RL10A-3-3 design
 report NTRS 19670005471; J-2 AS-501 flight analysis NTRS 19680026222) are leads
-and are not registered. (The J-2 AS-501 analysis was read and registered on
-2026-10-28; see the J-2 AS-501 flight supplement below.)
+and are not registered. (Both were read and registered on
+2026-10-28; see the J-2 AS-501 and RL10A-3-3 supplements below.)
 
 **DB-2B Wave 2 supplement (2026-10-10).** A narrow source-completion pass for the
 seven Wave 2 targets only (RL10A-4-2, RL10B-2, RD-170, IPD, RS-68A, LR87,
@@ -263,6 +263,32 @@ Rocketdyne R-7450-1, J-2 performance analysis of flight AS-501 (NTRS
   RESOLVED at 717 psia nozzle stagnation.
 - Ten J-2 assertions (037-046); none promoted. The DB-2A manifest accounts
   for each. DB-0.5 stays PARTIAL.
+
+## RL10A-3-3 design report supplement (2026-10-28)
+
+Pratt & Whitney PWA FR-1769, Design Report for RL10A-3-3 Rocket Engine (NTRS
+19670005471, NASA-CR-80920, 28 Feb 1966), read from text with the tables
+checked as images. DB-0 held ENG-US-RL10A-3-3 as an unsourced placeholder;
+it now has 22 Tier A assertions (contractor design estimates):
+
+- Rated thrust 15,000 lb at 200,000 ft, nominal Isp 444 s, O/F 5.0:1, area
+  ratio 57:1 (57.1 effective), at least three starts and 450 s per firing,
+  4,000 s service life (Introduction).
+- Basic engine weight 289.79 lb (3-sigma maximum; specification 290.00 lb),
+  total 301.19 lb (Table IV-1).
+- At 5.0:1: throat-total pc 385.2 psia, injector-face static 394.6 psia,
+  fuel 5.63 and oxidizer 28.16 lb/s, fuel pump 30,250 rpm, oxidizer pump
+  12,100 rpm, c* 7,626 ft/s, throat 5.14 in, L* 38.7 in (Table V-1).
+- Cycle: the chamber jacket supplies turbine power and the turbine discharge
+  runs to the main fuel shutoff valve, i.e. a closed expander (INFERRED; the
+  report never prints 'expander').
+- New CF-DB05-RL10A33-PC (PARTIALLY_RESOLVED, intra-document): the
+  introduction's 400 psia 'nominal design chamber pressure' has no station
+  and differs from the table's 385.2 / 394.6 psia.
+- CF-DB05-RL10A33A-MR-ISP stays EXPLAINED for the seeded RL10A-3-3A, but the
+  design report estimates 444 s for the A-3-3 too, so NAP's 442 s for the
+  A-3-3 is not its design estimate; its origin is not established.
+- RL10A-3-3 is not a seed engine; nothing promoted.
 
 ## Reproducing
 

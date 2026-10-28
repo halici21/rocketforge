@@ -129,9 +129,12 @@ T(R33A, configuration="RL10A-3-3A (Centaur)", schematic_ids=["SCH-DB05-RL10A33A-
 
 C("CF-DB05-RL10A33A-MR-ISP", engine_id=R33A, field_path="propellants.mixture_ratio / performance.isp_vac", db0_conflict_id="CF-US_HIST-02",
   claims=[["MR 5:1, Isp 444.4 s (RL10A-3-3A)", "SRC-NTRS-19910018888", "p.3"], ["normal operating point 475 psia and O/F = 5.0", "SRC-NTRS-19950022693", "§4.3"],
-          ["A-3-3: Isp 442; A-3-3a: 444", "SRC-NAP-11780", "Table D-2"]],
+          ["A-3-3: Isp 442; A-3-3a: 444", "SRC-NAP-11780", "Table D-2"],
+          ["RL10A-3-3 design estimate: nominal specific impulse 444 sec at 5.0:1 (added 2026-10-28)", "SRC-DB05-NTRS-19670005471", "p.ix; Table V-1"]],
   resolution="EXPLAINED", kind="different_variant",
-  explanation="Two Tier A sources give O/F 5.0 for the RL10A-3-3A. 442.4 s is the RL10A-3-3 value in the P&W evolution table (NAP prints 442 for A-3-3); the DB-0 Purdue pairing of 442.4 s with 5.5:1 mixes variants (INFERRED).")
+  explanation="Two Tier A sources give O/F 5.0 for the RL10A-3-3A. 442.4 s is the RL10A-3-3 value in the P&W evolution table (NAP prints 442 for A-3-3); the DB-0 Purdue pairing of 442.4 s with 5.5:1 mixes variants (INFERRED). "
+              "The 1966 RL10A-3-3 design report (PWA FR-1769) estimates 444 s at 5.0:1 for the A-3-3 as well, so 442 for the A-3-3 is not its design estimate; "
+              "whether 442 is a later delivered value is not established. The RL10A-3-3A values are unaffected.")
 C("CF-DB05-RL10B2-PC-ISP", engine_id=RB2, field_path="performance.pc / performance.isp_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-1; CF-R2_US_CLASSIC-B2-3; CF-US_HIST-03",
   claims=[["644 psia; 466.5 s (Table D-2)", "SRC-NAP-11780", "Table D-2"], ["633 psi; 465.5 s (text)", "SRC-NAP-11780", "Appendix D text"]],
   resolution="UNRESOLVED", kind="intra_document",

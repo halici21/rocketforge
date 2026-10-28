@@ -397,7 +397,8 @@ RESEARCH_CONFLICTS = {
         decision="CARRIED_NOT",
         touches=("AS-DB05-US-RL10A-3-3A-006", "AS-DB05-US-RL10A-3-3A-010", "AS-DB05-US-RL10A-3-3A-012"),
         competing={"SRC-NAP-11780 Table D-2": "not a seed source; 444 s agrees, 442 is the RL10A-3-3",
-                   "DB-0 Purdue 442.4 s at 5.5:1": "search result; mixes variants"},
+                   "DB-0 Purdue 442.4 s at 5.5:1": "search result; mixes variants",
+                   "SRC-DB05-NTRS-19670005471 p.ix": "RL10A-3-3 design estimate 444 s at 5.0:1; another variant, not a seed source"},
         argument="EXPLAINED (different variant)."),
     "CF-DB05-SPS-THRUST": dict(
         decision="CARRIED_NOT",

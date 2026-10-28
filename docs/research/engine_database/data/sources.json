@@ -25630,6 +25630,27 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19670005471",
+   "title": "Design Report for RL10A-3-3 Rocket Engine",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1967,
+   "source_type": "design report",
+   "identifier": "PWA FR-1769, 28 Feb 1966; NASA-CR-80920; contract NAS8-15494; NTRS 19670005471",
+   "url": "https://ntrs.nasa.gov/citations/19670005471",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; no reproduction notice found in the extracted text",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
