@@ -9904,6 +9904,428 @@
    "access": "fetched",
    "db0_link": null,
    "note": "Same page: expected value 178 psia at first SPS ignition; fuel measurement believed biased about -2 psi. The helium regulator outlet pressure itself is not printed; p.22 says the CSM 104 regulator stems were replaced before flight."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-003",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-RPL",
+   "value_as_printed": "Rated power level (RPL) 100% 470,000 lbs",
+   "value": 470000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)",
+    "environment": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-004",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "performance.pc",
+   "operating_point": "OP-RPL",
+   "value_as_printed": "Rated chamber pressure 3006 psia",
+   "value": 3006,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same value as AIAA 97-2687 p.1-2."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-005",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "performance.isp_vac",
+   "operating_point": "OP-RPL",
+   "value_as_printed": "Specific impulse at altitude 453.5 seconds",
+   "value": 453.5,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)",
+    "environment": "altitude"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-006",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "performance.throttle_range",
+   "operating_point": null,
+   "value_as_printed": "Throttle range 65 to 109%",
+   "value": "65 -> 109",
+   "unit_as_printed": "% RPL",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "The paper's tests ran the engine down to 17% RPL (off-nominal)."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-007",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight 7000 lbs",
+   "value": 7000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)",
+    "definition": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-I-008",
+   "engine_id": "ENG-US-SSME-BLOCK-I",
+   "field_path": "life.design",
+   "operating_point": null,
+   "value_as_printed": "Design life 27,000 seconds, 55 starts",
+   "value": "27,000 / 55",
+   "unit_as_printed": "s / starts",
+   "conditions": {
+    "configuration": "UNSTATED (1997 paper; 3006 psia at RPL is the pre-large-throat value)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-AIAA-97-2685",
+   "locator": "AIAA 97-2685 p.2 (PDF p.4) Figure 2 'The SSME is the First Reusable Large, Liquid Rocket Engine' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-BLOCK-II-045",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "weighs approximately 7,000 pounds (3,150 kilograms)",
+   "value": 7000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "UNSTATED (shuttle main engine, 2006 revision)",
+    "definition": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-NASA-KSC-167449-SSMEPF06",
+   "locator": "FS-2005-09-030-KSC p.1 (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same sentence: 14 feet (4.2 meters) long and 7.5 feet (2.25 meters) in diameter at the end of its nozzle."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-FPL-PHASE-I-001",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "field_path": "performance.thrust_vac",
+   "operating_point": "OP-RPL",
+   "value_as_printed": "It produces a rated thrust of 470,000 pounds (vacuum)",
+   "value": 470000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "SSME as designed and developed 1971-1981 (operating point not stated)",
+    "environment": "vacuum"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Biggs Part 1 p.2 'The Engine' (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-FPL-PHASE-I-002",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value_as_printed": "a specific impulse greater than 453 pounds of thrust per pound of propellant per second",
+   "value": "> 453",
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "SSME as designed and developed 1971-1981 (operating point not stated)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Biggs Part 1 p.2 'The Engine' (text layer)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-FPL-PHASE-I-003",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "field_path": "pumps.HPFTP.speed_rpm",
+   "operating_point": null,
+   "value_as_printed": "The three-stage centrifugal pump, operating at 35,000 rpm",
+   "value": 35000,
+   "unit_as_printed": "rpm",
+   "conditions": {
+    "configuration": "SSME as designed and developed 1971-1981 (operating point not stated)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Biggs Part 1 p.3 (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same paragraph: discharge 'over 6,000 psia'; LPFTP turboinducer 15,000 rpm, inlet 30 psia, discharge over 250 psia."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-FPL-PHASE-I-004",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "field_path": "pumps.HPOTP.speed_rpm",
+   "operating_point": null,
+   "value_as_printed": "The dual inlet single stage centrifugal main impeller, operating at almost 30,000 rpm",
+   "value": "almost 30,000",
+   "unit_as_printed": "rpm",
+   "conditions": {
+    "configuration": "SSME as designed and developed 1971-1981 (operating point not stated)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Biggs Part 1 p.3 (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same paragraph: discharge about 4,500 psia; LPOTP 5,000 rpm, inlet 100 psia, discharge over 400 psia."
+  },
+  {
+   "assertion_id": "AS-DB05-US-SSME-FPL-PHASE-I-005",
+   "engine_id": "ENG-US-SSME-FPL-PHASE-I",
+   "field_path": "cycle.flow_split",
+   "operating_point": null,
+   "value_as_printed": "80 percent of the fuel (LH2) is burned in the two preburners with 12 percent of the oxidizer (LOX)",
+   "value": "80% fuel / 12% oxidizer to preburners",
+   "unit_as_printed": "",
+   "conditions": {
+    "configuration": "SSME as designed and developed 1971-1981 (operating point not stated)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-SSME1",
+   "locator": "Biggs Part 1 p.3 (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-015",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "thrust, 9807 lbf",
+   "value": 9807,
+   "unit_as_printed": "lbf",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "environment": "vacuum (flight, corrected to standard inlet conditions)",
+    "operating_point": "FTP, 33 s after ignition",
+    "basis": "flight analysis result, not a rating"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.10 (PDF p.20) standard-inlet-conditions table; repeated in the Summary p.2 (PDF p.12) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: ground-test prediction 9791 lbf; performance specification range 9712 - 10027 lbf; 3-sigma repeatability 9742 - 9840."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-016",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value_as_printed": "specific impulse, 305.8 sec",
+   "value": 305.8,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "environment": "vacuum (flight, corrected to standard inlet conditions)",
+    "operating_point": "FTP, 33 s after ignition",
+    "basis": "flight analysis result, not a rating"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.10 (PDF p.20) standard-inlet-conditions table; repeated in the Summary p.2 (PDF p.12) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: specification '> 305.0'; repeatability 305.14 - 306.46."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-017",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "propellant mixture ratio, 1.594",
+   "value": 1.594,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "environment": "vacuum (flight, corrected to standard inlet conditions)",
+    "operating_point": "FTP, 33 s after ignition",
+    "basis": "flight analysis result, not a rating"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.10 (PDF p.20) standard-inlet-conditions table; repeated in the Summary p.2 (PDF p.12) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: specification range 1.586 - 1.614."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-018",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "Performance Specification Range 9712 - 10027",
+   "value": "9712 - 10027",
+   "unit_as_printed": "lbf",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "environment": "vacuum (standard inlet conditions)",
+    "operating_point": "FTP",
+    "basis": "performance specification range"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.10 (PDF p.20) standard-inlet-conditions table; repeated in the Summary p.2 (PDF p.12) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-019",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "feed.engine_inlet_pressure",
+   "operating_point": null,
+   "value_as_printed": "Oxidizer interface pressure, psia 222.0 / Fuel interface pressure, psia 222.0",
+   "value": "222.0 / 222.0",
+   "unit_as_printed": "psia",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "definition": "standard inlet conditions (oxidizer / fuel), 70 °F, thrust acceleration 1.0 lbf/lbm, throat area 54.4 in^2"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.10 (PDF p.20) standard-inlet-conditions table; repeated in the Summary p.2 (PDF p.12) (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-020",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "nozzle.throat_area",
+   "operating_point": null,
+   "value_as_printed": "Chamber Throat Area, in2 53.495",
+   "value": 53.495,
+   "unit_as_printed": "in^2",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "basis": "engine S/N 1046 acceptance test report (footnote 1)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.21 (PDF p.31) Table 1 'LM-10 Descent Propulsion Engine and Feed System Physical Characteristics' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LMDE-021",
+   "engine_id": "ENG-US-LMDE",
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value_as_printed": "Nozzle Expansion Ratio 54.0",
+   "value": 54.0,
+   "unit_as_printed": ":1",
+   "conditions": {
+    "configuration": "LM-10 descent engine S/N 1046 (Apollo 15)",
+    "basis": "approximate value (footnote 3)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-MSC-05161-A15S4",
+   "locator": "MSC-05161 Suppl. 4 p.21 (PDF p.31) Table 1 'LM-10 Descent Propulsion Engine and Feed System Physical Characteristics' (viewed as image)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: nozzle exit area 2937.6 in^2 (approximate). TN D-7143 p.10 gives the design's columbium skirt as ending at 47.5:1; this report does not say why LM-10's ratio differs, and no opened document records the change. Not filed as a C() conflict: under the DB-2B rule it would withhold the shipped LMDE cooling-zones text (AS-DB05-US-LMDE-010), an owner decision. See STATUS.md."
+  },
+  {
+   "assertion_id": "AS-DB05-US-AJ10-137-037",
+   "engine_id": "ENG-US-AJ10-137",
+   "field_path": "pressurization.regulator_setpoints",
+   "operating_point": null,
+   "value_as_printed": "The primary regulator setpoint was 186 ± 4 psig while the secondary regulator setpoint was 191 ± 4 psig",
+   "value": "186 ± 4 / 191 ± 4",
+   "unit_as_printed": "psig",
+   "conditions": {
+    "owner": "service module",
+    "configuration": "UNSTATED",
+    "reference": "All regulator set points were referenced to a bellows assembly that was vented to ambient"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-EH-RPE0931",
+   "locator": "AEHS RPE09.31 'Helium Pressurization Subsystem' (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "The reference sentence matters: a set point referenced to an ambient-vented bellows reads as gauge pressure on the ground and as absolute pressure in vacuum. Same section: tanks filled to 3,600 ± 50 psia, 4,400 psia maximum; relief diaphragm 219 ± 6 psig."
   }
  ]
 }

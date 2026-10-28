@@ -1404,8 +1404,8 @@
   {
    "engine_id": "ENG-US-AJ10-137",
    "db0_assertion_index": 2,
-   "outcome": "UNSUPPORTED",
-   "evidence": "TN D-7375 p.3: helium 'regulated to 180 psia'; 186 psig not printed (see CF-DB05-SPS-REG)",
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "AEHS RPE09.31 (Tier D) prints '186 ± 4 psig'; TN D-7375 p.3 prints 180 psia (see CF-DB05-SPS-REG)",
    "note": "",
    "db0_field_path": "pressurization.regulator_setpoint_primary",
    "db0_value": 186,
@@ -1414,8 +1414,8 @@
   {
    "engine_id": "ENG-US-AJ10-137",
    "db0_assertion_index": 3,
-   "outcome": "UNSUPPORTED",
-   "evidence": "TN D-7375 says only that the secondary regulates higher; 191 psig not printed",
+   "outcome": "CONFIRMED_OTHER_SOURCE",
+   "evidence": "AEHS RPE09.31 (Tier D) prints '191 ± 4 psig'; TN D-7375 says only that the secondary regulates higher",
    "note": "",
    "db0_field_path": "pressurization.regulator_setpoint_secondary",
    "db0_value": 191,

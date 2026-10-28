@@ -73,9 +73,12 @@ def test_accounting_totals(research):
     totals = collections.Counter(v[0] for v in wave1.NOT_PROMOTED.values())
     assert len(wave1.ASSERTIONS) == 75
     # the F-1 rating-epoch research pass (2026-10-28) added six F-1 assertions, none promoted:
-    # one WITHHELD_RIGHTS, three WITHHELD_CONFLICT, one DUPLICATE, one OWNER_DECISION_REQUIRED
-    assert dict(totals) == {"WITHHELD_RIGHTS": 47, "WITHHELD_CONFLICT": 18, "MISSING_REQUIRED_SEMANTICS": 10,
-                            "NOT_NEEDED": 14, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 5,
+    # one WITHHELD_RIGHTS, three WITHHELD_CONFLICT, one DUPLICATE, one OWNER_DECISION_REQUIRED;
+    # the SSME unread-download pass (2026-10-28) added seven, none promoted: five WITHHELD_RIGHTS
+    # (AIAA 97-2685) and two WITHHELD_CONFLICT (mass); the Apollo 15 DPS pass (2026-10-28) added
+    # seven LMDE flight-engine values, all WRONG_CONFIGURATION
+    assert dict(totals) == {"WITHHELD_RIGHTS": 52, "WITHHELD_CONFLICT": 20, "MISSING_REQUIRED_SEMANTICS": 10,
+                            "NOT_NEEDED": 14, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 12,
                             "WRONG_OPERATING_POINT": 1, "DUPLICATE": 2, "OWNER_DECISION_REQUIRED": 1}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(
         1 for r in research.assertions.values() if r["engine_id"] in wave1.SEED_ENGINES)

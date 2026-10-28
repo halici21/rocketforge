@@ -131,20 +131,27 @@ C("CF-DB05-RS25-THRUSTREF", engine_id=E2, field_path="performance.thrust referen
   explanation="470,000 x 1.045 = 491,150 and 470,000 x 1.09 = 512,300 (DERIVED): 491,000 is the vacuum scale.")
 C("CF-DB05-RS25-MASS", engine_id=E2, field_path="mechanical.mass", db0_conflict_id="CF-R2_US_CLASSIC-RS-2",
   claims=[["7,774 lb dry", "SRC-L3HARRIS-RS25-SPEC", "p.1"], ["7,775 lbs", "SRC-NASA-RS25-FS2015", "p.2"],
-          ["3,515 kg (7,750 lbs.)", "SRC-NASA-RS25-FS2025", "p.1"], ["approximately 7,400 lbs", "SRC-IBIBLIO-SSMEOVERVIEW", "p.1.1-1 (2003)"]],
-  resolution="UNRESOLVED", explanation="7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents.")
+          ["3,515 kg (7,750 lbs.)", "SRC-NASA-RS25-FS2025", "p.1"], ["approximately 7,400 lbs", "SRC-IBIBLIO-SSMEOVERVIEW", "p.1.1-1 (2003)"],
+          ["Weight 7000 lbs (1997, pre-large-throat engine)", "SRC-AIAA-97-2685", "Figure 2"],
+          ["approximately 7,000 pounds (3,150 kilograms)", "SRC-NASA-KSC-167449-SSMEPF06", "p.1 (2006)"],
+          ["Weight: 7,775 lb", "SRC-L3HARRIS-RS25-WEB", "specification box"]],
+  resolution="UNRESOLVED", explanation="7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents. "
+              "Added 2026-10-28: two more Shuttle-era sources print about 7,000 lb (Rocketdyne 1997, KSC 2006), so the Shuttle-era figures already span 7,000-7,400 lb with no definition; "
+              "L3Harris's web page prints 7,775 lb against its own spec sheet's 7,774 lb.")
 C("CF-DB05-RS25-PUMPPOWER", engine_id=E2, field_path="pumps.HPFTP.power / pumps.HPOTP.power",
   claims=[["71,140 hp / 23,260 hp", "SRC-L3HARRIS-RS25-SPEC", "p.1"], ["69,000 hp / 25,000 hp", "SRC-NTRS-20180006338", "p.2"]],
   resolution="UNRESOLVED", explanation="Neither prints a power level. DB-0 news values 76,000 / 26,800 hp have no primary support.")
 C("CF-DB05-RS25-HPOTPSPEED", engine_id=E2, field_path="pumps.HPOTP.speed_rpm", db0_conflict_id="CF-R2_US_CLASSIC-RS-5",
   claims=[["22,250 rpm (Block IIA, 104.5% RPL)", "SRC-ENGINEHISTORY-SSMEORIENT-1998", "p.25"],
           ["max allowable approximately 30,000 rpm; burst 38,000 rpm", "SRC-IBIBLIO-SSMEOVERVIEW", "p.97"],
-          ["28,120 rpm", "SRC-WIKI-RS25", "DB-0 search summary"]],
+          ["28,120 rpm", "SRC-WIKI-RS25", "DB-0 search summary"],
+          ["operating at almost 30,000 rpm (original engine, 1971-1981)", "SRC-ENGINEHISTORY-SSME1", "p.3"]],
   resolution="PARTIALLY_RESOLVED", kind="definition",
-  explanation="The ~30,000 rpm figure is a limit, not an operating speed. Primary operating speed found only for Block IIA at 104.5%; Block II at 109% not found. 28,120 rpm has no primary support among opened documents.")
+  explanation="The ~30,000 rpm figure is a limit, not an operating speed. Primary operating speed found only for Block IIA at 104.5%; Block II at 109% not found. 28,120 rpm has no primary support among opened documents. Added 2026-10-28: Biggs (participant history, Tier B) gives 'almost 30,000 rpm' as the operating speed of the original 1970s engine, a third configuration.")
 C("CF-DB05-RS25-HPFTSPEED", engine_id=E2, field_path="pumps.HPFTP.speed_rpm", db0_conflict_id="CF-R2_US_CLASSIC-RS-6",
-  claims=[["34,311 rpm (Rocketdyne HPFTP, Block IIA, 104.5%)", "SRC-ENGINEHISTORY-SSMEORIENT-1998", "p.25"]],
-  resolution="UNRESOLVED", explanation="Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only.")
+  claims=[["34,311 rpm (Rocketdyne HPFTP, Block IIA, 104.5%)", "SRC-ENGINEHISTORY-SSMEORIENT-1998", "p.25"],
+          ["operating at 35,000 rpm (original engine, 1971-1981)", "SRC-ENGINEHISTORY-SSME1", "p.3"]],
+  resolution="UNRESOLVED", explanation="Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only. Added 2026-10-28: Biggs (Tier B) gives 35,000 rpm for the original engine's HPFTP, operating point not stated.")
 BLOCK("SRC-NASA-HOPSON-STS104-FRR-2001", "connection failed (curl exit, HTTP 000) to corpora.tika.apache.org",
       "Hopson STS-104 FRR table values (turbine temperatures) stay unverified.")
 

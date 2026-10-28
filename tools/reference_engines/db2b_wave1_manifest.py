@@ -509,6 +509,16 @@ NOT_PROMOTED = {
                                                 "the owner kept 1,125 psia (2026-10-28)"),
     "AS-DB05-US-F-1-037": ("OWNER_DECISION_REQUIRED", "prints the direction -006 lacked ('LOX : RP-1 2.27:1'); "
                                                       "whether it supplies -006's missing semantics is the owner's call"),
+    # SSME unread-download pass (2026-10-28), recorded after the wave; nothing here is shipped
+    **{f"AS-DB05-US-SSME-BLOCK-I-00{i}": ("WITHHELD_RIGHTS", "AIAA 97-2685: AIAA reprint notice on the cover against NTRS "
+                                                            "public use, unresolved") for i in (3, 4, 5, 6, 8)},
+    "AS-DB05-US-SSME-BLOCK-I-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
+    "AS-DB05-US-SSME-BLOCK-II-045": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
+    # Apollo 15 DPS pass (2026-10-28): one flight engine (LM-10, S/N 1046), recorded after the wave
+    **{f"AS-DB05-US-LMDE-0{i}": ("WRONG_CONFIGURATION", "Apollo 15 evaluation: one flight engine (LM-10, S/N 1046), "
+                                                        "not the design the seed ships") for i in range(15, 21)},
+    "AS-DB05-US-LMDE-021": ("WRONG_CONFIGURATION", "LM-10's approximate 54.0:1, unexplained against the design's "
+                                                   "47.5:1 skirt; not the design the seed ships"),
 }
 
 # ------------------------------------------------------------------ owner decisions (2026-10-09)
@@ -623,7 +633,8 @@ RESEARCH_CONFLICTS = {
                                    competing={},
                                    argument="EXPLAINED: the values differ by power level (RPL, 104.5%, 109%)."),
     "CF-DB05-RS25-MASS": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-SSME-BLOCK-II-012", "AS-DB05-US-SSME-BLOCK-II-015", "AS-DB05-US-SSME-BLOCK-II-018",), argument="UNRESOLVED: definitions not printed."),
+        withhold=("AS-DB05-US-SSME-BLOCK-II-012", "AS-DB05-US-SSME-BLOCK-II-015", "AS-DB05-US-SSME-BLOCK-II-018",
+                  "AS-DB05-US-SSME-BLOCK-I-007", "AS-DB05-US-SSME-BLOCK-II-045",), argument="UNRESOLVED: definitions not printed."),
     "CF-DB05-RS25-PUMPPOWER": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-SSME-BLOCK-II-007", "AS-DB05-US-SSME-BLOCK-II-008", "AS-DB05-US-SSME-BLOCK-II-021", "AS-DB05-US-SSME-BLOCK-II-022",), argument="UNRESOLVED: no power level printed."),
     "CF-DB05-RS25-HPOTPSPEED": dict(decision="WITHHOLD",

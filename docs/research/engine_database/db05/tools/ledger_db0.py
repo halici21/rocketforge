@@ -82,8 +82,8 @@ for i, o, ev in [(0, "CONFIRMED", "ULA inaugural p.2"), (1, "CONFIRMED", "ULA GP
 SPS = "ENG-US-AJ10-137"
 X(SPS, 0, "CONFIRMED", "TN D-7375 title")
 X(SPS, 1, "CONFIRMED_OTHER_SOURCE", "TN D-7375 pp.3-4 primary + secondary in series")
-X(SPS, 2, "UNSUPPORTED", "TN D-7375 p.3: helium 'regulated to 180 psia'; 186 psig not printed (see CF-DB05-SPS-REG)")
-X(SPS, 3, "UNSUPPORTED", "TN D-7375 says only that the secondary regulates higher; 191 psig not printed")
+X(SPS, 2, "CONFIRMED_OTHER_SOURCE", "AEHS RPE09.31 (Tier D) prints '186 ± 4 psig'; TN D-7375 p.3 prints 180 psia (see CF-DB05-SPS-REG)")
+X(SPS, 3, "CONFIRMED_OTHER_SOURCE", "AEHS RPE09.31 (Tier D) prints '191 ± 4 psig'; TN D-7375 says only that the secondary regulates higher")
 X(SPS, 4, "CONFIRMED", "NTRS 19710025470 title (metadata)")
 LM = "ENG-US-LMDE"
 for i in [0, 1, 2, 3]:
@@ -106,9 +106,13 @@ X(RD, 8, "RECLASSIFIED", "NTRS 19910018906 p.15: Rockwell inference from photogr
 X(RD, 15, "CONFIRMED", "250 kgf/cm2 = 24.52 MPa (DERIVED reproduces)")
 
 C("CF-DB05-SPS-REG", engine_id=SPS, field_path="pressurization.regulator_setpoints",
-  claims=[["regulated to 180 psia", "SRC-NASA-TND7375", "p.3 (PDF p.7)"], ["186 psig primary / 191 psig secondary", "SRC-EH-RPE0931", "DB-0 search summary"],
+  claims=[["regulated to 180 psia", "SRC-NASA-TND7375", "p.3 (PDF p.7)"], ["The primary regulator setpoint was 186 ± 4 psig while the secondary regulator setpoint was 191 ± 4 psig", "SRC-EH-RPE0931", "RPE09.31 'Helium Pressurization Subsystem'"],
           ["tank pressures 180 / 178 psia (oxidizer / fuel) at liftoff; regulator outlet not printed", "SRC-APOLLO9-SPS-FFE", "p.36 (PDF p.41)"]],
-  resolution="UNRESOLVED", kind="definition_or_epoch",
+  resolution="PARTIALLY_RESOLVED", kind="definition_or_epoch",
   explanation="Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages. "
               "Added 2026-10-28: Apollo 9 (Block II) tank pressures sit at 175-183 psia, consistent with 180 psia, but the report gives no "
-              "regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22).")
+              "regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22). "
+              "Added 2026-10-28 (second pass): the AEHS page was opened. It prints the set points as 186 ± 4 / 191 ± 4 psig and says they were "
+              "referenced to a bellows vented to ambient, so in vacuum they act as about 186 / 191 psia; the units difference is a reference "
+              "definition, not a disagreement. A 6 psi gap to TN D-7375's 180 psia remains (182-190 psia band), against a Tier D source citing "
+              "unopened AEDC reports, so the conflict is only partly resolved.")

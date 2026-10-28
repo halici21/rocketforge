@@ -155,7 +155,9 @@ Lab pages, patents, enginehistory.org chapters, Apollo flight evaluations);
 176 of the 206 DB-0 conflicts (11 of them P0). Two exploratory downloads (RL10A-3-3 design
 report NTRS 19670005471; J-2 AS-501 flight analysis NTRS 19680026222) are leads
 and are not registered. (Both were read and registered on
-2026-10-28; see the J-2 AS-501 and RL10A-3-3 supplements below.)
+2026-10-28; see the J-2 AS-501 and RL10A-3-3 supplements below.) On 2026-10-28 every remaining
+`FETCHED_NOT_READ` download was read, so the count is now 0; see the
+"Unread downloads closed" supplement below.
 
 **DB-2B Wave 2 supplement (2026-10-10).** A narrow source-completion pass for the
 seven Wave 2 targets only (RL10A-4-2, RL10B-2, RD-170, IPD, RS-68A, LR87,
@@ -339,6 +341,62 @@ Block II spacecraft (engine S/N 62, injector S/N 120).
 - Figures 1-24 are time-history plots. The DB-0 schematic lead
   SCH-AJ10-137-R2-2 ("Apollo 9 SPS pressurization system") has no drawing in
   this document.
+
+## Unread downloads closed (2026-10-28)
+
+The 16 downloads still marked `FETCHED_NOT_READ` were read, which brings that
+count to 0. One lead DB-0 cited but never fetched was added: AEHS RPE09.31, the
+SPS page. Each document is now READ_AND_MINED, IDENTITY_VERIFIED_ONLY or
+FETCHED_NOT_EVIDENCE. Nothing was promoted, and the shipped reference-engine
+files rebuild byte for byte.
+
+- **SSME / RS-25** (`ledger_ssme_unread.py`):
+  - AIAA 97-2685 (Bradley 1997), Figure 2: RPL 470,000 lb, 3006 psia, Isp 453.5 s
+    at altitude, throttle 65-109%, weight 7000 lb, design life 27,000 s / 55
+    starts. These are filed on Block I, the pre-large-throat engine; the
+    configuration is unstated. Withheld for rights: the cover carries an AIAA
+    reprint notice.
+  - KSC fact sheet FS-2005-09-030-KSC: about 7,000 lb (3,150 kg).
+  - Biggs, "SSME - The First Ten Years" (AAS 1992, Tier B), for the original
+    engine: HPFTP 35,000 rpm, HPOTP almost 30,000 rpm, LPFTP 15,000 rpm and
+    LPOTP 5,000 rpm. Filed on ENG-US-SSME-FPL-PHASE-I.
+  - CF-DB05-RS25-MASS stays UNRESOLVED. The Shuttle-era figures now run from
+    7,000 to 7,400 lb with no definition. L3Harris's web page prints 7,775 lb,
+    against its own spec sheet's 7,774 lb.
+  - The HPFTP and HPOTP speed conflicts gain claims for the original engine.
+  - Identity only, because their values repeat records already made: the HAER
+    3HO chapter, NASA's RS-25 page and L3Harris's RS-25 page.
+- **LMDE**, Apollo 15 DPS evaluation (`ledger_lmde_a15.py`):
+  - LM-10, engine S/N 1046, at standard inlet conditions: 9807 lbf, 305.8 s, MR
+    1.594. The specification ranges are 9712-10027 lbf, more than 305.0 s and
+    MR 1.586-1.614.
+  - Table 1 gives a throat area of 53.495 in² and an approximate expansion
+    ratio of 54.0. TN D-7143 ends the design's columbium skirt at 47.5:1, and
+    no opened document says why LM-10 differs.
+  - **Owner decision open:** this discrepancy is not filed as a `C()` conflict.
+    Under the DB-2B rule it would withhold the shipped LMDE cooling-zones text
+    (AS-DB05-US-LMDE-010). It is recorded in the assertion note instead.
+- **SPS regulator** (`ledger_unread_misc.py`):
+  - AEHS RPE09.31 (Tier D) prints "186 ± 4 psig" primary and "191 ± 4 psig"
+    secondary. It also says the set points are referenced to a bellows vented
+    to ambient, so in vacuum they act as absolute pressures.
+  - CF-DB05-SPS-REG moves from UNRESOLVED to PARTIALLY_RESOLVED. The psig/psia
+    difference is a reference definition, but a gap of about 6 psi to TN
+    D-7375's 180 psia remains.
+  - The two DB-0 dispositions for the set points move from UNSUPPORTED to
+    CONFIRMED_OTHER_SOURCE.
+- **Identity only, no values used:**
+  - the AEHS series record (its URL is the RPE08.12 page) and the RPE08.12
+    (F-1) and RPE08.22 (J-2) chapters;
+  - SAE 730941, real title "Flight Experience with Apollo Spacecraft
+    Propulsion Systems" (Thibodaux 1973);
+  - the Titan II start-sequence page (Tier E, no originating source);
+  - patent US 8,250,853, whose RL10 background names no variant;
+  - Rocket Lab patent US 11,408,373, which does not name Rutherford.
+- **Fetched, not evidence:**
+  - Wikipedia F-1, a tertiary source.
+  - JSC-11174 Rev E Volume I: sections 1-9 only. The OMS and MPS drawings DB-0
+    cited are in later sections.
 
 ## Reproducing
 

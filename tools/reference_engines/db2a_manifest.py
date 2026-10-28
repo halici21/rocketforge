@@ -353,6 +353,7 @@ NOT_PROMOTED = {
     **{f"AS-DB05-US-AJ10-137-{n:03d}": "Apollo 9 flight evaluation: Block II engine S/N 62; Block II is not seeded"
        for n in range(26, 36)},
     "AS-DB05-US-AJ10-137-036": "Apollo 9 tank pressures beside the unresolved regulator conflict (CF-DB05-SPS-REG); Block II, not seeded",
+    "AS-DB05-US-AJ10-137-037": "AEHS RPE09.31 (Tier D) regulator set points, in conflict CF-DB05-SPS-REG",
 }
 
 # ------------------------------------------------------------------ research conflicts
@@ -370,8 +371,8 @@ NOT_PROMOTED = {
 # owner's DB-2A decisions of 2026-10-09; the DB-0.5 conflicts themselves are unchanged.
 
 RESEARCH_CONFLICTS = {
-    "CF-DB05-SPS-REG": dict(decision="WITHHOLD", withhold=("AS-DB05-US-AJ10-137-011", "AS-DB05-US-AJ10-137-036"),
-                            argument="Regulated helium pressure is in UNRESOLVED conflict; not promoted."),
+    "CF-DB05-SPS-REG": dict(decision="WITHHOLD", withhold=("AS-DB05-US-AJ10-137-011", "AS-DB05-US-AJ10-137-036", "AS-DB05-US-AJ10-137-037"),
+                            argument="Regulated helium pressure is in an open conflict (PARTIALLY_RESOLVED since 2026-10-28); not promoted."),
     "CF-DB05-J2-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-J-2-003",),
                           competing={"Coffman text p.2 'a little over 700 psia'": "not transcribed as an assertion; consistent with 717",
                                      "SRC-WIKI-J2 763 psi": "search result, never opened",

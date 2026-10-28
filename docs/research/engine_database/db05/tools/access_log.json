@@ -359,12 +359,12 @@
  "SRC-L3HARRIS-RS25-WEB": {
   "source_id": "SRC-L3HARRIS-RS25-WEB",
   "url": "https://l3harris.com/all-capabilities/rs-25-engine",
-  "time_utc": "2026-10-08T18:07:37Z",
+  "time_utc": "2026-10-28T19:16:58Z",
   "http": "200",
   "content_type": "text/html; charset=utf-8",
   "effective_url": "https://www.l3harris.com/all-capabilities/rs-25-engine",
-  "bytes": 383873,
-  "sha256": "9850648a585e29fdf786fcc7f9c41716385aa832f6c780d4407084b4750b8f86",
+  "bytes": 384005,
+  "sha256": "756d89aeb975e82d35380c6de8917d457a2f931eea78b16b4872d76d1f06f940",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-L3HARRIS-RS25-WEB.html"
@@ -517,12 +517,12 @@
  "SRC-NASA-RS25-WEB": {
   "source_id": "SRC-NASA-RS25-WEB",
   "url": "https://www.nasa.gov/reference/space-launch-system-rs-25-core-stage-engine/",
-  "time_utc": "2026-10-08T18:07:54Z",
+  "time_utc": "2026-10-28T19:17:18Z",
   "http": "200",
   "content_type": "text/html; charset=UTF-8",
   "effective_url": "https://www.nasa.gov/reference/space-launch-system-rs-25-core-stage-engine/",
-  "bytes": 276070,
-  "sha256": "e094899c3014027ff8121ad3d0fa4bc9ce614276138e97acb0b2b7b4cef5ea1f",
+  "bytes": 271018,
+  "sha256": "223a0602580ab977fef01619814863cba887151251cf9904f21cb54181c81d29",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-NASA-RS25-WEB.html"
@@ -1064,12 +1064,12 @@
  "SRC-SAE-730941": {
   "source_id": "SRC-SAE-730941",
   "url": "https://saemobilus.sae.org/content/730941",
-  "time_utc": "2026-10-08T18:08:52Z",
+  "time_utc": "2026-10-28T19:17:26Z",
   "http": "200",
   "content_type": "text/html; charset=utf-8",
   "effective_url": "https://saemobilus.sae.org/papers/flight-experience-apollo-spacecraft-propulsion-systems-730941",
-  "bytes": 133578,
-  "sha256": "d1b780e59d24c801f502bbc71a2a613eda7d9ae16edca0b328355aeb1000a1ca",
+  "bytes": 133692,
+  "sha256": "127f7bdface8f2eec6efab883fb21e4642f342bfe4f8b7a6d0a856de7d8bc82c",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-SAE-730941.html"
@@ -1258,12 +1258,12 @@
  "SRC-WIKI-F1": {
   "source_id": "SRC-WIKI-F1",
   "url": "https://en.wikipedia.org/wiki/Rocketdyne_F-1",
-  "time_utc": "2026-10-08T18:10:18Z",
+  "time_utc": "2026-10-28T19:17:29Z",
   "http": "200",
   "content_type": "text/html; charset=UTF-8",
   "effective_url": "https://en.wikipedia.org/wiki/Rocketdyne_F-1",
-  "bytes": 318904,
-  "sha256": "9f76620a231e6222dd9347f70bc6e06d14459f699b9faa96f67c194479aace77",
+  "bytes": 318974,
+  "sha256": "de905153ddfaf702edc536ab4569dcabcde6bec4e9723e67de5c24c982def1fc",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-WIKI-F1.html"
@@ -1406,12 +1406,12 @@
  "SRC-MILSTD-T2START": {
   "source_id": "SRC-MILSTD-T2START",
   "url": "https://www.themilitarystandard.com/missile/titan2/startsequence.php",
-  "time_utc": "2026-10-08T18:10:30Z",
+  "time_utc": "2026-10-28T19:17:07Z",
   "http": "200",
   "content_type": "text/html; charset=UTF-8",
   "effective_url": "https://www.themilitarystandard.com/missile/titan2/startsequence.php",
-  "bytes": 41522,
-  "sha256": "080534095b4ad197af6fd882b7ff7ea860ebfd53c22fae7853a55315a4429a0b",
+  "bytes": 42159,
+  "sha256": "d0149ce7ed9c6b3a3f45785359026cd40bcf01b9d921dcff6abe132aaa3a2c87",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-MILSTD-T2START.html"
@@ -1419,12 +1419,12 @@
  "SRC-PATENT-US11408373": {
   "source_id": "SRC-PATENT-US11408373",
   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11408373",
-  "time_utc": "2026-10-08T18:10:31Z",
+  "time_utc": "2026-10-28T19:17:20Z",
   "http": "200",
   "content_type": "application/pdf",
   "effective_url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11408373",
-  "bytes": 1793467,
-  "sha256": "d5bf05cf962e1806fd561c55abedb216fdfbb986952874c071f6b82c3fdde9af",
+  "bytes": 1793468,
+  "sha256": "7e64b462119091d1e53576a739f812a2291721e7634e9a5adc06f8d8b8fa07fb",
   "is_pdf": true,
   "pages": 27,
   "text_chars": 0,
@@ -1434,12 +1434,12 @@
  "SRC-PATENT-US8250853": {
   "source_id": "SRC-PATENT-US8250853",
   "url": "https://patents.google.com/patent/US8250853B1/en",
-  "time_utc": "2026-10-08T18:10:35Z",
+  "time_utc": "2026-10-28T19:17:25Z",
   "http": "200",
   "content_type": "text/html",
   "effective_url": "https://patents.google.com/patent/US8250853B1/en",
-  "bytes": 181658,
-  "sha256": "69f48f503b2424b57b95020af7eff207ce631dea0b2559733aa7294306aa7600",
+  "bytes": 181643,
+  "sha256": "b5e52853723e21144c0a825d767ee4b8273b468debaae731a2522222925c2354",
   "is_pdf": false,
   "ok": true,
   "file": "SRC-PATENT-US8250853.html"
@@ -3133,5 +3133,18 @@
   "is_pdf": false,
   "ok": false,
   "file": "SRC-DB05-NTRS-19660063404.pdf"
+ },
+ "SRC-EH-RPE0931": {
+  "source_id": "SRC-EH-RPE0931",
+  "url": "https://enginehistory.org/Rockets/RPE09.30/RPE09.31.shtml",
+  "time_utc": "2026-10-28T19:28:42Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://enginehistory.org/Rockets/RPE09.30/RPE09.31.shtml",
+  "bytes": 32447,
+  "sha256": "19869cc5f29044c92e25838f0e3d71fee56718494aac462b55c6d208aab5ce40",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-EH-RPE0931.html"
  }
 }

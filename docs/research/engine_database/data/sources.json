@@ -253,7 +253,7 @@
     "ENG-US-F-1"
    ],
    "locators": "RPE09.31 SM SPS (https://enginehistory.org/Rockets/RPE09.30/RPE09.31.shtml); RPE09.32 SM RCS (https://enginehistory.org/Rockets/RPE09.30/RPE09.32.shtml)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Compiled largely from NASA/contractor manuals; good for discovery of primary docs. SPS: dual series regulators 186+/-4 / 191+/-4 psig, series-parallel quad check valves, burst-disc relief. SM RCS: Teflon bladders with diffuser tube.",
    "branches": [
     "taxonomy"
@@ -409,7 +409,7 @@
    "source_type": "AIAA paper",
    "identifier": "AIAA 97-2685; NTRS 19970028361",
    "url": "https://ntrs.nasa.gov/api/citations/19970028361/downloads/19970028361.pdf",
-   "tier": "B",
+   "tier": "A",
    "primary": "primary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "NTRS-hosted; copyright field not viewed (fetch blocked). Contractor/AIAA authorship possible.",
@@ -417,7 +417,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "reuses SSME propellant flow schematic (per summary); figure no. unknown",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Companion paper per search summary; title not seen.",
    "branches": [
     "r2_schem"
@@ -3254,7 +3254,7 @@
     "ENG-US-AJ10-137"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "relayed from sibling branch log taxonomy/_worklog.txt (search-summary level); not seen by this branch. Sibling summary: SPS He regulated, primary/secondary regulators 186/191 psig.",
    "branches": [
     "anchor_us_modern"
@@ -3541,7 +3541,7 @@
     "ENG-US-F-1"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Hypergolic fluid cartridge for thrust chamber ignition; two-piece thrust chamber with tubular regeneratively cooled walls to 10:1 plane, double-walled turbine-exhaust-gas-cooled nozzle extension to 16:1; ~18,500 lb dry; calibrated SL thrust 1,522,000 lb (attribution between RPE08.12 and Wikipedia partly inferred).",
    "branches": [
     "r2_schem",
@@ -3565,7 +3565,7 @@
     "ENG-US-J-2"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "PU valve: LOX pump outlet-to-inlet bypass gives mixture and thrust control; with valve closed an internal nozzle bypasses a small percentage as calibration of turbopump balance and engine MR (attribution between RPE08.22 and Wikipedia inferred).",
    "branches": [
     "r2_schem",
@@ -3581,7 +3581,7 @@
    "source_type": "unknown",
    "identifier": "",
    "url": "https://mail.enginehistory.org/Rockets/SSME/SSME1.pdf",
-   "tier": "D",
+   "tier": "B",
    "primary": "secondary",
    "rights": "UNKNOWN",
    "rights_basis": "Not opened.",
@@ -3589,7 +3589,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Tier provisional. [carried from round-1 anchor_us_classic]",
    "branches": [
     "anchor_us_classic",
@@ -8540,7 +8540,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Mixture ratio (O/F) 6.0; weight 7,775 lb (per summary).",
    "branches": [
     "r2_us_classic"
@@ -9189,7 +9189,7 @@
     "ENG-US-LR91-AJ-5"
    ],
    "locators": "page text",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round-1 id reused. Two regen TCs, two pump drive assemblies (fuel pump, ox pump, gearbox, two turbine wheels each); ox duct through fuel tank.",
    "branches": [
     "r2_schem",
@@ -9307,7 +9307,7 @@
     "ENG-US-LMDE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "seen by this branch only as a WebSearch result summary (WebFetch DNS-fails, curl CONNECT 403); document not opened. Flight performance of DPS on LM-10; not opened.",
    "branches": [
     "anchor_us_modern"
@@ -9594,7 +9594,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Returned for an SSME query; relevance unconfirmed. [carried from round-1 anchor_us_classic]",
    "branches": [
     "anchor_us_classic",
@@ -10021,7 +10021,7 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Probably relates to the SSME Processing Facility; content not seen. [carried from round-1 anchor_us_classic]",
    "branches": [
     "anchor_us_classic",
@@ -10213,7 +10213,7 @@
     "ENG-US-SSME-FPL-PHASE-I"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Carried from round 1 (us_hist): 491,000 lbf at 104.5% (reference condition not stated).",
    "id_collision_titles": [
     "Space Launch System RS-25 Core Stage Engine / RS-25: The Clark Kent of Engines (NASA web pages)"
@@ -13326,7 +13326,7 @@
     "ENG-NZ-RUTHERFORD"
    ],
    "locators": "figures not viewed",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Battery jettison architecture; link to flight Rutherford is INFERRED.",
    "branches": [
     "r2_schem"
@@ -13613,7 +13613,7 @@
     "ENG-US-RL10A-4-2"
    ],
    "locators": "background section",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Background text: RL10 gear drives LOX pump from LH2 TP shaft; bootstrap start with gaseous fuel. Applies to RL10 generically (variant not stated).",
    "branches": [
     "r2_schem"
@@ -15273,7 +15273,7 @@
     "ENG-US-LMDE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "seen by this branch only as a WebSearch result summary (WebFetch DNS-fails, curl CONNECT 403); document not opened. Cites: Hammock, Currie, Fisher, 'Apollo Experience Report-Descent Propulsion System', NASA TN D-7143, October 1972.",
    "branches": [
     "anchor_us_modern"

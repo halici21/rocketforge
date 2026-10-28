@@ -13,9 +13,9 @@
      "p.3 (PDF p.7)"
     ],
     [
-     "186 psig primary / 191 psig secondary",
+     "The primary regulator setpoint was 186 ± 4 psig while the secondary regulator setpoint was 191 ± 4 psig",
      "SRC-EH-RPE0931",
-     "DB-0 search summary"
+     "RPE09.31 'Helium Pressurization Subsystem'"
     ],
     [
      "tank pressures 180 / 178 psia (oxidizer / fuel) at liftoff; regulator outlet not printed",
@@ -23,9 +23,9 @@
      "p.36 (PDF p.41)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition_or_epoch",
-   "explanation": "Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages. Added 2026-10-28: Apollo 9 (Block II) tank pressures sit at 175-183 psia, consistent with 180 psia, but the report gives no regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22)."
+   "explanation": "Primary prints a single regulated value in psia; the DB-0 secondary values are psig and per-regulator. Could be design vs flight set points; not resolvable from the opened pages. Added 2026-10-28: Apollo 9 (Block II) tank pressures sit at 175-183 psia, consistent with 180 psia, but the report gives no regulator set point and says the CSM 104 regulator stems were replaced before flight (p.22). Added 2026-10-28 (second pass): the AEHS page was opened. It prints the set points as 186 ± 4 / 191 ± 4 psig and says they were referenced to a bellows vented to ambient, so in vacuum they act as about 186 / 191 psia; the units difference is a reference definition, not a disagreement. A 6 psi gap to TN D-7375's 180 psia remains (182-190 psia band), against a Tier D source citing unopened AEDC reports, so the conflict is only partly resolved."
   },
   {
    "conflict_id": "CF-DB05-RS25-AREARATIO",
@@ -140,11 +140,26 @@
      "approximately 7,400 lbs",
      "SRC-IBIBLIO-SSMEOVERVIEW",
      "p.1.1-1 (2003)"
+    ],
+    [
+     "Weight 7000 lbs (1997, pre-large-throat engine)",
+     "SRC-AIAA-97-2685",
+     "Figure 2"
+    ],
+    [
+     "approximately 7,000 pounds (3,150 kilograms)",
+     "SRC-NASA-KSC-167449-SSMEPF06",
+     "p.1 (2006)"
+    ],
+    [
+     "Weight: 7,775 lb",
+     "SRC-L3HARRIS-RS25-WEB",
+     "specification box"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": null,
-   "explanation": "7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents."
+   "explanation": "7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents. Added 2026-10-28: two more Shuttle-era sources print about 7,000 lb (Rocketdyne 1997, KSC 2006), so the Shuttle-era figures already span 7,000-7,400 lb with no definition; L3Harris's web page prints 7,775 lb against its own spec sheet's 7,774 lb."
   },
   {
    "conflict_id": "CF-DB05-RS25-PUMPPOWER",
@@ -187,11 +202,16 @@
      "28,120 rpm",
      "SRC-WIKI-RS25",
      "DB-0 search summary"
+    ],
+    [
+     "operating at almost 30,000 rpm (original engine, 1971-1981)",
+     "SRC-ENGINEHISTORY-SSME1",
+     "p.3"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
-   "explanation": "The ~30,000 rpm figure is a limit, not an operating speed. Primary operating speed found only for Block IIA at 104.5%; Block II at 109% not found. 28,120 rpm has no primary support among opened documents."
+   "explanation": "The ~30,000 rpm figure is a limit, not an operating speed. Primary operating speed found only for Block IIA at 104.5%; Block II at 109% not found. 28,120 rpm has no primary support among opened documents. Added 2026-10-28: Biggs (participant history, Tier B) gives 'almost 30,000 rpm' as the operating speed of the original 1970s engine, a third configuration."
   },
   {
    "conflict_id": "CF-DB05-RS25-HPFTSPEED",
@@ -203,11 +223,16 @@
      "34,311 rpm (Rocketdyne HPFTP, Block IIA, 104.5%)",
      "SRC-ENGINEHISTORY-SSMEORIENT-1998",
      "p.25"
+    ],
+    [
+     "operating at 35,000 rpm (original engine, 1971-1981)",
+     "SRC-ENGINEHISTORY-SSME1",
+     "p.3"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": null,
-   "explanation": "Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only."
+   "explanation": "Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only. Added 2026-10-28: Biggs (Tier B) gives 35,000 rpm for the original engine's HPFTP, operating point not stated."
   },
   {
    "conflict_id": "CF-DB05-RS25-SLTHRUST",
