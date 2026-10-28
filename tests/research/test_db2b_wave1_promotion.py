@@ -77,8 +77,9 @@ def test_accounting_totals(research):
     # the SSME unread-download pass (2026-10-28) added seven, none promoted: five WITHHELD_RIGHTS
     # (AIAA 97-2685) and two WITHHELD_CONFLICT (mass); the Apollo 15 DPS pass (2026-10-28) added
     # seven LMDE flight-engine values, all WRONG_CONFIGURATION; the F-1 'Waking a Giant' pass added
-    # four F-1 values: two WITHHELD_CONFLICT, one WITHHELD_RIGHTS and one NOT_NEEDED
-    assert dict(totals) == {"WITHHELD_RIGHTS": 53, "WITHHELD_CONFLICT": 22, "MISSING_REQUIRED_SEMANTICS": 10,
+    # four F-1 values: two WITHHELD_CONFLICT, one WITHHELD_RIGHTS and one NOT_NEEDED; the DB-0 conflict
+    # backlog pass added four F-1 values from the AEHS 'One Second' page, all WITHHELD_RIGHTS
+    assert dict(totals) == {"WITHHELD_RIGHTS": 57, "WITHHELD_CONFLICT": 22, "MISSING_REQUIRED_SEMANTICS": 10,
                             "NOT_NEEDED": 15, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 12,
                             "WRONG_OPERATING_POINT": 1, "DUPLICATE": 2, "OWNER_DECISION_REQUIRED": 1}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(

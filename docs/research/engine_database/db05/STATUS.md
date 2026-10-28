@@ -468,6 +468,35 @@ kept as a note on AS-DB05-US-LMDE-021 and is not filed as a `C()` conflict:
 
 The owner can reverse this; filing the conflict would require withholding -010.
 
+**DB-0 conflict backlog, US engines (2026-10-28), `tools/ledger_db0_backlog.py`.**
+Seven DB-0 conflicts on US engines that DB-0.5 had not reviewed were checked
+against documents already opened and the secondary pages DB-0 cited. Those
+pages were fetched now: AEHS 'One Second' (F-1), Purdue H-1 and LR91-AJ-11,
+Astronautix LR87-5 and LR87-7, and the TMS Titan II page. The Smithsonian F-1
+record returned HTTP 403 and was not retried.
+
+| DB-0 conflict | DB-0.5 conflict | Result |
+|---|---|---|
+| CF-R2_US_CLASSIC-J2-4 | CF-DB05-J2-ISP | RESOLVED: both opened NASA documents print 425 s. The 421 s is an unopened flight value; AS-501 shows Isp moving with the mixture-ratio region. |
+| CF-R2_US_CLASSIC-F1-4 | CF-DB05-F1-PUMPFLOW | PARTIALLY_RESOLVED: the AEHS flows (413.5 + 258 gal/s) and the encyclopedia gpm are one figure; the Smithsonian 42,500 gpm is unreachable. |
+| CF-R2_US_CLASSIC-F1-3 | CF-DB05-F1-TURBSPEED | EXPLAINED: 91.5 rev/s = 5,490 rpm, i.e. 5,500 rpm rounded. |
+| CF-R2_US_CLASSIC-H1-2 | CF-DB05-H1-ISP-MASS | PARTIALLY_RESOLVED: Purdue's 263 s / 2,009 lb sit beside a 205,000 lb rating; the S-IB-4 primary average is 262.60 s; no primary H-1 mass has been opened. |
+| CF-R2_US_CLASSIC-LR-1 | CF-DB05-LR87-GIMBAL | EXPLAINED: 5° is for the Stage I chambers, 4° for the Stage II LR91-AJ-5. |
+| CF-US_HIST-19 | CF-DB05-LR87-7-PC | UNRESOLVED: Astronautix prints 47.00 bar (LR87-7) against 54.00 bar (LR87-5) as DB-0 said. It also prints a different area ratio (9 against 8), so the difference may be a real design difference rather than a typing error. |
+| CF-US_HIST-05 | CF-DB05-LR91-AJ11-MR | UNRESOLVED: Purdue's 1.78:1 is confirmed as printed, but its row mixes propellants. Next place to look: the Titan IIIE/Centaur summary (NTRS 19750004937). |
+
+The AEHS page also prints the F-1 chamber pressure as "1,125 psig"; this was
+added to CF-DB05-F1-PC as a withheld competing claim.
+
+Promotion:
+- DB-2A: CF-DB05-J2-ISP is CARRIED_NOT, touching the shipped 425 s.
+- Wave 1: the four AEHS F-1 values are WITHHELD_RIGHTS (pinned total 53 → 57), and the pump-flow conflict withholds its claims.
+- No shipped value changed, and the shipped files rebuild byte for byte.
+
+37 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. Most of the
+rest are on non-US engines (Vulcain 2, RD-180, LE-9, HM7B, ...), whose DB-0
+claims are search summaries of web pages.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

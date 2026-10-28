@@ -3177,5 +3177,83 @@
   "text_chars": 8177,
   "ok": true,
   "file": "SRC-DB05-NTRS-20140011656.pdf"
+ },
+ "SRC-NASM-F1": {
+  "source_id": "SRC-NASM-F1",
+  "url": "https://si.edu/object/rocket-engine-liquid-fuel-f-1%3Anasm_A19700271000",
+  "time_utc": "2026-10-28T19:57:01Z",
+  "http": "403",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://www.si.edu/object/rocket-engine-liquid-fuel-f-1%3Anasm_A19700271000",
+  "bytes": 46754,
+  "sha256": "9f015cc4238796325443b43e654edb7cf869d60271cd538a009480d98950e518",
+  "is_pdf": false,
+  "ok": false,
+  "file": "SRC-NASM-F1.html"
+ },
+ "SRC-ENGINEHISTORY-F1": {
+  "source_id": "SRC-ENGINEHISTORY-F1",
+  "url": "https://enginehistory.org/Rockets/RPE08.11/OneSecond.shtml",
+  "time_utc": "2026-10-28T19:57:02Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://enginehistory.org/Rockets/RPE08.11/OneSecond.shtml",
+  "bytes": 8014,
+  "sha256": "e34b87f093747059e5857aafbd5dd51b7989a09006626c6cfe3b8fda8d5c7362",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-ENGINEHISTORY-F1.html"
+ },
+ "SRC-PURDUE-H1": {
+  "source_id": "SRC-PURDUE-H1",
+  "url": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/h1",
+  "time_utc": "2026-10-28T19:57:03Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/h1",
+  "bytes": 46325,
+  "sha256": "3e6c966f7fad91313c341038ed32569531d53fb2aad91b94bcec044eeda7b42d",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-PURDUE-H1.html"
+ },
+ "SRC-PURDUE-LR91AJ11": {
+  "source_id": "SRC-PURDUE-LR91AJ11",
+  "url": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/lr91aj11",
+  "time_utc": "2026-10-28T19:57:05Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/lr91aj11",
+  "bytes": 46280,
+  "sha256": "5ed8d4cf4edb03a8fae4d3a6679c5a89ac3fb104c014914a83229a3e79979506",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-PURDUE-LR91AJ11.html"
+ },
+ "SRC-ASTRONAUTIX-LR87": {
+  "source_id": "SRC-ASTRONAUTIX-LR87",
+  "url": "http://www.astronautix.com/l/lr87-5.html",
+  "time_utc": "2026-10-28T19:57:06Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://astronautix.com/l/lr87-5.html",
+  "bytes": 35522,
+  "sha256": "2ca5b030c718c6d425150a162c04a9a24026f0b57976cffe3850f9e00fb63f96",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-ASTRONAUTIX-LR87.html"
+ },
+ "SRC-TMS-TITAN2": {
+  "source_id": "SRC-TMS-TITAN2",
+  "url": "https://www.themilitarystandard.com/missile/titan2/startsequence/",
+  "time_utc": "2026-10-28T19:57:07Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://www.themilitarystandard.com/missile/titan2/startsequence/",
+  "bytes": 42146,
+  "sha256": "579a0ad23cb595a50521f2726c240b211f704db7707e5c4ec2ed343a18e69435",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-TMS-TITAN2.html"
  }
 }

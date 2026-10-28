@@ -10424,6 +10424,312 @@
    "access": "fetched",
    "db0_link": null,
    "note": "Tier D secondary compilation; the only opened source that names a definition (dry), and it is an approximation."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-043",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "pumps.LOX.flow_volume",
+   "operating_point": null,
+   "value_as_printed": "413.5 gallons of liquid oxygen",
+   "value": 413.5,
+   "unit_as_printed": "gal/s",
+   "conditions": {
+    "configuration": "UNSTATED (Saturn V S-IC engine)",
+    "operating_point": "'maximum power' (no rating named)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "AEHS 'One Second' page text, paragraph 'In this one second ...'",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Per second; 24,810 gpm DERIVED."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-044",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "pumps.fuel.flow_volume",
+   "operating_point": null,
+   "value_as_printed": "258 gallons of RP-1",
+   "value": 258,
+   "unit_as_printed": "gal/s",
+   "conditions": {
+    "configuration": "UNSTATED (Saturn V S-IC engine)",
+    "operating_point": "'maximum power' (no rating named)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "AEHS 'One Second' page text, paragraph 'In this one second ...'",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Per second; 15,480 gpm DERIVED. Same paragraph: 70 percent (181 gallons) cools the nozzle tubes."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-045",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "turbines.T.speed_rpm",
+   "operating_point": null,
+   "value_as_printed": "has spun 91.5 times",
+   "value": 91.5,
+   "unit_as_printed": "rev/s",
+   "conditions": {
+    "configuration": "UNSTATED (Saturn V S-IC engine)",
+    "operating_point": "'maximum power' (no rating named)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "AEHS 'One Second' page text, paragraph 'In this one second ...'",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "In one second; 5,490 rpm DERIVED. Same paragraph: turbine 55,000 horsepower, rotor 2,500 lb."
+  },
+  {
+   "assertion_id": "AS-DB05-US-F-1-046",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "1,125 psig pressure",
+   "value": 1125,
+   "unit_as_printed": "psig",
+   "conditions": {
+    "configuration": "UNSTATED (Saturn V S-IC engine)",
+    "operating_point": "'maximum power' (no rating named)",
+    "pc_station": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ENGINEHISTORY-F1",
+   "locator": "AEHS 'One Second' page text, paragraph 'In this one second ...'",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Printed as gauge; the 2006 Rocketdyne slide prints the same number as psia. Competing claim in CF-DB05-F1-PC."
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-001",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value_as_printed": "Thrust at Sea Level 205,000 lb",
+   "value": 205000,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-002",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value_as_printed": "Isp at sea level 263 s",
+   "value": 263,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-003",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight 2009 lb",
+   "value": 2009,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)",
+    "definition": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-004",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "Mixture Ratio 2.23:1",
+   "value": 2.23,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-005",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber Pressure 700 psia",
+   "value": 700,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-H-1-006",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value_as_printed": "Area Ratio 8:1",
+   "value": 8,
+   "unit_as_printed": ":1",
+   "conditions": {
+    "configuration": "UNSTATED (row prints 205,000 lb sea level; Saturn 1B first stage)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-H1",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR87-AJ-5-001",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "field_path": "mechanical.gimbal_range",
+   "operating_point": null,
+   "value_as_printed": "deflection of 5 degrees in any direction from a neutral position",
+   "value": 5,
+   "unit_as_printed": "deg",
+   "conditions": {
+    "configuration": "Titan II missile, Stage I (each thrust chamber)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "TMS Titan II page text, Stage I engine paragraph",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-5-001",
+   "engine_id": "ENG-US-LR91-AJ-5",
+   "field_path": "mechanical.gimbal_range",
+   "operating_point": null,
+   "value_as_printed": "deflection of 4 degrees in any direction from a neutral position",
+   "value": 4,
+   "unit_as_printed": "deg",
+   "conditions": {
+    "configuration": "Titan II missile, Stage II sustainer"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-TMS-TITAN2",
+   "locator": "TMS Titan II page text, Stage II engine paragraph",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR87-AJ-5-002",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber Pressure: 54.00 bar",
+   "value": 54.0,
+   "unit_as_printed": "bar",
+   "conditions": {
+    "configuration": "Titan II (LR87-5)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ASTRONAUTIX-LR87",
+   "locator": "astronautix.com/l/lr87-5.html entry table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same page, prose: 'Combustion Chamber Pressure: 53.3 atm' (54.0 bar); area ratio 8; mass 739 kg."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR87-AJ-7-001",
+   "engine_id": "ENG-US-LR87-AJ-7",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber Pressure: 47.00 bar",
+   "value": 47.0,
+   "unit_as_printed": "bar",
+   "conditions": {
+    "configuration": "Gemini Titan II (LR87-7)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-ASTRONAUTIX-LR87",
+   "locator": "astronautix.com/l/lr87-7.html entry table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: area ratio 9, mass 713 kg, O/F 1.9, Isp 296 s vacuum / 258 s sea level."
+  },
+  {
+   "assertion_id": "AS-DB05-US-LR91-AJ-11-001",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "Mixture Ratio 1.78:1",
+   "value": 1.78,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PURDUE-LR91AJ11",
+   "locator": "Purdue 'Engine statistics' table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: 105,000 lb vacuum, Isp 316 s vacuum, 1,314 lb, 860 psia, 49.2:1; propellants printed 'LOX/RP-1 or storables, ground tested with LOX/LH2', so the row may mix variants."
   }
  ]
 }

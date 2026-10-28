@@ -71,5 +71,11 @@
  "SRC-DB05-NTRS-19680003903": "https://ntrs.nasa.gov/citations/19680003903",
  "SRC-DB05-NTRS-19660063404": "https://ntrs.nasa.gov/citations/19660063404",
  "SRC-EH-RPE0931": "https://enginehistory.org/Rockets/RPE09.30/RPE09.31.shtml",
- "SRC-DB05-NTRS-20140011656": "https://ntrs.nasa.gov/citations/20140011656"
+ "SRC-DB05-NTRS-20140011656": "https://ntrs.nasa.gov/citations/20140011656",
+ "SRC-NASM-F1": "https://si.edu/object/rocket-engine-liquid-fuel-f-1%3Anasm_A19700271000",
+ "SRC-ENGINEHISTORY-F1": "https://enginehistory.org/Rockets/RPE08.11/OneSecond.shtml",
+ "SRC-PURDUE-H1": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/h1",
+ "SRC-PURDUE-LR91AJ11": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/lr91aj11",
+ "SRC-ASTRONAUTIX-LR87": "http://www.astronautix.com/l/lr87-5.html",
+ "SRC-TMS-TITAN2": "https://www.themilitarystandard.com/missile/titan2/startsequence/"
 }

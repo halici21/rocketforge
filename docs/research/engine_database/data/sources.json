@@ -1363,7 +1363,7 @@
     "ENG-US-LR87-AJ-7"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round 1: Pc 54.0 bar (also 53.3 atm).",
    "branches": [
     "r2_us_classic",
@@ -3390,7 +3390,7 @@
     "ENG-US-F-1"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "MK-10 dual-function centrifugal turbopump, ~2,500 lb, impulse turbine 55,000 hp, 91.5 revolutions in one second; two-stage impulse turbine 109 blades (33-in first stage) and 119 blades (35-in second stage).",
    "branches": [
     "r2_us_classic",
@@ -11013,7 +11013,7 @@
     "ENG-US-F-1"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Each engine 1.5 million lb; turbopump ~2,500 lb, flow 42,500 gpm.",
    "branches": [
     "r2_us_classic"
@@ -13869,7 +13869,7 @@
     "ENG-US-H-1-205K"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Pc 700 psia; area ratio 8:1; MR 2.23; Isp SL 263 s; weight 2,009 lb; thrust 205,000 lb (round 1).",
    "branches": [
     "r2_us_classic",
@@ -13940,7 +13940,7 @@
     "ENG-US-LR91-AJ-11"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. MR 1.78:1; similar to one chamber of LR87-AJ-11.",
    "branches": [
     "us_hist"
@@ -18525,7 +18525,7 @@
    "source_type": "enthusiast/ex-crew technical web pages",
    "identifier": "",
    "url": "https://www.themilitarystandard.com/missile/titan2/startsequence/",
-   "tier": "D",
+   "tier": "E",
    "primary": "secondary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
    "rights_basis": "Third-party site, apparently derived from USAF technical orders (unverified).",
@@ -18533,7 +18533,7 @@
     "ENG-US-LR87-AJ-5"
    ],
    "locators": "NOT_AUDITED",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Stage I engine assembly LR87-AJ-5: two regeneratively cooled thrust chambers, two pump drive assemblies, interconnecting lines, engine frame; two identical turbopumps, each fuel + oxidizer pump, gearbox and two balanced turbine wheels (two-stage turbine with nozzle diaphragms); GG drives TPA; starter cartridge solid ~1 s, ~2,000 psia to TPA turbines; Stage I 430,000 lb SL; 'super heater' heat exchanger in GG exhaust outlet on sub-assembly 2 (stainless coils) gasifies oxidizer for Stage I tank pressurization; oxidizer duct runs through fuel tank in conduit; N2 blanket 6 psia; gimbal 5 deg on one page, 4 deg on another; lube oil reservoir capacities.",
    "branches": [
     "r2_us_classic"

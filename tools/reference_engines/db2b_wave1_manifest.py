@@ -526,6 +526,15 @@ NOT_PROMOTED = {
     "AS-DB05-US-F-1-041": ("NOT_NEEDED", "total propellant flow, a field the CFG-F1 record does not carry"),
     "AS-DB05-US-F-1-042": ("WITHHELD_RIGHTS", "AEHS RPE08.12: Tier D page under the society's copyright; also a mass "
                                               "claim in UNRESOLVED conflict CF-DB05-F1-MASS"),
+    # DB-0 conflict backlog pass (2026-10-28): AEHS 'One Second' page, recorded after the wave
+    "AS-DB05-US-F-1-043": ("WITHHELD_RIGHTS", "AEHS 'One Second': Tier D page under the society's copyright; also a pump "
+                                              "flow claim in PARTIALLY_RESOLVED conflict CF-DB05-F1-PUMPFLOW"),
+    "AS-DB05-US-F-1-044": ("WITHHELD_RIGHTS", "AEHS 'One Second': Tier D page under the society's copyright; also a pump "
+                                              "flow claim in PARTIALLY_RESOLVED conflict CF-DB05-F1-PUMPFLOW"),
+    "AS-DB05-US-F-1-045": ("WITHHELD_RIGHTS", "AEHS 'One Second': Tier D page under the society's copyright; turbine "
+                                              "speed, a field the CFG-F1 record does not carry"),
+    "AS-DB05-US-F-1-046": ("WITHHELD_RIGHTS", "AEHS 'One Second': Tier D page under the society's copyright; also 1,125 "
+                                              "printed as psig, a competing claim in CF-DB05-F1-PC"),
 }
 
 # ------------------------------------------------------------------ owner decisions (2026-10-09)
@@ -597,13 +606,14 @@ RESEARCH_CONFLICTS = {
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),
     "CF-DB05-F1-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-005",),
-        withhold=("AS-DB05-US-F-1-038", "AS-DB05-US-F-1-039"),
+        withhold=("AS-DB05-US-F-1-038", "AS-DB05-US-F-1-039", "AS-DB05-US-F-1-046"),
         owner_accepted=_F1_PC, owner_scope="CFG-F1",
         competing={"SRC-WIKI-F1 70 bar (1,015 psi)": "search result, never opened",
                    "SRC-PURDUE-F1 982 psi": "search result, never opened",
                    "AS-DB05-US-F-1-038": "MSFC AS-504 summary Figure 19, 1105 psia, station unstated; withheld "
                                          "by the owner's decision of 2026-10-28",
-                   "AS-DB05-US-F-1-039": "MSFC 2013 deck, 982 psia printed 'ns' (nozzle stagnation, INFERRED); withheld"},
+                   "AS-DB05-US-F-1-039": "MSFC 2013 deck, 982 psia printed 'ns' (nozzle stagnation, INFERRED); withheld",
+                   "AS-DB05-US-F-1-046": "AEHS 'One Second' (Tier D), the same 1,125 printed as psig; withheld"},
                           argument="PARTIALLY_RESOLVED in DB-0.5: the manufacturer's 1,125 psia (station unstated) "
                                    "against secondary values that may be nozzle-stagnation figures and MSFC's "
                                    "1105 psia (station unstated). Shipped for CFG-F1 only, station UNKNOWN, by "
@@ -621,6 +631,12 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-F1-MASS": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-F-1-007", "AS-DB05-US-F-1-040", "AS-DB05-US-F-1-042"),
                             argument="UNRESOLVED: 18,616 lb has no printed definition."),
+    "CF-DB05-F1-PUMPFLOW": dict(decision="WITHHOLD", withhold=("AS-DB05-US-F-1-043", "AS-DB05-US-F-1-044"),
+                                argument="PARTIALLY_RESOLVED (DB-0 backlog pass 2026-10-28): the encyclopedia and AEHS "
+                                         "flows are one figure; the Smithsonian 42,500 gpm could not be opened. CFG-F1 "
+                                         "carries no pump flow."),
+    "CF-DB05-F1-TURBSPEED": dict(decision="CARRIED_NOT", touches=(), competing={"AS-DB05-US-F-1-045": "AEHS 91.5 rev/s; withheld for rights"},
+                                 argument="EXPLAINED in DB-0.5 (rounding: 91.5 rev/s is 5,490 rpm); no promoted value."),
     "CF-DB05-LMDE-REPORTNO": dict(decision="CARRIED_NOT", touches=(), competing={},
                                   argument="RESOLVED in DB-0.5 (report number verified); no value involved."),
     "CF-DB05-OMS-ISP": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-AJ10-190-004",),

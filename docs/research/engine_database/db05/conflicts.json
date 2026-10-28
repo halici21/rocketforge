@@ -456,11 +456,16 @@
      "Chamber Pressure, ns (psia) 982 (2013 MSFC presentation)",
      "SRC-DB05-NTRS-20140011656",
      "slide 13"
+    ],
+    [
+     "combustion gasses at 5,800 °F and 1,125 psig pressure (AEHS 'One Second', Tier D; added 2026-10-28)",
+     "SRC-ENGINEHISTORY-F1",
+     "page text"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "primary_value_found",
-   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch separates the two primary values is not established. Added 2026-10-28 (second pass): a 2013 NASA MSFC presentation prints 982 psia labelled 'ns', the usual abbreviation for nozzle stagnation. That is the first opened primary-agency document to give the lower value a station, but the slide defines neither 'ns' nor its source, so the reading is INFERRED."
+   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch separates the two primary values is not established. Added 2026-10-28 (second pass): a 2013 NASA MSFC presentation prints 982 psia labelled 'ns', the usual abbreviation for nozzle stagnation. That is the first opened primary-agency document to give the lower value a station, but the slide defines neither 'ns' nor its source, so the reading is INFERRED. Added 2026-10-28 (DB-0 backlog pass): the AEHS 'One Second' page prints the manufacturer's number as 1,125 psig; a Tier D page, and it does not say whether 'psig' is deliberate, so it does not settle the station either."
   },
   {
    "conflict_id": "CF-DB05-F1-MASS",
@@ -1066,6 +1071,168 @@
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
    "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so."
+  },
+  {
+   "conflict_id": "CF-DB05-J2-ISP",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-J2-4",
+   "engine_id": "ENG-US-J-2",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "425",
+     "SRC-NTRS-20100027318",
+     "PDF p.14 'J-2 Basic Engine Features'"
+    ],
+    [
+     "425",
+     "SRC-NTRS-20120016414",
+     "p.1 Table 1"
+    ],
+    [
+     "421 s (SA-208/504)",
+     "SRC-WIKI-J2",
+     "DB-0 search summary"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Both opened NASA documents print 425 s. The 421 s is a search summary of an encyclopedia row for two flights, never opened. The AS-501 flight analysis (NTRS 19680026222) shows why one number per flight can differ: five-engine S-II averages of 424.46 s in the high mixture-ratio region and 429.17 s after the mixture-ratio cutback, so a flight value of 421 s would describe an operating point, not the rating."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-PUMPFLOW",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-F1-4",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "pumps.LOX.flow_volume / pumps.fuel.flow_volume",
+   "claims": [
+    [
+     "42,500 gpm",
+     "SRC-NASM-F1",
+     "DB-0 search summary (page refused, HTTP 403)"
+    ],
+    [
+     "413.5 gallons of liquid oxygen ... 258 gallons of RP-1 (per second)",
+     "SRC-ENGINEHISTORY-F1",
+     "page text"
+    ],
+    [
+     "15,471 + 24,811 = 40,282 gpm DERIVED",
+     "SRC-WIKI-F1",
+     "DB-0 search summary (fetched, not evidence)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The AEHS page gives 413.5 and 258 gallons per second, 24,810 and 15,480 gpm: the encyclopedia's 24,811 and 15,471 gpm agree to within 0.1 percent, so the two are one figure, not two. The 42,500 gpm Smithsonian figure could not be opened (HTTP 403), and neither opened page names a rating or cites a document, so whether the 5 percent gap is a rating, a pump design point or rounding is not established."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-TURBSPEED",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-F1-3",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "turbines.T.speed_rpm",
+   "claims": [
+    [
+     "5,500 rpm",
+     "SRC-WIKI-F1",
+     "DB-0 search summary (fetched, not evidence)"
+    ],
+    [
+     "has spun 91.5 times (in one second)",
+     "SRC-ENGINEHISTORY-F1",
+     "page text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "91.5 rev/s is 5,490 rpm; 5,500 is the same speed rounded. Neither page is a primary document."
+  },
+  {
+   "conflict_id": "CF-DB05-H1-ISP-MASS",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-H1-2",
+   "engine_id": "ENG-US-H-1",
+   "field_path": "performance.isp_sl / mechanical.mass",
+   "claims": [
+    [
+     "255 s; 2,200 lb",
+     "SRC-WIKI-H1",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "Isp at sea level 263 s; Weight 2009 lb (row with 205,000 lb)",
+     "SRC-PURDUE-H1",
+     "page text"
+    ],
+    [
+     "average engine 262.60 s at sea level, S-IB-4 (H-1 200K)",
+     "SRC-DB05-NTRS-19680003903",
+     "Table 5 p.13"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "The Purdue table prints its 263 s and 2,009 lb beside a 205,000 lb sea-level thrust, so it describes a late Saturn IB rating, not the H-1 in general; the primary S-IB-4 engine logs (200K rating) average 262.60 s at sea level, close to it. The 255 s and 2,200 lb were never opened and carry no rating; no opened primary document gives an H-1 mass, so the mass half stays open."
+  },
+  {
+   "conflict_id": "CF-DB05-LR87-GIMBAL",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-LR-1",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "field_path": "mechanical.gimbal_range",
+   "claims": [
+    [
+     "deflection of 5 degrees (Stage I thrust chambers)",
+     "SRC-TMS-TITAN2",
+     "TMS Titan II page text, Stage I engine paragraph"
+    ],
+    [
+     "deflection of 4 degrees (Stage II thrust chamber)",
+     "SRC-TMS-TITAN2",
+     "TMS Titan II page text, Stage II engine paragraph"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_configuration",
+   "explanation": "Not an inconsistency: the page gives 5 degrees for the two Stage I (LR87-AJ-5) chambers and 4 degrees for the Stage II (LR91-AJ-5) chamber. The 4 degrees is filed on ENG-US-LR91-AJ-5."
+  },
+  {
+   "conflict_id": "CF-DB05-LR87-7-PC",
+   "db0_conflict_id": "CF-US_HIST-19",
+   "engine_id": "ENG-US-LR87-AJ-7",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "Chamber Pressure: 47.00 bar (LR87-7)",
+     "SRC-ASTRONAUTIX-LR87",
+     "astronautix.com/l/lr87-7.html entry table (page text)"
+    ],
+    [
+     "Chamber Pressure: 54.00 bar (LR87-5; for comparison)",
+     "SRC-ASTRONAUTIX-LR87",
+     "astronautix.com/l/lr87-5.html entry table (page text)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Both values are printed as DB-0 reported them, so not a transcription slip in DB-0. The LR87-7 entry also prints a different area ratio (9 against 8), so the lower pressure may be a different chamber design rather than a typing error; no Aerojet or Martin document for the Gemini engine was opened to tell."
+  },
+  {
+   "conflict_id": "CF-DB05-LR91-AJ11-MR",
+   "db0_conflict_id": "CF-US_HIST-05",
+   "engine_id": "ENG-US-LR91-AJ-11",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "1.86",
+     "SRC-WIKI-LR91",
+     "DB-0 infobox summary (never opened)"
+    ],
+    [
+     "Mixture Ratio 1.78:1",
+     "SRC-PURDUE-LR91AJ11",
+     "page text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "source_grade",
+   "explanation": "The Purdue value is confirmed as printed, but its table names no rating and mixes propellant combinations. The Titan IIIE/Centaur systems summary (NTRS 19750004937), read for the LR87-AJ-11, was not mined for the second stage; it is the next place to look."
   }
  ]
 }
