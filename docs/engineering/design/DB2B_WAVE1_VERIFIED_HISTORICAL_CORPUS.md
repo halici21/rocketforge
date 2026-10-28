@@ -90,6 +90,13 @@ SOURCE_SCOPE_TOO_BROAD, 5 WRONG_CONFIGURATION, 1 WRONG_OPERATING_POINT, 1
 DUPLICATE. A test recomputes these from the manifest. (Before the owner's
 decisions: 71 promoted, 16 WITHHELD_CONFLICT, 3 OWNER_DECISION_REQUIRED.)
 
+The F-1 rating-epoch research pass of 2026-10-28 added six F-1 assertions and
+promoted none: 183 considered, 75 promoted; the not-promoted totals become 47
+WITHHELD_RIGHTS, 18 WITHHELD_CONFLICT, 2 DUPLICATE and 1 OWNER_DECISION_REQUIRED
+(the F-1 mixture ratio's printed LOX : RP-1 direction, conflict
+CF-DB05-F1-MR-DIRECTION). MSFC's 1105 psia joins CF-DB05-F1-PC as a
+competing claim; the owner kept 1,125 psia (2026-10-28). See `docs/research/engine_database/db05/STATUS.md`.
+
 Production after Wave 1: 11 configurations (3 DB-2A + 8 Wave 1), 118
 assertions, 14 sources, 7 schematics, 6 topology graphs, no conflicts.
 

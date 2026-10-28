@@ -183,6 +183,28 @@
    "assertions": 2
   },
   {
+   "source_id": "SRC-DB05-NTRS-19700009516",
+   "url_requested": "https://ntrs.nasa.gov/citations/19700009516",
+   "download_url": "https://ntrs.nasa.gov/api/citations/19700009516/downloads/19700009516.pdf",
+   "http_status": "200",
+   "bytes": 2797835,
+   "sha256": "3bd0d0261ccd134efe59db1f77058fb04690b6df2c7a2a7a3d7930d76c21fc51",
+   "pdf_pages": 90,
+   "retrieved_utc": "2026-10-28T15:03:09Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "Apollo Saturn 5 space vehicle - Technical information summary Apollo-9 /AS-504/",
+   "ntrs_export_control": "NO",
+   "read_level": "READ_AND_MINED",
+   "identifier_verified": "MSFC R-ASTR-S-69-7, 3 Feb 1969; NASA-TM-X-62654; NASA accession N70-18821; NTRS 19700009516",
+   "title_as_printed": "Technical Information Summary Apollo-9 (AS-504) Apollo Saturn V Space Vehicle",
+   "tier": "A",
+   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; MSFC report (US Government work)",
+   "rights_values": "PUBLIC_DOMAIN_GOV",
+   "rights_figures": "PUBLIC_DOMAIN_GOV",
+   "note": "90-page scan, read from extracted text and rendered pages; the S-IC section (pp.33-37) was viewed as images.",
+   "assertions": 5
+  },
+  {
    "source_id": "SRC-DB05-NTRS-19720022122",
    "url_requested": "https://ntrs.nasa.gov/citations/19720022122",
    "download_url": "https://ntrs.nasa.gov/api/citations/19720022122/downloads/19720022122.pdf",
@@ -278,7 +300,7 @@
    "bytes": 19707479,
    "sha256": "7465652b07306f45d2450f6a50bc52ee9c2a257522bbfc86c14bb9d1a006a967",
    "pdf_pages": 254,
-   "retrieved_utc": "2026-10-08T18:19:04Z",
+   "retrieved_utc": "2026-10-28T15:02:52Z",
    "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
    "ntrs_title": "Saturn 5 Flight Manual SA-503",
    "ntrs_export_control": "NO",
@@ -290,7 +312,7 @@
    "rights_values": "RIGHTS_REVIEW_REQUIRED",
    "rights_figures": "RIGHTS_REVIEW_REQUIRED",
    "note": "NEW source (not in DB-0). Replaces the unreachable SA-507 manual (history.nasa.gov 404).",
-   "assertions": 13
+   "assertions": 16
   },
   {
    "source_id": "SRC-DB05-NTRS-19850008634",

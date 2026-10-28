@@ -498,6 +498,17 @@ NOT_PROMOTED = {
     **{f"AS-DB05-US-SSME-BLOCK-II-0{i}": _HAER for i in range(37, 43)},
     "AS-DB05-US-SSME-BLOCK-II-043": ("WRONG_CONFIGURATION", "the 1986 study's enlarged-throat design, not a flown block"),
     "AS-DB05-US-SSME-BLOCK-II-044": ("WRONG_CONFIGURATION", "a predicted value for the 1986 study's enlarged-throat design"),
+    # F-1 rating-epoch research pass (2026-10-28), recorded after the wave; nothing here is shipped
+    "AS-DB05-US-F-1-033": _MSFC,
+    "AS-DB05-US-F-1-034": ("WITHHELD_CONFLICT", "sea-level thrust in rating-epoch conflicts CF-DB05-F1-RATING and "
+                                                "CF-DB05-F1-RATING-EPOCH"),
+    "AS-DB05-US-F-1-035": ("WITHHELD_CONFLICT", "sea-level thrust in rating-epoch conflicts CF-DB05-F1-RATING and "
+                                                "CF-DB05-F1-RATING-EPOCH"),
+    "AS-DB05-US-F-1-036": ("DUPLICATE", "the same 16:1 the shipped AS-DB05-US-F-1-011 gives, from another primary document"),
+    "AS-DB05-US-F-1-038": ("WITHHELD_CONFLICT", "chamber pressure 1105 psia, a competing claim in CF-DB05-F1-PC; "
+                                                "the owner kept 1,125 psia (2026-10-28)"),
+    "AS-DB05-US-F-1-037": ("OWNER_DECISION_REQUIRED", "prints the direction -006 lacked ('LOX : RP-1 2.27:1'); "
+                                                      "whether it supplies -006's missing semantics is the owner's call"),
 }
 
 # ------------------------------------------------------------------ owner decisions (2026-10-09)
@@ -511,7 +522,9 @@ _F1_RATING = ("owner (Cemil Eray), 2026-10-09: accept the 'F-1 Engine Characteri
               "sea-level-thrust rating conflict stays withheld.")
 _F1_PC = ("owner (Cemil Eray), 2026-10-09: accept F-1 chamber pressure 1,125 psia for CFG-F1 only; measurement "
           "station UNKNOWN; no family, variant or general F-1 inheritance. The research conflict stays "
-          "PARTIALLY_RESOLVED as recorded in DB-0.5.")
+          "PARTIALLY_RESOLVED as recorded in DB-0.5. "
+          "owner (Cemil Eray), 2026-10-28: keep 1,125 psia for CFG-F1; MSFC's 1105 psia (AS-504 summary, "
+          "Figure 19) is recorded as a competing claim and not shipped.")
 
 _F1_QUAL = ("owner (Cemil Eray), 2026-10-10: ACCEPT F-1-010 for CFG-F1 only. Ship the source-reported "
             "qualification-life characteristic: Starts: 20; Duration: 2,250 seconds. Preserve it specifically as "
@@ -567,12 +580,26 @@ RESEARCH_CONFLICTS = {
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),
     "CF-DB05-F1-PC": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-005",),
+        withhold=("AS-DB05-US-F-1-038",),
         owner_accepted=_F1_PC, owner_scope="CFG-F1",
         competing={"SRC-WIKI-F1 70 bar (1,015 psi)": "search result, never opened",
-                   "SRC-PURDUE-F1 982 psi": "search result, never opened"},
+                   "SRC-PURDUE-F1 982 psi": "search result, never opened",
+                   "AS-DB05-US-F-1-038": "MSFC AS-504 summary Figure 19, 1105 psia, station unstated; withheld "
+                                         "by the owner's decision of 2026-10-28"},
                           argument="PARTIALLY_RESOLVED in DB-0.5: the manufacturer's 1,125 psia (station unstated) "
-                                   "against secondary values that may be nozzle-stagnation figures. Shipped for "
-                                   "CFG-F1 only, station UNKNOWN, by owner decision."),
+                                   "against secondary values that may be nozzle-stagnation figures and MSFC's "
+                                   "1105 psia (station unstated). Shipped for CFG-F1 only, station UNKNOWN, by "
+                                   "owner decision."),
+    "CF-DB05-F1-RATING-EPOCH": dict(decision="WITHHOLD",
+        withhold=("AS-DB05-US-F-1-018", "AS-DB05-US-F-1-033", "AS-DB05-US-F-1-034", "AS-DB05-US-F-1-035"),
+                                    argument="PARTIALLY_RESOLVED (research pass 2026-10-28): 1,522,000 lb is already "
+                                             "tabulated for SA-503, but the AS-501/AS-502 epoch is not established; "
+                                             "the AS-504 values stay withheld with CF-DB05-F1-RATING."),
+    "CF-DB05-F1-MR-DIRECTION": dict(decision="WITHHOLD",
+        withhold=("AS-DB05-US-F-1-006", "AS-DB05-US-F-1-037"),
+                                    argument="RESOLVED in DB-0.5 (2026-10-28): the AS-504 summary prints LOX : RP-1 "
+                                             "2.27:1. Shipping a mixture ratio for CFG-F1 is an owner decision; "
+                                             "until then it is withheld."),
     "CF-DB05-F1-MASS": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-F-1-007",),
                             argument="UNRESOLVED: 18,616 lb has no printed definition."),

@@ -1621,7 +1621,7 @@
  "SRC-DB05-NTRS-19750063889": {
   "source_id": "SRC-DB05-NTRS-19750063889",
   "url": "https://ntrs.nasa.gov/citations/19750063889",
-  "time_utc": "2026-10-08T18:19:04Z",
+  "time_utc": "2026-10-28T15:02:52Z",
   "ntrs_api_http": "200",
   "ntrs_title": "Saturn 5 Flight Manual SA-503",
   "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
@@ -1682,7 +1682,7 @@
  "SRC-DB05-NTRS-19680026222": {
   "source_id": "SRC-DB05-NTRS-19680026222",
   "url": "https://ntrs.nasa.gov/citations/19680026222",
-  "time_utc": "2026-10-08T18:19:17Z",
+  "time_utc": "2026-10-28T15:03:01Z",
   "ntrs_api_http": "200",
   "ntrs_title": "J-2 engine performance analysis flight AS-501 /Apollo 4/ S-2 and S-4B stages",
   "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
@@ -3010,5 +3010,38 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-JDSE-2021-YF100.html"
+ },
+ "SRC-DB05-NTRS-19700009516": {
+  "source_id": "SRC-DB05-NTRS-19700009516",
+  "url": "https://ntrs.nasa.gov/citations/19700009516",
+  "time_utc": "2026-10-28T15:03:09Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Apollo Saturn 5 space vehicle - Technical information summary Apollo-9 /AS-504/",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19700009516,
+   "ear": "NO",
+   "id": "321ebb779a464f36a4e65d02e16f653a",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-TM-X-62654",
+   "R-ASTR-S-69-7",
+   "Report Number: NASA-TM-X-62654",
+   "Report Number: R-ASTR-S-69-7"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19700009516/downloads/19700009516.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19700009516/downloads/19700009516.pdf",
+  "bytes": 2797835,
+  "sha256": "3bd0d0261ccd134efe59db1f77058fb04690b6df2c7a2a7a3d7930d76c21fc51",
+  "is_pdf": true,
+  "pages": 90,
+  "text_chars": 67022,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19700009516.pdf"
  }
 }

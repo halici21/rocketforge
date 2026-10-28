@@ -341,6 +341,9 @@ NOT_PROMOTED = {
     "AS-DB05-US-AJ10-137-020": "Aerojet chapter: configuration not stated",
     "AS-DB05-US-AJ10-137-021": "Aerojet chapter: configuration not stated (a specification, not Block I)",
     "AS-DB05-US-AJ10-137-022": "Aerojet chapter: configuration not stated",
+    # F-1 rating-epoch research pass (2026-10-28): the SA-503 engine data table's J-2 stage nominals
+    "AS-DB05-US-J-2-035": "MSFC-MAN-503: rights conflict unresolved, payload withheld",
+    "AS-DB05-US-J-2-036": "MSFC-MAN-503: rights conflict unresolved, payload withheld",
 }
 
 # ------------------------------------------------------------------ research conflicts

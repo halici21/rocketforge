@@ -218,6 +218,35 @@ mext.go.jp needs a rights review. After this pass the research files hold
 `docs/engineering/design/DB2B_WAVE3_JAPAN_EUROPE_CHINA_CORPUS.md`. DB-0.5
 stays PARTIAL.
 
+**F-1 rating-epoch supplement (2026-10-28).** A narrow pass on DB-0 conflict
+CF-ORCH_VERIFY-1 (was the F-1 uprated between SA-503 and SA-504?), in
+`tools/ledger_f1_rating.py`. The SA-503 manual was re-downloaded (same SHA-256)
+and its "ENGINE DATA" table (p.1-6) viewed; the Apollo-9 (AS-504) Technical
+Information Summary (MSFC R-ASTR-S-69-7, 3 Feb 1969; NTRS 19700009516) was
+opened for the first time and its S-IC section viewed as images.
+
+- The SA-503 manual already tabulates F-1 "NOMINAL THRUST EACH 1,522,000,
+  TOTAL 7,610,000" (and J-2 228,000 for S-II, 203,000 for S-IVB). The AS-504
+  summary's stage text gives the same 7,610,000 for five engines, while its
+  Figure 19 keeps "1,500,000 lbs Thrust". The opened documents therefore do not
+  support an uprate between SA-503 and SA-504 (CF-DB05-F1-RATING-EPOCH,
+  PARTIALLY_RESOLVED): AS-501 and AS-502 are still not covered.
+- Figure 19 prints "Mixture Ratio - LOX : RP-1 2.27:1", the direction the
+  Rocketdyne slide's "Engine mixture ratio 2.27" lacked (CF-DB05-F1-MR-DIRECTION,
+  RESOLVED). Shipping it for CFG-F1 is an owner decision; it is withheld.
+- Figure 19 also prints "Thrust Chamber Pressure 1105 psia" against the shipped
+  1,125 psia (owner decision of 2026-10-09, station UNKNOWN). It is recorded as
+  a competing primary claim in CF-DB05-F1-PC (still PARTIALLY_RESOLVED); by the
+  owner's decision of 2026-10-28 the shipped 1,125 psia stays and 1105 psia is
+  withheld.
+- Eight assertions (6 F-1, 2 J-2); none promoted. The DB-2A and DB-2B Wave 1
+  manifests account for each.
+
+Lead opened but not mined: Rocketdyne R-7450-1, J-2 performance analysis of
+flight AS-501 (NTRS 19680026222, 320 pp., 17 May 1968). Its tables give
+flight-reconstructed thrust, mixture ratio and Isp per engine, not ratings;
+the OCR is poor and the tables need reading from images. DB-0.5 stays PARTIAL.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`

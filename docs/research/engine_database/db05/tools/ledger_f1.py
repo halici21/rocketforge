@@ -126,9 +126,12 @@ C("CF-DB05-F1-RATING", engine_id=F1, field_path="performance.thrust_sl rating ep
   resolution="UNRESOLVED", kind="different_epoch",
   explanation="Three primary values: 1.5 Mlbf design goal, 1.530 Mlbf in the SA-503 crew manual, 1.522 Mlbf in a 2006 Rocketdyne slide. Which flights carried which rating is not established by the opened documents.")
 C("CF-DB05-F1-PC", engine_id=F1, field_path="performance.pc", db0_conflict_id="CF-R2_US_CLASSIC-F1-1",
-  claims=[["1,125 psia (station unstated)", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["70 bar (1,015 psi)", "SRC-WIKI-F1", "DB-0"], ["982 psi", "SRC-PURDUE-F1", "DB-0"]],
+  claims=[["1,125 psia (station unstated)", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["70 bar (1,015 psi)", "SRC-WIKI-F1", "DB-0"], ["982 psi", "SRC-PURDUE-F1", "DB-0"],
+          ["Thrust Chamber Pressure 1105 psia (Figure 19; added 2026-10-28)", "SRC-DB05-NTRS-19700009516", "p.37"]],
   resolution="PARTIALLY_RESOLVED", kind="primary_value_found",
-  explanation="Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so.")
+  explanation="Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. "
+              "Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch "
+              "separates the two primary values is not established.")
 C("CF-DB05-F1-MASS", engine_id=F1, field_path="mechanical.mass", db0_conflict_id="CF-R2_US_CLASSIC-F1-2",
   claims=[["18,616 lb", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["designed ... with a weight of 18,000 pounds", "SRC-DB05-NTRS-20100027316", "text p.4"],
           ["~18,500 lb dry", "SRC-ENGINEHISTORY-RPE0812", "DB-0"]],

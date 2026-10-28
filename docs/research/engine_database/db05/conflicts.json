@@ -401,11 +401,16 @@
      "982 psi",
      "SRC-PURDUE-F1",
      "DB-0"
+    ],
+    [
+     "Thrust Chamber Pressure 1105 psia (Figure 19; added 2026-10-28)",
+     "SRC-DB05-NTRS-19700009516",
+     "p.37"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "primary_value_found",
-   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so."
+   "explanation": "Manufacturer value 1,125 psia found; the lower secondary values may be nozzle-stagnation values but no opened primary document says so. Added 2026-10-28: MSFC's AS-504 summary (Feb 1969) prints 1105 psia, also without a station; which station or epoch separates the two primary values is not established."
   },
   {
    "conflict_id": "CF-DB05-F1-MASS",
@@ -908,6 +913,63 @@
    "resolution": "UNRESOLVED",
    "kind": "different_epoch",
    "explanation": "A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-RATING-EPOCH",
+   "db0_conflict_id": "CF-ORCH_VERIFY-1",
+   "engine_id": "ENG-US-F-1",
+   "field_path": "performance.thrust_sl rating epoch",
+   "claims": [
+    [
+     "1,522,000 each, 7,610,000 total (engine data table)",
+     "SRC-DB05-NTRS-19750063889",
+     "p.1-6"
+    ],
+    [
+     "1,530,000 pound fixed thrust",
+     "SRC-DB05-NTRS-19750063889",
+     "p.4-4"
+    ],
+    [
+     "nominal thrust of 7,610,000 pounds (five F-1)",
+     "SRC-DB05-NTRS-19700009516",
+     "p.35"
+    ],
+    [
+     "1,500,000 lbs Thrust (Figure 19)",
+     "SRC-DB05-NTRS-19700009516",
+     "p.37"
+    ],
+    [
+     "uprate between SA-503 and SA-504 (DB-0 search excerpt)",
+     "SRC-COSMOQUEST-17618",
+     "DB-0"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The SA-503 crew manual (25 Nov 1968) already tabulates 1,522,000 lb per engine, and the AS-504 summary (3 Feb 1969) gives the same 7,610,000 lb stage total, so the opened documents do not support an uprate between SA-503 and SA-504. Both documents also keep an older value (1,530,000 in the manual's prose, 1,500,000 on the AS-504 figure). Whether AS-501 and AS-502 flew at 1,522,000 is not established: no AS-501 or AS-502 document stating F-1 thrust was opened."
+  },
+  {
+   "conflict_id": "CF-DB05-F1-MR-DIRECTION",
+   "db0_conflict_id": null,
+   "engine_id": "ENG-US-F-1",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "Engine mixture ratio 2.27 (no direction printed)",
+     "SRC-DB05-NTRS-20100027316",
+     "slide F1-6"
+    ],
+    [
+     "Mixture Ratio - LOX : RP-1 2.27:1 (Figure 19)",
+     "SRC-DB05-NTRS-19700009516",
+     "p.37"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The AS-504 summary prints the direction the Rocketdyne slide left out: 2.27 is oxidizer to fuel (LOX : RP-1)."
   }
  ]
 }
