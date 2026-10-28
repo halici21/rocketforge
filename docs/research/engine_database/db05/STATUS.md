@@ -421,6 +421,19 @@ were viewed as images.
   The total propellant flow of 5,737 lb/s is NOT_NEEDED: CFG-F1 has no such
   field.
 
+**NTRS searches without a usable result (2026-10-28).** These documents were
+downloaded and scanned, but none settles its conflict, so none is registered:
+
+| Conflict | Document | Why it does not settle the conflict |
+| --- | --- | --- |
+| CF-DB05-RS25-PUMPPOWER | NTRS 19890016656 (SSME power-specific redlines) | Prints no pump power. |
+| CF-DB05-RS25-PUMPPOWER | NTRS 19930065949 (alternate turbopump integration) | Citation only; no PDF. |
+| CF-DB05-RL10B2-PC-ISP | NTRS 19970026009 (RL10B-2 densified-LH2 ignition) | Ignition transients only. |
+| CF-DB05-RD170-MR | NTRS 19950002748 and 19950025328 (RD-170 pollutant CFD) | Analysis inputs (241.96 atm); no mixture ratio from a test. |
+
+The LE-7, LE-7A, Vulcain and Vinci epoch conflicts need agency or
+manufacturer documents that NTRS does not hold.
+
 ## Reproducing
 
 `tools/` holds the scripts that produced every file here: `fetch.py`
