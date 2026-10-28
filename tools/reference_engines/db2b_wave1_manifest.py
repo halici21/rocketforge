@@ -669,6 +669,8 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-RS25-SLTHRUST": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-SSME-BLOCK-II-001", "AS-DB05-US-SSME-BLOCK-II-011", "AS-DB05-US-SSME-BLOCK-II-017", "AS-DB05-US-SSME-BLOCK-II-035", "AS-DB05-US-SSME-BLOCK-II-037", "AS-DB05-US-SSME-BLOCK-II-039", "AS-DB05-US-SSME-BLOCK-II-041",),
                                   argument="UNRESOLVED: approximations and single-configuration values."),
+    "CF-DB05-W-R2_US_CLASSIC-RS-3": dict(decision="CARRIED_NOT", touches=(), competing={"AS-DB05-US-SSME-BLOCK-II-010": "not promoted in this wave; 6.03:1", "SRC-L3HARRIS-RS25-WEB 6.0": "the same ratio rounded, same manufacturer"},
+        argument="EXPLAINED in DB-0.5: the specification sheet 6.03:1 and the web page 6.0 are one ratio rounded."),
 }
 
 SCHEMATICS = {

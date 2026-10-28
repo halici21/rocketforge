@@ -384,6 +384,13 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-RD170-THRUST": dict(decision="CARRIED_NOT", touches=(),
         competing={"AS-DB05-SU-RD-170-001 / -002": "placard 740 / 806 t via Rockwell's transcription; withheld for that reason"},
         argument="EXPLAINED in DB-0.5 (2026-10-28): every figure is the placard's 740 / 806 t rounded or relabelled; no thrust ships."),
+    "CF-DB05-W-ANCHOR_USSR-2": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="EXPLAINED in DB-0.5: the > 280 bar is a certification-margin claim, not a rating; no chamber pressure ships from these pages."),
+    "CF-DB05-W-TAXONOMY-TAX-3": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="EXPLAINED in DB-0.5: planned against achieved test schedule; no value involved."),
+    "CF-DB05-W-COMMERCIAL-COM-13": dict(decision="WITHHOLD", withhold=("AS-DB05-NZ-RUTHERFORD-008", "AS-DB05-NZ-RUTHERFORD-010"),
+        argument="UNRESOLVED in DB-0.5: whether Rocket Lab's 311 s is a sea-level Isp is open; the release sentence and the Electron "
+                 "page panel that print it are withheld with it (Rutherford values are not carried anyway, rights)."),
 }
 
 CARRIER_GENERALISATIONS = {}

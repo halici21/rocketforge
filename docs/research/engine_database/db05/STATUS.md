@@ -523,9 +523,8 @@ CF-DB05-IPD-THRUST (DB-0 R2-14): EXPLAINED. Every value is the same 250,000
 lbf design class, rounded differently. It is carried as not affecting the
 promoted IPD statements that print it.
 
-Rutherford's "311 s" sea-level Isp (COM-13) stays open: the Rocket Lab release
-was not re-downloaded, because a browser-agent download was refused as a
-bot-check bypass.
+Rutherford's "311 s" sea-level Isp (COM-13) stays open; see the web pass below
+(the release had been read in the Wave 2 pass, so no new download was needed).
 
 **RD-180 and NK-33 (same day), `tools/ledger_rd180_nk33.py`.** Neither engine is
 seeded. An NTRS search for "RD-180" found two NASA documents:
@@ -578,11 +577,47 @@ Results:
 
 DB-0 had reported a 47 % floor for the 2002 Spaceflight Now page, but that page prints 40–100 %.
 
-65 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
-remains rests on unopened search summaries (Wikipedia, mirrors, Bilibili,
-HandWiki) or on sources that refused access. Examples: LE-7A pc, Vulcain 2
-thrust/pc/area ratio, YF-77/YF-100, and the RD-180, LE-9 and HM7B remainder.
-They need a primary document first.
+65 of the 261 DB-0 conflict records had a DB-0.5 counterpart after this pass.
+
+**DB-0 conflict web pass (same day), `tools/ledger_db0_web.py`.** All 162
+secondary pages that DB-0 cites in its open conflicts and that have a URL were
+fetched with `fetch.py`; 121 downloaded. Each claim was searched for in
+the extracted text, and a value counts as seen only where the number stands
+there in the sense DB-0 gave it. 104 pages were read (`IDENTITY_VERIFIED_ONLY`:
+no assertion is filed from news, museum, catalogue or encyclopedia-mirror
+pages) and 17 were reached without the claimed value or without usable text
+(`FETCHED_NOT_EVIDENCE`, reason per record). `FETCHED_NOT_READ` is 0 again.
+
+110 conflict records were filed (`CF-DB05-W-*`, one per DB-0 conflict):
+61 UNRESOLVED (only one side read, or nothing settles it), 29 EXPLAINED,
+13 PARTIALLY_RESOLVED, 5 RESOLVED and 2 CONFIRMED_SECONDARY. What the
+pages changed:
+
+- DB-0 misread sources in several places: the ESA blog says the Artemis II
+  OMS-E flew six times "between 2000 and 2002", not in 2011 (SPACECRAFT-4,
+  RESOLVED against STS-112); the Jiemian article gives "45%-111%" for an
+  improved TQ-12, not 55–110 % for the TQ-15A; Encyclopedia Astronautica's
+  Agena B page prints 71.17 kN and 285 s, not 70.7 kN or 71.2 kN / 291 s.
+- 854 kN for the Merlin 1D is a transposition: SpaceX's 2025 user's guide
+  prints 845 kN (190,000 lbf), which is what 190,000 lbf converts to.
+- Merlin 1D and MVac thrust are time series (147,000 → 170,000 → 190,000 lbf;
+  210,000 → 220,500 lbf), not conflicts.
+- LAM 440 N propellant roles (ISRO's IAC abstract: MON-3 and MMH), Valois
+  (one engine, 35 t, Diamant B) and Broadsword (25,000 lbf at sea level, maker's
+  page) are RESOLVED from the authors' or maker's own text.
+- The RS-25 mixture ratio (6.03:1 sheet, 6.0 web, both L3Harris) is EXPLAINED.
+  Rutherford's 311 s (COM-13) stays UNRESOLVED: Rocket Lab prints it beside the
+  sea-level engine twice, and DB-0's doubt is a plausibility judgement, not a
+  second source.
+
+Twelve of these sit on seed engines and have Wave 1–3 manifest decisions. Ten
+change nothing that ships. COM-13 withholds the two Rutherford statements that
+print 311 s (Rutherford values were not carried anyway, for rights reasons).
+RS-3 is CARRIED_NOT.
+
+175 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. The other
+86 cite only encyclopedia summaries, pages without a URL, or sources that
+refused access, so the next step for each is a primary document.
 
 ## Reproducing
 

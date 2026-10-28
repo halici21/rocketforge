@@ -1673,6 +1673,2501 @@
    "resolution": "UNRESOLVED",
    "kind": "different_operating_point",
    "explanation": "190 tf is 1,863 kN; 1,961 kN is 5 percent higher and is tied to a 106 percent level, so the thrust pair may be two power levels, but neither opened page names its level. The gimbal angle (11 against 7 degrees) is open: both opened pages are secondary and the 7 degrees was never opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_US_CLASSIC-RS-3",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-RS-3",
+   "engine_id": "ENG-US-SSME-BLOCK-II",
+   "field_path": "propellants.mixture_ratio",
+   "claims": [
+    [
+     "6.03:1",
+     "SRC-L3HARRIS-RS25-SPEC",
+     "p.1 'Mixture Ratio Oxidizer/Fuel' (read in the RS-25 pass)"
+    ],
+    [
+     "Mixture Ratio (O/F): 6.0",
+     "SRC-L3HARRIS-RS25-WEB",
+     "specification box (read in the RS-25 pass)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "Both are the manufacturer's: the specification sheet prints 6.03:1 and the web page 6.0, the same ratio to one decimal."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_US_CLASSIC-LR-2",
+   "db0_conflict_id": "CF-R2_US_CLASSIC-LR-2",
+   "engine_id": "ENG-US-LR87-AJ-5",
+   "field_path": "identity.engine_count",
+   "claims": [
+    [
+     "twin motors considered a single unit",
+     "SRC-WIKI-LR87",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "only fireable as a unit",
+     "SRC-WIKITALK-LR87",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "one engine assembly, two chambers, two TPAs",
+     "SRC-TMS-TITAN2",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "A counting convention, not a factual conflict: every claim describes one assembly of two thrust chambers, each with its own turbopump. The DB-0.5 record counts one engine with two chambers."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-06",
+   "db0_conflict_id": "CF-US_HIST-06",
+   "engine_id": "ENG-US-BELL-8096",
+   "field_path": "identity.designation / performance.isp_vac",
+   "claims": [
+    [
+     "XLR81-BA-11; Isp 280 s",
+     "SRC-WIKI-BELL8000",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "XLR81-BA-9 = Model 8096",
+     "SRC-DESIGNSYS-RM81",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "71.2 kN, 291 s",
+     "SRC-ASTRONAUTIX-AGENAB",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "Two pages agree that the Bell 8096 is the XLR81-BA-9 (Astronautica: 'Later models used a further improved XLR81-BA-9 (Bell Model 8096)'); the BA-11 attribution is the encyclopedia's alone. The Agena B page does not print 71.2 kN or 291 s: its stage table gives 71.17 kN and 285 s for the Bell 8081 stage. No opened page gives an 8096 Isp."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-07",
+   "db0_conflict_id": "CF-US_HIST-07",
+   "engine_id": "ENG-US-BELL-8081",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "71 kN (16,000 lbf)",
+     "SRC-WIKI-BELL8000",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "70.7 kN (15,890 lbf)",
+     "SRC-ASTRONAUTIX-AGENAB",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The Agena B page prints 'Thrust 71.17 kN (15,999 lbf)' for the stage with the Bell 8081, not the 70.7 kN DB-0 cited; 71.17 kN rounds to the encyclopedia's 71 kN. Both are tertiary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-08",
+   "db0_conflict_id": "CF-US_HIST-08",
+   "engine_id": "ENG-US-XLR11",
+   "field_path": "identity.designation",
+   "claims": [
+    [
+     "X-1 = XLR11-RM-5",
+     "SRC-WIKI-XLR11",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "5,900 lbf; 345 lb incl. turbopump",
+     "SRC-NMUSAF-XLR11",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "X-1 engine XLR-11-RM3",
+     "SRC-HISTORYOFWAR-X1",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Opened: one popular history page names the X-1 engine XLR-11-RM3. The RM-5 and the thrust and mass figures were not opened. Different X-1 airframes may have carried different sub-variants; no document says which."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-11",
+   "db0_conflict_id": "CF-US_HIST-11",
+   "engine_id": "ENG-US-LR79-NA-9",
+   "field_path": "applications",
+   "claims": [
+    [
+     "Thor IRBM and Atlas E and F",
+     "SRC-FLICKR-MB3",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Atlas E/F used MA-3 (LR89/LR105)",
+     "SRC-ENGINEHISTORY-RPE05",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "The museum placard says the MB-3 was designed for Thor and Atlas E and F; the AEHS page says Atlas E and F flew the MA-3 system. Both can hold: the MA-3 boosters (LR89-NA-5) were derived from the same family. The placard's wording is about lineage, not the engine installed on Atlas E/F."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-13",
+   "db0_conflict_id": "CF-US_HIST-13",
+   "engine_id": "ENG-US-NAA-75-110-A-6",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "91,350 lbf max",
+     "SRC-WIKI-JUPITERA",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "series final 78,000 lb",
+     "SRC-NASA-MSFC-MERCREDSTONE",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The MSFC page gives 78,000 lb as the final Redstone A-series figure; the 91,350 lbf belongs to a Jupiter-A summary never opened. Which A-series sub-model (A-6, A-7) each refers to is not stated."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-15",
+   "db0_conflict_id": "CF-US_HIST-15",
+   "engine_id": "ENG-US-LR89-NA-7",
+   "field_path": "identity.designation / performance.thrust",
+   "claims": [
+    [
+     "MA-5 booster = LR89-5, 163,211 lbf SL",
+     "SRC-ENGINEHISTORY-RPE05",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "LR89-7, 213,118 lbf vac",
+     "SRC-ASTRONAUTIX-LR89-7",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "pair 1,896 kN",
+     "SRC-WIKI-MA5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "pair 1,901.6 kN",
+     "SRC-WIKI-ATLASG",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "The opened pages describe two engines: the LR89-5 (163,211 lbf SL) and the LR89-7 (213,118 lbf vac). The figures are for different models and conditions, not two readings of one rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-17",
+   "db0_conflict_id": "CF-US_HIST-17",
+   "engine_id": "ENG-US-XRS-2200",
+   "field_path": "performance.thrust_vac / performance.thrust_sl",
+   "claims": [
+    [
+     "266,000 / 204,000 lbf",
+     "SRC-WIKI-XRS2200",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "261,200 / 206,200 lbf",
+     "SRC-PURDUE-XRS2200",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "200,000+ lbs SL",
+     "SRC-NTRS-19980174934",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The NASA paper gives only '200,000+ lbs' at sea level, consistent with both pairs; Purdue's 261,200 / 206,200 lbf has no cited source. No opened primary gives the rated pair."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-21",
+   "db0_conflict_id": "CF-US_HIST-21",
+   "engine_id": "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR",
+   "field_path": "history.first_flight",
+   "claims": [
+    [
+     "16 March 1926",
+     "SRC-APS-GODDARD",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The APS page fetched has no date in its text; the conflict stays as DB-0 recorded it."
+  },
+  {
+   "conflict_id": "CF-DB05-W-US_HIST-24",
+   "db0_conflict_id": "CF-US_HIST-24",
+   "engine_id": "ENG-US-LR101",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "1,017 lbf tank-fed / 1,060 lbf pressure-fed",
+     "SRC-WIKI-LR101",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "830 lb tank-fed downrated to 525 lb",
+     "SRC-DTIC-AD0423340",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "~1,012 lb per vernier (RS-27A)",
+     "SRC-PURDUE-RS27A",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Purdue's 1,012 lb is for the RS-27A vernier on Delta II, a later application. The DTIC report was not fetched. Each figure belongs to a different installation; none is shown to be the LR101 rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-5",
+   "db0_conflict_id": "CF-R2_USSR-R2-5",
+   "engine_id": "ENG-SU-NK-33",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "14D15",
+     "SRC-NAKEDSCI-NK33",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "14D15",
+     "SRC-WIKI-NK33",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "CONFIRMED_SECONDARY",
+   "kind": null,
+   "explanation": "The opened news page prints the same index; no primary seen."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-7",
+   "db0_conflict_id": "CF-R2_USSR-R2-7",
+   "engine_id": "ENG-RU-RD-0124",
+   "field_path": "control.gimbal",
+   "claims": [
+    [
+     "engine gimballed in two planes",
+     "SRC-RSW-RD0124",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "each of 4 chambers gimbals on a single axis",
+     "SRC-WIKI-RD0124",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Both can hold: four chambers each swivelling in one plane give the engine control in two planes. The opened page speaks of the engine, the encyclopedia of the chambers."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-8",
+   "db0_conflict_id": "CF-R2_USSR-R2-8",
+   "engine_id": "ENG-RU-RD-0124",
+   "field_path": "dimensions",
+   "claims": [
+    [
+     "2,327 x 1,470 mm, roughly the same as RD-0110 (design intent)",
+     "SRC-RSW-RD0124",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The opened page states the dimensions as the design goal of fitting the RD-0110 envelope; they are not measured dimensions of the built engine."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-9",
+   "db0_conflict_id": "CF-R2_USSR-R2-9",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field_path": "propellants.h2o2_concentration",
+   "claims": [
+    [
+     "85 %; Ca/K/Na permanganate",
+     "SRC-ENGINEHISTORY-RPE02-2",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "80 % test strength",
+     "SRC-V2ROCKETHISTORY",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "Z-Stoff = 27 % sodium permanganate solution",
+     "SRC-NASM-A19600013000",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Only the AEHS page was read (85 %). The 80 % and the Z-Stoff concentration were not opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-16",
+   "db0_conflict_id": "CF-R2_USSR-R2-16",
+   "engine_id": "ENG-RU-S5-92",
+   "field_path": "performance.isp_vac / operations.starts",
+   "claims": [
+    [
+     "Restart capability up to 20",
+     "SRC-STARSEM-ST07",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "50 starts; 327 / 316 s",
+     "SRC-WIKI-S592",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "323 / 329 s; 1,400 / 2,000 kg",
+     "SRC-RSW-FREGAT",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "Starsem's user manual gives up to 20 restarts; the 50 is encyclopedia-only. The two Isp pairs are tied to the engine's two thrust modes, but the opened RussianSpaceWeb page does not say which mode each Isp belongs to."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-20",
+   "db0_conflict_id": "CF-R2_USSR-R2-20",
+   "engine_id": "ENG-RU-11D58MF",
+   "field_path": "cycle",
+   "claims": [
+    [
+     "'oxidizer gas generator' drives TPA",
+     "SRC-SSAU-2587",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "ox-rich staged combustion",
+     "SRC-WIKI-RD58",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The SSAU page's text did not contain the wording DB-0 cited; nothing settles the cycle."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_USSR-R2-21",
+   "db0_conflict_id": "CF-R2_USSR-R2-21",
+   "engine_id": "ENG-RU-KVD-1",
+   "field_path": "history.development_period",
+   "claims": [
+    [
+     "11D56 development 1965-1972",
+     "SRC-WIKI-KVD1",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "KVD-1 (RD56) 1962-1974",
+     "SRC-LPRE-NPOEM-RD0120UP",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "The opened paper gives 1962-1974; the encyclopedia's 1965-1972 was not opened. The spans may count different phases (programme against engine development); neither says. The thrust part of the DB-0 conflict was not reached."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-5",
+   "db0_conflict_id": "CF-USSR-5",
+   "engine_id": "ENG-RU-RD-191",
+   "field_path": "performance.isp_sl",
+   "claims": [
+    [
+     "310.7 s",
+     "SRC-WIKI-RD191",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "311.2 s",
+     "SRC-RSW-RD191",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "311 s (RD-181)",
+     "SRC-GLAVKOSMOS-RD181",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "0.2 percent apart. The Glavkosmos figure is for the RD-181, a variant. No manufacturer RD-191 table was opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-6",
+   "db0_conflict_id": "CF-USSR-6",
+   "engine_id": "ENG-RU-RD-0124MS",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "359 s",
+     "SRC-WIKI-SOYUZ5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "361 s",
+     "SRC-WWW1-RD0124",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "361 s ('RD-124MV')",
+     "SRC-FRONTIER-SOYUZ5",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "One opened Russian page gives 361 s for a 60 t modification; the Soyuz-5 page DB-0 cited does not print 361. Which variant designation each figure belongs to is not settled."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-7",
+   "db0_conflict_id": "CF-USSR-7",
+   "engine_id": "ENG-SU-RD-117",
+   "field_path": "aliases.index",
+   "claims": [
+    [
+     "RD-117 = 11D511; RD-118 = 11D512",
+     "SRC-WIKI-RD107",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "11D511 'RD-107'; 11D512 'RD-108'",
+     "SRC-GLOBALSEC-SOYUZU",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "GlobalSecurity attaches the family names RD-107 / RD-108 to the 11D511 / 11D512 indices used on Soyuz-U, which are the RD-117 / RD-118 builds; both pages name the same hardware at different levels of the family."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-8",
+   "db0_conflict_id": "CF-USSR-8",
+   "engine_id": "ENG-SU-RD-100",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "26 t",
+     "SRC-KPI-GLUSHKO",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "33 t (+30 % over V-2)",
+     "SRC-HISTORYRISE-GLUSHKO",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Only the 26 t page was opened; 33 t stays a search-result claim."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-9",
+   "db0_conflict_id": "CF-USSR-9",
+   "engine_id": "ENG-SU-RD-101",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "37,210 kgf SL / 41,208 kgf vac",
+     "SRC-FAS-R2",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "37 t (ground)",
+     "SRC-KPI-GLUSHKO",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "35 t (340 kN)",
+     "SRC-PLANETARY-GLUSHKO",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "FAS (37,210 kgf) and KPI (37 t) agree; the Planetary Society's 35 t is 6 percent lower and gives no source or condition."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-10",
+   "db0_conflict_id": "CF-USSR-10",
+   "engine_id": "ENG-SU-RD-101",
+   "field_path": "propellants.fuel",
+   "claims": [
+    [
+     "methyl alcohol replaced ethyl alcohol",
+     "SRC-FAS-R2",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Only the FAS page was read; no second opened source confirms or contradicts the change."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-15",
+   "db0_conflict_id": "CF-USSR-15",
+   "engine_id": "ENG-SU-RD-0110",
+   "field_path": "performance.pc / performance.isp_vac / operations.burn_time",
+   "claims": [
+    [
+     "6.8 MPa; 325 s; 250 s",
+     "SRC-WIKI-RD0110",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "7 MPa; 3,195 m/s; 'Burn time 230 or 240 seconds'",
+     "SRC-RSW-RD0110",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "3,195 m/s is 325.8 s DERIVED, the encyclopedia's 325 s; 7 MPa against 6.8 MPa is rounding. The burn time stays open: the opened page itself gives two values (230 or 240 s), neither 250 s."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-16",
+   "db0_conflict_id": "CF-USSR-16",
+   "engine_id": "ENG-SU-RD-0210",
+   "field_path": "performance.thrust_vac / performance.pc / operations.burn_time",
+   "claims": [
+    [
+     "582 kN; 14.7 MPa; 220 s",
+     "SRC-WIKI-RD0210",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "593.6 kN; 15 MPa; 230 s",
+     "SRC-RSW-RD0210",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Each figure differs by 2-5 percent; 14.7 MPa is 150 kgf/cm2, so the pressures may be one value in two units. Neither page cites a source."
+  },
+  {
+   "conflict_id": "CF-DB05-W-USSR-18",
+   "db0_conflict_id": "CF-USSR-18",
+   "engine_id": "ENG-RU-RD-171MV",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "7,887 kN vac (family)",
+     "SRC-WIKI-RD170",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "7,257 kN SL (stage 1)",
+     "SRC-WIKI-SOYUZ5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "'approximately 800 tons'",
+     "SRC-FRONTIER-SOYUZ5",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The opened page gives only 'approximately 800 tons' without a condition; the other figures are encyclopedia values for the family or the stage."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ANCHOR_USSR-2",
+   "db0_conflict_id": "CF-ANCHOR_USSR-2",
+   "engine_id": "ENG-SU-RD-170",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "266.7 bar",
+     "SRC-NAKEDSCI-RAPTOR",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "> 280 bar (10 % margin)",
+     "SRC-SNOB-172276",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Not two ratings: the '> 280 bar' is an Energomash claim of a 10 percent certification margin, as in CF-DB05-RD180-PC. The 266.7 bar is not in the Naked Science text that was fetched."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-5",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-5",
+   "engine_id": "ENG-JP-LE-9",
+   "field_path": "pumps.speed_rpm",
+   "claims": [
+    [
+     "41,600 rpm (pump not legible)",
+     "SRC-IHI-GIHO-LE9-TP",
+     "fetched; no extractable text"
+    ],
+    [
+     "LH2 turbopump 41,600 rpm",
+     "SRC-IHIFAN-LE9",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "The IHI fan page attaches 41,600 rpm to the LH2 turbopump; the IHI technical review's own pump label could not be read. The value is not settled from a primary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-6",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-6",
+   "engine_id": "ENG-JP-LE-5B",
+   "field_path": "performance.throttle_range",
+   "claims": [
+    [
+     "3 % (turbine not driven)",
+     "SRC-WEBLIO-LE5",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "5 % idle mode",
+     "SRC-WIKI-LE5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "3 % tank head (LE-5B-2 table)",
+     "SRC-WIKI-LE5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "Two modes: the 3 % tank-head idle without turbine drive, and a 5 % idle mode. The opened mirror and the encyclopedia describe different low-thrust modes, not one value."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-7",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-7",
+   "engine_id": "ENG-JP-LE-5B",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "LE-5B 137.2 kN",
+     "SRC-WEBLIO-LE5",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "LE-5B-3 137 kN",
+     "SRC-WIKI-LE5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "137 kN is 137.2 kN rounded; the variant labels differ, not the value."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-5",
+   "db0_conflict_id": "CF-ASIA_OTHER-5",
+   "engine_id": "ENG-JP-LE-5B-3",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "137 kN",
+     "SRC-WIKI-LE5",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "14 ton",
+     "SRC-MHI-LE5B",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "14 tf is 137.3 kN DERIVED; the manufacturer's figure is the encyclopedia's rounded."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-9",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-9",
+   "engine_id": "ENG-IN-VIKAS",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "52.5 -> 58.5 bar (2001)",
+     "SRC-SPACENEWS-33640",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "6.2 MPa",
+     "SRC-WIKI-VIKAS",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "SpaceNews reports the 2001 uprate from 52.5 to 58.5 bar; 6.2 MPa is a later figure from the encyclopedia. The values are different builds, not one."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-10",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-10",
+   "engine_id": "ENG-IN-CE-7-5",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "5.8 MPa / 7.5 MPa",
+     "SRC-WIKI-CE75",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "58 bar nominal",
+     "SRC-SLIDESHARE-CRYO",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "The slide deck's 58 bar is the encyclopedia's 5.8 MPa; the 7.5 MPa has no opened source. Which station or operating point each refers to is not stated."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-12",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-12",
+   "engine_id": "ENG-IN-CE-20",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "186.36 kN",
+     "SRC-WIKI-CE20",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "200 kN",
+     "SRC-WIKI-CE20",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "19-20 t nominal, 22 t uprated",
+     "SRC-IASGYAN-CE20",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "The opened page separates the nominal 19-20 t (186-196 kN DERIVED) from a 22 t uprate; the encyclopedia figures sit in that range. Tertiary only."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-14",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-14",
+   "engine_id": "ENG-CN-YF-100",
+   "field_path": "performance.throttle_range",
+   "claims": [
+    [
+     "65-105 %",
+     "SRC-WIKI-YF100",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "65-100 %",
+     "SRC-BILI-CV15113396",
+     "fetched; no extractable text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The Bilibili article delivered no text; nothing opened gives the range."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-15",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-15",
+   "engine_id": "ENG-CN-YF-100",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "1,200 kN",
+     "SRC-WIKI-YF100",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "1,188 kN",
+     "SRC-BILI-CV15113396",
+     "fetched; no extractable text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The Bilibili article delivered no text; nothing opened gives the thrust."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-16",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-16",
+   "engine_id": "ENG-KR-KRE-075",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "7.0 MPa",
+     "SRC-WIKI-KRE075",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "60 bars",
+     "SRC-FRWIKI-KRE075",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "60 bar (design stage, 2009)",
+     "SRC-KSCI-KARI-2009-KRE75",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 2009 KARI paper gives 60 bar at the design stage; 7.0 MPa is unsourced and may be a later build. No later KARI document was opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-17",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-17",
+   "engine_id": "ENG-KR-KRE-075",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "735.5 kN (stage 1)",
+     "SRC-WIKI-KRE075",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "75.8 tonf (SL type)",
+     "SRC-NAMU-KRE075",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "74.8 ton (design, 2009)",
+     "SRC-KSCI-KARI-2009-KRE75",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Only the 2009 design figure (74.8 t vac) was read; the flown rating was not found in an opened document."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-21",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-21",
+   "engine_id": "ENG-IN-LAM-440-N",
+   "field_path": "propellants.roles",
+   "claims": [
+    [
+     "MMH fuel / MON-3 oxidizer",
+     "SRC-IAC16-32550",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "MON 'fuel', UDMH 'oxidizer'",
+     "SRC-SF101-LAM",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The ISRO authors' IAC abstract: 'The propellant combination employed is MON-3 & MMH at a mixture ratio of 1.6'. The swapped roles were never opened and reverse fuel and oxidizer."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-22",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-22",
+   "engine_id": "ENG-IN-AGNILET",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "approximately 3 kN at sea level",
+     "SRC-IE-AGNIBAAN",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "6.2 kN",
+     "SRC-M3D-AGNIKUL-2026",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "Two news pages, 2024 and 2026, give 3 kN and 6.2 kN; neither names the engine variant or condition."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-23",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-23",
+   "engine_id": "ENG-IN-DHAWAN-1",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "1.5 kN vac",
+     "SRC-CHANAKYA-DHAWAN1",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "1.0 kN",
+     "SRC-COLDFACTS-DHAWAN1",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The fetched page gives no thrust; nothing opened settles it."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-24",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-24",
+   "engine_id": "ENG-RU-RD-151",
+   "field_path": "identity.designation",
+   "claims": [
+    [
+     "RD-191",
+     "SRC-WIKI-NARO1",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "RD-151",
+     "SRC-SPACENEWS-12177",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "RD-151",
+     "SRC-SFN-KSLV-2010",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "Two opened news pages name the KSLV first-stage engine RD-151, a derated RD-191; the encyclopedia names the parent engine."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-28",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-28",
+   "engine_id": "ENG-CN-WELKIN",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "50 t",
+     "SRC-GE-WELKIN-EN",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "400 kN",
+     "SRC-WIKI-WELKIN",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "50 tf is 490 kN DERIVED, 23 percent above 400 kN. The manufacturer's '50 t' may be a class, not a rating; not settled."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-30",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-30",
+   "engine_id": "ENG-CN-LONGYUN",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "70 t class",
+     "SRC-36KR-JZYJ",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "80 t class",
+     "SRC-JIEMIAN-14422448",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Two news pages give two classes; neither gives a rating or a date for its figure."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-7",
+   "db0_conflict_id": "CF-ASIA_OTHER-7",
+   "engine_id": "ENG-CN-YF-23",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "47.1 kN",
+     "SRC-WIKI-YF23",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "46.1 kN",
+     "SRC-GS-CZ2D",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "One digit apart (2 percent); possibly a transcription slip in one source. Neither is primary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-8",
+   "db0_conflict_id": "CF-ASIA_OTHER-8",
+   "engine_id": "ENG-CN-YF-40",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "103 kN",
+     "SRC-WIKI-YF40",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "100.85 kN (stage, two YF-40)",
+     "SRC-WIKI-CZ4B",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "just over 100 kN each engine (YF-40A)",
+     "SRC-EDA-CZ4C",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The opened page puts 'just over 100 kN' on each YF-40A; the CZ-4B summary's 100.85 kN is for two engines. Variant and per-engine scope are mixed; not settled."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-10",
+   "db0_conflict_id": "CF-ASIA_OTHER-10",
+   "engine_id": "ENG-CN-YF-75D",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "88.36 kN, 442.6 s, 780 s",
+     "SRC-WIKI-YF75D",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "88.26 kN, 442 s, 470 s",
+     "SRC-WEBLIO-YF75D",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Two encyclopedia renderings (the opened page mirrors Japanese Wikipedia). Thrust and Isp agree within 0.1 percent; the burn time (470 against 780 s) does not, and neither cites a primary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-11",
+   "db0_conflict_id": "CF-ASIA_OTHER-11",
+   "engine_id": "ENG-CN-YF-77",
+   "field_path": "performance.isp",
+   "claims": [
+    [
+     "430 s vac / 310.2 s SL",
+     "SRC-WIKI-YF77",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "438 s vac / 333 s SL",
+     "SRC-WEBLIO-YF77",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Two encyclopedia renderings (English and Japanese) disagree; no primary opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-12",
+   "db0_conflict_id": "CF-ASIA_OTHER-12",
+   "engine_id": "ENG-CN-YF-115",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "17,850 kgf (175.0 kN)",
+     "SRC-SF101-CZ6",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "176.5 kN",
+     "SRC-WIKI-YF115",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "'180 kN' class (title)",
+     "SRC-IAC16-YF115",
+     "fetched; no extractable text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The IAC abstract delivered no text; '180 kN' is a class name in its title."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-13",
+   "db0_conflict_id": "CF-ASIA_OTHER-13",
+   "engine_id": "ENG-CN-TQ-12",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "337 s (sea-level nozzle)",
+     "SRC-WIKI-TQ12",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "vacuum Isp 350 s; area ratio 40",
+     "SRC-NCSTI-2023-TQ",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The exhibition text gives 350 s with area ratio 40 for 'TQ-12'; whether that is the flown sea-level engine or a vacuum-optimised build is not stated."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-14",
+   "db0_conflict_id": "CF-ASIA_OTHER-14",
+   "engine_id": "ENG-CN-TQ-15A",
+   "field_path": "performance.throttle_range",
+   "claims": [
+    [
+     "design range 60-100 %; +11.8 % thrust; +126 m/s",
+     "SRC-BJNEWS-TQ15A",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "55-110 %; +9 %; +130 m/s",
+     "SRC-JIEMIAN-TQ",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "The Beijing News text gives 60-100 % for the TQ-15A. The Jiemian article does not print 55-110 %: it gives '45%-111%' for an improved TQ-12 on a test vehicle, another engine."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-15",
+   "db0_conflict_id": "CF-ASIA_OTHER-15",
+   "engine_id": "ENG-CN-TH-12",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "95 t",
+     "SRC-SPACEPIONEER-TH12",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "1,090 kN (111 t)",
+     "SRC-WIKI-TH12",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "110 t design",
+     "SRC-ITHOME-655315",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "The manufacturer's TH-12 page gives 95 t at sea level and its TH-12V page 110 t in vacuum; the 110 t of the news headline matches the vacuum figure, not a sea-level rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ASIA_OTHER-16",
+   "db0_conflict_id": "CF-ASIA_OTHER-16",
+   "engine_id": "ENG-CN-TH-12",
+   "field_path": "cycle",
+   "claims": [
+    [
+     "oxidizer-rich gas generator",
+     "SRC-WIKI-TH12",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "'Cycle Gas generator'",
+     "SRC-SPACEPIONEER-TH12V",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "The manufacturer prints 'gas generator' without 'oxidizer-rich'; the mixture of the generator is not stated anywhere opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_ASIA-R2A-20",
+   "db0_conflict_id": "CF-R2_ASIA-R2A-20",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "flows.mdot",
+   "claims": [
+    [
+     "235 kg/s total, 41.2 kg/s H2",
+     "SRC-WIKI-VULCAIN",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "H2 33 kg/s, LOX 202 kg/s",
+     "SRC-HF-SPACEYL-ENGINES",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The opened dataset is unsourced; the 41.2 kg/s may be a Vulcain 1 figure (see the ESA esaMI page in CF-ANCHOR_EU_ASIA-4). Nothing primary opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-1",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-1",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "1,390 kN",
+     "SRC-CNES-A5-TECH",
+     "fetched; no extractable text"
+    ],
+    [
+     "1,359 kN",
+     "SRC-AIAA-VG-ARIANE",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "1,359 / 1,340 kN",
+     "SRC-WIKI-VULCAIN",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "~137-138 t",
+     "SRC-ESA-A5ECA-NEWELEM",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "Vulcain 2's 1,359 kN (305,000 lbf)",
+     "SRC-NEWSPACEECON-V21",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "One opened trade page repeats 1,359 kN; the CNES page gave no text. No manufacturer datasheet was reached."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-4",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-4",
+   "engine_id": "ENG-FR-VULCAIN-2",
+   "field_path": "flows.mdot_fuel",
+   "claims": [
+    [
+     "41.2 kg/s H2 of 235 kg/s (page titled 'Vulcain engine')",
+     "SRC-ESA-ESAMI-VULCAIN",
+     "fetched; no extractable text"
+    ],
+    [
+     "33 kg/s H2",
+     "SRC-HF-SPACEYL-ENGINES",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The ESA page gave no text; the dataset is unsourced. The DB-0 suspicion that the ESA figures are Vulcain 1 stands untested."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-6",
+   "db0_conflict_id": "CF-EUROPE-6",
+   "engine_id": "ENG-FR-VULCAIN-2-1",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "1,371 kN (308,000 lbf)",
+     "SRC-NEWSPACEECON-V21",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "1,340 kN",
+     "SRC-METALAM-V21",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "135 t vacuum",
+     "SRC-3DPI-V21",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Only one opened page gives a figure (1,371 kN); the other two fetched pages print none. Tertiary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-9",
+   "db0_conflict_id": "CF-EUROPE-9",
+   "engine_id": "ENG-FR-HM7B",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "62.2 kN",
+     "SRC-WIKI-HM7B",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "64.8 kN",
+     "SRC-SATNOW-HM7B",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The catalogue's 64.8 kN and the 62.2 kN may be Ariane 5 ESC-A and Ariane 4 H10 builds; neither says."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-5",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-5",
+   "engine_id": "ENG-FR-HM7B",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "67 kN",
+     "SRC-CNES-A5-TECH",
+     "fetched; no extractable text"
+    ],
+    [
+     "62.2 kN",
+     "SRC-AIAA-VG-ARIANE",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "64.8 kN",
+     "SRC-SATNOW-HM7B",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "As CF-DB05-W-EUROPE-9; the CNES page gave no text."
+  },
+  {
+   "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-7",
+   "db0_conflict_id": "CF-ANCHOR_EU_ASIA-7",
+   "engine_id": "ENG-FR-HM7B",
+   "field_path": "operations.burn_time",
+   "claims": [
+    [
+     "950 s",
+     "SRC-AIAA-VG-ARIANE",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "up to 15 min 45 s (945 s)",
+     "SRC-CNES-A5-TECH",
+     "fetched; no extractable text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Neither page was read from text in this pass."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-13",
+   "db0_conflict_id": "CF-EUROPE-13",
+   "engine_id": "ENG-DE-AESTUS",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "111 kg",
+     "SRC-SATNOW-AESTUS",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "115 kg",
+     "SRC-ESA-EPS",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "Only the catalogue was read; whether the masses differ in scope is not stated."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-14",
+   "db0_conflict_id": "CF-EUROPE-14",
+   "engine_id": "ENG-FR-VIKING-5",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "758 kN (Viking 5)",
+     "SRC-DLR-VIKING-IMG",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "760.7 kN (Viking 5C)",
+     "SRC-WIKI-VIKING",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "DLR's 758 kN is for the Viking 5; 760.7 kN is reported for the Viking 5C."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-15",
+   "db0_conflict_id": "CF-EUROPE-15",
+   "engine_id": "ENG-FR-VEXIN-B",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "301.55 kN",
+     "SRC-WIKI-DIAMANT",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "about 28 metric tons",
+     "SRC-IAC-09-3159",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "273.7 kN",
+     "SRC-WIKI-EMERAUDE",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The IAC abstract's 'about 28 metric tons' (275 kN DERIVED) is for the Vexin of Diamant A; the 301.55 kN may be a later build. No primary figure for the Vexin B was opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-16",
+   "db0_conflict_id": "CF-EUROPE-16",
+   "engine_id": "ENG-FR-VALOIS",
+   "field_path": "identity.configuration",
+   "claims": [
+    [
+     "1 x Valois",
+     "SRC-WIKI-DIAMANT",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "Valois, single engine, 35 metric tons",
+     "SRC-IAC-10-6759",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "4 x Vexin C",
+     "SRC-ORBITCODEX-DIAMANTB",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The IAC paper on the Valois engine and the Diamant B first stage, by its authors, describes one Valois engine of 35 metric tons; the '4 x Vexin C' was never opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-17",
+   "db0_conflict_id": "CF-EUROPE-17",
+   "engine_id": "ENG-FR-CORALIE-ENGINE",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "270 kN",
+     "SRC-WIKI-EUROPA",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "262 kN",
+     "SRC-DEUTSCHESMUSEUM-EUROPA",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "3 percent apart; neither page names a condition."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-18",
+   "db0_conflict_id": "CF-EUROPE-18",
+   "engine_id": "ENG-DE-ASTRIS",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "23.3 kN vac / 19.6 kN SL",
+     "SRC-WIKI-ASTRIS-ENGINE",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "22.56 kN",
+     "SRC-DEUTSCHESMUSEUM-EUROPA",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "The museum gives one figure without a condition; it lies between the two."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-19",
+   "db0_conflict_id": "CF-EUROPE-19",
+   "engine_id": "ENG-DE-ASTRIS",
+   "field_path": "identity.manufacturer",
+   "claims": [
+    [
+     "Snecma (manufacturer), ERNO (designer)",
+     "SRC-WIKI-ASTRIS-ENGINE",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "MBB + ERNO",
+     "SRC-DEUTSCHESMUSEUM-EUROPA",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "The museum names MBB and ERNO for the stage; the engine maker is not named on the opened page."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-20",
+   "db0_conflict_id": "CF-EUROPE-20",
+   "engine_id": "ENG-DE-HWK-109-509",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "~17 kN",
+     "SRC-WIKI-HWK109509",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "200-1800 kg variable",
+     "SRC-NASM-HWK109509",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_operating_point",
+   "explanation": "Throttleable engine: the Smithsonian gives the range 200-1,800 kgf (17.7 kN DERIVED at the top), which contains the ~17 kN."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-21",
+   "db0_conflict_id": "CF-EUROPE-21",
+   "engine_id": "ENG-DE-HWK-109-509",
+   "field_path": "turbines.steam_generator.catalyst",
+   "claims": [
+    [
+     "wire-mesh catalyst",
+     "SRC-WIKI-HWK109509",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "potassium permanganate catalytic chamber",
+     "SRC-NASM-HWK109509",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The Smithsonian names a permanganate catalyst; the wire-mesh claim is encyclopedia-only. Builds may have differed."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-22",
+   "db0_conflict_id": "CF-EUROPE-22",
+   "engine_id": "ENG-DE-BMW-109-718",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "1,250 kg",
+     "SRC-WIKI-BMW109718",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "a single 9.8 kN (2,200 lbf) thrust BMW 109-718",
+     "SRC-WARBIRDS-ME262",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "1,250 kgf is 12.3 kN DERIVED, 25 percent above 9.8 kN (1,000 kgf). Neither page cites a source."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-25",
+   "db0_conflict_id": "CF-EUROPE-25",
+   "engine_id": "ENG-GB-STENTOR",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "24,000 lbf (first chamber)",
+     "SRC-BCAR-BLUESTEEL",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "20,000 lbf",
+     "SRC-WIKI-STENTOR",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "The opened page gives 24,000 lbf for the main chamber alone; the Stentor had a second, cruise chamber, so the two figures need not describe the same thing. Not settled from a primary."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-26",
+   "db0_conflict_id": "CF-EUROPE-26",
+   "engine_id": "ENG-GB-SUPER-SPRITE",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "4,200 lb",
+     "SRC-NASM-SUPERSPRITE",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "4,000 lb",
+     "SRC-DHMUSEUM-SPECTRE",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The fetched museum page is about the Spectre and gives no Super Sprite figure."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-27",
+   "db0_conflict_id": "CF-EUROPE-27",
+   "engine_id": "ENG-FR-PROMETHEUS",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "980 kN SL",
+     "SRC-WIKI-PROMETHEUS",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "'the previous generation of 1200 kN engines'",
+     "SRC-ESA-PROMETHEUS",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "definition",
+   "explanation": "ESA's 1,200 kN describes the previous generation (Vulcain), not Prometheus. The opened page gives no Prometheus thrust."
+  },
+  {
+   "conflict_id": "CF-DB05-W-EUROPE-29",
+   "db0_conflict_id": "CF-EUROPE-29",
+   "engine_id": "ENG-DE-A4-ENGINE",
+   "field_path": "aliases.name",
+   "claims": [
+    [
+     "'Triebwerk 39' not mentioned",
+     "SRC-ENGINEHISTORY-V2",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The opened AEHS page does not use the designation; absence on one page settles nothing."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-3",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-3",
+   "engine_id": "ENG-US-STARLINER-OMAC",
+   "field_path": "performance.thrust / installation.count",
+   "claims": [
+    [
+     "'1,500-pound thrust class OMAC engines'",
+     "SRC-AR-STARLINER-2016",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "four 7000 N (1600 lbf) OMAC main engines; twelve 375 N RCS",
+     "SRC-ARXIV-2107-06795",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "The maker's 1,500 lbf 'class' and the paper's 1,600 lbf (7,000 N) agree as class and value. The engine count per shipset was not found in the release text."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-4",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-4",
+   "engine_id": "ENG-JP-BT-4",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "450 N",
+     "SRC-SATCAT-BT4",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "500 N",
+     "SRC-WIKI-BT4",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "'produces around 100' (lbf)",
+     "SRC-MECO-CYGNUS-REBOOST-2018",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "100 lbf is 445 N DERIVED, consistent with 450 N; the 500 N has no opened source. No IHI datasheet opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-5",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-5",
+   "engine_id": "ENG-US-VR900",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "900 lbf thrust class",
+     "SRC-SFN-IM1-2024",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "~4,900 lbf",
+     "SRC-NEWSPACETRACKER-IMPROP",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "The opened news page gives the 900 lbf class; the 4,900 lbf is not on the fetched page. A 700 lbf summary had no source."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-6",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-6",
+   "engine_id": "ENG-US-FRONTIER-DSE",
+   "field_path": "propellants.fuel",
+   "claims": [
+    [
+     "MON-25 / MMH",
+     "SRC-NASA-TALOS",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "hydrazine (and MON)",
+     "SRC-SPACENEWS-79146",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "MMH and mixed oxides of nitrogen (Peregrine main engines)",
+     "SRC-AIRPORTTECH-PEREGRINE",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "NASA's TALOS page gives MON-25 / MMH and the trade page agrees on MMH; the 'hydrazine' wording sits behind a paywall and is the family name, not the fuel."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-7",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-7",
+   "engine_id": "ENG-GB-LEROS-1B",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "635 N",
+     "SRC-NAMMO-LEROS1B",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "640 N (configured for Juno)",
+     "SRC-AMPAC-JUNO-2011",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_configuration",
+   "explanation": "The maker's page gives 635 N; the Juno 640 N is not on the fetched release text."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-9",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-9",
+   "engine_id": "ENG-US-GR-22",
+   "field_path": "history.flown",
+   "claims": [
+    [
+     "GPIM includes four 1 N and one 22 N thruster",
+     "SRC-NTRS-20140016838",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "the GR-1 'awaits its first on-orbit demonstration' on GPIM",
+     "SRC-NTRS-20170001286",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The 2014 paper plans one 22 N thruster on GPIM; the 2017 paper speaks only of the GR-1 on GPIM, while the GR-22 was still in redesign testing. Whether a GR-22 flew is not stated in either."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-10",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-10",
+   "engine_id": "ENG-CN-FY-25",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "2990 N.s/kg",
+     "SRC-IAC11-490N-CN",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "3 030 N . s/kg nominal",
+     "SRC-IAC03-LAE-CN",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Two IAC abstracts, 2003 and 2011, at the same area ratio (154) and chamber pressure (0.68 MPa) give 3,030 and 2,990 N.s/kg. Whether both describe the same engine is not stated."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-12",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-12",
+   "engine_id": "ENG-US-AEON-1",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "15,500 SL / 19,500 vac lbf (older listing)",
+     "SRC-SPACEBUCKET-AEON",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "23,000 SL / 25,400 vac lbf",
+     "SRC-WIKI-AEONR",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "up to 23,000 lbf SL",
+     "SRC-AIRPORTTECH-TERRAN1",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "207,000 pounds for nine engines",
+     "SRC-SFN-TERRAN1-2023",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Spaceflight Now gives 207,000 lbf for nine engines at liftoff, 23,000 lbf each DERIVED, and the Space Bucket page prints 'up to 23,000 pounds of force per engine at sea level'. The 15,500 lbf listing is not on the fetched page."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-13",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-13",
+   "engine_id": "ENG-US-AEON-1",
+   "field_path": "cycle",
+   "claims": [
+    [
+     "gas generator engine cycle",
+     "SRC-SPACEBUCKET-AEON",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "gas generator engine cycle",
+     "SRC-AIRPORTTECH-TERRAN1",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "CONFIRMED_SECONDARY",
+   "kind": null,
+   "explanation": "Both opened pages say gas generator; the 'open expander' summary was not on either."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-16",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-16",
+   "engine_id": "ENG-US-BROADSWORD",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "25,000 lbf sea level",
+     "SRC-MASTEN-ENGINES",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "25,000 lbf vacuum",
+     "SRC-SATNOW-BROADSWORD",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's page says sea level; the catalogue's vacuum label was not on the fetched page."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-18",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-18",
+   "engine_id": "ENG-US-AJ26-62",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "1,680 kN",
+     "SRC-KOREASCI-AJ26",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "1,815 kN",
+     "SRC-SPACEFLIGHT101-ANTARES",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "3,265 kN for the pair",
+     "SRC-WIKI-ANTARES",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Only the Korean journal page was read; its 1,680 kN carries no rating name."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-20",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-20",
+   "engine_id": "ENG-US-NEWTONFOUR",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "5,000 lbf",
+     "SRC-WIKI-LAUNCHERONE",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "5,000 lbf",
+     "SRC-NSF-LAUNCHERONE-2020",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "about 6,000 lb",
+     "SRC-AVIATIONIST-L1-2020",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Two 2020 news pages give 5,000 and about 6,000 lb; neither cites the maker."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-21",
+   "db0_conflict_id": "CF-R2_SC_COMM-R2-21",
+   "engine_id": "ENG-US-AEON-R",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "258,000 lbf (2023)",
+     "SRC-RELATIVITY-PR-2023-04-12",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "269,000 lbf (2025)",
+     "SRC-RELATIVITY-PR-2025-03-07",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Two dated maker releases; the 2025 figure is the later design value. Only the 2025 one was read."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-3",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-3",
+   "engine_id": "ENG-US-RAPTOR-3",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "250 tf (551,000 lbf)",
+     "SRC-SPACEX-UPDATES",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "250 tf / 551 klbf",
+     "SRC-SPACEX-STARSHIP-SPECS",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Both SpaceX pages are script-rendered and delivered no text."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-15",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-15",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field_path": "identity.rating_attribution",
+   "claims": [
+    [
+     "230 tf / 1,630 kg as 'from' values",
+     "SRC-SPACEX-UPDATES",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The SpaceX page delivered no text."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-5",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-5",
+   "engine_id": "ENG-US-BE-4",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "550,000 lbf",
+     "SRC-ULA-BE4-FACTSHEET",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "640,000 lbf (2,846 kN)",
+     "SRC-BLUE-NEWGLENN-PAGE",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_configuration",
+   "explanation": "ULA's fact sheet gives 550,000 lbf for the Vulcan installation; the New Glenn page was not opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-7",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-7",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "845 kN (190,000 lbf)",
+     "SRC-SPACEX-FUG-2025",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "854 kN / 190,000 lbf",
+     "SRC-WEVOLVER-MERLIN",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "854 kN",
+     "SRC-UC-OLLI-SPACEX",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "unit",
+   "explanation": "190,000 lbf is 845.2 kN DERIVED: SpaceX's own guide is consistent; 854 kN is a digit transposition carried by the two secondary pages."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-1",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-1",
+   "engine_id": "ENG-US-MERLIN-1D-BLOCK-5",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "845 kN (190,000 lbf)",
+     "SRC-SPACEX-FUG-2025",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "854 kN (190,000 lbf)",
+     "SRC-WEVOLVER-MERLIN",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "unit",
+   "explanation": "As CF-DB05-W-R2_SCHEM-R2-7: 190,000 lbf is 845 kN; 854 kN is a transposition."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-8",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-8",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "9.7 MPa (1,410 psi)",
+     "SRC-WIKI-MERLIN",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "10.8 MPa ('Merlin-1D++' SL)",
+     "SRC-WEVOLVER-MERLIN",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both are secondary and name different builds; SpaceX publishes no chamber pressure in the opened guide."
+  },
+  {
+   "conflict_id": "CF-DB05-W-R2_SCHEM-R2-9",
+   "db0_conflict_id": "CF-R2_SCHEM-R2-9",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field_path": "performance.throttle_range",
+   "claims": [
+    [
+     "100 %-57 % (SL)",
+     "SRC-WEVOLVER-MERLIN",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The 'down to 40 %' claim has no source; the aggregator's 57 % cites none either."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-2",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-2",
+   "engine_id": "ENG-US-MERLIN-1D",
+   "field_path": "performance.thrust_sl",
+   "claims": [
+    [
+     "147,000 lbf (v1.1)",
+     "SRC-SFN-2015-FT",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "170,000 lbf (FT)",
+     "SRC-SFN-2015-FT",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "190,000 lbf (current)",
+     "SRC-SPACEX-FUG-2025",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "63.5 tf announced; 66.68 tf updated",
+     "SRC-SLR-F9-SMA",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "A time series, not a conflict: Spaceflight Now dates the uprate from 147,000 to 170,000 lbf (2015) and SpaceX's 2025 guide gives 190,000 lbf."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-3",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-3",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "210,000 lbf max (2015)",
+     "SRC-SFN-2015-FT",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "981 kN (220,500 lbf)",
+     "SRC-SPACEX-FUG-2025",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "~81.6 tf / ~95.3 tf",
+     "SRC-SLR-F9-SMA",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Time series: 210,000 lbf in 2015, 220,500 lbf in the 2025 guide."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-4",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-4",
+   "engine_id": "ENG-US-MERLIN-1D-VACUUM",
+   "field_path": "performance.isp_vac",
+   "claims": [
+    [
+     "348 s",
+     "SRC-WEVOLVER-MERLIN",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "not printed",
+     "SRC-SPACEX-FUG-2025",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "SpaceX's guide prints no Isp; the aggregator's 348 s cites no source."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-6",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-6",
+   "engine_id": "ENG-US-MERLIN-1C",
+   "field_path": "performance.thrust_sl / performance.isp",
+   "claims": [
+    [
+     "78,000 lbf SL / 90,000 vac / 301 s (Falcon 1)",
+     "SRC-SPACEX-PR-M1C-2007",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "95,000 lbf SL / over 108,000 vac / 304 s (Falcon 9)",
+     "SRC-SPACEX-PR-M1C-2007",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "350 kN SL / 400 kN vac / 304 s",
+     "SRC-WIKI-MERLIN",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "43 tf SL / 49 tf vac",
+     "SRC-SLR-F9-SMA",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_configuration",
+   "explanation": "The 2007 SpaceX release gives the Falcon 9 configuration (95,000 / 108,000 lbf, 304 s); the Falcon 1 figures DB-0 attributed to it are not in the fetched text. The encyclopedia's kN pair is an early rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-7",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-7",
+   "engine_id": "ENG-US-RAPTOR-2",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "300 bar routine",
+     "SRC-TESLARATI-R2",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "321 bar peak at first static fire",
+     "SRC-TESLARATI-R2",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "330 bar 'consistently'",
+     "SRC-WCCF-RAPTOR-330",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "300 bar by July 2022",
+     "SRC-WIKI-RAPTOR",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_operating_point",
+   "explanation": "Routine, peak and later test values reported by news sites from Musk's posts; none is a published rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-13",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-13",
+   "engine_id": "ENG-NZ-RUTHERFORD",
+   "field_path": "performance.isp_sl",
+   "claims": [
+    [
+     "The sea level versions on Electron's first stage now produce 5,600 lbf of thrust (up from 5,500 lbf, with a specific impulse of 311 s (3.05 km/s).",
+     "SRC-RKLB-PAYLOAD-INCREASE",
+     "release of 4 Aug 2020 (read in the Wave 2 pass)"
+    ],
+    [
+     "First Stage 9 Sea-level Rutherford Engines ... ISP: 311 seconds",
+     "SRC-RL-ELECTRON-PAGE",
+     "Electron page, 'Rutherford Engine' panel"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "definition",
+   "explanation": "Rocket Lab prints 311 s next to the sea-level engine in both places. DB-0's doubt is a plausibility judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), not a second source; no document opened states the ambient condition of the 311 s."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-14",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-14",
+   "engine_id": "ENG-NZ-ARCHIMEDES-VACUUM",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "200,000 lbf (890 kN)",
+     "SRC-RL-NEUTRON-PAGE",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "202,300 lbf (900 kN)",
+     "SRC-RL-ARCH-BUILD",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "Two maker pages, 1 percent apart; the 200,000 may be rounded. Neither names a rating."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-15",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-15",
+   "engine_id": "ENG-US-REAVER",
+   "field_path": "performance.thrust",
+   "claims": [
+    [
+     "4x Reaver 801 kN (180,072 lbf) vac",
+     "SRC-FIREFLY-ALPHA-PAGE",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "836.3 kN max for four",
+     "SRC-FIREFLY-PUG-5.2",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "45,000 lbf per engine",
+     "SRC-FIREFLY-MIRANDA-RR",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "180,072 lbf for four is 45,018 lbf each DERIVED: the release's 45,000 lbf is the same figure rounded. The 836.3 kN maximum was not opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-COMMERCIAL-COM-16",
+   "db0_conflict_id": "CF-COMMERCIAL-COM-16",
+   "engine_id": "ENG-US-LIGHTNING",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "70.1 kN (15,759 lbf)",
+     "SRC-FIREFLY-ALPHA-PAGE",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "73.0 kN (16.4 klbf) max",
+     "SRC-FIREFLY-PUG-5.2",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "Only the nominal page figure was read; the payload guide's maximum was not opened."
+  },
+  {
+   "conflict_id": "CF-DB05-W-SPACECRAFT-2",
+   "db0_conflict_id": "CF-SPACECRAFT-2",
+   "engine_id": "ENG-US-R-4D",
+   "field_path": "performance.thrust_vac",
+   "claims": [
+    [
+     "100 lbf",
+     "SRC-NASA-TND7151",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "110 lbf (490 N)",
+     "SRC-WIKI-R4D",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_variant",
+   "explanation": "The NASA report had no usable text layer."
+  },
+  {
+   "conflict_id": "CF-DB05-W-SPACECRAFT-4",
+   "db0_conflict_id": "CF-SPACECRAFT-4",
+   "engine_id": "ENG-US-OMS-E-ORION-ESM",
+   "field_path": "history.heritage_last_flight",
+   "claims": [
+    [
+     "STS-112 (2002)",
+     "SRC-NTRS-20240003648",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "'has flown to space six times already between 2000 and 2002'",
+     "SRC-ESA-BLOG-ART2ENG",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The ESA blog does not say 2011: it says the Artemis II engine from Atlantis flew six times between 2000 and 2002, matching the NASA paper's last flight on STS-112 (2002). DB-0's '2011' was a misreading."
+  },
+  {
+   "conflict_id": "CF-DB05-W-SPACECRAFT-9",
+   "db0_conflict_id": "CF-SPACECRAFT-9",
+   "engine_id": "ENG-US-MR-107N",
+   "field_path": "installation.count",
+   "claims": [
+    [
+     "12 MR-107N 300 N for landing",
+     "SRC-AIRPORTTECH-PHX",
+     "fetched; value not in its extracted text"
+    ],
+    [
+     "eight engines",
+     "SRC-NBC-PHX",
+     "fetched; value not in its extracted text"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "Neither fetched page says what DB-0 cited; the trade page's propulsion sentence is garbled ('eight 1.0lbf and 5.0lbf ... engines and 12 68.0lbf ... thrusters'). A JPL or Lockheed document is needed."
+  },
+  {
+   "conflict_id": "CF-DB05-W-TAXONOMY-TAX-3",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-3",
+   "engine_id": "ENG-US-IPD",
+   "field_path": "history.test_dates",
+   "claims": [
+    [
+     "21 of 26 tests, up to 100 percent power (2006)",
+     "SRC-SFN-IPD-2006",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "integrated engine testing to begin late 2004",
+     "SRC-NTRS-IPD-WPB",
+     "fetched; no extractable text"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "A plan against what was achieved; not a conflict about hardware."
+  },
+  {
+   "conflict_id": "CF-DB05-W-TAXONOMY-TAX-7",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-7",
+   "engine_id": "ENG-US-ROTON-ROTARY-ENGINE",
+   "field_path": "geometry.chamber_count",
+   "claims": [
+    [
+     "'dozens of small combusters arranged in a ring'",
+     "SRC-FLIGHTGLOBAL-ROTON",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "192 (one summary)",
+     "SRC-WIKI-ROTARYROCKET",
+     "DB-0 search summary (encyclopedia; not evidence)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": null,
+   "explanation": "The opened article gives no number; 192 is unverified."
+  },
+  {
+   "conflict_id": "CF-DB05-W-TAXONOMY-TAX-8",
+   "db0_conflict_id": "CF-TAXONOMY-TAX-8",
+   "engine_id": "ENG-US-RAPTOR",
+   "field_path": "vehicle.tank_pressurization",
+   "claims": [
+    [
+     "original design pure autogenous; preburner exhaust question for IFT-2/3",
+     "SRC-MANIFOLD-STARSHIP",
+     "page text (fetched 2026-10-28)"
+    ],
+    [
+     "'Prior to SN9, SpaceX used autogenous pressurization'",
+     "SRC-WCCFTECH-SN10",
+     "page text (fetched 2026-10-28)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "A vehicle-level scheme that changed between prototypes; not an engine attribute. Recorded so it is not ingested as one."
   }
  ]
 }

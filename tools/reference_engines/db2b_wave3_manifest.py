@@ -258,6 +258,22 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-VINCI-IGNITIONS": dict(decision="WITHHOLD", withhold=("AS-DB05-FR-VINCI-003",),
         argument="PARTIALLY_RESOLVED: four ignitions (ESA 2024) against an earlier untranscribed 'five'; ESA page "
                  "withheld for rights anyway."),
+    "CF-DB05-W-R2_ASIA-R2A-5": dict(decision="WITHHOLD", withhold=(),
+        argument="PARTIALLY_RESOLVED in DB-0.5: fan page only; the IHI pump label is illegible; nothing of LE-9 ships."),
+    "CF-DB05-W-R2_ASIA-R2A-14": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: the cited article gave no text; no YF-100 throttle range ships."),
+    "CF-DB05-W-R2_ASIA-R2A-15": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: the cited article gave no text; no YF-100 thrust ships."),
+    "CF-DB05-W-ASIA_OTHER-10": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: two encyclopedia renderings; no YF-75D value ships."),
+    "CF-DB05-W-ASIA_OTHER-11": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: two encyclopedia renderings; no YF-77 Isp ships."),
+    "CF-DB05-W-R2_ASIA-R2A-20": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: unsourced dataset against an encyclopedia; no Vulcain 2 flow ships."),
+    "CF-DB05-W-ANCHOR_EU_ASIA-1": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: no manufacturer datasheet reached; no Vulcain 2 thrust ships."),
+    "CF-DB05-W-ANCHOR_EU_ASIA-4": dict(decision="WITHHOLD", withhold=(),
+        argument="UNRESOLVED in DB-0.5: ESA page gave no text; no Vulcain 2 flow ships."),
 }
 
 CARRIER_GENERALISATIONS = {}

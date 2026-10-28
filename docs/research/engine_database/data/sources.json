@@ -66,7 +66,7 @@
     "ENG-CN-LONGYUN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). History: 2021 Longyun 70 t class methalox full-engine hot fire; Fengyun 140 t class full-flow SC methalox.",
    "branches": [
     "r2_asia"
@@ -582,7 +582,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Carried from round-1 (not re-searched in round 2). Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Vulcain 2: 1,359 kN vac, 960 kN SL, pc 117.3 bar, Isp vac 429 s (Vulcain 1 pair: 61.3 bar?/275.4 s shown in same snippet - snippet row alignment unclear). HM7B: 62.2 kN (13.98 klbf), regen-cooled GG, no restart, 950 s continuous firing in Ariane 5 ECA.",
    "branches": [
     "anchor_eu_asia",
@@ -606,7 +606,7 @@
     "ENG-JP-LE-7A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Carried from round-1 (asia_other rated it B; anchor_eu_asia rated the AIAA vehicle guide D). Rated D here: unsourced web guide.",
    "id_collision_titles": [
     "Vehicle Design — H-IIA/H-IIB (AIAA Vehicle Guide)"
@@ -654,7 +654,7 @@
     "ENG-US-FRONTIER-DSE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -677,7 +677,7 @@
     "ENG-US-MR-107N"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Claims 12 Aerojet MR-107N 300 N thrusters for landing; MR-107 family developed early 1990s for Peace Courage; >2,000 flight engines.",
    "branches": [
     "spacecraft"
@@ -701,7 +701,7 @@
     "ENG-US-AEON-VAC"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -989,7 +989,7 @@
     "ENG-US-STARLINER-RCS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Also https://www.spacefoundation.org/2016/10/31/aerojet-rocketdyne-successfully-completes-launch-abort-engine-hot-fire-tests-to-support-next-era-of-human-spaceflight-launches-from-the-united-states/ . Shipset: 4 LAE, 24 OMAC, 28 RCS. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -1130,7 +1130,7 @@
     "ENG-US-STARLINER-RCS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Secondary for Starliner: lists OMAC 7000 N (1600 lbf), CCtCap RCS 375 N (85 lbf), MMH/MON-3, Isp 277 s (OMAC) and 286 s (RCS) steady state. Not a Boeing/NASA spec. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -1176,7 +1176,7 @@
     "ENG-US-DELPHIN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "6,300 lbf SL per engine (Rocket 3.1) per summary; Rocket 3.2 table 6,500 lbf.",
    "branches": [
     "taxonomy"
@@ -1221,7 +1221,7 @@
     "ENG-US-BELL-8096"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 8081 listed 70.7 kN (15,890 lbf); 8096 listed as XLR81-BA-9 elsewhere. Exact page attribution inferred.",
    "branches": [
     "us_hist"
@@ -1387,7 +1387,7 @@
     "ENG-US-LR89-NA-7"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 948 kN (213,118 lbf) vac; 174 s burn; Isp 294 s vac / 259 s SL.",
    "branches": [
     "us_hist"
@@ -1410,7 +1410,7 @@
     "ENG-SU-11D58M"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "83.40 kN, 349 s, 78 bar, 300 kg dry (as summarised; variant not explicit).",
    "branches": [
     "r2_ussr"
@@ -1527,7 +1527,7 @@
     "ENG-US-NEWTONFOUR"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -1619,7 +1619,7 @@
     "ENG-GB-STENTOR"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Stentor Mk 101; first chamber 24,000 lbf (110 kN).",
    "branches": [
     "europe"
@@ -1716,7 +1716,7 @@
     "ENG-CN-TQ-15A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "vac thrust +11.8%, Isp +126 m/s, throttle 60–100%",
    "branches": [
     "asia_other"
@@ -1860,7 +1860,7 @@
     "ENG-US-BE-7"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Same source_id as round-1 commercial branch. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "id_collision_titles": [
     "Engines (BE-3PM, BE-3U, BE-4, BE-7)"
@@ -1912,7 +1912,7 @@
     "ENG-US-BE-4"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "640,000 lbf (2,846 kN) SL, deep throttle, reusable; 7 engines >3.8 Mlbf; first stage min 25 flights.",
    "branches": [
     "commercial",
@@ -1936,7 +1936,7 @@
     "ENG-US-BE-3U"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Search summary cited 'engine would fly at 173,000 lbf' and 'each BE-3U generates 160,000 lbf of thrust in vacuum' from Blue releases without pinning which page; the URL here is one candidate, attribution unverified.",
    "branches": [
     "commercial"
@@ -1959,7 +1959,7 @@
     "ENG-US-BE-3U"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Total thrust of two BE-3U increasing from original design 320,000 lbf to 400,000 lbf over next few missions. Date not captured.",
    "branches": [
     "commercial"
@@ -2028,7 +2028,7 @@
     "ENG-US-BE-4"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Development-period figure 550,000 lbf SL (summary said 'press releases from development period'; exact release not pinned). Year 2014 is analyst knowledge, unverified.",
    "branches": [
     "commercial"
@@ -2189,7 +2189,7 @@
     "ENG-US-XF30L20000"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. WAC-type sounding rocket of 590 lb gross using RFNA and aniline; air pressurization unit (90 lb) to be replaced by gas generator.",
    "branches": [
     "us_hist"
@@ -2212,7 +2212,7 @@
     "ENG-IN-DHAWAN-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Thrust 1.5 kN vacuum vs 1.0 kN in other source; 20 s first test.",
    "branches": [
     "r2_asia"
@@ -2281,7 +2281,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Carried from round-1 (not re-searched in round 2). Values taken from a web-search result snippet / search-engine summary attributed to this URL; page itself could not be fetched (WebFetch DNS failure). Re-verify on the page. Older snapshot gives 115 bar and attributes LOX TP to Avio (Italy), LH2 TP to Snecma.",
    "branches": [
     "anchor_eu_asia",
@@ -2418,7 +2418,7 @@
     "ENG-US-E-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Summary attributes 'Launcher says Isp 288 s SL / 326 s vac' and MR 2.62 @100 bar to the trade articles (control.com / 3dnatives); not pinned to a Launcher document. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -2625,7 +2625,7 @@
     "ENG-US-BELL-8096"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Later models used improved XLR81-BA-9 (Bell Model 8096) per excerpt (attribution among results inferred).",
    "branches": [
     "us_hist"
@@ -2672,7 +2672,7 @@
     "ENG-FR-CORALIE-ENGINE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Coralie 4 LRBA engines, 262 kN; Astris by MBB Munich + ERNO Bremen (ASAT consortium), 22.56 kN, 375 s.",
    "branches": [
     "europe"
@@ -2811,7 +2811,7 @@
     "ENG-FR-VIKING-5"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Caption reportedly: Viking 2 used on Ariane from 1979 with 611 kN; Ariane 4 first-stage Viking 5 675 kN ground / 758 kN vacuum. DLR Lampoldshausen tested Viking.",
    "branches": [
     "europe"
@@ -2901,7 +2901,7 @@
     "ENG-US-LR101"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Describes down-rating the earlier 830 lb tank-fed vernier to 525 lb for a later variant (per excerpt).",
    "branches": [
     "us_hist"
@@ -3208,7 +3208,7 @@
     "ENG-CN-YF-40A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "YF-40A ~100 kN, 303 s, open cycle",
    "branches": [
     "asia_other"
@@ -3414,7 +3414,7 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "H2O2 85%; catalyst Ca/K/Na permanganate 'depending on whom you believe'; Thiel spherical chamber, higher Pc, improved injectors.",
    "branches": [
     "r2_ussr"
@@ -3493,7 +3493,7 @@
     "ENG-US-LR89-NA-5"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Table: MA-2 liftoff ~365,992 lbf, MA-3 ~386,192 lbf, sustainer 58,876 lbf (Atlas D and E/F columns), sustainer LR105-NA-5; MA-5 booster listed as LR89-5 at 163,211 lbf SL (per excerpt). Author likely a former Rocketdyne engineer (not verified).",
    "branches": [
     "us_hist"
@@ -3664,7 +3664,7 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 25 metric t (~56,000 lb); 218 psi Pc; 18 burner cups; turbine ~580 hp ~3800 rpm; 128 lb/s alcohol + 159 lb/s LOX.",
    "branches": [
     "europe"
@@ -3803,7 +3803,7 @@
     "ENG-US-OMS-E-ORION-ESM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "",
    "branches": [
     "spacecraft"
@@ -3847,7 +3847,7 @@
     "ENG-DE-AESTUS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Vacuum thrust 2.7 t; engine mass 115 kg; >1000 s burn; MMH 3.2 t + N2O4 6.6 t (stage).",
    "branches": [
     "europe"
@@ -3944,7 +3944,7 @@
     "ENG-FR-PROMETHEUS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. ~1000 kN currently, work toward 1200 kN; GG; variable thrust, multiple ignition; 4 consecutive ignitions 20 Jun 2025; 41 s full-duration test 19 Dec 2024 at 100% nominal thrust.",
    "branches": [
     "europe"
@@ -4517,7 +4517,7 @@
     "ENG-SU-RD-101"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RD-101: 37,210 kgf liftoff, 41,208 kgf vac, Isp 237 s vac / 214 s SL, burn 85 s; claims methyl alcohol replaced ethyl alcohol (doubtful, see CF).",
    "branches": [
     "ussr"
@@ -4541,7 +4541,7 @@
     "ENG-US-REAVER"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Stage 1: 4x Reaver, vac thrust 801 kN (180,072 lbf), Isp_vac 295.6 s; Stage 2: 1x Lightning, 70.1 kN (15,759 lbf), Isp_vac 322 s; patented tap-off cycle for both.",
    "branches": [
     "commercial"
@@ -4634,7 +4634,7 @@
     "ENG-US-REAVER"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Miranda 230,000 lbf; builds on Lightning (15,759 lbf) and Reaver (45,000 lbf); same architecture, injector design and patented tap-off cycle; >500 Reaver/Lightning tests.",
    "branches": [
     "commercial"
@@ -4658,7 +4658,7 @@
     "ENG-US-REAVER"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Max thrust stage 1 836.3 kN (188 klbf); stage 2 73.0 kN (16.4 klbf); stage 1 Isp 296 s (vac) in vehicle diagram.",
    "branches": [
     "commercial"
@@ -4681,7 +4681,7 @@
     "ENG-US-LR79-NA-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Placard: MB-3 (LR79-NA-9) used on Thor IRBM and Atlas E and F (the Atlas claim conflicts with MA-3 usage); 150,000-170,000 lb.",
    "branches": [
     "us_hist"
@@ -4775,7 +4775,7 @@
     "ENG-US-ROTON-ROTARY-ENGINE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "'dozens of small combusters arranged in a ring'.",
    "branches": [
     "taxonomy"
@@ -4888,7 +4888,7 @@
     "ENG-RU-RD-171MV"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] RD-171MV ~750 t SL / ~800 t vac; mentions 'RD-124MV' 361 s (likely RD-0124MS).",
    "branches": [
     "r2_ussr",
@@ -4982,7 +4982,7 @@
     "ENG-CN-WELKIN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). 50 t sea-level thrust; variable thrust 4:1; T/W >120; 50 reuses rated.",
    "branches": [
     "r2_asia"
@@ -5096,7 +5096,7 @@
     "ENG-RU-RD-181"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "",
    "branches": [
     "ussr"
@@ -5216,7 +5216,7 @@
     "ENG-SU-RD-118"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Labels core 11D512 (RD-108) and boosters 11D511 (RD-107): conflicts with RD-117/RD-118 naming.",
    "branches": [
     "ussr"
@@ -5292,7 +5292,7 @@
     "ENG-CN-YF-24C"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "YF-21B 2962 kN; stage 2 742 kN main + 46.1 kN vernier",
    "branches": [
     "asia_other"
@@ -5646,7 +5646,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). H2 33 kg/s, LOX 202 kg/s (unsourced).",
    "id_collision_titles": [
     "SpaceYL/Engine_dataset_V3"
@@ -5674,7 +5674,7 @@
     "ENG-US-XLR11-RM-5"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Names X-1 engine XLR-11-RM3.",
    "branches": [
     "us_hist"
@@ -5697,7 +5697,7 @@
     "ENG-SU-RD-100"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Claims RD-100 33 t thrust (+30% over V-2) - conflicts with KPI 26 t.",
    "branches": [
     "ussr"
@@ -5816,7 +5816,7 @@
     "ENG-FR-VEXIN-B"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Pressure-fed (no turbopump) - only satellization with a non-turbopump liquid first stage; tank-pressurisation gas generator = slow-burning solid propellant block with water injection to cool/increase volume; ~28 t thrust.",
    "branches": [
     "europe"
@@ -5842,7 +5842,7 @@
     "ENG-FR-VALOIS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Amethyste (L17) by LRBA; N2O4/UDMH hypergolic; Valois ~35 t; 'most powerful pressure-fed engine to have flown in space'; same propulsion system as Coralie.",
    "branches": [
     "europe"
@@ -6081,7 +6081,7 @@
     "ENG-CN-FY-25"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: NbHf10-1M chamber, nominal vacuum Isp 3030 N.s/kg, eps 154, Pc 0.68 MPa. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -6275,7 +6275,7 @@
     "ENG-CN-FY-25"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values in summary attributed to 'a 2012 conference paper' (2990 N.s/kg, 305 s, eps 154, Pc 0.68 MPa); exact paper not pinned among IAC-11/IAC-12/IAC-03. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -6555,7 +6555,7 @@
     "ENG-IN-LAM-440-N"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Abstract: 440 N, MON-3/MMH, MR 1.6, area ratio 160, Isp ~315 s, flown on 34 spacecraft incl. Chandrayaan-1, Mangalyaan.",
    "branches": [
     "r2_asia"
@@ -6810,7 +6810,7 @@
     "ENG-IN-CE-20"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). 19 t (satellite missions), 20 t (Gaganyaan), 22 t uprated; C25 and C32 stages.",
    "branches": [
     "r2_asia"
@@ -6861,7 +6861,7 @@
     "ENG-IN-AGNILET"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Agnibaan SOrTeD flight May 2024; ~3 kN class engine; Inconel 718 single-piece print (attribution between several news pages uncertain).",
    "branches": [
     "r2_asia"
@@ -6983,7 +6983,7 @@
     "ENG-JP-LE-9"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). States 'LH2ターボポンプ回転数 41,600 rpm' explicitly.",
    "branches": [
     "r2_asia"
@@ -7443,7 +7443,7 @@
     "ENG-CN-TH-12"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "110 t ground thrust design, 285 s, T/W 163, dev from Dec 2020",
    "branches": [
     "asia_other"
@@ -7900,7 +7900,7 @@
     "ENG-CN-LONGYUN"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). '80 t class' Longyun three-start hot fire; LM-12A stage 1 uses 7 Longyun (attribution uncertain).",
    "branches": [
     "r2_asia"
@@ -7923,7 +7923,7 @@
     "ENG-CN-TQ-15A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "TQ-15A thrust +9%, Isp +130 m/s, throttle 55–110%, 3 starts",
    "branches": [
     "asia_other"
@@ -8110,7 +8110,7 @@
     "ENG-US-AJ26-62"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -8135,7 +8135,7 @@
     "ENG-SU-RD-103M"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RD-100, RD-101, RD-103M ground thrust 26, 37, 44 (units as printed; presumably tonnes-force).",
    "branches": [
     "ussr"
@@ -8158,7 +8158,7 @@
     "ENG-KR-KRE-075"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Design stage: chamber 60 bar, vacuum thrust 74.8 ton, vacuum Isp 306.9 s.",
    "branches": [
     "r2_asia"
@@ -8274,7 +8274,7 @@
     "ENG-US-R-42"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Fetch failed (DNS/proxy). Search summary: R-40B ~10.5 kg, R-42 ~4.53 kg in this revision.",
    "branches": [
     "spacecraft"
@@ -8299,7 +8299,7 @@
     "ENG-US-R-4D-11"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Fetch failed. Search summary gives R-4D-11 ~490 N/110 lbf, Isp ~311 s (eps 164) / ~315 s (eps 300), total impulse ~31,950 N-s [sic; likely kN-s], mass ~3.76 kg (eps164)/4.31 kg (eps300); R-42 ~890 N, ~305 s, 6.58 kg; R-40B ~4,000 N, ~296 s, 15.9 kg.",
    "branches": [
     "spacecraft"
@@ -8322,7 +8322,7 @@
     "ENG-US-R-4D-11"
    ],
    "locators": "R-4D-11 row",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Isp in lbf-s/lbm.",
    "branches": [
     "r2_schem"
@@ -8349,7 +8349,7 @@
     "ENG-US-MR-80B"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Fetch failed. Covers MR-103G, MR-103J, MR-104, MR-106, MR-107, MR-111G, MR-80B. MR-111G 1.8-4.9 N; MR-103J upper 1.13 N (search summary).",
    "branches": [
     "spacecraft"
@@ -8379,7 +8379,7 @@
     "ENG-US-MR-111G"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Fetch failed. MR-103J ~0.19-1.19 N; MR-111G ~0.9-5.7 N; MR-106L, MR-106M; MR-107T/V/U/S.",
    "branches": [
     "spacecraft"
@@ -8696,7 +8696,7 @@
     "ENG-SU-RD-0120"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: RD0120 developed by KBKhA 1976-1987; min pump inlet pressures 2.0-3.0 MPa required for cavitation-free operation (context: booster pumps); lists KVD-1 (RD56) 1962-1974 and RD-57 (Lyulka-Saturn) 1966-1974 for N-1. Authors as given in summary; unverified.",
    "branches": [
     "r2_ussr"
@@ -8719,7 +8719,7 @@
     "ENG-IN-AGNILET"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Four-engine cluster fired; builds on Feb 2026 three-engine test. 6.2 kN per engine figure appeared in summary (exact host page uncertain).",
    "branches": [
     "r2_asia"
@@ -8788,7 +8788,7 @@
     "ENG-US-RAPTOR"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Claims original autogenous via regen-loop HEX and later LOX-tank pressurization from preburner exhaust. Unverified.",
    "branches": [
     "taxonomy"
@@ -8812,7 +8812,7 @@
     "ENG-US-SCIMITAR"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Also https://masten.aero/?p=2549 (Broadsword). Masten ceased operations/was acquired (Astrobotic, 2022) [BG - not sourced this session]. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -8835,7 +8835,7 @@
     "ENG-FR-VULCAIN-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Vulcain 2: 115 bar; MR 6.1; eps 58.5 (round-1).",
    "id_collision_titles": [
     "Comparative engine table T1 (Mechanics & Industry 2020, article mi190197)"
@@ -8886,7 +8886,7 @@
     "ENG-JP-BT-4"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -9046,7 +9046,7 @@
     "ENG-JP-LE-5B-3"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Page lists 14 ton vac thrust, 449 s, 285 kg, 2,765 mm; variant label (LE-5B-3) implied by page text 'LE-5B-3 currently installed on H3' — not explicitly tied to table per search summary",
    "branches": [
     "asia_other"
@@ -9423,7 +9423,7 @@
     "ENG-SU-NK-33"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] NK-33 SL thrust 1.51 MN.",
    "branches": [
     "r2_ussr",
@@ -9472,7 +9472,7 @@
     "ENG-GB-LEROS-1B"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -10093,7 +10093,7 @@
     "ENG-US-NAA-75-110-A-7"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Seven engine types A-1..A-7 reached final performance 78,000 lb for 117 s. Page says '110 minutes' for the 75-110 burn (error).",
    "branches": [
     "us_hist"
@@ -10762,7 +10762,7 @@
     "ENG-US-FRONTIER-DSE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -10890,7 +10890,7 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Steam generator: H2O2 (T-Stoff) + Z-Stoff = 27% sodium permanganate solution; propellants LOX + 75% alcohol; ~25 t thrust; 9,700 kg over 62 s (per summary).",
    "id_collision_titles": [
     "Turbopump, Steam Generator and Frame, V-2 Rocket Engine (NASM catalogue)"
@@ -10917,7 +10917,7 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "~9,000 kg over 60 s (per summary).",
    "id_collision_titles": [
     "Turbopump, V-2, Cutaway (NASM catalogue)"
@@ -10967,7 +10967,7 @@
     "ENG-DE-BMW-109-558"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Initial 375 kg (825 lb) falling to 60 kg (130 lb) in last 24 s due to falling tank pressure; BMW group at Berlin-Spandau under Helmut von Zborowski.",
    "branches": [
     "europe"
@@ -11105,7 +11105,7 @@
     "ENG-DE-HWK-109-507"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 600 kg (1300 lb) declining to 400 kg (900 lb) over 10 s due to falling air-bottle pressure.",
    "branches": [
     "europe"
@@ -11128,7 +11128,7 @@
     "ENG-DE-HWK-109-509"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Variable thrust 200-1800 kg (660-3740 lb) for 8-10 min; peroxide diverted to catalytic chamber with potassium permanganate for turbine steam (conflicts with Wikipedia wire-mesh account).",
    "branches": [
     "europe"
@@ -11245,7 +11245,7 @@
     "ENG-GB-SUPER-SPRITE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Max 4,200 lb for 40 s.",
    "branches": [
     "europe"
@@ -11406,7 +11406,7 @@
     "ENG-CN-TQ-15A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "TQ-12 80 t vac, 350 s vac, MR 3.5, eps 40; ground version 67 t SL/76 t vac; TQ-15A 836 kN, 334.5 s, MR 2.9, eps 50 — mixture of 2019 and later data per summary. Tier C assigned as govt-hosted but popular-science, not manufacturer doc",
    "branches": [
     "asia_other"
@@ -11568,7 +11568,7 @@
     "ENG-FR-VULCAIN-2-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 1371 kN vac (vs 1359 kN V2).",
    "branches": [
     "europe"
@@ -11614,7 +11614,7 @@
     "ENG-US-S-3D"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. Civilian designation S-3/S-3D; 1955-56 for Army; 150,000-205,000 lb depending on model; weight 1,417-2,003 lb.",
    "branches": [
     "us_hist"
@@ -11661,7 +11661,7 @@
     "ENG-US-XLR11"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 5,900 lb (1,475 per chamber); early versions pressure-fed, later turbopumps; fuel-cooled chambers; 345 lb incl. turbopump.",
    "branches": [
     "us_hist"
@@ -11684,7 +11684,7 @@
     "ENG-US-XLR99-RM-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 50,000 lb SL; 57,000 lb at 45,000 ft; 57,850 lb at 100,000 ft; turbopumps >10,000 lb/min; weight 915 lb.",
    "branches": [
     "us_hist"
@@ -11846,7 +11846,7 @@
     "ENG-US-NEWTONTHREE"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -12406,7 +12406,7 @@
     "ENG-US-XRS-2200"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 'pump fed, gas generator cycle engine with a truncated ideal linear aerospike nozzle'; 'Each engine can deliver 200,000+ lbs of thrust at sea level'; 20 thrust cells mentioned elsewhere.",
    "branches": [
     "us_hist"
@@ -12630,7 +12630,7 @@
     "ENG-US-GR-22"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: 'GPIM is using an AF-M315E propulsion system that includes four 1N thrusters and one 22N thruster' - attributed to 'an earlier NTRS paper'; this id is the likeliest, not pinned. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -12677,7 +12677,7 @@
     "ENG-US-GR-22"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -12770,7 +12770,7 @@
     "ENG-US-R-4D-11-ORION-ESM-AUXILIARY"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "OMS-E flew 19 Shuttle missions STS-41G..STS-112; aux engines are modified R-4D-11 produced for Orion.",
    "branches": [
     "spacecraft"
@@ -13096,7 +13096,7 @@
     "ENG-FR-VALOIS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Claims four Vexin C engines (conflicts with Valois).",
    "branches": [
     "europe"
@@ -13120,7 +13120,7 @@
     "ENG-CN-WELKIN-VAC"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Low-reliability aggregator: 3,500 kN first stage; 600 kN Welkin Vac.",
    "branches": [
     "r2_asia"
@@ -13708,7 +13708,7 @@
     "ENG-SU-RD-103"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "RD-101 35 t (340 kN); RD-103 44 t (430 kN).",
    "branches": [
     "ussr"
@@ -13821,7 +13821,7 @@
     "ENG-SU-NK-33"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "~2,109 psia; lists 339,000 lbf as 'vacuum' (likely mislabeled SL).",
    "branches": [
     "r2_ussr"
@@ -14009,7 +14009,7 @@
     "ENG-US-RS-27A"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 200,000 lb SL, 237,000 lb vac, area ratio 12:1, two verniers ~1,012 lb each.",
    "branches": [
     "us_hist"
@@ -14055,7 +14055,7 @@
     "ENG-US-XRS-2200"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 261,200 lb vac, 206,200 lb SL, MR 5.5, Pc 854 psia.",
    "branches": [
     "us_hist"
@@ -14146,7 +14146,7 @@
     "ENG-US-AEON-VAC-TERRAN-R"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -14170,7 +14170,7 @@
     "ENG-US-AEON-VAC-TERRAN-R"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -14451,7 +14451,7 @@
     "ENG-NZ-ARCHIMEDES-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Summary: 'an earlier update' gives Archimedes vacuum up to 202,300 lbf (900 kN); attribution to this specific release not pinned.",
    "branches": [
     "commercial"
@@ -14522,7 +14522,7 @@
     "ENG-NZ-ARCHIMEDES-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Archimedes ORSC rationale; Archimedes Vacuum 200,000 lbf (890 kN), 1.2x thrust; test plan includes Stage 1 static fire with 9 Archimedes and Stage 2 static fire.",
    "branches": [
     "commercial"
@@ -14795,7 +14795,7 @@
     "ENG-RU-S5-92"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Thrust 1,400 kg and 2,000 kg; Isp 323 s and 329 s (as summarised).",
    "branches": [
     "r2_ussr"
@@ -14868,7 +14868,7 @@
     "ENG-SU-RD-0110"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Well-researched Tier D site, often cites Russian primary sources. 298 kN, 3195 m/s, 230/240 s, 7 MPa; 4 chambers + steering nozzles ~6 kN; lineage RD-0106 -> RD-0107 -> RD-0110.",
    "id_collision_titles": [
     "RD-0110 (RussianSpaceWeb)"
@@ -14919,7 +14919,7 @@
     "ENG-RU-RD-0124"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] Well-researched Tier D site, often cites Russian primary sources. Content NOT_AUDITED beyond summary.",
    "branches": [
     "r2_ussr",
@@ -14944,7 +14944,7 @@
     "ENG-SU-RD-0211"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Well-researched Tier D site, often cites Russian primary sources.",
    "branches": [
     "ussr"
@@ -15039,7 +15039,7 @@
     "ENG-RU-RD-191"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Well-researched Tier D site, often cites Russian primary sources.",
    "branches": [
     "ussr"
@@ -15319,7 +15319,7 @@
     "ENG-JP-BT-4"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -15552,7 +15552,7 @@
     "ENG-DE-AESTUS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 29.6 kN vac, 324 s, 9.3 kg/s, 111 kg.",
    "branches": [
     "europe"
@@ -15621,7 +15621,7 @@
     "ENG-FR-HM7B"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 64.8 kN vac, 446 s, 14.8 kg/s.",
    "id_collision_titles": [
     "HM7B - Satellite Launch Vehicle Cryogenic Engine (product listing)"
@@ -15672,7 +15672,7 @@
     "ENG-ES-TEPREL-C-VAC"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). TEPREL-C Vacuum 75 kN (vs 50 kN elsewhere) - attribution uncertain.",
    "branches": [
     "r2_asia"
@@ -15957,7 +15957,7 @@
     "ENG-CN-YF-115"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "YF-115 17,850 kgf vac",
    "branches": [
     "asia_other"
@@ -16003,7 +16003,7 @@
     "ENG-IN-LAM-440-N"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Lists MON as fuel and UDMH as oxidizer - evidently erroneous (see conflicts).",
    "branches": [
     "r2_asia"
@@ -16101,7 +16101,7 @@
     "ENG-US-MERLIN-1D-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. FT: each first-stage engine 170,000 lbf SL, up from 147,000 lbf on previous Falcon 9 flights; MVac (1D) max 210,000 lbf vac (attribution between the two SFN articles not resolved; second URL https://spaceflightnow.com/?p=4192).",
    "branches": [
     "commercial"
@@ -16214,7 +16214,7 @@
     "ENG-US-VR900"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -16260,7 +16260,7 @@
     "ENG-US-IPD"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "21 of 26 tests, 300 s accumulated, 100% power level at Stennis.",
    "id_collision_titles": [
     "Spaceflight Now news item on IPD (path n0607/20ipd, 2006)"
@@ -16287,7 +16287,7 @@
     "ENG-RU-RD-151"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). RD-151 'downscaled version of the engines used to propel Zenit and Atlas' (wording as summarised).",
    "branches": [
     "r2_asia"
@@ -16521,7 +16521,7 @@
     "ENG-US-AEON-1"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -16779,7 +16779,7 @@
     "ENG-IN-CE-7-5"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Nominal chamber pressure 58 bar (CE-7.5).",
    "branches": [
     "r2_asia"
@@ -16831,7 +16831,7 @@
     "ENG-US-MERLIN-1D-VACUUM"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Also https://sma.nasa.gov/LaunchVehicle/assets/space-launch-report-falcon-9-data-sheet.pdf and spacex-falcon-9-v1.2-data-sheet.pdf. Search summary noted garbled tables for MVac-1D figures.",
    "branches": [
     "commercial"
@@ -16843,7 +16843,7 @@
    "identifier": "",
    "primary": "secondary",
    "locators": "URL only",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 anchor_ussr] Retrieved ONLY as a WebSearch result excerpt/summary on 2026-10-08; the document itself could not be opened (WebFetch DNS failure for all hosts, proxy 403). Value-to-source attribution is from the search summary and is not page-verified. Year inferred from Raptor-test context (Feb 2019) - unverified. Search summary: chief designer Pyotr Lyovochkin (Пётр Лёвочкин) claims a ~10% margin, i.e. chamber pressure capability above 280 bar; and RD-180 '261 kgf/cm2'. Which of SNOB-172276 / SNOB-172765 / naked-science carries which statement is not resolvable from the summary.",
    "source_id": "SRC-SNOB-172276",
    "title": "«Энергомаш» ответил на заявление Маска о превосходстве над российским двигателем РД-180",
@@ -16927,7 +16927,7 @@
     "ENG-US-AEON-VAC"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -17183,7 +17183,7 @@
     "ENG-US-AJ26-62"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -17298,7 +17298,7 @@
     "ENG-RU-RD-151"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Khrunichev provided first stage with RD-151, a modified less-powerful version of an Angara engine.",
    "branches": [
     "r2_asia"
@@ -17436,7 +17436,7 @@
     "ENG-IN-VIKAS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Uprated version tested 2001 developed 58.5 bar vs 52.5 bar in the then-current version.",
    "branches": [
     "r2_asia"
@@ -17549,7 +17549,7 @@
     "ENG-CN-TH-12"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "95 t SL, 285 s SL, T/W 163, 4 restarts, 50–110% throttle, gimbal after turbopump",
    "branches": [
     "asia_other"
@@ -17572,7 +17572,7 @@
     "ENG-CN-TH-12V"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "110 t vac, 346 s vac, T/W 115, gas generator, gimbal before turbopump",
    "branches": [
     "asia_other"
@@ -17812,7 +17812,7 @@
     "ENG-US-MERLIN-1D-VACUUM"
    ],
    "locators": "vehicle overview section (page not known)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Round-1 id reused. Search summary seen directly this round (spacex.com domain filter).",
    "id_collision_titles": [
     "Falcon Payload User's Guide (2025-05-09)"
@@ -17841,7 +17841,7 @@
     "ENG-US-MERLIN-1C-FALCON-9-CONFIGURATION"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Falcon 1 config: 78,000 lbf SL, 90,000 lbf vac, Isp_vac 301 s; Falcon 9 config: 95,000 lbf SL, >108,000 lbf vac, Isp_vac 304 s; 170 s final test; 125 tests >3,000 s; kerosene regen cooling of chamber and nozzle.",
    "branches": [
     "commercial"
@@ -18067,7 +18067,7 @@
     "ENG-RU-S5-92"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Summary: S5.92 up to 20 starts. Which sheet (ST07 vs ST08) holds it not resolved.",
    "branches": [
     "r2_ussr"
@@ -18372,7 +18372,7 @@
     "ENG-US-RAPTOR-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Musk: Raptor 2 routinely at 300 bar; first R2 static fire reached 321 bar before failure.",
    "branches": [
     "commercial"
@@ -18648,7 +18648,7 @@
     "ENG-US-MERLIN-1D"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "TEA-TEB, 36,000 rpm, ~10,000 hp claims.",
    "branches": [
     "r2_schem"
@@ -18694,7 +18694,7 @@
     "ENG-US-BE-4"
    ],
    "locators": "single sheet",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "550,000 lbf SL; ORSC; LNG enables autogenous tank pressurization.",
    "branches": [
     "r2_schem"
@@ -18987,7 +18987,7 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "H2O2 80% test strength.",
    "branches": [
     "r2_ussr"
@@ -19034,7 +19034,7 @@
     "ENG-IN-VIKAS-HIGH-THRUST"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). About 800 kN nominal; 799 kN PSLV; 846 kN high-thrust GSLV.",
    "branches": [
     "r2_asia"
@@ -19103,7 +19103,7 @@
     "ENG-DE-BMW-109-718"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 9.8 kN (2,200 lbf) for 109-718.",
    "branches": [
     "europe"
@@ -19127,7 +19127,7 @@
     "ENG-US-RAPTOR-2"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Secondhand Musk claim of 330 bar consistently; unverified. Also R1 prototype 330 bar Aug 2020 stress test (summary).",
    "branches": [
     "commercial"
@@ -19173,7 +19173,7 @@
     "ENG-US-RAPTOR"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Reports switch to helium after SN10 (secondary).",
    "branches": [
     "taxonomy"
@@ -19196,7 +19196,7 @@
     "ENG-JP-LE-5B"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Exact Weblio page that holds the LE-5B column not identified (several mirror pages returned). Gives LE-5B 137.2 kN (14 tf), MR 5, eps 110, 447 s, Pc 3.58 MPa, LH2 TP 52,000 min-1, LOX TP 18,000 min-1, 2.79 m, 285 kg.",
    "branches": [
     "r2_asia"
@@ -19310,7 +19310,7 @@
    "rights_basis": "Wikipedia text CC BY-SA 4.0; values cited only",
    "engines": [],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Older version: 88.26 kN, 442 s, 470 s, 'in development'",
    "branches": [
     "asia_other"
@@ -19333,7 +19333,7 @@
     "ENG-CN-YF-77"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Round-1: SL 333 s / vac 438 s (conflicts with EN).",
    "id_collision_titles": [
     "YF-77とは (Weblio, mirror of Japanese Wikipedia)"
@@ -19360,7 +19360,7 @@
     "ENG-US-MERLIN-1D"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "10.8 MPa '1D++', throttle ranges.",
    "branches": [
     "commercial",
@@ -24955,7 +24955,7 @@
     "ENG-RU-RD-0124MS"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] RD-0124 ~30 tf; 359 s vac (Roscosmos statement as reported). Also says RD-0124MS 60 t, 361 s.",
    "branches": [
     "r2_ussr",
