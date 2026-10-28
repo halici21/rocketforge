@@ -549,7 +549,36 @@ New conflicts:
 | CF-DB05-RD180-THRUST | ANCHOR_USSR-7 | UNRESOLVED |
 | CF-DB05-NK33-PC-THRUST | R2_USSR-R2-4 | PARTIALLY_RESOLVED |
 
-60 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
+**Manufacturer pages for the Russian engines (same day).** The registry already had
+URLs for these pages, but they had never been fetched. They are now fetched and read:
+- Spaceflight Now's RD-180 fact sheets, credited Pratt & Whitney/NPO Energomash: 860,200 / 933,400 lb, 311.3 / 337.8 s, 3,722 psia, 36.87:1, MR 2.72, 40–100 %, total system dry weight 11,889 lb.
+- Glavkosmos RD-180: 390 / 423 tf, 311 / 339 s, 261.7 kgf/cm², 5,480 kg dry, 100–47 %.
+- Glavkosmos RD-171M: 250 kgf/cm², 9,300 kg dry.
+- The pnp.ru article: 261.7 kgf/cm² per the manufacturer, and a "> 280 atm" certification margin.
+- The IAC-13 abstract: 25.9 MPa as the RD-171M's "maximum reached".
+- Buran-Energia (RD-0120: 190 / 147.6 tf).
+- RussianSpaceWeb (RD-0120: 11° gimbal).
+
+The JAXA RD-0120 PDF returned HTTP 503.
+
+Results:
+
+| DB-0.5 conflict | Result |
+|---|---|
+| CF-DB05-RD180-THRUST | EXPLAINED (the 1995 figures are an estimate; the manufacturer figures agree) |
+| CF-DB05-RD180-MR | EXPLAINED (2.72 is the built engine; 2.6 is the 1995 estimate) |
+| CF-DB05-RD180-PC | PARTIALLY_RESOLVED (261.7 kgf/cm² = 3,722 psia; the 2001 NASA 3,734 is unexplained) |
+| CF-DB05-RD180-MASS | UNRESOLVED (three masses: 11,675 / 11,889 lb and 5,480 kg) |
+| CF-DB05-RD180-THROTTLE | UNRESOLVED (floors of 50 / 40 / 47 %) |
+| CF-DB05-RD180-AREA-RATIO | UNRESOLVED (36.87 against 36.4) |
+| CF-DB05-RD170-THRUST | EXPLAINED (every figure is the placard's 740 / 806 t). Wave 2 records it as CARRIED_NOT; no thrust ships. |
+| CF-DB05-RD171M-PC | EXPLAINED (rated against maximum reached) |
+| CF-DB05-RD171M-MASS | PARTIALLY_RESOLVED |
+| CF-DB05-RD0120-THRUST-GIMBAL | UNRESOLVED |
+
+DB-0 had reported a 47 % floor for the 2002 Spaceflight Now page, but that page prints 40–100 %.
+
+65 of the 261 DB-0 conflict records now have a DB-0.5 counterpart. What
 remains rests on unopened search summaries (Wikipedia, mirrors, Bilibili,
 HandWiki) or on sources that refused access. Examples: LE-7A pc, Vulcain 2
 thrust/pc/area ratio, YF-77/YF-100, and the RD-180, LE-9 and HM7B remainder.

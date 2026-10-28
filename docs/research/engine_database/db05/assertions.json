@@ -11069,6 +11069,311 @@
    "note": "The same number as NASA-TM-108475's 1995 estimate."
   },
   {
+   "assertion_id": "AS-DB05-RU-RD-180-012",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.thrust_sl",
+   "operating_point": null,
+   "value_as_printed": "Nominal thrust (sea level) 860,200 lb",
+   "value": 860200,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-013",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "Nominal thrust (vacuum) 933,400 lb",
+   "value": 933400,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-014",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.isp_sl",
+   "operating_point": null,
+   "value_as_printed": "Specific impulse (sea level) 311.3 sec",
+   "value": 311.3,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-015",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.isp_vac",
+   "operating_point": null,
+   "value_as_printed": "Vacuum specific impulse 337.8 sec",
+   "value": 337.8,
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-016",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Chamber pressure 3,722 psia",
+   "value": 3722,
+   "unit_as_printed": "psia",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)",
+    "pc_station": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-017",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "nozzle.area_ratio",
+   "operating_point": null,
+   "value_as_printed": "Nozzle area ratio 36.87:1",
+   "value": 36.87,
+   "unit_as_printed": ":1",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-018",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "Mixture ratio 2.72",
+   "value": 2.72,
+   "unit_as_printed": "(-)",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-019",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.throttle_range",
+   "operating_point": null,
+   "value_as_printed": "Throttle range 40-100%",
+   "value": "40 -> 100",
+   "unit_as_printed": "%",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "The page's prose says 'Forty to 100 percent continuous throttling'; gimbal +-8 degrees; length 140 in, diameter 118 in."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-020",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Total system dry weight 11,889 lb",
+   "value": 11889,
+   "unit_as_printed": "lb",
+   "conditions": {
+    "configuration": "RD-180 (Atlas III fact sheet, 2000)",
+    "definition": "total system dry"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-SFN-RD180-2000",
+   "locator": "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-021",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.thrust",
+   "operating_point": null,
+   "value_as_printed": "Thrust, earth / void, tf 390/423",
+   "value": "390 / 423",
+   "unit_as_printed": "tf",
+   "conditions": {
+    "configuration": "RD-180 (Glavkosmos catalogue)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "Glavkosmos RD-180 parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "3,825 / 4,148 kN, 859,800 / 932,600 lbf DERIVED."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-022",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.isp",
+   "operating_point": null,
+   "value_as_printed": "Specific impulse, earth / void, s 311 / 339",
+   "value": "311 / 339",
+   "unit_as_printed": "s",
+   "conditions": {
+    "configuration": "RD-180 (Glavkosmos catalogue)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "Glavkosmos RD-180 parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-023",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Pressure in the combustion chamber, kgf / cm2 261.7",
+   "value": 261.7,
+   "unit_as_printed": "kgf/cm^2",
+   "conditions": {
+    "configuration": "RD-180 (Glavkosmos catalogue)",
+    "pc_station": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "Glavkosmos RD-180 parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "3,722 psi DERIVED: the fact sheet's value."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-024",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight, dry / dipped, kg 5480/5950",
+   "value": "5480 / 5950",
+   "unit_as_printed": "kg",
+   "conditions": {
+    "configuration": "RD-180 (Glavkosmos catalogue)",
+    "definition": "dry / filled"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "Glavkosmos RD-180 parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "12,081 / 13,117 lb DERIVED."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-025",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.throttle_range",
+   "operating_point": null,
+   "value_as_printed": "Thrust range,% 100-47",
+   "value": "47 -> 100",
+   "unit_as_printed": "%",
+   "conditions": {
+    "configuration": "RD-180 (Glavkosmos catalogue)"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD180",
+   "locator": "Glavkosmos RD-180 parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-180-026",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "«Энергомаш» сертифицировал двигатель РД-180 с 10% запасом, то есть давление в его камере сгорания выше 280 атмосфер",
+   "value": "> 280",
+   "unit_as_printed": "atm",
+   "conditions": {
+    "configuration": "RD-180",
+    "basis": "certification margin, not a rating"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-PNP-RD180",
+   "locator": "pnp.ru article text",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same article: 'по данным производителя НПО «Энергомаш»' 261.7 kgf/cm2."
+  },
+  {
    "assertion_id": "AS-DB05-SU-NK-33-001",
    "engine_id": "ENG-SU-NK-33",
    "field_path": "performance.thrust_vac",
@@ -11260,6 +11565,109 @@
    "access": "fetched",
    "db0_link": null,
    "note": "Purdue's AJ26-NK33A page prints 2725 lb; not filed as a conflict (a different, Americanised configuration)."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-171M-001",
+   "engine_id": "ENG-RU-RD-171M",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "Pressure in the combustion chamber, kgf / cm2 250",
+   "value": 250,
+   "unit_as_printed": "kgf/cm^2",
+   "conditions": {
+    "configuration": "RD-171M (Glavkosmos catalogue)",
+    "pc_station": "UNSTATED"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD171M",
+   "locator": "Glavkosmos RD-171M parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same table: thrust 740 / 806 tf, Isp 309 / 337 s, throttle 105-49 %, 'more than 1000 fire tests'."
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-171M-002",
+   "engine_id": "ENG-RU-RD-171M",
+   "field_path": "mechanical.mass",
+   "operating_point": null,
+   "value_as_printed": "Weight, dry / dipped, kg 9300 / 10300",
+   "value": "9300 / 10300",
+   "unit_as_printed": "kg",
+   "conditions": {
+    "configuration": "RD-171M (Glavkosmos catalogue)",
+    "definition": "dry / filled"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-GLAVKOSMOS-RD171M",
+   "locator": "Glavkosmos RD-171M parameter table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-RU-RD-171M-003",
+   "engine_id": "ENG-RU-RD-171M",
+   "field_path": "performance.pc",
+   "operating_point": null,
+   "value_as_printed": "the pressure in the combustion chamber=25.9MPa",
+   "value": 25.9,
+   "unit_as_printed": "MPa",
+   "conditions": {
+    "configuration": "RD-171M",
+    "basis": "'reached a certain maximum parameters'"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-IAC13-20083",
+   "locator": "IAC-13 x20083 abstract (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Same sentence: Isp in vacuum 3273.2 m/s (333.8 s DERIVED), thrust in vacuum 7.8 MN."
+  },
+  {
+   "assertion_id": "AS-DB05-SU-RD-0120-001",
+   "engine_id": "ENG-SU-RD-0120",
+   "field_path": "performance.thrust",
+   "operating_point": null,
+   "value_as_printed": "Thrust on the sea level, tf 147.6 / Thrust in vacuum, tf 190",
+   "value": "147.6 / 190",
+   "unit_as_printed": "tf",
+   "conditions": {
+    "configuration": "Energia core stage engine"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-BURAN-ENERGIA-CARAC",
+   "locator": "Energia characteristics table (page text)",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "1,447 / 1,863 kN DERIVED."
+  },
+  {
+   "assertion_id": "AS-DB05-SU-RD-0120-002",
+   "engine_id": "ENG-SU-RD-0120",
+   "field_path": "mechanical.gimbal_range",
+   "operating_point": null,
+   "value_as_printed": "the capability to gimbal up to 11 degrees along two perpendicular axis",
+   "value": 11,
+   "unit_as_printed": "deg",
+   "conditions": {
+    "configuration": "Energia core stage engine"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-RSW-RD0120",
+   "locator": "RussianSpaceWeb page text",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
   }
  ]
 }

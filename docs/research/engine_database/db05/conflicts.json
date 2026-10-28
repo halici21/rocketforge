@@ -1375,14 +1375,19 @@
      "NTRS 20010067310 p.2 engine bullet list (text layer)"
     ],
     [
-     "3722 psia",
+     "Chamber pressure 3,722 psia (P&W/NPO Energomash fact sheet)",
      "SRC-SFN-RD180-2000",
-     "DB-0 search summary (never opened)"
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
     ],
     [
-     "261.7 kgf/cm2; >280 atm with 10% certification margin",
+     "Pressure in the combustion chamber, kgf / cm2 261.7",
+     "SRC-GLAVKOSMOS-RD180",
+     "Glavkosmos RD-180 parameter table (page text)"
+    ],
+    [
+     "> 280 atm with a 10% certification margin",
      "SRC-PNP-RD180",
-     "DB-0 search summary (never opened)"
+     "article text"
     ],
     [
      "266.7 bar",
@@ -1391,8 +1396,8 @@
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
-   "kind": "different_epoch",
-   "explanation": "The 1995 NASA value (3,560 psia) is an estimate for an engine not yet built. The 2001 NASA paper prints 3,734 psia, Purdue's figure. 261.7 kgf/cm2 is 3,722 psi DERIVED, the Spaceflight Now value, so the unopened Russian figure and the 2001 NASA one differ by 0.3 percent; station and gauge are printed by none. 266.7 bar and the margin claim stay unopened."
+   "kind": "primary_value_found",
+   "explanation": "The manufacturer's value is 261.7 kgf/cm2 (Glavkosmos; quoted again in the 2019 article), which is the 3,722 psia of the P&W/NPO Energomash fact sheet. The 1995 NASA 3,560 psia is a pre-design estimate. The 2001 NASA 3,734 psia (Purdue's figure) is 0.3 percent higher and unexplained. The '> 280 atm' is a certification margin, not a rating. 266.7 bar was never opened. No source prints a station."
   },
   {
    "conflict_id": "CF-DB05-RD180-MASS",
@@ -1411,19 +1416,24 @@
      "NTRS 20010067310 p.2 engine bullet list (text layer)"
     ],
     [
+     "Total system dry weight 11,889 lb (fact sheet, 2000)",
+     "SRC-SFN-RD180-2000",
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
+    ],
+    [
+     "Weight, dry / dipped, kg 5480/5950",
+     "SRC-GLAVKOSMOS-RD180",
+     "Glavkosmos RD-180 parameter table (page text)"
+    ],
+    [
      "11,675 lb ('weight')",
      "SRC-PURDUE-RD180",
      "page table (fetched; small page)"
-    ],
-    [
-     "5,480 kg dry (12,081 lb derived)",
-     "SRC-GLAVKOSMOS-RD180",
-     "DB-0 search summary (never opened)"
     ]
    ],
-   "resolution": "PARTIALLY_RESOLVED",
+   "resolution": "UNRESOLVED",
    "kind": "different_epoch",
-   "explanation": "11,675 lb first appears as the 1995 NASA estimate and is repeated unchanged in 2001 and by Purdue, so the three are one figure. The 5,480 kg is the manufacturer's (as DB-0 reported it), never opened; whether the built engine differs from the estimate, or the definitions differ, is not established."
+   "explanation": "Three numbers: 11,675 lb (the 1995 NASA estimate, repeated in 2001 and by Purdue), 11,889 lb (the 2000 P&W/NPO fact sheet, 'total system dry') and 5,480 kg = 12,081 lb (Glavkosmos, 'dry'). The definitions differ in wording only; which mass belongs to which build or scope is not stated."
   },
   {
    "conflict_id": "CF-DB05-RD180-THROTTLE",
@@ -1442,19 +1452,19 @@
      "NTRS 20010067310 p.2 engine bullet list (text layer)"
     ],
     [
-     "47%-100%; 40 to 100 percent continuous throttling",
-     "SRC-SFN-RD180-2002",
-     "DB-0 search summary (never opened)"
+     "Throttle range 40-100% (fact sheet, 2000 and 2002)",
+     "SRC-SFN-RD180-2000",
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
     ],
     [
-     "100-47%",
+     "Thrust range,% 100-47",
      "SRC-GLAVKOSMOS-RD180",
-     "DB-0 search summary (never opened)"
+     "Glavkosmos RD-180 parameter table (page text)"
     ]
    ],
    "resolution": "UNRESOLVED",
-   "kind": "different_epoch",
-   "explanation": "Both opened NASA documents give a 50 percent floor; the 47 and 40 percent floors are from pages never opened. Whether the floor was lowered after 2001 is not shown."
+   "kind": "definition",
+   "explanation": "Three floors in opened documents: 50 percent (NASA 1995 and 2001), 40 percent (P&W/NPO fact sheet) and 47 percent (Glavkosmos). None says whether its range is qualified, demonstrated or a flight limit. DB-0's '47%-100%' for the 2002 page is not on it: the 2002 page prints 40-100%."
   },
   {
    "conflict_id": "CF-DB05-RD180-MR",
@@ -1473,14 +1483,14 @@
      "page table (fetched; small page)"
     ],
     [
-     "2.72",
+     "Mixture ratio 2.72 (fact sheet)",
      "SRC-SFN-RD180-2000",
-     "DB-0 search summary (never opened)"
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
     ]
    ],
-   "resolution": "PARTIALLY_RESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "Purdue's 2.6 is the 1995 NASA estimate's figure. The 2.72 was never opened; no opened document gives a mixture ratio for the built engine."
+   "explanation": "2.72 is the manufacturers' fact-sheet value for the built engine; 2.6 is the 1995 NASA pre-design estimate, which Purdue repeats."
   },
   {
    "conflict_id": "CF-DB05-RD180-THRUST",
@@ -1494,9 +1504,14 @@
      "NASA-TM-108475 p.52 (PDF p.61) Figure 40 'Characteristics' (viewed as image)"
     ],
     [
-     "860,200 lb SL / 933,400 lb vac",
+     "Nominal thrust (sea level) 860,200 lb / (vacuum) 933,400 lb",
      "SRC-SFN-RD180-2000",
-     "DB-0 search summary (never opened)"
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
+    ],
+    [
+     "Thrust, earth / void, tf 390/423",
+     "SRC-GLAVKOSMOS-RD180",
+     "Glavkosmos RD-180 parameter table (page text)"
     ],
     [
      "860,400 lb SL / 933,000 lb vac",
@@ -1504,9 +1519,30 @@
      "DB-0 search summary"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "The 1995 figures are pre-design estimates, and the same study asks for a 5 percent uprate. The two 860k / 933k figures agree with each other but neither was opened as evidence of the delivered rating."
+   "explanation": "The fact sheet (860,200 / 933,400 lb) and Glavkosmos (390 / 423 tf = 859,800 / 932,600 lbf DERIVED) agree within rounding; Purdue's figures are the same rounded. The 1995 NASA 827,000 / 900,000 lb are a pre-design estimate, and the same study asks for a 5 percent uprate."
+  },
+  {
+   "conflict_id": "CF-DB05-RD180-AREA-RATIO",
+   "db0_conflict_id": "CF-ANCHOR_USSR-4",
+   "engine_id": "ENG-RU-RD-180",
+   "field_path": "nozzle.area_ratio",
+   "claims": [
+    [
+     "Nozzle area ratio 36.87:1",
+     "SRC-SFN-RD180-2000",
+     "SFN 'RD-180 facts' table (page text), credited Pratt & Whitney/NPO Energomash"
+    ],
+    [
+     "Area Ratio 36.4:1",
+     "SRC-PURDUE-RD180",
+     "page table (fetched; small page)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "rating_or_rounding",
+   "explanation": "1.3 percent apart; Purdue cites nothing, and no opened document gives a second manufacturer value."
   },
   {
    "conflict_id": "CF-DB05-NK33-PC-THRUST",
@@ -1533,6 +1569,110 @@
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
    "explanation": "Aerojet prints 338 klbf sea level and 377 klbf vacuum. Purdue's 339,000 lbf labelled 'vacuum' is the sea-level figure: its own Isp pair (331 / 297) is Aerojet's, so the label is the slip. 2,109 is printed by both (psi by Aerojet, psia by Purdue). The 14.83 MPa (2,151 psi) was never opened; whether it is another station or absolute against gauge is not established."
+  },
+  {
+   "conflict_id": "CF-DB05-RD170-THRUST",
+   "db0_conflict_id": "CF-USSR-1",
+   "engine_id": "ENG-SU-RD-170",
+   "field_path": "performance.thrust_sl / performance.thrust_vac",
+   "claims": [
+    [
+     "Poussee au sol - 740 ts; Poussee dans le vide - 806 ts (placard, via Rockwell)",
+     "SRC-NTRS-19910018906",
+     "PDF p.16"
+    ],
+    [
+     "7250 kN SL / 7900 kN vac",
+     "SRC-WIKI-RD170",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "740 tf SL / 806 tf vac (RD-171M)",
+     "SRC-GLAVKOSMOS-RD171M",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "7.8 MN vac (RD-171M)",
+     "SRC-IAC13-20083",
+     "DB-0 search summary (never opened)"
+    ],
+    [
+     "7900 kN SL (RD-171)",
+     "SRC-LLMPEDIA",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "rating_or_rounding",
+   "explanation": "The placard Rockwell transcribed (740 / 806 metric tons) is 7,257 / 7,904 kN DERIVED, the encyclopedia's figures rounded. The 7.8 MN is the same vacuum value rounded down for the RD-171M, and the 7900 kN 'sea level' is the vacuum value mislabelled. NASA's 1994 CFD paper (NTRS 19950002748) uses 1,777,000 lbf, 7,904 kN, as its input: the same vacuum figure. No conflict remains beyond rounding; the placard values stay withheld for their own reason (a transcription)."
+  },
+  {
+   "conflict_id": "CF-DB05-RD171M-PC",
+   "db0_conflict_id": "CF-USSR-2",
+   "engine_id": "ENG-RU-RD-171M",
+   "field_path": "performance.pc",
+   "claims": [
+    [
+     "Pressure in the combustion chamber, kgf / cm2 250",
+     "SRC-GLAVKOSMOS-RD171M",
+     "Glavkosmos RD-171M parameter table (page text)"
+    ],
+    [
+     "the pressure in the combustion chamber=25.9MPa (maximum reached)",
+     "SRC-IAC13-20083",
+     "IAC-13 x20083 abstract (page text)"
+    ]
+   ],
+   "resolution": "EXPLAINED",
+   "kind": "different_operating_point",
+   "explanation": "250 kgf/cm2 is 24.5 MPa DERIVED, the catalogue value; the 2013 abstract calls its 25.9 MPa a maximum the production engine 'reached', consistent with the catalogue's thrust range up to 105 percent."
+  },
+  {
+   "conflict_id": "CF-DB05-RD171M-MASS",
+   "db0_conflict_id": "CF-USSR-3",
+   "engine_id": "ENG-RU-RD-171M",
+   "field_path": "mechanical.mass",
+   "claims": [
+    [
+     "Weight, dry / dipped, kg 9300 / 10300",
+     "SRC-GLAVKOSMOS-RD171M",
+     "Glavkosmos RD-171M parameter table (page text)"
+    ],
+    [
+     "9750 kg (RD-170)",
+     "SRC-WIKI-RD170",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "The opened catalogue gives 9,300 kg dry for the RD-171M. The 9,750 kg was reported for the RD-170, another variant, from a page never opened; nothing opened gives an RD-170 mass."
+  },
+  {
+   "conflict_id": "CF-DB05-RD0120-THRUST-GIMBAL",
+   "db0_conflict_id": "CF-USSR-14",
+   "engine_id": "ENG-SU-RD-0120",
+   "field_path": "performance.thrust / mechanical.gimbal_range",
+   "claims": [
+    [
+     "Thrust in vacuum, tf 190; on the sea level 147.6",
+     "SRC-BURAN-ENERGIA-CARAC",
+     "characteristics table"
+    ],
+    [
+     "gimbal up to 11 degrees along two perpendicular axis",
+     "SRC-RSW-RD0120",
+     "page text"
+    ],
+    [
+     "1961 kN vac / 1526 kN SL @106%; Isp SL 354 s; gimbal +/-7 deg",
+     "SRC-WIKI-RD0120",
+     "DB-0 search summary (never opened)"
+    ]
+   ],
+   "resolution": "UNRESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "190 tf is 1,863 kN; 1,961 kN is 5 percent higher and is tied to a 106 percent level, so the thrust pair may be two power levels, but neither opened page names its level. The gimbal angle (11 against 7 degrees) is open: both opened pages are secondary and the 7 degrees was never opened."
   }
  ]
 }

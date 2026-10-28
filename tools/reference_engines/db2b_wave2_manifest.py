@@ -381,6 +381,9 @@ RESEARCH_CONFLICTS = {
                    "SRC-DTIC-ADA397910 / SRC-FLIGHTGLOBAL-IPD": "search results (access blocked / never opened); the same class"},
         argument="EXPLAINED in DB-0.5: one 250,000 lbf design class, rounded differently. The matcher ties the programme and "
                  "promoted propellant statements, which print it in the same sentence; no thrust value ships."),
+    "CF-DB05-RD170-THRUST": dict(decision="CARRIED_NOT", touches=(),
+        competing={"AS-DB05-SU-RD-170-001 / -002": "placard 740 / 806 t via Rockwell's transcription; withheld for that reason"},
+        argument="EXPLAINED in DB-0.5 (2026-10-28): every figure is the placard's 740 / 806 t rounded or relabelled; no thrust ships."),
 }
 
 CARRIER_GENERALISATIONS = {}

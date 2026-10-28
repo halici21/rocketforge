@@ -2141,7 +2141,7 @@
     "ENG-SU-RD-0120"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] RD-0120: 147.6 tf SL, 190 tf vac.",
    "branches": [
     "r2_ussr",
@@ -5041,7 +5041,7 @@
    "source_type": "manufacturer datasheet (state export agent)",
    "identifier": "",
    "url": "https://trade.glavkosmos.com/rd-171-m/",
-   "tier": "A",
+   "tier": "B",
    "primary": "primary",
    "rights": "VALUES_WITH_ATTRIBUTION",
    "rights_basis": "factual values cited with attribution; page text copyrighted",
@@ -5049,7 +5049,7 @@
     "ENG-RU-RD-171M"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] Official Roscosmos export catalogue; treated as Tier A manufacturer-equivalent data. Units tf and kgf/cm2 as printed.",
    "branches": [
     "r2_ussr",
@@ -5062,14 +5062,14 @@
    "identifier": "",
    "primary": "primary",
    "locators": "URL only",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Retrieved ONLY as a WebSearch result excerpt/summary on 2026-10-08; the document itself could not be opened (WebFetch DNS failure for all hosts, proxy 403). Value-to-source attribution is from the search summary and is not page-verified. Tier A by organisation type (Roscosmos subsidiary), but content only seen as search excerpt.",
    "source_id": "SRC-GLAVKOSMOS-RD180",
    "title": "RD-180 (Glavkosmos trade catalogue entry)",
    "organization": "Glavkosmos (Roscosmos subsidiary)",
    "source_type": "agency/state-company trade web page",
    "url": "https://trade.glavkosmos.com/rd-180/",
-   "tier": "A",
+   "tier": "B",
    "rights": "VALUES_WITH_ATTRIBUTION",
    "rights_basis": "State-company commercial page; factual values only.",
    "engines": [
@@ -6415,7 +6415,7 @@
     "ENG-RU-RD-171M"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] Abstract-level data via search summary: RD-171M production engine vacuum thrust 7.8 MN, Isp vac 3273.2 m/s, max pc 25.9 MPa; describes a 9.8 MN uprate study.",
    "branches": [
     "r2_ussr",
@@ -7581,7 +7581,7 @@
     "ENG-SU-RD-0120"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "search_result_only",
+   "access": "not_retrieved",
    "notes": "Summary: main Pc 210 kgf/cm2 at 100%, MR 6; preburner pressure 398 kgf/cm2 at 100%, PB MR 0.8; vac thrust 190 t (200 t at 106%). Underlying AIAA paper not identified.",
    "branches": [
     "r2_ussr"
@@ -13731,7 +13731,7 @@
     "ENG-RU-RD-180"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Quotes Energomash chief designer P. Levochkin: pc 261.7 kgf/cm2 (256.6 bar); certified with 10% margin (>280 atm).",
    "branches": [
     "ussr"
@@ -14895,7 +14895,7 @@
     "ENG-SU-RD-0120"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "[carried from round 1 ussr] Well-researched Tier D site, often cites Russian primary sources. Gimbal up to 11 deg in two axes; supplied GH2 for tank pressurisation; dev start 1976.",
    "branches": [
     "r2_ussr",
@@ -16372,14 +16372,14 @@
    "identifier": "",
    "primary": "secondary",
    "locators": "URL only",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Retrieved ONLY as a WebSearch result excerpt/summary on 2026-10-08; the document itself could not be opened (WebFetch DNS failure for all hosts, proxy 403). Value-to-source attribution is from the search summary and is not page-verified. The search summary attributed the 860,200/933,400 lb, 311.3/337.8 s and 3,722 psia set to 'Pratt & Whitney's 2000 fact sheet'; that set may equally come from the AC-204 page (SRC-SFN-RD180-2002). Treat as P&W-derived, Tier D carrier of Tier A-ish content.",
    "source_id": "SRC-SFN-RD180-2000",
    "title": "The RD-180 engine (Spaceflight Now Atlas launch report sidebar, AC-201)",
    "organization": "Spaceflight Now (reprinting Pratt & Whitney fact sheet, per search summary)",
    "source_type": "news web page / manufacturer fact-sheet reprint",
    "url": "https://spaceflightnow.com/atlas/ac201/000514rd180.html",
-   "tier": "D",
+   "tier": "C",
    "rights": "VALUES_WITH_ATTRIBUTION",
    "rights_basis": "Commercial news site; factual values only.",
    "engines": [
@@ -16395,14 +16395,14 @@
    "identifier": "",
    "primary": "secondary",
    "locators": "URL only",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Retrieved ONLY as a WebSearch result excerpt/summary on 2026-10-08; the document itself could not be opened (WebFetch DNS failure for all hosts, proxy 403). Value-to-source attribution is from the search summary and is not page-verified. Search excerpt quoted: 'LOx rich, closed cycle, staged combustion engine, with throttle capability from 47% to 100% power level' and 'Forty to 100 percent continuous throttling ...' and health monitoring / life prediction system (exact page of each quote not resolvable).",
    "source_id": "SRC-SFN-RD180-2002",
    "title": "The RD-180 engine (Spaceflight Now Atlas launch report, AC-204)",
    "organization": "Spaceflight Now",
    "source_type": "news web page",
    "url": "https://spaceflightnow.com/atlas/ac204/020219rd180.html",
-   "tier": "D",
+   "tier": "C",
    "rights": "VALUES_WITH_ATTRIBUTION",
    "rights_basis": "Commercial news site; factual values only.",
    "engines": [

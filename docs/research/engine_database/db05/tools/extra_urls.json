@@ -82,5 +82,14 @@
  "SRC-PURDUE-AJ26": "https://engineering.purdue.edu/AAE/research/propulsion/Info/rockets/liquids/aj26nk33a",
  "SRC-NAS-DEPS-068011": "https://sites.nationalacademies.org/cs/groups/depssite/documents/webpage/deps_068011.pdf",
  "SRC-DB05-NTRS-20010067310": "https://ntrs.nasa.gov/citations/20010067310",
- "SRC-DB05-NTRS-19950013232": "https://ntrs.nasa.gov/citations/19950013232"
+ "SRC-DB05-NTRS-19950013232": "https://ntrs.nasa.gov/citations/19950013232",
+ "SRC-JAXA-61856043": "https://jaxa.repo.nii.ac.jp/record/16179/files/61856043.pdf",
+ "SRC-RSW-RD0120": "https://russianspaceweb.com/rd0120.html",
+ "SRC-BURAN-ENERGIA-CARAC": "https://www.buran-energia.com/energia/energia-carac.php",
+ "SRC-GLAVKOSMOS-RD171M": "https://trade.glavkosmos.com/rd-171-m/",
+ "SRC-GLAVKOSMOS-RD180": "https://trade.glavkosmos.com/rd-180/",
+ "SRC-SFN-RD180-2000": "https://spaceflightnow.com/atlas/ac201/000514rd180.html",
+ "SRC-SFN-RD180-2002": "https://spaceflightnow.com/atlas/ac204/020219rd180.html",
+ "SRC-PNP-RD180": "https://www.pnp.ru/economics/v-energomashe-otvetili-na-slova-ilona-maska-o-prevoskhodstve-dvigatelya-raptor-nad-rossiyskim-rd-180.html",
+ "SRC-IAC13-20083": "https://iafastro.directory/iac/archive/browse/IAC-13/C4/P/20083/"
 }
