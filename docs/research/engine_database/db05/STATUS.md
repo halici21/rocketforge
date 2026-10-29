@@ -997,3 +997,12 @@ LIQ-7 Pump Foundation: PAUSED.
   return 403 (Archimedes, Rutherford); no primary YF-115 document found. Remaining UNRESOLVED (85) are blocked on
   these hosts, on Russian bureau sites (no connection), Blue Origin (429), L3Harris (404), SpaceX (script-only), or
   are definition conflicts awaiting the owner (RS-25, F-1, RD-170, RD-180).
+
+### Pass: Tronador II (2026-10-29)
+
+- CF-DB05-E-R2_ASIA-R2A-26 (MT-B propellants) EXPLAINED, different_epoch: the Argentine government's Tronador II
+  programme page gives a pressure-fed MMH / N2O4-nitric acid upper stage, and its 1 August 2023 release tests a
+  LOX / kerosene prototype of the final second-stage engine.
+- CF-DB05-E-R2_ASIA-R2A-27 (VEx-1A date) PARTIALLY_RESOLVED: iProfesional's report of 5 March 2014 dates the failed
+  launch to Wednesday 26 February 2014; the government programme page says 'marzo del 2014'. Unresolved: 85 → 83.
+- Dead end: ESA's HSR histories cover ELDO's founding, not Coralie/Astris figures.

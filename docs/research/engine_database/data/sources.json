@@ -26670,6 +26670,76 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-IPROFESIONAL-VEX1A-2014",
+   "title": "Tronador II: estalló a dos metros del suelo el cohete de fabricación nacional (iProfesional)",
+   "authors": [],
+   "organization": "iProfesional",
+   "year": 2014,
+   "source_type": "news article",
+   "identifier": "iprofesional.com/negocios/181740 (2014-03-05)",
+   "url": "https://www.iprofesional.com/negocios/181740-tronador-ii-estallo-a-dos-metros-del-suelo-el-cohete-de-fabricacion-nacional",
+   "tier": "C",
+   "primary": "secondary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "News article; reuse terms not reviewed.",
+   "engines": [
+    "ENG-AR-VEX-1A-ENGINE"
+   ],
+   "locators": "article text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): iProfesional news article, datePublished 2014-03-05: 'el lanzamiento se hizo el último miércoles 26 de febrero. Pero el vector Vex 1A, que logró despegar unos dos metros, ... se estrelló'; earlier attempts in December, mid-January and 24 February. The follow-up article of 2014-03-06 (181837) says the government first gave information on 'el lanzamiento del cohete efectuado el 26 de febrero desde la localidad de Pipinas'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ARGGOB-TRONADOR2",
+   "title": "Tronador II (Argentina.gob.ar, CONAE programme page)",
+   "authors": [],
+   "organization": "Gobierno de Argentina / CONAE",
+   "year": null,
+   "source_type": "government web page",
+   "identifier": "https://www.argentina.gob.ar/node/71704",
+   "url": "https://www.argentina.gob.ar/node/71704",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Government web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-AR-MT-B",
+    "ENG-AR-VEX-1A-ENGINE"
+   ],
+   "locators": "programme page text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Undated programme page: 'En marzo del 2014 se realizó desde el Centro Espacial Punta Indio la primera prueba de un vehículo experimental que fue denominado Vex1A, utilizando como combustible hidracina y tetróxido de nitrógeno/ácido nítrico como oxidante'; configuration: 'monometil hidracina como combustible y tetróxido de nitrógeno/ácido nítrico como oxidante para la etapa superior', first stage LOX/kerosene; 'Etapa superior: Empuje en tierra en el rango de 1,5 a 4 toneladas (entre 2 y 5,5 toneladas en vacío). Motor de Tipo Presurizado.'",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ARGGOB-2023-08-01",
+   "title": "Se llevó a cabo un ensayo de motor clave para el lanzador Tronador II (Argentina.gob.ar, 2023-08-01)",
+   "authors": [],
+   "organization": "Gobierno de Argentina / CONAE",
+   "year": 2023,
+   "source_type": "government web page",
+   "identifier": "https://www.argentina.gob.ar/node/390734",
+   "url": "https://www.argentina.gob.ar/node/390734",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Government web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-AR-MT-B"
+   ],
+   "locators": "release text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Government release of 1 August 2023: a prototype of the 'motor de segunda etapa que llevará la versión final del Tronador II' (engine RS2) was tested at Valthe, Córdoba; 'tecnología desarrollada y fabricada en el país, cuyo combustible es oxígeno líquido y kerosene'.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

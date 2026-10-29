@@ -54,6 +54,9 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "CPS": "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table",
         "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
         "NL4": "nammo.com LEROS 4 product page: introduction text and specification table (fetched 2026-10-29)",
+        "AG1": "argentina.gob.ar/node/71704 (Tronador II programme page), body text",
+        "AG2": "argentina.gob.ar/node/390734 (release of 2023-08-01), body text",
+        "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -275,12 +278,27 @@ K("CF-R2_ASIA-R2A-25", "ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE", "geometry.chamber
   [("Engine 1 Paektusan ... 788 kN", "SRC-WIKI-HS15", "T"), ("two combustors fed by common turbopump", "SRC-WIKI-HS15", "T")],
   "EXPLAINED", "definition", "One article: one engine with two combustors on a common turbopump. Counting, not conflict.")
 K("CF-R2_ASIA-R2A-26", "ENG-AR-MT-B", "propellants",
-  [("Second stage Powered by 1 MT-B ... LOX / RP-1", "SRC-WIKI-TRONADOR", "T"), ("MMH / N2O4 pressurised", "SRC-WIKI-TRONADOR", "NF")],
-  "UNRESOLVED", "different_epoch",
-  "The current revision gives LOX / RP-1 for the MT-B; the MMH / N2O4 wording is not in it (earlier designs). " + _PRIMARY)
+  [("Second stage Powered by 1 MT-B ... LOX / RP-1", "SRC-WIKI-TRONADOR", "T"), ("MMH / N2O4 pressurised", "SRC-WIKI-TRONADOR", "NF"),
+   ("monometil hidracina como combustible y tetróxido de nitrógeno/ácido nítrico como oxidante para la etapa superior ... "
+    "Motor de Tipo Presurizado", "SRC-DB05-ARGGOB-TRONADOR2", "AG1"),
+   ("prototipo del motor de segunda etapa que llevará la versión final del Tronador II ... cuyo combustible es oxígeno "
+    "líquido y kerosene (2023)", "SRC-DB05-ARGGOB-2023-08-01", "AG2")],
+  "EXPLAINED", "different_epoch",
+  "The Argentine government's own pages print both: the programme page's configuration gives a pressure-fed MMH / "
+  "N2O4-nitric acid upper stage, and the 1 August 2023 release tests a LOX / kerosene prototype of the second-stage "
+  "engine for the final Tronador II. The upper stage changed propellants between the two designs; the 'MT-B' name "
+  "itself is not printed on either page.")
 K("CF-R2_ASIA-R2A-27", "ENG-AR-VEX-1A-ENGINE", "history.test_date",
-  [("26 Feb 2014", "SRC-WIKI-TRONADOR", "NF"), ("In March 2014, a suborbital prototype named VEx-1A failed", "SRC-WIKI-TRONADOR", "T")],
-  "UNRESOLVED", None, "The current revision gives March 2014 only. " + _PRIMARY)
+  [("26 Feb 2014", "SRC-WIKI-TRONADOR", "NF"), ("In March 2014, a suborbital prototype named VEx-1A failed", "SRC-WIKI-TRONADOR", "T"),
+   ("el lanzamiento se hizo el último miércoles 26 de febrero. Pero el vector Vex 1A, que logró despegar unos dos metros, "
+    "... se estrelló", "SRC-DB05-IPROFESIONAL-VEX1A-2014", "IPV"),
+   ("En marzo del 2014 se realizó desde el Centro Espacial Punta Indio la primera prueba de un vehículo experimental que "
+    "fue denominado Vex1A", "SRC-DB05-ARGGOB-TRONADOR2", "AG1")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "A news report of 5 March 2014 dates the VEx-1A launch failure to Wednesday 26 February 2014 (a Wednesday), after "
+  "attempts in December, January and on 24 February; the government spoke of it only in March. The government's own "
+  "programme page, written later, says 'En marzo del 2014'. A report published on 5 March cannot describe a later "
+  "March launch, so 26 February is the better-supported date, but the official page still disagrees.")
 K("CF-R2_ASIA-R2A-29", "ENG-CN-WELKIN-VAC", "performance.thrust_vac",
   [("600 kN", "SRC-ORBITCODEX-PALLAS", "N"), ("Thrust, vacuum 500 kilonewtons", "SRC-WIKI-WELKIN", "T"),
    ("CQ-50: 600kN (Vacuum Version) Vacuum Thrust; 330s (Vacuum Version)", "SRC-GE-WELKIN-EN", "T")],
@@ -612,3 +630,15 @@ D("SRC-DB05-NTRS-19680014530", identifier="NTRS 19680014530 (Aerojet-General, co
 D("SRC-DB05-NAMMO-LEROS4", identifier='https://www.nammo.com/products/space/space-propulsion-thrusters-and-engines/leros-4/', title="LEROS 4 Interplanetary Engine (Nammo product page)", tier="A",
   rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. LEROS 4 prose: '321 second Isp, MON/ Hydrazine apogee engine delivers a thrust of 1000 N', range 900-1100 N; specification table: Propellant MON-3/MMH, MR 1.65 (1.5-1.8), 321 s minimum, inlet 15.4 bara, mass 8.41 kg, max single firing 3,600 s. No LEROS 4-ET page. Used as a conflict claim only.")
+
+D("SRC-DB05-IPROFESIONAL-VEX1A-2014", identifier='https://www.iprofesional.com/negocios/181740-tronador-ii-estallo-a-dos-metros-del-suelo-el-cohete-de-fabricacion-nacional', title="Tronador II: estalló a dos metros del suelo el cohete de fabricación nacional (iProfesional)",
+  tier="C", rights_checked="news article; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. iProfesional news article, datePublished 2014-03-05: 'el lanzamiento se hizo el último miércoles 26 de febrero. Pero el vector Vex 1A, que logró despegar unos dos metros, ... se estrelló'; earlier attempts in December, mid-January and 24 February. The follow-up article of 2014-03-06 (181837) says the government first gave information on 'el lanzamiento del cohete efectuado el 26 de febrero desde la localidad de Pipinas'. Used as a conflict claim only.")
+
+D("SRC-DB05-ARGGOB-TRONADOR2", identifier='https://www.argentina.gob.ar/node/71704', title='Tronador II (Argentina.gob.ar, CONAE programme page)', tier="A",
+  rights_checked="government web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Undated programme page: 'En marzo del 2014 se realizó desde el Centro Espacial Punta Indio la primera prueba de un vehículo experimental que fue denominado Vex1A, utilizando como combustible hidracina y tetróxido de nitrógeno/ácido nítrico como oxidante'; configuration: 'monometil hidracina como combustible y tetróxido de nitrógeno/ácido nítrico como oxidante para la etapa superior', first stage LOX/kerosene; 'Etapa superior: Empuje en tierra en el rango de 1,5 a 4 toneladas (entre 2 y 5,5 toneladas en vacío). Motor de Tipo Presurizado.' Used as a conflict claim only.")
+
+D("SRC-DB05-ARGGOB-2023-08-01", identifier='https://www.argentina.gob.ar/node/390734', title='Se llevó a cabo un ensayo de motor clave para el lanzador Tronador II (Argentina.gob.ar, 2023-08-01)', tier="A",
+  rights_checked="government web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Government release of 1 August 2023: a prototype of the 'motor de segunda etapa que llevará la versión final del Tronador II' (engine RS2) was tested at Valthe, Córdoba; 'tecnología desarrollada y fabricada en el país, cuyo combustible es oxígeno líquido y kerosene'. Used as a conflict claim only.")

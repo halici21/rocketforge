@@ -5253,11 +5253,21 @@
      "MMH / N2O4 pressurised",
      "SRC-WIKI-TRONADOR",
      "fetched; not in the current revision's text"
+    ],
+    [
+     "monometil hidracina como combustible y tetróxido de nitrógeno/ácido nítrico como oxidante para la etapa superior ... Motor de Tipo Presurizado",
+     "SRC-DB05-ARGGOB-TRONADOR2",
+     "argentina.gob.ar/node/71704 (Tronador II programme page), body text"
+    ],
+    [
+     "prototipo del motor de segunda etapa que llevará la versión final del Tronador II ... cuyo combustible es oxígeno líquido y kerosene (2023)",
+     "SRC-DB05-ARGGOB-2023-08-01",
+     "argentina.gob.ar/node/390734 (release of 2023-08-01), body text"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "The current revision gives LOX / RP-1 for the MT-B; the MMH / N2O4 wording is not in it (earlier designs). No primary document opened; the record stays open."
+   "explanation": "The Argentine government's own pages print both: the programme page's configuration gives a pressure-fed MMH / N2O4-nitric acid upper stage, and the 1 August 2023 release tests a LOX / kerosene prototype of the second-stage engine for the final Tronador II. The upper stage changed propellants between the two designs; the 'MT-B' name itself is not printed on either page."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-27",
@@ -5274,11 +5284,21 @@
      "In March 2014, a suborbital prototype named VEx-1A failed",
      "SRC-WIKI-TRONADOR",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "el lanzamiento se hizo el último miércoles 26 de febrero. Pero el vector Vex 1A, que logró despegar unos dos metros, ... se estrelló",
+     "SRC-DB05-IPROFESIONAL-VEX1A-2014",
+     "iprofesional.com article 181740 (2014-03-05), body text"
+    ],
+    [
+     "En marzo del 2014 se realizó desde el Centro Espacial Punta Indio la primera prueba de un vehículo experimental que fue denominado Vex1A",
+     "SRC-DB05-ARGGOB-TRONADOR2",
+     "argentina.gob.ar/node/71704 (Tronador II programme page), body text"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The current revision gives March 2014 only. No primary document opened; the record stays open."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "A news report of 5 March 2014 dates the VEx-1A launch failure to Wednesday 26 February 2014 (a Wednesday), after attempts in December, January and on 24 February; the government spoke of it only in March. The government's own programme page, written later, says 'En marzo del 2014'. A report published on 5 March cannot describe a later March launch, so 26 February is the better-supported date, but the official page still disagrees."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-29",

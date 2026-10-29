@@ -7217,5 +7217,44 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-AGNIKUL-PRODUCT.html"
+ },
+ "SRC-DB05-IPROFESIONAL-VEX1A-2014": {
+  "source_id": "SRC-DB05-IPROFESIONAL-VEX1A-2014",
+  "url": "https://www.iprofesional.com/negocios/181740-tronador-ii-estallo-a-dos-metros-del-suelo-el-cohete-de-fabricacion-nacional",
+  "time_utc": "2026-10-29T18:22:47Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://www.iprofesional.com/negocios/181740-tronador-ii-estallo-a-dos-metros-del-suelo-el-cohete-de-fabricacion-nacional",
+  "bytes": 215849,
+  "sha256": "0900297104d408292ea578e4ad1cb13e2b26ddbe95a765c1f977d555c311dd90",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-IPROFESIONAL-VEX1A-2014.html"
+ },
+ "SRC-DB05-ARGGOB-TRONADOR2": {
+  "source_id": "SRC-DB05-ARGGOB-TRONADOR2",
+  "url": "https://www.argentina.gob.ar/node/71704",
+  "time_utc": "2026-10-29T18:24:05Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://www.argentina.gob.ar/node/71704",
+  "bytes": 36454,
+  "sha256": "0449aa521ddace2e240914738adeca59de7920643ba76f52fcdd7b206d2070fe",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ARGGOB-TRONADOR2.html"
+ },
+ "SRC-DB05-ARGGOB-2023-08-01": {
+  "source_id": "SRC-DB05-ARGGOB-2023-08-01",
+  "url": "https://www.argentina.gob.ar/node/390734",
+  "time_utc": "2026-10-29T18:24:05Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://www.argentina.gob.ar/node/390734",
+  "bytes": 43657,
+  "sha256": "4e8f231211a3c1d53b7edfffddf2defe6a0aa067c481c9c8755872cc417f76f1",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ARGGOB-2023-08-01.html"
  }
 }
