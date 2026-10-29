@@ -1074,3 +1074,9 @@ contacted again; only web.archive.org captures were read.
   boiler maker (Belenergomash), and NPO Energomash's own site stays excluded under the 403 rule; jdse was not
   contacted again this session. Unresolved stands at 65 of 255 filed; the rest wait on owner definition decisions
   (RS-25, F-1, RD-170, RD-180, LE-7/LE-7A epochs, Vulcain) or on sites that refuse access.
+- Further dead ends (2026-10-29): the Ariane 5 User's Manual Issue 5 Rev 3 (June 2020, archive capture) gives HM7B
+  67 kN / 446 s and Vulcain 2 960 / 1390 kN but no chamber pressures (HM7B, Aestus stay open); no archived Ariane 4
+  manual was found; NTRS has no HM7, Aestus, Vulcain, ELDO or XLR11 documents by title; energia.ru, khrunichev.ru,
+  kbhmisaeva.ru and npoenergomash.ru give no connection, engine.space answers 403, samspace.ru fails TLS
+  verification (not bypassed). The HWK 109-509 wire-mesh sentence traces to a 1998 book (Stuewe) not available
+  here. A paywalled trade article (Aviation Week 2011, Merlin 1D 1,410 psi) was not read through the archive.

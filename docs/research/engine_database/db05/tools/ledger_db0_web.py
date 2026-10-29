@@ -592,7 +592,9 @@ K("CF-EUROPE-20", "ENG-DE-HWK-109-509", "performance.thrust",
 K("CF-EUROPE-21", "ENG-DE-HWK-109-509", "turbines.steam_generator.catalyst",
   [("wire-mesh catalyst", "SRC-WIKI-HWK109509", "W"), ("potassium permanganate catalytic chamber", "SRC-NASM-HWK109509", "T")],
   "UNRESOLVED", "different_variant",
-  "The Smithsonian names a permanganate catalyst; the wire-mesh claim is encyclopedia-only. Builds may have differed.")
+  "The Smithsonian names a permanganate catalyst for the 109-509A-1 (rechecked 2026-10-29 in an archive capture). The "
+  "encyclopedia's wire-mesh sentence cites Botho Stuewe, Peene Muende West (1998), pp.221-222, which was not opened. "
+  "Builds may have differed.")
 K("CF-EUROPE-22", "ENG-DE-BMW-109-718", "performance.thrust",
   [("1,250 kg", "SRC-WIKI-BMW109718", "W"), ("a single 9.8 kN (2,200 lbf) thrust BMW 109-718", "SRC-WARBIRDS-ME262", "T")],
   "UNRESOLVED", "rating_or_rounding",
