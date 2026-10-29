@@ -146,8 +146,10 @@ D(JDSE, identifier="深空探测学报 (Journal of Deep Space Exploration) 2021,
   tier="B", rights_checked="'Copyright © 北京理工大学出版社 (Beijing Institute of Technology Press)' in the journal site data; "
                            "the journal's open-access and copyright pages render only through scripts and were not read",
   rights_class="RESTRICTED_REFERENCE",
-  note="Peer-reviewed paper by the developing institute's engineers. Only the abstract is in the static page (full text loads by "
-       "script and was not read).")
+  note="Peer-reviewed paper by the developing institute's engineers. The abstract is in the static page; the 9-page PDF was "
+       "read on 2026-10-29 from the journal's own preview link (/sktcxb/cn/article/pdf/preview/<DOI>.pdf). Table 3 (p.4) gives "
+       "YF-100 地面推力 1 200 kN and 地面比冲 2 942 m/s; the text calls the engine 单机推力为120 t级. No throttle range, chamber "
+       "pressure or vacuum figures are printed. The full-text values are used as conflict claims only.")
 
 BLOCK("SRC-EUCASS2019-VINCI", "eucass-proceedings.eu returned HTTP 403", "VINCI engine paper (EUCASS 2019): discovery lead only.")
 BLOCK("SRC-SAFRAN-VINCI-2018", "safran-group.com returned HTTP 403", "Vinci 2018 press release: discovery lead only.")

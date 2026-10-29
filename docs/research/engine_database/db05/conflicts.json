@@ -2563,7 +2563,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": null,
-   "explanation": "The Bilibili article delivered no text; nothing opened gives the range."
+   "explanation": "The Bilibili article delivered no text. The developing institute's 2021 paper (full text read 2026-10-29) states only 大范围推力和混合比调节 ('wide-range thrust and mixture-ratio regulation'), with no range."
   },
   {
    "conflict_id": "CF-DB05-W-R2_ASIA-R2A-15",
@@ -2580,11 +2580,16 @@
      "1,188 kN",
      "SRC-BILI-CV15113396",
      "fetched; no extractable text"
+    ],
+    [
+     "表 3 国内外液氧煤油发动机性能对比: YF-100 / 新一代运载火箭 / 补燃循环 / 地面推力 1 200 kN / 地面比冲 2 942 m/s",
+     "SRC-DB05-JDSE-2021-YF100",
+     "深空探测学报 2021 8(4) p.4 (PDF p.4) 表 3, full text via the journal's PDF preview link"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The Bilibili article delivered no text; nothing opened gives the thrust."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The Bilibili article delivered no text. The developing institute's own 2021 paper (Xi'an Aerospace Propulsion Institute, Journal of Deep Space Exploration 8(4), full text read 2026-10-29) prints 地面推力 (sea-level thrust) 1 200 kN in its Table 3, matching the IAC-15 abstract's '1200kN engine'. 1 188 kN has no opened document."
   },
   {
    "conflict_id": "CF-DB05-W-R2_ASIA-R2A-16",

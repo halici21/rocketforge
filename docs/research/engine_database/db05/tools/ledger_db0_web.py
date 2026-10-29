@@ -165,6 +165,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "SP45A": "NASA SP-45 Mercury Project Summary (1963) PDF p.94-97, Atlas propulsion system text",
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
+        "JD": "深空探测学报 2021 8(4) p.4 (PDF p.4) 表 3, full text via the journal's PDF preview link",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -367,10 +368,16 @@ K("CF-R2_ASIA-R2A-12", "ENG-IN-CE-20", "performance.thrust_vac",
   "in that range. Tertiary only.")
 K("CF-R2_ASIA-R2A-14", "ENG-CN-YF-100", "performance.throttle_range",
   [("65-105 %", "SRC-WIKI-YF100", "W"), ("65-100 %", "SRC-BILI-CV15113396", "NX")],
-  "UNRESOLVED", None, "The Bilibili article delivered no text; nothing opened gives the range.")
+  "UNRESOLVED", None, "The Bilibili article delivered no text. The developing institute's 2021 paper (full text read "
+  "2026-10-29) states only 大范围推力和混合比调节 ('wide-range thrust and mixture-ratio regulation'), with no range.")
 K("CF-R2_ASIA-R2A-15", "ENG-CN-YF-100", "performance.thrust_sl",
-  [("1,200 kN", "SRC-WIKI-YF100", "W"), ("1,188 kN", "SRC-BILI-CV15113396", "NX")],
-  "UNRESOLVED", None, "The Bilibili article delivered no text; nothing opened gives the thrust.")
+  [("1,200 kN", "SRC-WIKI-YF100", "W"), ("1,188 kN", "SRC-BILI-CV15113396", "NX"),
+   ("表 3 国内外液氧煤油发动机性能对比: YF-100 / 新一代运载火箭 / 补燃循环 / 地面推力 1 200 kN / 地面比冲 2 942 m/s",
+    "SRC-DB05-JDSE-2021-YF100", "JD")],
+  "RESOLVED", "primary_value_found",
+  "The Bilibili article delivered no text. The developing institute's own 2021 paper (Xi'an Aerospace Propulsion "
+  "Institute, Journal of Deep Space Exploration 8(4), full text read 2026-10-29) prints 地面推力 (sea-level thrust) 1 200 kN "
+  "in its Table 3, matching the IAC-15 abstract's '1200kN engine'. 1 188 kN has no opened document.")
 K("CF-R2_ASIA-R2A-16", "ENG-KR-KRE-075", "performance.pc",
   [("7.0 MPa", "SRC-WIKI-KRE075", "W"), ("60 bars", "SRC-FRWIKI-KRE075", "W"), ("60 bar (design stage, 2009)", "SRC-KSCI-KARI-2009-KRE75", "T")],
   "PARTIALLY_RESOLVED", "different_epoch",

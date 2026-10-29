@@ -884,3 +884,8 @@ LIQ-7 Pump Foundation: PAUSED.
   - CF-DB05-RD0120-THRUST-GIMBAL PARTIALLY_RESOLVED: 200 tf = 1,961 kN; the gimbal angle is open.
 - The 11D58M page carries history but no figures.
 - UNRESOLVED: 105 → 101.
+- CF-DB05-W-R2_ASIA-R2A-15 (YF-100 sea-level thrust) RESOLVED: the developing institute's 2021
+  *Journal of Deep Space Exploration* paper, previously abstract-only, has a static PDF at the
+  journal's preview link (`/sktcxb/cn/article/pdf/preview/<DOI>.pdf`). Its Table 3 prints
+  地面推力 1 200 kN. The manifest is now CARRIED_NOT with nothing shipped. R2A-14 (throttle) stays
+  open: the paper gives no range. UNRESOLVED: 101 → 100.

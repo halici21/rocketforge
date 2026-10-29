@@ -263,8 +263,9 @@ RESEARCH_CONFLICTS = {
         argument="PARTIALLY_RESOLVED in DB-0.5: fan page only; the IHI pump label is illegible; nothing of LE-9 ships."),
     "CF-DB05-W-R2_ASIA-R2A-14": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: the cited article gave no text; no YF-100 throttle range ships."),
-    "CF-DB05-W-R2_ASIA-R2A-15": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: the cited article gave no text; no YF-100 thrust ships."),
+    "CF-DB05-W-R2_ASIA-R2A-15": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="RESOLVED in DB-0.5: the developing institute's 2021 paper prints 1 200 kN sea level; no YF-100 "
+                 "sea-level thrust assertion exists, so nothing ships."),
     "CF-DB05-W-ASIA_OTHER-10": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: two encyclopedia renderings; no YF-75D value ships."),
     "CF-DB05-W-ASIA_OTHER-11": dict(decision="WITHHOLD", withhold=(),
