@@ -1031,3 +1031,21 @@ material in Internet Archive captures (the live pages are gone or script-rendere
   variant list has no RM-3 (US_HIST-08); the BMW 109-718 article gives 1,250 kg both for the combined 003R unit and
   the rocket (EUROPE-22); YF-115 176.5 kN is marked 'citation needed' (ASIA_OTHER-12); the YF-40 article lists two
   chambers at 103 kN (ASIA_OTHER-8). Encyclopedia text is not evidence, so these stay open.
+
+### Pass: archived datasheets and releases (2026-10-29)
+
+Read Internet Archive captures of maker documents whose live URLs return 404 or 429. blueorigin.com itself was not
+contacted again; only web.archive.org captures were read.
+
+- L3Harris sheets: CF-DB05-E-SPACECRAFT-7 (MR-103J) and -8 (MR-111G) EXPLAINED, different_epoch (the 2023 and
+  October 2025 editions both read; the ranges changed between them). SPACECRAFT-5 (R-42, 4.53 kg) and -6 (R-40B,
+  10.5 kg) PARTIALLY_RESOLVED: the June 2023 and February 2024 sheets agree; the July 2024 sheet with the heavier
+  masses has no capture. CF-DB05-E-R2_SCHEM-R2-10 (R-4D-11) PARTIALLY_RESOLVED: 311 s at 164:1, 315.5 s at 300:1.
+- CF-DB05-E-TAXONOMY-TAX-6 (Delphin) RESOLVED: Astra's 2020 press kit gives 6,300 lbf SL per engine, 31,500 for five.
+- BE-4 (CF-DB05-E-COMMERCIAL-COM-9, CF-DB05-E-ANCHOR_US_MODERN-1, CF-DB05-W-R2_SCHEM-R2-5) EXPLAINED, different_epoch:
+  550,000 lbf SL from the 2014 announcement; Blue Origin's 20 November 2025 release calls it the existing capability
+  and announces 640,000 lbf with subcooled propellant.
+- BE-3U (COM-10, ANCHOR_US_MODERN-2) EXPLAINED, different_epoch: 160,000 lbf design, 173,000 lbf for NG-1 (2024),
+  200,000 lbf per engine announced 2025. ANCHOR_US_MODERN-3 (cycle) EXPLAINED, definition: the maker uses both
+  'open-expander' and 'expander bleed'.
+- Unresolved: 80 → 68. Not captured: L3Harris July 2024 bipropellant sheet, RS-68A data sheet (arsuppliernet).

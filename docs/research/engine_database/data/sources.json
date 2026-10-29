@@ -1176,8 +1176,8 @@
     "ENG-US-DELPHIN"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "6,300 lbf SL per engine (Rocket 3.1) per summary; Rocket 3.2 table 6,500 lbf.",
+   "access": "fetched",
+   "notes": "6,300 lbf SL per engine (Rocket 3.1) per summary; Rocket 3.2 table 6,500 lbf. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20200914021239/https://astra.com/wp-content/uploads/2020/08/Rocket-3.1-Launch-Press-Kit.pdf - 6-page Astra press kit, archive capture of 2020-09-14. Vehicle table (p.5): 'Engines Delphin Aether Engine Qty 5 1 Thrust per Engine 6,300 lbf SL 665 lbf vacuum Total Thrust 31,500 lbf SL'. No 6,500 lbf figure is printed.",
    "branches": [
     "taxonomy"
    ]
@@ -1860,8 +1860,8 @@
     "ENG-US-BE-7"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Same source_id as round-1 commercial branch. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
+   "access": "fetched",
+   "notes": "Same source_id as round-1 commercial branch. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20260714070950/https://www.blueorigin.com/engines - Blue Origin engines page, archive capture of 2026-07-14: 'BE-4 Thrust : 640,000 lbf (2,846 kN) with deep throttle capability to 220,000 lbf (978 kN)'; 'BE-3U Thrust : 200,000 lbf (890 kN) with ability to throttle to 100,000 lbf (445 kN)'; 'BE-3U is an open-expander cycle engine.' Read from the archive; blueorigin.com itself was not contacted.",
    "id_collision_titles": [
     "Engines (BE-3PM, BE-3U, BE-4, BE-7)"
    ],
@@ -1936,8 +1936,8 @@
     "ENG-US-BE-3U"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Search summary cited 'engine would fly at 173,000 lbf' and 'each BE-3U generates 160,000 lbf of thrust in vacuum' from Blue releases without pinning which page; the URL here is one candidate, attribution unverified.",
+   "access": "fetched",
+   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Search summary cited 'engine would fly at 173,000 lbf' and 'each BE-3U generates 160,000 lbf of thrust in vacuum' from Blue releases without pinning which page; the URL here is one candidate, attribution unverified. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20240927010748/https://www.blueorigin.com/news/new-glenn-completes-second-stage-hotfire - Blue Origin release datePublished 2024-09-23, archive capture of 2024-09-27: 'BE-3U's elegant expander bleed design ...'; 'Each of the two BE-3Us that will fly on NG-1 were originally designed to yield up to 160,000 lbf of vacuum thrust. The engine has outperformed throughout its test campaign and will fly at 173,000 lbf'.",
    "branches": [
     "commercial"
    ]
@@ -1959,8 +1959,8 @@
     "ENG-US-BE-3U"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Total thrust of two BE-3U increasing from original design 320,000 lbf to 400,000 lbf over next few missions. Date not captured.",
+   "access": "fetched",
+   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Total thrust of two BE-3U increasing from original design 320,000 lbf to 400,000 lbf over next few missions. Date not captured. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20251205152358/https://www.blueorigin.com/news/new-glenn-upgraded-engines-subcooled-components-drive-enhanced-performance - Blue Origin release datePublished 2025-11-20, archive capture of 2025-12-05: 'BE-4 has already demonstrated 625,000 lbf on the test stand at current propellant conditions and will achieve 640,000 lbf later this year, with propellant subcooling increasing the current thrust capability from the existing 550,000 lbf'; 'The total thrust of the two BE-3Us ... is increasing from the original design of 320,000 lbf (1,423 kN) to 400,000 lbf (1,779 kN) thrust over the next few missions. BE-3U has already demonstrated 211,658 lbf ...'.",
    "branches": [
     "commercial"
    ]
@@ -2028,8 +2028,8 @@
     "ENG-US-BE-4"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Development-period figure 550,000 lbf SL (summary said 'press releases from development period'; exact release not pinned). Year 2014 is analyst knowledge, unverified.",
+   "access": "fetched",
+   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Development-period figure 550,000 lbf SL (summary said 'press releases from development period'; exact release not pinned). Year 2014 is analyst knowledge, unverified. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20190727222445/https://www.blueorigin.com/news/ula-and-blue-origin-announce-partnership-to-develop-new-american-rocket-engine - Blue Origin release of 2014, archive capture of 2019-07-27: 'The BE-4 is a liquid oxygen, liquefied natural gas (LNG) rocket engine that delivers 550,000-lbf of thrust at sea level. Two BE-4s will power each ULA booster, providing 1,100,000-lbf thrust at liftoff.'",
    "branches": [
     "commercial"
    ]
@@ -8274,8 +8274,8 @@
     "ENG-US-R-42"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Fetch failed (DNS/proxy). Search summary: R-40B ~10.5 kg, R-42 ~4.53 kg in this revision.",
+   "access": "fetched",
+   "notes": "Fetch failed (DNS/proxy). Search summary: R-40B ~10.5 kg, R-42 ~4.53 kg in this revision. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20251206122630/https://www.l3harris.com/sites/default/files/2023-07/AJRD-LHX_Bipropellant_Rocket_Engines_SpecSheet_CMYK_061423_APPROVED.pdf - 2-page L3Harris sheet '© 2023 ... la0151 23 | 06/2023', archive capture of 2025-12-06. Table rows: 'R-42 890 N 305 sec ... 4.53 kg'; 'R-40B 4,000 N 293 sec ... 10.5 kg'.",
    "branches": [
     "spacecraft"
    ]
@@ -8322,8 +8322,8 @@
     "ENG-US-R-4D-11"
    ],
    "locators": "R-4D-11 row",
-   "access": "not_retrieved",
-   "notes": "Isp in lbf-s/lbm.",
+   "access": "fetched",
+   "notes": "Isp in lbf-s/lbm. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20240305132343/https://www.l3harris.com/sites/default/files/2024-02/L24789-AJRD-LHX-Bipropellant-Rocket-Engines-SpecSheet-APPROVED-022224.pdf - 2-page L3Harris sheet '© 2024 ... L24789 | 02/2024', archive capture of 2024-03-05. Rows: 'R-4D-11 378-511 N 164:1 = 311 sec (lbf/lbm) 300:1= 315.5 sec ... 164:1= 3.76 kg 300:1= 4.31 kg'; 'R-42 890 N 305 sec ... 4.53 kg'; 'R-40B 4,000 N 293 sec ... 10.5 kg'.",
    "branches": [
     "r2_schem"
    ]
@@ -8349,8 +8349,8 @@
     "ENG-US-MR-80B"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Fetch failed. Covers MR-103G, MR-103J, MR-104, MR-106, MR-107, MR-111G, MR-80B. MR-111G 1.8-4.9 N; MR-103J upper 1.13 N (search summary).",
+   "access": "fetched",
+   "notes": "Fetch failed. Covers MR-103G, MR-103J, MR-104, MR-106, MR-107, MR-111G, MR-80B. MR-111G 1.8-4.9 N; MR-103J upper 1.13 N (search summary). DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20240201063211/https://www.l3harris.com/sites/default/files/2023-07/AJRD-LHX_Monopropellant_Rocket_Engines_SpecSheet_CMYK_061423_APPROVED.pdf - 2-page L3Harris sheet, archive capture of 2024-02-01. Rows (thrust in N): 'MR-103J 1.13-0.19 N 224-202 sec ... 0.37 kg'; 'MR-111G 4.9-1.8 N 229-219 sec ... 0.37 kg'.",
    "branches": [
     "spacecraft"
    ]
@@ -8379,8 +8379,8 @@
     "ENG-US-MR-111G"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Fetch failed. MR-103J ~0.19-1.19 N; MR-111G ~0.9-5.7 N; MR-106L, MR-106M; MR-107T/V/U/S.",
+   "access": "fetched",
+   "notes": "Fetch failed. MR-103J ~0.19-1.19 N; MR-111G ~0.9-5.7 N; MR-106L, MR-106M; MR-107T/V/U/S. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20260325113549/https://www.l3harris.com/sites/default/files/2025-10/l3harris-ar-monopropellant-rocket-engines.pdf - 2-page L3Harris sheet (2025-10 path), archive capture of 2026-03-25; thrust in lbf with N in parentheses. Rows: 'MR-103J 0.2 lbf 0.043-0.27 (0.19-1.19) 202-224 ...'; 'MR-111G 1 lbf 0.2-1.3 (0.9-5.7) 219-230 ...'.",
    "branches": [
     "spacecraft"
    ]

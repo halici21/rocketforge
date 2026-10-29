@@ -3954,11 +3954,21 @@
      "BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each",
      "SRC-DB05-ULA-VULCAN-UG-2023",
      "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1"
+    ],
+    [
+     "BE-4 Thrust : 640,000 lbf (2,846 kN)",
+     "SRC-BLUE-ENGINES",
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
+    ],
+    [
+     "will achieve 640,000 lbf later this year, with propellant subcooling increasing the current thrust capability from the existing 550,000 lbf (2025-11-20)",
+     "SRC-BLUE-NG-UPGRADE",
+     "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level for the Vulcan installation. The 640,000 lbf is reported by secondary pages as a later Blue Origin uprate; the Blue Origin pages return HTTP 429, so neither the figure nor its date was opened."
+   "explanation": "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level. Blue Origin's release of 20 November 2025, read from an archive capture, calls 550,000 lbf the existing capability and 640,000 lbf the uprate from propellant subcooling, which its engines page now prints. Two dated ratings; whether Vulcan adopts the uprate is not stated."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SCHEM-R2-7",
@@ -5605,9 +5615,9 @@
    "field_path": "performance.isp_vac",
    "claims": [
     [
-     "315.5 s at 300:1; 311 s at 164:1",
+     "R-4D-11 378-511 N 164:1 = 311 sec (lbf/lbm) 300:1= 315.5 sec (lbf/lbm)",
      "SRC-L3H-LHX-SPECSHEET-2024",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris bipropellant sheet L24789 02/2024, table (archive capture 2024-03-05)"
     ],
     [
      "specific_impulse_vacuum 312 s",
@@ -5615,9 +5625,9 @@
      "encyclopedia page text, current revision (fetched 2026-10-28)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_configuration",
-   "explanation": "The specification sheet returns 404; the encyclopedia gives one family value without an area ratio. No primary document opened; the record stays open."
+   "explanation": "The maker's February 2024 sheet, read from an archive capture, gives the R-4D-11 by nozzle: 311 s at area ratio 164:1 and 315.5 s at 300:1. The encyclopedia's 312 s names no area ratio and matches neither row; it has no maker source."
   },
   {
    "conflict_id": "CF-DB05-E-US_HIST-04",
@@ -5835,19 +5845,24 @@
    "field_path": "performance.thrust_sl",
    "claims": [
     [
-     "550,000 lbf (development period)",
+     "delivers 550,000-lbf of thrust at sea level (2014)",
      "SRC-BLUE-ULA-PARTNERSHIP",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Blue Origin/ULA partnership release (2014), body text (archive capture 2019-07-27)"
     ],
     [
-     "640,000 lbf (2,846 kN)",
+     "BE-4 Thrust : 640,000 lbf (2,846 kN)",
      "SRC-BLUE-ENGINES",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
+    ],
+    [
+     "demonstrated 625,000 lbf ... will achieve 640,000 lbf later this year, with propellant subcooling increasing the current thrust capability from the existing 550,000 lbf (2025-11-20)",
+     "SRC-BLUE-NG-UPGRADE",
+     "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_configuration",
-   "explanation": "Both Blue Origin pages returned HTTP 429 (rate limit). ULA's fact sheet gives 550,000 lbf for Vulcan (CF-DB05-W-R2_SCHEM-R2-5)."
+   "resolution": "EXPLAINED",
+   "kind": "different_epoch",
+   "explanation": "Blue Origin's own releases, read from archive captures, date both numbers: 550,000 lbf at sea level from the 2014 announcement through 2025, and 640,000 lbf from propellant subcooling announced on 20 November 2025, which the engines page now prints. ULA's 550,000 lbf for Vulcan is the earlier rating (CF-DB05-W-R2_SCHEM-R2-5)."
   },
   {
    "conflict_id": "CF-DB05-E-ANCHOR_US_MODERN-1",
@@ -5864,11 +5879,21 @@
      "550,000 lbf",
      "SRC-BLUE-PRESS-BE4-EARLY",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "BE-4 Thrust : 640,000 lbf (2,846 kN)",
+     "SRC-BLUE-ENGINES",
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
+    ],
+    [
+     "increasing the current thrust capability from the existing 550,000 lbf (2025-11-20)",
+     "SRC-BLUE-NG-UPGRADE",
+     "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "No URLs registered for these two Blue Origin pages. No primary document opened; the record stays open."
+   "explanation": "The same pair as CF-DB05-E-COMMERCIAL-COM-9: Blue Origin's November 2025 release calls 550,000 lbf the existing capability and 640,000 lbf the subcooled uprate, which its engines page now prints."
   },
   {
    "conflict_id": "CF-DB05-E-COMMERCIAL-COM-10",
@@ -5877,24 +5902,24 @@
    "field_path": "performance.thrust_vac",
    "claims": [
     [
-     "160,000 / 173,000 lbf",
+     "originally designed to yield up to 160,000 lbf of vacuum thrust ... will fly at 173,000 lbf (2024-09-23)",
      "SRC-BLUE-NEWS-BE3U-MISC",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Blue Origin release 2024-09-23 'New Glenn completes second stage hotfire' (archive capture 2024-09-27)"
     ],
     [
-     "320,000 -> 400,000 lbf for two engines",
+     "two BE-3Us ... increasing from the original design of 320,000 lbf (1,423 kN) to 400,000 lbf (1,779 kN); demonstrated 211,658 lbf (2025-11-20)",
      "SRC-BLUE-NG-UPGRADE",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)"
     ],
     [
-     "200,000 lbf",
+     "BE-3U Thrust : 200,000 lbf (890 kN)",
      "SRC-BLUE-ENGINES",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "All Blue Origin pages returned HTTP 429. No primary document opened; the record stays open."
+   "explanation": "Blue Origin's releases, read from archive captures, give a dated series: 160,000 lbf vacuum design, 173,000 lbf for NG-1 (September 2024), and an uprate to 200,000 lbf per engine (400,000 for two) announced in November 2025, the figure the engines page prints. A time series, not a disagreement."
   },
   {
    "conflict_id": "CF-DB05-E-ANCHOR_US_MODERN-2",
@@ -5911,11 +5936,21 @@
      "173,000 / 160,000 lbf; stage 320,000 -> 400,000 lbf",
      "SRC-BLUE-PRESS-BE3U-UPDATES",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "BE-3U Thrust : 200,000 lbf (890 kN)",
+     "SRC-BLUE-ENGINES",
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
+    ],
+    [
+     "originally designed to yield up to 160,000 lbf of vacuum thrust ... will fly at 173,000 lbf",
+     "SRC-BLUE-NEWS-BE3U-MISC",
+     "Blue Origin release 2024-09-23 'New Glenn completes second stage hotfire' (archive capture 2024-09-27)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "No URLs registered. No primary document opened; the record stays open."
+   "explanation": "The same series as CF-DB05-E-COMMERCIAL-COM-10, now read in Blue Origin's own releases."
   },
   {
    "conflict_id": "CF-DB05-E-TAXONOMY-TAX-1",
@@ -5953,11 +5988,21 @@
      "Cycle Expander bleed",
      "SRC-WIKI-BE3",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "BE-3U is an open-expander cycle engine.",
+     "SRC-BLUE-ENGINES",
+     "blueorigin.com/engines, engine panels (archive capture 2026-07-14)"
+    ],
+    [
+     "BE-3U's elegant expander bleed design",
+     "SRC-BLUE-NEWS-BE3U-MISC",
+     "Blue Origin release 2024-09-23 'New Glenn completes second stage hotfire' (archive capture 2024-09-27)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "definition",
-   "explanation": "The encyclopedia now says expander bleed; the maker's page (no URL registered) was not opened. 'Open expander' and 'expander bleed' name the same cycle family."
+   "explanation": "Blue Origin itself uses both terms: its engines page calls the BE-3U 'an open-expander cycle engine' and its September 2024 release speaks of its 'expander bleed design'. Open expander and expander bleed are two names for the same cycle."
   },
   {
    "conflict_id": "CF-DB05-E-COMMERCIAL-COM-17",
@@ -6212,19 +6257,24 @@
    "field_path": "mechanical.mass",
    "claims": [
     [
-     "~4.53 kg",
+     "R-42 890 N 305 sec ... 4.53 kg",
      "SRC-L3H-BIPROP-2023",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris bipropellant sheet 06/2023, table (archive capture 2025-12-06)"
     ],
     [
      "~6.58 kg",
      "SRC-L3H-BIPROP-2024",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "R-42 890 N 305 sec ... 4.53 kg (02/2024 edition)",
+     "SRC-L3H-LHX-SPECSHEET-2024",
+     "L3Harris bipropellant sheet L24789 02/2024, table (archive capture 2024-03-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+   "explanation": "Two maker sheets, June 2023 and February 2024, read from archive captures, both give the R-42 4.53 kg. The July 2024 sheet with 6.58 kg has no archive capture, so whether it describes a heavier build or another definition is not seen."
   },
   {
    "conflict_id": "CF-DB05-E-SPACECRAFT-6",
@@ -6233,19 +6283,24 @@
    "field_path": "mechanical.mass",
    "claims": [
     [
-     "~10.5 kg",
+     "R-40B 4,000 N 293 sec ... 10.5 kg",
      "SRC-L3H-BIPROP-2023",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris bipropellant sheet 06/2023, table (archive capture 2025-12-06)"
     ],
     [
      "~15.9 kg",
      "SRC-L3H-BIPROP-2024",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "R-40B 4,000 N 293 sec ... 10.5 kg (02/2024 edition)",
+     "SRC-L3H-LHX-SPECSHEET-2024",
+     "L3Harris bipropellant sheet L24789 02/2024, table (archive capture 2024-03-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+   "explanation": "The June 2023 and February 2024 maker sheets both give the R-40B 10.5 kg. The July 2024 sheet's 15.9 kg has no archive capture and stays unread."
   },
   {
    "conflict_id": "CF-DB05-E-SPACECRAFT-7",
@@ -6254,19 +6309,19 @@
    "field_path": "performance.thrust_range",
    "claims": [
     [
-     "upper 1.13 N",
+     "MR-103J 1.13-0.19 N",
      "SRC-L3H-MONO-2023",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris monopropellant sheet 06/2023, table (archive capture 2024-02-01)"
     ],
     [
-     "upper 1.19 N",
+     "MR-103J 0.043-0.27 (0.19-1.19) [lbf (N)]",
      "SRC-L3H-MONO-2025",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris monopropellant sheet 2025-10, table (archive capture 2026-03-25)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+   "explanation": "Both maker sheets read from archive captures. The 2023 edition gives 1.13-0.19 N; the October 2025 edition gives 0.043-0.27 lbf with 0.19-1.19 N in parentheses. The later sheet carries the higher upper limit; which edition is current is a matter of date, and 0.27 lbf is 1.20 N DERIVED."
   },
   {
    "conflict_id": "CF-DB05-E-SPACECRAFT-8",
@@ -6275,19 +6330,19 @@
    "field_path": "performance.thrust_range",
    "claims": [
     [
-     "1.8-4.9 N",
+     "MR-111G 4.9-1.8 N",
      "SRC-L3H-MONO-2023",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris monopropellant sheet 06/2023, table (archive capture 2024-02-01)"
     ],
     [
-     "0.9-5.7 N",
+     "MR-111G 1 lbf 0.2-1.3 (0.9-5.7) [lbf (N)]",
      "SRC-L3H-MONO-2025",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "L3Harris monopropellant sheet 2025-10, table (archive capture 2026-03-25)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_epoch",
-   "explanation": "Both L3Harris datasheet URLs return 404 now. No primary document opened; the record stays open."
+   "explanation": "Both maker sheets read from archive captures: 4.9-1.8 N in the 2023 edition, 0.2-1.3 lbf (0.9-5.7 N) in the October 2025 edition. The range was widened between editions."
   },
   {
    "conflict_id": "CF-DB05-E-TAXONOMY-TAX-6",
@@ -6296,14 +6351,14 @@
    "field_path": "performance.thrust_sl",
    "claims": [
     [
-     "6,300 lbf",
+     "Thrust per Engine 6,300 lbf SL ... Total Thrust 31,500 lbf SL",
      "SRC-ASTRA-R31-PRESSKIT",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Astra Rocket 3.1 press kit (2020), vehicle table p.5 (archive capture 2020-09-14)"
     ],
     [
      "6,500 lbf",
      "SRC-ASTRA-R31-PRESSKIT",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "fetched; not in the current revision's text"
     ],
     [
      "Powered by 5 Delphin, Maximum thrust c. 32,500 lbf (145 kN)",
@@ -6311,9 +6366,9 @@
      "encyclopedia page text, current revision (fetched 2026-10-28)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "The article gives 32,500 lbf for five engines (6,500 lbf each DERIVED); the press kit returns 404, so its 6,300 against 6,500 lbf cannot be checked."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Astra's Rocket 3.1 press kit (2020), read from an archive capture, gives 6,300 lbf per Delphin at sea level and 31,500 lbf for five. It prints no 6,500 lbf; the encyclopedia's 32,500 lbf total (6,500 each DERIVED) has no maker source. Later Rocket 3.x builds are not covered by the kit."
   }
  ]
 }

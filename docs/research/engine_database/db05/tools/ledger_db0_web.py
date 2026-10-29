@@ -185,6 +185,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "SX18": "spacex.com/falcon9, Merlin Vacuum panel (archive capture 2018-02-08)",
         "SXU2": "Falcon 9 Payload User's Guide Rev 2 (2015-10-21), PDF p.11 text and table (archive capture 2017-03-14)",
         "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
+        "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
+        "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -694,11 +696,15 @@ K("CF-R2_SCHEM-R2-15", "ENG-US-RAPTOR-2", "identity.rating_attribution",
   "UNRESOLVED", None, "The SpaceX page delivered no text.")
 K("CF-R2_SCHEM-R2-5", "ENG-US-BE-4", "performance.thrust_sl",
   [("550,000 lbf", "SRC-ULA-BE4-FACTSHEET", "T"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-NEWGLENN-PAGE", "N"),
-   ("BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each", "SRC-DB05-ULA-VULCAN-UG-2023", "VUG")],
-  "UNRESOLVED", "different_epoch",
-  "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level for the Vulcan "
-  "installation. The 640,000 lbf is reported by secondary pages as a later Blue Origin uprate; the Blue Origin pages "
-  "return HTTP 429, so neither the figure nor its date was opened.")
+   ("BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each", "SRC-DB05-ULA-VULCAN-UG-2023", "VUG"),
+   ("BE-4 Thrust : 640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES", "BOE"),
+   ("will achieve 640,000 lbf later this year, with propellant subcooling increasing the current thrust capability from "
+    "the existing 550,000 lbf (2025-11-20)", "SRC-BLUE-NG-UPGRADE", "BOU")],
+  "EXPLAINED", "different_epoch",
+  "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level. Blue Origin's "
+  "release of 20 November 2025, read from an archive capture, calls 550,000 lbf the existing capability and 640,000 lbf "
+  "the uprate from propellant subcooling, which its engines page now prints. Two dated ratings; whether Vulcan adopts "
+  "the uprate is not stated.")
 K("CF-R2_SCHEM-R2-7", "ENG-US-MERLIN-1D", "performance.thrust_sl",
   [("845 kN (190,000 lbf)", "SRC-SPACEX-FUG-2025", "T"), ("854 kN / 190,000 lbf", "SRC-WEVOLVER-MERLIN", "T"), ("854 kN", "SRC-UC-OLLI-SPACEX", "T")],
   "EXPLAINED", "unit",

@@ -56,6 +56,15 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "NL4": "nammo.com LEROS 4 product page: introduction text and specification table (fetched 2026-10-29)",
         "AG1": "argentina.gob.ar/node/71704 (Tronador II programme page), body text",
         "AG2": "argentina.gob.ar/node/390734 (release of 2023-08-01), body text",
+        "L3B23": "L3Harris bipropellant sheet 06/2023, table (archive capture 2025-12-06)",
+        "L3B24": "L3Harris bipropellant sheet L24789 02/2024, table (archive capture 2024-03-05)",
+        "L3M23": "L3Harris monopropellant sheet 06/2023, table (archive capture 2024-02-01)",
+        "L3M25": "L3Harris monopropellant sheet 2025-10, table (archive capture 2026-03-25)",
+        "AST": "Astra Rocket 3.1 press kit (2020), vehicle table p.5 (archive capture 2020-09-14)",
+        "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
+        "BOH": "Blue Origin release 2024-09-23 'New Glenn completes second stage hotfire' (archive capture 2024-09-27)",
+        "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
+        "BOP": "Blue Origin/ULA partnership release (2014), body text (archive capture 2019-07-27)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -365,9 +374,11 @@ K("CF-R2_SCHEM-R2-6", "ENG-US-BE-4", "performance.pc",
   [("134 bar (older revision via mirror)", "SRC-WIKI-BE4", "NF"), ("chamber_pressure 140 bar", "SRC-WIKI-BE4", "T")],
   "EXPLAINED", "different_epoch", "Two revisions: the current one prints 140 bar. Neither is a Blue Origin value.")
 K("CF-R2_SCHEM-R2-10", "ENG-US-R-4D-11", "performance.isp_vac",
-  [("315.5 s at 300:1; 311 s at 164:1", "SRC-L3H-LHX-SPECSHEET-2024", "N"), ("specific_impulse_vacuum 312 s", "SRC-WIKI-R4D", "T")],
-  "UNRESOLVED", "different_configuration",
-  "The specification sheet returns 404; the encyclopedia gives one family value without an area ratio. " + _PRIMARY)
+  [("R-4D-11 378-511 N 164:1 = 311 sec (lbf/lbm) 300:1= 315.5 sec (lbf/lbm)", "SRC-L3H-LHX-SPECSHEET-2024", "L3B24"),
+   ("specific_impulse_vacuum 312 s", "SRC-WIKI-R4D", "T")],
+  "PARTIALLY_RESOLVED", "different_configuration",
+  "The maker's February 2024 sheet, read from an archive capture, gives the R-4D-11 by nozzle: 311 s at area ratio 164:1 "
+  "and 315.5 s at 300:1. The encyclopedia's 312 s names no area ratio and matches neither row; it has no maker source.")
 K("CF-US_HIST-04", "ENG-US-RS-68", "performance.thrust_sl / performance.pc",
   [("663,000 pounds-force (2,950 kN) at sea level (prose)", "SRC-WIKI-RS68", "T"), ("RS-68: 2,950 kN (660,000 lbf) (infobox)", "SRC-WIKI-RS68", "T"),
    ("RS-68A Pc 1,580 psia", "SRC-L3H-RS68A-DS", "N")],
@@ -426,28 +437,45 @@ K("CF-COMMERCIAL-COM-8", "ENG-US-RAPTOR-1", "performance.thrust_sl",
   [("Raptor 1: 185 tf", "SRC-WIKI-RAPTOR", "T"), ("Max demonstrated Raptor thrust is ~225 tons (Musk post, cited)", "SRC-WIKI-RAPTOR", "T")],
   "EXPLAINED", "different_operating_point", "A nominal value and a maximum demonstrated in test, in one article.")
 K("CF-COMMERCIAL-COM-9", "ENG-US-BE-4", "performance.thrust_sl",
-  [("550,000 lbf (development period)", "SRC-BLUE-ULA-PARTNERSHIP", "N"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES", "N")],
-  "UNRESOLVED", "different_configuration",
-  "Both Blue Origin pages returned HTTP 429 (rate limit). ULA's fact sheet gives 550,000 lbf for Vulcan "
-  "(CF-DB05-W-R2_SCHEM-R2-5).")
+  [("delivers 550,000-lbf of thrust at sea level (2014)", "SRC-BLUE-ULA-PARTNERSHIP", "BOP"),
+   ("BE-4 Thrust : 640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES", "BOE"),
+   ("demonstrated 625,000 lbf ... will achieve 640,000 lbf later this year, with propellant subcooling increasing the current "
+    "thrust capability from the existing 550,000 lbf (2025-11-20)", "SRC-BLUE-NG-UPGRADE", "BOU")],
+  "EXPLAINED", "different_epoch",
+  "Blue Origin's own releases, read from archive captures, date both numbers: 550,000 lbf at sea level from the 2014 "
+  "announcement through 2025, and 640,000 lbf from propellant subcooling announced on 20 November 2025, which the engines "
+  "page now prints. ULA's 550,000 lbf for Vulcan is the earlier rating (CF-DB05-W-R2_SCHEM-R2-5).")
 K("CF-ANCHOR_US_MODERN-1", "ENG-US-BE-4", "performance.thrust_sl",
-  [("640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES-PAGE", "N"), ("550,000 lbf", "SRC-BLUE-PRESS-BE4-EARLY", "N")],
-  "UNRESOLVED", "different_epoch", "No URLs registered for these two Blue Origin pages. " + _PRIMARY)
+  [("640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES-PAGE", "N"), ("550,000 lbf", "SRC-BLUE-PRESS-BE4-EARLY", "N"),
+   ("BE-4 Thrust : 640,000 lbf (2,846 kN)", "SRC-BLUE-ENGINES", "BOE"),
+   ("increasing the current thrust capability from the existing 550,000 lbf (2025-11-20)", "SRC-BLUE-NG-UPGRADE", "BOU")],
+  "EXPLAINED", "different_epoch",
+  "The same pair as CF-DB05-E-COMMERCIAL-COM-9: Blue Origin's November 2025 release calls 550,000 lbf the existing "
+  "capability and 640,000 lbf the subcooled uprate, which its engines page now prints.")
 K("CF-COMMERCIAL-COM-10", "ENG-US-BE-3U", "performance.thrust_vac",
-  [("160,000 / 173,000 lbf", "SRC-BLUE-NEWS-BE3U-MISC", "N"), ("320,000 -> 400,000 lbf for two engines", "SRC-BLUE-NG-UPGRADE", "N"),
-   ("200,000 lbf", "SRC-BLUE-ENGINES", "N")],
-  "UNRESOLVED", "different_epoch", "All Blue Origin pages returned HTTP 429. " + _PRIMARY)
+  [("originally designed to yield up to 160,000 lbf of vacuum thrust ... will fly at 173,000 lbf (2024-09-23)", "SRC-BLUE-NEWS-BE3U-MISC", "BOH"),
+   ("two BE-3Us ... increasing from the original design of 320,000 lbf (1,423 kN) to 400,000 lbf (1,779 kN); demonstrated "
+    "211,658 lbf (2025-11-20)", "SRC-BLUE-NG-UPGRADE", "BOU"),
+   ("BE-3U Thrust : 200,000 lbf (890 kN)", "SRC-BLUE-ENGINES", "BOE")],
+  "EXPLAINED", "different_epoch",
+  "Blue Origin's releases, read from archive captures, give a dated series: 160,000 lbf vacuum design, 173,000 lbf for "
+  "NG-1 (September 2024), and an uprate to 200,000 lbf per engine (400,000 for two) announced in November 2025, the "
+  "figure the engines page prints. A time series, not a disagreement.")
 K("CF-ANCHOR_US_MODERN-2", "ENG-US-BE-3U", "performance.thrust_vac",
-  [("200,000 lbf", "SRC-BLUE-ENGINES-PAGE", "N"), ("173,000 / 160,000 lbf; stage 320,000 -> 400,000 lbf", "SRC-BLUE-PRESS-BE3U-UPDATES", "N")],
-  "UNRESOLVED", "different_epoch", "No URLs registered. " + _PRIMARY)
+  [("200,000 lbf", "SRC-BLUE-ENGINES-PAGE", "N"), ("173,000 / 160,000 lbf; stage 320,000 -> 400,000 lbf", "SRC-BLUE-PRESS-BE3U-UPDATES", "N"),
+   ("BE-3U Thrust : 200,000 lbf (890 kN)", "SRC-BLUE-ENGINES", "BOE"),
+   ("originally designed to yield up to 160,000 lbf of vacuum thrust ... will fly at 173,000 lbf", "SRC-BLUE-NEWS-BE3U-MISC", "BOH")],
+  "EXPLAINED", "different_epoch", "The same series as CF-DB05-E-COMMERCIAL-COM-10, now read in Blue Origin's own releases.")
 K("CF-TAXONOMY-TAX-1", "ENG-US-BE-3U", "cycle",
   [("open expander", "SRC-WIKI-BE3U", "NF"), ("Cycle Expander bleed", "SRC-WIKI-BE3U", "T")],
   "EXPLAINED", "different_epoch", "The current revision says expander bleed; 'open expander' was an earlier wording.")
 K("CF-ANCHOR_US_MODERN-3", "ENG-US-BE-3U", "cycle",
-  [("open expander", "SRC-BLUE-ENGINES-PAGE", "N"), ("Cycle Expander bleed", "SRC-WIKI-BE3", "T")],
-  "UNRESOLVED", "definition",
-  "The encyclopedia now says expander bleed; the maker's page (no URL registered) was not opened. 'Open expander' and "
-  "'expander bleed' name the same cycle family.")
+  [("open expander", "SRC-BLUE-ENGINES-PAGE", "N"), ("Cycle Expander bleed", "SRC-WIKI-BE3", "T"),
+   ("BE-3U is an open-expander cycle engine.", "SRC-BLUE-ENGINES", "BOE"),
+   ("BE-3U's elegant expander bleed design", "SRC-BLUE-NEWS-BE3U-MISC", "BOH")],
+  "EXPLAINED", "definition",
+  "Blue Origin itself uses both terms: its engines page calls the BE-3U 'an open-expander cycle engine' and its September "
+  "2024 release speaks of its 'expander bleed design'. Open expander and expander bleed are two names for the same cycle.")
 K("CF-COMMERCIAL-COM-17", "ENG-US-MERLIN-1D-BLOCK-5", "performance.isp",
   [("282 s SL / 311 s vac, flagged 'Figures ... do not reflect current engine performance'", "SRC-WIKI-MERLIN", "T"),
    ("282 / 311 s (c. 2013)", "SRC-SLR-F9-SMA", "N")],
@@ -503,23 +531,35 @@ K("CF-ASIA_OTHER-9", "ENG-CN-YF-73", "history.first_flight",
   "EXPLAINED", "rating_or_rounding",
   "The article prints 1984-01-29; the mirror's 1987 is a transcription slip (same day and month).")
 K("CF-SPACECRAFT-5", "ENG-US-R-42", "mechanical.mass",
-  [("~4.53 kg", "SRC-L3H-BIPROP-2023", "N"), ("~6.58 kg", "SRC-L3H-BIPROP-2024", "N")],
-  "UNRESOLVED", "different_epoch", "Both L3Harris datasheet URLs return 404 now. " + _PRIMARY)
+  [("R-42 890 N 305 sec ... 4.53 kg", "SRC-L3H-BIPROP-2023", "L3B23"), ("~6.58 kg", "SRC-L3H-BIPROP-2024", "N"),
+   ("R-42 890 N 305 sec ... 4.53 kg (02/2024 edition)", "SRC-L3H-LHX-SPECSHEET-2024", "L3B24")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "Two maker sheets, June 2023 and February 2024, read from archive captures, both give the R-42 4.53 kg. The July 2024 "
+  "sheet with 6.58 kg has no archive capture, so whether it describes a heavier build or another definition is not seen.")
 K("CF-SPACECRAFT-6", "ENG-US-R-40B", "mechanical.mass",
-  [("~10.5 kg", "SRC-L3H-BIPROP-2023", "N"), ("~15.9 kg", "SRC-L3H-BIPROP-2024", "N")],
-  "UNRESOLVED", "different_epoch", "Both L3Harris datasheet URLs return 404 now. " + _PRIMARY)
+  [("R-40B 4,000 N 293 sec ... 10.5 kg", "SRC-L3H-BIPROP-2023", "L3B23"), ("~15.9 kg", "SRC-L3H-BIPROP-2024", "N"),
+   ("R-40B 4,000 N 293 sec ... 10.5 kg (02/2024 edition)", "SRC-L3H-LHX-SPECSHEET-2024", "L3B24")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "The June 2023 and February 2024 maker sheets both give the R-40B 10.5 kg. The July 2024 sheet's 15.9 kg has no archive "
+  "capture and stays unread.")
 K("CF-SPACECRAFT-7", "ENG-US-MR-103J", "performance.thrust_range",
-  [("upper 1.13 N", "SRC-L3H-MONO-2023", "N"), ("upper 1.19 N", "SRC-L3H-MONO-2025", "N")],
-  "UNRESOLVED", "different_epoch", "Both L3Harris datasheet URLs return 404 now. " + _PRIMARY)
+  [("MR-103J 1.13-0.19 N", "SRC-L3H-MONO-2023", "L3M23"), ("MR-103J 0.043-0.27 (0.19-1.19) [lbf (N)]", "SRC-L3H-MONO-2025", "L3M25")],
+  "EXPLAINED", "different_epoch",
+  "Both maker sheets read from archive captures. The 2023 edition gives 1.13-0.19 N; the October 2025 edition gives "
+  "0.043-0.27 lbf with 0.19-1.19 N in parentheses. The later sheet carries the higher upper limit; which edition is current "
+  "is a matter of date, and 0.27 lbf is 1.20 N DERIVED.")
 K("CF-SPACECRAFT-8", "ENG-US-MR-111G", "performance.thrust_range",
-  [("1.8-4.9 N", "SRC-L3H-MONO-2023", "N"), ("0.9-5.7 N", "SRC-L3H-MONO-2025", "N")],
-  "UNRESOLVED", "different_epoch", "Both L3Harris datasheet URLs return 404 now. " + _PRIMARY)
+  [("MR-111G 4.9-1.8 N", "SRC-L3H-MONO-2023", "L3M23"), ("MR-111G 1 lbf 0.2-1.3 (0.9-5.7) [lbf (N)]", "SRC-L3H-MONO-2025", "L3M25")],
+  "EXPLAINED", "different_epoch",
+  "Both maker sheets read from archive captures: 4.9-1.8 N in the 2023 edition, 0.2-1.3 lbf (0.9-5.7 N) in the October "
+  "2025 edition. The range was widened between editions.")
 K("CF-TAXONOMY-TAX-6", "ENG-US-DELPHIN", "performance.thrust_sl",
-  [("6,300 lbf", "SRC-ASTRA-R31-PRESSKIT", "N"), ("6,500 lbf", "SRC-ASTRA-R31-PRESSKIT", "N"),
+  [("Thrust per Engine 6,300 lbf SL ... Total Thrust 31,500 lbf SL", "SRC-ASTRA-R31-PRESSKIT", "AST"), ("6,500 lbf", "SRC-ASTRA-R31-PRESSKIT", "NF"),
    ("Powered by 5 Delphin, Maximum thrust c. 32,500 lbf (145 kN)", "SRC-WIKI-ASTRA-ROCKET", "T")],
-  "UNRESOLVED", "rating_or_rounding",
-  "The article gives 32,500 lbf for five engines (6,500 lbf each DERIVED); the press kit returns 404, so its 6,300 "
-  "against 6,500 lbf cannot be checked.")
+  "RESOLVED", "primary_value_found",
+  "Astra's Rocket 3.1 press kit (2020), read from an archive capture, gives 6,300 lbf per Delphin at sea level and "
+  "31,500 lbf for five. It prints no 6,500 lbf; the encyclopedia's 32,500 lbf total (6,500 each DERIVED) has no maker "
+  "source. Later Rocket 3.x builds are not covered by the kit.")
 
 D("SRC-DB05-NASDA-LE7A-FT6-1997", identifier="宇宙開発委員会 第16回 資料 委16-4 (1997-05-14), MEXT archive PDF",
   title="LE－7Aエンジン燃焼試験結果（種子島第6回）について", tier="A",
@@ -642,3 +682,39 @@ D("SRC-DB05-ARGGOB-TRONADOR2", identifier='https://www.argentina.gob.ar/node/717
 D("SRC-DB05-ARGGOB-2023-08-01", identifier='https://www.argentina.gob.ar/node/390734', title='Se llevó a cabo un ensayo de motor clave para el lanzador Tronador II (Argentina.gob.ar, 2023-08-01)', tier="A",
   rights_checked="government web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Government release of 1 August 2023: a prototype of the 'motor de segunda etapa que llevará la versión final del Tronador II' (engine RS2) was tested at Valthe, Córdoba; 'tecnología desarrollada y fabricada en el país, cuyo combustible es oxígeno líquido y kerosene'. Used as a conflict claim only.")
+
+D("SRC-L3H-BIPROP-2023", identifier='https://web.archive.org/web/20251206122630/https://www.l3harris.com/sites/default/files/2023-07/AJRD-LHX_Bipropellant_Rocket_Engines_SpecSheet_CMYK_061423_APPROVED.pdf', title='AJRD/L3Harris Bipropellant Rocket Engines spec sheet (06/2023)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. 2-page L3Harris sheet '© 2023 ... la0151 23 | 06/2023', archive capture of 2025-12-06. Table rows: 'R-42 890 N 305 sec ... 4.53 kg'; 'R-40B 4,000 N 293 sec ... 10.5 kg'. Used as a conflict claim only.")
+
+D("SRC-L3H-LHX-SPECSHEET-2024", identifier='https://web.archive.org/web/20240305132343/https://www.l3harris.com/sites/default/files/2024-02/L24789-AJRD-LHX-Bipropellant-Rocket-Engines-SpecSheet-APPROVED-022224.pdf', title='Bipropellant Rocket Engines spec sheet (L24789, 02/2024)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. 2-page L3Harris sheet '© 2024 ... L24789 | 02/2024', archive capture of 2024-03-05. Rows: 'R-4D-11 378-511 N 164:1 = 311 sec (lbf/lbm) 300:1= 315.5 sec ... 164:1= 3.76 kg 300:1= 4.31 kg'; 'R-42 890 N 305 sec ... 4.53 kg'; 'R-40B 4,000 N 293 sec ... 10.5 kg'. Used as a conflict claim only.")
+
+D("SRC-L3H-MONO-2023", identifier='https://web.archive.org/web/20240201063211/https://www.l3harris.com/sites/default/files/2023-07/AJRD-LHX_Monopropellant_Rocket_Engines_SpecSheet_CMYK_061423_APPROVED.pdf', title='AJRD/L3Harris Monopropellant Rocket Engines spec sheet (06/2023)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. 2-page L3Harris sheet, archive capture of 2024-02-01. Rows (thrust in N): 'MR-103J 1.13-0.19 N 224-202 sec ... 0.37 kg'; 'MR-111G 4.9-1.8 N 229-219 sec ... 0.37 kg'. Used as a conflict claim only.")
+
+D("SRC-L3H-MONO-2025", identifier='https://web.archive.org/web/20260325113549/https://www.l3harris.com/sites/default/files/2025-10/l3harris-ar-monopropellant-rocket-engines.pdf', title='L3Harris AR monopropellant rocket engines sheet (Oct 2025)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. 2-page L3Harris sheet (2025-10 path), archive capture of 2026-03-25; thrust in lbf with N in parentheses. Rows: 'MR-103J 0.2 lbf 0.043-0.27 (0.19-1.19) 202-224 ...'; 'MR-111G 1 lbf 0.2-1.3 (0.9-5.7) 219-230 ...'. Used as a conflict claim only.")
+
+D("SRC-ASTRA-R31-PRESSKIT", identifier='https://web.archive.org/web/20200914021239/https://astra.com/wp-content/uploads/2020/08/Rocket-3.1-Launch-Press-Kit.pdf', title='Rocket 3.1 Launch Press Kit (Astra, 2020)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. 6-page Astra press kit, archive capture of 2020-09-14. Vehicle table (p.5): 'Engines Delphin Aether Engine Qty 5 1 Thrust per Engine 6,300 lbf SL 665 lbf vacuum Total Thrust 31,500 lbf SL'. No 6,500 lbf figure is printed. Used as a conflict claim only.")
+
+D("SRC-BLUE-ENGINES", identifier='https://web.archive.org/web/20260714070950/https://www.blueorigin.com/engines', title='Blue Origin engines page (capture of 2026-07-14)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Blue Origin engines page, archive capture of 2026-07-14: 'BE-4 Thrust : 640,000 lbf (2,846 kN) with deep throttle capability to 220,000 lbf (978 kN)'; 'BE-3U Thrust : 200,000 lbf (890 kN) with ability to throttle to 100,000 lbf (445 kN)'; 'BE-3U is an open-expander cycle engine.' Read from the archive; blueorigin.com itself was not contacted. Used as a conflict claim only.")
+
+D("SRC-BLUE-NEWS-BE3U-MISC", identifier='https://web.archive.org/web/20240927010748/https://www.blueorigin.com/news/new-glenn-completes-second-stage-hotfire', title='New Glenn completes second stage hotfire (Blue Origin release, 2024-09-23)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Blue Origin release datePublished 2024-09-23, archive capture of 2024-09-27: 'BE-3U's elegant expander bleed design ...'; 'Each of the two BE-3Us that will fly on NG-1 were originally designed to yield up to 160,000 lbf of vacuum thrust. The engine has outperformed throughout its test campaign and will fly at 173,000 lbf'. Used as a conflict claim only.")
+
+D("SRC-BLUE-NG-UPGRADE", identifier='https://web.archive.org/web/20251205152358/https://www.blueorigin.com/news/new-glenn-upgraded-engines-subcooled-components-drive-enhanced-performance', title='New Glenn upgraded engines, subcooled components drive enhanced performance (Blue Origin release, 2025-11-20)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Blue Origin release datePublished 2025-11-20, archive capture of 2025-12-05: 'BE-4 has already demonstrated 625,000 lbf on the test stand at current propellant conditions and will achieve 640,000 lbf later this year, with propellant subcooling increasing the current thrust capability from the existing 550,000 lbf'; 'The total thrust of the two BE-3Us ... is increasing from the original design of 320,000 lbf (1,423 kN) to 400,000 lbf (1,779 kN) thrust over the next few missions. BE-3U has already demonstrated 211,658 lbf ...'. Used as a conflict claim only.")
+
+D("SRC-BLUE-ULA-PARTNERSHIP", identifier='https://web.archive.org/web/20190727222445/https://www.blueorigin.com/news/ula-and-blue-origin-announce-partnership-to-develop-new-american-rocket-engine', title='ULA and Blue Origin Announce Partnership To Develop New American Rocket Engine (2014)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Blue Origin release of 2014, archive capture of 2019-07-27: 'The BE-4 is a liquid oxygen, liquefied natural gas (LNG) rocket engine that delivers 550,000-lbf of thrust at sea level. Two BE-4s will power each ULA booster, providing 1,100,000-lbf thrust at liftoff.' Used as a conflict claim only.")
