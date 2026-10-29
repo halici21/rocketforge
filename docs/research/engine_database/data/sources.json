@@ -26488,6 +26488,75 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NASA-GODDARD-95",
+   "title": "95 Years Ago: Goddard's First Liquid-Fueled Rocket (NASA History)",
+   "authors": [],
+   "organization": "NASA",
+   "year": 2021,
+   "source_type": "agency history article",
+   "identifier": "nasa.gov/history, posted 2021-03-17",
+   "url": "https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/",
+   "tier": "B",
+   "primary": "secondary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NASA web page; US Government work.",
+   "engines": [
+    "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR"
+   ],
+   "locators": "article text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): NASA History feature '95 Years Ago: Goddard's First Liquid-Fueled Rocket' (posted 2021-03-17): 'On March 16, 1926, he set up his rocket, which he later called Nell, fueled with gasoline and liquid oxygen, on a farm in Auburn, Massachusetts.' A retrospective agency history article, not a contemporary record.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-CALT-LM3C-UM-1998",
+   "title": "LM-3C User's Manual, Chapter 2 (CALT, Issue 1998)",
+   "authors": [],
+   "organization": "China Academy of Launch Vehicle Technology (CALT)",
+   "year": 1998,
+   "source_type": "launch vehicle user's manual",
+   "identifier": "LM-3C User's Manual, Chapter 2 (CALT, Issue 1998); GlobalSecurity mirror",
+   "url": "https://www.globalsecurity.org/space/library/report/1999/lm3cchapter2.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer manual marked 'CALT'S PROPRIETARY', read from a third-party mirror; values only.",
+   "engines": [
+    "ENG-CN-YF-23"
+   ],
+   "locators": "Table 2-1 p.2-2",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): 22 pages, text layer (GlobalSecurity mirror of the CALT manual; pages marked 'CALT'S PROPRIETARY'). Table 2-1 p.2-2: second stage DaFY20-1 (Main) 742 kN, 2922.57 N.s/kg; DaFY21-1 (Vernier) 11.8x4 kN, 2910.5 N.s/kg; text: 'one main engine and four vernier engines on the second stage. The total thrust is 789.1kN.'",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-CALT-LM2E-UM-1999",
+   "title": "LM-2E User's Manual, Chapter 2 (CALT, Issue 1999)",
+   "authors": [],
+   "organization": "China Academy of Launch Vehicle Technology (CALT)",
+   "year": 1999,
+   "source_type": "launch vehicle user's manual",
+   "identifier": "LM-2E User's Manual, Chapter 2 (CALT, Issue 1999); GlobalSecurity mirror",
+   "url": "https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer manual marked 'CALT'S PROPRIETARY', read from a third-party mirror; values only.",
+   "engines": [
+    "ENG-CN-YF-23"
+   ],
+   "locators": "Table 2-1 p.2-2",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): 22 pages, text layer (GlobalSecurity mirror of the CALT manual; pages marked 'CALT'S PROPRIETARY'). Table 2-1 p.2-2: DaFY20-1 (main) 741.4 kN, 2922.37 N.s/kg; DaFY21-1 (verniers) 11.8x4 kN, 2834.11 N.s/kg (in vacuum); text: total second-stage thrust 788.5 kN.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

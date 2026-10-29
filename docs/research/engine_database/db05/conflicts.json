@@ -1958,11 +1958,16 @@
      "16 March 1926",
      "SRC-APS-GODDARD",
      "fetched; value not in its extracted text"
+    ],
+    [
+     "On March 16, 1926, he set up his rocket ... fueled with gasoline and liquid oxygen, on a farm in Auburn, Massachusetts",
+     "SRC-DB05-NASA-GODDARD-95",
+     "NASA History article (2021-03-17), body text"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "CONFIRMED_SECONDARY",
    "kind": null,
-   "explanation": "The APS page fetched has no date in its text; the conflict stays as DB-0 recorded it."
+   "explanation": "The APS page fetched has no date in its text. NASA's history article prints 16 March 1926; DB-0's 18 March came from an unrecorded page and has no opened source. NASA's article is a retrospective, not Goddard's own record, so the date stands at Tier B."
   },
   {
    "conflict_id": "CF-DB05-W-US_HIST-24",
@@ -2799,11 +2804,21 @@
      "46.1 kN",
      "SRC-GS-CZ2D",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "LM-3C Table 2-1: DaFY21-1(Vernier) Thrust (kN) 11.8x4; Specific Impulse 2910.5 N.s/kg",
+     "SRC-DB05-CALT-LM3C-UM-1998",
+     "CALT user's manual chapter 2, Table 2-1 'Technical Parameters' p.2-2"
+    ],
+    [
+     "LM-2E Table 2-1: DaFY21-1(verniers) Thrust (kN) 11.8x4; Specific Impulse 2834.11 N.s/kg (in vacuum)",
+     "SRC-DB05-CALT-LM2E-UM-1999",
+     "CALT user's manual chapter 2, Table 2-1 'Technical Parameters' p.2-2"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "One digit apart (2 percent); possibly a transcription slip in one source. Neither is primary."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "Not a transcription slip. The GlobalSecurity CZ-2D table pairs its 46.1 kN vernier figure with 2762 N.s/kg and calls the stage-2 verniers 'four YF-23 verniers'; CALT's own LM-3C (1998) and LM-2E (1999) manuals give the four DaFY21-1 verniers 11.8 kN each, 47.2 kN DERIVED, at 2910.5 and 2834.11 N.s/kg. The vernier rating differs between vehicles and manuals; the encyclopedia's 47.1 kN is close to CALT's 47.2. No document opened gives the CZ-2D figure from its own maker (SAST), or prints YF-23 and DaFY21-1 as the same unit."
   },
   {
    "conflict_id": "CF-DB05-W-ASIA_OTHER-8",

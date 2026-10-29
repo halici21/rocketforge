@@ -944,3 +944,17 @@ LIQ-7 Pump Foundation: PAUSED.
   all return 404 to curl and WebFetch on 2026-10-29, so SPACECRAFT-5..8 stay open (search snippets are not evidence).
   NTRS has no AJ26/NK-33, VR900, SuperDraco, Delphin or LEROS documents by title; no IM-1 press kit or ELDO history
   PDF was found; the IHI satellite-propulsion page returns 404.
+
+### Pass: Goddard date and YF-23 verniers (2026-10-29)
+
+- CF-DB05-W-US_HIST-21 (Goddard first flight) CONFIRMED_SECONDARY: NASA's history article (2021-03-17) prints
+  16 March 1926; DB-0's 18 March had no recorded source.
+- CF-DB05-W-ASIA_OTHER-7 (YF-23 thrust) PARTIALLY_RESOLVED, different_variant: CALT's LM-3C (1998) and LM-2E (1999)
+  user's manuals (GlobalSecurity mirror, Table 2-1 p.2-2) give the four DaFY21-1 verniers 11.8 kN each (47.2 kN
+  DERIVED) at 2910.5 / 2834.11 N.s/kg, while the CZ-2D table gives 46.1 kN at 2762 N.s/kg. Not a transcription slip.
+  Unresolved: 93 → 91.
+- Dead ends: the STS-104 FRR chart mirror (corpora.tika.apache.org) no longer resolves; NTRS 20030005845 (STS-104
+  shutdown surge, AIAA 2002-3581) has no HPFT discharge temperatures. Isaev (kbhmisaeva.ru) and Energia sites give no
+  connection. NASA's own Goddard biography URLs return 404. GlobalSecurity mirrors no LM-2C/2D/4 manuals; LM-3A/3B
+  chapters add nothing for an open conflict. One jdse request (DOI ...20210012, CZ-5 booster) gives 2 400 kN for two
+  YF-100, consistent with R2A-15.

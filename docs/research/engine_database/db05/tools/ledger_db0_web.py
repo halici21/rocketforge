@@ -173,6 +173,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "PX8": "NTRS 20080034655 (Grover and Cichy, JPL, 'Overview of the Phoenix EDL System Architecture', AIAA 2008) p.2",
         "PX4": "NTRS 20070014659 (Phoenix EDL presentation, 2nd IPPW, August 2004) slide 10 'Phoenix Terminal Descent Phase'",
         "JPK": "NASA Juno Launch press kit (2011) p.15 'Propulsion System'",
+        "NH95": "NASA History article (2021-03-17), body text",
+        "UM21": "CALT user's manual chapter 2, Table 2-1 'Technical Parameters' p.2-2",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -242,9 +244,13 @@ K("CF-US_HIST-17", "ENG-US-XRS-2200", "performance.thrust_vac / performance.thru
   "The NASA paper gives only '200,000+ lbs' at sea level, consistent with both pairs; Purdue's 261,200 / 206,200 lbf has "
   "no cited source. No opened primary gives the rated pair.")
 K("CF-US_HIST-21", "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR", "history.first_flight",
-  [("16 March 1926", "SRC-APS-GODDARD", "NF")],
-  "UNRESOLVED", None,
-  "The APS page fetched has no date in its text; the conflict stays as DB-0 recorded it.")
+  [("16 March 1926", "SRC-APS-GODDARD", "NF"),
+   ("On March 16, 1926, he set up his rocket ... fueled with gasoline and liquid oxygen, on a farm in Auburn, Massachusetts",
+    "SRC-DB05-NASA-GODDARD-95", "NH95")],
+  "CONFIRMED_SECONDARY", None,
+  "The APS page fetched has no date in its text. NASA's history article prints 16 March 1926; DB-0's 18 March came from "
+  "an unrecorded page and has no opened source. NASA's article is a retrospective, not Goddard's own record, so the "
+  "date stands at Tier B.")
 K("CF-US_HIST-24", "ENG-US-LR101", "performance.thrust",
   [("1,017 lbf tank-fed / 1,060 lbf pressure-fed", "SRC-WIKI-LR101", "W"), ("830 lb tank-fed downrated to 525 lb", "SRC-DTIC-AD0423340", "N"),
    ("~1,012 lb per vernier (RS-27A)", "SRC-PURDUE-RS27A", "T"),
@@ -426,8 +432,15 @@ K("CF-R2_ASIA-R2A-30", "ENG-CN-LONGYUN", "performance.thrust",
   [("70 t class", "SRC-36KR-JZYJ", "T"), ("80 t class", "SRC-JIEMIAN-14422448", "T")],
   "UNRESOLVED", "different_epoch", "Two news pages give two classes; neither gives a rating or a date for its figure.")
 K("CF-ASIA_OTHER-7", "ENG-CN-YF-23", "performance.thrust_vac",
-  [("47.1 kN", "SRC-WIKI-YF23", "W"), ("46.1 kN", "SRC-GS-CZ2D", "T")],
-  "UNRESOLVED", "rating_or_rounding", "One digit apart (2 percent); possibly a transcription slip in one source. Neither is primary.")
+  [("47.1 kN", "SRC-WIKI-YF23", "W"), ("46.1 kN", "SRC-GS-CZ2D", "T"),
+   ("LM-3C Table 2-1: DaFY21-1(Vernier) Thrust (kN) 11.8x4; Specific Impulse 2910.5 N.s/kg", "SRC-DB05-CALT-LM3C-UM-1998", "UM21"),
+   ("LM-2E Table 2-1: DaFY21-1(verniers) Thrust (kN) 11.8x4; Specific Impulse 2834.11 N.s/kg (in vacuum)", "SRC-DB05-CALT-LM2E-UM-1999", "UM21")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "Not a transcription slip. The GlobalSecurity CZ-2D table pairs its 46.1 kN vernier figure with 2762 N.s/kg and calls "
+  "the stage-2 verniers 'four YF-23 verniers'; CALT's own LM-3C (1998) and LM-2E (1999) manuals give the four "
+  "DaFY21-1 verniers 11.8 kN each, 47.2 kN DERIVED, at 2910.5 and 2834.11 N.s/kg. The vernier rating differs between "
+  "vehicles and manuals; the encyclopedia's 47.1 kN is close to CALT's 47.2. No document opened gives the CZ-2D "
+  "figure from its own maker (SAST), or prints YF-23 and DaFY21-1 as the same unit.")
 K("CF-ASIA_OTHER-8", "ENG-CN-YF-40", "performance.thrust_vac",
   [("103 kN", "SRC-WIKI-YF40", "W"), ("100.85 kN (stage, two YF-40)", "SRC-WIKI-CZ4B", "W"),
    ("just over 100 kN each engine (YF-40A)", "SRC-EDA-CZ4C", "T")],
@@ -813,3 +826,15 @@ D("SRC-DB05-NTRS-20070014659", identifier="NTRS 20070014659", title="Overview of
 D("SRC-DB05-NASA-JUNO-PK-2011", identifier='https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf', title="Juno Launch press kit (NASA, August 2011)", tier="A",
   rights_checked="NASA public-affairs document; US Government work", rights_class="VALUES_WITH_ATTRIBUTION",
   note="25 pages, text layer (NASA 'Juno Launch' press kit, PDF dated 2011-07-27). p.15 'Propulsion System': 'The Leros-1b main engine is a 645-Newton bi-propellant thruster using hydrazine-nitrogen tetroxide.' p.6: launch mass 3,625 kg. Used as a conflict claim only.")
+
+D("SRC-DB05-NASA-GODDARD-95", identifier='https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/', title="95 Years Ago: Goddard's First Liquid-Fueled Rocket (NASA History)", tier="B",
+  rights_checked="NASA web page; US Government work", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="NASA History feature '95 Years Ago: Goddard's First Liquid-Fueled Rocket' (posted 2021-03-17): 'On March 16, 1926, he set up his rocket, which he later called Nell, fueled with gasoline and liquid oxygen, on a farm in Auburn, Massachusetts.' A retrospective agency history article, not a contemporary record. Used as a conflict claim only.")
+
+D("SRC-DB05-CALT-LM3C-UM-1998", identifier='https://www.globalsecurity.org/space/library/report/1999/lm3cchapter2.pdf', title="LM-3C User's Manual, Chapter 2 (CALT, Issue 1998)", tier="A",
+  rights_checked="manufacturer manual marked proprietary, third-party mirror; values only", rights_class="RESTRICTED_REFERENCE",
+  note="22 pages, text layer (GlobalSecurity mirror of the CALT manual; pages marked 'CALT'S PROPRIETARY'). Table 2-1 p.2-2: second stage DaFY20-1 (Main) 742 kN, 2922.57 N.s/kg; DaFY21-1 (Vernier) 11.8x4 kN, 2910.5 N.s/kg; text: 'one main engine and four vernier engines on the second stage. The total thrust is 789.1kN.' Used as a conflict claim only.")
+
+D("SRC-DB05-CALT-LM2E-UM-1999", identifier='https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf', title="LM-2E User's Manual, Chapter 2 (CALT, Issue 1999)", tier="A",
+  rights_checked="manufacturer manual marked proprietary, third-party mirror; values only", rights_class="RESTRICTED_REFERENCE",
+  note="22 pages, text layer (GlobalSecurity mirror of the CALT manual; pages marked 'CALT'S PROPRIETARY'). Table 2-1 p.2-2: DaFY20-1 (main) 741.4 kN, 2922.37 N.s/kg; DaFY21-1 (verniers) 11.8x4 kN, 2834.11 N.s/kg (in vacuum); text: total second-stage thrust 788.5 kN. Used as a conflict claim only.")

@@ -462,7 +462,7 @@
  "SRC-NASA-HOPSON-STS104-FRR-2001": {
   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
   "url": "https://corpora.tika.apache.org/base/docs/govdocs1/673/673547.pdf",
-  "time_utc": "2026-10-29T17:11:00Z",
+  "time_utc": "2026-10-29T17:57:13Z",
   "http": "curl-exit-6/000",
   "content_type": "",
   "effective_url": "https://corpora.tika.apache.org/base/docs/govdocs1/673/673547.pdf",
@@ -7081,5 +7081,48 @@
   "text_chars": 55019,
   "ok": true,
   "file": "SRC-DB05-NASA-JUNO-PK-2011.pdf"
+ },
+ "SRC-DB05-NASA-GODDARD-95": {
+  "source_id": "SRC-DB05-NASA-GODDARD-95",
+  "url": "https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/",
+  "time_utc": "2026-10-29T17:57:13Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/",
+  "bytes": 265526,
+  "sha256": "fece977fc2f7e5aeb748e669822c63c82ccd914eb6317b05abfed30b449c4a14",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-NASA-GODDARD-95.html"
+ },
+ "SRC-DB05-CALT-LM3C-UM-1998": {
+  "source_id": "SRC-DB05-CALT-LM3C-UM-1998",
+  "url": "https://www.globalsecurity.org/space/library/report/1999/lm3cchapter2.pdf",
+  "time_utc": "2026-10-29T18:00:04Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.globalsecurity.org/space/library/report/1999/lm3cchapter2.pdf",
+  "bytes": 1796472,
+  "sha256": "70a28d81f2a6f5e5ea2d1b1c6354cc24aa0e2aa2bfd3b5ca3540d366b860a0d5",
+  "is_pdf": true,
+  "pages": 22,
+  "text_chars": 19731,
+  "ok": true,
+  "file": "SRC-DB05-CALT-LM3C-UM-1998.pdf"
+ },
+ "SRC-DB05-CALT-LM2E-UM-1999": {
+  "source_id": "SRC-DB05-CALT-LM2E-UM-1999",
+  "url": "https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf",
+  "time_utc": "2026-10-29T18:00:05Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf",
+  "bytes": 2327710,
+  "sha256": "397db1fad86b63e5422336d497637b754896c2aaa261ed767795fb31a8faed45",
+  "is_pdf": true,
+  "pages": 22,
+  "text_chars": 22472,
+  "ok": true,
+  "file": "SRC-DB05-CALT-LM2E-UM-1999.pdf"
  }
 }

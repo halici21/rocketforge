@@ -347,5 +347,8 @@
  "SRC-DB05-KSPE-2011-KRE75": "https://koreascience.kr/article/JAKO201110348675501.pdf",
  "SRC-DB05-NTRS-20080034655": "https://ntrs.nasa.gov/citations/20080034655",
  "SRC-DB05-NTRS-20070014659": "https://ntrs.nasa.gov/citations/20070014659",
- "SRC-DB05-NASA-JUNO-PK-2011": "https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf"
+ "SRC-DB05-NASA-JUNO-PK-2011": "https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf",
+ "SRC-DB05-NASA-GODDARD-95": "https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/",
+ "SRC-DB05-CALT-LM3C-UM-1998": "https://www.globalsecurity.org/space/library/report/1999/lm3cchapter2.pdf",
+ "SRC-DB05-CALT-LM2E-UM-1999": "https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf"
 }
