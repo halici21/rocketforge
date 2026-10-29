@@ -53,6 +53,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "CPS": "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table",
         "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
+        "NL4": "nammo.com LEROS 4 product page: introduction text and specification table (fetched 2026-10-29)",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -310,8 +311,14 @@ K("CF-R2_SC_COMM-R2-2", "ENG-US-SUPERDRACO", "performance.thrust",
   "EXPLAINED", "different_operating_point",
   "One article: 71 kN per engine, 32,000 lbf per two-engine pod, 73 kN capability and 68.17 kN as throttled in tests.")
 K("CF-R2_SC_COMM-R2-8", "ENG-GB-LEROS-4-ET", "propellants.fuel",
-  [("LEROS 4-ET MMH / MON 1310 N", "SRC-WIKI-LEROS", "T"), ("The engine uses MON and hydrazine", "SRC-WIKI-BLUEGHOST", "T")],
-  "UNRESOLVED", None, "Two encyclopedia articles disagree (MMH against hydrazine); no Nammo document opened.")
+  [("LEROS 4-ET MMH / MON 1310 N", "SRC-WIKI-LEROS", "T"), ("The engine uses MON and hydrazine", "SRC-WIKI-BLUEGHOST", "T"),
+   ("LEROS 4 (parent): '321 second Isp, MON/ Hydrazine apogee engine' in the text; 'Propellant MON-3/MMH' in the specification "
+    "table", "SRC-DB05-NAMMO-LEROS4", "NL4")],
+  "PARTIALLY_RESOLVED", "definition",
+  "Two encyclopedia articles disagree (MMH against hydrazine). The maker's page for the parent LEROS 4 does the same "
+  "within itself: its prose says 'MON/ Hydrazine' and its specification table says MON-3/MMH, so 'hydrazine' is the "
+  "maker's loose family wording and the tabulated fuel is MMH. No Nammo page for the 4-ET variant was found, so the "
+  "4-ET fuel is inferred from the parent, not printed.")
 K("CF-R2_SC_COMM-R2-14", "ENG-US-ARROWAY", "cycle",
   [("fuel-rich staged combustion", None, "X"), ("ox-rich staged combustion", None, "X")],
   "UNRESOLVED", None, "Neither claim has a source. " + _PRIMARY)
@@ -599,3 +606,7 @@ D("SRC-DB05-NTRS-19680014530", identifier="NTRS 19680014530 (Aerojet-General, co
        "a 2:1 uncooled chamber), Pc (plenum) 1,000 psia, MR 5.49, 2,872 lb/s O2 and 524 lb/s H2. Work described is that "
        "done 'prior to phaseout of the program'; uncooled-chamber firings on Test Stand H-8 in July-August 1966. Used as "
        "a conflict claim only.")
+
+D("SRC-DB05-NAMMO-LEROS4", identifier='https://www.nammo.com/products/space/space-propulsion-thrusters-and-engines/leros-4/', title="LEROS 4 Interplanetary Engine (Nammo product page)", tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. LEROS 4 prose: '321 second Isp, MON/ Hydrazine apogee engine delivers a thrust of 1000 N', range 900-1100 N; specification table: Propellant MON-3/MMH, MR 1.65 (1.5-1.8), 321 s minimum, inlet 15.4 bara, mass 8.41 kg, max single firing 3,600 s. No LEROS 4-ET page. Used as a conflict claim only.")

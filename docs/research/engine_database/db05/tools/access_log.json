@@ -6964,5 +6964,33 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-KBKHA-RD0210.html"
+ },
+ "SRC-DB05-NAMMO-LEROS4": {
+  "source_id": "SRC-DB05-NAMMO-LEROS4",
+  "url": "https://www.nammo.com/products/space/space-propulsion-thrusters-and-engines/leros-4/",
+  "time_utc": "2026-10-29T17:31:42Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://www.nammo.com/products/space/space-propulsion-thrusters-and-engines/leros-4/",
+  "bytes": 82400,
+  "sha256": "e31ccabe01fd68c8d9f5c0f7c8250b3d98d9bad8d1e0bab908addb3a14c936ea",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-NAMMO-LEROS4.html"
+ },
+ "SRC-DB05-FIREFLY-PUG-5.3": {
+  "source_id": "SRC-DB05-FIREFLY-PUG-5.3",
+  "url": "https://fireflyspace.com/wp-content/uploads/2026/09/Alpha-PUG-5.3-1.pdf",
+  "time_utc": "2026-10-29T17:32:50Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://fireflyspace.com/wp-content/uploads/2026/09/Alpha-PUG-5.3-1.pdf",
+  "bytes": 3189122,
+  "sha256": "57563089fe3474bbb31105b29b26222ea7d8e92bd917da093527f107a5fe8b35",
+  "is_pdf": true,
+  "pages": 38,
+  "text_chars": 54104,
+  "ok": true,
+  "file": "SRC-DB05-FIREFLY-PUG-5.3.pdf"
  }
 }

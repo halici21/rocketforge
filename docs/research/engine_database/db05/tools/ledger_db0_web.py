@@ -166,6 +166,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
         "JD": "深空探测学报 2021 8(4) p.4 (PDF p.4) 表 3, full text via the journal's PDF preview link",
+        "PUG53": "Firefly Alpha Payload User's Guide 5.3 (2026-09) p.6 vehicle overview",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -689,13 +690,20 @@ K("CF-COMMERCIAL-COM-14", "ENG-NZ-ARCHIMEDES-VACUUM", "performance.thrust_vac",
   "UNRESOLVED", "rating_or_rounding", "Two maker pages, 1 percent apart; the 200,000 may be rounded. Neither names a rating.")
 K("CF-COMMERCIAL-COM-15", "ENG-US-REAVER", "performance.thrust",
   [("4x Reaver 801 kN (180,072 lbf) vac", "SRC-FIREFLY-ALPHA-PAGE", "T"), ("836.3 kN max for four", "SRC-FIREFLY-PUG-5.2", "N"),
-   ("45,000 lbf per engine", "SRC-FIREFLY-MIRANDA-RR", "T")],
+   ("45,000 lbf per engine", "SRC-FIREFLY-MIRANDA-RR", "T"),
+   ("Stage 1 Reaver Engines, Qty 4, Thrust: 836.3 kN [188.0 klbf] (vac), Isp 296 s (vac)", "SRC-DB05-FIREFLY-PUG-5.3", "PUG53")],
   "EXPLAINED", "rating_or_rounding",
-  "180,072 lbf for four is 45,018 lbf each DERIVED: the release's 45,000 lbf is the same figure rounded. The 836.3 kN "
-  "maximum was not opened.")
+  "180,072 lbf for four is 45,018 lbf each DERIVED: the release's 45,000 lbf is the same figure rounded. The 5.2 guide "
+  "returned 404; the 5.3 guide (2026-09) prints 836.3 kN (vac) for four without a 'maximum' qualifier, about 4 percent "
+  "above the web page's 801 kN, alongside a Lightning figure that also rose (see CF-DB05-W-COMMERCIAL-COM-16).")
 K("CF-COMMERCIAL-COM-16", "ENG-US-LIGHTNING", "performance.thrust_vac",
-  [("70.1 kN (15,759 lbf)", "SRC-FIREFLY-ALPHA-PAGE", "T"), ("73.0 kN (16.4 klbf) max", "SRC-FIREFLY-PUG-5.2", "N")],
-  "UNRESOLVED", "different_operating_point", "Only the nominal page figure was read; the payload guide's maximum was not opened.")
+  [("70.1 kN (15,759 lbf)", "SRC-FIREFLY-ALPHA-PAGE", "T"), ("73.0 kN (16.4 klbf) max", "SRC-FIREFLY-PUG-5.2", "N"),
+   ("Stage 2 Lightning Engine, Thrust: 73.0 kN [16.4 klbf] (vac), Isp 322 seconds (vac)", "SRC-DB05-FIREFLY-PUG-5.3", "PUG53")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "Both figures are now opened from the maker: the web page prints 70.1 kN and the 2026-09 user's guide 5.3 prints "
+  "73.0 kN (vac), both at 322 s. The guide does not call 73.0 kN a maximum, so DB-0's 'max' reading is not supported; "
+  "the newer guide (with the stage-1 figure also higher) suggests an uprated rating, but no document says which "
+  "figure is current.")
 K("CF-SPACECRAFT-2", "ENG-US-R-4D", "performance.thrust_vac",
   [("100 lbf", "SRC-NASA-TND7151", "NF"), ("110 lbf (490 N)", "SRC-WIKI-R4D", "W"),
    ("The nominal thrust of the engine is 100-pounds; Qual engines would have 100 lb. thrust rather than the nominal "
@@ -762,3 +770,7 @@ D("SRC-DB05-KBKHA-RD0124MS", identifier="https://kbkha.ru/deyatel-nost/raketnye-
 D("SRC-DB05-KBKHA-RD0210", identifier="https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/dvigatelnyj-blok-tri-rd0210-odin-rd0211/", title="Двигательный блок (три РД0210 + один РД0211) (KBKhA engine page)", tier="A",
   rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29 from the design bureau's own site. тяга в пустоте (одного двигателя) 59,36 тс; удельный импульс 326,5 с; давление в КС 150 кг/см2; N2O4/UDMH; Proton-K second stage. Used as conflict claims only.")
+
+D("SRC-DB05-FIREFLY-PUG-5.3", identifier='https://fireflyspace.com/wp-content/uploads/2026/09/Alpha-PUG-5.3-1.pdf', title="Alpha Payload User's Guide 5.3 (Firefly Aerospace)", tier="A",
+  rights_checked="manufacturer user's guide; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 (the 5.2 guide DB-0 cited returns 404). 38 pages, text layer. p.6 vehicle overview: Stage 1 four Reaver engines, LOX/RP-1, 'Thrust: 836.3 kN [188.0 klbf] (vac)', Isp 296 s (vac), tap-off; Stage 2 one Lightning engine, 'Thrust: 73.0 kN [16.4 klbf] (vac)', Isp 322 s (vac), tap-off. No 'maximum' qualifier is printed. Used as conflict claims only.")

@@ -26348,6 +26348,54 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NAMMO-LEROS4",
+   "title": "LEROS 4 Interplanetary Engine (Nammo product page)",
+   "authors": [],
+   "organization": "Nammo (UK) Limited",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "nammo.com product page, leros-4",
+   "url": "https://www.nammo.com/products/space/space-propulsion-thrusters-and-engines/leros-4/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-GB-LEROS-4",
+    "ENG-GB-LEROS-4-ET"
+   ],
+   "locators": "product text and specification table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): LEROS 4 prose: '321 second Isp, MON/ Hydrazine apogee engine delivers a thrust of 1000 N', range 900-1100 N; specification table: Propellant MON-3/MMH, MR 1.65 (1.5-1.8), 321 s minimum, inlet 15.4 bara, mass 8.41 kg, max single firing 3,600 s. No LEROS 4-ET page.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-FIREFLY-PUG-5.3",
+   "title": "Alpha Payload User's Guide 5.3 (Firefly Aerospace)",
+   "authors": [],
+   "organization": "Firefly Aerospace",
+   "year": 2026,
+   "source_type": "launch-provider user's guide",
+   "identifier": "Alpha PUG 5.3 (uploaded 2026-09)",
+   "url": "https://fireflyspace.com/wp-content/uploads/2026/09/Alpha-PUG-5.3-1.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer user's guide; reuse terms not reviewed.",
+   "engines": [
+    "ENG-US-LIGHTNING",
+    "ENG-US-REAVER"
+   ],
+   "locators": "p.6 vehicle overview",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): 38 pages, text layer. p.6 vehicle overview: Stage 1 four Reaver engines, LOX/RP-1, 'Thrust: 836.3 kN [188.0 klbf] (vac)', Isp 296 s (vac), tap-off; Stage 2 one Lightning engine, 'Thrust: 73.0 kN [16.4 klbf] (vac)', Isp 322 s (vac), tap-off. No 'maximum' qualifier is printed.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

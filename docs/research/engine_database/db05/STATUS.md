@@ -904,3 +904,13 @@ LIQ-7 Pump Foundation: PAUSED.
   disagreement between documents that no opened document explains. Reclassifying them would either
   misstate the evidence or, for RS-25 SL thrust, release withheld assertions into production. Both
   need the owner, not a research pass.
+
+## Pass 2026-10-29: manufacturer pages for LEROS 4 and Firefly Alpha
+
+- Nammo LEROS 4 product page (tier A): its prose says "MON/ Hydrazine" and its specification table
+  says MON-3/MMH. CF-DB05-E-R2_SC_COMM-R2-8 (LEROS 4-ET fuel) is PARTIALLY_RESOLVED: "hydrazine" is
+  the maker's loose family wording, and the 4-ET fuel is inferred from the parent.
+- Firefly Alpha PUG 5.3 (2026-09; the 5.2 that DB-0 cited returns 404): Lightning 73.0 kN (vac) at
+  322 s, Reaver ×4 836.3 kN (vac), with no "maximum" qualifier. CF-DB05-W-COMMERCIAL-COM-16 is
+  PARTIALLY_RESOLVED (two maker figures, likely an uprate). COM-15 cites the guide and stays EXPLAINED.
+- UNRESOLVED: 100 → 98.

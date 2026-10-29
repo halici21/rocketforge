@@ -4176,11 +4176,16 @@
      "45,000 lbf per engine",
      "SRC-FIREFLY-MIRANDA-RR",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Stage 1 Reaver Engines, Qty 4, Thrust: 836.3 kN [188.0 klbf] (vac), Isp 296 s (vac)",
+     "SRC-DB05-FIREFLY-PUG-5.3",
+     "Firefly Alpha Payload User's Guide 5.3 (2026-09) p.6 vehicle overview"
     ]
    ],
    "resolution": "EXPLAINED",
    "kind": "rating_or_rounding",
-   "explanation": "180,072 lbf for four is 45,018 lbf each DERIVED: the release's 45,000 lbf is the same figure rounded. The 836.3 kN maximum was not opened."
+   "explanation": "180,072 lbf for four is 45,018 lbf each DERIVED: the release's 45,000 lbf is the same figure rounded. The 5.2 guide returned 404; the 5.3 guide (2026-09) prints 836.3 kN (vac) for four without a 'maximum' qualifier, about 4 percent above the web page's 801 kN, alongside a Lightning figure that also rose (see CF-DB05-W-COMMERCIAL-COM-16)."
   },
   {
    "conflict_id": "CF-DB05-W-COMMERCIAL-COM-16",
@@ -4197,11 +4202,16 @@
      "73.0 kN (16.4 klbf) max",
      "SRC-FIREFLY-PUG-5.2",
      "DB-0 search summary (never opened)"
+    ],
+    [
+     "Stage 2 Lightning Engine, Thrust: 73.0 kN [16.4 klbf] (vac), Isp 322 seconds (vac)",
+     "SRC-DB05-FIREFLY-PUG-5.3",
+     "Firefly Alpha Payload User's Guide 5.3 (2026-09) p.6 vehicle overview"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_operating_point",
-   "explanation": "Only the nominal page figure was read; the payload guide's maximum was not opened."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "Both figures are now opened from the maker: the web page prints 70.1 kN and the 2026-09 user's guide 5.3 prints 73.0 kN (vac), both at 322 s. The guide does not call 73.0 kN a maximum, so DB-0's 'max' reading is not supported; the newer guide (with the stage-1 figure also higher) suggests an uprated rating, but no document says which figure is current."
   },
   {
    "conflict_id": "CF-DB05-W-SPACECRAFT-2",
@@ -5362,11 +5372,16 @@
      "The engine uses MON and hydrazine",
      "SRC-WIKI-BLUEGHOST",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "LEROS 4 (parent): '321 second Isp, MON/ Hydrazine apogee engine' in the text; 'Propellant MON-3/MMH' in the specification table",
+     "SRC-DB05-NAMMO-LEROS4",
+     "nammo.com LEROS 4 product page: introduction text and specification table (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Two encyclopedia articles disagree (MMH against hydrazine); no Nammo document opened."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "Two encyclopedia articles disagree (MMH against hydrazine). The maker's page for the parent LEROS 4 does the same within itself: its prose says 'MON/ Hydrazine' and its specification table says MON-3/MMH, so 'hydrazine' is the maker's loose family wording and the tabulated fuel is MMH. No Nammo page for the 4-ET variant was found, so the 4-ET fuel is inferred from the parent, not printed."
   },
   {
    "conflict_id": "CF-DB05-E-R2_SC_COMM-R2-15",
