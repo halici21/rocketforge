@@ -5383,11 +5383,16 @@
      "N2O4 (stage infobox)",
      "SRC-WIKI-OTRAG",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "[he] had long pondered over the idea of fueling rocket engines with commercial diesel oil and nitric acid instead of with expensive special fuels (OCR-cleaned; the speaker's name is illegible)",
+     "SRC-DB05-NTRS-19790003958",
+     "NASA TM-75376 (1978), translation of Der Spiegel No. 33/1978, PDF p.15"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": null,
-   "explanation": "Unsourced DB-0 claim(s): nitric acid. The article's infobox says N2O4; the nitric acid claim has no source. No primary document opened; the record stays open."
+   "explanation": "Unsourced DB-0 claim(s): nitric acid. The encyclopedia infobox says N2O4. NASA's 1978 translation of a Der Spiegel feature on OTRAG (TM-75376) describes the design as burning commercial diesel oil and nitric acid (PDF p.15; again on p.33 as the intended low-cost propellant), so DB-0's nitric acid now has a contemporary source. It is translated journalism, not an OTRAG document, and the flown test vehicles' oxidizer is not stated in it."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-34",

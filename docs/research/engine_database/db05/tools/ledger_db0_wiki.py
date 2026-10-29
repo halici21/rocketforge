@@ -56,6 +56,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "NL4": "nammo.com LEROS 4 product page: introduction text and specification table (fetched 2026-10-29)",
         "AG1": "argentina.gob.ar/node/71704 (Tronador II programme page), body text",
         "AG2": "argentina.gob.ar/node/390734 (release of 2023-08-01), body text",
+        "OT15": "NASA TM-75376 (1978), translation of Der Spiegel No. 33/1978, PDF p.15",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -315,8 +316,14 @@ K("CF-R2_ASIA-R2A-32", "ENG-FR-SEPR-841", "propellants.fuel",
    ("the TX2 fuel of the SEPR 841 was replaced with ... kerosene in the SEPR 844", "SRC-WIKI-SEPR84", "T")],
   "EXPLAINED", "different_variant", "The article gives TX2 for the SEPR 841 and kerosene for the later SEPR 844.")
 K("CF-R2_ASIA-R2A-33", "ENG-DE-OTRAG-CRPU-ENGINE", "propellants.oxidizer",
-  [("N2O4 (stage infobox)", "SRC-WIKI-OTRAG", "T"), ("nitric acid", None, "X")],
-  "UNRESOLVED", None, "The article's infobox says N2O4; the nitric acid claim has no source. " + _PRIMARY)
+  [("N2O4 (stage infobox)", "SRC-WIKI-OTRAG", "T"), ("nitric acid", None, "X"),
+   ("[he] had long pondered over the idea of fueling rocket engines with commercial diesel oil and nitric acid instead "
+    "of with expensive special fuels (OCR-cleaned; the speaker's name is illegible)", "SRC-DB05-NTRS-19790003958", "OT15")],
+  "PARTIALLY_RESOLVED", None,
+  "The encyclopedia infobox says N2O4. NASA's 1978 translation of a Der Spiegel feature on OTRAG (TM-75376) describes "
+  "the design as burning commercial diesel oil and nitric acid (PDF p.15; again on p.33 as the intended low-cost "
+  "propellant), so DB-0's nitric acid now has a contemporary source. It is translated journalism, not an OTRAG "
+  "document, and the flown test vehicles' oxidizer is not stated in it.")
 K("CF-R2_ASIA-R2A-34", "ENG-JP-MB-60", "aliases.name",
   [("MARC-60 ... also known as MB-60, MB-XX, and RS-73", "SRC-WIKI-MARC60", "T"),
    ("MARC-60 (MB-60), same thrust class ... designed as a joint effort by Boeing and Mitsubishi", "SRC-WIKI-RL60", "T")],
@@ -642,3 +649,10 @@ D("SRC-DB05-ARGGOB-TRONADOR2", identifier='https://www.argentina.gob.ar/node/717
 D("SRC-DB05-ARGGOB-2023-08-01", identifier='https://www.argentina.gob.ar/node/390734', title='Se llevó a cabo un ensayo de motor clave para el lanzador Tronador II (Argentina.gob.ar, 2023-08-01)', tier="A",
   rights_checked="government web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Government release of 1 August 2023: a prototype of the 'motor de segunda etapa que llevará la versión final del Tronador II' (engine RS2) was tested at Valthe, Córdoba; 'tecnología desarrollada y fabricada en el país, cuyo combustible es oxígeno líquido y kerosene'. Used as a conflict claim only.")
+
+D("SRC-DB05-NTRS-19790003958", identifier="NTRS 19790003958 (NASA TM-75376)", title="Otrag rocket experiments in Africa (NASA TM-75376, translation of Der Spiegel 33/1978)",
+  tier="C", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="35 pages, poor OCR (NASA technical translation, December 1978, of 'Dann wäre Deutschland führend in der Welt', Der "
+       "Spiegel No. 33, 1978, pp.52-65). PDF p.15: an engineer's idea (name illegible in the OCR) of fuelling rocket engines 'with commercial diesel oil and "
+       "nitric acid instead of with expensive special fuels'; p.33: 'a mixture of simple diesel oil and nitric acid' as low-"
+       "cost fuel. Journalism, translated. Used as a conflict claim only.")

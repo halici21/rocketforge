@@ -1006,3 +1006,7 @@ LIQ-7 Pump Foundation: PAUSED.
 - CF-DB05-E-R2_ASIA-R2A-27 (VEx-1A date) PARTIALLY_RESOLVED: iProfesional's report of 5 March 2014 dates the failed
   launch to Wednesday 26 February 2014; the government programme page says 'marzo del 2014'. Unresolved: 85 → 83.
 - Dead end: ESA's HSR histories cover ELDO's founding, not Coralie/Astris figures.
+- CF-DB05-E-R2_ASIA-R2A-33 (OTRAG oxidizer) PARTIALLY_RESOLVED: NASA TM-75376 (December 1978, translation of Der
+  Spiegel 33/1978; NTRS 19790003958) describes the design as burning commercial diesel oil and nitric acid (PDF p.15,
+  p.33), giving DB-0's nitric acid a contemporary but journalistic source against the encyclopedia's N2O4.
+  Unresolved: 83 → 82. NTRS has no RD-270, Glushko or Isaev documents by title.
