@@ -6739,5 +6739,66 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-ESA-PR-1994-35-EPS.html"
+ },
+ "SRC-DB05-NTRS-19710070145": {
+  "source_id": "SRC-DB05-NTRS-19710070145",
+  "url": "https://ntrs.nasa.gov/citations/19710070145",
+  "time_utc": "2026-10-29T16:41:01Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "XLR99 engine operating experience",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19710070145,
+   "ear": "NO",
+   "id": "1beba15a6dac465c8f09e0fcd2dd20d3",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": null,
+  "download_url": "https://ntrs.nasa.gov/api/citations/19710070145/downloads/19710070145.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19710070145/downloads/19710070145.pdf",
+  "bytes": 3044928,
+  "sha256": "bf3f189495f432db5b3e9201efe4febd9b801c8a87d2f971b4e4ea89043cfbda",
+  "is_pdf": true,
+  "pages": 12,
+  "text_chars": 18546,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19710070145.pdf"
+ },
+ "SRC-DB05-NTRS-19690029231": {
+  "source_id": "SRC-DB05-NTRS-19690029231",
+  "url": "https://ntrs.nasa.gov/citations/19690029231",
+  "time_utc": "2026-10-29T16:41:07Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Apollo SM-LM RCS engine development program summary report, volume 1 Final report",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19690029231,
+   "ear": "NO",
+   "id": "dd8b00625906450ebb8a5ddf2e9253b3",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "A-1080-VOL-1",
+   "NASA-CR-101929",
+   "Report Number: A-1080-VOL-1",
+   "Report Number: NASA-CR-101929"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19690029231/downloads/19690029231.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19690029231/downloads/19690029231.pdf",
+  "bytes": 14077268,
+  "sha256": "9e4ea94df9757ba5bbdf9e6fb0bb3da8cf2beaceb4305a16468cc02f473a8426",
+  "is_pdf": true,
+  "pages": 180,
+  "text_chars": 287438,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19690029231.pdf"
  }
 }

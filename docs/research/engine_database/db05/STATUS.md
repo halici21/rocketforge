@@ -810,3 +810,13 @@ LIQ-7 Pump Foundation: PAUSED.
 - YF-100: the 深空探测学报 (Journal of Deep Space Exploration) 2021 paper (SRC-DB05-JDSE-2021-YF100) serves only its
   abstract. The PDF preview URL returns an HTML stub, so its four tables (thrust, throttle range) were not reached.
   CF-DB05-W-R2_ASIA-R2A-14 and -15 stay UNRESOLVED.
+
+## Pass 2026-10-29: XLR99 mass, R-4D thrust (NTRS)
+
+- CF-DB05-E-US_HIST-09 (XLR99 mass) RESOLVED: NTRS 19710070145 (*XLR99 engine operating
+  experience*, 1961) prints dry weight 910 lb; Table I gives 540 → 856 → 910 lb dry (1,025 lb wet)
+  across specifications. 915 lb has no document.
+- CF-DB05-W-SPACECRAFT-2 (R-4D thrust) PARTIALLY_RESOLVED: NTRS 19690029231 (Marquardt Apollo
+  SM/LM RCS summary, 1969) gives a nominal 100 lb, raised from 95 lb at PFRT. The 110 lbf figure
+  belongs to a later variant and has no opened document.
+- UNRESOLVED: 116 → 114.

@@ -26130,6 +26130,48 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19690029231",
+   "title": "Apollo SM-LM RCS engine development program summary report, volume 1",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1969,
+   "source_type": "contractor report",
+   "identifier": "NTRS 19690029231",
+   "url": "https://ntrs.nasa.gov/citations/19690029231",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19710070145",
+   "title": "XLR99 engine operating experience",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1961,
+   "source_type": "conference paper",
+   "identifier": "NTRS 19710070145",
+   "url": "https://ntrs.nasa.gov/citations/19710070145",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

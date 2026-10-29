@@ -160,7 +160,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "CN": "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)",
         "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1",
         "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text",
-        "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section"}
+        "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section",
+        "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -665,8 +666,13 @@ K("CF-COMMERCIAL-COM-16", "ENG-US-LIGHTNING", "performance.thrust_vac",
   [("70.1 kN (15,759 lbf)", "SRC-FIREFLY-ALPHA-PAGE", "T"), ("73.0 kN (16.4 klbf) max", "SRC-FIREFLY-PUG-5.2", "N")],
   "UNRESOLVED", "different_operating_point", "Only the nominal page figure was read; the payload guide's maximum was not opened.")
 K("CF-SPACECRAFT-2", "ENG-US-R-4D", "performance.thrust_vac",
-  [("100 lbf", "SRC-NASA-TND7151", "NF"), ("110 lbf (490 N)", "SRC-WIKI-R4D", "W")],
-  "UNRESOLVED", "different_variant", "The NASA report had no usable text layer.")
+  [("100 lbf", "SRC-NASA-TND7151", "NF"), ("110 lbf (490 N)", "SRC-WIKI-R4D", "W"),
+   ("The nominal thrust of the engine is 100-pounds; Qual engines would have 100 lb. thrust rather than the nominal "
+    "95 lb. thrust of the PFRT engine", "SRC-DB05-NTRS-19690029231", "R69")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "The NASA report had no usable text layer. Marquardt's 1969 Apollo SM/LM RCS development summary gives the "
+  "Apollo engine a nominal 100 lb thrust (raised from 95 lb at PFRT to 100 lb for qualification), so 100 lbf is the "
+  "documented Apollo-era value. 110 lbf (490 N) is the later R-4D variant figure, for which no document was opened.")
 K("CF-SPACECRAFT-4", "ENG-US-OMS-E-ORION-ESM", "history.heritage_last_flight",
   [("STS-112 (2002)", "SRC-NTRS-20240003648", "N"),
    ("'has flown to space six times already between 2000 and 2002'", "SRC-ESA-BLOG-ART2ENG", "T")],
@@ -690,3 +696,9 @@ K("CF-TAXONOMY-TAX-8", "ENG-US-RAPTOR", "vehicle.tank_pressurization",
    ("'Prior to SN9, SpaceX used autogenous pressurization'", "SRC-WCCFTECH-SN10", "T")],
   "EXPLAINED", "different_epoch",
   "A vehicle-level scheme that changed between prototypes; not an engine attribute. Recorded so it is not ingested as one.")
+
+D("SRC-DB05-NTRS-19690029231", identifier="NTRS 19690029231", title="Apollo SM-LM RCS engine development program summary report, volume 1",
+  tier="A", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="180 pages, OCR text layer (The Marquardt Corporation, 1969). 'The nominal thrust of the engine is 100-pounds', "
+       "propellants N2O4 and MMH or Aerozine-50; qualification engines 100 lb against the 95 lb PFRT engine. Used as a "
+       "conflict claim only.")

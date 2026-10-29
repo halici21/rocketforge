@@ -4163,11 +4163,16 @@
      "110 lbf (490 N)",
      "SRC-WIKI-R4D",
      "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "The nominal thrust of the engine is 100-pounds; Qual engines would have 100 lb. thrust rather than the nominal 95 lb. thrust of the PFRT engine",
+     "SRC-DB05-NTRS-19690029231",
+     "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "The NASA report had no usable text layer."
+   "explanation": "The NASA report had no usable text layer. Marquardt's 1969 Apollo SM/LM RCS development summary gives the Apollo engine a nominal 100 lb thrust (raised from 95 lb at PFRT to 100 lb for qualification), so 100 lbf is the documented Apollo-era value. 110 lbf (490 N) is the later R-4D variant figure, for which no document was opened."
   },
   {
    "conflict_id": "CF-DB05-W-SPACECRAFT-4",
@@ -5450,11 +5455,16 @@
      "915 lb",
      "SRC-NMUSAF-XLR99",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Dry weight - 910 pounds; Table I Spec. 91M (March 1961) dry 910 lb, wet 1,025 lb",
+     "SRC-DB05-NTRS-19710070145",
+     "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "The museum fact sheet refused access (HTTP 403). No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The museum fact sheet refused access (HTTP 403). The 1961 AFFTC/NASA paper on XLR99 operating experience prints a dry weight of 910 pounds for the present engine, and its specification table shows the growth from 540 lb (initial proposal) through 856 lb (Spec. 91F, 1958) to 910 lb (Spec. 91M, 1961); wet weight is 1,025 lb. 910 lb is the documented dry mass; 915 lb has no document."
   },
   {
    "conflict_id": "CF-DB05-E-US_HIST-12",

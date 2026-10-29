@@ -47,7 +47,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "J17": "資料37-3 (JAXA, 2017-09-05) PDF p.3 '1. LE-9エンジン基本仕様', column '（参考）LE-7Aエンジン'",
         "JP": "rocket.jaxa.jp LE-7A engine page, specification table (fetched 2026-10-29)",
         "MH": "三菱重工技報 Vol.53 No.4 (2016) p.37 表1 LE-9エンジン諸元",
-        "AT": "jaxa.jp H-IIB F3 LE-7A firing result page (2010-08-19), result table"}
+        "AT": "jaxa.jp H-IIB F3 LE-7A firing result page (2010-08-19), result table",
+        "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -336,8 +337,13 @@ K("CF-US_HIST-04", "ENG-US-RS-68", "performance.thrust_sl / performance.pc",
   "the RS-68A as 39,000 lbf above the RS-68; 663,000 + 39,000 = 702,000 lbf DERIVED matches NASA's 702,000 lb for the "
   "RS-68A (CF-DB05-RS68A-THRUST), which supports 663,000 lbf as the flown RS-68 rating without a document saying so.")
 K("CF-US_HIST-09", "ENG-US-XLR99-RM-1", "mechanical.mass",
-  [("The basic engine has a mass of 910 lb", "SRC-WIKI-XLR99", "T"), ("915 lb", "SRC-NMUSAF-XLR99", "N")],
-  "UNRESOLVED", "rating_or_rounding", "The museum fact sheet refused access (HTTP 403). " + _PRIMARY)
+  [("The basic engine has a mass of 910 lb", "SRC-WIKI-XLR99", "T"), ("915 lb", "SRC-NMUSAF-XLR99", "N"),
+   ("Dry weight - 910 pounds; Table I Spec. 91M (March 1961) dry 910 lb, wet 1,025 lb", "SRC-DB05-NTRS-19710070145", "X61")],
+  "RESOLVED", "primary_value_found",
+  "The museum fact sheet refused access (HTTP 403). The 1961 AFFTC/NASA paper on XLR99 operating experience prints "
+  "a dry weight of 910 pounds for the present engine, and its specification table shows the growth from 540 lb "
+  "(initial proposal) through 856 lb (Spec. 91F, 1958) to 910 lb (Spec. 91M, 1961); wet weight is 1,025 lb. 910 lb "
+  "is the documented dry mass; 915 lb has no document.")
 K("CF-US_HIST-12", "ENG-US-S-3D", "performance.thrust",
   [("134,908 pounds of thrust (600.1 kN) at sea level", "SRC-WIKI-S3D", "T"), ("engine_power 150,000 lbf (Jupiter)", "SRC-WIKI-PGM19", "T"),
    ("150,000-205,000 lb depending on model", "SRC-NMUSAF-LR79", "N")],
@@ -542,3 +548,9 @@ D("SRC-DB05-ESA-PR-1994-35-EPS", identifier="ESA Press Release N° 35-1994 (14 O
   rights_checked="ESA press release on esa.int; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Aestus 'thrust = 27.5 kN'; 'consumes, in vacuo, in 1130 seconds' 3.2 t MMH and 6.3 t N2O4; nominal operation about 1100 s; "
        "EPS long-duration firing 1075 s on 5 October 1994. No chamber pressure or mixture ratio. Used as a conflict claim only.")
+
+D("SRC-DB05-NTRS-19710070145", identifier="NTRS 19710070145", title="XLR99 engine operating experience", tier="A",
+  rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="12 pages, OCR text layer (D. R. Bellman, N. E. DeMar, 1961). Data list: dry weight 910 pounds; Isp 250 s SL, "
+       "265 s at 45,000 ft; rated thrust 50,000 lb SL, 57,000 lb at 45,000 ft; area ratio 9.8; pc 600 psia. Table I "
+       "lists dry and wet weights by specification. Used as a conflict claim only.")
