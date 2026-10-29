@@ -1014,3 +1014,20 @@ LIQ-7 Pump Foundation: PAUSED.
 - More dead ends (2026-10-29): khrunichev.ru gives no connection and roscosmos.ru 403 (RD-191); NTRS has no RD-191,
   RD-181, Angara, Merlin 1D, Falcon 9 engine or Raptor documents by title; CNES/ESA history searches gave only
   encyclopedia mirrors for Vexin/Coralie/Astris.
+
+### Pass: archived maker pages (2026-10-29)
+
+Read the current encyclopedia revisions DB-0 knew only from search summaries and followed their citations to maker
+material in Internet Archive captures (the live pages are gone or script-rendered).
+
+- CF-DB05-W-R2_SC_COMM-R2-20 (NewtonFour) RESOLVED: Virgin Orbit's LauncherOne Service Guide v2.1 (August 2020) and
+  its technology page give 5,000 lbf; the 'about 6,000 lb' news figure has no maker source.
+- CF-DB05-W-COMMERCIAL-COM-4 (Merlin Vacuum Isp) RESOLVED: SpaceX's Falcon 9 page (capture of 2018-02-08) gives a
+  vacuum Isp of 348 s.
+- CF-DB05-W-R2_SCHEM-R2-9 (Merlin 1D throttle) PARTIALLY_RESOLVED, different_epoch: the 2015 Falcon 9 user's guide
+  gives 170,000 to 119,000 lbf at sea level (70 % DERIVED); SpaceX's chief executive wrote '~40% of 1 Merlin' in May
+  2016. The aggregator's 57 % has no source. Unresolved: 83 → 80.
+- No change from the other revisions read: the Rotary Rocket article prints no chamber count (TAX-7); the XLR11
+  variant list has no RM-3 (US_HIST-08); the BMW 109-718 article gives 1,250 kg both for the combined 003R unit and
+  the rocket (EUROPE-22); YF-115 176.5 kN is marked 'citation needed' (ASIA_OTHER-12); the YF-40 article lists two
+  chambers at 103 kN (ASIA_OTHER-8). Encyclopedia text is not evidence, so these stay open.

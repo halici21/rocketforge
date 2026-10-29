@@ -180,6 +180,11 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "WBT": "en.wikipedia.org BT-4 (rocket engine), current revision fetched 2026-10-29: infobox and 'Known variations' list",
         "JZ6": "jzyjspace.com products_list/6.html, Longyun product text (fetched 2026-10-29)",
         "AGP": "agnikul.in/product, Agnibaan 'Base Shroud' panel (fetched 2026-10-29)",
+        "VO1": "LauncherOne Service Guide v2.1 (Aug 2020), section 1.4 figure, PDF p.10 (archive capture 2021-05-07)",
+        "VO2": "virginorbit.com/technology, LauncherOne panel (archive capture 2021-01-17)",
+        "SX18": "spacex.com/falcon9, Merlin Vacuum panel (archive capture 2018-02-08)",
+        "SXU2": "Falcon 9 Payload User's Guide Rev 2 (2015-10-21), PDF p.11 text and table (archive capture 2017-03-14)",
+        "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -671,8 +676,13 @@ K("CF-R2_SC_COMM-R2-18", "ENG-US-AJ26-62", "performance.thrust_vac",
   "throttle ceiling, so the Korean 1,680 kN is consistent with the 100 percent vacuum rating; but no opened document "
   "says that the 3,630 kN is the 108 percent point. The encyclopedia's 3,265 kN pair carries no condition.")
 K("CF-R2_SC_COMM-R2-20", "ENG-US-NEWTONFOUR", "performance.thrust_vac",
-  [("5,000 lbf", "SRC-WIKI-LAUNCHERONE", "W"), ("5,000 lbf", "SRC-NSF-LAUNCHERONE-2020", "T"), ("about 6,000 lb", "SRC-AVIATIONIST-L1-2020", "T")],
-  "UNRESOLVED", "rating_or_rounding", "Two 2020 news pages give 5,000 and about 6,000 lb; neither cites the maker.")
+  [("5,000 lbf", "SRC-WIKI-LAUNCHERONE", "W"), ("5,000 lbf", "SRC-NSF-LAUNCHERONE-2020", "T"), ("about 6,000 lb", "SRC-AVIATIONIST-L1-2020", "T"),
+   ("NEWTONFOUR (N4) 6 min run time ... 5,000 lbf of thrust", "SRC-DB05-VIRGINORBIT-L1SG-2020", "VO1"),
+   ("NewtonFour Second stage engine 6 min run time over multiple burns 5,000 lbf", "SRC-DB05-VIRGINORBIT-TECH-2021", "VO2")],
+  "RESOLVED", "primary_value_found",
+  "The maker's LauncherOne Service Guide (v2.1, August 2020) and its technology page both give NewtonFour 5,000 lbf "
+  "(22.2 kN DERIVED). The 'about 6,000 lb' news figure has no maker source; the encyclopedia's 6,000 lbf sentence sits "
+  "in its account of the 2015 design. The guide labels the N3 figure 'vacuum thrust' but prints no condition for N4.")
 K("CF-R2_SC_COMM-R2-21", "ENG-US-AEON-R", "performance.thrust_sl",
   [("258,000 lbf (2023)", "SRC-RELATIVITY-PR-2023-04-12", "N"), ("269,000 lbf (2025)", "SRC-RELATIVITY-PR-2025-03-07", "T")],
   "EXPLAINED", "different_epoch", "Two dated maker releases; the 2025 figure is the later design value. Only the 2025 one was read.")
@@ -701,8 +711,15 @@ K("CF-R2_SCHEM-R2-8", "ENG-US-MERLIN-1D", "performance.pc",
   [("9.7 MPa (1,410 psi)", "SRC-WIKI-MERLIN", "W"), ("10.8 MPa ('Merlin-1D++' SL)", "SRC-WEVOLVER-MERLIN", "T")],
   "UNRESOLVED", "different_epoch", "Both are secondary and name different builds; SpaceX publishes no chamber pressure in the opened guide.")
 K("CF-R2_SCHEM-R2-9", "ENG-US-MERLIN-1D", "performance.throttle_range",
-  [("100 %-57 % (SL)", "SRC-WEVOLVER-MERLIN", "T")],
-  "UNRESOLVED", None, "The 'down to 40 %' claim has no source; the aggregator's 57 % cites none either.")
+  [("100 %-57 % (SL)", "SRC-WEVOLVER-MERLIN", "T"),
+   ("Throttle capability Yes (170,000 lbf to 119,000 lbf sea level) [first stage, per engine]; Yes (210,000 lbf to 81,000 lbf) "
+    "[second stage]", "SRC-DB05-SPACEX-F9UG-R2-2015", "SXU2"),
+   ("min is ~40% of 1 Merlin", "SRC-DB05-MUSK-X-2016-05-06", "MX16")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "SpaceX's 2015 user's guide gives the first-stage Merlin 1D 170,000 to 119,000 lbf at sea level, 70 % DERIVED (the "
+  "vacuum engine 210,000 to 81,000 lbf, 39 % DERIVED). In May 2016 SpaceX's chief executive wrote that the minimum is "
+  "'~40% of 1 Merlin', so the 40 % claim has a maker-side source after the guide. That is an informal post, not a "
+  "specification; the aggregator's 57 % still has no source, and no current SpaceX document gives a range.")
 K("CF-COMMERCIAL-COM-2", "ENG-US-MERLIN-1D", "performance.thrust_sl",
   [("147,000 lbf (v1.1)", "SRC-SFN-2015-FT", "T"), ("170,000 lbf (FT)", "SRC-SFN-2015-FT", "T"), ("190,000 lbf (current)", "SRC-SPACEX-FUG-2025", "T"),
    ("63.5 tf announced; 66.68 tf updated", "SRC-SLR-F9-SMA", "N")],
@@ -714,8 +731,13 @@ K("CF-COMMERCIAL-COM-3", "ENG-US-MERLIN-1D-VACUUM", "performance.thrust_vac",
    ("~81.6 tf / ~95.3 tf", "SRC-SLR-F9-SMA", "N")],
   "EXPLAINED", "different_epoch", "Time series: 210,000 lbf in 2015, 220,500 lbf in the 2025 guide.")
 K("CF-COMMERCIAL-COM-4", "ENG-US-MERLIN-1D-VACUUM", "performance.isp_vac",
-  [("348 s", "SRC-WEVOLVER-MERLIN", "T"), ("not printed", "SRC-SPACEX-FUG-2025", "T")],
-  "UNRESOLVED", None, "SpaceX's guide prints no Isp; the aggregator's 348 s cites no source.")
+  [("348 s", "SRC-WEVOLVER-MERLIN", "T"), ("not printed", "SRC-SPACEX-FUG-2025", "T"),
+   ("SpaceX's Merlin vacuum engine has the highest vacuum specific impulse (isp) ... with a vacuum isp of 348 seconds",
+    "SRC-DB05-SPACEX-F9-PAGE-2018", "SX18")],
+  "RESOLVED", "primary_value_found",
+  "SpaceX's own Falcon 9 page (archive capture of 8 February 2018) gives the Merlin Vacuum a vacuum Isp of 348 s, the "
+  "aggregator's figure. The 2025 guide omits Isp; it does not contradict the value. Later nozzle-extension variants are "
+  "not covered by the 2018 page.")
 K("CF-COMMERCIAL-COM-6", "ENG-US-MERLIN-1C", "performance.thrust_sl / performance.isp",
   [("78,000 lbf SL / 90,000 vac / 301 s (Falcon 1)", "SRC-SPACEX-PR-M1C-2007", "NF"),
    ("95,000 lbf SL / over 108,000 vac / 304 s (Falcon 9)", "SRC-SPACEX-PR-M1C-2007", "T"),
@@ -884,3 +906,23 @@ D("SRC-DB05-JZYJ-LONGYUN", identifier='https://www.jzyjspace.com/products_list/6
 D("SRC-DB05-AGNIKUL-PRODUCT", identifier='https://agnikul.in/product/', title='Agnibaan product page (Agnikul Cosmos)', tier="A",
   rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Agnibaan 'Base Shroud' panel: 'houses the world's first single piece 3D printed semi-cryogenic patented rocket engine, Agnilet, that can propel the vehicle with its 6.2kN thrust capacity.' No ambient condition printed. Used as a conflict claim only.")
+
+D("SRC-DB05-VIRGINORBIT-L1SG-2020", identifier='https://web.archive.org/web/20210507125828/https://virginorbit.com/wp-content/uploads/2020/09/LauncherOne-Service-Guide-August-2020.pdf', title='LauncherOne Service Guide, Version 2.1 (Virgin Orbit, August 2020)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Virgin Orbit LauncherOne Service Guide, Version 2.1, August 2020 ('Cleared for Release: 18-S-1862 - As Amended'), 57 pages, read from the Internet Archive capture of 2021-05-07 (the maker's site is gone). Section 1.4 figure (PDF p.10): 'NEWTONTHREE (N3) 3 min run time 73,500 lbf / 327 kN vacuum thrust LOX/RP-1 Pump-Fed Engine'; 'NEWTONFOUR (N4) 6 min run time ... 5,000 lbf of thrust'. The N4 figure carries no vacuum/sea-level qualifier. Used as a conflict claim only.")
+
+D("SRC-DB05-VIRGINORBIT-TECH-2021", identifier='https://web.archive.org/web/20210117214058/https://virginorbit.com/technology/', title='Technology (Virgin Orbit web page, captured 2021-01-17)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Virgin Orbit technology page, Internet Archive capture of 2021-01-17: 'NewtonFour Second stage engine 6 min run time over multiple burns 5,000 lbf'; 'NewtonThree First stage engine 3 min run time ~75,000 lbf'. Used as a conflict claim only.")
+
+D("SRC-DB05-SPACEX-F9-PAGE-2018", identifier='https://web.archive.org/web/20180208031148/http://www.spacex.com/falcon9', title='Falcon 9 (SpaceX web page, captured 2018-02-08)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. SpaceX Falcon 9 page, Internet Archive capture of 2018-02-08 (the live page is script-rendered). Merlin Vacuum panel: 'SpaceX's Merlin vacuum engine has the highest vacuum specific impulse (isp) ... of any American liquid oxygen/kerosene engine with a vacuum isp of 348 seconds'; second stage 'Burn Time 397 sec Thrust 934 kN 210,000 lbf'; first stage 'Thrust At Sea Level 7,607 kN 1,710,000 lbf Thrust In Vacuum 8,227 kN 1,849,500 lbf'. Used as a conflict claim only.")
+
+D("SRC-DB05-SPACEX-F9UG-R2-2015", identifier='https://web.archive.org/web/20170314002928/http://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf', title="Falcon 9 Launch Vehicle Payload User's Guide, Rev 2 (SpaceX, 21 October 2015)", tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. SpaceX Falcon 9 Payload User's Guide Rev 2, 21 October 2015 ('Approved for Public Release'), 69 pages, read from the Internet Archive capture of 2017-03-14. PDF p.11: 'Nine SpaceX Merlin engines power the Falcon 9 first stage with up to 756 kN (170,000 lbf) thrust per engine at sea level'; table: second stage 934 kN (vacuum) (210,000 lbf); 'Throttle capability Yes (170,000 lbf to 119,000 lbf sea level) Yes (210,000 lbf to 81,000 lbf)'. Used as a conflict claim only.")
+
+D("SRC-DB05-MUSK-X-2016-05-06", identifier='https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224', title='Elon Musk on Twitter, 6 May 2016 (status 728753234811060224)', tier="B",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Post by SpaceX's chief executive, 6 May 2016 (data-time 1462579247), read from the Internet Archive capture of 2017-02-05: 'Max is just 3X Merlin thrust and min is ~40% of 1 Merlin. Two outer engines shut off before the center does.' (about the landing burn). An informal statement, not a specification. Used as a conflict claim only.")

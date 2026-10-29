@@ -3860,11 +3860,21 @@
      "about 6,000 lb",
      "SRC-AVIATIONIST-L1-2020",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "NEWTONFOUR (N4) 6 min run time ... 5,000 lbf of thrust",
+     "SRC-DB05-VIRGINORBIT-L1SG-2020",
+     "LauncherOne Service Guide v2.1 (Aug 2020), section 1.4 figure, PDF p.10 (archive capture 2021-05-07)"
+    ],
+    [
+     "NewtonFour Second stage engine 6 min run time over multiple burns 5,000 lbf",
+     "SRC-DB05-VIRGINORBIT-TECH-2021",
+     "virginorbit.com/technology, LauncherOne panel (archive capture 2021-01-17)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "Two 2020 news pages give 5,000 and about 6,000 lb; neither cites the maker."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's LauncherOne Service Guide (v2.1, August 2020) and its technology page both give NewtonFour 5,000 lbf (22.2 kN DERIVED). The 'about 6,000 lb' news figure has no maker source; the encyclopedia's 6,000 lbf sentence sits in its account of the 2015 design. The guide labels the N3 figure 'vacuum thrust' but prints no condition for N4."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-21",
@@ -4028,11 +4038,21 @@
      "100 %-57 % (SL)",
      "SRC-WEVOLVER-MERLIN",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Throttle capability Yes (170,000 lbf to 119,000 lbf sea level) [first stage, per engine]; Yes (210,000 lbf to 81,000 lbf) [second stage]",
+     "SRC-DB05-SPACEX-F9UG-R2-2015",
+     "Falcon 9 Payload User's Guide Rev 2 (2015-10-21), PDF p.11 text and table (archive capture 2017-03-14)"
+    ],
+    [
+     "min is ~40% of 1 Merlin",
+     "SRC-DB05-MUSK-X-2016-05-06",
+     "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The 'down to 40 %' claim has no source; the aggregator's 57 % cites none either."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "SpaceX's 2015 user's guide gives the first-stage Merlin 1D 170,000 to 119,000 lbf at sea level, 70 % DERIVED (the vacuum engine 210,000 to 81,000 lbf, 39 % DERIVED). In May 2016 SpaceX's chief executive wrote that the minimum is '~40% of 1 Merlin', so the 40 % claim has a maker-side source after the guide. That is an informal post, not a specification; the aggregator's 57 % still has no source, and no current SpaceX document gives a range."
   },
   {
    "conflict_id": "CF-DB05-W-COMMERCIAL-COM-2",
@@ -4106,11 +4126,16 @@
      "not printed",
      "SRC-SPACEX-FUG-2025",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "SpaceX's Merlin vacuum engine has the highest vacuum specific impulse (isp) ... with a vacuum isp of 348 seconds",
+     "SRC-DB05-SPACEX-F9-PAGE-2018",
+     "spacex.com/falcon9, Merlin Vacuum panel (archive capture 2018-02-08)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "SpaceX's guide prints no Isp; the aggregator's 348 s cites no source."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "SpaceX's own Falcon 9 page (archive capture of 8 February 2018) gives the Merlin Vacuum a vacuum Isp of 348 s, the aggregator's figure. The 2025 guide omits Isp; it does not contradict the value. Later nozzle-extension variants are not covered by the 2018 page."
   },
   {
    "conflict_id": "CF-DB05-W-COMMERCIAL-COM-6",

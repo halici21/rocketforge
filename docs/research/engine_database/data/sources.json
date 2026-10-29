@@ -26740,6 +26740,125 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-VIRGINORBIT-L1SG-2020",
+   "title": "LauncherOne Service Guide, Version 2.1 (Virgin Orbit, August 2020)",
+   "authors": [],
+   "organization": "Virgin Orbit, LLC",
+   "year": 2020,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "https://web.archive.org/web/20210507125828/https://virginorbit.com/wp-content/uploads/2020/09/LauncherOne-Service-Guide-August-2020.pdf",
+   "url": "https://web.archive.org/web/20210507125828/https://virginorbit.com/wp-content/uploads/2020/09/LauncherOne-Service-Guide-August-2020.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-NEWTONFOUR",
+    "ENG-US-NEWTONTHREE"
+   ],
+   "locators": "section 1.4 vehicle overview figure (PDF p.10)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Virgin Orbit LauncherOne Service Guide, Version 2.1, August 2020 ('Cleared for Release: 18-S-1862 - As Amended'), 57 pages, read from the Internet Archive capture of 2021-05-07 (the maker's site is gone). Section 1.4 figure (PDF p.10): 'NEWTONTHREE (N3) 3 min run time 73,500 lbf / 327 kN vacuum thrust LOX/RP-1 Pump-Fed Engine'; 'NEWTONFOUR (N4) 6 min run time ... 5,000 lbf of thrust'. The N4 figure carries no vacuum/sea-level qualifier.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-VIRGINORBIT-TECH-2021",
+   "title": "Technology (Virgin Orbit web page, captured 2021-01-17)",
+   "authors": [],
+   "organization": "Virgin Orbit, LLC",
+   "year": 2021,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20210117214058/https://virginorbit.com/technology/",
+   "url": "https://web.archive.org/web/20210117214058/https://virginorbit.com/technology/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-NEWTONFOUR",
+    "ENG-US-NEWTONTHREE"
+   ],
+   "locators": "LauncherOne vehicle panel",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Virgin Orbit technology page, Internet Archive capture of 2021-01-17: 'NewtonFour Second stage engine 6 min run time over multiple burns 5,000 lbf'; 'NewtonThree First stage engine 3 min run time ~75,000 lbf'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-SPACEX-F9-PAGE-2018",
+   "title": "Falcon 9 (SpaceX web page, captured 2018-02-08)",
+   "authors": [],
+   "organization": "Space Exploration Technologies Corp.",
+   "year": 2018,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20180208031148/http://www.spacex.com/falcon9",
+   "url": "https://web.archive.org/web/20180208031148/http://www.spacex.com/falcon9",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-MERLIN-1D-VACUUM",
+    "ENG-US-MERLIN-1D"
+   ],
+   "locators": "Merlin Vacuum Engine panel; second-stage and first-stage data",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): SpaceX Falcon 9 page, Internet Archive capture of 2018-02-08 (the live page is script-rendered). Merlin Vacuum panel: 'SpaceX's Merlin vacuum engine has the highest vacuum specific impulse (isp) ... of any American liquid oxygen/kerosene engine with a vacuum isp of 348 seconds'; second stage 'Burn Time 397 sec Thrust 934 kN 210,000 lbf'; first stage 'Thrust At Sea Level 7,607 kN 1,710,000 lbf Thrust In Vacuum 8,227 kN 1,849,500 lbf'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-SPACEX-F9UG-R2-2015",
+   "title": "Falcon 9 Launch Vehicle Payload User's Guide, Rev 2 (SpaceX, 21 October 2015)",
+   "authors": [],
+   "organization": "Space Exploration Technologies Corp.",
+   "year": 2015,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "https://web.archive.org/web/20170314002928/http://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf",
+   "url": "https://web.archive.org/web/20170314002928/http://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-MERLIN-1D",
+    "ENG-US-MERLIN-1D-VACUUM"
+   ],
+   "locators": "section 2 vehicle description, PDF p.11 text and table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): SpaceX Falcon 9 Payload User's Guide Rev 2, 21 October 2015 ('Approved for Public Release'), 69 pages, read from the Internet Archive capture of 2017-03-14. PDF p.11: 'Nine SpaceX Merlin engines power the Falcon 9 first stage with up to 756 kN (170,000 lbf) thrust per engine at sea level'; table: second stage 934 kN (vacuum) (210,000 lbf); 'Throttle capability Yes (170,000 lbf to 119,000 lbf sea level) Yes (210,000 lbf to 81,000 lbf)'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-MUSK-X-2016-05-06",
+   "title": "Elon Musk on Twitter, 6 May 2016 (status 728753234811060224)",
+   "authors": [],
+   "organization": "Space Exploration Technologies Corp. (CEO)",
+   "year": 2016,
+   "source_type": "social media post",
+   "identifier": "https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224",
+   "url": "https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-MERLIN-1D"
+   ],
+   "locators": "post text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Post by SpaceX's chief executive, 6 May 2016 (data-time 1462579247), read from the Internet Archive capture of 2017-02-05: 'Max is just 3X Merlin thrust and min is ~40% of 1 Merlin. Two outer engines shut off before the center does.' (about the landing burn). An informal statement, not a specification.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
