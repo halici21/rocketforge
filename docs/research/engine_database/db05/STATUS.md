@@ -889,3 +889,11 @@ LIQ-7 Pump Foundation: PAUSED.
   journal's preview link (`/sktcxb/cn/article/pdf/preview/<DOI>.pdf`). Its Table 3 prints
   地面推力 1 200 kN. The manifest is now CARRIED_NOT with nothing shipped. R2A-14 (throttle) stays
   open: the paper gives no range. UNRESOLVED: 101 → 100.
+- After five requests, jdse.bit.edu.cn began serving a "访问频率较高，请完成安全验证" (rate-limit
+  verification) page. That is a bot check, so it was not pursued. The issue-8(4) papers likely to
+  hold YF-77/YF-75D tables (DOIs ...2021.20210009, 20210012, 20210021, 20210040) are for a later
+  pass at low request rate.
+- Remaining blockers after this session: Blue Origin (429), L3Harris/Aerojet datasheets (404),
+  NPO Energomash (403), ArianeGroup/Safran datasheets, the jdse rate limit, DTIC PDFs (bot page),
+  and the owner definition decisions (RS-25 mass/pump power, F-1 rating/mass, RD-180
+  mass/throttle). UNRESOLVED stands at 100.
