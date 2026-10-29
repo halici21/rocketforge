@@ -26034,6 +26034,31 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ESA-BULLETIN-102-VULCAIN2",
+   "title": "Vulcain-2 Cryogenic Engine Passes First Test with New Nozzle Extension (ESA Bulletin 102, May 2000)",
+   "authors": [
+    "D. Coulon"
+   ],
+   "organization": "European Space Agency",
+   "year": 2000,
+   "source_type": "agency bulletin article",
+   "identifier": "ESA Bulletin 102 (May 2000), Coulon102.pdf",
+   "url": "https://www.esa.int/esapub/bulletin/bullet102/Coulon102.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ESA Bulletin article; reuse terms not reviewed.",
+   "engines": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "locators": "p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine'",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): development-era table: 1 350 kN vacuum, 433 s, 115 bar, MR 6.10, section ratio 58.5, 320 kg/s, 1935 kg; LH2 TP nominal 35 680 rpm, 44.9 kg/s H2.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

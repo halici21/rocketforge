@@ -800,6 +800,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ESA-BULLETIN-102-VULCAIN2",
+   "url_requested": "https://www.esa.int/esapub/bulletin/bullet102/Coulon102.pdf",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 789714,
+   "sha256": "8302e3a91e8371e707a37e2d7407730b1bae9eac5e1d7b3237346fef39eafbb2",
+   "pdf_pages": 2,
+   "retrieved_utc": "2026-10-29T11:46:24Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "ESA Bulletin 102 (May 2000), D. Coulon, Coulon102.pdf",
+   "title_as_printed": "Vulcain-2 Cryogenic Engine Passes First Test with New Nozzle Extension",
+   "tier": "A",
+   "rights_statement_checked": "ESA Bulletin article on esa.int; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "2 pages, text layer. Table 1 (development era, after the 1999 P5 firings): vacuum thrust 1 350 kN, specific impulse 433 s, chamber pressure 115 bar, mixture ratio 6.10, section ratio 58.5, total propellant flow 320 kg/s, mass 1935 kg, LOX TP 12 600 rpm, LH2 TP 35 500 rpm. Text: MR raised from 5.3 to 6.1; thrust 1145 to 1350 kN; LH2 TP nominal 35680 rpm, 14.29 MW, 44.9 kg/s. Used as conflict claims only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
    "url_requested": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
    "download_url": null,

@@ -158,7 +158,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "A5": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 EPC table and p.A4-2",
         "A5H": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3",
         "CN": "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)",
-        "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1"}
+        "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1",
+        "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -426,23 +427,30 @@ K("CF-ASIA_OTHER-16", "ENG-CN-TH-12", "cycle",
 
 # --- Europe
 K("CF-R2_ASIA-R2A-20", "ENG-FR-VULCAIN-2", "flows.mdot",
-  [("235 kg/s total, 41.2 kg/s H2", "SRC-WIKI-VULCAIN", "W"), ("H2 33 kg/s, LOX 202 kg/s", "SRC-HF-SPACEYL-ENGINES", "T")],
-  "UNRESOLVED", "different_variant",
-  "The opened dataset is unsourced; the 41.2 kg/s may be a Vulcain 1 figure (see the ESA esaMI page in "
-  "CF-ANCHOR_EU_ASIA-4). Nothing primary opened.")
+  [("235 kg/s total, 41.2 kg/s H2", "SRC-WIKI-VULCAIN", "W"), ("H2 33 kg/s, LOX 202 kg/s", "SRC-HF-SPACEYL-ENGINES", "T"),
+   ("Total propellant flow 320 kg/s; nominal hydrogen flow of 44.9 kg/s", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "ESA's 2000 Vulcain-2 table prints 320 kg/s total and the text a nominal 44.9 kg/s hydrogen flow. Neither the 235 kg/s "
+  "nor the 202 + 33 kg/s is a Vulcain 2 figure in it; 235 kg/s and 41.2 kg/s H2 fit the first Vulcain (see "
+  "CF-ANCHOR_EU_ASIA-4). A development-era value, not a flight datasheet.")
 K("CF-ANCHOR_EU_ASIA-1", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
   [("1,390 kN", "SRC-CNES-A5-TECH", "NX"), ("1,359 kN", "SRC-AIAA-VG-ARIANE", "N"), ("1,359 / 1,340 kN", "SRC-WIKI-VULCAIN", "W"),
    ("~137-138 t", "SRC-ESA-A5ECA-NEWELEM", "N"), ("Vulcain 2's 1,359 kN (305,000 lbf)", "SRC-NEWSPACEECON-V21", "T"),
    ("Thrust 960 kN (SL) 1390 kN (Vacuum); 'develops 1,390 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5"),
-   ("pour 1 390 kN (139 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN")],
+   ("pour 1 390 kN (139 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
+   ("Vacuum thrust 1 350 kN (May 2000 table); 'increases the available thrust from 1145 to 1350 kN'", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
   "PARTIALLY_RESOLVED", "rating_or_rounding",
   "The launch operator's user's manual (Arianespace, 2016) prints 1,390 kN as the Vulcain 2 maximum vacuum thrust, "
-  "matching the CNES figure. 1,359 kN appears only in secondary pages and an unopened AIAA guide; whether it is a "
-  "nominal rather than maximum value, or another epoch, is not shown. No Safran/ArianeGroup datasheet was reached.")
+  "matching the CNES figure. ESA's May 2000 development table printed 1 350 kN, so the vacuum thrust grew between the "
+  "2000 design and the flown engine; 1,359 kN appears only in secondary pages and an unopened AIAA guide, and which "
+  "epoch it belongs to is not shown. No Safran/ArianeGroup datasheet was reached.")
 K("CF-ANCHOR_EU_ASIA-4", "ENG-FR-VULCAIN-2", "flows.mdot_fuel",
-  [("41.2 kg/s H2 of 235 kg/s (page titled 'Vulcain engine')", "SRC-ESA-ESAMI-VULCAIN", "NX"), ("33 kg/s H2", "SRC-HF-SPACEYL-ENGINES", "T")],
-  "UNRESOLVED", "different_variant",
-  "The ESA page gave no text; the dataset is unsourced. The DB-0 suspicion that the ESA figures are Vulcain 1 stands untested.")
+  [("41.2 kg/s H2 of 235 kg/s (page titled 'Vulcain engine')", "SRC-ESA-ESAMI-VULCAIN", "NX"), ("33 kg/s H2", "SRC-HF-SPACEYL-ENGINES", "T"),
+   ("the nominal operating point of 35680 rpm, 14.29 MW and a hydrogen flow of 44.9 kg/s", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "ESA's 2000 Bulletin gives the Vulcain 2 nominal hydrogen flow as 44.9 kg/s, so neither 41.2 nor 33 kg/s is the "
+  "Vulcain 2 value it prints; that supports the DB-0 suspicion that the esaMI page's 41.2 kg/s is the first Vulcain, "
+  "though that page gave no text to confirm it.")
 K("CF-EUROPE-6", "ENG-FR-VULCAIN-2-1", "performance.thrust_vac",
   [("1,371 kN (308,000 lbf)", "SRC-NEWSPACEECON-V21", "T"), ("1,340 kN", "SRC-METALAM-V21", "NF"), ("135 t vacuum", "SRC-3DPI-V21", "NF")],
   "UNRESOLVED", None,

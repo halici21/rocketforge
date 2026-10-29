@@ -269,12 +269,14 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-W-ASIA_OTHER-11": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: two encyclopedia renderings; no YF-77 Isp ships."),
     "CF-DB05-W-R2_ASIA-R2A-20": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: unsourced dataset against an encyclopedia; no Vulcain 2 flow ships."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 table gives 320 kg/s, matching neither claim; no "
+                 "Vulcain 2 flow ships."),
     "CF-DB05-W-ANCHOR_EU_ASIA-1": dict(decision="WITHHOLD", withhold=(),
         argument="PARTIALLY_RESOLVED in DB-0.5: Arianespace's user's manual prints 1,390 kN maximum vacuum against "
                  "secondary 1,359 kN; no manufacturer datasheet reached, and no Vulcain 2 thrust ships."),
     "CF-DB05-W-ANCHOR_EU_ASIA-4": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: ESA page gave no text; no Vulcain 2 flow ships."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 Bulletin gives 44.9 kg/s H2, matching neither claim; no "
+                 "Vulcain 2 flow ships."),
     # DB-0 conflict encyclopedia pass (2026-10-28)
     "CF-DB05-E-R2_ASIA-R2A-2": dict(decision="CARRIED_NOT", touches=(),
         competing={"AS-DB05-JP-LE-7A-018": "JAXA 2017 12.3MPa; the LE-7A is not carried (only the LE-7 ships)"},
@@ -292,11 +294,12 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-E-EUROPE-3": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: encyclopedia revisions; nothing ships from these sources."),
     "CF-DB05-E-EUROPE-4": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia value against a refused journal table; nothing ships from these sources."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 table prints 115 bar; 117.3 bar has no primary. Nothing ships."),
     "CF-DB05-E-ANCHOR_EU_ASIA-2": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia value against refused pages; nothing ships from these sources."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 table prints 115 bar; 117.3 bar has no primary. Nothing ships."),
     "CF-DB05-E-ANCHOR_EU_ASIA-3": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia value against a refused journal table; nothing ships from these sources."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 table prints section ratio 58.5; 58.2 has no primary. "
+                 "Nothing ships."),
 }
 
 CARRIER_GENERALISATIONS = {}

@@ -6659,5 +6659,20 @@
   "text_chars": 179864,
   "ok": true,
   "file": "SRC-DB05-ULA-VULCAN-UG-2023.pdf"
+ },
+ "SRC-DB05-ESA-BULLETIN-102-VULCAIN2": {
+  "source_id": "SRC-DB05-ESA-BULLETIN-102-VULCAIN2",
+  "url": "https://www.esa.int/esapub/bulletin/bullet102/Coulon102.pdf",
+  "time_utc": "2026-10-29T11:46:24Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.esa.int/esapub/bulletin/bullet102/Coulon102.pdf",
+  "bytes": 789714,
+  "sha256": "8302e3a91e8371e707a37e2d7407730b1bae9eac5e1d7b3237346fef39eafbb2",
+  "is_pdf": true,
+  "pages": 2,
+  "text_chars": 5320,
+  "ok": true,
+  "file": "SRC-DB05-ESA-BULLETIN-102-VULCAIN2.pdf"
  }
 }

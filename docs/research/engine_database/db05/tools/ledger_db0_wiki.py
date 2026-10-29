@@ -41,6 +41,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "U15": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage",
         "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage",
         "CN": "cnes.fr/projets/ariane-5/lanceur, EPS section (fetched 2026-10-29)",
+        "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine'",
         "M8": "H-II F8 investigation report (MEXT archive 1335987_007_5.pdf) 別添表８－２",
         "J17": "資料37-3 (JAXA, 2017-09-05) PDF p.3 '1. LE-9エンジン基本仕様', column '（参考）LE-7Aエンジン'",
         "JP": "rocket.jaxa.jp LE-7A engine page, specification table (fetched 2026-10-29)",
@@ -148,22 +149,27 @@ K("CF-EUROPE-3", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
   "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's "
   "2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1).")
 K("CF-EUROPE-4", "ENG-FR-VULCAIN-2", "performance.pc",
-  [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N")],
-  "UNRESOLVED", "rating_or_rounding", "The journal table refused access (HTTP 403). " + _PRIMARY)
+  [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N"), ("Chamber pressure 115 bar", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "ESA's May 2000 Vulcain-2 table prints 115 bar, the journal's value. The 117.3 bar of the current encyclopedia has no "
+  "primary behind it here; it may be a later flight value, but no document says so.")
 K("CF-ANCHOR_EU_ASIA-2", "ENG-FR-VULCAIN-2", "performance.pc",
-  [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N"), ("115 bar", "SRC-CLASSICISTRANIERI-VULCAIN", "N")],
-  "UNRESOLVED", "different_epoch",
+  [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N"), ("115 bar", "SRC-CLASSICISTRANIERI-VULCAIN", "N"),
+   ("Chamber pressure 115 bar", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+  "PARTIALLY_RESOLVED", "different_epoch",
   "The 115 bar is in a journal table (403) and an old encyclopedia mirror (403); the current article prints 117.3 bar. "
-  + _PRIMARY)
+  "ESA's May 2000 table also prints 115 bar (see CF-DB05-E-EUROPE-4); no primary gives 117.3 bar.")
 K("CF-ANCHOR_EU_ASIA-3", "ENG-FR-VULCAIN-2", "nozzle.area_ratio",
   [("'2': 58.2:1", "SRC-WIKI-VULCAIN", "T"), ("58.5", "SRC-MECAIND-2020-T1", "N"),
    ("the divergent portion 4 of the nozzle, which currently exhibits for the Vulcain 2 engine an area ratio R equal to 60 "
-    "for a specific impulse of 433 seconds", "SRC-DB05-PATENT-US6996973", "P60")],
-  "UNRESOLVED", "rating_or_rounding",
+    "for a specific impulse of 433 seconds", "SRC-DB05-PATENT-US6996973", "P60"),
+   ("Section ratio 58.5", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+  "PARTIALLY_RESOLVED", "rating_or_rounding",
   "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. The one "
   "agency document opened, an ESA patent (priority 1999, before Vulcain 2 first flew), gives 'equal to 60' in an "
   "illustration of the invention: a round design-era figure, likely the source of the 60:1 rendering, and not precise "
-  "enough to choose between 58.2 and 58.5. No Snecma or ESA datasheet was reached.")
+  "enough to choose between 58.2 and 58.5. ESA's May 2000 Vulcain-2 table prints 'Section ratio 58.5', the journal's "
+  "value; 58.2 has no primary behind it here. A development-era table, not a flight datasheet.")
 
 # --- USSR / Russia
 K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
@@ -402,8 +408,13 @@ K("CF-EUROPE-11", "ENG-DE-AESTUS", "performance.pc",
   [("chamber_pressure 11 bar", "SRC-WIKI-AESTUS", "T"), ("10.0 bar", "SRC-MECAIND-2020-T1", "N")],
   "UNRESOLVED", None, "The journal table refused access (HTTP 403). " + _PRIMARY)
 K("CF-EUROPE-12", "ENG-DE-AESTUS", "propellants.mixture_ratio",
-  [("mixture_ratio 1.9", "SRC-WIKI-AESTUS", "T"), ("2.05", "SRC-MECAIND-2020-T1", "N")],
-  "UNRESOLVED", None, "The journal table refused access (HTTP 403). " + _PRIMARY)
+  [("mixture_ratio 1.9", "SRC-WIKI-AESTUS", "T"), ("2.05", "SRC-MECAIND-2020-T1", "N"),
+   ("adjusting propellant mixture ratio from 2.05 to 1.90 with a first flight on an Ariane 5 flight 518 on 26 February 2004",
+    "SRC-WIKI-AESTUS", "T")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "The encyclopedia's own history section says the mixture ratio was changed from 2.05 to 1.90 in the 1999-2002 "
+  "improvements, first flown on flight 518 (2004): two epochs, not two readings of one value. The journal table "
+  "refused access (HTTP 403), and no Airbus or ESA document was opened to confirm the change.")
 K("CF-EUROPE-23", "ENG-DE-BMW-109-558", "performance.thrust",
   [("3.7 kN for 33 s, followed by 0.588 kN for 24 s", "SRC-WIKI-BMW109558", "T"), ("375 kg falling to 60 kg", "SRC-NASM-BMW109558", "N")],
   "EXPLAINED", "unit",
@@ -506,3 +517,11 @@ D("SRC-DB05-CNES-A5-LANCEUR", identifier="cnes.fr/projets/ariane-5/lanceur (CNES
 D("SRC-DB05-ULA-VULCAN-UG-2023", identifier="Vulcan Launch Systems User's Guide, October 2023 (United Launch Alliance)", title="Vulcan Launch Systems User's Guide",
   tier="B", rights_checked="ULA user's guide PDF; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="85 pages. Table 1.4-1 and p.1-5: BE-4 2446.5 kN (550k-lbf) sea level each. Used as a conflict claim only.")
+
+D("SRC-DB05-ESA-BULLETIN-102-VULCAIN2", identifier="ESA Bulletin 102 (May 2000), D. Coulon, Coulon102.pdf", tier="A",
+  title="Vulcain-2 Cryogenic Engine Passes First Test with New Nozzle Extension",
+  rights_checked="ESA Bulletin article on esa.int; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="2 pages, text layer. Table 1 (development era, after the 1999 P5 firings): vacuum thrust 1 350 kN, specific impulse 433 s, "
+       "chamber pressure 115 bar, mixture ratio 6.10, section ratio 58.5, total propellant flow 320 kg/s, mass 1935 kg, LOX TP "
+       "12 600 rpm, LH2 TP 35 500 rpm. Text: MR raised from 5.3 to 6.1; thrust 1145 to 1350 kN; LH2 TP nominal 35680 rpm, "
+       "14.29 MW, 44.9 kg/s. Used as conflict claims only.")

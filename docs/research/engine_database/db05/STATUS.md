@@ -774,3 +774,20 @@ LIQ-7 Pump Foundation: PAUSED.
 - Owner definition decisions between opened primaries: RS-25 mass and pump power, F-1 rating epoch and mass, RD-180
   mass and throttle range.
 - Many single-record historical and small engines with no primary reachable from here.
+
+## ESA Bulletin 102: Vulcain 2 (2026-10-29)
+
+- Opened ESA Bulletin 102 (May 2000), D. Coulon, as SRC-DB05-ESA-BULLETIN-102-VULCAIN2. Table 1 gives development-era
+  values: 1 350 kN vacuum, 433 s, 115 bar, mixture ratio 6.10, section ratio 58.5, 320 kg/s, 1935 kg. The text gives
+  44.9 kg/s of hydrogen at the nominal point.
+- Now PARTIALLY_RESOLVED:
+  - Chamber pressure: CF-DB05-E-EUROPE-4 and CF-DB05-E-ANCHOR_EU_ASIA-2. 115 bar is supported; 117.3 bar has no
+    primary.
+  - Area ratio: CF-DB05-E-ANCHOR_EU_ASIA-3. 58.5 is supported.
+  - Flows: CF-DB05-W-R2_ASIA-R2A-20 and CF-DB05-W-ANCHOR_EU_ASIA-4. Neither claim is the Vulcain 2 value; the 41.2 kg/s
+    fits the first Vulcain.
+- The thrust record now shows growth from 1350 kN in 2000 to 1390 kN on the flown engine.
+- Aestus mixture ratio: CF-DB05-E-EUROPE-12 is PARTIALLY_RESOLVED as two epochs (2.05 changed to 1.90, first flown in
+  2004), from the encyclopedia's history section only.
+- Tried without result: Airbus space-propulsion.com (pages now 404) and core.ac.uk DLR copy (HTTP 403).
+- Totals: 117 UNRESOLVED, 48 PARTIALLY_RESOLVED.
