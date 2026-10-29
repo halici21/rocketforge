@@ -746,3 +746,9 @@ LIQ-7 Pump Foundation: PAUSED.
   2017 briefing was recorded in wave 3, and the earlier explanation missed it.
 - The LE-7A is still not carried, so nothing new ships (wave-3 manifest CARRIED_NOT, AS-018 listed as competing).
 - Totals: 126 UNRESOLVED, 16 RESOLVED.
+- HM7B, from the same Arianespace manual (ESC-A table and p.A4-3): 67 kN maximum vacuum thrust, 446 s, 945 s burn.
+  - CF-DB05-W-ANCHOR_EU_ASIA-7 (burn time, 945 vs 950 s) is EXPLAINED.
+  - CF-DB05-W-EUROPE-9 and CF-DB05-W-ANCHOR_EU_ASIA-5 (thrust, 62.2 / 64.8 / 67 kN) are PARTIALLY_RESOLVED.
+- The open conflicts were checked against the assertions already filed. Only CF-DB05-RS25-SLTHRUST has a primary
+  assertion outside its claims, and that is a known power-level definition question.
+- Totals: 123 UNRESOLVED, 42 PARTIALLY_RESOLVED, 70 EXPLAINED.

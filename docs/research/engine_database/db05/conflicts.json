@@ -3032,11 +3032,16 @@
      "64.8 kN",
      "SRC-SATNOW-HM7B",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'",
+     "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+     "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "The catalogue's 64.8 kN and the 62.2 kN may be Ariane 5 ESC-A and Ariane 4 H10 builds; neither says."
+   "explanation": "Arianespace's 2016 user's manual prints 67 kN maximum vacuum thrust for the Ariane 5 ESC-A HM7B, so neither 62.2 nor 64.8 kN is the ESC-A maximum. Whether they are Ariane 4 H10 builds or nominal values is not shown."
   },
   {
    "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-5",
@@ -3058,11 +3063,16 @@
      "64.8 kN",
      "SRC-SATNOW-HM7B",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'",
+     "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+     "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "As CF-DB05-W-EUROPE-9; the CNES page gave no text."
+   "explanation": "The launch operator's manual prints 67 kN maximum in vacuum for the ESC-A HM7B, as the CNES page was reported to. The 62.2 and 64.8 kN figures are not explained (see CF-DB05-W-EUROPE-9)."
   },
   {
    "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-7",
@@ -3079,11 +3089,16 @@
      "up to 15 min 45 s (945 s)",
      "SRC-CNES-A5-TECH",
      "fetched; no extractable text"
+    ],
+    [
+     "ESC-A table: Combustion time 945 s",
+     "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+     "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "rating_or_rounding",
-   "explanation": "Neither page was read from text in this pass."
+   "explanation": "Arianespace's 2016 user's manual prints 945 s for the ESC-A, matching the CNES figure; the unopened AIAA guide's 950 s is that value rounded."
   },
   {
    "conflict_id": "CF-DB05-W-EUROPE-13",

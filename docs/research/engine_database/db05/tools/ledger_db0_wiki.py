@@ -467,7 +467,7 @@ D("SRC-DB05-ULA-DELTA4-UG-2013", identifier="Delta IV Launch Services User's Gui
 D("SRC-DB05-ARIANESPACE-A5UM-I5R2", identifier="Ariane 5 User's Manual, Issue 5 Revision 2, October 2016 (Arianespace); copy hosted as a DelftX course asset on edX",
   title="Ariane 5 User's Manual", tier="B", rights_checked="'Arianespace©' in every page header; not obtained from arianespace.com",
   rights_class="RESTRICTED_REFERENCE",
-  note="271 pages, text layer. Read the EPC table (p.1-7) and the Ariane 5 ECA description (p.A4-2): Vulcain 2 960 kN (SL) / "
+  note="271 pages, text layer. Read the EPC and ESC-A tables (p.1-7) and the Ariane 5 ECA description (pp.A4-2, A4-3). HM7B: 67 kN, 'maximum thrust in vacuum', 446 s, 945 s. Vulcain 2 960 kN (SL) / "
        "1390 kN (vacuum), 'maximum thrust in vacuum', Isp ~310 s (SL) / 432 s (vacuum), 540 s. No chamber pressure, area ratio "
        "or flow rates. Used as conflict claims only; no assertion taken.")
 
