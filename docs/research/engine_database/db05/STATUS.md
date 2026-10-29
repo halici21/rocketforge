@@ -791,3 +791,8 @@ LIQ-7 Pump Foundation: PAUSED.
   2004), from the encyclopedia's history section only.
 - Tried without result: Airbus space-propulsion.com (pages now 404) and core.ac.uk DLR copy (HTTP 403).
 - Totals: 117 UNRESOLVED, 48 PARTIALLY_RESOLVED.
+- RL10B-2: opened NASA TM-107470 (1997), NTRS 19970026009. It uses "a delivered Isp of 466.5 sec at a mixture ratio of
+  6.0", so CF-DB05-RL10B2-PC-ISP is now PARTIALLY_RESOLVED: the Isp half leans to 466.5 s, and the chamber pressure
+  half (644 vs 633 psia) is still open. It prints no engine mass.
+- NTRS searches for "HM7", "RS-68A" and "Vulcain" found nothing relevant.
+- Totals: 116 UNRESOLVED, 49 PARTIALLY_RESOLVED.

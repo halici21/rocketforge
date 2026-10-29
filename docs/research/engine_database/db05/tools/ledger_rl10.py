@@ -137,12 +137,21 @@ C("CF-DB05-RL10A33A-MR-ISP", engine_id=R33A, field_path="propellants.mixture_rat
               "whether 442 is a later delivered value is not established. The RL10A-3-3A values are unaffected.")
 C("CF-DB05-RL10B2-PC-ISP", engine_id=RB2, field_path="performance.pc / performance.isp_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-1; CF-R2_US_CLASSIC-B2-3; CF-US_HIST-03",
   claims=[["644 psia; 466.5 s (Table D-2)", "SRC-NAP-11780", "Table D-2"], ["633 psi; 465.5 s (text)", "SRC-NAP-11780", "Appendix D text"],
-          ["has a specific impulse of 465 sec (no chamber pressure printed)", "SRC-DB05-ULA-DELTA4-UG-2013", "p.1-6, section 1.2.2"]],
-  resolution="UNRESOLVED", kind="intra_document",
-  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure.")
+          ["has a specific impulse of 465 sec (no chamber pressure printed)", "SRC-DB05-ULA-DELTA4-UG-2013", "p.1-6, section 1.2.2"],
+          ["the RL10B-2 engine which has a delivered Isp of 466.5 sec at a mixture ratio of 6.0", "SRC-DB05-NTRS-19970026009",
+           "NASA TM-107470 p.6 text and Table II, case 1 'Nominal'"]],
+  resolution="PARTIALLY_RESOLVED", kind="intra_document",
+  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document.")
 C("CF-DB05-RL10B2-THRUST", engine_id=RB2, field_path="performance.thrust_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-2",
   claims=[["24,750 lb", "SRC-ULA-DIV-INAUGURAL", "p.2"], ["24,750 lbf", "SRC-ULA-DIV-GPSIIISV02", "p.1"], ["24,750 (Table D-2)", "SRC-NAP-11780", "Table D-2"]],
   resolution="RESOLVED", kind="primary_value_found", explanation="Three opened sources agree on 24,750; 24,740/24,800 are rounding/conversion in secondary sources.")
 C("CF-DB05-RL10A42-THRUST-ISP", engine_id=RA42, field_path="performance.thrust_vac / isp_vac", db0_conflict_id="CF-R2_US_CLASSIC-A42-2",
   claims=[["22,300 lb; 451 s", "SRC-NAP-11780", "Table D-4"], ["A-4-1 column: 22,300 lb; 610 psia; 451 s (Feb 1994)", "SRC-NAP-11780", "Table D-2"]],
   resolution="PARTIALLY_RESOLVED", explanation="Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404).")
+
+D("SRC-DB05-NTRS-19970026009", identifier="NTRS 19970026009 (NASA TM-107470)",
+  title="Hot Fire Ignition Test with Densified Liquid Hydrogen using a RL10B-2 Cryogenic H2/O2 Rocket Engine", tier="A",
+  rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="14 pages. Searched for RL10B-2 mass and chamber pressure: neither is printed (only ignition-transient chamber "
+       "pressures). The performance analysis uses 'a delivered Isp of 466.5 sec at a mixture ratio of 6.0'. Used as a conflict "
+       "claim only.")

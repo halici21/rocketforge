@@ -1306,6 +1306,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-NTRS-19970026009",
+   "url_requested": "https://ntrs.nasa.gov/citations/19970026009",
+   "download_url": "https://ntrs.nasa.gov/api/citations/19970026009/downloads/19970026009.pdf",
+   "http_status": "200",
+   "bytes": 785280,
+   "sha256": "dc839a2dc6cfda4ec71241f6efb2578f7bb7e586e306b3c1f33536d0029f0681",
+   "pdf_pages": 14,
+   "retrieved_utc": "2026-10-29T11:50:58Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "Hot Fire Ignition Test with Densified Liquid Hydrogen using a RL10B-2 Cryogenic H2/O2 Rocket Engine",
+   "ntrs_export_control": "NO",
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "NTRS 19970026009 (NASA TM-107470)",
+   "title_as_printed": "Hot Fire Ignition Test with Densified Liquid Hydrogen using a RL10B-2 Cryogenic H2/O2 Rocket Engine",
+   "tier": "A",
+   "rights_statement_checked": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "rights_values": "VALUES_WITH_ATTRIBUTION",
+   "rights_figures": "VALUES_WITH_ATTRIBUTION",
+   "note": "14 pages. Searched for RL10B-2 mass and chamber pressure: neither is printed (only ignition-transient chamber pressures). The performance analysis uses 'a delivered Isp of 466.5 sec at a mixture ratio of 6.0'. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-NTRS-20000025317",
    "url_requested": "https://ntrs.nasa.gov/citations/20000025317",
    "download_url": "https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf",

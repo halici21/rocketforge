@@ -6674,5 +6674,42 @@
   "text_chars": 5320,
   "ok": true,
   "file": "SRC-DB05-ESA-BULLETIN-102-VULCAIN2.pdf"
+ },
+ "SRC-DB05-NTRS-19970026009": {
+  "source_id": "SRC-DB05-NTRS-19970026009",
+  "url": "https://ntrs.nasa.gov/citations/19970026009",
+  "time_utc": "2026-10-29T11:50:58Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Hot Fire Ignition Test with Densified Liquid Hydrogen using a RL10B-2 Cryogenic H2/O2 Rocket Engine",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19970026009,
+   "ear": "NO",
+   "id": "83fa5ba5fdf94b45b041011c3787d93b",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "E-10758",
+   "AIAA Paper 97-2688",
+   "NAS 1.15:107470",
+   "NASA-TM-107470",
+   "Report Number: E-10758",
+   "Report Number: AIAA Paper 97-2688",
+   "Report Number: NAS 1.15:107470",
+   "Report Number: NASA-TM-107470"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19970026009/downloads/19970026009.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19970026009/downloads/19970026009.pdf",
+  "bytes": 785280,
+  "sha256": "dc839a2dc6cfda4ec71241f6efb2578f7bb7e586e306b3c1f33536d0029f0681",
+  "is_pdf": true,
+  "pages": 14,
+  "text_chars": 33992,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19970026009.pdf"
  }
 }

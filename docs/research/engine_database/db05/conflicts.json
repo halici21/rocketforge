@@ -575,11 +575,16 @@
      "has a specific impulse of 465 sec (no chamber pressure printed)",
      "SRC-DB05-ULA-DELTA4-UG-2013",
      "p.1-6, section 1.2.2"
+    ],
+    [
+     "the RL10B-2 engine which has a delivered Isp of 466.5 sec at a mixture ratio of 6.0",
+     "SRC-DB05-NTRS-19970026009",
+     "NASA TM-107470 p.6 text and Table II, case 1 'Nominal'"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
-   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure."
+   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document."
   },
   {
    "conflict_id": "CF-DB05-RL10B2-THRUST",
