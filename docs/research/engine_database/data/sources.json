@@ -6647,7 +6647,7 @@
     "ENG-CN-YF-77"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). Lead only.",
    "branches": [
     "r2_asia"
@@ -25797,6 +25797,52 @@
    "locators": "p.1 (1) 第6回燃焼試験結果",
    "access": "fetched",
    "notes": "Added in DB-0.5 (2026-10-29): LE-7A development firing test 6 (1997-05-09), 277 s; main combustion pressure ~120 kgf/cm2a.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-PATENT-US6996973",
+   "title": "Method of achieving jet separation of an un-separated flow in a divergent nozzle body of a rocket engine",
+   "authors": [
+    "Christian François Michel Dujarric"
+   ],
+   "organization": "European Space Agency (assignee)",
+   "year": 2006,
+   "source_type": "patent",
+   "identifier": "US 6,996,973 B2 (priority FR 9903742, 1999-03-25)",
+   "url": "https://patents.google.com/patent/US6996973B2/en",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "US patent text (public record); values cited with attribution.",
+   "engines": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "locators": "description (Vulcain 2 nozzle baseline)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): ESA patent states the Vulcain 2 divergent area ratio R 'equal to 60' for 433 s.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20170008949",
+   "title": "Carbon-Carbon Nozzle Extension Development in Support of In-Space and Upper-Stage Liquid Rocket Engines",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 2017,
+   "source_type": "conference paper",
+   "identifier": "NTRS 20170008949",
+   "url": "https://ntrs.nasa.gov/citations/20170008949",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED; not export controlled",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
    "branches": [
     "db05"
    ]

@@ -87,7 +87,7 @@ def test_every_wave3_research_assertion_is_decided_once(research):
     ids = {a for a, r in research.assertions.items() if r["engine_id"] in TARGETS}
     promoted = {e["db05_id"] for e in wave3.ASSERTIONS}
     assert ids == promoted | set(wave3.NOT_PROMOTED) and not (promoted & set(wave3.NOT_PROMOTED))
-    assert len(ids) == 111
+    assert len(ids) == 114
 
 
 def test_only_existing_dispositions_are_used_and_no_owner_decision_releases_anything():

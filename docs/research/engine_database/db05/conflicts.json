@@ -4355,7 +4355,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "intra_document",
-   "explanation": "The current infobox prints 518 kN, 10.1 MPa and 428.0 / 316.7 s, while its own prose says 510 kN at sea level; 10.2 MPa and 430 s are not in the current revision. No primary document opened; the record stays open."
+   "explanation": "The current infobox prints 518 kN, 10.1 MPa and 428.0 / 316.7 s, while its own prose says 510 kN at sea level; 10.2 MPa and 430 s are not in the current revision. The developer's two abstracts opened (IAC-13 x17679, IAC-17 x41861) print only 700 kN in vacuum at O/F 5.5 and 'a factor of 2.7 on pressure' over the YF-75, so none of these values is checked. No full paper was reached."
   },
   {
    "conflict_id": "CF-DB05-E-R2_SCHEM-R2-1",
@@ -4482,11 +4482,16 @@
      "58.5",
      "SRC-MECAIND-2020-T1",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "the divergent portion 4 of the nozzle, which currently exhibits for the Vulcain 2 engine an area ratio R equal to 60 for a specific impulse of 433 seconds",
+     "SRC-DB05-PATENT-US6996973",
+     "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. No primary document opened; the record stays open."
+   "explanation": "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. The one agency document opened, an ESA patent (priority 1999, before Vulcain 2 first flew), gives 'equal to 60' in an illustration of the invention: a round design-era figure, likely the source of the 60:1 rendering, and not precise enough to choose between 58.2 and 58.5. No Snecma or ESA datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-E-R2_USSR-R2-6",

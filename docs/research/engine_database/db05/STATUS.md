@@ -692,3 +692,18 @@ LIQ-7 Pump Foundation: PAUSED.
 - CF-DB05-E-R2_US_CLASSIC-A42-1 is now PARTIALLY_RESOLVED: NRC Table D-4 prints 84:1 for the RL10A-4-2 against
   AIAA's 85:1. The NRC area ratio is withheld in the wave-2 manifest.
 - Still open with no primary reached: Vulcain 2 pc and area ratio, RS-68A pc, RL10B-2 mass, YF-77.
+
+## YF-77, Vulcain 2 and RL10B-2 searches (2026-10-29)
+
+- YF-77: opened the developer's IAC-17 keynote abstract, SRC-IAC17-41861 (BAPI). It prints "700-kN in vacuum" at O/F 5.5
+  and "a factor of 2.7 on pressure" over the YF-75, which gives the environment the IAC-13 abstract left unstated. The
+  three assertions are NOT_PROMOTED (IAF rights), and the wave-3 count test went from 111 to 114. No absolute chamber
+  pressure, sea-level thrust or Isp is printed, so CF-DB05-E-R2_ASIA-R2A-13 stays UNRESOLVED. No full paper and no
+  CNKI or CALT document was reached.
+- Vulcain 2 area ratio: an ESA patent, US 6,996,973 B2 (priority 1999), states "an area ratio R equal to 60 for a
+  specific impulse of 433 seconds". That is a round design-era figure, not precise enough to choose between 58.2 and
+  58.5. It is added as a claim to CF-DB05-E-ANCHOR_EU_ASIA-3, which stays UNRESOLVED. The patent gives no chamber
+  pressure.
+- RL10B-2 mass: NTRS 20170008949, a 2017 paper on carbon-carbon nozzle extensions, was opened and prints no engine
+  mass. No value was taken.
+- RS-68A pc: the L3Harris RS-68A product page also returns 404, like its data sheet.

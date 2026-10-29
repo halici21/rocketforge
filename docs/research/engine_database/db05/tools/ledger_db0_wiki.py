@@ -36,7 +36,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "N": "not opened (refused, 404, unreachable, or never fetched)",
         "X": "no source id (DB-0 search summary or brief)",
         "D4": "NRC 2006 (NAP 11780) Appendix D, Table D-4 (opened in an earlier DB-0.5 pass)",
-        "J97": "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果"}
+        "J97": "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果",
+        "P60": "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -98,7 +99,9 @@ K("CF-R2_ASIA-R2A-13", "ENG-CN-YF-77", "performance.thrust_sl / pc / isp / burn_
   [("518 kN SL, 10.1 MPa, 428.0 / 316.7 s", "SRC-WIKI-YF77", "T"), ("'dual 510 kN (sea level)'; 10.2 MPa, 430 s", "SRC-WIKI-YF77", "NF")],
   "UNRESOLVED", "intra_document",
   "The current infobox prints 518 kN, 10.1 MPa and 428.0 / 316.7 s, while its own prose says 510 kN at sea level; "
-  "10.2 MPa and 430 s are not in the current revision. " + _PRIMARY)
+  "10.2 MPa and 430 s are not in the current revision. The developer's two abstracts opened (IAC-13 x17679, IAC-17 "
+  "x41861) print only 700 kN in vacuum at O/F 5.5 and 'a factor of 2.7 on pressure' over the YF-75, so none of these "
+  "values is checked. No full paper was reached.")
 K("CF-R2_SCHEM-R2-1", "ENG-US-RS-68A", "performance.pc",
   [("1580 psia", "SRC-L3H-RS68A-DS", "N"), ("Chamber pressure 1,488 psi (10.26 MPa)", "SRC-WIKI-RS68", "T")],
   "UNRESOLVED", "different_variant",
@@ -125,9 +128,14 @@ K("CF-ANCHOR_EU_ASIA-2", "ENG-FR-VULCAIN-2", "performance.pc",
   "The 115 bar is in a journal table (403) and an old encyclopedia mirror (403); the current article prints 117.3 bar. "
   + _PRIMARY)
 K("CF-ANCHOR_EU_ASIA-3", "ENG-FR-VULCAIN-2", "nozzle.area_ratio",
-  [("'2': 58.2:1", "SRC-WIKI-VULCAIN", "T"), ("58.5", "SRC-MECAIND-2020-T1", "N")],
+  [("'2': 58.2:1", "SRC-WIKI-VULCAIN", "T"), ("58.5", "SRC-MECAIND-2020-T1", "N"),
+   ("the divergent portion 4 of the nozzle, which currently exhibits for the Vulcain 2 engine an area ratio R equal to 60 "
+    "for a specific impulse of 433 seconds", "SRC-DB05-PATENT-US6996973", "P60")],
   "UNRESOLVED", "rating_or_rounding",
-  "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. " + _PRIMARY)
+  "The current revision prints 58.2:1 (the 60:1 table DB-0 saw is gone); the journal table refused access. The one "
+  "agency document opened, an ESA patent (priority 1999, before Vulcain 2 first flew), gives 'equal to 60' in an "
+  "illustration of the invention: a round design-era figure, likely the source of the 60:1 rendering, and not precise "
+  "enough to choose between 58.2 and 58.5. No Snecma or ESA datasheet was reached.")
 
 # --- USSR / Russia
 K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
@@ -409,3 +417,14 @@ D("SRC-DB05-NASDA-LE7A-FT6-1997", identifier="宇宙開発委員会 第16回 資
   rights_class="RIGHTS_REVIEW_REQUIRED",
   note="3 pages, text layer. Read for the LE-7A pc conflicts only: development firing test 6 (1997-05-09), 277 s, main "
        "combustion pressure about 120 kgf/cm2a, LH2 turbopump about 41,600 rpm, LOX turbopump about 18,100 rpm.")
+
+D("SRC-DB05-PATENT-US6996973", identifier="US 6,996,973 B2 (ESA, inventor C. Dujarric; priority FR 9903742, 1999-03-25), Google Patents text",
+  title="Method of achieving jet separation of an un-separated flow in a divergent nozzle body of a rocket engine", tier="B",
+  rights_checked="US patent text, public record", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="Read for the Vulcain 2 area ratio only: 'area ratio R equal to 60 for a specific impulse of 433 seconds' (environment "
+       "of the 433 s not printed), Psep about 0.22 bar.")
+D("SRC-DB05-NTRS-20170008949", identifier="NTRS 20170008949",
+  title="Carbon-Carbon Nozzle Extension Development in Support of In-Space and Upper-Stage Liquid Rocket Engines", tier="A",
+  rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED; not export controlled", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="27 pages. Searched for the RL10B-2 mass (CF-DB05-E-R2_US_CLASSIC-B2-4): the paper describes the RL10B-2 C-C "
+       "nozzle extension history but prints no engine mass. No value taken.")

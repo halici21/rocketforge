@@ -207,7 +207,7 @@ NOT_PROMOTED = {
     "AS-DB05-FR-VINCI-005": _IAFR, "AS-DB05-FR-VINCI-006": _IAFR, "AS-DB05-FR-VINCI-007": _IAFR,
     # China: IAF abstracts and the BIT Press journal
     "AS-DB05-CN-YF-75-001": _IAFR, "AS-DB05-CN-YF-75D-001": _IAFR,
-    **{f"AS-DB05-CN-YF-77-00{i}": _IAFR for i in range(1, 5)},
+    **{f"AS-DB05-CN-YF-77-00{i}": _IAFR for i in range(1, 8)},
     "AS-DB05-CN-YF-100-001": _IAFR, "AS-DB05-CN-YF-100-002": _IAFR, "AS-DB05-CN-YF-100-003": _IAFR,
     "AS-DB05-CN-YF-100-004": _BIT, "AS-DB05-CN-YF-100-005": _BIT,
 }

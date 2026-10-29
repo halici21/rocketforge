@@ -6486,5 +6486,64 @@
   "text_chars": 1766,
   "ok": true,
   "file": "SRC-DB05-NASDA-LE7A-FT6-1997.pdf"
+ },
+ "SRC-IAC17-41861": {
+  "source_id": "SRC-IAC17-41861",
+  "url": "https://iafastro.directory/iac/archive/browse/IAC-17/C4/1/41861/",
+  "time_utc": "2026-10-29T11:13:09Z",
+  "http": "200",
+  "content_type": "application/xhtml+xml",
+  "effective_url": "https://iafastro.directory/iac/archive/browse/IAC-17/C4/1/41861/",
+  "bytes": 4542,
+  "sha256": "25ab1f879993ce2d950e4efe1168bafcd20abd332314fc4c144d588c4fb0e6bc",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-IAC17-41861.html"
+ },
+ "SRC-DB05-PATENT-US6996973": {
+  "source_id": "SRC-DB05-PATENT-US6996973",
+  "url": "https://patents.google.com/patent/US6996973B2/en",
+  "time_utc": "2026-10-29T11:14:38Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://patents.google.com/patent/US6996973B2/en",
+  "bytes": 162996,
+  "sha256": "7183af7ad85a2609042ce479c108281642afb3443699fa85b60b740ff7b15444",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-PATENT-US6996973.html"
+ },
+ "SRC-DB05-NTRS-20170008949": {
+  "source_id": "SRC-DB05-NTRS-20170008949",
+  "url": "https://ntrs.nasa.gov/citations/20170008949",
+  "time_utc": "2026-10-29T11:14:39Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Carbon-Carbon Nozzle Extension Development in Support of In-Space and Upper-Stage Liquid Rocket Engines",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 20170008949,
+   "ear": "NO",
+   "id": "1b391aee574a4d81955361885139112c",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "M17-6114",
+   "AIAA-2017-5064",
+   "Report Number: M17-6114",
+   "Report Number: AIAA-2017-5064"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/20170008949/downloads/20170008949.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/20170008949/downloads/20170008949.pdf",
+  "bytes": 2280626,
+  "sha256": "e630802e0f883fc2a5a75ae2aa3abc3337c8392e232ca647abdb47f6fee35d30",
+  "is_pdf": true,
+  "pages": 27,
+  "text_chars": 86466,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-20170008949.pdf"
  }
 }

@@ -11817,6 +11817,63 @@
    "access": "fetched",
    "db0_link": null,
    "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-CN-YF-77-005",
+   "engine_id": "ENG-CN-YF-77",
+   "field_path": "performance.thrust_vac",
+   "operating_point": null,
+   "value_as_printed": "each engine has a thrust rating of 700-kN in vacuum",
+   "value": 700,
+   "unit_as_printed": "kN",
+   "conditions": {
+    "environment": "vacuum",
+    "operating_point": "Rated"
+   },
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-IAC17-41861",
+   "locator": "IAC-17,C4,1,1,x41861 abstract",
+   "access": "fetched",
+   "db0_link": null,
+   "note": ""
+  },
+  {
+   "assertion_id": "AS-DB05-CN-YF-77-006",
+   "engine_id": "ENG-CN-YF-77",
+   "field_path": "propellants.mixture_ratio",
+   "operating_point": null,
+   "value_as_printed": "at an oxidizer-to-fuel mixture ration (O/F) of 5.5",
+   "value": 5.5,
+   "unit_as_printed": "(-)",
+   "conditions": {},
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-IAC17-41861",
+   "locator": "IAC-17,C4,1,1,x41861 abstract",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "'ration' as printed."
+  },
+  {
+   "assertion_id": "AS-DB05-CN-YF-77-007",
+   "engine_id": "ENG-CN-YF-77",
+   "field_path": "performance.summary",
+   "operating_point": null,
+   "value_as_printed": "with respect to previous Chinese cryogenic Oxygen/Hydrogen engine, such as YF-75 ... a factor of 9 on thrust, a factor of 2.7 on pressure, a factor of 9 on mass-flow rate",
+   "value": "text",
+   "unit_as_printed": "",
+   "conditions": {},
+   "status": "REPORTED",
+   "evidence_status": "SOURCE_VERIFIED",
+   "disposition": "PROMOTED",
+   "source_id": "SRC-IAC17-41861",
+   "locator": "IAC-17,C4,1,1,x41861 abstract",
+   "access": "fetched",
+   "db0_link": null,
+   "note": "Ratios only; no absolute chamber pressure is printed, and the pressure station is not named."
   }
  ]
 }

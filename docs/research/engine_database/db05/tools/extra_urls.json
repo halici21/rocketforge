@@ -317,5 +317,8 @@
  "SRC-WIKI-YF73": "https://en.wikipedia.org/wiki/YF-73",
  "SRC-WIKI-YF77": "https://en.wikipedia.org/wiki/YF-77",
  "SRC-DB05-NTRS-20000025317": "https://ntrs.nasa.gov/citations/20000025317",
- "SRC-DB05-NASDA-LE7A-FT6-1997": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf"
+ "SRC-DB05-NASDA-LE7A-FT6-1997": "https://www.mext.go.jp/content/19970514-mxt_uchukai01-000026358_4.pdf",
+ "SRC-IAC17-41861": "https://iafastro.directory/iac/archive/browse/IAC-17/C4/1/41861/",
+ "SRC-DB05-PATENT-US6996973": "https://patents.google.com/patent/US6996973B2/en",
+ "SRC-DB05-NTRS-20170008949": "https://ntrs.nasa.gov/citations/20170008949"
 }
