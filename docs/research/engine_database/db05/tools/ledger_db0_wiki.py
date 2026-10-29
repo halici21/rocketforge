@@ -48,6 +48,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "JP": "rocket.jaxa.jp LE-7A engine page, specification table (fetched 2026-10-29)",
         "MH": "三菱重工技報 Vol.53 No.4 (2016) p.37 表1 LE-9エンジン諸元",
         "AT": "jaxa.jp H-IIB F3 LE-7A firing result page (2010-08-19), result table",
+        "P2O": "NTRS 19630006100 (MSFC, From Peenemuende to Outer Space, 1962) PDF p.297, chapter 13 propulsion history",
+        "M68": "NTRS 19680014530 (Aerojet, M-1 thrust chamber development, NAS 3-2555, 15 May 1968) PDF p.17 Summary, p.19 Introduction, p.201/292 Appendix G",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -346,10 +348,14 @@ K("CF-US_HIST-09", "ENG-US-XLR99-RM-1", "mechanical.mass",
   "is the documented dry mass; 915 lb has no document.")
 K("CF-US_HIST-12", "ENG-US-S-3D", "performance.thrust",
   [("134,908 pounds of thrust (600.1 kN) at sea level", "SRC-WIKI-S3D", "T"), ("engine_power 150,000 lbf (Jupiter)", "SRC-WIKI-PGM19", "T"),
-   ("150,000-205,000 lb depending on model", "SRC-NMUSAF-LR79", "N")],
-  "UNRESOLVED", "different_variant",
+   ("150,000-205,000 lb depending on model", "SRC-NMUSAF-LR79", "N"),
+   ("to modify the Atlas S-3 engine for use in the Jupiter missile. This S-3D engine produced a thrust of 150,000 lb",
+    "SRC-DB05-NTRS-19630006100", "P2O")],
+  "PARTIALLY_RESOLVED", "different_variant",
   "Two articles: the S-3D at 134,908 lbf and the Jupiter missile's engine at 150,000 lbf; the museum's range (403) "
-  "suggests several models. " + _PRIMARY)
+  "suggests several models. MSFC's 1962 history volume states that the S-3D, Rocketdyne's Jupiter modification of "
+  "the Atlas S-3, 'produced a thrust of 150,000 lb', which documents the shipped 150,000 lb Jupiter value. The "
+  "134,908 lbf (600.1 kN) sea-level figure, perhaps an early or Thor-related rating, still has no document.")
 K("CF-US_HIST-14", "ENG-US-38ALDW-1500", "propellants.fuel",
   [("RFNA + furfuryl alcohol", "SRC-WIKI-WACCORPORAL", "T"), ("aniline (+RFNA)", "SRC-CALTECH-THESIS310", "N")],
   "UNRESOLVED", "different_epoch", "The Caltech thesis page was unreachable on retry. " + _PRIMARY)
@@ -364,8 +370,16 @@ K("CF-US_HIST-20", "ENG-US-TR-201", "history.period",
   [("Date 1972-1988 (infobox)", "SRC-WIKI-TR201", "T"), ("77 during its Delta career between 1974 and 1988", "SRC-WIKI-TR201", "T")],
   "EXPLAINED", "definition", "Development-to-retirement span against flight span, in one article.")
 K("CF-US_HIST-23", "ENG-US-M-1", "history.cancellation",
-  [("Development abandoned at pre-prototype stage", "SRC-WIKI-M1", "T")],
-  "UNRESOLVED", None, "The article states abandonment but DB-0's conflict was about the date, which it does not settle.")
+  [("Development abandoned at pre-prototype stage", "SRC-WIKI-M1", "T"),
+   ("The work accomplished in the thrust chamber development for the M-1 Engine prior to phaseout of the program; "
+    "funding limitations resulting from the phaseout ... necessitated that testing be limited to only a few tests with "
+    "one injector and an uncooled chamber; firings on Test Stand H-8, July and August 1966", "SRC-DB05-NTRS-19680014530", "M68")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "The article states abandonment but DB-0's conflict was about the date. Aerojet's 1968 final thrust-chamber report "
+  "for NASA Lewis says the work ended with the programme's 'phaseout', after funding cuts reduced testing to a few "
+  "uncooled-chamber firings in July and August 1966. A 1965 cancellation before any hardware test is therefore wrong "
+  "for the thrust chamber; the engine itself was never assembled, which fits 'pre-prototype'. The report does not "
+  "print the phase-out date, so the cancellation year stays 1966 or later, unconfirmed.")
 K("CF-COMMERCIAL-COM-5", "ENG-US-MERLIN-1A", "performance.thrust_sl",
   [("produced 340 kN (76,000 lbf) of thrust", "SRC-WIKI-MERLIN", "T"), ("340 kN / 77,000 lbf", "SRC-WIKI-MERLIN", "NF")],
   "EXPLAINED", "unit", "340 kN is 76,435 lbf DERIVED; the current revision prints 76,000 lbf. 77,000 was an older rounding.")
@@ -556,3 +570,18 @@ D("SRC-DB05-NTRS-19710070145", identifier="NTRS 19710070145", title="XLR99 engin
   note="12 pages, OCR text layer (D. R. Bellman, N. E. DeMar, 1961). Data list: dry weight 910 pounds; Isp 250 s SL, "
        "265 s at 45,000 ft; rated thrust 50,000 lb SL, 57,000 lb at 45,000 ft; area ratio 9.8; pc 600 psia. Table I "
        "lists dry and wet weights by specification. Used as a conflict claim only.")
+
+D("SRC-DB05-NTRS-19630006100", identifier="NTRS 19630006100", title="From Peenemuende to Outer Space (MSFC commemorative volume, 1962)",
+  tier="B", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="841 pages, OCR text layer; papers by Marshall staff. Chapter 13 (PDF p.297-300): the Jupiter S-3D 'produced a "
+       "thrust of 150,000 lb' on LOX/RP-1, first Jupiter launch with it March 1957; H-1 fixed thrust 188,000 lb; 1.5 "
+       "million lb engine (F-1) contract early 1959. A retrospective agency history rather than an engine test report, "
+       "so tier B. Used as a conflict claim only.")
+
+D("SRC-DB05-NTRS-19680014530", identifier="NTRS 19680014530 (Aerojet-General, contract NAS 3-2555)",
+  title="Development of liquid oxygen/liquid hydrogen thrust chamber for the M-1 engine", tier="A",
+  rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="305 pages, OCR text layer (15 May 1968). Design point: thrust 1,500,000 lb with a 40:1 nozzle (1,200,000 lb with "
+       "a 2:1 uncooled chamber), Pc (plenum) 1,000 psia, MR 5.49, 2,872 lb/s O2 and 524 lb/s H2. Work described is that "
+       "done 'prior to phaseout of the program'; uncooled-chamber firings on Test Stand H-8 in July-August 1966. Used as "
+       "a conflict claim only.")

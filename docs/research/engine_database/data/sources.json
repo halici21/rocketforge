@@ -26193,6 +26193,48 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19630006100",
+   "title": "From Peenemuende to Outer Space (MSFC commemorative volume, 1962)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1962,
+   "source_type": "technical report",
+   "identifier": "NTRS 19630006100",
+   "url": "https://ntrs.nasa.gov/citations/19630006100",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19680014530",
+   "title": "Development of liquid oxygen/liquid hydrogen thrust chamber for the M-1 engine",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1968,
+   "source_type": "contractor report",
+   "identifier": "NTRS 19680014530 (Aerojet-General, contract NAS 3-2555)",
+   "url": "https://ntrs.nasa.gov/citations/19680014530",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

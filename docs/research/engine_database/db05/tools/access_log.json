@@ -6831,5 +6831,75 @@
   "text_chars": 1432441,
   "ok": true,
   "file": "SRC-DB05-NTRS-19630012071.pdf"
+ },
+ "SRC-DB05-NTRS-19630006100": {
+  "source_id": "SRC-DB05-NTRS-19630006100",
+  "url": "https://ntrs.nasa.gov/citations/19630006100",
+  "time_utc": "2026-10-29T17:03:05Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "From Peenemuende to Outer Space",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19630006100,
+   "ear": "NO",
+   "id": "e9bccb6433814ef7a17370c1c9102888",
+   "category": [
+    {
+     "submissionExportControlId": "e9bccb6433814ef7a17370c1c9102888",
+     "id": "d54431503a754ee295016e79c73ade78",
+     "category": 0
+    }
+   ],
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "N63-15976"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19630006100/downloads/19630006100.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19630006100/downloads/19630006100.pdf",
+  "bytes": 59318192,
+  "sha256": "85fb1bb93dcbe3044e46a8d1d385b66416f7b92796991aaa8741fc2ba14ed54c",
+  "is_pdf": true,
+  "pages": 841,
+  "text_chars": 1408828,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19630006100.pdf"
+ },
+ "SRC-DB05-NTRS-19680014530": {
+  "source_id": "SRC-DB05-NTRS-19680014530",
+  "url": "https://ntrs.nasa.gov/citations/19680014530",
+  "time_utc": "2026-10-29T17:05:00Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Development of liquid oxygen/liquid hydrogen thrust chamber for the M-1 engine",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19680014530,
+   "ear": "NO",
+   "id": "d02db5d12aad4f4db848cdc35515c275",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-CR-54813",
+   "AGC-9400-5",
+   "Report Number: NASA-CR-54813",
+   "Report Number: AGC-9400-5"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19680014530/downloads/19680014530.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19680014530/downloads/19680014530.pdf",
+  "bytes": 122041158,
+  "sha256": "e3608864ab86e9b380e33b176df732d9dc34bb6abdbc282bc4bfc36d4ee249ce",
+  "is_pdf": true,
+  "pages": 305,
+  "text_chars": 327970,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19680014530.pdf"
  }
 }

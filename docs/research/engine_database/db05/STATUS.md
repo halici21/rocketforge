@@ -842,3 +842,11 @@ LIQ-7 Pump Foundation: PAUSED.
 - Searched without result: L3Harris/Aerojet spacecraft-thruster spec sheets (every URL 404,
   Wayback 429), so R-42, R-40B, MR-103J, MR-111G and R-4D-11 stay open.
 - UNRESOLVED: 113 → 110.
+- CF-DB05-E-US_HIST-12 (S-3D thrust) PARTIALLY_RESOLVED: MSFC's 1962 *From Peenemuende to Outer
+  Space* (NTRS 19630006100, tier B) says the Jupiter S-3D "produced a thrust of 150,000 lb"; the
+  134,908 lbf sea-level figure still has no document.
+- CF-DB05-E-US_HIST-23 (M-1 cancellation) PARTIALLY_RESOLVED: Aerojet's 1968 M-1 thrust-chamber
+  report (NTRS 19680014530) records uncooled-chamber firings in July–August 1966 before the
+  programme's "phaseout", so a 1965 cancellation is wrong for hardware testing; the phase-out date
+  is not printed.
+- UNRESOLVED: 110 → 108. Not on NTRS: Stages to Saturn PDF (404), Juno II volume I.

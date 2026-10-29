@@ -5501,11 +5501,16 @@
      "150,000-205,000 lb depending on model",
      "SRC-NMUSAF-LR79",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "to modify the Atlas S-3 engine for use in the Jupiter missile. This S-3D engine produced a thrust of 150,000 lb",
+     "SRC-DB05-NTRS-19630006100",
+     "NTRS 19630006100 (MSFC, From Peenemuende to Outer Space, 1962) PDF p.297, chapter 13 propulsion history"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "Two articles: the S-3D at 134,908 lbf and the Jupiter missile's engine at 150,000 lbf; the museum's range (403) suggests several models. No primary document opened; the record stays open."
+   "explanation": "Two articles: the S-3D at 134,908 lbf and the Jupiter missile's engine at 150,000 lbf; the museum's range (403) suggests several models. MSFC's 1962 history volume states that the S-3D, Rocketdyne's Jupiter modification of the Atlas S-3, 'produced a thrust of 150,000 lb', which documents the shipped 150,000 lb Jupiter value. The 134,908 lbf (600.1 kN) sea-level figure, perhaps an early or Thor-related rating, still has no document."
   },
   {
    "conflict_id": "CF-DB05-E-US_HIST-14",
@@ -5580,11 +5585,16 @@
      "Development abandoned at pre-prototype stage",
      "SRC-WIKI-M1",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "The work accomplished in the thrust chamber development for the M-1 Engine prior to phaseout of the program; funding limitations resulting from the phaseout ... necessitated that testing be limited to only a few tests with one injector and an uncooled chamber; firings on Test Stand H-8, July and August 1966",
+     "SRC-DB05-NTRS-19680014530",
+     "NTRS 19680014530 (Aerojet, M-1 thrust chamber development, NAS 3-2555, 15 May 1968) PDF p.17 Summary, p.19 Introduction, p.201/292 Appendix G"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The article states abandonment but DB-0's conflict was about the date, which it does not settle."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The article states abandonment but DB-0's conflict was about the date. Aerojet's 1968 final thrust-chamber report for NASA Lewis says the work ended with the programme's 'phaseout', after funding cuts reduced testing to a few uncooled-chamber firings in July and August 1966. A 1965 cancellation before any hardware test is therefore wrong for the thrust chamber; the engine itself was never assembled, which fits 'pre-prototype'. The report does not print the phase-out date, so the cancellation year stays 1966 or later, unconfirmed."
   },
   {
    "conflict_id": "CF-DB05-E-COMMERCIAL-COM-5",
