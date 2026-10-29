@@ -119,11 +119,15 @@ A(LR87_7, "performance.pc", None, "Chamber Pressure: 47.00 bar", 47.00, "bar", {
   note="Same table: area ratio 9, mass 713 kg, O/F 1.9, Isp 296 s vacuum / 258 s sea level.")
 C("CF-DB05-LR87-7-PC", engine_id=LR87_7, field_path="performance.pc", db0_conflict_id="CF-US_HIST-19",
   claims=[["Chamber Pressure: 47.00 bar (LR87-7)", AX, LX7],
-          ["Chamber Pressure: 54.00 bar (LR87-5; for comparison)", AX, LX5]],
-  resolution="UNRESOLVED", kind="different_variant",
-  explanation="Both values are printed as DB-0 reported them, so not a transcription slip in DB-0. The LR87-7 entry also "
-              "prints a different area ratio (9 against 8), so the lower pressure may be a different chamber design rather "
-              "than a typing error; no Aerojet or Martin document for the Gemini engine was opened to tell.")
+          ["Chamber Pressure: 54.00 bar (LR87-5; for comparison)", AX, LX5],
+          ["Engine chamber pressure switches set at 68% of rated thrust for Stage I and 65% for Stage II; this is "
+           "equivalent to 550 psia +/-30 psi for both stages", "SRC-DB05-NTRS-19720063749", "PDF p.10, in-flight monitored parameters (2)-(3)"]],
+  resolution="PARTIALLY_RESOLVED", kind="different_variant",
+  explanation="Both values are printed as DB-0 reported them, so not a transcription slip in DB-0. Martin's 1964 Gemini "
+              "Launch Vehicle paper (LaFrance, NTRS 19720063749) puts 550 psia at 68 percent of Stage I rated thrust, so "
+              "the Gemini Stage I engine's rated chamber pressure is about 809 psia (55.8 bar) DERIVED if pressure scales "
+              "with thrust. That sits near the LR87-5's 54 bar and well above 47 bar, so the LR87-7 entry's 47 bar is not "
+              "supported. The paper names no engine model and prints no rated pressure directly.")
 
 A(LR91_11, "propellants.mixture_ratio", None, "Mixture Ratio 1.78:1", 1.78, "(-)", {"configuration": "UNSTATED"}, P91,
   "Purdue 'Engine statistics' table (page text)", db0=None,
@@ -189,3 +193,10 @@ C("CF-DB05-IPD-THRUST", engine_id="ENG-US-IPD", field_path="performance.thrust",
   resolution="EXPLAINED", kind="rating_or_rounding",
   explanation="Every value is the 250,000 lbf design class, converted and rounded differently (1.1 MN, 1,110 kN, "
               "1,112,000 N). The opened NASA documents print it as a programme goal, not a measured rating.")
+
+D("SRC-DB05-NTRS-19720063749", identifier="NTRS 19720063749", title="Gemini Launch Vehicle (LaFrance, Martin Marietta, 1964)",
+  tier="A", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="18 pages, OCR text layer (J. U. LaFrance Jr., Technical Director, Gemini Launch Vehicle Program, Martin Marietta; "
+       "NTRS date 1964-05). p.10: chamber pressure switches at 68% (Stage I) / 65% (Stage II) of rated thrust, 'equivalent "
+       "to 550 psia +/-30 psi for both stages'; p.12 Fig. 24: T1 414,000 lb (vac), T2 100,000 lb (vac), Isp 260 / 313 s. "
+       "Used as a conflict claim only.")

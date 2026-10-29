@@ -1504,6 +1504,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-NTRS-19720063749",
+   "url_requested": "https://ntrs.nasa.gov/citations/19720063749",
+   "download_url": "https://ntrs.nasa.gov/api/citations/19720063749/downloads/19720063749.pdf",
+   "http_status": "200",
+   "bytes": 14735499,
+   "sha256": "38637d43dc1c355a2361969ea19d885d07fa09f26ecd9539a27b76cfd5f822f5",
+   "pdf_pages": 18,
+   "retrieved_utc": "2026-10-29T18:12:23Z",
+   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
+   "ntrs_title": "Gemini Launch vehicle",
+   "ntrs_export_control": "NO",
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "NTRS 19720063749",
+   "title_as_printed": "Gemini Launch Vehicle (LaFrance, Martin Marietta, 1964)",
+   "tier": "A",
+   "rights_statement_checked": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "rights_values": "VALUES_WITH_ATTRIBUTION",
+   "rights_figures": "VALUES_WITH_ATTRIBUTION",
+   "note": "18 pages, OCR text layer (J. U. LaFrance Jr., Technical Director, Gemini Launch Vehicle Program, Martin Marietta; NTRS date 1964-05). p.10: chamber pressure switches at 68% (Stage I) / 65% (Stage II) of rated thrust, 'equivalent to 550 psia +/-30 psi for both stages'; p.12 Fig. 24: T1 414,000 lb (vac), T2 100,000 lb (vac), Isp 260 / 313 s. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-NTRS-19730004741",
    "url_requested": "https://ntrs.nasa.gov/citations/19730004741",
    "download_url": "https://ntrs.nasa.gov/api/citations/19730004741/downloads/19730004741.pdf",

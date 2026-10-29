@@ -7150,5 +7150,33 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-ESA-A6-ENGINES.html"
+ },
+ "SRC-DB05-NTRS-19720063749": {
+  "source_id": "SRC-DB05-NTRS-19720063749",
+  "url": "https://ntrs.nasa.gov/citations/19720063749",
+  "time_utc": "2026-10-29T18:12:23Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Gemini Launch vehicle",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19720063749,
+   "ear": "NO",
+   "id": "4a7192d9520d456891e4a2cb7e41f778",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": null,
+  "download_url": "https://ntrs.nasa.gov/api/citations/19720063749/downloads/19720063749.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19720063749/downloads/19720063749.pdf",
+  "bytes": 14735499,
+  "sha256": "38637d43dc1c355a2361969ea19d885d07fa09f26ecd9539a27b76cfd5f822f5",
+  "is_pdf": true,
+  "pages": 18,
+  "text_chars": 51600,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19720063749.pdf"
  }
 }

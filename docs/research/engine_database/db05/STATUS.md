@@ -971,3 +971,13 @@ LIQ-7 Pump Foundation: PAUSED.
 - Looked at, no change: a 2015 Via Satellite report gives NewtonFour 'capable of 5,000 lbf' (news, not the maker), so
   R2-20 stays open; the Ariane 6 User's Manual Issue 2 (2021) and ESA's 2023 Ariane 5 media kit print no Vulcain 2.1
   thrust, Aestus or HM7B chamber pressure.
+
+### Pass: Gemini launch vehicle chamber pressure (2026-10-29)
+
+- CF-DB05-LR87-7-PC PARTIALLY_RESOLVED: Martin's 1964 Gemini Launch Vehicle paper (LaFrance, NTRS 19720063749) p.10
+  sets the chamber-pressure switches at 68 % of Stage I rated thrust, 'equivalent to 550 psia'; the Stage I rated
+  chamber pressure is therefore about 809 psia (55.8 bar) DERIVED if pressure scales with thrust, which does not
+  support the 47 bar LR87-7 entry. The paper names no engine model. Unresolved: 89 → 88.
+- Dead ends: jdse CZ-5 papers DOI ...20210021 (Φ5 m structure; needed a 500 s download, first try truncated) and
+  ...20210012 (boosters) give no YF-77/YF-75D data; jdse requests stopped for this session. NTRS 20090014109 (Ares V and
+  RS-68B, JANNAF 2008) gives RS-68B 797 klbf vac / 414.2 s but no RS-68A chamber pressure.
