@@ -820,3 +820,7 @@ LIQ-7 Pump Foundation: PAUSED.
   SM/LM RCS summary, 1969) gives a nominal 100 lb, raised from 95 lb at PFRT. The 110 lbf figure
   belongs to a later variant and has no opened document.
 - UNRESOLVED: 116 → 114.
+- CF-DB05-W-R2_SC_COMM-R2-9 (GR-22 flown) RESOLVED: NTRS 20170001286 p.2, re-read, states that
+  only the GR-1 is in GPIM's on-orbit phase (GR-22 cracked in 2014 ground test; redesign tested in
+  2015). Shipped data already lists the GR-22 as "GPIM (planned)". UNRESOLVED: 114 → 113.
+- Searched NTRS for M-1 termination and later R-4D (110 lbf) documents: nothing usable.

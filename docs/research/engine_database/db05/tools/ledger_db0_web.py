@@ -161,6 +161,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1",
         "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text",
         "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section",
+        "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
 
@@ -562,10 +563,13 @@ K("CF-R2_SC_COMM-R2-7", "ENG-GB-LEROS-1B", "performance.thrust_vac",
   "The maker's page gives 635 N; the Juno 640 N is not on the fetched release text.")
 K("CF-R2_SC_COMM-R2-9", "ENG-US-GR-22", "history.flown",
   [("GPIM includes four 1 N and one 22 N thruster", "SRC-NTRS-20140016838", "T"),
-   ("the GR-1 'awaits its first on-orbit demonstration' on GPIM", "SRC-NTRS-20170001286", "T")],
-  "UNRESOLVED", "different_epoch",
-  "The 2014 paper plans one 22 N thruster on GPIM; the 2017 paper speaks only of the GR-1 on GPIM, while the GR-22 was "
-  "still in redesign testing. Whether a GR-22 flew is not stated in either.")
+   ("the GR-1 'awaits its first on-orbit demonstration' on GPIM", "SRC-NTRS-20170001286", "T"),
+   ("only the 1-N GR-1 thruster is included in the on-orbit demonstration mission phase of the GPIM program although "
+    "that program completed mission life demonstrations for both thrusters", "SRC-NTRS-20170001286", "G17")],
+  "RESOLVED", "different_epoch",
+  "The 2014 paper plans one 22 N thruster on GPIM. The 2017 Aerojet Rocketdyne/NASA Glenn paper, re-read 2026-10-29, "
+  "states on p.2 that only the GR-1 is in GPIM's on-orbit phase; the GR-22 prototype cracked in 2014 ground testing and "
+  "its redesign was tested in 2015 on internal funding. The GR-22 did not fly on GPIM; no later flight was found.")
 K("CF-R2_SC_COMM-R2-10", "ENG-CN-FY-25", "performance.isp_vac",
   [("2990 N.s/kg", "SRC-IAC11-490N-CN", "T"), ("3 030 N . s/kg nominal", "SRC-IAC03-LAE-CN", "T")],
   "UNRESOLVED", "different_epoch",

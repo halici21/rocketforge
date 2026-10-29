@@ -3599,11 +3599,16 @@
      "the GR-1 'awaits its first on-orbit demonstration' on GPIM",
      "SRC-NTRS-20170001286",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "only the 1-N GR-1 thruster is included in the on-orbit demonstration mission phase of the GPIM program although that program completed mission life demonstrations for both thrusters",
+     "SRC-NTRS-20170001286",
+     "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "RESOLVED",
    "kind": "different_epoch",
-   "explanation": "The 2014 paper plans one 22 N thruster on GPIM; the 2017 paper speaks only of the GR-1 on GPIM, while the GR-22 was still in redesign testing. Whether a GR-22 flew is not stated in either."
+   "explanation": "The 2014 paper plans one 22 N thruster on GPIM. The 2017 Aerojet Rocketdyne/NASA Glenn paper, re-read 2026-10-29, states on p.2 that only the GR-1 is in GPIM's on-orbit phase; the GR-22 prototype cracked in 2014 ground testing and its redesign was tested in 2015 on internal funding. The GR-22 did not fly on GPIM; no later flight was found."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-10",
