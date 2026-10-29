@@ -721,3 +721,14 @@ LIQ-7 Pump Foundation: PAUSED.
   - For the owner: that decision's premise was that the manufacturer value existed only as unopened evidence. That
     premise is weaker now, but nothing was promoted.
 - Totals: 129 UNRESOLVED, 39 PARTIALLY_RESOLVED, 69 EXPLAINED.
+
+## Ariane 5 user's manual (2026-10-29)
+
+- Opened the Arianespace Ariane 5 User's Manual, Issue 5 Revision 2 (October 2016), as SRC-DB05-ARIANESPACE-A5UM-I5R2.
+  The copy is an edX (DelftX) course asset, not one taken from arianespace.com.
+- For the Vulcain 2 it prints 960 kN at sea level and 1390 kN in vacuum ("maximum thrust in vacuum"), and an Isp of
+  about 310 s at sea level and 432 s in vacuum. It gives no chamber pressure, area ratio or flow rates.
+- CF-DB05-W-ANCHOR_EU_ASIA-1 (Vulcain 2 vacuum thrust) is now PARTIALLY_RESOLVED: the operator's 1390 kN matches CNES,
+  while 1359 kN appears only in secondary pages.
+- Also tried, no usable copy: the Ariane 5 User's Manual Issue 4 at the ENSTA mirror (404), and the Airbus VA219 flight
+  dossier (no engine figures).

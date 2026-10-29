@@ -154,7 +154,8 @@ NE("SRC-BILI-CV15113396", "script-rendered page; no text extracted")
 # ------------------------------------------------------------------ conflicts
 _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its extracted text",
         "NX": "fetched; no extractable text", "W": "DB-0 search summary (encyclopedia; not evidence)",
-        "N": "DB-0 search summary (never opened)"}
+        "N": "DB-0 search summary (never opened)",
+        "A5": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 EPC table and p.A4-2"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -428,9 +429,12 @@ K("CF-R2_ASIA-R2A-20", "ENG-FR-VULCAIN-2", "flows.mdot",
   "CF-ANCHOR_EU_ASIA-4). Nothing primary opened.")
 K("CF-ANCHOR_EU_ASIA-1", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
   [("1,390 kN", "SRC-CNES-A5-TECH", "NX"), ("1,359 kN", "SRC-AIAA-VG-ARIANE", "N"), ("1,359 / 1,340 kN", "SRC-WIKI-VULCAIN", "W"),
-   ("~137-138 t", "SRC-ESA-A5ECA-NEWELEM", "N"), ("Vulcain 2's 1,359 kN (305,000 lbf)", "SRC-NEWSPACEECON-V21", "T")],
-  "UNRESOLVED", "rating_or_rounding",
-  "One opened trade page repeats 1,359 kN; the CNES page gave no text. No manufacturer datasheet was reached.")
+   ("~137-138 t", "SRC-ESA-A5ECA-NEWELEM", "N"), ("Vulcain 2's 1,359 kN (305,000 lbf)", "SRC-NEWSPACEECON-V21", "T"),
+   ("Thrust 960 kN (SL) 1390 kN (Vacuum); 'develops 1,390 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5")],
+  "PARTIALLY_RESOLVED", "rating_or_rounding",
+  "The launch operator's user's manual (Arianespace, 2016) prints 1,390 kN as the Vulcain 2 maximum vacuum thrust, "
+  "matching the CNES figure. 1,359 kN appears only in secondary pages and an unopened AIAA guide; whether it is a "
+  "nominal rather than maximum value, or another epoch, is not shown. No Safran/ArianeGroup datasheet was reached.")
 K("CF-ANCHOR_EU_ASIA-4", "ENG-FR-VULCAIN-2", "flows.mdot_fuel",
   [("41.2 kg/s H2 of 235 kg/s (page titled 'Vulcain engine')", "SRC-ESA-ESAMI-VULCAIN", "NX"), ("33 kg/s H2", "SRC-HF-SPACEYL-ENGINES", "T")],
   "UNRESOLVED", "different_variant",

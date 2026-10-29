@@ -25870,6 +25870,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+   "title": "Ariane 5 User's Manual, Issue 5 Revision 2 (October 2016)",
+   "authors": [],
+   "organization": "Arianespace",
+   "year": 2016,
+   "source_type": "launch vehicle user's manual",
+   "identifier": "Ariane 5 User's Manual Issue 5 Revision 2, October 2016",
+   "url": "https://courses.edx.org/asset-v1:DelftX%2BAEASM1x%2B1T2022%2Btype%40asset%2Bblock/Ariane5_Users-Manual_October2016_Red.pdf",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "'Arianespace©' on every page; the copy opened is a course asset hosted by edX (DelftX), not arianespace.com.",
+   "engines": [
+    "ENG-FR-VULCAIN-2"
+   ],
+   "locators": "p.1-7 (EPC table) and p.A4-2 (EPC description)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Vulcain 2 thrust 960 kN (SL) / 1390 kN (vacuum), 'maximum thrust in vacuum'; Isp ~310 s (SL) / 432 s (vacuum).",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

@@ -126,7 +126,8 @@ NOT_FILED["CF-US_HIST-25"] = ("one claim only, a figure cut off as '188,00' on a
 K("CF-EUROPE-3", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
   [("'2': 1359 kN", "SRC-WIKI-VULCAIN", "T"), ("1340 kN (comparison table)", "SRC-WIKI-VULCAIN", "NF")],
   "UNRESOLVED", "intra_document",
-  "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. " + _PRIMARY)
+  "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's "
+  "2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1).")
 K("CF-EUROPE-4", "ENG-FR-VULCAIN-2", "performance.pc",
   [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N")],
   "UNRESOLVED", "rating_or_rounding", "The journal table refused access (HTTP 403). " + _PRIMARY)
@@ -444,3 +445,10 @@ D("SRC-DB05-ULA-DELTA4-UG-2013", identifier="Delta IV Launch Services User's Gui
   note="293 pages, text layer. Read sections 1.2.1-1.2.2 (pp. 1-5 to 1-7): RS-68A 3137kN (705,250 lbf) sea level, 411.9 s "
        "vacuum, 21.5 to 1; RL10B-2 110 kN (24,750 lb), 465 s, electromechanical gimbal actuators. No chamber pressure or "
        "engine mass. Used as conflict claims only; no assertion taken.")
+
+D("SRC-DB05-ARIANESPACE-A5UM-I5R2", identifier="Ariane 5 User's Manual, Issue 5 Revision 2, October 2016 (Arianespace); copy hosted as a DelftX course asset on edX",
+  title="Ariane 5 User's Manual", tier="B", rights_checked="'Arianespace©' in every page header; not obtained from arianespace.com",
+  rights_class="RESTRICTED_REFERENCE",
+  note="271 pages, text layer. Read the EPC table (p.1-7) and the Ariane 5 ECA description (p.A4-2): Vulcain 2 960 kN (SL) / "
+       "1390 kN (vacuum), 'maximum thrust in vacuum', Isp ~310 s (SL) / 432 s (vacuum), 540 s. No chamber pressure, area ratio "
+       "or flow rates. Used as conflict claims only; no assertion taken.")

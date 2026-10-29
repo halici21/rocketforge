@@ -271,7 +271,8 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-W-R2_ASIA-R2A-20": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: unsourced dataset against an encyclopedia; no Vulcain 2 flow ships."),
     "CF-DB05-W-ANCHOR_EU_ASIA-1": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: no manufacturer datasheet reached; no Vulcain 2 thrust ships."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: Arianespace's user's manual prints 1,390 kN maximum vacuum against "
+                 "secondary 1,359 kN; no manufacturer datasheet reached, and no Vulcain 2 thrust ships."),
     "CF-DB05-W-ANCHOR_EU_ASIA-4": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: ESA page gave no text; no Vulcain 2 flow ships."),
     # DB-0 conflict encyclopedia pass (2026-10-28)

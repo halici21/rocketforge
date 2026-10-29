@@ -2959,11 +2959,16 @@
      "Vulcain 2's 1,359 kN (305,000 lbf)",
      "SRC-NEWSPACEECON-V21",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Thrust 960 kN (SL) 1390 kN (Vacuum); 'develops 1,390 kN maximum thrust in vacuum'",
+     "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+     "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 EPC table and p.A4-2"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "One opened trade page repeats 1,359 kN; the CNES page gave no text. No manufacturer datasheet was reached."
+   "explanation": "The launch operator's user's manual (Arianespace, 2016) prints 1,390 kN as the Vulcain 2 maximum vacuum thrust, matching the CNES figure. 1,359 kN appears only in secondary pages and an unopened AIAA guide; whether it is a nominal rather than maximum value, or another epoch, is not shown. No Safran/ArianeGroup datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-W-ANCHOR_EU_ASIA-4",
@@ -4438,7 +4443,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "intra_document",
-   "explanation": "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. No primary document opened; the record stays open."
+   "explanation": "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's 2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1)."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-4",

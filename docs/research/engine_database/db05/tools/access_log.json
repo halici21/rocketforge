@@ -6560,5 +6560,20 @@
   "text_chars": 390750,
   "ok": true,
   "file": "SRC-DB05-ULA-DELTA4-UG-2013.pdf"
+ },
+ "SRC-DB05-ARIANESPACE-A5UM-I5R2": {
+  "source_id": "SRC-DB05-ARIANESPACE-A5UM-I5R2",
+  "url": "https://courses.edx.org/asset-v1:DelftX%2BAEASM1x%2B1T2022%2Btype%40asset%2Bblock/Ariane5_Users-Manual_October2016_Red.pdf",
+  "time_utc": "2026-10-29T11:25:34Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://courses.edx.org/asset-v1:DelftX%2BAEASM1x%2B1T2022%2Btype%40asset%2Bblock/Ariane5_Users-Manual_October2016_Red.pdf",
+  "bytes": 9878208,
+  "sha256": "f451c09b02f9020380f198f724c6dce6706ef4b2c1184ea94343ec4f88858ac8",
+  "is_pdf": true,
+  "pages": 271,
+  "text_chars": 312542,
+  "ok": true,
+  "file": "SRC-DB05-ARIANESPACE-A5UM-I5R2.pdf"
  }
 }
