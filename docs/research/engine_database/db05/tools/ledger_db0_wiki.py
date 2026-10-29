@@ -41,6 +41,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "U15": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage",
         "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage",
         "CN": "cnes.fr/projets/ariane-5/lanceur, EPS section (fetched 2026-10-29)",
+        "PR94": "ESA Press Release N° 35-1994 (14 October 1994), release text",
         "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine'",
         "M8": "H-II F8 investigation report (MEXT archive 1335987_007_5.pdf) 別添表８－２",
         "J17": "資料37-3 (JAXA, 2017-09-05) PDF p.3 '1. LE-9エンジン基本仕様', column '（参考）LE-7Aエンジン'",
@@ -400,10 +401,14 @@ K("CF-ANCHOR_EU_ASIA-6", "ENG-FR-HM7B", "performance.pc",
   "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything.")
 K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
   [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"), ("2.7 t (~26.5 kN)", "SRC-ESA-EPS", "N"),
-   ("avec 29 kN (2,9 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN")],
-  "UNRESOLVED", "rating_or_rounding",
+   ("avec 29 kN (2,9 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
+   ("The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)", "SRC-DB05-ESA-PR-1994-35-EPS", "PR94")],
+  "UNRESOLVED", "different_epoch",
   "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN "
-  "rounded but is stated as a round figure; 2.7 t is not supported by it. No Astrium/Airbus datasheet was reached.")
+  "rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives "
+  "27.5 kN, close to the 2.7 t (26.5 kN) of the unopened ESA EPS page. Thrust appears to have risen between the 1994 "
+  "development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no "
+  "document records the change. No Astrium/Airbus datasheet was reached.")
 K("CF-EUROPE-11", "ENG-DE-AESTUS", "performance.pc",
   [("chamber_pressure 11 bar", "SRC-WIKI-AESTUS", "T"), ("10.0 bar", "SRC-MECAIND-2020-T1", "N")],
   "UNRESOLVED", None, "The journal table refused access (HTTP 403). " + _PRIMARY)
@@ -531,3 +536,9 @@ D("SRC-DB05-ESA-BULLETIN-123-A5ECA", identifier="ESA Bulletin 123 (August 2005),
   note="6 pages, text layer. Vulcain-2 '1350 kN compared with the 1100 kN of Vulcain-1', up to 540 s; ESC-A 'maximum of 970 "
        "seconds of propelled flight', HM-7B 'thrust of 65 kN in vacuum, with a specific impulse of 447 seconds'. Used as conflict "
        "claims only.")
+
+D("SRC-DB05-ESA-PR-1994-35-EPS", identifier="ESA Press Release N° 35-1994 (14 October 1994)",
+  title="Ariane 5 - Successful first long duration test of the storable propellant stage", tier="A",
+  rights_checked="ESA press release on esa.int; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Aestus 'thrust = 27.5 kN'; 'consumes, in vacuo, in 1130 seconds' 3.2 t MMH and 6.3 t N2O4; nominal operation about 1100 s; "
+       "EPS long-duration firing 1075 s on 5 October 1994. No chamber pressure or mixture ratio. Used as a conflict claim only.")

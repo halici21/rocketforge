@@ -5817,11 +5817,16 @@
      "avec 29 kN (2,9 tonnes) de poussée dans le vide",
      "SRC-DB05-CNES-A5-LANCEUR",
      "cnes.fr/projets/ariane-5/lanceur, EPS section (fetched 2026-10-29)"
+    ],
+    [
+     "The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)",
+     "SRC-DB05-ESA-PR-1994-35-EPS",
+     "ESA Press Release N° 35-1994 (14 October 1994), release text"
     ]
    ],
    "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure; 2.7 t is not supported by it. No Astrium/Airbus datasheet was reached."
+   "kind": "different_epoch",
+   "explanation": "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives 27.5 kN, close to the 2.7 t (26.5 kN) of the unopened ESA EPS page. Thrust appears to have risen between the 1994 development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no document records the change. No Astrium/Airbus datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-11",

@@ -804,3 +804,6 @@ LIQ-7 Pump Foundation: PAUSED.
   narrow the epochs; no resolution changed.
 - Tried, not reachable: the 推进技术 (Journal of Propulsion Technology) 2021 YF-77 design paper by BAPI, whose PDF link
   answers with a slider bot check (not attempted further), and SciEngine (empty page).
+- Aestus thrust: opened ESA Press Release N° 35-1994 (development test campaign), which gives 27.5 kN, 1130 s and a
+  nominal of about 1100 s. It was added to CF-DB05-E-EUROPE-10, which stays UNRESOLVED as a likely epoch difference
+  (27.5 kN in 1994 against 29 or 29.6 kN later). No document records the change.

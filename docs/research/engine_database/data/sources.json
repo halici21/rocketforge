@@ -26107,6 +26107,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ESA-PR-1994-35-EPS",
+   "title": "Ariane 5 - Successful first long duration test of the storable propellant stage (ESA PR N° 35-1994)",
+   "authors": [],
+   "organization": "European Space Agency",
+   "year": 1994,
+   "source_type": "agency press release",
+   "identifier": "ESA Press Release N° 35-1994 (14 October 1994)",
+   "url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_5_-_Successful_first_long_duration_test_of_the_storable_propellant_stage",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ESA press release on esa.int; reuse terms not reviewed.",
+   "engines": [
+    "ENG-DE-AESTUS"
+   ],
+   "locators": "release text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Aestus thrust = 27.5 kN; 1130 s in vacuo; nominal ~1100 s; 3.2 t MMH + 6.3 t N2O4 (development, 1994).",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

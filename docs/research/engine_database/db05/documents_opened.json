@@ -844,6 +844,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ESA-PR-1994-35-EPS",
+   "url_requested": "https://www.esa.int/Newsroom/Press_Releases/Ariane_5_-_Successful_first_long_duration_test_of_the_storable_propellant_stage",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 7140,
+   "sha256": "35e065a9e38f81a981df101dc52c79b8b0e5013106b8f2f9d868b329648ad114",
+   "pdf_pages": null,
+   "retrieved_utc": "2026-10-29T11:58:45Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "ESA Press Release N° 35-1994 (14 October 1994)",
+   "title_as_printed": "Ariane 5 - Successful first long duration test of the storable propellant stage",
+   "tier": "A",
+   "rights_statement_checked": "ESA press release on esa.int; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "Aestus 'thrust = 27.5 kN'; 'consumes, in vacuo, in 1130 seconds' 3.2 t MMH and 6.3 t N2O4; nominal operation about 1100 s; EPS long-duration firing 1075 s on 5 October 1994. No chamber pressure or mixture ratio. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
    "url_requested": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
    "download_url": null,

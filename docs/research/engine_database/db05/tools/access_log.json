@@ -6726,5 +6726,18 @@
   "text_chars": 13254,
   "ok": true,
   "file": "SRC-DB05-ESA-BULLETIN-123-A5ECA.pdf"
+ },
+ "SRC-DB05-ESA-PR-1994-35-EPS": {
+  "source_id": "SRC-DB05-ESA-PR-1994-35-EPS",
+  "url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_5_-_Successful_first_long_duration_test_of_the_storable_propellant_stage",
+  "time_utc": "2026-10-29T11:58:45Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_5_-_Successful_first_long_duration_test_of_the_storable_propellant_stage",
+  "bytes": 7140,
+  "sha256": "35e065a9e38f81a981df101dc52c79b8b0e5013106b8f2f9d868b329648ad114",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ESA-PR-1994-35-EPS.html"
  }
 }
