@@ -1069,3 +1069,8 @@ contacted again; only web.archive.org captures were read.
   2, A) gives the Breeze M 14D30 19.62 kN vacuum thrust and the RD-0213 583 kN, but no 14D30 Isp, so the S5.98M Isp
   conflicts (R2_USSR-R2-18, R2_SC_COMM-R2-11) stay open. Sites answering 403 or a bot check were not read through
   the archive either.
+- More dead ends (2026-10-29): skyroot.in (current site) prints no Dhawan-1 figures (R2A-23); intuitivemachines.com
+  still answers 302 with no body and has no archived propulsion page (VR900, R2-5); energomash.ru is an unrelated
+  boiler maker (Belenergomash), and NPO Energomash's own site stays excluded under the 403 rule; jdse was not
+  contacted again this session. Unresolved stands at 65 of 255 filed; the rest wait on owner definition decisions
+  (RS-25, F-1, RD-170, RD-180, LE-7/LE-7A epochs, Vulcain) or on sites that refuse access.
