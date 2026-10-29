@@ -20049,7 +20049,7 @@
     "ENG-JP-HBT-5"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
    "branches": [
     "r2_sc_comm"
@@ -26600,6 +26600,73 @@
    "locators": "Vulcain 2.1 section and characteristics box",
    "access": "fetched",
    "notes": "Added in DB-0.5 (2026-10-29): ESA page 'The engines of Ariane 6' (dated 05/06/2024). Vulcain 2.1 text: 'providing more than 1370 kN of thrust'; 'Vulcain 2.1 main engine characteristics: 154 000 kg of liquid oxygen (LOX) and liquid hydrogen (LH2) consumed; 1371 kN of thrust; 15 mW turbopump power; 468 seconds of operation'; LH2 turbopump 33 000 rpm, 15 MW. No vacuum/sea-level qualifier is printed. Developed by ArianeGroup, Vernon.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19720063749",
+   "title": "Gemini Launch Vehicle (LaFrance, Martin Marietta, 1964)",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1964,
+   "source_type": "technical paper",
+   "identifier": "NTRS 19720063749",
+   "url": "https://ntrs.nasa.gov/citations/19720063749",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-JZYJ-LONGYUN",
+   "title": "龙云发动机 (Longyun engine, Jiuzhou Yunjian product page)",
+   "authors": [],
+   "organization": "Jiuzhou Yunjian (九州云箭空间科技)",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "https://www.jzyjspace.com/products_list/6.html",
+   "url": "https://www.jzyjspace.com/products_list/6.html",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-CN-LONGYUN"
+   ],
+   "locators": "product text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Longyun product text: '“龙云”发动机的海平面推重比＞80，海平面推力70吨，真空版推力80吨，推力调节范围32%~106%'; LOX/methane, multi-start, recoverable first-stage engine; 7000 s of hot-fire; 'will fly sub-orbital in 2024' (page not updated since).",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-AGNIKUL-PRODUCT",
+   "title": "Agnibaan product page (Agnikul Cosmos)",
+   "authors": [],
+   "organization": "Agnikul Cosmos",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "https://agnikul.in/product/",
+   "url": "https://agnikul.in/product/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-IN-AGNILET"
+   ],
+   "locators": "Agnibaan 'Base Shroud' panel",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Agnibaan 'Base Shroud' panel: 'houses the world's first single piece 3D printed semi-cryogenic patented rocket engine, Agnilet, that can propel the vehicle with its 6.2kN thrust capacity.' No ambient condition printed.",
    "branches": [
     "db05"
    ]

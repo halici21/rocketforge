@@ -981,3 +981,14 @@ LIQ-7 Pump Foundation: PAUSED.
 - Dead ends: jdse CZ-5 papers DOI ...20210021 (Φ5 m structure; needed a 500 s download, first try truncated) and
   ...20210012 (boosters) give no YF-77/YF-75D data; jdse requests stopped for this session. NTRS 20090014109 (Ares V and
   RS-68B, JANNAF 2008) gives RS-68B 797 klbf vac / 414.2 s but no RS-68A chamber pressure.
+
+### Pass: BT-4, Longyun and Agnilet (2026-10-29)
+
+- CF-DB05-W-R2_SC_COMM-R2-4 (BT-4 thrust) PARTIALLY_RESOLVED, different_variant: the encyclopedia article, now read
+  (current revision), lists BT-4 (450N), BT-4 (500N) and a 450 N Cygnus unit; its infobox shows the 500 N variant.
+- CF-DB05-W-R2_ASIA-R2A-30 (Longyun thrust) EXPLAINED: Jiuzhou Yunjian's product page prints 海平面推力70吨 and
+  真空版推力80吨, so the news pages' 70 t and 80 t are the maker's sea-level and vacuum-version figures.
+- CF-DB05-W-R2_ASIA-R2A-22 (Agnilet thrust) PARTIALLY_RESOLVED: Agnikul's Agnibaan page gives Agnilet '6.2kN thrust
+  capacity'; the 2024 '~3 kN at sea level' has no maker document. Unresolved: 88 → 85.
+- Dead ends: Blue Origin engine pages still 429 (one retry); Skyroot's site has no Dhawan page (/dhawan 404); NTRS has
+  no V-2/A-4 engine documents by title.

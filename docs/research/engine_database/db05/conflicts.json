@@ -2699,11 +2699,16 @@
      "6.2 kN",
      "SRC-M3D-AGNIKUL-2026",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Agnilet, that can propel the vehicle with its 6.2kN thrust capacity",
+     "SRC-DB05-AGNIKUL-PRODUCT",
+     "agnikul.in/product, Agnibaan 'Base Shroud' panel (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "Two news pages, 2024 and 2026, give 3 kN and 6.2 kN; neither names the engine variant or condition."
+   "explanation": "The maker's Agnibaan page gives Agnilet a 6.2 kN thrust capacity, the 2026 figure. The 2024 news page's 'approximately 3 kN at sea level' has no maker document; whether it is an earlier build or another condition is not stated."
   },
   {
    "conflict_id": "CF-DB05-W-R2_ASIA-R2A-23",
@@ -2788,11 +2793,16 @@
      "80 t class",
      "SRC-JIEMIAN-14422448",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "“龙云”发动机的海平面推重比＞80，海平面推力70吨，真空版推力80吨，推力调节范围32%~106%",
+     "SRC-DB05-JZYJ-LONGYUN",
+     "jzyjspace.com products_list/6.html, Longyun product text (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_epoch",
-   "explanation": "Two news pages give two classes; neither gives a rating or a date for its figure."
+   "resolution": "EXPLAINED",
+   "kind": "different_variant",
+   "explanation": "The maker's product page prints both figures: 70 t sea-level thrust and 80 t for the vacuum version. The two news pages each quote one of them; no conflict remains."
   },
   {
    "conflict_id": "CF-DB05-W-ASIA_OTHER-7",
@@ -3595,11 +3605,16 @@
      "'produces around 100' (lbf)",
      "SRC-MECO-CYGNUS-REBOOST-2018",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "infobox 'Thrust, vacuum 500 N'; variants: 'BT-4 (Cygnus) ... a thrust of 450 N', 'BT-4 (450N) ... 450 N ... 329 s', 'BT-4 (500N) ... a thrust of 500 N ... 329 s'",
+     "SRC-WIKI-BT4",
+     "en.wikipedia.org BT-4 (rocket engine), current revision fetched 2026-10-29: infobox and 'Known variations' list"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "100 lbf is 445 N DERIVED, consistent with 450 N; the 500 N has no opened source. No IHI datasheet opened."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_variant",
+   "explanation": "The encyclopedia article, now read, lists distinct BT-4 (450N) and BT-4 (500N) variants and a 450 N Cygnus unit; its infobox shows the 500 N variant. So 500 N and 450 N name two variants, not a rounding. The Cygnus reboost page's ~100 lbf (445 N DERIVED) and the catalogue's 450 N fit the 450 N unit. No IHI datasheet opened; the article's variant list is not evidence of the ratings themselves."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-5",

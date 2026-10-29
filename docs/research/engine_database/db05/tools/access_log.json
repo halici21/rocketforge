@@ -7178,5 +7178,44 @@
   "text_chars": 51600,
   "ok": true,
   "file": "SRC-DB05-NTRS-19720063749.pdf"
+ },
+ "SRC-WIKI-BT4": {
+  "source_id": "SRC-WIKI-BT4",
+  "url": "https://en.wikipedia.org/wiki/BT-4_(rocket_engine)",
+  "time_utc": "2026-10-29T18:16:28Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://en.wikipedia.org/wiki/BT-4_(rocket_engine)",
+  "bytes": 169317,
+  "sha256": "b6a51c4abf131651b3601c594ded8c989e00395142569d4c2ae9ca474338f571",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-WIKI-BT4.html"
+ },
+ "SRC-DB05-JZYJ-LONGYUN": {
+  "source_id": "SRC-DB05-JZYJ-LONGYUN",
+  "url": "https://www.jzyjspace.com/products_list/6.html",
+  "time_utc": "2026-10-29T18:18:04Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://www.jzyjspace.com/products_list/6.html",
+  "bytes": 68105,
+  "sha256": "3156244e4760dc0001825ea1230ae57ccb7aee87d5b075075c55b6e34ef93aa0",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-JZYJ-LONGYUN.html"
+ },
+ "SRC-DB05-AGNIKUL-PRODUCT": {
+  "source_id": "SRC-DB05-AGNIKUL-PRODUCT",
+  "url": "https://agnikul.in/product/",
+  "time_utc": "2026-10-29T18:18:05Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://agnikul.in/product/",
+  "bytes": 105317,
+  "sha256": "a379eaeffb4fa1d7efe25dcd2b29f518eaacbb4f237b1707174f513479433aac",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-AGNIKUL-PRODUCT.html"
  }
 }

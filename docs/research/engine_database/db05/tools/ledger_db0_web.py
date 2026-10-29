@@ -177,6 +177,9 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "UM21": "CALT user's manual chapter 2, Table 2-1 'Technical Parameters' p.2-2",
         "AUG": "Antares OSP-3 User's Guide Release 1.1 (2013) section 2.2.1 'Main Engine System' (mirror page 15)",
         "EA6": "esa.int 'The engines of Ariane 6' (05/06/2024), Vulcain 2.1 characteristics box",
+        "WBT": "en.wikipedia.org BT-4 (rocket engine), current revision fetched 2026-10-29: infobox and 'Known variations' list",
+        "JZ6": "jzyjspace.com products_list/6.html, Longyun product text (fetched 2026-10-29)",
+        "AGP": "agnikul.in/product, Agnibaan 'Base Shroud' panel (fetched 2026-10-29)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -413,9 +416,11 @@ K("CF-R2_ASIA-R2A-21", "ENG-IN-LAM-440-N", "propellants.roles",
   "The ISRO authors' IAC abstract: 'The propellant combination employed is MON-3 & MMH at a mixture ratio of 1.6'. The "
   "swapped roles were never opened and reverse fuel and oxidizer.")
 K("CF-R2_ASIA-R2A-22", "ENG-IN-AGNILET", "performance.thrust",
-  [("approximately 3 kN at sea level", "SRC-IE-AGNIBAAN", "T"), ("6.2 kN", "SRC-M3D-AGNIKUL-2026", "T")],
-  "UNRESOLVED", "different_variant",
-  "Two news pages, 2024 and 2026, give 3 kN and 6.2 kN; neither names the engine variant or condition.")
+  [("approximately 3 kN at sea level", "SRC-IE-AGNIBAAN", "T"), ("6.2 kN", "SRC-M3D-AGNIKUL-2026", "T"),
+   ("Agnilet, that can propel the vehicle with its 6.2kN thrust capacity", "SRC-DB05-AGNIKUL-PRODUCT", "AGP")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "The maker's Agnibaan page gives Agnilet a 6.2 kN thrust capacity, the 2026 figure. The 2024 news page's 'approximately "
+  "3 kN at sea level' has no maker document; whether it is an earlier build or another condition is not stated.")
 K("CF-R2_ASIA-R2A-23", "ENG-IN-DHAWAN-1", "performance.thrust",
   [("1.5 kN vac", "SRC-CHANAKYA-DHAWAN1", "N"), ("1.0 kN", "SRC-COLDFACTS-DHAWAN1", "NF")],
   "UNRESOLVED", None, "The fetched page gives no thrust; nothing opened settles it.")
@@ -431,8 +436,11 @@ K("CF-R2_ASIA-R2A-28", "ENG-CN-WELKIN", "performance.thrust_sl",
   "DB-0 read the maker's page as '50 t'. The page itself (fetched 2026-10-28) prints 500 kN at sea level for the CQ-50 "
   "(苍穹50, 'Welkin') engine; the Chinese page gives the same. The encyclopedia's 400 kN has no maker support.")
 K("CF-R2_ASIA-R2A-30", "ENG-CN-LONGYUN", "performance.thrust",
-  [("70 t class", "SRC-36KR-JZYJ", "T"), ("80 t class", "SRC-JIEMIAN-14422448", "T")],
-  "UNRESOLVED", "different_epoch", "Two news pages give two classes; neither gives a rating or a date for its figure.")
+  [("70 t class", "SRC-36KR-JZYJ", "T"), ("80 t class", "SRC-JIEMIAN-14422448", "T"),
+   ("“龙云”发动机的海平面推重比＞80，海平面推力70吨，真空版推力80吨，推力调节范围32%~106%", "SRC-DB05-JZYJ-LONGYUN", "JZ6")],
+  "EXPLAINED", "different_variant",
+  "The maker's product page prints both figures: 70 t sea-level thrust and 80 t for the vacuum version. The two news "
+  "pages each quote one of them; no conflict remains.")
 K("CF-ASIA_OTHER-7", "ENG-CN-YF-23", "performance.thrust_vac",
   [("47.1 kN", "SRC-WIKI-YF23", "W"), ("46.1 kN", "SRC-GS-CZ2D", "T"),
    ("LM-3C Table 2-1: DaFY21-1(Vernier) Thrust (kN) 11.8x4; Specific Impulse 2910.5 N.s/kg", "SRC-DB05-CALT-LM3C-UM-1998", "UM21"),
@@ -602,9 +610,14 @@ K("CF-R2_SC_COMM-R2-3", "ENG-US-STARLINER-OMAC", "performance.thrust / installat
   "The maker's 1,500 lbf 'class' and the paper's 1,600 lbf (7,000 N) agree as class and value. The engine count per "
   "shipset was not found in the release text.")
 K("CF-R2_SC_COMM-R2-4", "ENG-JP-BT-4", "performance.thrust_vac",
-  [("450 N", "SRC-SATCAT-BT4", "T"), ("500 N", "SRC-WIKI-BT4", "W"), ("'produces around 100' (lbf)", "SRC-MECO-CYGNUS-REBOOST-2018", "T")],
-  "UNRESOLVED", "rating_or_rounding",
-  "100 lbf is 445 N DERIVED, consistent with 450 N; the 500 N has no opened source. No IHI datasheet opened.")
+  [("450 N", "SRC-SATCAT-BT4", "T"), ("500 N", "SRC-WIKI-BT4", "W"), ("'produces around 100' (lbf)", "SRC-MECO-CYGNUS-REBOOST-2018", "T"),
+   ("infobox 'Thrust, vacuum 500 N'; variants: 'BT-4 (Cygnus) ... a thrust of 450 N', 'BT-4 (450N) ... 450 N ... 329 s', "
+    "'BT-4 (500N) ... a thrust of 500 N ... 329 s'", "SRC-WIKI-BT4", "WBT")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "The encyclopedia article, now read, lists distinct BT-4 (450N) and BT-4 (500N) variants and a 450 N Cygnus unit; "
+  "its infobox shows the 500 N variant. So 500 N and 450 N name two variants, not a rounding. The Cygnus reboost "
+  "page's ~100 lbf (445 N DERIVED) and the catalogue's 450 N fit the 450 N unit. No IHI datasheet opened; the "
+  "article's variant list is not evidence of the ratings themselves.")
 K("CF-R2_SC_COMM-R2-5", "ENG-US-VR900", "performance.thrust",
   [("900 lbf thrust class", "SRC-SFN-IM1-2024", "T"), ("~4,900 lbf", "SRC-NEWSPACETRACKER-IMPROP", "NF")],
   "UNRESOLVED", "rating_or_rounding",
@@ -857,3 +870,17 @@ D("SRC-DB05-ORBITAL-ANTARES-UG-2013", identifier='https://www.manualsdir.com/man
 D("SRC-DB05-ESA-A6-ENGINES", identifier='https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/The_engines_of_Ariane_6', title="The engines of Ariane 6 (ESA)", tier="A",
   rights_checked="ESA web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="ESA page 'The engines of Ariane 6' (dated 05/06/2024). Vulcain 2.1 text: 'providing more than 1370 kN of thrust'; 'Vulcain 2.1 main engine characteristics: 154 000 kg of liquid oxygen (LOX) and liquid hydrogen (LH2) consumed; 1371 kN of thrust; 15 mW turbopump power; 468 seconds of operation'; LH2 turbopump 33 000 rpm, 15 MW. No vacuum/sea-level qualifier is printed. Developed by ArianeGroup, Vernon. Used as a conflict claim only.")
+
+D("SRC-WIKI-BT4", identifier="https://en.wikipedia.org/wiki/BT-4_(rocket_engine)", title="BT-4 (rocket engine) (Wikipedia)",
+  tier="D", rights_checked="English Wikipedia article, current revision fetched on 2026-10-29; text CC BY-SA 4.0",
+  rights_class="VALUES_WITH_ATTRIBUTION",
+  note="Encyclopedia page read from its text (infobox and 'Known variations'); identity as registered by DB-0. Not evidence "
+       "of an engine value.")
+
+D("SRC-DB05-JZYJ-LONGYUN", identifier='https://www.jzyjspace.com/products_list/6.html', title='龙云发动机 (Longyun engine, Jiuzhou Yunjian product page)', tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Longyun product text: '“龙云”发动机的海平面推重比＞80，海平面推力70吨，真空版推力80吨，推力调节范围32%~106%'; LOX/methane, multi-start, recoverable first-stage engine; 7000 s of hot-fire; 'will fly sub-orbital in 2024' (page not updated since). Used as a conflict claim only.")
+
+D("SRC-DB05-AGNIKUL-PRODUCT", identifier='https://agnikul.in/product/', title='Agnibaan product page (Agnikul Cosmos)', tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Agnibaan 'Base Shroud' panel: 'houses the world's first single piece 3D printed semi-cryogenic patented rocket engine, Agnilet, that can propel the vehicle with its 6.2kN thrust capacity.' No ambient condition printed. Used as a conflict claim only.")
