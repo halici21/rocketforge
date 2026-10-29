@@ -2749,7 +2749,7 @@
    "field_path": "performance.thrust_sl",
    "claims": [
     [
-     "50 t",
+     "CQ-50 Reusable LOX/Kerosene Engine: 500kN Thrust at Sea Level; 265s Specific Impulse at Sea Level",
      "SRC-GE-WELKIN-EN",
      "page text (fetched 2026-10-28)"
     ],
@@ -2759,9 +2759,9 @@
      "DB-0 search summary (encyclopedia; not evidence)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "50 tf is 490 kN DERIVED, 23 percent above 400 kN. The manufacturer's '50 t' may be a class, not a rating; not settled."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "DB-0 read the maker's page as '50 t'. The page itself (fetched 2026-10-28) prints 500 kN at sea level for the CQ-50 (苍穹50, 'Welkin') engine; the Chinese page gives the same. The encyclopedia's 400 kN has no maker support."
   },
   {
    "conflict_id": "CF-DB05-W-R2_ASIA-R2A-30",
@@ -5235,11 +5235,16 @@
      "Thrust, vacuum 500 kilonewtons",
      "SRC-WIKI-WELKIN",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "CQ-50: 600kN (Vacuum Version) Vacuum Thrust; 330s (Vacuum Version)",
+     "SRC-GE-WELKIN-EN",
+     "encyclopedia page text, current revision (fetched 2026-10-28)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_variant",
-   "explanation": "The 500 kN is the Welkin's vacuum thrust on the encyclopedia page, not a separate vacuum engine; the 600 kN page refused access. No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's engine page (fetched 2026-10-28) prints 600 kN for the CQ-50 vacuum version, against 500 kN for the sea-level engine at sea level. The encyclopedia's 500 kN 'vacuum' figure matches the maker's sea-level number, not its vacuum version."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-31",

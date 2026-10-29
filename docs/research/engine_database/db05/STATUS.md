@@ -922,3 +922,13 @@ LIQ-7 Pump Foundation: PAUSED.
   exactly 75 tf. R2A-16 (pc) gains the 2011 60 bar. UNRESOLVED: 98 → 97.
 - Dead ends: ESA Bulletin 94 (Ariane qualification, bullet94/GON.pdf) has no Viking or HM7 values;
   no primary was found for the HM7B chamber pressure (37 vs 35 vs 35.3 bar) or the Viking 5C pc.
+
+### Pass: Chinese commercial makers (2026-10-29)
+
+- CF-DB05-W-R2_ASIA-R2A-28 (Welkin SL thrust) RESOLVED and CF-DB05-E-R2_ASIA-R2A-29 (Welkin-Vac) RESOLVED. The Galactic
+  Energy engine page DB-0 had cited as '50 t' (SRC-GE-WELKIN-EN, already fetched 2026-10-28) prints CQ-50 500 kN at
+  sea level / 265 s and 600 kN / 330 s for the vacuum version; the Chinese page (List/cid/5, 苍穹50) agrees. The
+  encyclopedia's 400 kN and 500 kN 'vacuum' are not the maker's figures. Unresolved: 97 → 95.
+- Dead ends: Space Pioneer /tianhuo/TH11, TH12, TH12V pages repeat the TH-12 figures already recorded (TH-11 30 t vac,
+  345 s). LandSpace /product/engine gives only TQ-12A (84.6 t SL, 293 s SL, MR 2.9; '+40 m/s Isp over TQ-12'); no TQ-12
+  vacuum Isp, so CF-ASIA_OTHER-13 stays UNRESOLVED.

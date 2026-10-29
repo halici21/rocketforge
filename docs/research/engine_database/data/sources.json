@@ -4983,7 +4983,7 @@
    ],
    "locators": "",
    "access": "fetched",
-   "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). 50 t sea-level thrust; variable thrust 4:1; T/W >120; 50 reuses rated.",
+   "notes": "Seen only as WebSearch result + model-written summary (WebFetch/curl blocked). 50 t sea-level thrust; variable thrust 4:1; T/W >120; 50 reuses rated. DB-0.5 (2026-10-29): fetch.py retrieved the page on 2026-10-28 (HTTP 200). It now prints 'CQ-50 Reusable LOX/Kerosene Engine' 500 kN thrust at sea level, 265 s, 600 kN / 330 s (Vacuum Version), 40-100 % thrust regulation, and CQ-90 990 kN / 1160 kN; no '50 t' wording is on the fetched page.",
    "branches": [
     "r2_asia"
    ]

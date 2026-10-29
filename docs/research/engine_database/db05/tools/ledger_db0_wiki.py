@@ -282,10 +282,12 @@ K("CF-R2_ASIA-R2A-27", "ENG-AR-VEX-1A-ENGINE", "history.test_date",
   [("26 Feb 2014", "SRC-WIKI-TRONADOR", "NF"), ("In March 2014, a suborbital prototype named VEx-1A failed", "SRC-WIKI-TRONADOR", "T")],
   "UNRESOLVED", None, "The current revision gives March 2014 only. " + _PRIMARY)
 K("CF-R2_ASIA-R2A-29", "ENG-CN-WELKIN-VAC", "performance.thrust_vac",
-  [("600 kN", "SRC-ORBITCODEX-PALLAS", "N"), ("Thrust, vacuum 500 kilonewtons", "SRC-WIKI-WELKIN", "T")],
-  "UNRESOLVED", "different_variant",
-  "The 500 kN is the Welkin's vacuum thrust on the encyclopedia page, not a separate vacuum engine; the 600 kN page "
-  "refused access. " + _PRIMARY)
+  [("600 kN", "SRC-ORBITCODEX-PALLAS", "N"), ("Thrust, vacuum 500 kilonewtons", "SRC-WIKI-WELKIN", "T"),
+   ("CQ-50: 600kN (Vacuum Version) Vacuum Thrust; 330s (Vacuum Version)", "SRC-GE-WELKIN-EN", "T")],
+  "RESOLVED", "primary_value_found",
+  "The maker's engine page (fetched 2026-10-28) prints 600 kN for the CQ-50 vacuum version, against 500 kN for the "
+  "sea-level engine at sea level. The encyclopedia's 500 kN 'vacuum' figure matches the maker's sea-level number, "
+  "not its vacuum version.")
 K("CF-R2_ASIA-R2A-31", "ENG-ES-TEPREL-C-VAC", "performance.thrust_vac",
   [("50 kN", "SRC-WIKI-TEPREL", "NF"), ("Thrust, vacuum 75 kN (17,000 lbf)", "SRC-WIKI-TEPREL", "T"), ("75 kN", "SRC-SATNOW-TEPRELC", "N")],
   "EXPLAINED", "different_epoch",

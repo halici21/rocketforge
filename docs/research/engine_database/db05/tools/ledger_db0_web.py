@@ -43,7 +43,9 @@ for _sid, _note in [
     ("SRC-IE-AGNIBAAN", "Indian Express: Agnilet 'approximately 3kN of thrust at sea level'."),
     ("SRC-SPACENEWS-12177", "SpaceNews: KSLV first stage engine named RD-151."),
     ("SRC-SFN-KSLV-2010", "Spaceflight Now 2010: KSLV first stage RD-151."),
-    ("SRC-GE-WELKIN-EN", "Galactic Energy English page: Welkin 50 t class."),
+    ("SRC-GE-WELKIN-EN", "Galactic Energy English page (fetched 2026-10-28): 'CQ-50 Reusable LOX/Kerosene Engine' 500 kN "
+                         "thrust at sea level, 265 s; 600 kN (Vacuum Version), 330 s (Vacuum Version); 40-100 %; CQ-90 "
+                         "990 kN / 1160 kN. The Chinese page (List/cid/5) names it 苍穹50 with the same figures."),
     ("SRC-36KR-JZYJ", "36Kr article: Longyun 70 t class."),
     ("SRC-JIEMIAN-14422448", "Jiemian article: Longyun 80 t class."),
     ("SRC-AR-STARLINER-2016", "Aerojet Rocketdyne release: '1,500-pound thrust class OMAC engines'."),
@@ -412,9 +414,11 @@ K("CF-R2_ASIA-R2A-24", "ENG-RU-RD-151", "identity.designation",
   "Two opened news pages name the KSLV first-stage engine RD-151, a derated RD-191; the encyclopedia names the parent "
   "engine.")
 K("CF-R2_ASIA-R2A-28", "ENG-CN-WELKIN", "performance.thrust_sl",
-  [("50 t", "SRC-GE-WELKIN-EN", "T"), ("400 kN", "SRC-WIKI-WELKIN", "W")],
-  "UNRESOLVED", "rating_or_rounding",
-  "50 tf is 490 kN DERIVED, 23 percent above 400 kN. The manufacturer's '50 t' may be a class, not a rating; not settled.")
+  [("CQ-50 Reusable LOX/Kerosene Engine: 500kN Thrust at Sea Level; 265s Specific Impulse at Sea Level", "SRC-GE-WELKIN-EN", "T"),
+   ("400 kN", "SRC-WIKI-WELKIN", "W")],
+  "RESOLVED", "primary_value_found",
+  "DB-0 read the maker's page as '50 t'. The page itself (fetched 2026-10-28) prints 500 kN at sea level for the CQ-50 "
+  "(苍穹50, 'Welkin') engine; the Chinese page gives the same. The encyclopedia's 400 kN has no maker support.")
 K("CF-R2_ASIA-R2A-30", "ENG-CN-LONGYUN", "performance.thrust",
   [("70 t class", "SRC-36KR-JZYJ", "T"), ("80 t class", "SRC-JIEMIAN-14422448", "T")],
   "UNRESOLVED", "different_epoch", "Two news pages give two classes; neither gives a rating or a date for its figure.")
