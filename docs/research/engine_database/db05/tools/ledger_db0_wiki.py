@@ -65,6 +65,10 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "BOH": "Blue Origin release 2024-09-23 'New Glenn completes second stage hotfire' (archive capture 2024-09-27)",
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOP": "Blue Origin/ULA partnership release (2014), body text (archive capture 2019-07-27)",
+        "NV2A": "NASM record A19600013000, description (archive capture 2025-04-05)",
+        "NV2B": "NASM record A19790951000, description (archive capture 2025-04-02)",
+        "CT310": "CaltechTHESIS record 310 (1947), abstract (archive capture 2025-07-08)",
+        "NHWK": "NASM record A19771225000, description (archive capture 2025-04-05)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -207,12 +211,20 @@ K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
   "the 190 tf seen elsewhere (1.053) tracks 223 against 210 (1.062), so the pair looks like two power levels. 210 "
   "kgf/cm2 at 100 % is still unopened.")
 K("CF-R2_USSR-R2-10", "ENG-DE-A4-ENGINE", "propellants.consumed",
-  [("9,700 kg / 62 s", "SRC-NASM-A19600013000", "N"), ("9,000 kg / 60 s", "SRC-NASM-A19790951000", "N")],
-  "UNRESOLVED", None, "Both Smithsonian records were unreachable on retry. " + _PRIMARY)
+  [("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A"),
+   ("nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen ... during the 60-second burning time", "SRC-NASM-A19790951000", "NV2B")],
+  "PARTIALLY_RESOLVED", "definition",
+  "Both Smithsonian records, read from archive captures, give a 60-second burn (not 62 s). They name different "
+  "quantities: about 9,700 kg of liquid oxygen alone in one, nearly 9,000 kg of alcohol and oxygen together in the other. "
+  "Read literally they contradict each other, since oxygen alone exceeds the combined total; neither cites a source. "
+  "See CF-DB05-E-R2_SCHEM-R2-13.")
 K("CF-R2_SCHEM-R2-13", "ENG-DE-A4-ENGINE", "propellants.load_mass",
-  [("~9,700 kg LOX over 60 s", None, "X"), ("4,200 kg water-alcohol + 5,500 kg LOX", None, "X")],
+  [("~9,700 kg LOX over 60 s", None, "X"), ("4,200 kg water-alcohol + 5,500 kg LOX", None, "X"),
+   ("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A")],
   "UNRESOLVED", "definition",
-  "No source ids. 4,200 + 5,500 = 9,700 kg, so one claim is likely total propellant mislabelled as LOX. " + _PRIMARY)
+  "4,200 + 5,500 = 9,700 kg, so one claim is likely total propellant mislabelled as LOX. A Smithsonian record (read "
+  "2026-10-29) does call the 9,700 kg liquid oxygen, but another Smithsonian record puts both propellants at about "
+  "9,000 kg (CF-DB05-E-R2_USSR-R2-10). " + _PRIMARY)
 K("CF-R2_USSR-R2-11", "ENG-SU-RD-107A", "performance.thrust_vac",
   [("vac: 1,021.3 kN", "SRC-WIKI-SOYUZFG", "T"), ("vac: 1,019.93 kN", "SRC-WIKI-SOYUZ-CSG", "T"), ("thrust(Vac) 1,020 kN", "SRC-WIKI-RD107", "T")],
   "EXPLAINED", "rating_or_rounding", "Three encyclopedia pages within 0.14 percent: one value at different precision.")
@@ -407,8 +419,13 @@ K("CF-US_HIST-12", "ENG-US-S-3D", "performance.thrust",
   "the Atlas S-3, 'produced a thrust of 150,000 lb', which documents the shipped 150,000 lb Jupiter value. The "
   "134,908 lbf (600.1 kN) sea-level figure, perhaps an early or Thor-related rating, still has no document.")
 K("CF-US_HIST-14", "ENG-US-38ALDW-1500", "propellants.fuel",
-  [("RFNA + furfuryl alcohol", "SRC-WIKI-WACCORPORAL", "T"), ("aniline (+RFNA)", "SRC-CALTECH-THESIS310", "N")],
-  "UNRESOLVED", "different_epoch", "The Caltech thesis page was unreachable on retry. " + _PRIMARY)
+  [("RFNA + furfuryl alcohol", "SRC-WIKI-WACCORPORAL", "T"),
+   ("The Wac Corporal is a sounding rocket of 590 lbs. gross weight using red fuming nitric acid and aniline as propellants (1947)",
+    "SRC-CALTECH-THESIS310", "CT310")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "A 1947 GALCIT engineer's thesis (abstract read from an archive capture) describes the WAC Corporal as burning red "
+  "fuming nitric acid and aniline, so the aniline claim has a contemporary source. The encyclopedia's furfuryl alcohol "
+  "has none opened; the vehicle may have flown aniline, furfuryl alcohol or a blend at different times.")
 K("CF-US_HIST-16", "ENG-US-RS-56-OSA", "performance.thrust",
   [("RS-56-OSA: 60,500 lbf (269.0 kN) sea level", "SRC-WIKI-RS56", "T"), ("1 x RS-56-OSA Maximum thrust 386 kN (87,000 lbf)", "SRC-WIKI-ATLASII", "T")],
   "EXPLAINED", "different_operating_point",
@@ -516,10 +533,12 @@ K("CF-EUROPE-23", "ENG-DE-BMW-109-558", "performance.thrust",
   "EXPLAINED", "unit",
   "375 kgf is 3.68 kN and 60 kgf 0.588 kN DERIVED: the two describe the same two-level thrust in different units.")
 K("CF-EUROPE-24", "ENG-DE-HWK-109-507", "performance.thrust",
-  [("590 kgf for 10 s", "SRC-WIKI-HWK109507", "NF"), ("600 -> 400 kg over 10 s", "SRC-NASM-HWK109507", "N")],
-  "UNRESOLVED", None,
-  "The current revision says the burn lasted about 10 s but prints no thrust; the Smithsonian record refused access. "
-  + _PRIMARY)
+  [("590 kgf for 10 s", "SRC-WIKI-HWK109507", "NF"),
+   ("The initial thrust of 600 kg (1300 lb.) declined to 400 kg (900 lb.) during the 10 second duration", "SRC-NASM-HWK109507", "NHWK")],
+  "PARTIALLY_RESOLVED", "different_operating_point",
+  "The Smithsonian record, read from an archive capture, gives a blow-down: 600 kg at ignition falling to 400 kg over "
+  "the 10 s burn as the air bottles emptied. DB-0's 590 kgf is within 2 percent of the initial figure, but the current "
+  "encyclopedia revision no longer prints it, so its source is not seen.")
 K("CF-EUROPE-28", "ENG-FR-HM7", "identity.designation",
   [("HM7 (history section)", "SRC-WIKI-HM7B", "NF"), ("Third stage Powered by 1 HM7-A", "SRC-WIKI-ARIANE1", "T")],
   "EXPLAINED", "definition", "HM7-A is the Ariane 1 build of the HM7; the names describe one engine at two levels.")
@@ -718,3 +737,19 @@ D("SRC-BLUE-NG-UPGRADE", identifier='https://web.archive.org/web/20251205152358/
 D("SRC-BLUE-ULA-PARTNERSHIP", identifier='https://web.archive.org/web/20190727222445/https://www.blueorigin.com/news/ula-and-blue-origin-announce-partnership-to-develop-new-american-rocket-engine', title='ULA and Blue Origin Announce Partnership To Develop New American Rocket Engine (2014)', tier="A",
   rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Blue Origin release of 2014, archive capture of 2019-07-27: 'The BE-4 is a liquid oxygen, liquefied natural gas (LNG) rocket engine that delivers 550,000-lbf of thrust at sea level. Two BE-4s will power each ULA booster, providing 1,100,000-lbf thrust at liftoff.' Used as a conflict claim only.")
+
+D("SRC-NASM-A19600013000", identifier='https://web.archive.org/web/20250405012409/https://airandspace.si.edu/collection-objects/turbopump-steam-generator-and-frame-v-2-rocket-engine/nasm_A19600013000', title='Turbopump, Steam Generator and Frame, V-2 Rocket Engine (NASM A19600013000)', tier="D",
+  rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Smithsonian NASM record A19600013000 (V-2 turbopump, steam generator and frame), archive capture of 2025-04-05: 'liquid oxygen and 75% alcohol'; 'At a thrust of 25 metric tons (about 56,000 lb)'; 'The turbopump had to move approx. 9700 kg (21,400 lb.) of liquid oxygen from the tanks to the engine during the sixty-second burning time.' Used as a conflict claim only.")
+
+D("SRC-NASM-A19790951000", identifier='https://web.archive.org/web/20250402174429/https://airandspace.si.edu/collection-objects/turbopump-v-2-cutaway/nasm_A19790951000', title='Turbopump, V-2, Cutaway (NASM A19790951000)', tier="D",
+  rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Smithsonian NASM record A19790951000 (V-2 turbopump, cutaway), archive capture of 2025-04-02: 'This pump moved nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen from the tanks to the combustion chamber during the 60-second burning time.' Used as a conflict claim only.")
+
+D("SRC-CALTECH-THESIS310", identifier='https://web.archive.org/web/20250708113841/https://thesis.library.caltech.edu/310/', title='Gas Generation by Chemical Reaction for Pressurizing Liquid Rocket Propellants', tier="B",
+  rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. CaltechTHESIS record 310, 'Gas Generation by Chemical Reaction for Pressurizing Liquid Rocket Propellants' (Engineer's thesis, GALCIT, defended June 1947; DOI 10.7907/7T6E-3D20), abstract read from archive capture of 2025-07-08: 'The Wac Corporal is a sounding rocket of 590 lbs. gross weight using red fuming nitric acid and aniline as propellants.' Used as a conflict claim only.")
+
+D("SRC-NASM-HWK109507", identifier='https://web.archive.org/web/20250405013608/https://si.edu/object/rocket-engine-walter-hwk-109-507:nasm_A19771225000', title='Rocket Engine, Walter HWK 109-507 (A19771225000)', tier="D",
+  rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note='Fetched 2026-10-29. Smithsonian record nasm_A19771225000 (Walter HWK 109-507), archive capture of 2025-04-05: \'Hydrogen peroxide in 80% concentration (codenamed "T-Stoff") was mixed with a calcium permanganate catalyst ("Z-Stoff")\'; \'The initial thrust of 600 kg (1300 lb.) declined to 400 kg (900 lb.) during the 10 second duration of the engine due to dropping air pressure from bottles\'. Used as a conflict claim only.')

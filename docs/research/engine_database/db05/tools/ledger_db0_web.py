@@ -187,6 +187,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
+        "NSS": "NASM record A19700331000 (Super Sprite), description (archive capture 2025-04-05)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -599,8 +600,11 @@ K("CF-EUROPE-25", "ENG-GB-STENTOR", "performance.thrust",
   "The opened page gives 24,000 lbf for the main chamber alone; the Stentor had a second, cruise chamber, so the two "
   "figures need not describe the same thing. Not settled from a primary.")
 K("CF-EUROPE-26", "ENG-GB-SUPER-SPRITE", "performance.thrust",
-  [("4,200 lb", "SRC-NASM-SUPERSPRITE", "N"), ("4,000 lb", "SRC-DHMUSEUM-SPECTRE", "NF")],
-  "UNRESOLVED", None, "The fetched museum page is about the Spectre and gives no Super Sprite figure.")
+  [("The Super Sprite had a maximum thrust of 4,200 pounds for 40 seconds, but both the thrust and duration could be adjusted",
+    "SRC-NASM-SUPERSPRITE", "NSS"), ("4,000 lb", "SRC-DHMUSEUM-SPECTRE", "NF")],
+  "PARTIALLY_RESOLVED", "different_operating_point",
+  "The Smithsonian record, read from an archive capture, gives 4,200 lb maximum for 40 s and says thrust and duration "
+  "could be adjusted. The 4,000 lb has no source: the de Havilland museum page fetched for it covers the Spectre.")
 K("CF-EUROPE-27", "ENG-FR-PROMETHEUS", "performance.thrust",
   [("980 kN SL", "SRC-WIKI-PROMETHEUS", "W"), ("'the previous generation of 1200 kN engines'", "SRC-ESA-PROMETHEUS", "T")],
   "EXPLAINED", "definition",
@@ -932,3 +936,7 @@ D("SRC-DB05-SPACEX-F9UG-R2-2015", identifier='https://web.archive.org/web/201703
 D("SRC-DB05-MUSK-X-2016-05-06", identifier='https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224', title='Elon Musk on Twitter, 6 May 2016 (status 728753234811060224)', tier="B",
   rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Post by SpaceX's chief executive, 6 May 2016 (data-time 1462579247), read from the Internet Archive capture of 2017-02-05: 'Max is just 3X Merlin thrust and min is ~40% of 1 Merlin. Two outer engines shut off before the center does.' (about the landing burn). An informal statement, not a specification. Used as a conflict claim only.")
+
+D("SRC-NASM-SUPERSPRITE", identifier='https://web.archive.org/web/20250405012001/https://airandspace.si.edu/collection-objects/rocket-engine-liquid-fuel-super-sprite-cut-away/nasm_A19700331000', title='Rocket Engine, Liquid Fuel, Super Sprite, Cut Away (A19700331000)', tier="D",
+  rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Smithsonian NASM record A19700331000 (Super Sprite, cut-away), archive capture of 2025-04-05: 'The Super Sprite had a maximum thrust of 4,200 pounds for 40 seconds, but both the thrust and duration could be adjusted to fit different mission needs.' Overall 620 lb. Used as a conflict claim only.")

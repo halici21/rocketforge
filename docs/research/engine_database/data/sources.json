@@ -2189,8 +2189,8 @@
     "ENG-US-XF30L20000"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. WAC-type sounding rocket of 590 lb gross using RFNA and aniline; air pressurization unit (90 lb) to be replaced by gas generator.",
+   "access": "fetched",
+   "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. WAC-type sounding rocket of 590 lb gross using RFNA and aniline; air pressurization unit (90 lb) to be replaced by gas generator. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20250708113841/https://thesis.library.caltech.edu/310/ - CaltechTHESIS record 310, 'Gas Generation by Chemical Reaction for Pressurizing Liquid Rocket Propellants' (Engineer's thesis, GALCIT, defended June 1947; DOI 10.7907/7T6E-3D20), abstract read from archive capture of 2025-07-08: 'The Wac Corporal is a sounding rocket of 590 lbs. gross weight using red fuming nitric acid and aniline as propellants.'",
    "branches": [
     "us_hist"
    ]
@@ -10890,8 +10890,8 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "not_retrieved",
-   "notes": "Steam generator: H2O2 (T-Stoff) + Z-Stoff = 27% sodium permanganate solution; propellants LOX + 75% alcohol; ~25 t thrust; 9,700 kg over 62 s (per summary).",
+   "access": "fetched",
+   "notes": "Steam generator: H2O2 (T-Stoff) + Z-Stoff = 27% sodium permanganate solution; propellants LOX + 75% alcohol; ~25 t thrust; 9,700 kg over 62 s (per summary). DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20250405012409/https://airandspace.si.edu/collection-objects/turbopump-steam-generator-and-frame-v-2-rocket-engine/nasm_A19600013000 - Smithsonian NASM record A19600013000 (V-2 turbopump, steam generator and frame), archive capture of 2025-04-05: 'liquid oxygen and 75% alcohol'; 'At a thrust of 25 metric tons (about 56,000 lb)'; 'The turbopump had to move approx. 9700 kg (21,400 lb.) of liquid oxygen from the tanks to the engine during the sixty-second burning time.'",
    "id_collision_titles": [
     "Turbopump, Steam Generator and Frame, V-2 Rocket Engine (NASM catalogue)"
    ],
@@ -10917,8 +10917,8 @@
     "ENG-DE-A4-ENGINE"
    ],
    "locators": "URL-level only (search summary)",
-   "access": "not_retrieved",
-   "notes": "~9,000 kg over 60 s (per summary).",
+   "access": "fetched",
+   "notes": "~9,000 kg over 60 s (per summary). DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20250402174429/https://airandspace.si.edu/collection-objects/turbopump-v-2-cutaway/nasm_A19790951000 - Smithsonian NASM record A19790951000 (V-2 turbopump, cutaway), archive capture of 2025-04-02: 'This pump moved nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen from the tanks to the combustion chamber during the 60-second burning time.'",
    "id_collision_titles": [
     "Turbopump, V-2, Cutaway (NASM catalogue)"
    ],
@@ -11105,8 +11105,8 @@
     "ENG-DE-HWK-109-507"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 600 kg (1300 lb) declining to 400 kg (900 lb) over 10 s due to falling air-bottle pressure.",
+   "access": "fetched",
+   "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. 600 kg (1300 lb) declining to 400 kg (900 lb) over 10 s due to falling air-bottle pressure. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20250405013608/https://si.edu/object/rocket-engine-walter-hwk-109-507:nasm_A19771225000 - Smithsonian record nasm_A19771225000 (Walter HWK 109-507), archive capture of 2025-04-05: 'Hydrogen peroxide in 80% concentration (codenamed \"T-Stoff\") was mixed with a calcium permanganate catalyst (\"Z-Stoff\")'; 'The initial thrust of 600 kg (1300 lb.) declined to 400 kg (900 lb.) during the 10 second duration of the engine due to dropping air pressure from bottles'.",
    "branches": [
     "europe"
    ]
@@ -11245,8 +11245,8 @@
     "ENG-GB-SUPER-SPRITE"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Max 4,200 lb for 40 s.",
+   "access": "fetched",
+   "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Max 4,200 lb for 40 s. DB-0.5 (2026-10-29): read from Internet Archive capture https://web.archive.org/web/20250405012001/https://airandspace.si.edu/collection-objects/rocket-engine-liquid-fuel-super-sprite-cut-away/nasm_A19700331000 - Smithsonian NASM record A19700331000 (Super Sprite, cut-away), archive capture of 2025-04-05: 'The Super Sprite had a maximum thrust of 4,200 pounds for 40 seconds, but both the thrust and duration could be adjusted to fit different mission needs.' Overall 620 lb.",
    "branches": [
     "europe"
    ]

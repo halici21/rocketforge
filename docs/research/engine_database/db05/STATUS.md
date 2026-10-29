@@ -1049,3 +1049,17 @@ contacted again; only web.archive.org captures were read.
   200,000 lbf per engine announced 2025. ANCHOR_US_MODERN-3 (cycle) EXPLAINED, definition: the maker uses both
   'open-expander' and 'expander bleed'.
 - Unresolved: 80 → 68. Not captured: L3Harris July 2024 bipropellant sheet, RS-68A data sheet (arsuppliernet).
+
+### Pass: archived museum records and a 1947 thesis (2026-10-29)
+
+- CF-DB05-E-R2_USSR-R2-10 (V-2 propellant consumed) PARTIALLY_RESOLVED, definition: the two Smithsonian records give a
+  60 s burn and name different quantities (about 9,700 kg of liquid oxygen alone; nearly 9,000 kg of both
+  propellants). Read literally they contradict each other; neither cites a source.
+- CF-DB05-E-R2_SCHEM-R2-13 (V-2 load mass) is now filed, UNRESOLVED: it had no source id before; the Smithsonian
+  record now supplies one for the 9,700 kg LOX claim. Conflicts filed: 254 → 255.
+- CF-DB05-E-US_HIST-14 (WAC Corporal fuel) PARTIALLY_RESOLVED: a 1947 GALCIT engineer's thesis says RFNA and aniline.
+- CF-DB05-E-EUROPE-24 (HWK 109-507) PARTIALLY_RESOLVED, different_operating_point: the Smithsonian gives 600 kg at
+  ignition falling to 400 kg over the 10 s burn.
+- CF-DB05-W-EUROPE-26 (Super Sprite) PARTIALLY_RESOLVED: the Smithsonian gives 4,200 lb maximum for 40 s, adjustable.
+- Unresolved: 68 → 65. No archive capture exists for the STS-104 FRR chart mirror (RS-7), the SpaceX Starship
+  specification page (R2-3) or the newspacetracker page (VR900).
