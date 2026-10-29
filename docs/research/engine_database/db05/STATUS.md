@@ -1087,3 +1087,9 @@ contacted again; only web.archive.org captures were read.
   sites answering 403 (investors site, GlobeNewswire, StreetInsider, SatNow); Rocket Lab's 2024 Archimedes release
   (up to 202,300 lbf) adds nothing beyond the two maker pages already filed (COM-14); Dhawan-1 news pages give no
   figure beyond the 1.5 kN vacuum already filed.
+- Dead ends (2026-10-29, late): IAC abstracts from the Chinese developers (IAC-13 x17679 and x18525, IAC-15 x28419,
+  IAC-17 x41861) give the YF-77 700 kN vacuum at O/F 5.5 and name the YF-100 a 1200 kN engine, but no YF-77 Isp or
+  sea-level thrust, no YF-75D burn time and no YF-100 throttle range; three of the brief PDFs answered 403 (not
+  retried). Current encyclopedia revisions of KVD-1, RD-58, RD-191, RD-216, RD-270 and S5.98M add nothing citable;
+  the RD-58 article's 11D58MF reference (ecoruspace.me, an enthusiast database, archive capture 2021-12-29) gives
+  5000 kgf / 372 s but no cycle wording, so CF-DB05-W-R2_USSR-R2-20 stays open.
