@@ -570,11 +570,16 @@
      "633 psi; 465.5 s (text)",
      "SRC-NAP-11780",
      "Appendix D text"
+    ],
+    [
+     "has a specific impulse of 465 sec (no chamber pressure printed)",
+     "SRC-DB05-ULA-DELTA4-UG-2013",
+     "p.1-6, section 1.2.2"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "intra_document",
-   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404)."
+   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure."
   },
   {
    "conflict_id": "CF-DB05-RL10B2-THRUST",
@@ -800,11 +805,16 @@
      "705,000 lbf sea level (DB-0 search-result excerpt; data sheet HTTP 404, never opened)",
      "SRC-L3H-RS68A-DS",
      "DB-0"
+    ],
+    [
+     "capable of delivering 3137kN (705,250 lbf) of sea level thrust",
+     "SRC-DB05-ULA-DELTA4-UG-2013",
+     "p.1-5, section 1.2.1"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "The only opened statement is NASA's 702,000 lb with no environment. The manufacturer figure was seen only in a search excerpt; whether the two are one rating rounded differently is not established."
+   "explanation": "NASA's blog prints 702,000 lb with no environment. The launch provider's 2013 user's guide (opened 2026-10-29) prints 705,250 lbf at sea level, so the 705,000 lbf of the unopened datasheet is supported. What the blog's 702,000 lb is (another rounding, or an older rating) is still not established."
   },
   {
    "conflict_id": "CF-DB05-RUTHERFORD-SL-THRUST",
@@ -4236,11 +4246,16 @@
      "hydraulic nozzle gimbal (stage)",
      "SRC-AIAA-VEHGUIDE-DELTA",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "The engine gimbal system uses electromechanical actuators",
+     "SRC-DB05-ULA-DELTA4-UG-2013",
+     "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition_or_epoch",
-   "explanation": "The current revision prints 301 kg; 277 kg was an older revision. The gimbal actuator wording is about the stage on one side and the engine on the other. No primary document opened; the record stays open."
+   "explanation": "The current revision prints 301 kg; 277 kg was an older revision. The gimbal half is settled for the Delta IV installation: the launch provider's 2013 user's guide says the RL10B-2 gimbal system uses electromechanical actuators. The mass half stays open: the guide prints no engine mass, nor does NTRS 20170008949."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-2",
@@ -4376,7 +4391,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "different_variant",
-   "explanation": "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL returns 404. No primary document opened; the record stays open."
+   "explanation": "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL and its product page return 404, and the ULA Delta IV user's guide (2013) prints thrust, Isp and area ratio but no chamber pressure. No primary document opened; the record stays open."
   },
   {
    "conflict_id": "CF-DB05-E-R2_SCHEM-R2-2",
@@ -4393,11 +4408,16 @@
      "RS-68A: 411.9 s",
      "SRC-WIKI-RS68",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "having a vacuum specific impulse of 411.9 sec",
+     "SRC-DB05-ULA-DELTA4-UG-2013",
+     "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "rating_or_rounding",
-   "explanation": "0.2 percent apart; the datasheet returns 404. No primary document opened; the record stays open."
+   "explanation": "The launch provider's 2013 user's guide prints 411.9 s vacuum for the RS-68A, as the encyclopedia does. The 411 s seen in a search summary of the 404 datasheet is the same figure without its decimal."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-3",

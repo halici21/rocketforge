@@ -6545,5 +6545,20 @@
   "text_chars": 86466,
   "ok": true,
   "file": "SRC-DB05-NTRS-20170008949.pdf"
+ },
+ "SRC-DB05-ULA-DELTA4-UG-2013": {
+  "source_id": "SRC-DB05-ULA-DELTA4-UG-2013",
+  "url": "https://www.ulalaunch.com/docs/default-source/rockets/delta-iv-user's-guide.pdf",
+  "time_utc": "2026-10-29T11:20:36Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.ulalaunch.com/docs/default-source/rockets/delta-iv-user's-guide.pdf",
+  "bytes": 16539377,
+  "sha256": "6fe62b2e5b1a6afb45c1583f443525b78af93e45fc5eb962382195c7f07879fe",
+  "is_pdf": true,
+  "pages": 293,
+  "text_chars": 390750,
+  "ok": true,
+  "file": "SRC-DB05-ULA-DELTA4-UG-2013.pdf"
  }
 }

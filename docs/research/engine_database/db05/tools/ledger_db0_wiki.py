@@ -37,7 +37,9 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "X": "no source id (DB-0 search summary or brief)",
         "D4": "NRC 2006 (NAP 11780) Appendix D, Table D-4 (opened in an earlier DB-0.5 pass)",
         "J97": "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果",
-        "P60": "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph"}
+        "P60": "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph",
+        "U15": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage",
+        "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -71,10 +73,12 @@ K("CF-R2_US_CLASSIC-A42-1", "ENG-US-RL10A-4-2", "nozzle.area_ratio",
   "manufacturer datasheet, so the value is better supported but not settled.")
 K("CF-R2_US_CLASSIC-B2-4", "ENG-US-RL10B-2", "mechanical.mass / control.gimbal_actuation",
   [("dry_weight 301 kg; electro-mechanical", "SRC-WIKI-RL10", "T"), ("277 kg (older revision)", "SRC-WIKI-RL10", "NF"),
-   ("hydraulic nozzle gimbal (stage)", "SRC-AIAA-VEHGUIDE-DELTA", "N")],
-  "UNRESOLVED", "definition_or_epoch",
-  "The current revision prints 301 kg; 277 kg was an older revision. The gimbal actuator wording is about the stage on one "
-  "side and the engine on the other. " + _PRIMARY)
+   ("hydraulic nozzle gimbal (stage)", "SRC-AIAA-VEHGUIDE-DELTA", "N"),
+   ("The engine gimbal system uses electromechanical actuators", "SRC-DB05-ULA-DELTA4-UG-2013", "U16")],
+  "PARTIALLY_RESOLVED", "definition_or_epoch",
+  "The current revision prints 301 kg; 277 kg was an older revision. The gimbal half is settled for the Delta IV "
+  "installation: the launch provider's 2013 user's guide says the RL10B-2 gimbal system uses electromechanical "
+  "actuators. The mass half stays open: the guide prints no engine mass, nor does NTRS 20170008949.")
 K("CF-R2_ASIA-R2A-2", "ENG-JP-LE-7A", "performance.pc",
   [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
    ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97")],
@@ -105,11 +109,15 @@ K("CF-R2_ASIA-R2A-13", "ENG-CN-YF-77", "performance.thrust_sl / pc / isp / burn_
 K("CF-R2_SCHEM-R2-1", "ENG-US-RS-68A", "performance.pc",
   [("1580 psia", "SRC-L3H-RS68A-DS", "N"), ("Chamber pressure 1,488 psi (10.26 MPa)", "SRC-WIKI-RS68", "T")],
   "UNRESOLVED", "different_variant",
-  "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL returns "
-  "404. " + _PRIMARY)
+  "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL and its "
+  "product page return 404, and the ULA Delta IV user's guide (2013) prints thrust, Isp and area ratio but no chamber "
+  "pressure. " + _PRIMARY)
 K("CF-R2_SCHEM-R2-2", "ENG-US-RS-68A", "performance.isp_vac",
-  [("411 s", "SRC-L3H-RS68A-DS", "N"), ("RS-68A: 411.9 s", "SRC-WIKI-RS68", "T")],
-  "UNRESOLVED", "rating_or_rounding", "0.2 percent apart; the datasheet returns 404. " + _PRIMARY)
+  [("411 s", "SRC-L3H-RS68A-DS", "N"), ("RS-68A: 411.9 s", "SRC-WIKI-RS68", "T"),
+   ("having a vacuum specific impulse of 411.9 sec", "SRC-DB05-ULA-DELTA4-UG-2013", "U15")],
+  "EXPLAINED", "rating_or_rounding",
+  "The launch provider's 2013 user's guide prints 411.9 s vacuum for the RS-68A, as the encyclopedia does. The 411 s "
+  "seen in a search summary of the 404 datasheet is the same figure without its decimal.")
 K("CF-R2_SCHEM-R2-12", "ENG-SU-RD-170", "turbines.main.power",
   [("~200 MW", None, "X"), ("189.3 MW", None, "X")],
   "UNRESOLVED", None, "Neither claim carries a source id. " + _PRIMARY)
@@ -428,3 +436,11 @@ D("SRC-DB05-NTRS-20170008949", identifier="NTRS 20170008949",
   rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED; not export controlled", rights_class="VALUES_WITH_ATTRIBUTION",
   note="27 pages. Searched for the RL10B-2 mass (CF-DB05-E-R2_US_CLASSIC-B2-4): the paper describes the RL10B-2 C-C "
        "nozzle extension history but prints no engine mass. No value taken.")
+
+D("SRC-DB05-ULA-DELTA4-UG-2013", identifier="Delta IV Launch Services User's Guide, June 2013 (United Launch Alliance; DoD public release 13-S-1948)",
+  title="Delta IV Launch Services User's Guide", tier="B",
+  rights_checked="'Copyright © 2013 by United Launch Alliance. All rights reserved'; cleared for public release",
+  rights_class="RESTRICTED_REFERENCE",
+  note="293 pages, text layer. Read sections 1.2.1-1.2.2 (pp. 1-5 to 1-7): RS-68A 3137kN (705,250 lbf) sea level, 411.9 s "
+       "vacuum, 21.5 to 1; RL10B-2 110 kN (24,750 lb), 465 s, electromechanical gimbal actuators. No chamber pressure or "
+       "engine mass. Used as conflict claims only; no assertion taken.")

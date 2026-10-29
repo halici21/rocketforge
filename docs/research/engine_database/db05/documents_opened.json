@@ -1416,6 +1416,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ULA-DELTA4-UG-2013",
+   "url_requested": "https://www.ulalaunch.com/docs/default-source/rockets/delta-iv-user's-guide.pdf",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 16539377,
+   "sha256": "6fe62b2e5b1a6afb45c1583f443525b78af93e45fc5eb962382195c7f07879fe",
+   "pdf_pages": 293,
+   "retrieved_utc": "2026-10-29T11:20:36Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "Delta IV Launch Services User's Guide, June 2013 (United Launch Alliance; DoD public release 13-S-1948)",
+   "title_as_printed": "Delta IV Launch Services User's Guide",
+   "tier": "B",
+   "rights_statement_checked": "'Copyright © 2013 by United Launch Alliance. All rights reserved'; cleared for public release",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "293 pages, text layer. Read sections 1.2.1-1.2.2 (pp. 1-5 to 1-7): RS-68A 3137kN (705,250 lbf) sea level, 411.9 s vacuum, 21.5 to 1; RL10B-2 110 kN (24,750 lb), 465 s, electromechanical gimbal actuators. No chamber pressure or engine mass. Used as conflict claims only; no assertion taken.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DESIGNSYS-RM81",
    "url_requested": "https://www.designation-systems.net/dusrm/app1/rm-81.html",
    "download_url": null,

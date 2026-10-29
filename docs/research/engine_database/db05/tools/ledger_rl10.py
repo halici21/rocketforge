@@ -136,9 +136,10 @@ C("CF-DB05-RL10A33A-MR-ISP", engine_id=R33A, field_path="propellants.mixture_rat
               "The 1966 RL10A-3-3 design report (PWA FR-1769) estimates 444 s at 5.0:1 for the A-3-3 as well, so 442 for the A-3-3 is not its design estimate; "
               "whether 442 is a later delivered value is not established. The RL10A-3-3A values are unaffected.")
 C("CF-DB05-RL10B2-PC-ISP", engine_id=RB2, field_path="performance.pc / performance.isp_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-1; CF-R2_US_CLASSIC-B2-3; CF-US_HIST-03",
-  claims=[["644 psia; 466.5 s (Table D-2)", "SRC-NAP-11780", "Table D-2"], ["633 psi; 465.5 s (text)", "SRC-NAP-11780", "Appendix D text"]],
+  claims=[["644 psia; 466.5 s (Table D-2)", "SRC-NAP-11780", "Table D-2"], ["633 psi; 465.5 s (text)", "SRC-NAP-11780", "Appendix D text"],
+          ["has a specific impulse of 465 sec (no chamber pressure printed)", "SRC-DB05-ULA-DELTA4-UG-2013", "p.1-6, section 1.2.2"]],
   resolution="UNRESOLVED", kind="intra_document",
-  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404).")
+  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure.")
 C("CF-DB05-RL10B2-THRUST", engine_id=RB2, field_path="performance.thrust_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-2",
   claims=[["24,750 lb", "SRC-ULA-DIV-INAUGURAL", "p.2"], ["24,750 lbf", "SRC-ULA-DIV-GPSIIISV02", "p.1"], ["24,750 (Table D-2)", "SRC-NAP-11780", "Table D-2"]],
   resolution="RESOLVED", kind="primary_value_found", explanation="Three opened sources agree on 24,750; 24,740/24,800 are rounding/conversion in secondary sources.")

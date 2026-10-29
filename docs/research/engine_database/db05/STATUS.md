@@ -707,3 +707,17 @@ LIQ-7 Pump Foundation: PAUSED.
 - RL10B-2 mass: NTRS 20170008949, a 2017 paper on carbon-carbon nozzle extensions, was opened and prints no engine
   mass. No value was taken.
 - RS-68A pc: the L3Harris RS-68A product page also returns 404, like its data sheet.
+
+## ULA Delta IV user's guide (2026-10-29)
+
+- Opened the ULA Delta IV Launch Services User's Guide (June 2013), SRC-DB05-ULA-DELTA4-UG-2013. Its pp. 1-5 and 1-6 give
+  the RS-68A as 3137 kN (705,250 lbf) at sea level, 411.9 s vacuum and 21.5:1, and the RL10B-2 as 110 kN (24,750 lb),
+  465 s, with electromechanical gimbal actuators. It prints no chamber pressure and no engine mass. It is used for
+  conflict claims only; no assertion was taken from it.
+- CF-DB05-E-R2_SCHEM-R2-2 (RS-68A Isp, 411 vs 411.9 s) is now EXPLAINED.
+- CF-DB05-E-R2_US_CLASSIC-B2-4 is now PARTIALLY_RESOLVED: the gimbal half is settled, the RL10B-2 mass half is still open.
+- CF-DB05-RS68A-THRUST stays PARTIALLY_RESOLVED. The guide supports 705,000 lbf at sea level. The owner decision
+  WAVE2-RS68A-THRUST, which keeps the NASA-blog 702,000 lb withheld, is unchanged.
+  - For the owner: that decision's premise was that the manufacturer value existed only as unopened evidence. That
+    premise is weaker now, but nothing was promoted.
+- Totals: 129 UNRESOLVED, 39 PARTIALLY_RESOLVED, 69 EXPLAINED.

@@ -25846,6 +25846,30 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ULA-DELTA4-UG-2013",
+   "title": "Delta IV Launch Services User's Guide (June 2013)",
+   "authors": [],
+   "organization": "United Launch Alliance",
+   "year": 2013,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "Delta IV Launch Services User's Guide, June 2013 (DoD public release 13-S-1948)",
+   "url": "https://www.ulalaunch.com/docs/default-source/rockets/delta-iv-user's-guide.pdf",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "'Copyright © 2013 by United Launch Alliance. All rights reserved'; cleared for public release.",
+   "engines": [
+    "ENG-US-RS-68A",
+    "ENG-US-RL10B-2"
+   ],
+   "locators": "pp. 1-5 to 1-6 (sections 1.2.1, 1.2.2)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): RS-68A 3137 kN (705,250 lbf) sea level, 411.9 s vacuum, 21.5:1; RL10B-2 110 kN (24,750 lb), 465 s, electromechanical gimbal actuators.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

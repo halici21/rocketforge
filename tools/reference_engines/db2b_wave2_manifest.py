@@ -366,8 +366,9 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-RD170-PC": dict(decision="WITHHOLD", withhold=("AS-DB05-SU-RD-170-005",),
         argument="PARTIALLY_RESOLVED: a unit question on a value known only through a transcription."),
     "CF-DB05-RS68A-THRUST": dict(decision="WITHHOLD", withhold=("AS-DB05-US-RS-68A-002",),
-        argument="PARTIALLY_RESOLVED: a NASA blog's 702,000 lb (no environment) against a manufacturer figure seen "
-                 "only in a search excerpt. Neither is shippable evidence of an RS-68A rating."),
+        argument="PARTIALLY_RESOLVED: a NASA blog's 702,000 lb (no environment) against 705,000 lbf, which the ULA "
+                 "Delta IV user's guide (2013) now prints as 705,250 lbf sea level. The owner decision WAVE2-RS68A-THRUST "
+                 "keeps the blog value withheld; the ULA figure is a claim, not an assertion, so nothing new ships."),
     "CF-DB05-RUTHERFORD-SL-THRUST": dict(decision="CARRIED_NOT", touches=(), competing={},
         argument="EXPLAINED (two epochs); no Rutherford value is carried (rights)."),
     "CF-DB05-RUTHERFORD-VAC-THRUST": dict(decision="WITHHOLD",
@@ -396,11 +397,13 @@ RESEARCH_CONFLICTS = {
         argument="PARTIALLY_RESOLVED in DB-0.5: the NRC Table D-4 prints 84:1 for the RL10A-4-2 against the AIAA guide's 85:1 "
                  "(404); the NRC area ratio is withheld with it (NAP values are not carried anyway, rights)."),
     "CF-DB05-E-R2_US_CLASSIC-B2-4": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia revisions and a 404 page; nothing ships from these sources."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: ULA's guide settles the electromechanical gimbal; the mass stays "
+                 "open between encyclopedia revisions. Nothing ships from these sources."),
     "CF-DB05-E-R2_SCHEM-R2-1": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: encyclopedia value against a 404 datasheet; nothing ships from these sources."),
-    "CF-DB05-E-R2_SCHEM-R2-2": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia value against a 404 datasheet; nothing ships from these sources."),
+    "CF-DB05-E-R2_SCHEM-R2-2": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="EXPLAINED in DB-0.5: ULA's guide prints 411.9 s; 411 s is the same figure without its decimal. "
+                 "No RS-68A Isp assertion exists, so nothing ships."),
 }
 
 CARRIER_GENERALISATIONS = {}
