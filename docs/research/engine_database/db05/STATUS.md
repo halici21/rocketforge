@@ -897,3 +897,10 @@ LIQ-7 Pump Foundation: PAUSED.
   NPO Energomash (403), ArianeGroup/Safran datasheets, the jdse rate limit, DTIC PDFs (bot page),
   and the owner definition decisions (RS-25 mass/pump power, F-1 rating/mass, RD-180
   mass/throttle). UNRESOLVED stands at 100.
+- Later single retry of jdse succeeded: the CZ-5 general-scheme paper (DOI ...20210009) gives only
+  thrust classes (YF-77 50 t级 sea level, YF-100 120 t级, YF-75D 10 t级 vacuum); no conflict moves.
+- The remaining definition conflicts (RS-25 mass/pump power/HPFT speed/SL thrust, F-1
+  rating/mass, RD-170 MR, RD-180 mass/throttle/area ratio) were re-read. Each is a genuine
+  disagreement between documents that no opened document explains. Reclassifying them would either
+  misstate the evidence or, for RS-25 SL thrust, release withheld assertions into production. Both
+  need the owner, not a research pass.
