@@ -269,7 +269,8 @@ def test_vinci_epochs_are_not_collapsed(research):
     assert decision["decision"] == "WITHHOLD"
     assert set(decision["withhold"]) == {"AS-DB05-FR-VINCI-002", "AS-DB05-FR-VINCI-004"}
     conflict = research.conflicts["CF-DB05-VINCI-EPOCH"]
-    assert conflict["resolution"] == "UNRESOLVED" and conflict["kind"] == "different_epoch"
+    # NASA's 2011 table placed 180 kN in vacuum (PARTIALLY_RESOLVED); the two ESA epochs still stay apart.
+    assert conflict["resolution"] in ("UNRESOLVED", "PARTIALLY_RESOLVED") and conflict["kind"] == "different_epoch"
     target = research.assertions["AS-DB05-FR-VINCI-002"]
     assert "programme target" in target["conditions"]["kind"]
 

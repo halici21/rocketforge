@@ -407,6 +407,11 @@ C("CF-DB05-VULCAIN-TURBOPUMPS", engine_id=VUL, field_path="turbines.speed, turbi
               "in development, so 13,000 rpm alone does not identify the Vulcain 2 pump.")
 C("CF-DB05-VINCI-EPOCH", engine_id=VINCI, field_path="performance.thrust",
   claims=[["Vinci will provide 18 tonnes of thrust in vacuum with a specific impulse of 465 sec (July 2005, a target)", ESAVI05, "news"],
-          ["180 Kn of thrust (June 2024, environment not printed)", ESAA6, "Vinci section"]],
-  resolution="UNRESOLVED", kind="different_epoch",
-  explanation="A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated.")
+          ["180 Kn of thrust (June 2024, environment not printed)", ESAA6, "Vinci section"],
+          ["Vinci column: Vacuum Thrust 40500 lbf (= 180.2 kN DERIVED); Vacuum ISP 465 s; 60.8 bar; area ratio 240 (2011)", "SRC-DB05-NTRS-20110015783",
+           "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"]],
+  resolution="PARTIALLY_RESOLVED", kind="different_epoch",
+  explanation="A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated. NASA's 2011 "
+              "HAT engine table gives Vinci 40,500 lbf (180.2 kN DERIVED) as a vacuum thrust, so ESA's 2024 '180 kN' is a vacuum "
+              "figure already current in 2011. 18 t (176.5 kN) may be 180 kN in rounded tonnes (18.4 t) or an earlier target; no "
+              "document says which.")

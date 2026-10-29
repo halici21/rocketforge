@@ -580,11 +580,16 @@
      "the RL10B-2 engine which has a delivered Isp of 466.5 sec at a mixture ratio of 6.0",
      "SRC-DB05-NTRS-19970026009",
      "NASA TM-107470 p.6 text and Table II, case 1 'Nominal'"
+    ],
+    [
+     "RL-10B2 column: Chamber Pressure '24 bar (633 psia)'; Vacuum ISP 465.5 s; MR 5.88 (2011)",
+     "SRC-DB05-NTRS-20110015783",
+     "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
-   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document."
+   "explanation": "Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document. NASA's 2011 Human Spaceflight Architecture Team engine table prints 633 psia and 465.5 s, the Appendix D text pair (its '24 bar' beside 633 psia is a slip: 633 psia is 43.6 bar DERIVED). So each pair has a second NASA document behind it, 1997 for 466.5 s and 2011 for 633 psia / 465.5 s, and neither explains the other; the pair stays open."
   },
   {
    "conflict_id": "CF-DB05-RL10B2-THRUST",
@@ -627,11 +632,16 @@
      "A-4-1 column: 22,300 lb; 610 psia; 451 s (Feb 1994)",
      "SRC-NAP-11780",
      "Table D-2"
+    ],
+    [
+     "RL10A4-2 column: Vacuum Thrust 22,300 lbf; Vacuum ISP 450.5 s; 611 psia (2011)",
+     "SRC-DB05-NTRS-20110015783",
+     "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": null,
-   "explanation": "Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404)."
+   "explanation": "Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404). NASA's 2011 HAT engine table, under 'RL10A4-2', prints 22,300 lbf and 450.5 s (611 psia, MR 5.35, area ratio 84, dry mass 377 lbm): the thrust is confirmed for the A-4-2, and the Isp sits between 450.5 and 451 s by document."
   },
   {
    "conflict_id": "CF-DB05-SPS-THRUST",
@@ -1013,11 +1023,16 @@
      "180 Kn of thrust (June 2024, environment not printed)",
      "SRC-ESA-A6ENGINES",
      "Vinci section"
+    ],
+    [
+     "Vinci column: Vacuum Thrust 40500 lbf (= 180.2 kN DERIVED); Vacuum ISP 465 s; 60.8 bar; area ratio 240 (2011)",
+     "SRC-DB05-NTRS-20110015783",
+     "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated."
+   "explanation": "A 2005 development target and a 2024 figure for the qualified engine; not averaged, not equated. NASA's 2011 HAT engine table gives Vinci 40,500 lbf (180.2 kN DERIVED) as a vacuum thrust, so ESA's 2024 '180 kN' is a vacuum figure already current in 2011. 18 t (176.5 kN) may be 180 kN in rounded tonnes (18.4 t) or an earlier target; no document says which."
   },
   {
    "conflict_id": "CF-DB05-F1-RATING-EPOCH",
@@ -4366,11 +4381,16 @@
      "The engine gimbal system uses electromechanical actuators",
      "SRC-DB05-ULA-DELTA4-UG-2013",
      "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage"
+    ],
+    [
+     "RL-10B2 column: Engine Dry Mass, lbm 668 (= 303 kg DERIVED)",
+     "SRC-DB05-NTRS-20110015783",
+     "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"
     ]
    ],
-   "resolution": "PARTIALLY_RESOLVED",
+   "resolution": "RESOLVED",
    "kind": "definition_or_epoch",
-   "explanation": "The current revision prints 301 kg; 277 kg was an older revision. The gimbal half is settled for the Delta IV installation: the launch provider's 2013 user's guide says the RL10B-2 gimbal system uses electromechanical actuators. The mass half stays open: the guide prints no engine mass, nor does NTRS 20170008949."
+   "explanation": "The current revision prints 301 kg; 277 kg was an older revision. The gimbal half is settled for the Delta IV installation: the launch provider's 2013 user's guide says the RL10B-2 gimbal system uses electromechanical actuators. The mass half is settled against 277 kg: NASA's 2011 HAT engine table prints a dry mass of 668 lbm (303 kg DERIVED), within 1 percent of 301 kg. The 2 kg between them is rounding or scope, not a different engine."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-2",
@@ -4599,11 +4619,16 @@
      "1340 kN (comparison table)",
      "SRC-WIKI-VULCAIN",
      "fetched; not in the current revision's text"
+    ],
+    [
+     "Vulcain-2 column: Vacuum Thrust 301243 lbf (= 1340.0 kN DERIVED); 432 s; 115 bar (2011)",
+     "SRC-DB05-NTRS-20110015783",
+     "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
-   "explanation": "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's 2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1)."
+   "explanation": "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's 2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1). NASA's 2011 HAT engine table prints 301,243 lbf, which is 1,340.0 kN exactly, so the removed 1,340 kN has an agency document behind it; 1,359 kN has none."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-4",
@@ -5033,7 +5058,7 @@
     [
      "799 kN PSLV / 846 kN GSLV HT",
      "SRC-VAJIRAM-VIKAS",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "fetched; not in the current revision's text"
     ]
    ],
    "resolution": "EXPLAINED",

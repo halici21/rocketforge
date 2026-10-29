@@ -246,7 +246,8 @@ RESEARCH_CONFLICTS = {
                  "all are withheld anyway."),
     "CF-DB05-VINCI-EPOCH": dict(decision="WITHHOLD",
         withhold=("AS-DB05-FR-VINCI-002", "AS-DB05-FR-VINCI-004"),
-        argument="UNRESOLVED: a 2005 development target and a 2024 figure; neither shippable (rights)."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: NASA's 2011 table puts 180 kN in vacuum; the 2005 18 t stays unexplained. "
+                 "Neither ESA figure is shippable (rights)."),
     # DB-0 conflict backlog pass (2026-10-28)
     "CF-DB05-LE9-ISP": dict(decision="CARRIED_NOT", touches=(), competing={"SRC-WIKI-LE9 426 s / 432 s": "search result, never opened"},
         argument="RESOLVED: JAXA, MHI and IAC print 425 s; nothing of LE-9 ships (rights)."),
@@ -292,7 +293,8 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-E-R2_ASIA-R2A-13": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: infobox against prose of one encyclopedia article; nothing ships from these sources."),
     "CF-DB05-E-EUROPE-3": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia revisions; nothing ships from these sources."),
+        argument="PARTIALLY_RESOLVED in DB-0.5: NASA's 2011 table prints 301,243 lbf (1,340 kN); 1,359 kN has no primary. "
+                 "Nothing ships from these sources."),
     "CF-DB05-E-EUROPE-4": dict(decision="WITHHOLD", withhold=(),
         argument="PARTIALLY_RESOLVED in DB-0.5: ESA's 2000 table prints 115 bar; 117.3 bar has no primary. Nothing ships."),
     "CF-DB05-E-ANCHOR_EU_ASIA-2": dict(decision="WITHHOLD", withhold=(),

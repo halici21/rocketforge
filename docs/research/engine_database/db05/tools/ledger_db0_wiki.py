@@ -51,6 +51,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "P2O": "NTRS 19630006100 (MSFC, From Peenemuende to Outer Space, 1962) PDF p.297, chapter 13 propulsion history",
         "M68": "NTRS 19680014530 (Aerojet, M-1 thrust chamber development, NAS 3-2555, 15 May 1968) PDF p.17 Summary, p.19 Introduction, p.201/292 Appendix G",
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
+        "CPS": "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -86,11 +87,13 @@ K("CF-R2_US_CLASSIC-A42-1", "ENG-US-RL10A-4-2", "nozzle.area_ratio",
 K("CF-R2_US_CLASSIC-B2-4", "ENG-US-RL10B-2", "mechanical.mass / control.gimbal_actuation",
   [("dry_weight 301 kg; electro-mechanical", "SRC-WIKI-RL10", "T"), ("277 kg (older revision)", "SRC-WIKI-RL10", "NF"),
    ("hydraulic nozzle gimbal (stage)", "SRC-AIAA-VEHGUIDE-DELTA", "N"),
-   ("The engine gimbal system uses electromechanical actuators", "SRC-DB05-ULA-DELTA4-UG-2013", "U16")],
-  "PARTIALLY_RESOLVED", "definition_or_epoch",
+   ("The engine gimbal system uses electromechanical actuators", "SRC-DB05-ULA-DELTA4-UG-2013", "U16"),
+   ("RL-10B2 column: Engine Dry Mass, lbm 668 (= 303 kg DERIVED)", "SRC-DB05-NTRS-20110015783", "CPS")],
+  "RESOLVED", "definition_or_epoch",
   "The current revision prints 301 kg; 277 kg was an older revision. The gimbal half is settled for the Delta IV "
   "installation: the launch provider's 2013 user's guide says the RL10B-2 gimbal system uses electromechanical "
-  "actuators. The mass half stays open: the guide prints no engine mass, nor does NTRS 20170008949.")
+  "actuators. The mass half is settled against 277 kg: NASA's 2011 HAT engine table prints a dry mass of 668 lbm "
+  "(303 kg DERIVED), within 1 percent of 301 kg. The 2 kg between them is rounding or scope, not a different engine.")
 K("CF-R2_ASIA-R2A-2", "ENG-JP-LE-7A", "performance.pc",
   [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
    ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97"),
@@ -149,10 +152,13 @@ K("CF-R2_SCHEM-R2-12", "ENG-SU-RD-170", "turbines.main.power",
 NOT_FILED["CF-US_HIST-25"] = ("one claim only, a figure cut off as '188,00' on a page that now returns 404; not a "
                               "conflict, and filing it would withhold the promoted primary H-1 188K thrust")
 K("CF-EUROPE-3", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
-  [("'2': 1359 kN", "SRC-WIKI-VULCAIN", "T"), ("1340 kN (comparison table)", "SRC-WIKI-VULCAIN", "NF")],
-  "UNRESOLVED", "intra_document",
+  [("'2': 1359 kN", "SRC-WIKI-VULCAIN", "T"), ("1340 kN (comparison table)", "SRC-WIKI-VULCAIN", "NF"),
+   ("Vulcain-2 column: Vacuum Thrust 301243 lbf (= 1340.0 kN DERIVED); 432 s; 115 bar (2011)", "SRC-DB05-NTRS-20110015783", "CPS")],
+  "PARTIALLY_RESOLVED", "intra_document",
   "The current revision prints 1,359 kN for Vulcain 2 (and 1,324 kN for 2.1); 1,340 kN is no longer in it. Arianespace's "
-  "2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1).")
+  "2016 user's manual prints 1,390 kN maximum in vacuum, which neither revision matches (see CF-DB05-W-ANCHOR_EU_ASIA-1). "
+  "NASA's 2011 HAT engine table prints 301,243 lbf, which is 1,340.0 kN exactly, so the removed 1,340 kN has an agency "
+  "document behind it; 1,359 kN has none.")
 K("CF-EUROPE-4", "ENG-FR-VULCAIN-2", "performance.pc",
   [("'2': 117.3 bar", "SRC-WIKI-VULCAIN", "T"), ("115 bar", "SRC-MECAIND-2020-T1", "N"), ("Chamber pressure 115 bar", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
   "PARTIALLY_RESOLVED", "different_epoch",
@@ -248,7 +254,7 @@ K("CF-USSR-19", "ENG-SU-RD-253", "aliases.index", [], "UNRESOLVED", None,
 # --- Asia, Europe, other
 K("CF-R2_ASIA-R2A-8", "ENG-IN-VIKAS", "performance.thrust",
   [("maximum thrust of 725 kN (original); upgraded ... 800 kN", "SRC-WIKI-VIKAS", "T"), ("Thrust 821 kN (infobox)", "SRC-WIKI-VIKAS", "T"),
-   ("850 kN (older infobox)", "SRC-WIKI-VIKAS", "NF"), ("799 kN PSLV / 846 kN GSLV HT", "SRC-VAJIRAM-VIKAS", "N")],
+   ("850 kN (older infobox)", "SRC-WIKI-VIKAS", "NF"), ("799 kN PSLV / 846 kN GSLV HT", "SRC-VAJIRAM-VIKAS", "NF")],
   "EXPLAINED", "different_epoch",
   "One article describes successive builds: 725 kN original, 800 kN after the 58.5 bar uprate, 6 % more from 2018. The "
   "values are epochs, not readings of one rating (see the SpaceNews 52.5-58.5 bar record).")

@@ -353,7 +353,8 @@ RESEARCH_CONFLICTS = {
                  "copyrighted anyway."),
     "CF-DB05-RL10B2-PC-ISP": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-RL10B-2-002", "AS-DB05-US-RL10B-2-003", "AS-DB05-US-RL10B-2-004", "AS-DB05-US-RL10B-2-005"),
-        argument="UNRESOLVED intra-document pair (644/633 psia, 466.5/465.5 s); no opened document explains it."),
+        argument="PARTIALLY_RESOLVED intra-document pair (644/633 psia, 466.5/465.5 s): NASA 1997 uses 466.5 s, NASA 2011 "
+                 "prints 633 psia / 465.5 s; no document explains the split."),
     "CF-DB05-RL10B2-THRUST": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-RL10B-2-009",),
         competing={"AS-DB05-US-RL10B-2-010": "ULA booklet (copyrighted), agrees", "AS-DB05-US-RL10B-2-001": "NAP "
                    "(copyrighted), agrees"},
@@ -396,9 +397,9 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-E-R2_US_CLASSIC-A42-1": dict(decision="WITHHOLD", withhold=("AS-DB05-US-RL10A-4-2-003",),
         argument="PARTIALLY_RESOLVED in DB-0.5: the NRC Table D-4 prints 84:1 for the RL10A-4-2 against the AIAA guide's 85:1 "
                  "(404); the NRC area ratio is withheld with it (NAP values are not carried anyway, rights)."),
-    "CF-DB05-E-R2_US_CLASSIC-B2-4": dict(decision="WITHHOLD", withhold=(),
-        argument="PARTIALLY_RESOLVED in DB-0.5: ULA's guide settles the electromechanical gimbal; the mass stays "
-                 "open between encyclopedia revisions. Nothing ships from these sources."),
+    "CF-DB05-E-R2_US_CLASSIC-B2-4": dict(decision="CARRIED_NOT", touches=(), competing={},
+        argument="RESOLVED in DB-0.5: ULA's guide settles the electromechanical gimbal and NASA's 2011 table prints "
+                 "668 lbm (303 kg) against 301 kg, ruling out 277 kg. No RL10B-2 mass assertion exists, so nothing ships."),
     "CF-DB05-E-R2_SCHEM-R2-1": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: encyclopedia value against a 404 datasheet; nothing ships from these sources."),
     "CF-DB05-E-R2_SCHEM-R2-2": dict(decision="CARRIED_NOT", touches=(), competing={},

@@ -139,15 +139,17 @@ C("CF-DB05-RL10B2-PC-ISP", engine_id=RB2, field_path="performance.pc / performan
   claims=[["644 psia; 466.5 s (Table D-2)", "SRC-NAP-11780", "Table D-2"], ["633 psi; 465.5 s (text)", "SRC-NAP-11780", "Appendix D text"],
           ["has a specific impulse of 465 sec (no chamber pressure printed)", "SRC-DB05-ULA-DELTA4-UG-2013", "p.1-6, section 1.2.2"],
           ["the RL10B-2 engine which has a delivered Isp of 466.5 sec at a mixture ratio of 6.0", "SRC-DB05-NTRS-19970026009",
-           "NASA TM-107470 p.6 text and Table II, case 1 'Nominal'"]],
+           "NASA TM-107470 p.6 text and Table II, case 1 'Nominal'"],
+          ["RL-10B2 column: Chamber Pressure '24 bar (633 psia)'; Vacuum ISP 465.5 s; MR 5.88 (2011)", "SRC-DB05-NTRS-20110015783", "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"]],
   resolution="PARTIALLY_RESOLVED", kind="intra_document",
-  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document.")
+  explanation="Confirmed as an intra-document inconsistency in the opened page. The 11 psi gap is not a gauge/absolute offset (14.7). Manufacturer data sheet unavailable (HTTP 404). The ULA Delta IV user's guide (2013) rounds the Isp to 465 s, which settles neither figure, and prints no chamber pressure. NASA TM-107470 (1997, Lewis B2 ignition tests) uses 466.5 s at O/F 6.0 as the RL10B-2 delivered Isp, the Table D-2 value, so the Isp half leans to 466.5 s; the chamber pressure half (644 vs 633 psia) has no further document. NASA's 2011 Human Spaceflight Architecture Team engine table prints 633 psia and 465.5 s, the Appendix D text pair (its '24 bar' beside 633 psia is a slip: 633 psia is 43.6 bar DERIVED). So each pair has a second NASA document behind it, 1997 for 466.5 s and 2011 for 633 psia / 465.5 s, and neither explains the other; the pair stays open.")
 C("CF-DB05-RL10B2-THRUST", engine_id=RB2, field_path="performance.thrust_vac", db0_conflict_id="CF-R2_US_CLASSIC-B2-2",
   claims=[["24,750 lb", "SRC-ULA-DIV-INAUGURAL", "p.2"], ["24,750 lbf", "SRC-ULA-DIV-GPSIIISV02", "p.1"], ["24,750 (Table D-2)", "SRC-NAP-11780", "Table D-2"]],
   resolution="RESOLVED", kind="primary_value_found", explanation="Three opened sources agree on 24,750; 24,740/24,800 are rounding/conversion in secondary sources.")
 C("CF-DB05-RL10A42-THRUST-ISP", engine_id=RA42, field_path="performance.thrust_vac / isp_vac", db0_conflict_id="CF-R2_US_CLASSIC-A42-2",
-  claims=[["22,300 lb; 451 s", "SRC-NAP-11780", "Table D-4"], ["A-4-1 column: 22,300 lb; 610 psia; 451 s (Feb 1994)", "SRC-NAP-11780", "Table D-2"]],
-  resolution="PARTIALLY_RESOLVED", explanation="Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404).")
+  claims=[["22,300 lb; 451 s", "SRC-NAP-11780", "Table D-4"], ["A-4-1 column: 22,300 lb; 610 psia; 451 s (Feb 1994)", "SRC-NAP-11780", "Table D-2"],
+          ["RL10A4-2 column: Vacuum Thrust 22,300 lbf; Vacuum ISP 450.5 s; 611 psia (2011)", "SRC-DB05-NTRS-20110015783", "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table"]],
+  resolution="PARTIALLY_RESOLVED", explanation="Opened Tier B source agrees with DB-0's L3Harris summary (22,300 / 451). NAP Table D-2 prints the same numbers under 'A-4-1', so the A-4-1/A-4-2 attribution is itself ambiguous. AIAA vehicle guide (450.5 s, 22.9 klbf) unreachable (404). NASA's 2011 HAT engine table, under 'RL10A4-2', prints 22,300 lbf and 450.5 s (611 psia, MR 5.35, area ratio 84, dry mass 377 lbm): the thrust is confirmed for the A-4-2, and the Isp sits between 450.5 and 451 s by document.")
 
 D("SRC-DB05-NTRS-19970026009", identifier="NTRS 19970026009 (NASA TM-107470)",
   title="Hot Fire Ignition Test with Densified Liquid Hydrogen using a RL10B-2 Cryogenic H2/O2 Rocket Engine", tier="A",
@@ -155,3 +157,11 @@ D("SRC-DB05-NTRS-19970026009", identifier="NTRS 19970026009 (NASA TM-107470)",
   note="14 pages. Searched for RL10B-2 mass and chamber pressure: neither is printed (only ignition-transient chamber "
        "pressures). The performance analysis uses 'a delivered Isp of 466.5 sec at a mixture ratio of 6.0'. Used as a conflict "
        "claim only.")
+
+D("SRC-DB05-NTRS-20110015783", identifier="NTRS 20110015783", title="Cryogenic Propulsion Stage (NASA Human Spaceflight Architecture Team, D. Jones)",
+  tier="B", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="16-slide presentation, 5 Aug 2011. Slide 10 'CPS Engine Options' tabulates J-2X, RL10 variants, LE-5B, MB-60, LE-X, "
+       "Vulcain-2 and Vinci: RL-10B2 24,750 lbf, 465.5 s, dry mass 668 lbm, MR 5.88, '24 bar (633 psia)', area ratio 280, "
+       "throttle 8%-104%; RL10A4-2 22,300 lbf, 450.5 s, 377 lbm, 611 psia, 84; Vulcain-2 301,243 lbf, 432 s, MR 6.1, 115 bar, "
+       "60; Vinci 40,500 lbf, 465 s, 352 lbm without nozzle, 60.8 bar, 240. An architecture-study compilation, not an engine "
+       "test report, so tier B. Used as conflict claims only.")

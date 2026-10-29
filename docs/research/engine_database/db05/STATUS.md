@@ -855,3 +855,20 @@ LIQ-7 Pump Foundation: PAUSED.
   CF-DB05-W-EUROPE-13 (Aestus mass) is PARTIALLY_RESOLVED (agency 115 kg against a catalogue's
   111 kg of unstated scope). EUROPE-10 now cites the page as opened, and stays UNRESOLVED
   (ESA 2.7 t / 27.5 kN against CNES 29 kN). UNRESOLVED: 108 → 107.
+
+## Pass 2026-10-29: retry of failed DB-0 fetches; NASA HAT 2011 engine table
+
+- Retried 15 DB-0 sources that failed on 2026-10-28. Newly reachable: IAC-18 LE-9 abstract (no
+  values), the Vikas exam-prep page (does not print 799/846 kN; locator set to NF) and NTRS
+  20110015783. The others are still 000/429/500/503.
+- NTRS 20110015783 (NASA Human Spaceflight Architecture Team, *Cryogenic Propulsion Stage*, Aug
+  2011, tier B) slide 10 tabulates engine options:
+  - CF-DB05-E-R2_US_CLASSIC-B2-4 (RL10B-2 mass/gimbal) RESOLVED: 668 lbm (303 kg) against the
+    current 301 kg rules out 277 kg; manifest now CARRIED_NOT with nothing shipped.
+  - CF-DB05-E-EUROPE-3 (Vulcain 2 vacuum thrust) PARTIALLY_RESOLVED: 301,243 lbf = 1,340.0 kN.
+  - CF-DB05-VINCI-EPOCH PARTIALLY_RESOLVED: 40,500 lbf (180.2 kN) in vacuum by 2011. The 2005
+    18 t stays unexplained; both ESA values stay withheld, and the epoch test now accepts
+    PARTIALLY_RESOLVED.
+  - RL10B2-PC-ISP and RL10A42-THRUST-ISP gain the 2011 values (633 psia / 465.5 s;
+    22,300 lbf / 450.5 s) and stay PARTIALLY_RESOLVED.
+- UNRESOLVED: 107 → 105.
