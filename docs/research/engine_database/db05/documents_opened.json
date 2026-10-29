@@ -1724,28 +1724,6 @@
    "assertions": 16
   },
   {
-   "source_id": "SRC-DB05-NTRS-19790003958",
-   "url_requested": "https://ntrs.nasa.gov/citations/19790003958",
-   "download_url": "https://ntrs.nasa.gov/api/citations/19790003958/downloads/19790003958.pdf",
-   "http_status": "200",
-   "bytes": 10003491,
-   "sha256": "bf701407a344d2fb3603c3cda86f060bfdbd04708fd502e1336563449f2eb510",
-   "pdf_pages": 35,
-   "retrieved_utc": "2026-10-29T18:26:44Z",
-   "ntrs_copyright_determination": "GOV_PUBLIC_USE_PERMITTED",
-   "ntrs_title": "Otrag rocket experiments in Africa",
-   "ntrs_export_control": "NO",
-   "read_level": "IDENTITY_VERIFIED_ONLY",
-   "identifier_verified": "NTRS 19790003958 (NASA TM-75376)",
-   "title_as_printed": "Otrag rocket experiments in Africa (NASA TM-75376, translation of Der Spiegel 33/1978)",
-   "tier": "C",
-   "rights_statement_checked": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
-   "rights_values": "VALUES_WITH_ATTRIBUTION",
-   "rights_figures": "VALUES_WITH_ATTRIBUTION",
-   "note": "35 pages, poor OCR (NASA technical translation, December 1978, of 'Dann wäre Deutschland führend in der Welt', Der Spiegel No. 33, 1978, pp.52-65). PDF p.15: an engineer's idea (name illegible in the OCR) of fuelling rocket engines 'with commercial diesel oil and nitric acid instead of with expensive special fuels'; p.33: 'a mixture of simple diesel oil and nitric acid' as low-cost fuel. Journalism, translated. Used as a conflict claim only.",
-   "assertions": 0
-  },
-  {
    "source_id": "SRC-DB05-NTRS-19850008634",
    "url_requested": "https://ntrs.nasa.gov/citations/19850008634",
    "download_url": "https://ntrs.nasa.gov/api/citations/19850008634/downloads/19850008634.pdf",
