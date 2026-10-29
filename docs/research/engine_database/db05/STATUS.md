@@ -992,3 +992,8 @@ LIQ-7 Pump Foundation: PAUSED.
   capacity'; the 2024 '~3 kN at sea level' has no maker document. Unresolved: 88 → 85.
 - Dead ends: Blue Origin engine pages still 429 (one retry); Skyroot's site has no Dhawan page (/dhawan 404); NTRS has
   no V-2/A-4 engine documents by title.
+- Further dead ends (2026-10-29): Intuitive Machines site redirects with no body (VR900); astra.com covers Rocket 4
+  only (no Delphin data); launcherspace.com (now Vast) prints no E-2 figures; rocketlabcorp.com engine pages now
+  return 403 (Archimedes, Rutherford); no primary YF-115 document found. Remaining UNRESOLVED (85) are blocked on
+  these hosts, on Russian bureau sites (no connection), Blue Origin (429), L3Harris (404), SpaceX (script-only), or
+  are definition conflicts awaiting the owner (RS-25, F-1, RD-170, RD-180).
