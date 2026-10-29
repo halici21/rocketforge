@@ -2611,6 +2611,11 @@
      "60 bar (design stage, 2009)",
      "SRC-KSCI-KARI-2009-KRE75",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "연소기 압력 : 60 bar (2011 specification)",
+     "SRC-DB05-KSPE-2011-KRE75",
+     "한국추진공학회지 15(6) (2011) p.2 section 2.1 '주요 규격'"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
@@ -2637,11 +2642,16 @@
      "74.8 ton (design, 2009)",
      "SRC-KSCI-KARI-2009-KRE75",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "주요 규격: 진공 추력 75 tf; 진공 비추력 297 sec; 연소기 압력 60 bar (2011)",
+     "SRC-DB05-KSPE-2011-KRE75",
+     "한국추진공학회지 15(6) (2011) p.2 section 2.1 '주요 규격'"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "Only the 2009 design figure (74.8 t vac) was read; the flown rating was not found in an opened document."
+   "explanation": "KARI's 2011 test-range paper lists the engine's main specification as 75 tf vacuum (735.5 kN DERIVED, exactly the encyclopedia's figure), 297 s and 60 bar; the 2009 combustor design paper gave 74.8 t. So 735.5 kN is KARI's 2011 specification. The 75.8 tf (sea-level-type, user-edited wiki) and the flown Nuri rating have no opened document."
   },
   {
    "conflict_id": "CF-DB05-W-R2_ASIA-R2A-21",

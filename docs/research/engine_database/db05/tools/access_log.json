@@ -6992,5 +6992,20 @@
   "text_chars": 54104,
   "ok": true,
   "file": "SRC-DB05-FIREFLY-PUG-5.3.pdf"
+ },
+ "SRC-DB05-KSPE-2011-KRE75": {
+  "source_id": "SRC-DB05-KSPE-2011-KRE75",
+  "url": "https://koreascience.kr/article/JAKO201110348675501.pdf",
+  "time_utc": "2026-10-29T17:39:11Z",
+  "http": "200",
+  "content_type": "application/pdf;charset=UTF-8",
+  "effective_url": "https://koreascience.kr/article/JAKO201110348675501.pdf",
+  "bytes": 1619302,
+  "sha256": "2821d2b748f50b9f8b11d9d33abd7fe1dac2437fe45bb026c1373a5eb605f0e8",
+  "is_pdf": true,
+  "pages": 7,
+  "text_chars": 9433,
+  "ok": true,
+  "file": "SRC-DB05-KSPE-2011-KRE75.pdf"
  }
 }

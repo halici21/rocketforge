@@ -167,6 +167,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
         "JD": "深空探测学报 2021 8(4) p.4 (PDF p.4) 表 3, full text via the journal's PDF preview link",
         "PUG53": "Firefly Alpha Payload User's Guide 5.3 (2026-09) p.6 vehicle overview",
+        "K11": "한국추진공학회지 15(6) (2011) p.2 section 2.1 '주요 규격'",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -380,15 +381,19 @@ K("CF-R2_ASIA-R2A-15", "ENG-CN-YF-100", "performance.thrust_sl",
   "Institute, Journal of Deep Space Exploration 8(4), full text read 2026-10-29) prints 地面推力 (sea-level thrust) 1 200 kN "
   "in its Table 3, matching the IAC-15 abstract's '1200kN engine'. 1 188 kN has no opened document.")
 K("CF-R2_ASIA-R2A-16", "ENG-KR-KRE-075", "performance.pc",
-  [("7.0 MPa", "SRC-WIKI-KRE075", "W"), ("60 bars", "SRC-FRWIKI-KRE075", "W"), ("60 bar (design stage, 2009)", "SRC-KSCI-KARI-2009-KRE75", "T")],
+  [("7.0 MPa", "SRC-WIKI-KRE075", "W"), ("60 bars", "SRC-FRWIKI-KRE075", "W"), ("60 bar (design stage, 2009)", "SRC-KSCI-KARI-2009-KRE75", "T"),
+   ("연소기 압력 : 60 bar (2011 specification)", "SRC-DB05-KSPE-2011-KRE75", "K11")],
   "PARTIALLY_RESOLVED", "different_epoch",
   "The 2009 KARI paper gives 60 bar at the design stage; 7.0 MPa is unsourced and may be a later build. No later KARI "
   "document was opened.")
 K("CF-R2_ASIA-R2A-17", "ENG-KR-KRE-075", "performance.thrust_vac",
   [("735.5 kN (stage 1)", "SRC-WIKI-KRE075", "W"), ("75.8 tonf (SL type)", "SRC-NAMU-KRE075", "NF"),
-   ("74.8 ton (design, 2009)", "SRC-KSCI-KARI-2009-KRE75", "T")],
-  "UNRESOLVED", "different_epoch",
-  "Only the 2009 design figure (74.8 t vac) was read; the flown rating was not found in an opened document.")
+   ("74.8 ton (design, 2009)", "SRC-KSCI-KARI-2009-KRE75", "T"),
+   ("주요 규격: 진공 추력 75 tf; 진공 비추력 297 sec; 연소기 압력 60 bar (2011)", "SRC-DB05-KSPE-2011-KRE75", "K11")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "KARI's 2011 test-range paper lists the engine's main specification as 75 tf vacuum (735.5 kN DERIVED, exactly the "
+  "encyclopedia's figure), 297 s and 60 bar; the 2009 combustor design paper gave 74.8 t. So 735.5 kN is KARI's 2011 "
+  "specification. The 75.8 tf (sea-level-type, user-edited wiki) and the flown Nuri rating have no opened document.")
 K("CF-R2_ASIA-R2A-21", "ENG-IN-LAM-440-N", "propellants.roles",
   [("MMH fuel / MON-3 oxidizer", "SRC-IAC16-32550", "T"), ("MON 'fuel', UDMH 'oxidizer'", "SRC-SF101-LAM", "N")],
   "RESOLVED", "primary_value_found",
@@ -774,3 +779,7 @@ D("SRC-DB05-KBKHA-RD0210", identifier="https://kbkha.ru/deyatel-nost/raketnye-dv
 D("SRC-DB05-FIREFLY-PUG-5.3", identifier='https://fireflyspace.com/wp-content/uploads/2026/09/Alpha-PUG-5.3-1.pdf', title="Alpha Payload User's Guide 5.3 (Firefly Aerospace)", tier="A",
   rights_checked="manufacturer user's guide; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29 (the 5.2 guide DB-0 cited returns 404). 38 pages, text layer. p.6 vehicle overview: Stage 1 four Reaver engines, LOX/RP-1, 'Thrust: 836.3 kN [188.0 klbf] (vac)', Isp 296 s (vac), tap-off; Stage 2 one Lightning engine, 'Thrust: 73.0 kN [16.4 klbf] (vac)', Isp 322 s (vac), tap-off. No 'maximum' qualifier is printed. Used as conflict claims only.")
+
+D("SRC-DB05-KSPE-2011-KRE75", identifier='https://koreascience.kr/article/JAKO201110348675501.pdf', title="Definition of Engine Component Performance Test Range of 75tf Class Gas Generator Cycle Liquid Propellant Rocket Engine",
+  tier="A", rights_checked="society journal article; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="7 pages, text layer (Nam C.-H., Moon Y., Seol W.-S., KARI; 한국추진공학회지 15(6), pp.91-97, Dec 2011). Section 2.1 lists the 75 tf-class gas-generator engine's main specification: 진공 추력 75 tf; 진공 비추력 297 sec; LOX/kerosene; 연소기 압력 60 bar; turbopump 10,500 rpm; GG 58 bar; fuel 83 kg/s; oxidizer 176 kg/s. One plain curl got an empty reply on 2026-10-29; fetch.py then retrieved the same 7-page PDF. Used as conflict claims only.")

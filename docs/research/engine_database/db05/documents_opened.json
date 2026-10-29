@@ -1042,6 +1042,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-KSPE-2011-KRE75",
+   "url_requested": "https://koreascience.kr/article/JAKO201110348675501.pdf",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 1619302,
+   "sha256": "2821d2b748f50b9f8b11d9d33abd7fe1dac2437fe45bb026c1373a5eb605f0e8",
+   "pdf_pages": 7,
+   "retrieved_utc": "2026-10-29T17:39:11Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "https://koreascience.kr/article/JAKO201110348675501.pdf",
+   "title_as_printed": "Definition of Engine Component Performance Test Range of 75tf Class Gas Generator Cycle Liquid Propellant Rocket Engine",
+   "tier": "A",
+   "rights_statement_checked": "society journal article; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "7 pages, text layer (Nam C.-H., Moon Y., Seol W.-S., KARI; 한국추진공학회지 15(6), pp.91-97, Dec 2011). Section 2.1 lists the 75 tf-class gas-generator engine's main specification: 진공 추력 75 tf; 진공 비추력 297 sec; LOX/kerosene; 연소기 압력 60 bar; turbopump 10,500 rpm; GG 58 bar; fuel 83 kg/s; oxidizer 176 kg/s. One plain curl got an empty reply on 2026-10-29; fetch.py then retrieved the same 7-page PDF. Used as conflict claims only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-MEXT-H2F8-REPORT",
    "url_requested": "https://www.mext.go.jp/component/b_menu/shingi/giji/__icsFiles/afieldfile/2013/06/10/1335987_007_5.pdf",
    "download_url": null,

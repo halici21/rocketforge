@@ -917,3 +917,6 @@ LIQ-7 Pump Foundation: PAUSED.
 - Rocket Lab: the Neutron PUG (rocketlabusa.com/assets/Uploads/Rocket-Lab-Neutron-PUG-Reduced.pdf) and the
   Electron payload user's guides return 404, so COM-13/COM-14 stay open. IHI publishes no BT-4 page
   that a search reaches.
+- KARI 2011 test-range paper (한국추진공학회지 15(6):91-97): main specification 75 tf vacuum, 297 s,
+  60 bar. CF-DB05-W-R2_ASIA-R2A-17 (KRE-075 vacuum thrust) is PARTIALLY_RESOLVED: 735.5 kN is
+  exactly 75 tf. R2A-16 (pc) gains the 2011 60 bar. UNRESOLVED: 98 → 97.

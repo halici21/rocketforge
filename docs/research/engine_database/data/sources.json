@@ -26396,6 +26396,33 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-KSPE-2011-KRE75",
+   "title": "75톤급 가스발생기 사이클 액체로켓엔진의 시험영역과 엔진 구성품 시험 영역의 결정 (Definition of Engine Component Performance Test Range of 75tf Class Gas Generator Cycle Liquid Propellant Rocket Engine)",
+   "authors": [
+    "Nam Chang-Ho",
+    "Moon Yoonwan",
+    "Seol Woo-Seok"
+   ],
+   "organization": "Korea Aerospace Research Institute",
+   "year": 2011,
+   "source_type": "journal article",
+   "identifier": "Journal of the Korean Society of Propulsion Engineers 15(6):91-97 (2011), koreascience JAKO201110348675501",
+   "url": "https://koreascience.kr/article/JAKO201110348675501.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Society journal article; reuse terms not reviewed.",
+   "engines": [
+    "ENG-KR-KRE-075"
+   ],
+   "locators": "p.2 section 2.1",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): 7 pages, text layer (Nam C.-H., Moon Y., Seol W.-S., KARI; 한국추진공학회지 15(6), pp.91-97, Dec 2011). Section 2.1 lists the 75 tf-class gas-generator engine's main specification: 진공 추력 75 tf; 진공 비추력 297 sec; LOX/kerosene; 연소기 압력 60 bar; turbopump 10,500 rpm; GG 58 bar; fuel 83 kg/s; oxidizer 176 kg/s. One plain curl got an empty reply on 2026-10-29; fetch.py then retrieved the same 7-page PDF.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
