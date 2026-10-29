@@ -235,7 +235,7 @@
  "SRC-EDA-CZ4C": "https://everydayastronaut.com/yaogan-34-04-long-march-4c/",
  "SRC-WEBLIO-YF75D": "https://www.weblio.jp/content/YF-75D",
  "SRC-WEBLIO-YF77": "https://www.weblio.jp/content/YF-77",
- "SRC-SF101-CZ6": "https://spaceflight101.com/?p=1295",
+ "SRC-SF101-CZ6": "https://web.archive.org/web/20160315002556/http://spaceflight101.com/?p=1295",
  "SRC-NCSTI-2023-TQ": "https://www.ncsti.gov.cn/kjdt/ztbd/2023kjz/jingcaizhanxiang/202305/t20230514_120232.html",
  "SRC-BJNEWS-TQ15A": "https://www.bjnews.com.cn/detail/1750246849129142.html",
  "SRC-JIEMIAN-TQ": "https://www.jiemian.com/article/11705988.html",
@@ -364,5 +364,6 @@
  "SRC-DB05-VIRGINORBIT-TECH-2021": "https://web.archive.org/web/20210117214058/https://virginorbit.com/technology/",
  "SRC-DB05-SPACEX-F9-PAGE-2018": "https://web.archive.org/web/20180208031148/http://www.spacex.com/falcon9",
  "SRC-DB05-SPACEX-F9UG-R2-2015": "https://web.archive.org/web/20170314002928/http://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf",
- "SRC-DB05-MUSK-X-2016-05-06": "https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224"
+ "SRC-DB05-MUSK-X-2016-05-06": "https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224",
+ "SRC-WIKI-YF115": "https://en.wikipedia.org/wiki/YF-115"
 }

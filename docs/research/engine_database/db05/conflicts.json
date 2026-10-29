@@ -2910,24 +2910,24 @@
    "field_path": "performance.thrust_vac",
    "claims": [
     [
-     "17,850 kgf (175.0 kN)",
+     "YF-115 is a turbopump-fed engine delivering a total vacuum thrust of 17,850 Kilograms",
      "SRC-SF101-CZ6",
-     "DB-0 search summary (never opened)"
+     "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)"
     ],
     [
-     "176.5 kN",
+     "Thrust, vacuum 176.5 kN (39,700 lbf) [citation needed]",
      "SRC-WIKI-YF115",
-     "DB-0 search summary (encyclopedia; not evidence)"
+     "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)"
     ],
     [
-     "'180 kN' class (title)",
+     "STATIC CHARACTERISTIC ANALYSIS OF 180KN LOX/KEROSENE UPPER STAGE ENGINE ... simulation model for YF-115",
      "SRC-IAC16-YF115",
-     "fetched; no extractable text"
+     "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "rating_or_rounding",
-   "explanation": "The IAC abstract delivered no text; '180 kN' is a class name in its title."
+   "explanation": "The developing institute's IAC-16 paper (brief now read) calls the YF-115 a '180KN' upper-stage engine: a class name, not a rating. Spaceflight101's 2015 report, read from an archive capture, gives 17,850 kgf vacuum (175.0 kN DERIVED); the encyclopedia's 176.5 kN is marked 'citation needed'. The three agree within 3 percent, but no maker document gives the rated value."
   },
   {
    "conflict_id": "CF-DB05-W-ASIA_OTHER-13",

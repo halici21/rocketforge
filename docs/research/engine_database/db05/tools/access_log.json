@@ -5417,15 +5417,15 @@
  },
  "SRC-SF101-CZ6": {
   "source_id": "SRC-SF101-CZ6",
-  "url": "https://spaceflight101.com/?p=1295",
-  "time_utc": "2026-10-28T20:33:38Z",
-  "http": "403",
-  "content_type": "text/html; charset=iso-8859-1",
-  "effective_url": "https://spaceflight101.com/?p=1295",
-  "bytes": 324,
-  "sha256": "ff773aa2af049da0d6808d2e90c5dacf603ceb2de9ed564aa1731b60645d83b7",
+  "url": "https://web.archive.org/web/20160315002556/http://spaceflight101.com/?p=1295",
+  "time_utc": "2026-10-29T19:13:53Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://web.archive.org/web/20160315004647/http://spaceflight101.com/chinas-long-march-6-rocket-successfully-completes-maiden-flight/",
+  "bytes": 125944,
+  "sha256": "14774f980a333b92493e8e174361407f842c51aa5103a8f13abf0ed645a4e5c3",
   "is_pdf": false,
-  "ok": false,
+  "ok": true,
   "file": "SRC-SF101-CZ6.html"
  },
  "SRC-NCSTI-2023-TQ": {
@@ -7347,5 +7347,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-MUSK-X-2016-05-06.html"
+ },
+ "SRC-WIKI-YF115": {
+  "source_id": "SRC-WIKI-YF115",
+  "url": "https://en.wikipedia.org/wiki/YF-115",
+  "time_utc": "2026-10-29T19:14:00Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://en.wikipedia.org/wiki/YF-115",
+  "bytes": 142560,
+  "sha256": "b927f1589e36a88d1017dda21f2a2eec526d92f0695f0860c5e9bd267cf9c6f0",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-WIKI-YF115.html"
  }
 }

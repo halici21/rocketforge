@@ -673,7 +673,7 @@ SRC-SCISIN-CE3-7500N-2014,嫦娥三号探测器7500N变推力发动机研制 (De
 SRC-SCRIBD-SATURNIB-NEWSREF,Saturn IB News Reference (Scribd upload),NASA/contractors (uploaded to Scribd),1966,NASA press reference (third-party upload),,https://www.scribd.com/doc/58939029/Saturn-IB-News-Reference,A,primary,PUBLIC_DOMAIN_GOV,search_result_only,ENG-US-H-1; ENG-US-J-2
 SRC-SDU-PHXPLUME,Effects of the Phoenix Lander descent thruster plume on the Martian surface,(journal article; JGR?),,peer-reviewed article,,https://opact.sdu.edu.tr/vufind/SummonRecord/FETCH-LOGICAL-a4328-3d0f0f401dcf82026ecdd136a950fcfb14af4ad38fa03f70d09dc93af5cabfdf3,B,primary,RESTRICTED_REFERENCE,search_result_only,ENG-US-MR-107N
 SRC-SECRETPROJ-J2DERIV,J-2 derivative rocket engines (forum thread posts 128344-128372),secretprojects.co.uk forum,,forum,,https://www.secretprojects.co.uk/threads/j-2-derivative-rocket-engines.12992/post-128372,E,tertiary,RIGHTS_REVIEW_REQUIRED,search_result_only,ENG-US-J-2S
-SRC-SF101-CZ6,China's Long March 6 Rocket successfully completes Maiden Flight,Spaceflight101,2015,space news site,,https://spaceflight101.com/?p=1295,D,secondary,RIGHTS_REVIEW_REQUIRED,not_retrieved,ENG-CN-YF-115
+SRC-SF101-CZ6,China's Long March 6 Rocket successfully completes Maiden Flight,Spaceflight101,2015,space news site,,https://spaceflight101.com/?p=1295,D,secondary,RIGHTS_REVIEW_REQUIRED,fetched,ENG-CN-YF-115
 SRC-SF101-F9FT,Falcon 9 FT (Falcon 9 v1.2),Spaceflight101,,web article,,https://spaceflight101.com/spacerockets/?p=1457,D,secondary,RESTRICTED_REFERENCE,search_result_only,ENG-US-MERLIN-1D-FULL-THRUST
 SRC-SF101-LAM,Spaceflight101 spacecraft page (ISRO bus LAM),Spaceflight101,,web encyclopedia,,https://spaceflight101.com/spacecraft/?p=2230,D,tertiary,RIGHTS_REVIEW_REQUIRED,not_retrieved,ENG-IN-LAM-440-N
 SRC-SF101-ORB3,NASA Report on Antares Launch Failure places Blame on AJ26 Engines,Spaceflight101,,news,,https://spaceflight101.com/?p=3437,D,tertiary,RESTRICTED_REFERENCE,search_result_only,ENG-US-AJ26-62
@@ -1024,7 +1024,7 @@ SRC-WIKI-XLR99,Reaction Motors XLR99,Wikipedia,,web encyclopedia,,https://en.wik
 SRC-WIKI-XRS2200,Rocketdyne XRS-2200,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/Rocketdyne_XRS-2200,D,secondary,OPEN_LICENSE,search_result_only,ENG-US-XRS-2200
 SRC-WIKI-YF1,YF-1,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-1,D,secondary,OPEN_LICENSE,fetched,ENG-CN-YF-1; ENG-CN-YF-1B; ENG-CN-YF-2
 SRC-WIKI-YF100,YF-100 (Wikipedia),Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-100,D,tertiary,OPEN_LICENSE,search_result_only,ENG-CN-YF-100
-SRC-WIKI-YF115,YF-115,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-115,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-115
+SRC-WIKI-YF115,YF-115,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-115,D,secondary,OPEN_LICENSE,fetched,ENG-CN-YF-115
 SRC-WIKI-YF130,YF-130,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-130,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-130
 SRC-WIKI-YF20,YF-20,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-20,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-20; ENG-CN-YF-21; ENG-CN-YF-21B; ENG-CN-YF-22; ENG-CN-YF-24; ENG-CN-YF-25
 SRC-WIKI-YF215,YF-215,Wikipedia,,web encyclopedia,,https://en.wikipedia.org/wiki/YF-215,D,secondary,OPEN_LICENSE,search_result_only,ENG-CN-YF-215

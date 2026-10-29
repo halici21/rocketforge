@@ -15957,8 +15957,8 @@
     "ENG-CN-YF-115"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "YF-115 17,850 kgf vac",
+   "access": "fetched",
+   "notes": "YF-115 17,850 kgf vac DB-0.5 (2026-10-29): Spaceflight101 report of the Long March 6 maiden flight (September 2015), read from the Internet Archive capture of 2016-03-15 (the live site no longer serves it): 'YF-115 is a turbopump-fed engine delivering a total vacuum thrust of 17,850 Kilograms'; first stage 'a single YF-100 engine delivering a thrust of 120,300 Kilogram-force'.",
    "branches": [
     "asia_other"
    ]
@@ -24414,7 +24414,7 @@
     "ENG-CN-YF-115"
    ],
    "locators": "",
-   "access": "search_result_only",
+   "access": "fetched",
    "notes": "Wikipedia; seen only as search-engine summary (wikipedia.org fetch blocked by egress policy) ; thrust figures flagged 'citation needed' on page",
    "branches": [
     "asia_other"

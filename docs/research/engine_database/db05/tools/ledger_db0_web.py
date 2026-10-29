@@ -187,6 +187,9 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
+        "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
+        "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
+        "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
         "NV2A": "NASM record A19600013000, description (archive capture 2025-04-05)",
         "NSS": "NASM record A19700331000 (Super Sprite), description (archive capture 2025-04-05)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
@@ -477,8 +480,14 @@ K("CF-ASIA_OTHER-11", "ENG-CN-YF-77", "performance.isp",
   [("430 s vac / 310.2 s SL", "SRC-WIKI-YF77", "W"), ("438 s vac / 333 s SL", "SRC-WEBLIO-YF77", "T")],
   "UNRESOLVED", None, "Two encyclopedia renderings (English and Japanese) disagree; no primary opened.")
 K("CF-ASIA_OTHER-12", "ENG-CN-YF-115", "performance.thrust_vac",
-  [("17,850 kgf (175.0 kN)", "SRC-SF101-CZ6", "N"), ("176.5 kN", "SRC-WIKI-YF115", "W"), ("'180 kN' class (title)", "SRC-IAC16-YF115", "NX")],
-  "UNRESOLVED", "rating_or_rounding", "The IAC abstract delivered no text; '180 kN' is a class name in its title.")
+  [("YF-115 is a turbopump-fed engine delivering a total vacuum thrust of 17,850 Kilograms", "SRC-SF101-CZ6", "SF15"),
+   ("Thrust, vacuum 176.5 kN (39,700 lbf) [citation needed]", "SRC-WIKI-YF115", "WYF"),
+   ("STATIC CHARACTERISTIC ANALYSIS OF 180KN LOX/KEROSENE UPPER STAGE ENGINE ... simulation model for YF-115", "SRC-IAC16-YF115", "IACB")],
+  "PARTIALLY_RESOLVED", "rating_or_rounding",
+  "The developing institute's IAC-16 paper (brief now read) calls the YF-115 a '180KN' upper-stage engine: a class "
+  "name, not a rating. Spaceflight101's 2015 report, read from an archive capture, gives 17,850 kgf vacuum (175.0 kN "
+  "DERIVED); the encyclopedia's 176.5 kN is marked 'citation needed'. The three agree within 3 percent, but no maker "
+  "document gives the rated value.")
 K("CF-ASIA_OTHER-13", "ENG-CN-TQ-12", "performance.isp_vac",
   [("337 s (sea-level nozzle)", "SRC-WIKI-TQ12", "W"), ("vacuum Isp 350 s; area ratio 40", "SRC-NCSTI-2023-TQ", "T")],
   "UNRESOLVED", "different_variant",
@@ -945,3 +954,13 @@ D("SRC-DB05-MUSK-X-2016-05-06", identifier='https://web.archive.org/web/20170205
 D("SRC-NASM-SUPERSPRITE", identifier='https://web.archive.org/web/20250405012001/https://airandspace.si.edu/collection-objects/rocket-engine-liquid-fuel-super-sprite-cut-away/nasm_A19700331000', title='Rocket Engine, Liquid Fuel, Super Sprite, Cut Away (A19700331000)', tier="D",
   rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-29. Smithsonian NASM record A19700331000 (Super Sprite, cut-away), archive capture of 2025-04-05: 'The Super Sprite had a maximum thrust of 4,200 pounds for 40 seconds, but both the thrust and duration could be adjusted to fit different mission needs.' Overall 620 lb. Used as a conflict claim only.")
+
+D("SRC-SF101-CZ6", identifier='https://web.archive.org/web/20160315002556/http://spaceflight101.com/?p=1295', title="China's Long March 6 Rocket successfully completes Maiden Flight (Spaceflight101)",
+  tier="D", rights_checked="news page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29. Spaceflight101 report of the Long March 6 maiden flight (September 2015), read from the Internet Archive capture of 2016-03-15 (the live site no longer serves it): 'YF-115 is a turbopump-fed engine delivering a total vacuum thrust of 17,850 Kilograms'; first stage 'a single YF-100 engine delivering a thrust of 120,300 Kilogram-force'. Used as a conflict claim only.")
+
+D("SRC-WIKI-YF115", identifier="https://en.wikipedia.org/wiki/YF-115", title="YF-115 (Wikipedia)",
+  tier="D", rights_checked="English Wikipedia article, current revision fetched on 2026-10-29; text CC BY-SA 4.0",
+  rights_class="VALUES_WITH_ATTRIBUTION",
+  note="Encyclopedia page read from its text: infobox 'Thrust, vacuum 176.5 kN (39,700 lbf) [citation needed]', sea level "
+       "147.1 kN [citation needed], chamber pressure 12 MPa, Isp vacuum 341.5 s. Not evidence of an engine value.")

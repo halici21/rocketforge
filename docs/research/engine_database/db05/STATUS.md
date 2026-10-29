@@ -1080,3 +1080,10 @@ contacted again; only web.archive.org captures were read.
   kbhmisaeva.ru and npoenergomash.ru give no connection, engine.space answers 403, samspace.ru fails TLS
   verification (not bypassed). The HWK 109-509 wire-mesh sentence traces to a 1998 book (Stuewe) not available
   here. A paywalled trade article (Aviation Week 2011, Merlin 1D 1,410 psi) was not read through the archive.
+- CF-DB05-W-ASIA_OTHER-12 (YF-115 vacuum thrust) PARTIALLY_RESOLVED, rating_or_rounding (2026-10-29): the IAC-16
+  brief from the developing institute now delivers text and calls the YF-115 a '180KN' engine (a class name);
+  Spaceflight101's 2015 report (archive capture) gives 17,850 kgf; the encyclopedia's 176.5 kN is marked 'citation
+  needed'. Unresolved: 65 → 64. Dead ends: Intuitive Machines' VR900 qualification release (July 2024) is only on
+  sites answering 403 (investors site, GlobeNewswire, StreetInsider, SatNow); Rocket Lab's 2024 Archimedes release
+  (up to 202,300 lbf) adds nothing beyond the two maker pages already filed (COM-14); Dhawan-1 news pages give no
+  figure beyond the 1.5 kN vacuum already filed.
