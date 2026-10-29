@@ -1860,11 +1860,16 @@
      "series final 78,000 lb",
      "SRC-NASA-MSFC-MERCREDSTONE",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Model A-7 engine / Thrust: 78,000 lb (Mercury-Redstone); 'Since the A-7 engine was new, extensive test firings were made'",
+     "SRC-DB05-NTRS-19630012071",
+     "NASA SP-45 Mercury Project Summary (1963) PDF p.88 Figure 4-13 'Mercury-Redstone configuration' and p.83"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "The MSFC page gives 78,000 lb as the final Redstone A-series figure; the 91,350 lbf belongs to a Jupiter-A summary never opened. Which A-series sub-model (A-6, A-7) each refers to is not stated."
+   "explanation": "The MSFC page gives 78,000 lb as the final Redstone A-series figure and names the A-7 on Mercury-Redstone; NASA SP-45 (1963) prints 'Model A-7 engine, Thrust 78,000 lb' in its configuration figure. So 78,000 lb is the A-7 rating, not a competing A-6 value. The A-6's 91,350 lbf (a Jupiter-A summary, never opened; possibly a hydyne rating) still has no document."
   },
   {
    "conflict_id": "CF-DB05-W-US_HIST-15",
@@ -1959,11 +1964,16 @@
      "~1,012 lb per vernier (RS-27A)",
      "SRC-PURDUE-RS27A",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "one sustainer engine having 57,000 pounds of thrust and two vernier engines having 1,000 pounds of thrust each (Mercury-Atlas, 1963)",
+     "SRC-DB05-NTRS-19630012071",
+     "NASA SP-45 Mercury Project Summary (1963) PDF p.94-97, Atlas propulsion system text"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "Purdue's 1,012 lb is for the RS-27A vernier on Delta II, a later application. The DTIC report was not fetched. Each figure belongs to a different installation; none is shown to be the LR101 rating."
+   "explanation": "Purdue's 1,012 lb is for the RS-27A vernier on Delta II, a later application. The DTIC report was not fetched. Each figure belongs to a different installation; none is shown to be the LR101 rating. NASA SP-45 (1963) gives the Mercury-Atlas (Atlas D) verniers 1,000 lb each, a round figure consistent with the 1,017 lbf tank-fed value; the 830/525 lb history and the 1,060 lbf pressure-fed figure still have no opened document."
   },
   {
    "conflict_id": "CF-DB05-W-R2_USSR-R2-5",
@@ -5535,9 +5545,9 @@
      "encyclopedia page text, current revision (fetched 2026-10-28)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "EXPLAINED",
    "kind": "different_operating_point",
-   "explanation": "Two articles: a sea-level engine figure and a stage 'maximum' (likely vacuum) figure. Neither names the condition fully. No primary document opened; the record stays open."
+   "explanation": "Two articles: a sea-level engine figure and a stage 'maximum' figure printed beside the vacuum Isp (316 s). The RS-56 article gives the OSA 220 s at sea level and 316 s in vacuum; 60,500 lbf x 316/220 = 86,900 lbf (386.5 kN) DERIVED, matching the 386 kN / 87,000 lbf. The two are the same engine at sea level and in vacuum. No primary was opened for either value."
   },
   {
    "conflict_id": "CF-DB05-E-US_HIST-20",

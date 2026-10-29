@@ -161,6 +161,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1",
         "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text",
         "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section",
+        "SP45R": "NASA SP-45 Mercury Project Summary (1963) PDF p.88 Figure 4-13 'Mercury-Redstone configuration' and p.83",
+        "SP45A": "NASA SP-45 Mercury Project Summary (1963) PDF p.94-97, Atlas propulsion system text",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -209,10 +211,14 @@ K("CF-US_HIST-11", "ENG-US-LR79-NA-9", "applications",
   "MA-3 system. Both can hold: the MA-3 boosters (LR89-NA-5) were derived from the same family. The placard's wording is "
   "about lineage, not the engine installed on Atlas E/F.")
 K("CF-US_HIST-13", "ENG-US-NAA-75-110-A-6", "performance.thrust",
-  [("91,350 lbf max", "SRC-WIKI-JUPITERA", "W"), ("series final 78,000 lb", "SRC-NASA-MSFC-MERCREDSTONE", "T")],
-  "UNRESOLVED", "different_variant",
-  "The MSFC page gives 78,000 lb as the final Redstone A-series figure; the 91,350 lbf belongs to a Jupiter-A summary "
-  "never opened. Which A-series sub-model (A-6, A-7) each refers to is not stated.")
+  [("91,350 lbf max", "SRC-WIKI-JUPITERA", "W"), ("series final 78,000 lb", "SRC-NASA-MSFC-MERCREDSTONE", "T"),
+   ("Model A-7 engine / Thrust: 78,000 lb (Mercury-Redstone); 'Since the A-7 engine was new, extensive test firings were made'",
+    "SRC-DB05-NTRS-19630012071", "SP45R")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "The MSFC page gives 78,000 lb as the final Redstone A-series figure and names the A-7 on Mercury-Redstone; NASA "
+  "SP-45 (1963) prints 'Model A-7 engine, Thrust 78,000 lb' in its configuration figure. So 78,000 lb is the A-7 "
+  "rating, not a competing A-6 value. The A-6's 91,350 lbf (a Jupiter-A summary, never opened; possibly a hydyne "
+  "rating) still has no document.")
 K("CF-US_HIST-15", "ENG-US-LR89-NA-7", "identity.designation / performance.thrust",
   [("MA-5 booster = LR89-5, 163,211 lbf SL", "SRC-ENGINEHISTORY-RPE05", "T"), ("LR89-7, 213,118 lbf vac", "SRC-ASTRONAUTIX-LR89-7", "T"),
    ("pair 1,896 kN", "SRC-WIKI-MA5", "W"), ("pair 1,901.6 kN", "SRC-WIKI-ATLASG", "W")],
@@ -231,10 +237,14 @@ K("CF-US_HIST-21", "ENG-US-GODDARD-1926-LIQUID-ROCKET-MOTOR", "history.first_fli
   "The APS page fetched has no date in its text; the conflict stays as DB-0 recorded it.")
 K("CF-US_HIST-24", "ENG-US-LR101", "performance.thrust",
   [("1,017 lbf tank-fed / 1,060 lbf pressure-fed", "SRC-WIKI-LR101", "W"), ("830 lb tank-fed downrated to 525 lb", "SRC-DTIC-AD0423340", "N"),
-   ("~1,012 lb per vernier (RS-27A)", "SRC-PURDUE-RS27A", "T")],
-  "UNRESOLVED", "different_variant",
+   ("~1,012 lb per vernier (RS-27A)", "SRC-PURDUE-RS27A", "T"),
+   ("one sustainer engine having 57,000 pounds of thrust and two vernier engines having 1,000 pounds of thrust each "
+    "(Mercury-Atlas, 1963)", "SRC-DB05-NTRS-19630012071", "SP45A")],
+  "PARTIALLY_RESOLVED", "different_variant",
   "Purdue's 1,012 lb is for the RS-27A vernier on Delta II, a later application. The DTIC report was not fetched. Each "
-  "figure belongs to a different installation; none is shown to be the LR101 rating.")
+  "figure belongs to a different installation; none is shown to be the LR101 rating. NASA SP-45 (1963) gives the "
+  "Mercury-Atlas (Atlas D) verniers 1,000 lb each, a round figure consistent with the 1,017 lbf tank-fed value; the "
+  "830/525 lb history and the 1,060 lbf pressure-fed figure still have no opened document.")
 
 # --- USSR / Russia
 K("CF-R2_USSR-R2-5", "ENG-SU-NK-33", "aliases.index",
@@ -706,3 +716,10 @@ D("SRC-DB05-NTRS-19690029231", identifier="NTRS 19690029231", title="Apollo SM-L
   note="180 pages, OCR text layer (The Marquardt Corporation, 1969). 'The nominal thrust of the engine is 100-pounds', "
        "propellants N2O4 and MMH or Aerozine-50; qualification engines 100 lb against the 95 lb PFRT engine. Used as a "
        "conflict claim only.")
+
+D("SRC-DB05-NTRS-19630012071", identifier="NTRS 19630012071 (NASA SP-45)",
+  title="Mercury Project Summary including results of the fourth manned orbital flight, May 15 and 16, 1963", tier="A",
+  rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="454 pages, OCR text layer. Figure 4-13 Mercury-Redstone: 'Model A-7 engine, Thrust 78,000 lb', alcohol/LOX, "
+       "H2O2 turbopump drive. Atlas: two booster engines of 154,000 lb each, sustainer 57,000 lb, two verniers 1,000 lb "
+       "each. Used as conflict claims only.")

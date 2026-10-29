@@ -824,3 +824,21 @@ LIQ-7 Pump Foundation: PAUSED.
   only the GR-1 is in GPIM's on-orbit phase (GR-22 cracked in 2014 ground test; redesign tested in
   2015). Shipped data already lists the GR-22 as "GPIM (planned)". UNRESOLVED: 114 → 113.
 - Searched NTRS for M-1 termination and later R-4D (110 lbf) documents: nothing usable.
+
+## Pass 2026-10-29: Redstone A-7, Atlas verniers, RS-56-OSA (NASA SP-45)
+
+- NASA SP-45 *Mercury Project Summary* (1963, NTRS 19630012071, 454 pp.) gives the Mercury-Redstone
+  "Model A-7 engine, Thrust 78,000 lb" and the Mercury-Atlas sustainer 57,000 lb with two verniers
+  of 1,000 lb each.
+  - CF-DB05-W-US_HIST-13 (NAA 75-110 A-6) PARTIALLY_RESOLVED: 78,000 lb is the A-7 rating; the A-6's
+    91,350 lbf still has no document.
+  - CF-DB05-W-US_HIST-24 (LR101) PARTIALLY_RESOLVED: 1,000 lb on Atlas D, consistent with 1,017 lbf
+    tank-fed; 830/525 lb and 1,060 lbf still unopened.
+- CF-DB05-E-US_HIST-16 (RS-56-OSA) EXPLAINED: 60,500 lbf × 316/220 s = 86,900 lbf (386.5 kN),
+  so the two figures are sea-level and vacuum thrust of one engine.
+- `fetch.py` fix: downloads were capped at 180 s and a timed-out, truncated PDF was logged as
+  HTTP 200. The cap is now `DB05_CURL_MAX_SECONDS` (default 180), and a curl failure is written
+  into the status. SP-45 was the only truncated file; it was refetched in full.
+- Searched without result: L3Harris/Aerojet spacecraft-thruster spec sheets (every URL 404,
+  Wayback 429), so R-42, R-40B, MR-103J, MR-111G and R-4D-11 stay open.
+- UNRESOLVED: 113 → 110.

@@ -26172,6 +26172,27 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19630012071",
+   "title": "Mercury Project Summary including results of the fourth manned orbital flight, May 15 and 16, 1963",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 1963,
+   "source_type": "special publication",
+   "identifier": "NTRS 19630012071 (NASA SP-45)",
+   "url": "https://ntrs.nasa.gov/citations/19630012071",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

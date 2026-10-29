@@ -355,9 +355,11 @@ K("CF-US_HIST-14", "ENG-US-38ALDW-1500", "propellants.fuel",
   "UNRESOLVED", "different_epoch", "The Caltech thesis page was unreachable on retry. " + _PRIMARY)
 K("CF-US_HIST-16", "ENG-US-RS-56-OSA", "performance.thrust",
   [("RS-56-OSA: 60,500 lbf (269.0 kN) sea level", "SRC-WIKI-RS56", "T"), ("1 x RS-56-OSA Maximum thrust 386 kN (87,000 lbf)", "SRC-WIKI-ATLASII", "T")],
-  "UNRESOLVED", "different_operating_point",
-  "Two articles: a sea-level engine figure and a stage 'maximum' (likely vacuum) figure. Neither names the condition "
-  "fully. " + _PRIMARY)
+  "EXPLAINED", "different_operating_point",
+  "Two articles: a sea-level engine figure and a stage 'maximum' figure printed beside the vacuum Isp (316 s). The RS-56 "
+  "article gives the OSA 220 s at sea level and 316 s in vacuum; 60,500 lbf x 316/220 = 86,900 lbf (386.5 kN) "
+  "DERIVED, matching the 386 kN / 87,000 lbf. The two are the same engine at sea level and in vacuum. No primary was "
+  "opened for either value.")
 K("CF-US_HIST-20", "ENG-US-TR-201", "history.period",
   [("Date 1972-1988 (infobox)", "SRC-WIKI-TR201", "T"), ("77 during its Delta career between 1974 and 1988", "SRC-WIKI-TR201", "T")],
   "EXPLAINED", "definition", "Development-to-retirement span against flight span, in one article.")

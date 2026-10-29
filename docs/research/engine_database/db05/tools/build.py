@@ -106,7 +106,8 @@ DOC_TYPES = {"SRC-DB05-NTRS-20140011656": ("presentation", 2013), "SRC-DB05-NTRS
              "SRC-DB05-NTRS-20170008949": ("conference paper", 2017),
              "SRC-DB05-NTRS-19970026009": ("technical memorandum", 1997),
              "SRC-DB05-NTRS-19710070145": ("conference paper", 1961),
-             "SRC-DB05-NTRS-19690029231": ("contractor report", 1969)}
+             "SRC-DB05-NTRS-19690029231": ("contractor report", 1969),
+             "SRC-DB05-NTRS-19630012071": ("special publication", 1963)}
 by_id = {s["source_id"]: s for s in sources["sources"]}
 read = {d["source_id"]: d for d in docs if d["read_level"] in ("READ_AND_MINED", "IDENTITY_VERIFIED_ONLY")}
 for sid, d in read.items():

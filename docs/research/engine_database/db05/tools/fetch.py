@@ -14,9 +14,12 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 
 def curl(url, out):
-    r = subprocess.run(["curl", "-sL", "-m", "180", "-A", UA, "-o", str(out), "-w", "%{http_code}|%{content_type}|%{url_effective}", url],
+    limit = os.environ.get("DB05_CURL_MAX_SECONDS", "180")
+    r = subprocess.run(["curl", "-sL", "-m", limit, "-A", UA, "-o", str(out), "-w", "%{http_code}|%{content_type}|%{url_effective}", url],
                        capture_output=True, text=True)
     code, ctype, eff = (r.stdout.split("|") + ["", "", ""])[:3]
+    if r.returncode:  # e.g. 28 = timed out: the file on disk is truncated, so never report it as a 200
+        code = f"curl-exit-{r.returncode}/{code}"
     return code, ctype, eff
 
 

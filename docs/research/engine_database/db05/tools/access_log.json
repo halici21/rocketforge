@@ -6800,5 +6800,36 @@
   "text_chars": 287438,
   "ok": true,
   "file": "SRC-DB05-NTRS-19690029231.pdf"
+ },
+ "SRC-DB05-NTRS-19630012071": {
+  "source_id": "SRC-DB05-NTRS-19630012071",
+  "url": "https://ntrs.nasa.gov/citations/19630012071",
+  "time_utc": "2026-10-29T16:56:51Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "MERCURY PROJECT SUMMARY INCLUDING RESULTS OF THE FOURTH MANNED ORBITAL FLIGHT, MAY 15 AND 16, 1963",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19630012071,
+   "ear": "NO",
+   "id": "73566eec73584bf0887d77f7a054decd",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-SP-45",
+   "Report Number: NASA-SP-45"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19630012071/downloads/19630012071.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19630012071/downloads/19630012071.pdf",
+  "bytes": 261178692,
+  "sha256": "18b467e042b16ec47ee15e23cda5dff3283d8056fdec5ffc4ea8c806bfb0cdaf",
+  "is_pdf": true,
+  "pages": 454,
+  "text_chars": 1432441,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19630012071.pdf"
  }
 }
