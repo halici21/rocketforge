@@ -6644,5 +6644,20 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-CNES-A5-LANCEUR.html"
+ },
+ "SRC-DB05-ULA-VULCAN-UG-2023": {
+  "source_id": "SRC-DB05-ULA-VULCAN-UG-2023",
+  "url": "https://www.ulalaunch.com/docs/default-source/default-document-library/2023_vulcan_user_guide.pdf?sfvrsn=37856b50_1",
+  "time_utc": "2026-10-29T11:41:37Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.ulalaunch.com/docs/default-source/default-document-library/2023_vulcan_user_guide.pdf?sfvrsn=37856b50_1",
+  "bytes": 5650290,
+  "sha256": "c07cff3c211d59f0940c4bc79e16368dbc116d7c7b564c5f383b51e35025014b",
+  "is_pdf": true,
+  "pages": 85,
+  "text_chars": 179864,
+  "ok": true,
+  "file": "SRC-DB05-ULA-VULCAN-UG-2023.pdf"
  }
 }

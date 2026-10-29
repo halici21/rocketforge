@@ -759,3 +759,18 @@ LIQ-7 Pump Foundation: PAUSED.
   - HM-7B: 67 kN, burning up to 15 min 45 s.
   - Aestus: 29 kN in vacuum, added to CF-DB05-E-EUROPE-10, which stays UNRESOLVED.
   These were added as claims to the Vulcain 2 and HM7B records above.
+- BE-4: the ULA Vulcan Launch Systems User's Guide (October 2023), SRC-DB05-ULA-VULCAN-UG-2023, prints 2446.5 kN
+  (550k lbf) at sea level for each engine. It was added as a claim to CF-DB05-W-R2_SCHEM-R2-5, which stays UNRESOLVED:
+  the 640,000 lbf uprate sits on Blue Origin pages that return HTTP 429.
+
+### What the 123 UNRESOLVED records still need
+
+- Blue Origin pages, all rate-limited: BE-4, BE-3U.
+- Full IAC papers or Chinese journals: YF-77, YF-100, YF-75D, YF-115.
+- Manufacturer datasheets:
+  - Safran/ArianeGroup: Vulcain 2 pc and area ratio, HM7B pc.
+  - Airbus: Aestus pc and mixture ratio.
+  - L3Harris: RS-68A pc. The L3Harris pages return 404.
+- Owner definition decisions between opened primaries: RS-25 mass and pump power, F-1 rating epoch and mass, RD-180
+  mass and throttle range.
+- Many single-record historical and small engines with no primary reachable from here.

@@ -157,7 +157,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "N": "DB-0 search summary (never opened)",
         "A5": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 EPC table and p.A4-2",
         "A5H": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3",
-        "CN": "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)"}
+        "CN": "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)",
+        "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -582,9 +583,12 @@ K("CF-R2_SCHEM-R2-15", "ENG-US-RAPTOR-2", "identity.rating_attribution",
   [("230 tf / 1,630 kg as 'from' values", "SRC-SPACEX-UPDATES", "NF")],
   "UNRESOLVED", None, "The SpaceX page delivered no text.")
 K("CF-R2_SCHEM-R2-5", "ENG-US-BE-4", "performance.thrust_sl",
-  [("550,000 lbf", "SRC-ULA-BE4-FACTSHEET", "T"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-NEWGLENN-PAGE", "N")],
-  "UNRESOLVED", "different_configuration",
-  "ULA's fact sheet gives 550,000 lbf for the Vulcan installation; the New Glenn page was not opened.")
+  [("550,000 lbf", "SRC-ULA-BE4-FACTSHEET", "T"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-NEWGLENN-PAGE", "N"),
+   ("BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each", "SRC-DB05-ULA-VULCAN-UG-2023", "VUG")],
+  "UNRESOLVED", "different_epoch",
+  "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level for the Vulcan "
+  "installation. The 640,000 lbf is reported by secondary pages as a later Blue Origin uprate; the Blue Origin pages "
+  "return HTTP 429, so neither the figure nor its date was opened.")
 K("CF-R2_SCHEM-R2-7", "ENG-US-MERLIN-1D", "performance.thrust_sl",
   [("845 kN (190,000 lbf)", "SRC-SPACEX-FUG-2025", "T"), ("854 kN / 190,000 lbf", "SRC-WEVOLVER-MERLIN", "T"), ("854 kN", "SRC-UC-OLLI-SPACEX", "T")],
   "EXPLAINED", "unit",

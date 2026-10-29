@@ -3774,11 +3774,16 @@
      "640,000 lbf (2,846 kN)",
      "SRC-BLUE-NEWGLENN-PAGE",
      "DB-0 search summary (never opened)"
+    ],
+    [
+     "BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each",
+     "SRC-DB05-ULA-VULCAN-UG-2023",
+     "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1"
     ]
    ],
    "resolution": "UNRESOLVED",
-   "kind": "different_configuration",
-   "explanation": "ULA's fact sheet gives 550,000 lbf for the Vulcan installation; the New Glenn page was not opened."
+   "kind": "different_epoch",
+   "explanation": "ULA's fact sheet and its October 2023 Vulcan user's guide give 550,000 lbf (2446.5 kN) sea level for the Vulcan installation. The 640,000 lbf is reported by secondary pages as a later Blue Origin uprate; the Blue Origin pages return HTTP 429, so neither the figure nor its date was opened."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SCHEM-R2-7",

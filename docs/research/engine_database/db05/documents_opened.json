@@ -1570,6 +1570,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ULA-VULCAN-UG-2023",
+   "url_requested": "https://www.ulalaunch.com/docs/default-source/default-document-library/2023_vulcan_user_guide.pdf?sfvrsn=37856b50_1",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 5650290,
+   "sha256": "c07cff3c211d59f0940c4bc79e16368dbc116d7c7b564c5f383b51e35025014b",
+   "pdf_pages": 85,
+   "retrieved_utc": "2026-10-29T11:41:37Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "Vulcan Launch Systems User's Guide, October 2023 (United Launch Alliance)",
+   "title_as_printed": "Vulcan Launch Systems User's Guide",
+   "tier": "B",
+   "rights_statement_checked": "ULA user's guide PDF; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "85 pages. Table 1.4-1 and p.1-5: BE-4 2446.5 kN (550k-lbf) sea level each. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DESIGNSYS-RM81",
    "url_requested": "https://www.designation-systems.net/dusrm/app1/rm-81.html",
    "download_url": null,

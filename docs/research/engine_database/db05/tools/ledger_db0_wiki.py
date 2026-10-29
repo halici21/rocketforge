@@ -502,3 +502,7 @@ D("SRC-DB05-CNES-A5-LANCEUR", identifier="cnes.fr/projets/ariane-5/lanceur (CNES
   note="Static text (11 kB extracted). Vulcain 'pesait 1 650 kg'; Vulcain 2 '1 390 kN (139 tonnes) de poussée dans le vide'; HM-7B "
        "'jusqu'à 15 minutes et 45 secondes' and '67 kN (6,7 tonnes)'; Aestus '29 kN (2,9 tonnes) de poussée dans le vide'. Used as "
        "conflict claims only.")
+
+D("SRC-DB05-ULA-VULCAN-UG-2023", identifier="Vulcan Launch Systems User's Guide, October 2023 (United Launch Alliance)", title="Vulcan Launch Systems User's Guide",
+  tier="B", rights_checked="ULA user's guide PDF; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="85 pages. Table 1.4-1 and p.1-5: BE-4 2446.5 kN (550k-lbf) sea level each. Used as a conflict claim only.")

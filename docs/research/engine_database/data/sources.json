@@ -26011,6 +26011,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ULA-VULCAN-UG-2023",
+   "title": "Vulcan Launch Systems User's Guide (October 2023)",
+   "authors": [],
+   "organization": "United Launch Alliance",
+   "year": 2023,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "Vulcan Launch Systems User's Guide, October 2023",
+   "url": "https://www.ulalaunch.com/docs/default-source/default-document-library/2023_vulcan_user_guide.pdf?sfvrsn=37856b50_1",
+   "tier": "B",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ULA user's guide; reuse terms not reviewed.",
+   "engines": [
+    "ENG-US-BE-4"
+   ],
+   "locators": "p.1-4 Table 1.4-1 and p.1-5",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): BE-4 '2446.5 kN (550k-lbf) thrust (Sea Level) each'.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
