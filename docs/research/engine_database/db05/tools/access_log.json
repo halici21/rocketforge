@@ -7007,5 +7007,79 @@
   "text_chars": 9433,
   "ok": true,
   "file": "SRC-DB05-KSPE-2011-KRE75.pdf"
+ },
+ "SRC-DB05-NTRS-20080034655": {
+  "source_id": "SRC-DB05-NTRS-20080034655",
+  "url": "https://ntrs.nasa.gov/citations/20080034655",
+  "time_utc": "2026-10-29T17:50:14Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Overview of the Phoenix Entry, Descent and Landing System Architecture",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 20080034655,
+   "ear": "NO",
+   "id": "f45ccd28b4d54a4f84379947e044b3c3",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "AIAA Paper No 2008-7218",
+   "Report Number: AIAA Paper No 2008-7218"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/20080034655/downloads/20080034655.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/20080034655/downloads/20080034655.pdf",
+  "bytes": 1867124,
+  "sha256": "b8ca3625f1bf599f95f0b9dbcaea2a65f42f66d4d1169c42196d5c79ca330cb9",
+  "is_pdf": true,
+  "pages": 10,
+  "text_chars": 39297,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-20080034655.pdf"
+ },
+ "SRC-DB05-NTRS-20070014659": {
+  "source_id": "SRC-DB05-NTRS-20070014659",
+  "url": "https://ntrs.nasa.gov/citations/20070014659",
+  "time_utc": "2026-10-29T17:50:18Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Overview of the Phoenix Entry, Descent and Landing System",
+  "ntrs_copyright": "PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 20070014659,
+   "ear": "NO",
+   "id": "cc32042768fc496aa85700d34c159d02",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": null,
+  "download_url": "https://ntrs.nasa.gov/api/citations/20070014659/downloads/20070014659.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/20070014659/downloads/20070014659.pdf",
+  "bytes": 784460,
+  "sha256": "e75ff7405c386cc6a5314cd20ddbe75e34e471914a33de7c2855c8ceba8ed5fc",
+  "is_pdf": true,
+  "pages": 12,
+  "text_chars": 6459,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-20070014659.pdf"
+ },
+ "SRC-DB05-NASA-JUNO-PK-2011": {
+  "source_id": "SRC-DB05-NASA-JUNO-PK-2011",
+  "url": "https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf",
+  "time_utc": "2026-10-29T17:51:37Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf",
+  "bytes": 7321263,
+  "sha256": "39c7742bde37b4d3096a800d6e2f98d10b4a86053a6e3dc614561279d3b4c0df",
+  "is_pdf": true,
+  "pages": 25,
+  "text_chars": 55019,
+  "ok": true,
+  "file": "SRC-DB05-NASA-JUNO-PK-2011.pdf"
  }
 }

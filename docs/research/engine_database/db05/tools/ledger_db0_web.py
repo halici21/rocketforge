@@ -170,6 +170,9 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "JD": "深空探测学报 2021 8(4) p.4 (PDF p.4) 表 3, full text via the journal's PDF preview link",
         "PUG53": "Firefly Alpha Payload User's Guide 5.3 (2026-09) p.6 vehicle overview",
         "K11": "한국추진공학회지 15(6) (2011) p.2 section 2.1 '주요 규격'",
+        "PX8": "NTRS 20080034655 (Grover and Cichy, JPL, 'Overview of the Phoenix EDL System Architecture', AIAA 2008) p.2",
+        "PX4": "NTRS 20070014659 (Phoenix EDL presentation, 2nd IPPW, August 2004) slide 10 'Phoenix Terminal Descent Phase'",
+        "JPK": "NASA Juno Launch press kit (2011) p.15 'Propulsion System'",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -595,9 +598,12 @@ K("CF-R2_SC_COMM-R2-6", "ENG-US-FRONTIER-DSE", "propellants.fuel",
   "NASA's TALOS page gives MON-25 / MMH and the trade page agrees on MMH; the 'hydrazine' wording sits behind a paywall "
   "and is the family name, not the fuel.")
 K("CF-R2_SC_COMM-R2-7", "ENG-GB-LEROS-1B", "performance.thrust_vac",
-  [("635 N", "SRC-NAMMO-LEROS1B", "T"), ("640 N (configured for Juno)", "SRC-AMPAC-JUNO-2011", "NF")],
-  "UNRESOLVED", "different_configuration",
-  "The maker's page gives 635 N; the Juno 640 N is not on the fetched release text.")
+  [("635 N", "SRC-NAMMO-LEROS1B", "T"), ("640 N (configured for Juno)", "SRC-AMPAC-JUNO-2011", "NF"),
+   ("The Leros-1b main engine is a 645-Newton bi-propellant thruster using hydrazine-nitrogen tetroxide", "SRC-DB05-NASA-JUNO-PK-2011", "JPK")],
+  "PARTIALLY_RESOLVED", "different_configuration",
+  "The maker's page gives 635 N for the product; NASA's 2011 Juno press kit gives 645 N for the engine as flown on "
+  "Juno, so a Juno-specific figure above the catalogue value is printed by a primary document. The 640 N that DB-0 "
+  "cited is not on the fetched release text, and no document reconciles 640 with 645 N.")
 K("CF-R2_SC_COMM-R2-9", "ENG-US-GR-22", "history.flown",
   [("GPIM includes four 1 N and one 22 N thruster", "SRC-NTRS-20140016838", "T"),
    ("the GR-1 'awaits its first on-orbit demonstration' on GPIM", "SRC-NTRS-20170001286", "T"),
@@ -728,10 +734,15 @@ K("CF-SPACECRAFT-4", "ENG-US-OMS-E-ORION-ESM", "history.heritage_last_flight",
   "The ESA blog does not say 2011: it says the Artemis II engine from Atlantis flew six times between 2000 and 2002, "
   "matching the NASA paper's last flight on STS-112 (2002). DB-0's '2011' was a misreading.")
 K("CF-SPACECRAFT-9", "ENG-US-MR-107N", "installation.count",
-  [("12 MR-107N 300 N for landing", "SRC-AIRPORTTECH-PHX", "NF"), ("eight engines", "SRC-NBC-PHX", "NF")],
-  "UNRESOLVED", None,
-  "Neither fetched page says what DB-0 cited; the trade page's propulsion sentence is garbled ('eight 1.0lbf and 5.0lbf "
-  "... engines and 12 68.0lbf ... thrusters'). A JPL or Lockheed document is needed.")
+  [("12 MR-107N 300 N for landing", "SRC-AIRPORTTECH-PHX", "NF"), ("eight engines", "SRC-NBC-PHX", "NF"),
+   ("the lander separates from the parachute/backshell and begins using a system of 12 pulsed thrusters to perform a "
+    "gravity turn powered descent", "SRC-DB05-NTRS-20080034655", "PX8"),
+   ("12 descent engines, ~300N each. Pulse-width modulated at 10Hz. (2004 baseline)", "SRC-DB05-NTRS-20070014659", "PX4")],
+  "RESOLVED", "primary_value_found",
+  "Neither fetched news page says what DB-0 cited (the trade page's sentence is garbled: 'eight 1.0lbf and 5.0lbf ... "
+  "engines and 12 68.0lbf ... thrusters'). JPL's 2008 architecture paper prints a system of 12 pulsed thrusters for the "
+  "powered descent, and the 2004 EDL presentation 12 descent engines of about 300 N each. 'Eight' has no opened "
+  "document; it likely counts the smaller attitude thrusters. Neither NASA document names the MR-107N model.")
 K("CF-TAXONOMY-TAX-3", "ENG-US-IPD", "history.test_dates",
   [("21 of 26 tests, up to 100 percent power (2006)", "SRC-SFN-IPD-2006", "T"),
    ("integrated engine testing to begin late 2004", "SRC-NTRS-IPD-WPB", "NX")],
@@ -787,3 +798,18 @@ D("SRC-DB05-FIREFLY-PUG-5.3", identifier='https://fireflyspace.com/wp-content/up
 D("SRC-DB05-KSPE-2011-KRE75", identifier='https://koreascience.kr/article/JAKO201110348675501.pdf', title="Definition of Engine Component Performance Test Range of 75tf Class Gas Generator Cycle Liquid Propellant Rocket Engine",
   tier="A", rights_checked="society journal article; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
   note="7 pages, text layer (Nam C.-H., Moon Y., Seol W.-S., KARI; 한국추진공학회지 15(6), pp.91-97, Dec 2011). Section 2.1 lists the 75 tf-class gas-generator engine's main specification: 진공 추력 75 tf; 진공 비추력 297 sec; LOX/kerosene; 연소기 압력 60 bar; turbopump 10,500 rpm; GG 58 bar; fuel 83 kg/s; oxidizer 176 kg/s. One plain curl got an empty reply on 2026-10-29; fetch.py then retrieved the same 7-page PDF. Used as conflict claims only.")
+
+D("SRC-DB05-NTRS-20080034655", identifier="NTRS 20080034655", title="Overview of the Phoenix Entry, Descent and Landing System Architecture",
+  tier="A", rights_checked="NTRS determination GOV_PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="10 pages, text layer (Grover M. R. and Cichy B. D., JPL; AIAA 2008). p.2: the lander 'begins using a system of 12 "
+       "pulsed thrusters to perform a gravity turn powered descent'. Used as a conflict claim only.")
+
+D("SRC-DB05-NTRS-20070014659", identifier="NTRS 20070014659", title="Overview of the Phoenix Entry, Descent and Landing System",
+  tier="A", rights_checked="NTRS determination PUBLIC_USE_PERMITTED", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="12-slide presentation (2nd International Planetary Probe Workshop, August 2004). Slide 10: '12 descent engines, "
+       "~300N each. Pulse-width modulated at 10Hz. Current baseline 3 full on.' A design-phase baseline. Used as a "
+       "conflict claim only.")
+
+D("SRC-DB05-NASA-JUNO-PK-2011", identifier='https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf', title="Juno Launch press kit (NASA, August 2011)", tier="A",
+  rights_checked="NASA public-affairs document; US Government work", rights_class="VALUES_WITH_ATTRIBUTION",
+  note="25 pages, text layer (NASA 'Juno Launch' press kit, PDF dated 2011-07-27). p.15 'Propulsion System': 'The Leros-1b main engine is a 645-Newton bi-propellant thruster using hydrazine-nitrogen tetroxide.' p.6: launch mass 3,625 kg. Used as a conflict claim only.")

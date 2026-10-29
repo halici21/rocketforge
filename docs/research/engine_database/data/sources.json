@@ -26423,6 +26423,71 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20070014659",
+   "title": "Overview of the Phoenix Entry, Descent and Landing System",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 2004,
+   "source_type": "presentation",
+   "identifier": "NTRS 20070014659",
+   "url": "https://ntrs.nasa.gov/citations/20070014659",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-20080034655",
+   "title": "Overview of the Phoenix Entry, Descent and Landing System Architecture",
+   "authors": [],
+   "organization": "NASA (NTRS)",
+   "year": 2008,
+   "source_type": "conference paper",
+   "identifier": "NTRS 20080034655",
+   "url": "https://ntrs.nasa.gov/citations/20080034655",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NTRS determination GOV_PUBLIC_USE_PERMITTED",
+   "engines": [],
+   "locators": "",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-08); see db05/documents_opened.json.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NASA-JUNO-PK-2011",
+   "title": "Juno Launch press kit (NASA, August 2011)",
+   "authors": [],
+   "organization": "NASA / Jet Propulsion Laboratory",
+   "year": 2011,
+   "source_type": "press kit",
+   "identifier": "JunoLaunch.pdf (PDF created 2011-07-27)",
+   "url": "https://www.jpl.nasa.gov/news/press_kits/JunoLaunch.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "VALUES_WITH_ATTRIBUTION",
+   "rights_basis": "NASA public-affairs document; US Government work.",
+   "engines": [
+    "ENG-GB-LEROS-1B"
+   ],
+   "locators": "p.15 Propulsion System",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): 25 pages, text layer (NASA 'Juno Launch' press kit, PDF dated 2011-07-27). p.15 'Propulsion System': 'The Leros-1b main engine is a 645-Newton bi-propellant thruster using hydrazine-nitrogen tetroxide.' p.6: launch mass 3,625 kg.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

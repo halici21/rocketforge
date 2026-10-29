@@ -3638,11 +3638,16 @@
      "640 N (configured for Juno)",
      "SRC-AMPAC-JUNO-2011",
      "fetched; value not in its extracted text"
+    ],
+    [
+     "The Leros-1b main engine is a 645-Newton bi-propellant thruster using hydrazine-nitrogen tetroxide",
+     "SRC-DB05-NASA-JUNO-PK-2011",
+     "NASA Juno Launch press kit (2011) p.15 'Propulsion System'"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_configuration",
-   "explanation": "The maker's page gives 635 N; the Juno 640 N is not on the fetched release text."
+   "explanation": "The maker's page gives 635 N for the product; NASA's 2011 Juno press kit gives 645 N for the engine as flown on Juno, so a Juno-specific figure above the catalogue value is printed by a primary document. The 640 N that DB-0 cited is not on the fetched release text, and no document reconciles 640 with 645 N."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-9",
@@ -4285,11 +4290,21 @@
      "eight engines",
      "SRC-NBC-PHX",
      "fetched; value not in its extracted text"
+    ],
+    [
+     "the lander separates from the parachute/backshell and begins using a system of 12 pulsed thrusters to perform a gravity turn powered descent",
+     "SRC-DB05-NTRS-20080034655",
+     "NTRS 20080034655 (Grover and Cichy, JPL, 'Overview of the Phoenix EDL System Architecture', AIAA 2008) p.2"
+    ],
+    [
+     "12 descent engines, ~300N each. Pulse-width modulated at 10Hz. (2004 baseline)",
+     "SRC-DB05-NTRS-20070014659",
+     "NTRS 20070014659 (Phoenix EDL presentation, 2nd IPPW, August 2004) slide 10 'Phoenix Terminal Descent Phase'"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Neither fetched page says what DB-0 cited; the trade page's propulsion sentence is garbled ('eight 1.0lbf and 5.0lbf ... engines and 12 68.0lbf ... thrusters'). A JPL or Lockheed document is needed."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Neither fetched news page says what DB-0 cited (the trade page's sentence is garbled: 'eight 1.0lbf and 5.0lbf ... engines and 12 68.0lbf ... thrusters'). JPL's 2008 architecture paper prints a system of 12 pulsed thrusters for the powered descent, and the 2004 EDL presentation 12 descent engines of about 300 N each. 'Eight' has no opened document; it likely counts the smaller attitude thrusters. Neither NASA document names the MR-107N model."
   },
   {
    "conflict_id": "CF-DB05-W-TAXONOMY-TAX-3",

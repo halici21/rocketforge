@@ -932,3 +932,15 @@ LIQ-7 Pump Foundation: PAUSED.
 - Dead ends: Space Pioneer /tianhuo/TH11, TH12, TH12V pages repeat the TH-12 figures already recorded (TH-11 30 t vac,
   345 s). LandSpace /product/engine gives only TQ-12A (84.6 t SL, 293 s SL, MR 2.9; '+40 m/s Isp over TQ-12'); no TQ-12
   vacuum Isp, so CF-ASIA_OTHER-13 stays UNRESOLVED.
+
+### Pass: Phoenix descent engines and Juno main engine (2026-10-29)
+
+- CF-DB05-W-SPACECRAFT-9 (MR-107N count) RESOLVED: JPL's 2008 AIAA paper (NTRS 20080034655, Grover and Cichy) p.2 prints
+  "a system of 12 pulsed thrusters" for the powered descent; the 2004 IPPW presentation (NTRS 20070014659) slide 10
+  gives "12 descent engines, ~300N each". 'Eight' has no opened document.
+- CF-DB05-W-R2_SC_COMM-R2-7 (LEROS 1b thrust) PARTIALLY_RESOLVED: NASA's 2011 Juno launch press kit p.15 gives the
+  flown engine as 645 N against Nammo's catalogue 635 N; DB-0's 640 N is still unopened. Unresolved: 95 → 93.
+- Dead ends: L3Harris re-hosted datasheets (2023-07, 2024-02, 2024-07, 2024-10, 2025-05 biprop; 2023-07, 2025-10 mono)
+  all return 404 to curl and WebFetch on 2026-10-29, so SPACECRAFT-5..8 stay open (search snippets are not evidence).
+  NTRS has no AJ26/NK-33, VR900, SuperDraco, Delphin or LEROS documents by title; no IM-1 press kit or ELDO history
+  PDF was found; the IHI satellite-propulsion page returns 404.
