@@ -39,7 +39,12 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "J97": "NASDA 委16-4 (1997-05-14) p.1, (1) 第6回燃焼試験結果",
         "P60": "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph",
         "U15": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage",
-        "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage"}
+        "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage",
+        "M8": "H-II F8 investigation report (MEXT archive 1335987_007_5.pdf) 別添表８－２",
+        "J17": "資料37-3 (JAXA, 2017-09-05) PDF p.3 '1. LE-9エンジン基本仕様', column '（参考）LE-7Aエンジン'",
+        "JP": "rocket.jaxa.jp LE-7A engine page, specification table (fetched 2026-10-29)",
+        "MH": "三菱重工技報 Vol.53 No.4 (2016) p.37 表1 LE-9エンジン諸元",
+        "AT": "jaxa.jp H-IIB F3 LE-7A firing result page (2010-08-19), result table"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -81,16 +86,29 @@ K("CF-R2_US_CLASSIC-B2-4", "ENG-US-RL10B-2", "mechanical.mass / control.gimbal_a
   "actuators. The mass half stays open: the guide prints no engine mass, nor does NTRS 20170008949.")
 K("CF-R2_ASIA-R2A-2", "ENG-JP-LE-7A", "performance.pc",
   [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
-   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97")],
-  "UNRESOLVED", "rating_or_rounding",
-  "12.0 MPa is 120 bar, 0.8 percent below 121 bar; the AIAA page returns 404. No station is named. The one primary "
-  "opened, a NASDA report of a 1997 development firing, prints 'about 120 kgf/cm2a' main combustion pressure, which is "
-  "11.77 MPa (117.7 bar) DERIVED: below both claims, and a development-test reading, not the flight rating. That "
-  "12.0 MPa is a rounded 120 kgf/cm2 is possible but not shown. No rating document was reached.")
+   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97"),
+   ("メイン燃焼圧力 １２．２ＭＰａ (design table, with 燃焼室混合比 ６．２)", "SRC-DB05-MEXT-H2F8-REPORT", "M8"),
+   ("燃焼圧力 12.3MPa (（参考）LE-7Aエンジン column)", "SRC-JAXA-PRESS-LE9-2017", "J17"),
+   ("燃焼圧力 12.3MPa (LE-7A)", "SRC-DB05-JAXA-LE7A-ENGINE-PAGE", "JP"),
+   ("燃焼圧力 [MPa] 12.3（主燃焼室） (LE-7A)", "SRC-DB05-MHI-GIHO-534036", "MH"),
+   ("メイン燃焼圧力 約 12.3 Mpa （ 11.7 〜 13.2）, H-IIB F3 LE-7A 性能確認試験 2010", "SRC-DB05-JAXA-H2BF3-LE7A-AT", "AT")],
+  "RESOLVED", "unsupported_secondary",
+  "Every agency and manufacturer document opened prints 12.3 MPa for the flying LE-7A main chamber: JAXA's 2017 LE-9 "
+  "briefing (already filed as AS-DB05-JP-LE-7A-018), JAXA's engine page, MHI's 2016 technical review (主燃焼室, so the "
+  "station is the main chamber) and a 2010 JAXA performance-confirmation firing (about 12.3 MPa measured against a planned 11.7-13.2). The "
+  "2000 committee report's design table gives 12.2 MPa at mixture ratio 6.2, an earlier design point, and the 1997 "
+  "development firing ran at about 120 kgf/cm2a (11.77 MPa). Neither 12.0 MPa nor 121 bar is printed by any of them: "
+  "both are secondary values, and 12.0 MPa may be the 1997 120 kgf/cm2 read as bar-like MPa.")
 K("CF-ASIA_OTHER-1", "ENG-JP-LE-7A", "performance.pc",
   [("121 bar (1750 psi)", "SRC-AIAA-VG-H2A", "N"), ("Combustion chamber pressure: 12.0 MPa (1,740 psi)", "SRC-WIKI-LE7", "T"),
-   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97")],
-  "UNRESOLVED", "rating_or_rounding", "Same claims and reading as CF-DB05-E-R2_ASIA-R2A-2.")
+   ("メイン燃焼圧力 約120kgf／cm2a (firing test 6, 1997-05-09, 277 s)", "SRC-DB05-NASDA-LE7A-FT6-1997", "J97"),
+   ("メイン燃焼圧力 １２．２ＭＰａ (design table, with 燃焼室混合比 ６．２)", "SRC-DB05-MEXT-H2F8-REPORT", "M8"),
+   ("燃焼圧力 12.3MPa (（参考）LE-7Aエンジン column)", "SRC-JAXA-PRESS-LE9-2017", "J17"),
+   ("燃焼圧力 12.3MPa (LE-7A)", "SRC-DB05-JAXA-LE7A-ENGINE-PAGE", "JP"),
+   ("燃焼圧力 [MPa] 12.3（主燃焼室） (LE-7A)", "SRC-DB05-MHI-GIHO-534036", "MH"),
+   ("メイン燃焼圧力 約 12.3 Mpa （ 11.7 〜 13.2）, H-IIB F3 LE-7A 性能確認試験 2010", "SRC-DB05-JAXA-H2BF3-LE7A-AT", "AT")],
+  "RESOLVED", "unsupported_secondary",
+  "Same claims and reading as CF-DB05-E-R2_ASIA-R2A-2.")
 K("CF-R2_ASIA-R2A-3", "ENG-JP-LE-9", "performance.pc",
   [("chamber_pressure 10.0 MPa", "SRC-WIKI-LE9", "T"), ("12.4 MPa (archived snapshot)", "SRC-WIKI-LE9", "NF")],
   "EXPLAINED", "different_epoch",
@@ -452,3 +470,25 @@ D("SRC-DB05-ARIANESPACE-A5UM-I5R2", identifier="Ariane 5 User's Manual, Issue 5 
   note="271 pages, text layer. Read the EPC table (p.1-7) and the Ariane 5 ECA description (p.A4-2): Vulcain 2 960 kN (SL) / "
        "1390 kN (vacuum), 'maximum thrust in vacuum', Isp ~310 s (SL) / 432 s (vacuum), 540 s. No chamber pressure, area ratio "
        "or flow rates. Used as conflict claims only; no assertion taken.")
+
+# LE-7A chamber pressure primaries (2026-10-29): used as conflict claims only; LE-7A is not carried (wave-3 manifest)
+D("SRC-DB05-JAXA-LE7A-ENGINE-PAGE", identifier="rocket.jaxa.jp/rocket/engine/le7/ (JAXA Space Transportation Technology Directorate)",
+  title="LE-7A｜エンジン｜H-IIAロケット｜ロケット｜JAXA 宇宙輸送技術部門", tier="A", rights_checked="'©Japan Aerospace Exploration Agency'",
+  rights_class="RESTRICTED_REFERENCE",
+  note="Specification table: LE-7 / LE-7A short nozzle / LE-7A long nozzle. 燃焼圧力 12.7MPa (LE-7), 12.3MPa (LE-7A); MR 6.0 / 5.9 / "
+       "5.9; 膨張比 約51.6 / 約38.7 / 約46.7; LH2 TP 42,200 / 41,900 / 41,900 回転/min.")
+D("SRC-DB05-MHI-GIHO-534036", identifier="三菱重工技報 Vol.53 No.4 (2016) pp.36-43",
+  title="H3ロケット１段用LE-9エンジンの燃焼安定性向上", tier="A", rights_checked="MHI technical review PDF; reuse terms not reviewed",
+  rights_class="RESTRICTED_REFERENCE",
+  note="Table 1 (p.37) compares LE-9, LE-7A and LE-5B. LE-7A: 1098 kN vacuum, MR 5.9, 燃焼圧力 12.3（主燃焼室） MPa, 440 s, "
+       "expansion 47, 1.8 t, 3.7 m.")
+D("SRC-DB05-MEXT-H2F8-REPORT", identifier="宇宙開発委員会 H-II F8 failure investigation report, MEXT archive 1335987_007_5.pdf",
+  title="Ｈ－Ⅱロケット８号機打上げ失敗の原因究明及び今後の対策について", tier="A",
+  rights_checked="Japanese government committee document on the MEXT site; reuse terms not reviewed",
+  rights_class="RIGHTS_REVIEW_REQUIRED",
+  note="12 pages. 別添表８－２ gives LE-7A design values beside the LE-7: main combustion pressure 12.2 MPa (LE-7 12.7), preburner "
+       "21.5 MPa, chamber mixture ratio 6.2, 1098 kN vacuum (1074 kN in parentheses), 4295 m/s.")
+D("SRC-DB05-JAXA-H2BF3-LE7A-AT", identifier="jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
+  title="H-IIBロケット3号機用LE-7Aエンジンの燃焼試験結果", tier="A", rights_checked="JAXA web page", rights_class="RESTRICTED_REFERENCE",
+  note="2010-08-19 performance-confirmation firing (性能確認試験) at Tashiro, 50 s: メイン燃焼圧力 約 12.3 Mpa (planned 11.7-13.2), fuel TP 42,100 rpm, oxidizer TP 18,400 rpm. "
+       "A measured test value, not a rating.")

@@ -6575,5 +6575,61 @@
   "text_chars": 312542,
   "ok": true,
   "file": "SRC-DB05-ARIANESPACE-A5UM-I5R2.pdf"
+ },
+ "SRC-DB05-JAXA-LE7A-ENGINE-PAGE": {
+  "source_id": "SRC-DB05-JAXA-LE7A-ENGINE-PAGE",
+  "url": "https://www.rocket.jaxa.jp/rocket/engine/le7/",
+  "time_utc": "2026-10-29T11:30:21Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://www.rocket.jaxa.jp/rocket/engine/le7/",
+  "bytes": 25617,
+  "sha256": "9daa7a8070b36d118b13ef014c8ebbaa41cfa6ab38525f5568861a4c6d0c1908",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-JAXA-LE7A-ENGINE-PAGE.html"
+ },
+ "SRC-DB05-MHI-GIHO-534036": {
+  "source_id": "SRC-DB05-MHI-GIHO-534036",
+  "url": "https://www.mhi.com/technology/review/sites/g/files/jwhtju2326/files/tr/pdf/534/534036.pdf",
+  "time_utc": "2026-10-29T11:30:22Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.mhi.com/technology/review/sites/g/files/jwhtju2326/files/tr/pdf/534/534036.pdf",
+  "bytes": 3504823,
+  "sha256": "c51512bd1b2044b1b272b59c238057988b56b101a292372793c05b70027ba8f3",
+  "is_pdf": true,
+  "pages": 8,
+  "text_chars": 7528,
+  "ok": true,
+  "file": "SRC-DB05-MHI-GIHO-534036.pdf"
+ },
+ "SRC-DB05-MEXT-H2F8-REPORT": {
+  "source_id": "SRC-DB05-MEXT-H2F8-REPORT",
+  "url": "https://www.mext.go.jp/component/b_menu/shingi/giji/__icsFiles/afieldfile/2013/06/10/1335987_007_5.pdf",
+  "time_utc": "2026-10-29T11:30:23Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.mext.go.jp/component/b_menu/shingi/giji/__icsFiles/afieldfile/2013/06/10/1335987_007_5.pdf",
+  "bytes": 891377,
+  "sha256": "8904e22cc35d13f4c907ac8a58d9f28d26a9b3ea946d85d42be0bd5e1253a686",
+  "is_pdf": true,
+  "pages": 12,
+  "text_chars": 7470,
+  "ok": true,
+  "file": "SRC-DB05-MEXT-H2F8-REPORT.pdf"
+ },
+ "SRC-DB05-JAXA-H2BF3-LE7A-AT": {
+  "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
+  "url": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
+  "time_utc": "2026-10-29T11:30:29Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
+  "bytes": 4663,
+  "sha256": "098ae0e4e9d2bdb0ce029cec2df7fc795786f36a6d5328e941421f67451973db",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-JAXA-H2BF3-LE7A-AT.html"
  }
 }

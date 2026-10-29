@@ -276,10 +276,13 @@ RESEARCH_CONFLICTS = {
     "CF-DB05-W-ANCHOR_EU_ASIA-4": dict(decision="WITHHOLD", withhold=(),
         argument="UNRESOLVED in DB-0.5: ESA page gave no text; no Vulcain 2 flow ships."),
     # DB-0 conflict encyclopedia pass (2026-10-28)
-    "CF-DB05-E-R2_ASIA-R2A-2": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia 12.0 MPa against a 404 page; nothing ships from these sources."),
-    "CF-DB05-E-ASIA_OTHER-1": dict(decision="WITHHOLD", withhold=(),
-        argument="UNRESOLVED in DB-0.5: encyclopedia 12.0 MPa against a 404 page; nothing ships from these sources."),
+    "CF-DB05-E-R2_ASIA-R2A-2": dict(decision="CARRIED_NOT", touches=(),
+        competing={"AS-DB05-JP-LE-7A-018": "JAXA 2017 12.3MPa; the LE-7A is not carried (only the LE-7 ships)"},
+        argument="RESOLVED in DB-0.5: JAXA, MHI and a 2010 JAXA engine firing print 12.3 MPa; 12.0 MPa and 121 bar are "
+                 "secondary values. No LE-7A value ships."),
+    "CF-DB05-E-ASIA_OTHER-1": dict(decision="CARRIED_NOT", touches=(),
+        competing={"AS-DB05-JP-LE-7A-018": "JAXA 2017 12.3MPa; the LE-7A is not carried (only the LE-7 ships)"},
+        argument="RESOLVED in DB-0.5: same claims as CF-DB05-E-R2_ASIA-R2A-2. No LE-7A value ships."),
     "CF-DB05-E-R2_ASIA-R2A-3": dict(decision="CARRIED_NOT", touches=(), competing={},
         argument="EXPLAINED in DB-0.5: two revisions of one encyclopedia article; nothing ships from these sources."),
     "CF-DB05-E-ASIA_OTHER-3": dict(decision="CARRIED_NOT", touches=(), competing={},

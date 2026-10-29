@@ -732,3 +732,17 @@ LIQ-7 Pump Foundation: PAUSED.
   while 1359 kN appears only in secondary pages.
 - Also tried, no usable copy: the Ariane 5 User's Manual Issue 4 at the ENSTA mirror (404), and the Airbus VA219 flight
   dossier (no engine figures).
+
+## LE-7A chamber pressure resolved (2026-10-29)
+
+- Opened four sources:
+  - JAXA's LE-7A engine page (12.3 MPa).
+  - MHI's 2016 technical review, 三菱重工技報 Vol.53 No.4, Table 1 (12.3 MPa, main chamber).
+  - The H-II F8 investigation report in the MEXT archive, 別添表8-2 (design-era 12.2 MPa at MR 6.2).
+  - A JAXA page on a 2010 H-IIB F3 LE-7A firing (about 12.3 MPa measured, planned range 11.7-13.2).
+- With JAXA's 2017 LE-9 briefing (AS-DB05-JP-LE-7A-018, 12.3 MPa), CF-DB05-E-R2_ASIA-R2A-2 and CF-DB05-E-ASIA_OTHER-1
+  are RESOLVED. No primary prints 12.0 MPa or 121 bar.
+- Correction to the earlier "LE-7A and RL10A-4-2 primaries" entry: a rating document had already been filed. The JAXA
+  2017 briefing was recorded in wave 3, and the earlier explanation missed it.
+- The LE-7A is still not carried, so nothing new ships (wave-3 manifest CARRIED_NOT, AS-018 listed as competing).
+- Totals: 126 UNRESOLVED, 16 RESOLVED.

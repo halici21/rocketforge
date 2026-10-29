@@ -25893,6 +25893,98 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-JAXA-LE7A-ENGINE-PAGE",
+   "title": "LE-7A｜エンジン｜H-IIAロケット｜ロケット｜JAXA 宇宙輸送技術部門",
+   "authors": [],
+   "organization": "JAXA",
+   "year": null,
+   "source_type": "agency web page",
+   "identifier": "rocket.jaxa.jp LE-7A engine page (specification table)",
+   "url": "https://www.rocket.jaxa.jp/rocket/engine/le7/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "'©Japan Aerospace Exploration Agency' page footer.",
+   "engines": [
+    "ENG-JP-LE-7A"
+   ],
+   "locators": "specification table (LE-7 / LE-7A short / long nozzle)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): LE-7A 燃焼圧力 12.3MPa; LE-7 12.7MPa; MR 5.9; 膨張比 約38.7 (short) / 約46.7 (long); LH2 TP 41,900 回転/min.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-MHI-GIHO-534036",
+   "title": "H3ロケット１段用LE-9エンジンの燃焼安定性向上 (三菱重工技報 Vol.53 No.4, 2016)",
+   "authors": [],
+   "organization": "Mitsubishi Heavy Industries",
+   "year": 2016,
+   "source_type": "manufacturer technical review",
+   "identifier": "三菱重工技報 Vol.53 No.4 (2016) pp.36-43",
+   "url": "https://www.mhi.com/technology/review/sites/g/files/jwhtju2326/files/tr/pdf/534/534036.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "MHI technical review; reuse terms not reviewed.",
+   "engines": [
+    "ENG-JP-LE-7A"
+   ],
+   "locators": "p.37 表1 LE-9エンジン諸元",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Table 1 compares LE-9 / LE-7A / LE-5B: LE-7A 燃焼圧力 12.3（主燃焼室） MPa, 1098 kN vac, MR 5.9, 440 s, 47, 1.8 t, 3.7 m.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-MEXT-H2F8-REPORT",
+   "title": "Ｈ－Ⅱロケット８号機打上げ失敗の原因究明及び今後の対策について",
+   "authors": [],
+   "organization": "宇宙開発委員会 (MEXT archive)",
+   "year": 2000,
+   "source_type": "committee investigation report",
+   "identifier": "MEXT archive 1335987_007_5.pdf (H-II F8 failure investigation)",
+   "url": "https://www.mext.go.jp/component/b_menu/shingi/giji/__icsFiles/afieldfile/2013/06/10/1335987_007_5.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RIGHTS_REVIEW_REQUIRED",
+   "rights_basis": "Japanese government committee document on the MEXT site; reuse terms not reviewed.",
+   "engines": [
+    "ENG-JP-LE-7A"
+   ],
+   "locators": "別添表８－２ ＬＥ－７Ａ及びＬＥ－７の作動諸元",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Design-era table: LE-7A メイン燃焼圧力 12.2MPa, プリバーナ 21.5MPa, 燃焼室混合比 6.2; LE-7 12.7MPa.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
+   "title": "H-IIBロケット3号機用LE-7Aエンジンの燃焼試験結果",
+   "authors": [],
+   "organization": "JAXA",
+   "year": 2010,
+   "source_type": "agency test report page",
+   "identifier": "jaxa.jp h2b/engine/le7a/10/08/02_j.html (2010-08-19 firing)",
+   "url": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "JAXA web page.",
+   "engines": [
+    "ENG-JP-LE-7A"
+   ],
+   "locators": "result table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Acceptance firing of an H-IIB F3 LE-7A, 50 s: メイン燃焼圧力 12.3 MPa (planned 11.7-13.2).",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
