@@ -752,3 +752,10 @@ LIQ-7 Pump Foundation: PAUSED.
 - The open conflicts were checked against the assertions already filed. Only CF-DB05-RS25-SLTHRUST has a primary
   assertion outside its claims, and that is a known power-level definition question.
 - Totals: 123 UNRESOLVED, 42 PARTIALLY_RESOLVED, 70 EXPLAINED.
+- CNES Ariane 5 page (cnes.fr/projets/ariane-5/lanceur), opened as SRC-DB05-CNES-A5-LANCEUR. The old CNES URL, which
+  gave no text, now redirects here. It prints:
+  - Vulcain: 1 650 kg. This is a third mass beside 1300 and 1686 kg, so CF-DB05-VULCAIN-MASS stays UNRESOLVED.
+  - Vulcain 2: 1 390 kN in vacuum.
+  - HM-7B: 67 kN, burning up to 15 min 45 s.
+  - Aestus: 29 kN in vacuum, added to CF-DB05-E-EUROPE-10, which stays UNRESOLVED.
+  These were added as claims to the Vulcain 2 and HM7B records above.

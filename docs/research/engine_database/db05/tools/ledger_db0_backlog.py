@@ -161,12 +161,15 @@ C("CF-DB05-LE9-ISP", engine_id="ENG-JP-LE-9", field_path="performance.isp_vac",
 C("CF-DB05-VULCAIN-MASS", engine_id="ENG-FR-VULCAIN", field_path="mechanical.mass", db0_conflict_id="CF-EUROPE-2; CF-EUROPE-5",
   claims=[["Engine Mass 1300 kg (2860 lbs) (June 1990, in development)", "SRC-NTRS-19910018907", "PDF p.10"],
           ["The Vulcain engine was 3 m high, 1.76 m in diameter and weighed 1686 kg", "SRC-ESA-VULCAIN", "Vulcain page"],
-          ["1300 kg; 1800 kg (Vulcain 2)", "SRC-HANDWIKI-VULCAIN", "DB-0 search summary (never opened)"]],
+          ["1300 kg; 1800 kg (Vulcain 2)", "SRC-HANDWIKI-VULCAIN", "DB-0 search summary (never opened)"],
+          ["Le moteur Vulcain qui l'équipait avait été conçu par Snecma Moteurs, et pesait 1 650 kg", "SRC-DB05-CNES-A5-LANCEUR",
+           "cnes.fr/projets/ariane-5/lanceur, EPC section (fetched 2026-10-29)"]],
   resolution="UNRESOLVED", kind="different_epoch",
   explanation="Both opened values are for the first Vulcain: the 1990 briefing describes it in development; the ESA page "
               "describes 'the Ariane 5 Vulcain engine ... in its initial version' and gives 1686 kg. DB-0's CF-EUROPE-5 "
               "set that 1686 kg against a Vulcain 2 mass; on the page it belongs to Vulcain 1, so CF-EUROPE-5 has no "
-              "opened Vulcain 2 value. Whether 1300 kg became 1686 kg by growth or by a different definition is not stated.")
+              "opened Vulcain 2 value. Whether 1300 kg became 1686 kg by growth or by a different definition is not stated. "
+              "CNES's Ariane 5 page (opened 2026-10-29) gives a third flight-era figure, 1 650 kg, also undefined.")
 C("CF-DB05-VINCI-IGNITIONS", engine_id="ENG-FR-VINCI", field_path="operation.restarts", db0_conflict_id="CF-EUROPE-7",
   claims=[["It can ignite up to four times in a single Ariane 6 flight", "SRC-ESA-A6ENGINES", "Vinci section"],
           ["up to 3 restarts", "SRC-WIKI-VINCI", "DB-0 search summary (never opened)"],

@@ -326,5 +326,6 @@
  "SRC-DB05-JAXA-LE7A-ENGINE-PAGE": "https://www.rocket.jaxa.jp/rocket/engine/le7/",
  "SRC-DB05-MHI-GIHO-534036": "https://www.mhi.com/technology/review/sites/g/files/jwhtju2326/files/tr/pdf/534/534036.pdf",
  "SRC-DB05-MEXT-H2F8-REPORT": "https://www.mext.go.jp/component/b_menu/shingi/giji/__icsFiles/afieldfile/2013/06/10/1335987_007_5.pdf",
- "SRC-DB05-JAXA-H2BF3-LE7A-AT": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html"
+ "SRC-DB05-JAXA-H2BF3-LE7A-AT": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
+ "SRC-DB05-CNES-A5-LANCEUR": "https://cnes.fr/projets/ariane-5/lanceur"
 }

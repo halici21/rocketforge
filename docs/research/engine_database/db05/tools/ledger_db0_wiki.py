@@ -40,6 +40,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "P60": "US 6,996,973 B2 description (ESA patent, priority 1999), Vulcain 2 adaptation paragraph",
         "U15": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-5, section 1.2.1 First Stage",
         "U16": "ULA Delta IV Launch Services User's Guide (June 2013) p.1-6, section 1.2.2 Second Stage",
+        "CN": "cnes.fr/projets/ariane-5/lanceur, EPS section (fetched 2026-10-29)",
         "M8": "H-II F8 investigation report (MEXT archive 1335987_007_5.pdf) 別添表８－２",
         "J17": "資料37-3 (JAXA, 2017-09-05) PDF p.3 '1. LE-9エンジン基本仕様', column '（参考）LE-7Aエンジン'",
         "JP": "rocket.jaxa.jp LE-7A engine page, specification table (fetched 2026-10-29)",
@@ -392,8 +393,11 @@ K("CF-ANCHOR_EU_ASIA-6", "ENG-FR-HM7B", "performance.pc",
   "UNRESOLVED", "intra_document",
   "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything.")
 K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
-  [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"), ("2.7 t (~26.5 kN)", "SRC-ESA-EPS", "N")],
-  "UNRESOLVED", None, "The ESA page was unreachable on retry. " + _PRIMARY)
+  [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"), ("2.7 t (~26.5 kN)", "SRC-ESA-EPS", "N"),
+   ("avec 29 kN (2,9 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN")],
+  "UNRESOLVED", "rating_or_rounding",
+  "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN "
+  "rounded but is stated as a round figure; 2.7 t is not supported by it. No Astrium/Airbus datasheet was reached.")
 K("CF-EUROPE-11", "ENG-DE-AESTUS", "performance.pc",
   [("chamber_pressure 11 bar", "SRC-WIKI-AESTUS", "T"), ("10.0 bar", "SRC-MECAIND-2020-T1", "N")],
   "UNRESOLVED", None, "The journal table refused access (HTTP 403). " + _PRIMARY)
@@ -492,3 +496,9 @@ D("SRC-DB05-JAXA-H2BF3-LE7A-AT", identifier="jaxa.jp/projects/rockets/h2b/engine
   title="H-IIBロケット3号機用LE-7Aエンジンの燃焼試験結果", tier="A", rights_checked="JAXA web page", rights_class="RESTRICTED_REFERENCE",
   note="2010-08-19 performance-confirmation firing (性能確認試験) at Tashiro, 50 s: メイン燃焼圧力 約 12.3 Mpa (planned 11.7-13.2), fuel TP 42,100 rpm, oxidizer TP 18,400 rpm. "
        "A measured test value, not a rating.")
+
+D("SRC-DB05-CNES-A5-LANCEUR", identifier="cnes.fr/projets/ariane-5/lanceur (CNES Ariane 5 project page, French)",
+  title="Ariane 5 — le lanceur", tier="A", rights_checked="CNES web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Static text (11 kB extracted). Vulcain 'pesait 1 650 kg'; Vulcain 2 '1 390 kN (139 tonnes) de poussée dans le vide'; HM-7B "
+       "'jusqu'à 15 minutes et 45 secondes' and '67 kN (6,7 tonnes)'; Aestus '29 kN (2,9 tonnes) de poussée dans le vide'. Used as "
+       "conflict claims only.")

@@ -778,6 +778,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-CNES-A5-LANCEUR",
+   "url_requested": "https://cnes.fr/projets/ariane-5/lanceur",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 75326,
+   "sha256": "180d7fc0def5e77a559cdb9b76b5c248426cc4f31af2f850abbd2c842947fa48",
+   "pdf_pages": null,
+   "retrieved_utc": "2026-10-29T11:36:58Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "cnes.fr/projets/ariane-5/lanceur (CNES Ariane 5 project page, French)",
+   "title_as_printed": "Ariane 5 — le lanceur",
+   "tier": "A",
+   "rights_statement_checked": "CNES web page; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "Static text (11 kB extracted). Vulcain 'pesait 1 650 kg'; Vulcain 2 '1 390 kN (139 tonnes) de poussée dans le vide'; HM-7B 'jusqu'à 15 minutes et 45 secondes' and '67 kN (6,7 tonnes)'; Aestus '29 kN (2,9 tonnes) de poussée dans le vide'. Used as conflict claims only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
    "url_requested": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
    "download_url": null,

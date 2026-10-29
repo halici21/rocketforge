@@ -25985,6 +25985,32 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-CNES-A5-LANCEUR",
+   "title": "Ariane 5 — le lanceur (CNES project page)",
+   "authors": [],
+   "organization": "CNES",
+   "year": null,
+   "source_type": "agency web page",
+   "identifier": "cnes.fr/projets/ariane-5/lanceur",
+   "url": "https://cnes.fr/projets/ariane-5/lanceur",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "CNES web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-FR-VULCAIN",
+    "ENG-FR-VULCAIN-2",
+    "ENG-FR-HM7B",
+    "ENG-DE-AESTUS"
+   ],
+   "locators": "stage sections (EPC, ESC-A, EPS)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Vulcain 1 650 kg; Vulcain 2 1 390 kN vacuum; HM-7B 67 kN vacuum, up to 15 min 45 s; Aestus 29 kN vacuum.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

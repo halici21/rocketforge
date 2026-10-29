@@ -1300,11 +1300,16 @@
      "1300 kg; 1800 kg (Vulcain 2)",
      "SRC-HANDWIKI-VULCAIN",
      "DB-0 search summary (never opened)"
+    ],
+    [
+     "Le moteur Vulcain qui l'équipait avait été conçu par Snecma Moteurs, et pesait 1 650 kg",
+     "SRC-DB05-CNES-A5-LANCEUR",
+     "cnes.fr/projets/ariane-5/lanceur, EPC section (fetched 2026-10-29)"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "different_epoch",
-   "explanation": "Both opened values are for the first Vulcain: the 1990 briefing describes it in development; the ESA page describes 'the Ariane 5 Vulcain engine ... in its initial version' and gives 1686 kg. DB-0's CF-EUROPE-5 set that 1686 kg against a Vulcain 2 mass; on the page it belongs to Vulcain 1, so CF-EUROPE-5 has no opened Vulcain 2 value. Whether 1300 kg became 1686 kg by growth or by a different definition is not stated."
+   "explanation": "Both opened values are for the first Vulcain: the 1990 briefing describes it in development; the ESA page describes 'the Ariane 5 Vulcain engine ... in its initial version' and gives 1686 kg. DB-0's CF-EUROPE-5 set that 1686 kg against a Vulcain 2 mass; on the page it belongs to Vulcain 1, so CF-EUROPE-5 has no opened Vulcain 2 value. Whether 1300 kg became 1686 kg by growth or by a different definition is not stated. CNES's Ariane 5 page (opened 2026-10-29) gives a third flight-era figure, 1 650 kg, also undefined."
   },
   {
    "conflict_id": "CF-DB05-VINCI-IGNITIONS",
@@ -2964,6 +2969,11 @@
      "Thrust 960 kN (SL) 1390 kN (Vacuum); 'develops 1,390 kN maximum thrust in vacuum'",
      "SRC-DB05-ARIANESPACE-A5UM-I5R2",
      "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 EPC table and p.A4-2"
+    ],
+    [
+     "pour 1 390 kN (139 tonnes) de poussée dans le vide",
+     "SRC-DB05-CNES-A5-LANCEUR",
+     "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
@@ -3068,6 +3078,11 @@
      "ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'",
      "SRC-DB05-ARIANESPACE-A5UM-I5R2",
      "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3"
+    ],
+    [
+     "pour fournir 67 kN (6,7 tonnes) de poussée dans le vide",
+     "SRC-DB05-CNES-A5-LANCEUR",
+     "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
@@ -3094,6 +3109,11 @@
      "ESC-A table: Combustion time 945 s",
      "SRC-DB05-ARIANESPACE-A5UM-I5R2",
      "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3"
+    ],
+    [
+     "Il fonctionnait jusqu'à 15 minutes et 45 secondes",
+     "SRC-DB05-CNES-A5-LANCEUR",
+     "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)"
     ]
    ],
    "resolution": "EXPLAINED",
@@ -5722,11 +5742,16 @@
      "2.7 t (~26.5 kN)",
      "SRC-ESA-EPS",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "avec 29 kN (2,9 tonnes) de poussée dans le vide",
+     "SRC-DB05-CNES-A5-LANCEUR",
+     "cnes.fr/projets/ariane-5/lanceur, EPS section (fetched 2026-10-29)"
     ]
    ],
    "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The ESA page was unreachable on retry. No primary document opened; the record stays open."
+   "kind": "rating_or_rounding",
+   "explanation": "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure; 2.7 t is not supported by it. No Astrium/Airbus datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-11",

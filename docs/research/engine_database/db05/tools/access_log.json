@@ -6631,5 +6631,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-JAXA-H2BF3-LE7A-AT.html"
+ },
+ "SRC-DB05-CNES-A5-LANCEUR": {
+  "source_id": "SRC-DB05-CNES-A5-LANCEUR",
+  "url": "https://cnes.fr/projets/ariane-5/lanceur",
+  "time_utc": "2026-10-29T11:36:58Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://cnes.fr/projets/ariane-5/lanceur",
+  "bytes": 75326,
+  "sha256": "180d7fc0def5e77a559cdb9b76b5c248426cc4f31af2f850abbd2c842947fa48",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-CNES-A5-LANCEUR.html"
  }
 }
