@@ -50,6 +50,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "AT": "jaxa.jp H-IIB F3 LE-7A firing result page (2010-08-19), result table",
         "P2O": "NTRS 19630006100 (MSFC, From Peenemuende to Outer Space, 1962) PDF p.297, chapter 13 propulsion history",
         "M68": "NTRS 19680014530 (Aerojet, M-1 thrust chamber development, NAS 3-2555, 15 May 1968) PDF p.17 Summary, p.19 Introduction, p.201/292 Appendix G",
+        "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -422,13 +423,15 @@ K("CF-ANCHOR_EU_ASIA-6", "ENG-FR-HM7B", "performance.pc",
   "UNRESOLVED", "intra_document",
   "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything.")
 K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
-  [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"), ("2.7 t (~26.5 kN)", "SRC-ESA-EPS", "N"),
+  [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"),
+   ("The vacuum thrust of the Aestus engine was 2.7 tonnes (~26.5 kN DERIVED)", "SRC-ESA-EPS", "EPS"),
    ("avec 29 kN (2,9 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
    ("The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)", "SRC-DB05-ESA-PR-1994-35-EPS", "PR94")],
   "UNRESOLVED", "different_epoch",
-  "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN "
+  "ESA's EPS page, opened 2026-10-29 via www.esa.int, prints 2.7 tonnes vacuum thrust and more than 1000 s on a GTO "
+  "mission. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN "
   "rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives "
-  "27.5 kN, close to the 2.7 t (26.5 kN) of the unopened ESA EPS page. Thrust appears to have risen between the 1994 "
+  "27.5 kN, close to ESA's 2.7 t (26.5 kN). Thrust appears to have risen between the 1994 "
   "development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no "
   "document records the change. No Astrium/Airbus datasheet was reached.")
 K("CF-EUROPE-11", "ENG-DE-AESTUS", "performance.pc",

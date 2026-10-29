@@ -850,3 +850,8 @@ LIQ-7 Pump Foundation: PAUSED.
   programme's "phaseout", so a 1965 cancellation is wrong for hardware testing; the phase-out date
   is not printed.
 - UNRESOLVED: 110 → 108. Not on NTRS: Stages to Saturn PDF (404), Juno II volume I.
+- ESA's EPS page (SRC-ESA-EPS), never opened by DB-0 because m.esa.int gave no response, was
+  fetched from www.esa.int: Aestus vacuum thrust 2.7 t, engine weight 115 kg.
+  CF-DB05-W-EUROPE-13 (Aestus mass) is PARTIALLY_RESOLVED (agency 115 kg against a catalogue's
+  111 kg of unstated scope). EUROPE-10 now cites the page as opened, and stays UNRESOLVED
+  (ESA 2.7 t / 27.5 kN against CNES 29 kN). UNRESOLVED: 108 → 107.

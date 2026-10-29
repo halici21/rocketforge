@@ -3842,12 +3842,15 @@
  },
  "SRC-ESA-EPS": {
   "source_id": "SRC-ESA-EPS",
-  "url": "https://m.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS",
-  "time_utc": "2026-10-28T20:53:07Z",
-  "http": "000",
-  "content_type": "",
-  "effective_url": "https://m.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS",
-  "ok": false,
+  "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS",
+  "time_utc": "2026-10-29T17:08:44Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://www.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Ariane_5_Storable_Propellant_Stage_EPS",
+  "bytes": 9753,
+  "sha256": "b8909e44bfbf93570a91a19a0d67809cfeb0f9059f4c4dd6535b7cee34eb721e",
+  "is_pdf": false,
+  "ok": true,
   "file": "SRC-ESA-EPS.html"
  },
  "SRC-NASM-HWK109509": {

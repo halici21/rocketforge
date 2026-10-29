@@ -3192,14 +3192,14 @@
      "page text (fetched 2026-10-28)"
     ],
     [
-     "115 kg",
+     "The engine weight was 115 kg",
      "SRC-ESA-EPS",
-     "DB-0 search summary (never opened)"
+     "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
-   "explanation": "Only the catalogue was read; whether the masses differ in scope is not stated."
+   "explanation": "ESA's EPS page, opened 2026-10-29 via www.esa.int (the m.esa.int host had failed), prints 'The engine weight was 115 kg', so 115 kg is the agency figure. The 111 kg comes from a component catalogue whose source and scope (with or without gimbal or actuators) are not stated; no Airbus datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-W-EUROPE-14",
@@ -5844,9 +5844,9 @@
      "encyclopedia page text, current revision (fetched 2026-10-28)"
     ],
     [
-     "2.7 t (~26.5 kN)",
+     "The vacuum thrust of the Aestus engine was 2.7 tonnes (~26.5 kN DERIVED)",
      "SRC-ESA-EPS",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)"
     ],
     [
      "avec 29 kN (2,9 tonnes) de poussée dans le vide",
@@ -5861,7 +5861,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "different_epoch",
-   "explanation": "The ESA page was unreachable on retry. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives 27.5 kN, close to the 2.7 t (26.5 kN) of the unopened ESA EPS page. Thrust appears to have risen between the 1994 development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no document records the change. No Astrium/Airbus datasheet was reached."
+   "explanation": "ESA's EPS page, opened 2026-10-29 via www.esa.int, prints 2.7 tonnes vacuum thrust and more than 1000 s on a GTO mission. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives 27.5 kN, close to ESA's 2.7 t (26.5 kN). Thrust appears to have risen between the 1994 development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no document records the change. No Astrium/Airbus datasheet was reached."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-11",

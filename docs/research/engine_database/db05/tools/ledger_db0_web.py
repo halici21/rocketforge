@@ -163,6 +163,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section",
         "SP45R": "NASA SP-45 Mercury Project Summary (1963) PDF p.88 Figure 4-13 'Mercury-Redstone configuration' and p.83",
         "SP45A": "NASA SP-45 Mercury Project Summary (1963) PDF p.94-97, Atlas propulsion system text",
+        "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -493,8 +494,11 @@ K("CF-ANCHOR_EU_ASIA-7", "ENG-FR-HM7B", "operations.burn_time",
   "is that value rounded. ESA's 2005 article gives the ESC-A a maximum of 970 s of propelled flight, a capability limit "
   "rather than the combustion time.")
 K("CF-EUROPE-13", "ENG-DE-AESTUS", "mechanical.mass",
-  [("111 kg", "SRC-SATNOW-AESTUS", "T"), ("115 kg", "SRC-ESA-EPS", "N")],
-  "UNRESOLVED", "definition", "Only the catalogue was read; whether the masses differ in scope is not stated.")
+  [("111 kg", "SRC-SATNOW-AESTUS", "T"), ("The engine weight was 115 kg", "SRC-ESA-EPS", "EPS")],
+  "PARTIALLY_RESOLVED", "definition",
+  "ESA's EPS page, opened 2026-10-29 via www.esa.int (the m.esa.int host had failed), prints 'The engine weight was "
+  "115 kg', so 115 kg is the agency figure. The 111 kg comes from a component catalogue whose source and scope "
+  "(with or without gimbal or actuators) are not stated; no Airbus datasheet was reached.")
 K("CF-EUROPE-14", "ENG-FR-VIKING-5", "performance.thrust_vac",
   [("758 kN (Viking 5)", "SRC-DLR-VIKING-IMG", "T"), ("760.7 kN (Viking 5C)", "SRC-WIKI-VIKING", "W")],
   "EXPLAINED", "different_variant", "DLR's 758 kN is for the Viking 5; 760.7 kN is reported for the Viking 5C.")
@@ -723,3 +727,9 @@ D("SRC-DB05-NTRS-19630012071", identifier="NTRS 19630012071 (NASA SP-45)",
   note="454 pages, OCR text layer. Figure 4-13 Mercury-Redstone: 'Model A-7 engine, Thrust 78,000 lb', alcohol/LOX, "
        "H2O2 turbopump drive. Atlas: two booster engines of 154,000 lb each, sustainer 57,000 lb, two verniers 1,000 lb "
        "each. Used as conflict claims only.")
+
+D("SRC-ESA-EPS", identifier='https://www.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS', title="Ariane 5 Storable Propellant Stage (EPS)", tier="A",
+  rights_checked="ESA web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 from www.esa.int (the registry's m.esa.int URL returned no response on 2026-10-28). Aestus: "
+       "pressure-fed, gimbal 16 deg max, 'vacuum thrust ... 2.7 tonnes', more than 1000 s on a GTO mission, 'engine weight "
+       "was 115 kg'; EPS loads 3.2 t MMH and 6.6 t N2O4. Used as conflict claims only.")

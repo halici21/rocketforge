@@ -3838,7 +3838,7 @@
    "year": null,
    "source_type": "agency web page",
    "identifier": "",
-   "url": "https://m.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Storable_Propellant_Stage_EPS",
    "tier": "A",
    "primary": "secondary",
    "rights": "RIGHTS_REVIEW_REQUIRED",
@@ -3846,9 +3846,9 @@
    "engines": [
     "ENG-DE-AESTUS"
    ],
-   "locators": "",
-   "access": "not_retrieved",
-   "notes": "Seen only as a WebSearch result + model-generated snippet summary; page body not fetched. Values must be re-verified against the page. Vacuum thrust 2.7 t; engine mass 115 kg; >1000 s burn; MMH 3.2 t + N2O4 6.6 t (stage).",
+   "locators": "page text",
+   "access": "fetched",
+   "notes": "Page body fetched in DB-0.5 (2026-10-29) from www.esa.int (the m.esa.int URL gave no response); the values were re-verified against the page text: vacuum thrust 2.7 t; engine weight 115 kg; >1000 s on GTO; MMH 3.2 t + N2O4 6.6 t (stage). Originally seen only as a WebSearch result.",
    "branches": [
     "europe"
    ]
