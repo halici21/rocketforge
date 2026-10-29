@@ -525,3 +525,9 @@ D("SRC-DB05-ESA-BULLETIN-102-VULCAIN2", identifier="ESA Bulletin 102 (May 2000),
        "chamber pressure 115 bar, mixture ratio 6.10, section ratio 58.5, total propellant flow 320 kg/s, mass 1935 kg, LOX TP "
        "12 600 rpm, LH2 TP 35 500 rpm. Text: MR raised from 5.3 to 6.1; thrust 1145 to 1350 kN; LH2 TP nominal 35680 rpm, "
        "14.29 MW, 44.9 kg/s. Used as conflict claims only.")
+
+D("SRC-DB05-ESA-BULLETIN-123-A5ECA", identifier="ESA Bulletin 123 (August 2005), U. L. Berkes, bul123b_berkes.pdf", title="Ariane-5 ECA", tier="A",
+  rights_checked="ESA Bulletin article on esa.int; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="6 pages, text layer. Vulcain-2 '1350 kN compared with the 1100 kN of Vulcain-1', up to 540 s; ESC-A 'maximum of 970 "
+       "seconds of propelled flight', HM-7B 'thrust of 65 kN in vacuum, with a specific impulse of 447 seconds'. Used as conflict "
+       "claims only.")

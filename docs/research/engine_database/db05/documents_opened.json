@@ -822,6 +822,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ESA-BULLETIN-123-A5ECA",
+   "url_requested": "https://esa.int/esapub/bulletin/bulletin123/bul123b_berkes.pdf",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 1018489,
+   "sha256": "1746d9e6072a74e08dfa4eb910a8ddbd9c4640d18ccb31b47642834795d556f1",
+   "pdf_pages": 6,
+   "retrieved_utc": "2026-10-29T11:55:33Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "ESA Bulletin 123 (August 2005), U. L. Berkes, bul123b_berkes.pdf",
+   "title_as_printed": "Ariane-5 ECA",
+   "tier": "A",
+   "rights_statement_checked": "ESA Bulletin article on esa.int; reuse terms not reviewed",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "6 pages, text layer. Vulcain-2 '1350 kN compared with the 1100 kN of Vulcain-1', up to 540 s; ESC-A 'maximum of 970 seconds of propelled flight', HM-7B 'thrust of 65 kN in vacuum, with a specific impulse of 447 seconds'. Used as conflict claims only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-JAXA-H2BF3-LE7A-AT",
    "url_requested": "https://www.jaxa.jp/projects/rockets/h2b/engine/le7a/10/08/02_j.html",
    "download_url": null,

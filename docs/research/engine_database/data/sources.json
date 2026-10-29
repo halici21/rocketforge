@@ -26080,6 +26080,33 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ESA-BULLETIN-123-A5ECA",
+   "title": "Ariane-5 ECA (ESA Bulletin 123, August 2005)",
+   "authors": [
+    "U. L. Berkes"
+   ],
+   "organization": "European Space Agency",
+   "year": 2005,
+   "source_type": "agency bulletin article",
+   "identifier": "ESA Bulletin 123 (August 2005), bul123b_berkes.pdf",
+   "url": "https://esa.int/esapub/bulletin/bulletin123/bul123b_berkes.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ESA Bulletin article; reuse terms not reviewed.",
+   "engines": [
+    "ENG-FR-VULCAIN",
+    "ENG-FR-VULCAIN-2",
+    "ENG-FR-HM7B"
+   ],
+   "locators": "pp.16-19 (EPC, ESC-A sections)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Vulcain-2 1350 kN against 1100 kN for Vulcain-1; HM-7B 65 kN vacuum, 447 s; ESC-A up to 970 s propelled flight.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

@@ -388,11 +388,15 @@ C("CF-DB05-LE9-THRUST-LEVEL", engine_id=LE9, field_path="performance.thrust_vac"
   explanation="'1 500 kN level' is the same paper's class statement; its own §2.3 prints 1 471 kN.")
 C("CF-DB05-VULCAIN-THRUST", engine_id=VUL, field_path="performance.thrust_vac", db0_conflict_id="CF-EUROPE-1",
   claims=[["Vacuum Thrust 1025 kN (230,000 lb) (June 1990, in development)", RICE, "PDF p.10"],
-          ["115 tonnes of thrust in vacuum in its initial version", ESAVUL, "Vulcain page"]],
+          ["115 tonnes of thrust in vacuum in its initial version", ESAVUL, "Vulcain page"],
+          ["(Vulcain-2) increases the available thrust from 1145 to 1350 kN (May 2000)", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "ESA Bulletin 102 p.1"],
+          ["1350 kN compared with the 1100 kN of Vulcain-1 (August 2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section"]],
   resolution="PARTIALLY_RESOLVED", kind="different_epoch",
   explanation="The 1990 briefing itself says thrust and combustion-pressure increases were under way (p.2): the 1990 value is "
               "pre-growth. The flown value is known only from ESA's restricted page; the change is not documented. "
-              "Linked 2026-10-28 to DB-0's CF-EUROPE-1, whose 1140 kN is a HandWiki mirror, never opened.")
+              "Linked 2026-10-28 to DB-0's CF-EUROPE-1, whose 1140 kN is a HandWiki mirror, never opened. Two ESA "
+              "Bulletins (opened 2026-10-29) give the flown Vulcain 1 as 1145 kN (2000) and 1100 kN (2005), both against "
+              "1350 kN for Vulcain 2; 115 t is 1128 kN. They bracket the flown value without settling it.")
 C("CF-DB05-VULCAIN-TURBOPUMPS", engine_id=VUL, field_path="turbines.speed, turbines.power", db0_conflict_id="CF-R2_ASIA-R2A-19",
   claims=[["LH2 34,200 rpm / 11,300 kW; LOX 13,000 rpm / 2,900 kW (June 1990)", RICE, "PDF p.10"],
           ["LOX 13 600 rpm, 3 MW; LH2 34 000 rpm, 12 MW", ESAVUL, "Vulcain page"]],

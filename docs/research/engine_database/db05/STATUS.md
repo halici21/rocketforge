@@ -796,3 +796,11 @@ LIQ-7 Pump Foundation: PAUSED.
   half (644 vs 633 psia) is still open. It prints no engine mass.
 - NTRS searches for "HM7", "RS-68A" and "Vulcain" found nothing relevant.
 - Totals: 116 UNRESOLVED, 49 PARTIALLY_RESOLVED.
+- Opened ESA Bulletin 123 (August 2005, Ariane-5 ECA), SRC-DB05-ESA-BULLETIN-123-A5ECA:
+  - Vulcain-2: 1350 kN, against 1100 kN for Vulcain-1. Bulletin 102 gave the Vulcain-1 figure as 1145 kN.
+  - HM-7B: 65 kN in vacuum, 447 s.
+  - ESC-A: up to 970 s of propelled flight.
+- These were added to CF-DB05-VULCAIN-THRUST, CF-DB05-W-ANCHOR_EU_ASIA-1, -5 and -7, and CF-DB05-W-EUROPE-9. They
+  narrow the epochs; no resolution changed.
+- Tried, not reachable: the 推进技术 (Journal of Propulsion Technology) 2021 YF-77 design paper by BAPI, whose PDF link
+  answers with a slider bot check (not attempted further), and SciEngine (empty page).

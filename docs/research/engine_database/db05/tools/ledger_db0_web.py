@@ -159,7 +159,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "A5H": "Ariane 5 User's Manual Issue 5 Rev 2 (2016) p.1-7 ESC-A table and p.A4-3",
         "CN": "cnes.fr/projets/ariane-5/lanceur, stage sections (fetched 2026-10-29; the old CNES URL redirects here)",
         "VUG": "ULA Vulcan Launch Systems User's Guide (October 2023) p.1-4 Table 1.4-1",
-        "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text"}
+        "B102": "ESA Bulletin 102 (May 2000) p.2 Table 1 'Technical characteristics of the Vulcain-2 cryogenic engine' and text",
+        "B123": "ESA Bulletin 123 (August 2005) p.18 'The Vulcain-2 main engine' / p.19 ESC-A section"}
 
 
 def K(db0_id, engine_id, field_path, claims, resolution, kind, explanation):
@@ -438,11 +439,12 @@ K("CF-ANCHOR_EU_ASIA-1", "ENG-FR-VULCAIN-2", "performance.thrust_vac",
    ("~137-138 t", "SRC-ESA-A5ECA-NEWELEM", "N"), ("Vulcain 2's 1,359 kN (305,000 lbf)", "SRC-NEWSPACEECON-V21", "T"),
    ("Thrust 960 kN (SL) 1390 kN (Vacuum); 'develops 1,390 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5"),
    ("pour 1 390 kN (139 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
-   ("Vacuum thrust 1 350 kN (May 2000 table); 'increases the available thrust from 1145 to 1350 kN'", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102")],
+   ("Vacuum thrust 1 350 kN (May 2000 table); 'increases the available thrust from 1145 to 1350 kN'", "SRC-DB05-ESA-BULLETIN-102-VULCAIN2", "B102"),
+   ("The new engine provides more thrust - 1350 kN compared with the 1100 kN of Vulcain-1 (August 2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "B123")],
   "PARTIALLY_RESOLVED", "rating_or_rounding",
   "The launch operator's user's manual (Arianespace, 2016) prints 1,390 kN as the Vulcain 2 maximum vacuum thrust, "
-  "matching the CNES figure. ESA's May 2000 development table printed 1 350 kN, so the vacuum thrust grew between the "
-  "2000 design and the flown engine; 1,359 kN appears only in secondary pages and an unopened AIAA guide, and which "
+  "matching the CNES figure. ESA's May 2000 development table and its August 2005 Ariane-5 ECA article both print "
+  "1 350 kN, so the 1 390 kN maximum is a later figure; 1,359 kN appears only in secondary pages and an unopened AIAA guide, and which "
   "epoch it belongs to is not shown. No Safran/ArianeGroup datasheet was reached.")
 K("CF-ANCHOR_EU_ASIA-4", "ENG-FR-VULCAIN-2", "flows.mdot_fuel",
   [("41.2 kg/s H2 of 235 kg/s (page titled 'Vulcain engine')", "SRC-ESA-ESAMI-VULCAIN", "NX"), ("33 kg/s H2", "SRC-HF-SPACEYL-ENGINES", "T"),
@@ -456,23 +458,28 @@ K("CF-EUROPE-6", "ENG-FR-VULCAIN-2-1", "performance.thrust_vac",
   "UNRESOLVED", None,
   "Only one opened page gives a figure (1,371 kN); the other two fetched pages print none. Tertiary.")
 K("CF-EUROPE-9", "ENG-FR-HM7B", "performance.thrust_vac",
-  [("62.2 kN", "SRC-WIKI-HM7B", "W"), ("64.8 kN", "SRC-SATNOW-HM7B", "T"), ("ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5H")],
+  [("62.2 kN", "SRC-WIKI-HM7B", "W"), ("64.8 kN", "SRC-SATNOW-HM7B", "T"), ("ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5H"),
+   ("The HM-7B cryogenic engine provides a thrust of 65 kN in vacuum, with a specific impulse of 447 seconds (2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "B123")],
   "PARTIALLY_RESOLVED", "different_variant",
   "Arianespace's 2016 user's manual prints 67 kN maximum vacuum thrust for the Ariane 5 ESC-A HM7B, so neither 62.2 nor "
-  "64.8 kN is the ESC-A maximum. Whether they are Ariane 4 H10 builds or nominal values is not shown.")
+  "64.8 kN is the ESC-A maximum. ESA's 2005 Ariane-5 ECA article prints 65 kN at 447 s, so the ESC-A figure itself "
+  "moved between 65 and 67 kN across documents. Whether 62.2 kN is an Ariane 4 H10 build is not shown.")
 K("CF-ANCHOR_EU_ASIA-5", "ENG-FR-HM7B", "performance.thrust_vac",
   [("67 kN", "SRC-CNES-A5-TECH", "NX"), ("62.2 kN", "SRC-AIAA-VG-ARIANE", "N"), ("64.8 kN", "SRC-SATNOW-HM7B", "T"), ("ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5H"),
-   ("pour fournir 67 kN (6,7 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN")],
+   ("pour fournir 67 kN (6,7 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
+   ("The HM-7B cryogenic engine provides a thrust of 65 kN in vacuum, with a specific impulse of 447 seconds (2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "B123")],
   "PARTIALLY_RESOLVED", "different_variant",
   "The launch operator's manual prints 67 kN maximum in vacuum for the ESC-A HM7B, as the CNES page was reported to. "
   "The 62.2 and 64.8 kN figures are not explained (see CF-DB05-W-EUROPE-9).")
 K("CF-ANCHOR_EU_ASIA-7", "ENG-FR-HM7B", "operations.burn_time",
   [("950 s", "SRC-AIAA-VG-ARIANE", "N"), ("up to 15 min 45 s (945 s)", "SRC-CNES-A5-TECH", "NX"),
    ("ESC-A table: Combustion time 945 s", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5H"),
-   ("Il fonctionnait jusqu'à 15 minutes et 45 secondes", "SRC-DB05-CNES-A5-LANCEUR", "CN")],
+   ("Il fonctionnait jusqu'à 15 minutes et 45 secondes", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
+   ("which provides a maximum of 970 seconds of propelled flight (ESC-A stage, 2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "B123")],
   "EXPLAINED", "rating_or_rounding",
   "Arianespace's 2016 user's manual prints 945 s for the ESC-A, matching the CNES figure; the unopened AIAA guide's 950 s "
-  "is that value rounded.")
+  "is that value rounded. ESA's 2005 article gives the ESC-A a maximum of 970 s of propelled flight, a capability limit "
+  "rather than the combustion time.")
 K("CF-EUROPE-13", "ENG-DE-AESTUS", "mechanical.mass",
   [("111 kg", "SRC-SATNOW-AESTUS", "T"), ("115 kg", "SRC-ESA-EPS", "N")],
   "UNRESOLVED", "definition", "Only the catalogue was read; whether the masses differ in scope is not stated.")

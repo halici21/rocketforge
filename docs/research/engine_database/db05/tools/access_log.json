@@ -6711,5 +6711,20 @@
   "text_chars": 33992,
   "ok": true,
   "file": "SRC-DB05-NTRS-19970026009.pdf"
+ },
+ "SRC-DB05-ESA-BULLETIN-123-A5ECA": {
+  "source_id": "SRC-DB05-ESA-BULLETIN-123-A5ECA",
+  "url": "https://esa.int/esapub/bulletin/bulletin123/bul123b_berkes.pdf",
+  "time_utc": "2026-10-29T11:55:33Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.esa.int/esapub/bulletin/bulletin123/bul123b_berkes.pdf",
+  "bytes": 1018489,
+  "sha256": "1746d9e6072a74e08dfa4eb910a8ddbd9c4640d18ccb31b47642834795d556f1",
+  "is_pdf": true,
+  "pages": 6,
+  "text_chars": 13254,
+  "ok": true,
+  "file": "SRC-DB05-ESA-BULLETIN-123-A5ECA.pdf"
  }
 }
