@@ -164,6 +164,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "SP45R": "NASA SP-45 Mercury Project Summary (1963) PDF p.88 Figure 4-13 'Mercury-Redstone configuration' and p.83",
         "SP45A": "NASA SP-45 Mercury Project Summary (1963) PDF p.94-97, Atlas propulsion system text",
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
+        "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -285,10 +286,13 @@ K("CF-USSR-5", "ENG-RU-RD-191", "performance.isp_sl",
   "UNRESOLVED", "rating_or_rounding",
   "0.2 percent apart. The Glavkosmos figure is for the RD-181, a variant. No manufacturer RD-191 table was opened.")
 K("CF-USSR-6", "ENG-RU-RD-0124MS", "performance.isp_vac",
-  [("359 s", "SRC-WIKI-SOYUZ5", "W"), ("361 s", "SRC-WWW1-RD0124", "T"), ("361 s ('RD-124MV')", "SRC-FRONTIER-SOYUZ5", "NF")],
-  "UNRESOLVED", "different_variant",
-  "One opened Russian page gives 361 s for a 60 t modification; the Soyuz-5 page DB-0 cited does not print 361. Which "
-  "variant designation each figure belongs to is not settled.")
+  [("359 s", "SRC-WIKI-SOYUZ5", "W"), ("361 s", "SRC-WWW1-RD0124", "T"), ("361 s ('RD-124MV')", "SRC-FRONTIER-SOYUZ5", "NF"),
+   ("РД0124МС: тяга в пустоте 60,34 тс; удельный импульс тяги в пустоте 361 с; давление в КС 155 кг/см2", "SRC-DB05-KBKHA-RD0124MS", "KB"),
+   ("РД0124: тяга в пустоте 30 тс; удельный импульс тяги 359 с; давление в КС 160 кг/см2", "SRC-DB05-KBKHA-RD0124", "KB")],
+  "RESOLVED", "different_variant",
+  "The manufacturer's pages settle it: KBKhA prints 361 s for the RD0124MS (60.34 tf, the Soyuz-5 second-stage engine) "
+  "and 359 s for the RD0124 (14D23, 30 tf, Soyuz-2.1b third stage). 361 s is the RD-0124MS value; 359 s is the parent "
+  "engine's, attached to the wrong variant in the encyclopedia summary.")
 K("CF-USSR-7", "ENG-SU-RD-117", "aliases.index",
   [("RD-117 = 11D511; RD-118 = 11D512", "SRC-WIKI-RD107", "W"), ("11D511 'RD-107'; 11D512 'RD-108'", "SRC-GLOBALSEC-SOYUZU", "T")],
   "EXPLAINED", "definition",
@@ -311,10 +315,12 @@ K("CF-USSR-15", "ENG-SU-RD-0110", "performance.pc / performance.isp_vac / operat
   "3,195 m/s is 325.8 s DERIVED, the encyclopedia's 325 s; 7 MPa against 6.8 MPa is rounding. The burn time stays open: "
   "the opened page itself gives two values (230 or 240 s), neither 250 s.")
 K("CF-USSR-16", "ENG-SU-RD-0210", "performance.thrust_vac / performance.pc / operations.burn_time",
-  [("582 kN; 14.7 MPa; 220 s", "SRC-WIKI-RD0210", "W"), ("593.6 kN; 15 MPa; 230 s", "SRC-RSW-RD0210", "T")],
-  "UNRESOLVED", "different_variant",
-  "Each figure differs by 2-5 percent; 14.7 MPa is 150 kgf/cm2, so the pressures may be one value in two units. Neither "
-  "page cites a source.")
+  [("582 kN; 14.7 MPa; 220 s", "SRC-WIKI-RD0210", "W"), ("593.6 kN; 15 MPa; 230 s", "SRC-RSW-RD0210", "T"),
+   ("тяга в пустоте (одного двигателя) 59,36 тс; удельный импульс 326,5 с; давление в КС 150 кг/см2", "SRC-DB05-KBKHA-RD0210", "KB")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "Each figure differs by 2-5 percent. The manufacturer's Proton-K second-stage page prints 59.36 tf per engine "
+  "(582.1 kN DERIVED) and 150 kgf/cm2 (14.7 MPa DERIVED), matching the 582 kN / 14.7 MPa set; 593.6 kN and 15 MPa have "
+  "no document. KBKhA prints no burn time, so 220 against 230 s stays open.")
 K("CF-USSR-18", "ENG-RU-RD-171MV", "performance.thrust",
   [("7,887 kN vac (family)", "SRC-WIKI-RD170", "W"), ("7,257 kN SL (stage 1)", "SRC-WIKI-SOYUZ5", "W"),
    ("'approximately 800 tons'", "SRC-FRONTIER-SOYUZ5", "T")],
@@ -733,3 +739,19 @@ D("SRC-ESA-EPS", identifier='https://www.esa.int/Enabling_Support/Space_Transpor
   note="Fetched 2026-10-29 from www.esa.int (the registry's m.esa.int URL returned no response on 2026-10-28). Aestus: "
        "pressure-fed, gimbal 16 deg max, 'vacuum thrust ... 2.7 tonnes', more than 1000 s on a GTO mission, 'engine weight "
        "was 115 kg'; EPS loads 3.2 t MMH and 6.6 t N2O4. Used as conflict claims only.")
+
+D("SRC-DB05-KBKHA-RD0120", identifier="https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0120/", title="РД0120 (KBKhA engine page)", tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 from the design bureau's own site. тяга в пустоте 200 тс; удельный импульс 455 с; давление в КС 223 кг/см2; LOX/LH2; Energia core stage. Used as conflict claims only.")
+
+D("SRC-DB05-KBKHA-RD0124", identifier="https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124/", title="РД0124 (KBKhA engine page)", tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 from the design bureau's own site. тяга в пустоте 30 тс; удельный импульс 359 с; давление в КС 160 кг/см2; LOX/kerosene; 14D23; 300 s main mode. Used as conflict claims only.")
+
+D("SRC-DB05-KBKHA-RD0124MS", identifier="https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124ms/", title="РД0124МС (KBKhA engine page)", tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 from the design bureau's own site. тяга в пустоте 60,34 тс; удельный импульс в пустоте 361 с; давление в КС 155 кг/см2; LOX/naftil; Soyuz-5 second stage; in development. Used as conflict claims only.")
+
+D("SRC-DB05-KBKHA-RD0210", identifier="https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/dvigatelnyj-blok-tri-rd0210-odin-rd0211/", title="Двигательный блок (три РД0210 + один РД0211) (KBKhA engine page)", tier="A",
+  rights_checked="manufacturer web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-29 from the design bureau's own site. тяга в пустоте (одного двигателя) 59,36 тс; удельный импульс 326,5 с; давление в КС 150 кг/см2; N2O4/UDMH; Proton-K second stage. Used as conflict claims only.")

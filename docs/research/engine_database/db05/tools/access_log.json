@@ -6912,5 +6912,57 @@
   "text_chars": 327970,
   "ok": true,
   "file": "SRC-DB05-NTRS-19680014530.pdf"
+ },
+ "SRC-DB05-KBKHA-RD0120": {
+  "source_id": "SRC-DB05-KBKHA-RD0120",
+  "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0120/",
+  "time_utc": "2026-10-29T17:19:15Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0120/",
+  "bytes": 36224,
+  "sha256": "fcf1c897c488c7239ed788383f85a8417105ea7e9c041d40bee623f1f1b813b3",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-KBKHA-RD0120.html"
+ },
+ "SRC-DB05-KBKHA-RD0124": {
+  "source_id": "SRC-DB05-KBKHA-RD0124",
+  "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124/",
+  "time_utc": "2026-10-29T17:19:16Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124/",
+  "bytes": 34266,
+  "sha256": "7c805025c8913b35b05939be9e216375c5a861acdbc83f8a64570c1baa9bb92a",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-KBKHA-RD0124.html"
+ },
+ "SRC-DB05-KBKHA-RD0124MS": {
+  "source_id": "SRC-DB05-KBKHA-RD0124MS",
+  "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124ms/",
+  "time_utc": "2026-10-29T17:19:17Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124ms/",
+  "bytes": 30568,
+  "sha256": "a99de4884f545332f051054d8ab27eebb6c3c97b39b894be657d6c3da3ffc6b6",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-KBKHA-RD0124MS.html"
+ },
+ "SRC-DB05-KBKHA-RD0210": {
+  "source_id": "SRC-DB05-KBKHA-RD0210",
+  "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/dvigatelnyj-blok-tri-rd0210-odin-rd0211/",
+  "time_utc": "2026-10-29T17:19:18Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/dvigatelnyj-blok-tri-rd0210-odin-rd0211/",
+  "bytes": 32579,
+  "sha256": "7cc26da65cb4e04d4755b4b2d1da80001ede6951802e94bd765b9314b9f5e2a7",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-KBKHA-RD0210.html"
  }
 }

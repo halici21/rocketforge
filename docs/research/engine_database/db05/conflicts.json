@@ -1713,11 +1713,16 @@
      "1961 kN vac / 1526 kN SL @106%; Isp SL 354 s; gimbal +/-7 deg",
      "SRC-WIKI-RD0120",
      "DB-0 search summary (never opened)"
+    ],
+    [
+     "тяга в пустоте 200 тс (1,961.3 kN DERIVED); удельный импульс 455 с; давление в КС 223 кг/см2",
+     "SRC-DB05-KBKHA-RD0120",
+     "kbkha.ru RD0120 page, 'Характеристики' block (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_operating_point",
-   "explanation": "190 tf is 1,863 kN; 1,961 kN is 5 percent higher and is tied to a 106 percent level, so the thrust pair may be two power levels, but neither opened page names its level. The gimbal angle (11 against 7 degrees) is open: both opened pages are secondary and the 7 degrees was never opened."
+   "explanation": "190 tf is 1,863 kN; 1,961 kN is 5 percent higher and is tied to a 106 percent level, so the thrust pair may be two power levels, but neither opened page names its level. The gimbal angle (11 against 7 degrees) is open: both opened pages are secondary and the 7 degrees was never opened. The manufacturer's page prints 200 tf in vacuum, which is 1,961.3 kN: the 1,961 kN figure is KBKhA's headline rating, and 190 tf is a lower level that no manufacturer document names. KBKhA prints no gimbal angle, so that half stays open."
   },
   {
    "conflict_id": "CF-DB05-W-R2_US_CLASSIC-RS-3",
@@ -2188,11 +2193,21 @@
      "361 s ('RD-124MV')",
      "SRC-FRONTIER-SOYUZ5",
      "fetched; value not in its extracted text"
+    ],
+    [
+     "РД0124МС: тяга в пустоте 60,34 тс; удельный импульс тяги в пустоте 361 с; давление в КС 155 кг/см2",
+     "SRC-DB05-KBKHA-RD0124MS",
+     "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)"
+    ],
+    [
+     "РД0124: тяга в пустоте 30 тс; удельный импульс тяги 359 с; давление в КС 160 кг/см2",
+     "SRC-DB05-KBKHA-RD0124",
+     "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "RESOLVED",
    "kind": "different_variant",
-   "explanation": "One opened Russian page gives 361 s for a 60 t modification; the Soyuz-5 page DB-0 cited does not print 361. Which variant designation each figure belongs to is not settled."
+   "explanation": "The manufacturer's pages settle it: KBKhA prints 361 s for the RD0124MS (60.34 tf, the Soyuz-5 second-stage engine) and 359 s for the RD0124 (14D23, 30 tf, Soyuz-2.1b third stage). 361 s is the RD-0124MS value; 359 s is the parent engine's, attached to the wrong variant in the encyclopedia summary."
   },
   {
    "conflict_id": "CF-DB05-W-USSR-7",
@@ -2314,11 +2329,16 @@
      "593.6 kN; 15 MPa; 230 s",
      "SRC-RSW-RD0210",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "тяга в пустоте (одного двигателя) 59,36 тс; удельный импульс 326,5 с; давление в КС 150 кг/см2",
+     "SRC-DB05-KBKHA-RD0210",
+     "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_variant",
-   "explanation": "Each figure differs by 2-5 percent; 14.7 MPa is 150 kgf/cm2, so the pressures may be one value in two units. Neither page cites a source."
+   "explanation": "Each figure differs by 2-5 percent. The manufacturer's Proton-K second-stage page prints 59.36 tf per engine (582.1 kN DERIVED) and 150 kgf/cm2 (14.7 MPa DERIVED), matching the 582 kN / 14.7 MPa set; 593.6 kN and 15 MPa have no document. KBKhA prints no burn time, so 220 against 230 s stays open."
   },
   {
    "conflict_id": "CF-DB05-W-USSR-18",
@@ -4733,11 +4753,16 @@
      "chamber_pressure 21.9 MPa",
      "SRC-WIKI-RD0120",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "тяга в пустоте 200 тс; удельный импульс 455 с; давление в КС 223 кг/см2",
+     "SRC-DB05-KBKHA-RD0120",
+     "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_operating_point",
-   "explanation": "The encyclopedia's infobox quotes 106 % thrust next to its figures; 21.9 / 20.6 is 1.063, consistent with 106 % against 100 %, but the JAXA paper returned 503 and nothing opened states it."
+   "explanation": "The encyclopedia's infobox quotes 106 % thrust next to its figures; 21.9 / 20.6 is 1.063, consistent with 106 % against 100 %, but the JAXA paper returned 503 (again on 2026-10-29). The manufacturer KBKhA prints 223 kgf/cm2 (21.87 MPa DERIVED) beside 200 tf vacuum thrust, so 21.9 MPa is the manufacturer's headline figure; 200 tf against the 190 tf seen elsewhere (1.053) tracks 223 against 210 (1.062), so the pair looks like two power levels. 210 kgf/cm2 at 100 % is still unopened."
   },
   {
    "conflict_id": "CF-DB05-E-R2_USSR-R2-10",

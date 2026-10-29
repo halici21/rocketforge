@@ -226,8 +226,12 @@ A(R120, "mechanical.gimbal_range", None, "the capability to gimbal up to 11 degr
 C("CF-DB05-RD0120-THRUST-GIMBAL", engine_id=R120, field_path="performance.thrust / mechanical.gimbal_range", db0_conflict_id="CF-USSR-14",
   claims=[["Thrust in vacuum, tf 190; on the sea level 147.6", BE, "characteristics table"],
           ["gimbal up to 11 degrees along two perpendicular axis", RSW, "page text"],
-          ["1961 kN vac / 1526 kN SL @106%; Isp SL 354 s; gimbal +/-7 deg", "SRC-WIKI-RD0120", "DB-0 search summary (never opened)"]],
-  resolution="UNRESOLVED", kind="different_operating_point",
+          ["1961 kN vac / 1526 kN SL @106%; Isp SL 354 s; gimbal +/-7 deg", "SRC-WIKI-RD0120", "DB-0 search summary (never opened)"],
+          ["тяга в пустоте 200 тс (1,961.3 kN DERIVED); удельный импульс 455 с; давление в КС 223 кг/см2", "SRC-DB05-KBKHA-RD0120",
+           "kbkha.ru RD0120 page, 'Характеристики' block (fetched 2026-10-29)"]],
+  resolution="PARTIALLY_RESOLVED", kind="different_operating_point",
   explanation="190 tf is 1,863 kN; 1,961 kN is 5 percent higher and is tied to a 106 percent level, so the thrust pair may "
               "be two power levels, but neither opened page names its level. The gimbal angle (11 against 7 degrees) is "
-              "open: both opened pages are secondary and the 7 degrees was never opened.")
+              "open: both opened pages are secondary and the 7 degrees was never opened. The manufacturer's page prints 200 tf "
+              "in vacuum, which is 1,961.3 kN: the 1,961 kN figure is KBKhA's headline rating, and 190 tf is a lower level that "
+              "no manufacturer document names. KBKhA prints no gimbal angle, so that half stays open.")

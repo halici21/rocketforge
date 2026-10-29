@@ -26256,6 +26256,98 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-KBKHA-RD0120",
+   "title": "РД0120 (KBKhA engine page)",
+   "authors": [],
+   "organization": "АО «Конструкторское Бюро Химавтоматики» (KBKhA)",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "kbkha.ru engine page, rd0120",
+   "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0120/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-SU-RD-0120"
+   ],
+   "locators": "'Характеристики' block",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): тяга в пустоте 200 тс; удельный импульс 455 с; давление в КС 223 кг/см2; LOX/LH2; Energia core stage.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-KBKHA-RD0124",
+   "title": "РД0124 (KBKhA engine page)",
+   "authors": [],
+   "organization": "АО «Конструкторское Бюро Химавтоматики» (KBKhA)",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "kbkha.ru engine page, rd0124",
+   "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-RU-RD-0124"
+   ],
+   "locators": "'Характеристики' block",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): тяга в пустоте 30 тс; удельный импульс 359 с; давление в КС 160 кг/см2; LOX/kerosene; 14D23; 300 s main mode.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-KBKHA-RD0124MS",
+   "title": "РД0124МС (KBKhA engine page)",
+   "authors": [],
+   "organization": "АО «Конструкторское Бюро Химавтоматики» (KBKhA)",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "kbkha.ru engine page, rd0124ms",
+   "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/rd0124ms/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-RU-RD-0124MS"
+   ],
+   "locators": "'Характеристики' block",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): тяга в пустоте 60,34 тс; удельный импульс в пустоте 361 с; давление в КС 155 кг/см2; LOX/naftil; Soyuz-5 second stage; in development.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-KBKHA-RD0210",
+   "title": "Двигательный блок (три РД0210 + один РД0211) (KBKhA engine page)",
+   "authors": [],
+   "organization": "АО «Конструкторское Бюро Химавтоматики» (KBKhA)",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "kbkha.ru engine page, dvigatelnyj-blok-tri-rd0210-odin-rd0211",
+   "url": "https://kbkha.ru/deyatel-nost/raketnye-dvigateli-dlya-kosmicheskoy-otrasli/raketnye-dvigateli-ao-kbha/dvigatelnyj-blok-tri-rd0210-odin-rd0211/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-SU-RD-0210"
+   ],
+   "locators": "'Характеристики' block",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): тяга в пустоте (одного двигателя) 59,36 тс; удельный импульс 326,5 с; давление в КС 150 кг/см2; N2O4/UDMH; Proton-K second stage.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

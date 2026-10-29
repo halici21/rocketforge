@@ -52,6 +52,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "M68": "NTRS 19680014530 (Aerojet, M-1 thrust chamber development, NAS 3-2555, 15 May 1968) PDF p.17 Summary, p.19 Introduction, p.201/292 Appendix G",
         "EPS": "esa.int Ariane 5 Storable Propellant Stage (EPS) page text (fetched 2026-10-29)",
         "CPS": "NTRS 20110015783 (NASA HAT, Cryogenic Propulsion Stage, Aug 2011) slide 10 'CPS Engine Options' table",
+        "KB": "kbkha.ru engine page, 'Характеристики' block (fetched 2026-10-29)",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
 
@@ -184,10 +185,14 @@ K("CF-ANCHOR_EU_ASIA-3", "ENG-FR-VULCAIN-2", "nozzle.area_ratio",
 
 # --- USSR / Russia
 K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
-  [("210 kgf/cm2 = 20.6 MPa at 100 %", "SRC-JAXA-61856043", "N"), ("chamber_pressure 21.9 MPa", "SRC-WIKI-RD0120", "T")],
-  "UNRESOLVED", "different_operating_point",
+  [("210 kgf/cm2 = 20.6 MPa at 100 %", "SRC-JAXA-61856043", "N"), ("chamber_pressure 21.9 MPa", "SRC-WIKI-RD0120", "T"),
+   ("тяга в пустоте 200 тс; удельный импульс 455 с; давление в КС 223 кг/см2", "SRC-DB05-KBKHA-RD0120", "KB")],
+  "PARTIALLY_RESOLVED", "different_operating_point",
   "The encyclopedia's infobox quotes 106 % thrust next to its figures; 21.9 / 20.6 is 1.063, consistent with 106 % "
-  "against 100 %, but the JAXA paper returned 503 and nothing opened states it.")
+  "against 100 %, but the JAXA paper returned 503 (again on 2026-10-29). The manufacturer KBKhA prints 223 kgf/cm2 "
+  "(21.87 MPa DERIVED) beside 200 tf vacuum thrust, so 21.9 MPa is the manufacturer's headline figure; 200 tf against "
+  "the 190 tf seen elsewhere (1.053) tracks 223 against 210 (1.062), so the pair looks like two power levels. 210 "
+  "kgf/cm2 at 100 % is still unopened.")
 K("CF-R2_USSR-R2-10", "ENG-DE-A4-ENGINE", "propellants.consumed",
   [("9,700 kg / 62 s", "SRC-NASM-A19600013000", "N"), ("9,000 kg / 60 s", "SRC-NASM-A19790951000", "N")],
   "UNRESOLVED", None, "Both Smithsonian records were unreachable on retry. " + _PRIMARY)

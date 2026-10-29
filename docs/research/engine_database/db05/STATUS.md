@@ -872,3 +872,15 @@ LIQ-7 Pump Foundation: PAUSED.
   - RL10B2-PC-ISP and RL10A42-THRUST-ISP gain the 2011 values (633 psia / 465.5 s;
     22,300 lbf / 450.5 s) and stay PARTIALLY_RESOLVED.
 - UNRESOLVED: 107 → 105.
+
+## Pass 2026-10-29: KBKhA manufacturer pages (RD-0120, RD-0124, RD-0124MS, RD-0210)
+
+- The design bureau's own site (kbkha.ru) has a specification block per engine; four registered
+  as tier-A manufacturer sources by hand.
+  - CF-DB05-W-USSR-6 (RD-0124MS Isp) RESOLVED: 361 s for the RD0124MS, 359 s for the parent RD0124.
+  - CF-DB05-W-USSR-16 (RD-0210) PARTIALLY_RESOLVED: 59.36 tf (582.1 kN) and 150 kgf/cm2 (14.7 MPa);
+    burn time not printed.
+  - CF-DB05-E-R2_USSR-R2-6 (RD-0120 pc) PARTIALLY_RESOLVED: 223 kgf/cm2 (21.9 MPa) beside 200 tf.
+  - CF-DB05-RD0120-THRUST-GIMBAL PARTIALLY_RESOLVED: 200 tf = 1,961 kN; the gimbal angle is open.
+- The 11D58M page carries history but no figures.
+- UNRESOLVED: 105 → 101.
