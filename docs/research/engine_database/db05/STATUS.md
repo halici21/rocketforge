@@ -914,3 +914,6 @@ LIQ-7 Pump Foundation: PAUSED.
   322 s, Reaver ×4 836.3 kN (vac), with no "maximum" qualifier. CF-DB05-W-COMMERCIAL-COM-16 is
   PARTIALLY_RESOLVED (two maker figures, likely an uprate). COM-15 cites the guide and stays EXPLAINED.
 - UNRESOLVED: 100 → 98.
+- Rocket Lab: the Neutron PUG (rocketlabusa.com/assets/Uploads/Rocket-Lab-Neutron-PUG-Reduced.pdf) and the
+  Electron payload user's guides return 404, so COM-13/COM-14 stay open. IHI publishes no BT-4 page
+  that a search reaches.
