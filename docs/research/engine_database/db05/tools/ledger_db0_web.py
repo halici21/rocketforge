@@ -175,6 +175,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "JPK": "NASA Juno Launch press kit (2011) p.15 'Propulsion System'",
         "NH95": "NASA History article (2021-03-17), body text",
         "UM21": "CALT user's manual chapter 2, Table 2-1 'Technical Parameters' p.2-2",
+        "AUG": "Antares OSP-3 User's Guide Release 1.1 (2013) section 2.2.1 'Main Engine System' (mirror page 15)",
+        "EA6": "esa.int 'The engines of Ariane 6' (05/06/2024), Vulcain 2.1 characteristics box",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
 
@@ -506,9 +508,12 @@ K("CF-ANCHOR_EU_ASIA-4", "ENG-FR-VULCAIN-2", "flows.mdot_fuel",
   "Vulcain 2 value it prints; that supports the DB-0 suspicion that the esaMI page's 41.2 kg/s is the first Vulcain, "
   "though that page gave no text to confirm it.")
 K("CF-EUROPE-6", "ENG-FR-VULCAIN-2-1", "performance.thrust_vac",
-  [("1,371 kN (308,000 lbf)", "SRC-NEWSPACEECON-V21", "T"), ("1,340 kN", "SRC-METALAM-V21", "NF"), ("135 t vacuum", "SRC-3DPI-V21", "NF")],
-  "UNRESOLVED", None,
-  "Only one opened page gives a figure (1,371 kN); the other two fetched pages print none. Tertiary.")
+  [("1,371 kN (308,000 lbf)", "SRC-NEWSPACEECON-V21", "T"), ("1,340 kN", "SRC-METALAM-V21", "NF"), ("135 t vacuum", "SRC-3DPI-V21", "NF"),
+   ("Vulcain 2.1 main engine characteristics ... 1371 kN of thrust ... 468 seconds of operation", "SRC-DB05-ESA-A6-ENGINES", "EA6")],
+  "RESOLVED", "primary_value_found",
+  "ESA's Ariane 6 engines page (2024) prints 1371 kN ('more than 1370 kN' in its text), matching the news page's "
+  "1,371 kN. The 1,340 kN and 135 t (1,324 kN DERIVED) are not on their fetched pages; 1,340 kN is Vulcain 2's own "
+  "vacuum figure (see CF-DB05-E-EUROPE-3). ESA prints no ambient condition; the vacuum reading follows the news page.")
 K("CF-EUROPE-9", "ENG-FR-HM7B", "performance.thrust_vac",
   [("62.2 kN", "SRC-WIKI-HM7B", "W"), ("64.8 kN", "SRC-SATNOW-HM7B", "T"), ("ESC-A table: Thrust 67 kN, Isp 446 s; 'develops 67 kN maximum thrust in vacuum'", "SRC-DB05-ARIANESPACE-A5UM-I5R2", "A5H"),
    ("The HM-7B cryogenic engine provides a thrust of 65 kN in vacuum, with a specific impulse of 447 seconds (2005)", "SRC-DB05-ESA-BULLETIN-123-A5ECA", "B123")],
@@ -644,8 +649,14 @@ K("CF-R2_SC_COMM-R2-16", "ENG-US-BROADSWORD", "performance.thrust",
   [("25,000 lbf sea level", "SRC-MASTEN-ENGINES", "T"), ("25,000 lbf vacuum", "SRC-SATNOW-BROADSWORD", "NF")],
   "RESOLVED", "primary_value_found", "The maker's page says sea level; the catalogue's vacuum label was not on the fetched page.")
 K("CF-R2_SC_COMM-R2-18", "ENG-US-AJ26-62", "performance.thrust_vac",
-  [("1,680 kN", "SRC-KOREASCI-AJ26", "T"), ("1,815 kN", "SRC-SPACEFLIGHT101-ANTARES", "N"), ("3,265 kN for the pair", "SRC-WIKI-ANTARES", "W")],
-  "UNRESOLVED", "rating_or_rounding", "Only the Korean journal page was read; its 1,680 kN carries no rating name.")
+  [("1,680 kN", "SRC-KOREASCI-AJ26", "T"), ("1,815 kN", "SRC-SPACEFLIGHT101-ANTARES", "N"), ("3,265 kN for the pair", "SRC-WIKI-ANTARES", "W"),
+   ("two AJ26 LOX/RP rocket engines that supply approximately 3,630 kN (816,000 lbf) total vacuum thrust ... can throttle "
+    "from 58% to 108%", "SRC-DB05-ORBITAL-ANTARES-UG-2013", "AUG")],
+  "PARTIALLY_RESOLVED", "different_operating_point",
+  "The vehicle maker's 2013 user's guide gives about 3,630 kN total vacuum thrust for the two engines, 1,815 kN each "
+  "DERIVED, which is the unopened 1,815 kN figure. 1,815 / 1,680 = 1.080 DERIVED, equal to the guide's 108 percent "
+  "throttle ceiling, so the Korean 1,680 kN is consistent with the 100 percent vacuum rating; but no opened document "
+  "says that the 3,630 kN is the 108 percent point. The encyclopedia's 3,265 kN pair carries no condition.")
 K("CF-R2_SC_COMM-R2-20", "ENG-US-NEWTONFOUR", "performance.thrust_vac",
   [("5,000 lbf", "SRC-WIKI-LAUNCHERONE", "W"), ("5,000 lbf", "SRC-NSF-LAUNCHERONE-2020", "T"), ("about 6,000 lb", "SRC-AVIATIONIST-L1-2020", "T")],
   "UNRESOLVED", "rating_or_rounding", "Two 2020 news pages give 5,000 and about 6,000 lb; neither cites the maker.")
@@ -838,3 +849,11 @@ D("SRC-DB05-CALT-LM3C-UM-1998", identifier='https://www.globalsecurity.org/space
 D("SRC-DB05-CALT-LM2E-UM-1999", identifier='https://www.globalsecurity.org/space/library/report/1999/lm2echapter2.pdf', title="LM-2E User's Manual, Chapter 2 (CALT, Issue 1999)", tier="A",
   rights_checked="manufacturer manual marked proprietary, third-party mirror; values only", rights_class="RESTRICTED_REFERENCE",
   note="22 pages, text layer (GlobalSecurity mirror of the CALT manual; pages marked 'CALT'S PROPRIETARY'). Table 2-1 p.2-2: DaFY20-1 (main) 741.4 kN, 2922.37 N.s/kg; DaFY21-1 (verniers) 11.8x4 kN, 2834.11 N.s/kg (in vacuum); text: total second-stage thrust 788.5 kN. Used as a conflict claim only.")
+
+D("SRC-DB05-ORBITAL-ANTARES-UG-2013", identifier='https://www.manualsdir.com/manuals/569836/orbital-antares.html?page=15', title="Antares OSP-3 User's Guide, Release 1.1 (Orbital Sciences, July 2013)", tier="A",
+  rights_checked="manufacturer guide approved for public release, read from a third-party mirror; values only",
+  rights_class="RESTRICTED_REFERENCE", note="Antares OSP-3 User's Guide, Release 1.1, July 2013 (Orbital Sciences Corporation; 'Approved for Public Release, Distribution Unlimited'), read as the text layer of a 99-page third-party mirror (manualsdir.com, pages 2-3 and 15). Section 2.2.1 (mirror page 15): 'The MES consists of two AJ26 LOX/RP rocket engines that supply approximately 3,630 kN (816,000 lbf) total vacuum thrust' ... 'an oxygen-rich, staged combustion cycle that can throttle from 58% to 108%'. Used as a conflict claim only.")
+
+D("SRC-DB05-ESA-A6-ENGINES", identifier='https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/The_engines_of_Ariane_6', title="The engines of Ariane 6 (ESA)", tier="A",
+  rights_checked="ESA web page; reuse terms not reviewed", rights_class="RESTRICTED_REFERENCE",
+  note="ESA page 'The engines of Ariane 6' (dated 05/06/2024). Vulcain 2.1 text: 'providing more than 1370 kN of thrust'; 'Vulcain 2.1 main engine characteristics: 154 000 kg of liquid oxygen (LOX) and liquid hydrogen (LH2) consumed; 1371 kN of thrust; 15 mW turbopump power; 468 seconds of operation'; LH2 turbopump 33 000 rpm, 15 MW. No vacuum/sea-level qualifier is printed. Developed by ArianeGroup, Vernon. Used as a conflict claim only.")

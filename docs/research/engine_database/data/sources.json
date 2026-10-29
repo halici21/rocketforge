@@ -26557,6 +26557,52 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ORBITAL-ANTARES-UG-2013",
+   "title": "Antares OSP-3 User's Guide, Release 1.1 (Orbital Sciences, July 2013)",
+   "authors": [],
+   "organization": "Orbital Sciences Corporation",
+   "year": 2013,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "Antares OSP-3 User's Guide Release 1.1 (July 2013); manualsdir.com mirror 569836",
+   "url": "https://www.manualsdir.com/manuals/569836/orbital-antares.html?page=15",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Manufacturer guide approved for public release; read from a third-party mirror; values only.",
+   "engines": [
+    "ENG-US-AJ26-62"
+   ],
+   "locators": "section 2.2.1 (mirror page 15)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): Antares OSP-3 User's Guide, Release 1.1, July 2013 (Orbital Sciences Corporation; 'Approved for Public Release, Distribution Unlimited'), read as the text layer of a 99-page third-party mirror (manualsdir.com, pages 2-3 and 15). Section 2.2.1 (mirror page 15): 'The MES consists of two AJ26 LOX/RP rocket engines that supply approximately 3,630 kN (816,000 lbf) total vacuum thrust' ... 'an oxygen-rich, staged combustion cycle that can throttle from 58% to 108%'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ESA-A6-ENGINES",
+   "title": "The engines of Ariane 6 (ESA)",
+   "authors": [],
+   "organization": "European Space Agency",
+   "year": 2024,
+   "source_type": "agency web page",
+   "identifier": "esa.int page dated 05/06/2024",
+   "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/The_engines_of_Ariane_6",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ESA web page; reuse terms not reviewed.",
+   "engines": [
+    "ENG-FR-VULCAIN-2-1"
+   ],
+   "locators": "Vulcain 2.1 section and characteristics box",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-29): ESA page 'The engines of Ariane 6' (dated 05/06/2024). Vulcain 2.1 text: 'providing more than 1370 kN of thrust'; 'Vulcain 2.1 main engine characteristics: 154 000 kg of liquid oxygen (LOX) and liquid hydrogen (LH2) consumed; 1371 kN of thrust; 15 mW turbopump power; 468 seconds of operation'; LH2 turbopump 33 000 rpm, 15 MW. No vacuum/sea-level qualifier is printed. Developed by ArianeGroup, Vernon.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

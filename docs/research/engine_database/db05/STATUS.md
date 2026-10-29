@@ -958,3 +958,16 @@ LIQ-7 Pump Foundation: PAUSED.
   connection. NASA's own Goddard biography URLs return 404. GlobalSecurity mirrors no LM-2C/2D/4 manuals; LM-3A/3B
   chapters add nothing for an open conflict. One jdse request (DOI ...20210012, CZ-5 booster) gives 2 400 kN for two
   YF-100, consistent with R2A-15.
+
+### Pass: AJ26-62 and Vulcain 2.1 (2026-10-29)
+
+- CF-DB05-W-R2_SC_COMM-R2-18 (AJ26-62 vacuum thrust) PARTIALLY_RESOLVED, different_operating_point: Orbital's Antares
+  OSP-3 User's Guide Release 1.1 (July 2013, approved for public release; read from the manualsdir.com mirror,
+  section 2.2.1) gives about 3,630 kN total vacuum thrust for two engines (1,815 kN each DERIVED) and a 58-108 %
+  throttle range; 1,815 / 1,680 = 1.080 DERIVED, consistent with the Korean 1,680 kN being the 100 % rating, but not
+  printed as such.
+- CF-DB05-W-EUROPE-6 (Vulcain 2.1 thrust) RESOLVED: ESA's 'The engines of Ariane 6' page (05/06/2024) prints 1371 kN.
+  The 1,340 kN and 135 t are not on their fetched pages. Unresolved: 91 → 89.
+- Looked at, no change: a 2015 Via Satellite report gives NewtonFour 'capable of 5,000 lbf' (news, not the maker), so
+  R2-20 stays open; the Ariane 6 User's Manual Issue 2 (2021) and ESA's 2023 Ariane 5 media kit print no Vulcain 2.1
+  thrust, Aestus or HM7B chamber pressure.

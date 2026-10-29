@@ -3131,11 +3131,16 @@
      "135 t vacuum",
      "SRC-3DPI-V21",
      "fetched; value not in its extracted text"
+    ],
+    [
+     "Vulcain 2.1 main engine characteristics ... 1371 kN of thrust ... 468 seconds of operation",
+     "SRC-DB05-ESA-A6-ENGINES",
+     "esa.int 'The engines of Ariane 6' (05/06/2024), Vulcain 2.1 characteristics box"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Only one opened page gives a figure (1,371 kN); the other two fetched pages print none. Tertiary."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "ESA's Ariane 6 engines page (2024) prints 1371 kN ('more than 1370 kN' in its text), matching the news page's 1,371 kN. The 1,340 kN and 135 t (1,324 kN DERIVED) are not on their fetched pages; 1,340 kN is Vulcain 2's own vacuum figure (see CF-DB05-E-EUROPE-3). ESA prints no ambient condition; the vacuum reading follows the news page."
   },
   {
    "conflict_id": "CF-DB05-W-EUROPE-9",
@@ -3804,11 +3809,16 @@
      "3,265 kN for the pair",
      "SRC-WIKI-ANTARES",
      "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "two AJ26 LOX/RP rocket engines that supply approximately 3,630 kN (816,000 lbf) total vacuum thrust ... can throttle from 58% to 108%",
+     "SRC-DB05-ORBITAL-ANTARES-UG-2013",
+     "Antares OSP-3 User's Guide Release 1.1 (2013) section 2.2.1 'Main Engine System' (mirror page 15)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "Only the Korean journal page was read; its 1,680 kN carries no rating name."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_operating_point",
+   "explanation": "The vehicle maker's 2013 user's guide gives about 3,630 kN total vacuum thrust for the two engines, 1,815 kN each DERIVED, which is the unopened 1,815 kN figure. 1,815 / 1,680 = 1.080 DERIVED, equal to the guide's 108 percent throttle ceiling, so the Korean 1,680 kN is consistent with the 100 percent vacuum rating; but no opened document says that the 3,630 kN is the 108 percent point. The encyclopedia's 3,265 kN pair carries no condition."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SC_COMM-R2-20",
