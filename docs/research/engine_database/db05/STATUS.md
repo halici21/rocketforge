@@ -1063,3 +1063,9 @@ contacted again; only web.archive.org captures were read.
 - CF-DB05-W-EUROPE-26 (Super Sprite) PARTIALLY_RESOLVED: the Smithsonian gives 4,200 lb maximum for 40 s, adjustable.
 - Unresolved: 68 → 65. No archive capture exists for the STS-104 FRR chart mirror (RS-7), the SpaceX Starship
   specification page (R2-3) or the newspacetracker page (VR900).
+- 2026-10-29: CF-DB05-W-R2_USSR-R2-9 (V-2 peroxide) stays UNRESOLVED; the Smithsonian V-2 record confirms the 27 %
+  sodium permanganate Z-Stoff but no peroxide concentration, and v2rockethistory.com serves a bot check (not
+  bypassed). Dead end: the ILS Proton Mission Planner's Guide Rev 7 (July 2009, archive captures of sections 0, 1,
+  2, A) gives the Breeze M 14D30 19.62 kN vacuum thrust and the RD-0213 583 kN, but no 14D30 Isp, so the S5.98M Isp
+  conflicts (R2_USSR-R2-18, R2_SC_COMM-R2-11) stay open. Sites answering 403 or a bot check were not read through
+  the archive either.

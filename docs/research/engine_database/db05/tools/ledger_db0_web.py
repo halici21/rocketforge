@@ -187,6 +187,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
+        "NV2A": "NASM record A19600013000, description (archive capture 2025-04-05)",
         "NSS": "NASM record A19700331000 (Super Sprite), description (archive capture 2025-04-05)",
         "G17": "NTRS 20170001286 (Masse et al., GR-1/GR-22 advancements) p.2, section II",
         "R69": "NTRS 19690029231 (Apollo SM-LM RCS engine development program summary, vol. 1, 1969) PDF p.10 and p.125"}
@@ -291,9 +292,11 @@ K("CF-R2_USSR-R2-8", "ENG-RU-RD-0124", "dimensions",
   "dimensions of the built engine.")
 K("CF-R2_USSR-R2-9", "ENG-DE-A4-ENGINE", "propellants.h2o2_concentration",
   [("85 %; Ca/K/Na permanganate", "SRC-ENGINEHISTORY-RPE02-2", "T"), ("80 % test strength", "SRC-V2ROCKETHISTORY", "N"),
-   ("Z-Stoff = 27 % sodium permanganate solution", "SRC-NASM-A19600013000", "N")],
+   ("Z-Stoff, a catalyst consisting of a 27% solution of sodium permanganate", "SRC-NASM-A19600013000", "NV2A")],
   "UNRESOLVED", None,
-  "Only the AEHS page was read (85 %). The 80 % and the Z-Stoff concentration were not opened.")
+  "The AEHS page gives 85 %; the Smithsonian V-2 record (read 2026-10-29 from an archive capture) confirms the 27 % "
+  "sodium permanganate Z-Stoff but gives no peroxide concentration. The 80 % page sits behind a bot check and was not "
+  "read.")
 K("CF-R2_USSR-R2-16", "ENG-RU-S5-92", "performance.isp_vac / operations.starts",
   [("Restart capability up to 20", "SRC-STARSEM-ST07", "T"), ("50 starts; 327 / 316 s", "SRC-WIKI-S592", "W"),
    ("323 / 329 s; 1,400 / 2,000 kg", "SRC-RSW-FREGAT", "T")],

@@ -2080,14 +2080,14 @@
      "DB-0 search summary (never opened)"
     ],
     [
-     "Z-Stoff = 27 % sodium permanganate solution",
+     "Z-Stoff, a catalyst consisting of a 27% solution of sodium permanganate",
      "SRC-NASM-A19600013000",
-     "DB-0 search summary (never opened)"
+     "NASM record A19600013000, description (archive capture 2025-04-05)"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": null,
-   "explanation": "Only the AEHS page was read (85 %). The 80 % and the Z-Stoff concentration were not opened."
+   "explanation": "The AEHS page gives 85 %; the Smithsonian V-2 record (read 2026-10-29 from an archive capture) confirms the 27 % sodium permanganate Z-Stoff but gives no peroxide concentration. The 80 % page sits behind a bot check and was not read."
   },
   {
    "conflict_id": "CF-DB05-W-R2_USSR-R2-16",
