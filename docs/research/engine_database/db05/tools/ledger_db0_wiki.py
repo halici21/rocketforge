@@ -80,6 +80,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "NV2C": "NASM record A19771237000, description (archive capture 2025-04-20)",
         "HM7P": "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)",
         "KK1": "kistleraerospace.com/specs.html, K-1 Specifications list (archive capture 2001-12-26)",
+        "BF5": "Report on Operation Backfire vol. V (1946), section 3 'Fuel Characteristics and Storage', paras. 63 and 69",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -228,18 +229,23 @@ K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
 K("CF-R2_USSR-R2-10", "ENG-DE-A4-ENGINE", "propellants.consumed",
   [("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A"),
    ("nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen ... during the 60-second burning time", "SRC-NASM-A19790951000", "NV2B"),
-   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C')],
+   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C'),
+   ('LIQUID OXYGEN Quantity required per rocket = 5,000 kg. (10,930 lb.); alcohol 4 tons (8,150 lb. or 3700 kg. approx.), but varying according to range', "SRC-DB05-BACKFIRE-VOL5-1946", "BF5")],
   "PARTIALLY_RESOLVED", "definition",
   "Both Smithsonian records, read from archive captures, give a 60-second burn (not 62 s). They name different "
   "quantities: about 9,700 kg of liquid oxygen alone in one, nearly 9,000 kg of alcohol and oxygen together in the other. "
   "Read literally they contradict each other, since oxygen alone exceeds the combined total; neither cites a source. "
   "A third Smithsonian record (A19771237000, read 2026-10-31) splits the flow as about 4,200 kg water-alcohol and "
-  "5,500 kg liquid oxygen, which sums to the 9,700 kg the first record calls oxygen. See CF-DB05-E-R2_SCHEM-R2-13.")
+  "5,500 kg liquid oxygen, which sums to the 9,700 kg the first record calls oxygen. The 1946 Backfire report, the "
+  "contemporary primary, loads 5,000 kg of liquid oxygen and about 3,700 kg of 75 % alcohol per rocket (8,700 kg "
+  "DERIVED, alcohol varying with range). See CF-DB05-E-R2_SCHEM-R2-13.")
 K("CF-R2_SCHEM-R2-13", "ENG-DE-A4-ENGINE", "propellants.load_mass",
   [("~9,700 kg LOX over 60 s", None, "X"), ("4,200 kg water-alcohol + 5,500 kg LOX", None, "X"),
    ("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A"),
-   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C')],
+   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C'),
+   ('LIQUID OXYGEN Quantity required per rocket = 5,000 kg. (10,930 lb.); alcohol 4 tons (8,150 lb. or 3700 kg. approx.), but varying according to range', "SRC-DB05-BACKFIRE-VOL5-1946", "BF5")],
   "PARTIALLY_RESOLVED", "definition",
+  "The 1946 Backfire report gives 5,000 kg of liquid oxygen per rocket, so 9,700 kg cannot be oxygen alone. "
   "4,200 + 5,500 = 9,700 kg. A Smithsonian record (A19771237000, archive capture read 2026-10-31) gives exactly that "
   "split, about 4,200 kg water-alcohol and 5,500 kg liquid oxygen over 60 s, so the 9,700 kg another Smithsonian record "
   "calls liquid oxygen is the total of both propellants, mislabelled. A third record's 'nearly 9,000 kg' of both stays "

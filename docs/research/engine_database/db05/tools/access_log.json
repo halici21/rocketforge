@@ -7614,5 +7614,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-RL-PROPULSION-PAGE-2015.html"
+ },
+ "SRC-DB05-BACKFIRE-VOL5-1946": {
+  "source_id": "SRC-DB05-BACKFIRE-VOL5-1946",
+  "url": "https://archive.org/details/Reportonoperati5Grea",
+  "time_utc": "2026-10-30T21:55:15Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://archive.org/details/Reportonoperati5Grea",
+  "bytes": 207318,
+  "sha256": "e4b93eaf9e7903a83593552c6a5533e083526c9ecb039279a73eb6be5e269045",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-BACKFIRE-VOL5-1946.html"
  }
 }

@@ -1180,7 +1180,18 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   (NK-33) on the first stage and AJ26-60 (NK-43) on the second.
 - Dead ends: Intuitive Machines' VR900 release is 403 live and its only archived PDF is a 1 MB Common Crawl
   truncation holding images only; no Viking 5C chamber pressure from a maker or Arianespace document was found.
-- Where the 40 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+- COM-13 (Rutherford sea-level Isp) PARTIALLY_RESOLVED, definition: Rocket Lab's May 2017 Electron page gives the
+  first stage 162 kN lift-off, 192 kN peak and 'ISP 303 sec' (vacuum stage 333 s). Read as sea level, 303 s would imply
+  about 359 s in vacuum (DERIVED), above the vacuum engine, so the maker's first-stage Isp is not a sea-level figure; the
+  later 311 s still carries no condition. A 2015 page gives one 327 s.
+- R2_USSR-R2-9 (V-2 peroxide strength) RESOLVED: Report on Operation Backfire vol. V (War Office, January 1946; Smithsonian
+  Libraries scan on the Internet Archive) gives A-4 hydrogen peroxide 'Concentration by weight = 78-80 per cent'. The same
+  section loads 5,000 kg of liquid oxygen and about 3,700 kg of alcohol per rocket, added to R2_SCHEM-R2-13 and
+  R2_USSR-R2-10. The OKH Geraetebeschreibung A 4 of 1 February 1945 (same Internet Archive collection) calls T-Stoff only
+  'hochprozentig' and does not use 'Triebwerk 39'.
+- Dead end: LandSpace's archived product page gives TQ-12A sea-level figures (720 kN, 2,840 m/s) and says it improves on
+  TQ-12 by 40 m/s, but no vacuum Isp for either; ASIA_OTHER-13 stays open.
+- Where the 38 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
   current script-rendered pages).

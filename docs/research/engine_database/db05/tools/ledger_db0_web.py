@@ -196,6 +196,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "NMX": "NMUSAF XLR11 fact sheet (archive capture 2020-12-03)",
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "SSAU14": "Vestnik SSAU 2014 (RSC Energia), control-scheme text (re-read 2026-10-31)",
+        "BF5": "Report on Operation Backfire vol. V (1946), section 3 'Fuel Characteristics and Storage', paras. 63, 69, 71",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -306,11 +307,16 @@ K("CF-R2_USSR-R2-8", "ENG-RU-RD-0124", "dimensions",
   "dimensions of the built engine.")
 K("CF-R2_USSR-R2-9", "ENG-DE-A4-ENGINE", "propellants.h2o2_concentration",
   [("85 %; Ca/K/Na permanganate", "SRC-ENGINEHISTORY-RPE02-2", "T"), ("80 % test strength", "SRC-V2ROCKETHISTORY", "N"),
-   ("Z-Stoff, a catalyst consisting of a 27% solution of sodium permanganate", "SRC-NASM-A19600013000", "NV2A")],
-  "UNRESOLVED", None,
+   ("Z-Stoff, a catalyst consisting of a 27% solution of sodium permanganate", "SRC-NASM-A19600013000", "NV2A"),
+   ("HYDROGEN PEROXIDE Quantity required per rocket = 126 litres (370 lb.). Concentration by weight = 78-80 per cent. "
+    "Specific gravity (A-4 Fuel) = 1.34", "SRC-DB05-BACKFIRE-VOL5-1946", "BF5")],
+  "RESOLVED", "primary_value_found",
   "The AEHS page gives 85 %; the Smithsonian V-2 record (read 2026-10-29 from an archive capture) confirms the 27 % "
   "sodium permanganate Z-Stoff but gives no peroxide concentration. The 80 % page sits behind a bot check and was not "
-  "read.")
+  "read. The British Operation Backfire report (vol. V, January 1946), written after firing captured A-4s with German "
+  "crews and German-specified propellants, gives the A-4 hydrogen peroxide as 78-80 per cent by weight (specific gravity "
+  "1.34), so 80 % is the documented A-4 strength. The 85 % has no contemporary source; the German Geraetebeschreibung "
+  "A 4 says only 'hochprozentig'.")
 K("CF-R2_USSR-R2-16", "ENG-RU-S5-92", "performance.isp_vac / operations.starts",
   [("Restart capability up to 20", "SRC-STARSEM-ST07", "T"), ("50 starts; 327 / 316 s", "SRC-WIKI-S592", "W"),
    ("323 / 329 s; 1,400 / 2,000 kg", "SRC-RSW-FREGAT", "T")],
@@ -1077,3 +1083,7 @@ D('SRC-DB05-RL-ELECTRON-PAGE-2017', identifier='https://web.archive.org/web/2017
 D('SRC-DB05-RL-PROPULSION-PAGE-2015', identifier='https://web.archive.org/web/20151218131601/http://www.rocketlabusa.com/about-us/propulsion/', title='Propulsion (Rocket Lab web page, captured 2015-12-18)', tier="A",
   rights_checked="maker page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. Rocket Lab propulsion page, Internet Archive capture of 2015-12-18: 'The Rutherford Engine is an electric turbo-pumped LOX/RP-1 engine specifically designed for the Electron launch vehicle, capable of 5,000 lbf thrust and with an ISP of 327 s.' 'Electron uses two variants of the Rutherford engine, a sea level and a vacuum engine. The vacuum variant differs only in nozzle shape'. No condition is given for the 327 s. Used as a conflict claim only.")
+
+D('SRC-DB05-BACKFIRE-VOL5-1946', identifier='https://archive.org/details/Reportonoperati5Grea', title="Report on Operation 'Backfire', Volume V: Recording and Analysis (War Office, London, January 1946)", tier="A",
+  rights_checked="1946 Crown report, scan marked public domain by Smithsonian Libraries; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. British War Office / Ministry of Supply report on the October 1945 Cuxhaven firings of captured A-4 (V-2) rockets, Volume V, January 1946; Smithsonian Libraries scan on the Internet Archive (item Reportonoperati5Grea, marked public domain by the library). Section 3 'Fuel Characteristics and Storage': para. 63 'LIQUID OXYGEN Quantity required per rocket = 5,000 kg. (10,930 lb.) Purity = 98 per cent.'; para. 69 alcohol 'Quantity required per rocket = 4 tons (8,150 lb. or 3700 kg. approx.), but varying according to range', concentration 75 per cent; para. 71 'HYDROGEN PEROXIDE Quantity required per rocket = 126 litres (370 lb.). Concentration by weight = 78-80 per cent. Specific gravity (A-4 Fuel) = 1.34'. Read from the OCR text. Used as a conflict claim only.")

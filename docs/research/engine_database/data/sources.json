@@ -27266,6 +27266,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-BACKFIRE-VOL5-1946",
+   "title": "Report on Operation 'Backfire', Volume V: Recording and Analysis (War Office, London, January 1946)",
+   "authors": [],
+   "organization": "Great Britain, War Office / Ministry of Supply",
+   "year": 1946,
+   "source_type": "government technical report",
+   "identifier": "https://archive.org/details/Reportonoperati5Grea",
+   "url": "https://archive.org/details/Reportonoperati5Grea",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "1946 Crown publication, scan marked public domain by Smithsonian Libraries; values only.",
+   "engines": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "locators": "Section 3, paras. 63, 69, 71",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): British War Office / Ministry of Supply report on the October 1945 Cuxhaven firings of captured A-4 (V-2) rockets, Volume V, January 1946; Smithsonian Libraries scan on the Internet Archive (item Reportonoperati5Grea, marked public domain by the library). Section 3 'Fuel Characteristics and Storage': para. 63 'LIQUID OXYGEN Quantity required per rocket = 5,000 kg. (10,930 lb.) Purity = 98 per cent.'; para. 69 alcohol 'Quantity required per rocket = 4 tons (8,150 lb. or 3700 kg. approx.), but varying according to range', concentration 75 per cent; para. 71 'HYDROGEN PEROXIDE Quantity required per rocket = 126 litres (370 lb.). Concentration by weight = 78-80 per cent. Specific gravity (A-4 Fuel) = 1.34'. Read from the OCR text.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
