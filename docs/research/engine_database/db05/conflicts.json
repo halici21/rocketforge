@@ -5392,11 +5392,16 @@
      "chamber_pressure 5.5 MPa",
      "SRC-WIKI-VIKING",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "The main operating characteristics for the VIKING engines are: (typical first stage values): Chamber pressure 58.5 bar ... Specific impulse in vacuum 278 s",
+     "SRC-DB05-ARIANE4-UM-I2-1999",
+     "Ariane 4 User's Manual issue 2 (1999), annex 1 sections 3.2.2 (Viking) and 3.4 (HM7B)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The French page refused access (HTTP 403). No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Arianespace's Ariane 4 User's Manual (issue 2, 1999) gives the first-stage Viking V (the 5C) a chamber pressure of 58.5 bar as a typical first-stage value. The English encyclopedia's 5.5 MPa is unsourced and may belong to an earlier Viking; the French page refused access, but its 58.5 bar is the operator's figure."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-25",
@@ -6206,11 +6211,16 @@
      "HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec",
      "SRC-DB05-ASTRIUM-HM7B-PAGE",
      "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)"
+    ],
+    [
+     "This system comprises a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s ... Chamber pressure 36 bar (Ariane 4, 1999)",
+     "SRC-DB05-ARIANE4-UM-I2-1999",
+     "Ariane 4 User's Manual issue 2 (1999), annex 1 sections 3.2.2 (Viking) and 3.4 (HM7B)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "The thrust-chamber maker's own page (Airbus DS Ottobrunn, archive capture 2016-03-04) carries the same pair: its history says the HM-7B qualified in 1983 after chamber pressure was raised from 30 to 35 bar, and its current characteristics table (ESC-A era, 950 s burn) prints 37 bar. So 37 bar is the maker's tabulated HM7B value and 35 bar the 1983 qualification step; the page does not say when or why it became 37 bar."
+   "explanation": "Arianespace's 1999 Ariane 4 manual gives the HM7B 36 bar (64.7 kN, 446.5 s), between the two. The thrust-chamber maker's own page (Airbus DS Ottobrunn, archive capture 2016-03-04) carries the same pair: its history says the HM-7B qualified in 1983 after chamber pressure was raised from 30 to 35 bar, and its current characteristics table (ESC-A era, 950 s burn) prints 37 bar. So 37 bar is the maker's tabulated HM7B value and 35 bar the 1983 qualification step; the page does not say when or why it became 37 bar."
   },
   {
    "conflict_id": "CF-DB05-E-ANCHOR_EU_ASIA-6",
@@ -6232,11 +6242,16 @@
      "HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec",
      "SRC-DB05-ASTRIUM-HM7B-PAGE",
      "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)"
+    ],
+    [
+     "This system comprises a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s ... Chamber pressure 36 bar (Ariane 4, 1999)",
+     "SRC-DB05-ARIANE4-UM-I2-1999",
+     "Ariane 4 User's Manual issue 2 (1999), annex 1 sections 3.2.2 (Viking) and 3.4 (HM7B)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "As CF-DB05-E-EUROPE-8: the maker's characteristics table prints 37 bar, its history 35 bar for the 1983 HM-7B. The 35.3 bar comes from a machine-generated page and is not evidence of anything."
+   "explanation": "Arianespace's 1999 Ariane 4 manual gives the HM7B 36 bar (64.7 kN, 446.5 s), between the two. As CF-DB05-E-EUROPE-8: the maker's characteristics table prints 37 bar, its history 35 bar for the 1983 HM-7B. The 35.3 bar comes from a machine-generated page and is not evidence of anything."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-10",

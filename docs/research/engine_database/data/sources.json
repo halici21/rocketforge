@@ -27313,6 +27313,30 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ARIANE4-UM-I2-1999",
+   "title": "Ariane 4 User's Manual, Issue 2, Revision 0 (Arianespace, February 1999)",
+   "authors": [],
+   "organization": "Arianespace",
+   "year": 1999,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "https://archive.org/details/ariane-4-users-manual-issue-2-rev-0-1999-02",
+   "url": "https://archive.org/details/ariane-4-users-manual-issue-2-rev-0-1999-02",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Launch operator's manual read from an Internet Archive scan; values only.",
+   "engines": [
+    "ENG-FR-VIKING-5C",
+    "ENG-FR-HM7B"
+   ],
+   "locators": "Annex 1, sections 3.2.2 and 3.4",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Arianespace Ariane 4 User's Manual, Issue 2 Rev. 0, February 1999, scan on the Internet Archive (item ariane-4-users-manual-issue-2-rev-0-1999-02). Annex 1 section 3.2 first-stage propulsion: four Viking V engines, about 2700 kN on the ground (about 3000 kN in vacuum); 'The main operating characteristics for the VIKING engines are: (typical first stage values): Chamber pressure 58.5 bar; Turbopump rotor 10 000 rpm; ... Generator gas pressure 35 bar; Tank pressurization level 5 bar; Specific impulse in vacuum 278 s'. Section 3.4 third stage: 'a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s'; 'Chamber pressure 36 bar'; 'Pressure of generator 24 bar'. Read from the OCR text.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

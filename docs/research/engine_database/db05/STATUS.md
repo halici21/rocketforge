@@ -1199,7 +1199,11 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   A19510007000) names an RM-5; KB Khimmash's archived pages give KVD-1 data and its 1997 qualification but no 11D56
   development span; archived spacex.com/updates captures are script shells; the IAF abstract PDFs for the YF-77
   papers answer 'unauthorized' (not pursued further).
-- Where the 37 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+- R2_ASIA-R2A-18 (Viking 5C Pc) RESOLVED: Arianespace's Ariane 4 User's Manual (issue 2, February 1999; Internet Archive
+  scan) gives the first-stage Viking 58.5 bar as a typical first-stage value (vacuum Isp 278 s). The same manual gives
+  the HM7B 36 bar, 64.7 kN and 446.5 s, added to EUROPE-8 and ANCHOR_EU_ASIA-6: 35 bar at 1983 qualification, 36 bar in
+  the 1999 Ariane 4 manual, 37 bar on the thrust-chamber maker's later page.
+- Where the 36 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
   current script-rendered pages).

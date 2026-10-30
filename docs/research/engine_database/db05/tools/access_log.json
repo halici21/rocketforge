@@ -7640,5 +7640,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-ELDO-EUROPA-CM-1971.html"
+ },
+ "SRC-DB05-ARIANE4-UM-I2-1999": {
+  "source_id": "SRC-DB05-ARIANE4-UM-I2-1999",
+  "url": "https://archive.org/details/ariane-4-users-manual-issue-2-rev-0-1999-02",
+  "time_utc": "2026-10-30T22:05:21Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://archive.org/details/ariane-4-users-manual-issue-2-rev-0-1999-02",
+  "bytes": 213851,
+  "sha256": "68c792339dfbd958e44e47a2507a15b40a41c52ccb524a0e4b31a8d4784e86f1",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ARIANE4-UM-I2-1999.html"
  }
 }

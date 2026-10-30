@@ -81,6 +81,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "HM7P": "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)",
         "KK1": "kistleraerospace.com/specs.html, K-1 Specifications list (archive capture 2001-12-26)",
         "BF5": "Report on Operation Backfire vol. V (1946), section 3 'Fuel Characteristics and Storage', paras. 63 and 69",
+        "A4UM": "Ariane 4 User's Manual issue 2 (1999), annex 1 sections 3.2.2 (Viking) and 3.4 (HM7B)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -343,8 +344,13 @@ K("CF-R2_ASIA-R2A-11", "ENG-IN-CE-7-5", "performance.thrust_vac",
   "EXPLAINED", "unit",
   "The '75 kN max' was a misreading: the 75 on the page is the 75 bar chamber pressure; the thrust is 73.55 kN.")
 K("CF-R2_ASIA-R2A-18", "ENG-FR-VIKING-5C", "performance.pc",
-  [("58.5 bar", "SRC-FRWIKI-VIKING", "N"), ("chamber_pressure 5.5 MPa", "SRC-WIKI-VIKING", "T")],
-  "UNRESOLVED", None, "The French page refused access (HTTP 403). " + _PRIMARY)
+  [("58.5 bar", "SRC-FRWIKI-VIKING", "N"), ("chamber_pressure 5.5 MPa", "SRC-WIKI-VIKING", "T"),
+   ("The main operating characteristics for the VIKING engines are: (typical first stage values): Chamber pressure 58.5 bar "
+    "... Specific impulse in vacuum 278 s", "SRC-DB05-ARIANE4-UM-I2-1999", "A4UM")],
+  "RESOLVED", "primary_value_found",
+  "Arianespace's Ariane 4 User's Manual (issue 2, 1999) gives the first-stage Viking V (the 5C) a chamber pressure of "
+  "58.5 bar as a typical first-stage value. The English encyclopedia's 5.5 MPa is unsourced and may belong to an earlier "
+  "Viking; the French page refused access, but its 58.5 bar is the operator's figure.")
 K("CF-R2_ASIA-R2A-25", "ENG-KP-HWASONG-15-FIRST-STAGE-ENGINE", "geometry.chamber_count",
   [("Engine 1 Paektusan ... 788 kN", "SRC-WIKI-HS15", "T"), ("two combustors fed by common turbopump", "SRC-WIKI-HS15", "T")],
   "EXPLAINED", "definition", "One article: one engine with two combustors on a common turbopump. Counting, not conflict.")
@@ -561,13 +567,17 @@ K("CF-COMMERCIAL-COM-17", "ENG-US-MERLIN-1D-BLOCK-5", "performance.isp",
 K("CF-EUROPE-8", "ENG-FR-HM7B", "performance.pc",
   [("Chamber pressure 3.7 MPa (37 bar)", "SRC-WIKI-HM7B", "T"), ("increasing the chamber pressure from 30 to 35 bar", "SRC-WIKI-HM7B", "T"),
    ('raising the combustion chamber pressure from 30 to 35 bar ... designated HM-7B and was qualified in 1983', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P'),
-   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P')],
+   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P'),
+   ('This system comprises a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s ... Chamber pressure 36 bar (Ariane 4, 1999)', 'SRC-DB05-ARIANE4-UM-I2-1999', 'A4UM')],
   "PARTIALLY_RESOLVED", "different_epoch",
+  "Arianespace's 1999 Ariane 4 manual gives the HM7B 36 bar (64.7 kN, 446.5 s), between the two. "
   "The thrust-chamber maker's own page (Airbus DS Ottobrunn, archive capture 2016-03-04) carries the same pair: its history says the HM-7B qualified in 1983 after chamber pressure was raised from 30 to 35 bar, and its current characteristics table (ESC-A era, 950 s burn) prints 37 bar. So 37 bar is the maker's tabulated HM7B value and 35 bar the 1983 qualification step; the page does not say when or why it became 37 bar.")
 K("CF-ANCHOR_EU_ASIA-6", "ENG-FR-HM7B", "performance.pc",
   [("Chamber pressure 3.7 MPa (37 bar); from 30 to 35 bar", "SRC-WIKI-HM7B", "T"), ("Chamber pressure 35.3 bar", "SRC-LLMPEDIA-HM7B", "T"),
-   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P')],
+   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P'),
+   ('This system comprises a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s ... Chamber pressure 36 bar (Ariane 4, 1999)', 'SRC-DB05-ARIANE4-UM-I2-1999', 'A4UM')],
   "PARTIALLY_RESOLVED", "different_epoch",
+  "Arianespace's 1999 Ariane 4 manual gives the HM7B 36 bar (64.7 kN, 446.5 s), between the two. "
   "As CF-DB05-E-EUROPE-8: the maker's characteristics table prints 37 bar, its history 35 bar for the 1983 HM-7B. "
   "The 35.3 bar comes from a machine-generated page and is not evidence of anything.")
 K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
@@ -868,3 +878,7 @@ D('SRC-DB05-ASTRIUM-HM7B-PAGE', identifier='https://web.archive.org/web/20160304
 D('SRC-DB05-KISTLER-K1-SPECS-2001', identifier='https://web.archive.org/web/20011226074043/http://www.kistleraerospace.com/specs.html', title='K-1 Specifications and Performance (Kistler Aerospace web page, captured 2001-12-26)', tier="A",
   rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. Kistler Aerospace K-1 specifications page, Internet Archive capture of 2001-12-26: 'First stage engines: Three Aerojet/AJ26-58/-59 (NK-33) LOX/kerosene engines with a total sea level thrust of 1,020,000 lbf.' 'Second stage engines: One Aerojet/AJ26-60 (NK-43) LOX/kerosene engine with a total vacuum thrust of 395,000 lbf.' Used as a conflict claim only.")
+
+D('SRC-DB05-ARIANE4-UM-I2-1999', identifier='https://archive.org/details/ariane-4-users-manual-issue-2-rev-0-1999-02', title="Ariane 4 User's Manual, Issue 2, Revision 0 (Arianespace, February 1999)", tier="A",
+  rights_checked="Arianespace manual read from an Internet Archive scan; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Arianespace Ariane 4 User's Manual, Issue 2 Rev. 0, February 1999, scan on the Internet Archive (item ariane-4-users-manual-issue-2-rev-0-1999-02). Annex 1 section 3.2 first-stage propulsion: four Viking V engines, about 2700 kN on the ground (about 3000 kN in vacuum); 'The main operating characteristics for the VIKING engines are: (typical first stage values): Chamber pressure 58.5 bar; Turbopump rotor 10 000 rpm; ... Generator gas pressure 35 bar; Tank pressurization level 5 bar; Specific impulse in vacuum 278 s'. Section 3.4 third stage: 'a single HM7B type cryogenic engine developing a thrust of 64.7 kN in vacuum ; the specific impulse is 446.5 s'; 'Chamber pressure 36 bar'; 'Pressure of generator 24 bar'. Read from the OCR text. Used as a conflict claim only.")
