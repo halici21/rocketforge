@@ -2419,7 +2419,7 @@
    ],
    "locators": "",
    "access": "not_retrieved",
-   "notes": "Summary attributes 'Launcher says Isp 288 s SL / 326 s vac' and MR 2.62 @100 bar to the trade articles (control.com / 3dnatives); not pinned to a Launcher document. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator.",
+   "notes": "Summary attributes 'Launcher says Isp 288 s SL / 326 s vac' and MR 2.62 @100 bar to the trade articles (control.com / 3dnatives); not pinned to a Launcher document. Access: seen only via WebSearch result summary (round 2); re-open document to pin locator. DB-0.5 (2026-10-30): read from Internet Archive capture https://web.archive.org/web/20220510034740/https://control.com/news/launchers-3d-printed-e-2-engine-successfully-completes-test-fire/ - 22,046 pounds of thrust (about 10 metric tons), mixture ratio 2.62, 100 bars; no specific impulse in the text.",
    "branches": [
     "r2_sc_comm"
    ]
@@ -8423,8 +8423,8 @@
     "ENG-US-RS-68A"
    ],
    "locators": "single-page table (garbled in summary)",
-   "access": "not_retrieved",
-   "notes": "Second unlabelled column (412K lbf vac, 318K lbf SL, 820 psia, MR 5.99) not interpreted.",
+   "access": "fetched",
+   "notes": "Second unlabelled column (412K lbf vac, 318K lbf SL, 820 psia, MR 5.99) not interpreted. DB-0.5 (2026-10-30): Aerojet Rocketdyne RS-68A data sheet (cp0283 15 RS-68, REV 3-19, dated March 2019), read from the Internet Archive capture of 2023-01-30 at www.rocket.com (the l3harris supplier URL is 404). Specifications, full power / minimum power: 'Thrust (Vacuum): 800K lbf / 412K lbf'; 'Thrust (Sea Level): 705K lbf / 318K lbf'; 'Chamber Pressure: 1580 psia / 820 psia'; 'Engine Mixture Ratio: 5.97 / 5.99'; 'Isp, Vacuum: 411 sec / 411 sec'; 'Isp, Sea Level: 362 sec / 317 sec'; height 17.1 ft, weight 14,740 lbs, diameter 8 ft, expansion ratio 21.5 (column layout of the extracted text; values in the order of the labels).",
    "branches": [
     "r2_schem",
     "us_hist"
@@ -14452,7 +14452,7 @@
    ],
    "locators": "",
    "access": "fetched",
-   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Summary: 'an earlier update' gives Archimedes vacuum up to 202,300 lbf (900 kN); attribution to this specific release not pinned.",
+   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Summary: 'an earlier update' gives Archimedes vacuum up to 202,300 lbf (900 kN); attribution to this specific release not pinned. DB-0.5 (2026-10-30): read from Internet Archive capture https://web.archive.org/web/20240507053149/https://www.rocketlabusa.com/updates/rocket-lab-completes-archimedes-engine-build-begins-engine-test-campaign/ - Release of May 2024, capture of 2024-05-07: 'each Archimedes engine is capable of producing 165,000 lbf (733 kilonewtons) for a combined total of 1,450,000 million lbf'; 'The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)'.",
    "branches": [
     "commercial"
    ]
@@ -14523,7 +14523,7 @@
    ],
    "locators": "",
    "access": "fetched",
-   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Archimedes ORSC rationale; Archimedes Vacuum 200,000 lbf (890 kN), 1.2x thrust; test plan includes Stage 1 static fire with 9 Archimedes and Stage 2 static fire.",
+   "notes": "Seen only as a web-search result summary in this session (WebFetch/curl egress blocked); values were quoted by the search tool's summary, not read from the document directly. Re-verify locator. Archimedes ORSC rationale; Archimedes Vacuum 200,000 lbf (890 kN), 1.2x thrust; test plan includes Stage 1 static fire with 9 Archimedes and Stage 2 static fire. DB-0.5 (2026-10-30): read from Internet Archive capture https://web.archive.org/web/20250509111314/https://www.rocketlabusa.com/launch/neutron/ - Neutron page, capture of 2025-05-09: 'Second Stage Single Vacuum Archimedes Engine Lox/Methane Oxidizer Rich Closed Cycle Vacuum Thrust: 890 kN (200,000 lbf)'; first stage 'Total Lift-off Thrust: 1,485,000 lbf'.",
    "branches": [
     "commercial"
    ]
@@ -26879,6 +26879,147 @@
    "locators": "engine.htm text; freqaskquest.htm",
    "access": "fetched",
    "notes": "Added in DB-0.5 (2026-10-30): Rotary Rocket Company site, captures of 1998-01-26. engine.htm describes a December 1997 hot-fire of 'a complete combustor module' and says 'The final Roton engine will have groups of these around a rotating hub'. No combustor count.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-SPACEX-STARSHIP-PAGE-2025",
+   "title": "Starship (SpaceX web page, captured 2025-06-02)",
+   "authors": [],
+   "organization": "Space Exploration Technologies Corp.",
+   "year": 2025,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20250602154249/https://www.spacex.com/vehicles/starship/",
+   "url": "https://web.archive.org/web/20250602154249/https://www.spacex.com/vehicles/starship/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-RAPTOR-2",
+    "ENG-US-RAPTOR-3"
+   ],
+   "locators": "Raptor engines panel (Raptor and RVac tabs)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): SpaceX Starship page, Internet Archive capture of 2025-06-02 (server-rendered then; later captures are a script shell). Raptor tab: 'DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf'; Raptor Vacuum tab: 'DIAMETER 2.3 m / 7.5 ft HEIGHT 4.6 m / 15.1 ft THRUST 258 tf / 568 klbf'. No mass, no condition, no version number. Super Heavy 'THRUST 7,590 tf / 16.7 Mlbf' with 33 Raptors.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-LAUNCHER-E2-PAGE-2019",
+   "title": "Engine-2 (Launcher Inc. web page, captured 2019-09-20)",
+   "authors": [],
+   "organization": "Launcher Inc.",
+   "year": 2019,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20190920102132/https://launcherspace.com/engine-2",
+   "url": "https://web.archive.org/web/20190920102132/https://launcherspace.com/engine-2",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-E-2"
+   ],
+   "locators": "page text, performance list",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): Launcher Inc. 'Engine-2' web page, Internet Archive capture of 2019-09-20: 'Generating 10 tonne-force of thrust per engine (22,000 lbf)'; 'Optimal oxidizer / fuel mixture ratio (2.62)'; 'Performance: 365s specific impulse (Second stage nozzle). First stage nozzle - 327s vacuum, 290s sea level'. Design figures, before the 2022 full-scale test. The trade article of May 2022 (control.com, archive capture 2022-05-10) prints 22,046 lbf, mixture ratio 2.62 and 100 bar but no specific impulse.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ENERGOMASH-RD191-2017",
+   "title": "РД-191 (NPO Energomash web page, captured 2017-06-28)",
+   "authors": [],
+   "organization": "NPO Energomash",
+   "year": 2017,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20170628073610/http://engine.space/dejatelnost/engines/rd-191/",
+   "url": "https://web.archive.org/web/20170628073610/http://engine.space/dejatelnost/engines/rd-191/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-RU-RD-191"
+   ],
+   "locators": "'Технические характеристики' table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): NPO Energomash RD-191 page (engine.space), Internet Archive capture of 2017-06-28 (the live site answers 403). 'Основные параметры двигателя РД-191': 'Тяга, земная/пустотная, тс 196 / 213'; 'Удельный импульс, земной/пустотный, с 310,7 / 337'; 'Давление в камере сгорания, кгс/см2 263,4'; 'Масса, сухая/залитая, кг 2290 / 2520'; height/diameter 4000 / 1450 mm; development 1999-2011; certification completed May 2011.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ENERGOMASH-RD170-2017",
+   "title": "РД-170/171 (NPO Energomash web page, captured 2017-06-28)",
+   "authors": [],
+   "organization": "NPO Energomash",
+   "year": 2017,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20170628073555/http://engine.space/dejatelnost/engines/rd-170-171/",
+   "url": "https://web.archive.org/web/20170628073555/http://engine.space/dejatelnost/engines/rd-170-171/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-SU-RD-170",
+    "ENG-RU-RD-171M",
+    "ENG-RU-RD-171MV"
+   ],
+   "locators": "'Технические характеристики' table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): NPO Energomash RD-170/171 page (engine.space), Internet Archive capture of 2017-06-28. Table of the base engines, three columns (RD-170, RD-171, and a third column dated 2003-2004 for Zenit-3SL, i.e. RD-171M by the page's certification note): thrust sea level/vacuum '740 / 806' tf in every column; Isp '309 / 337' s; chamber pressure 250 kgf/cm2; dry/wet mass 9750/10750, 9500/10500, 9300/10300 kg. 'Сертификация двигателя РД-171М завершена 5 июля 2004г'. No mixture ratio printed.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-ENERGOMASH-RD180-2017",
+   "title": "РД-180 (NPO Energomash web page, captured 2017-06-28)",
+   "authors": [],
+   "organization": "NPO Energomash",
+   "year": 2017,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20170628073819/http://engine.space/dejatelnost/engines/rd-180/",
+   "url": "https://web.archive.org/web/20170628073819/http://engine.space/dejatelnost/engines/rd-180/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-RU-RD-180"
+   ],
+   "locators": "'Технические характеристики' table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): NPO Energomash RD-180 page (engine.space), Internet Archive capture of 2017-06-28: thrust sea level/vacuum '390,2 / 423,2' tf; Isp '311,9 / 338,4' s; chamber pressure 261,7 kgf/cm2; dry/wet mass '5480 / 5950' kg; height/diameter 3600 / 3200 mm; development 1994-1999; 'возможность глубокого дросселирования тяги' with no figure; no area ratio.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-KBKHM-14D30-2016",
+   "title": "Двигатель 14Д30. Разгонный блок «Бриз-М» (KB Khimmash im. A.M. Isaeva web page, captured 2016-03-04)",
+   "authors": [],
+   "organization": "KB Khimmash im. A.M. Isaeva (Khrunichev branch)",
+   "year": 2016,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20160304054857/http://kbhmisaeva.ru/main.php?id=52",
+   "url": "https://web.archive.org/web/20160304054857/http://kbhmisaeva.ru/main.php?id=52",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-RU-S5-98M"
+   ],
+   "locators": "'Характеристики' table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): KB Khimmash (Isaev) page for the 14D30 (S5.98M) Briz-M main engine, Internet Archive capture of 2016-03-04 (same table in the 2013-04-23 capture; the page is gone from the 2021 site). 'Тяга 2000 кгс'; 'Массовое соотношение расходов компонентов топлива 2,0 ±0,04'; 'Удельный импульс тяги 328,6 с'; 'Давление в камере 100 кгс/см2'; 'Число оборотов ротора ТНА 54 000 об/мин'; dry mass 95 kg; 8 starts; 3,200 s total, 2,500 s longest single burn. Propellants AT/UDMH. No condition printed for the impulse (an upper-stage engine).",
    "branches": [
     "db05"
    ]

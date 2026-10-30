@@ -1103,3 +1103,32 @@ contacted again; only web.archive.org captures were read.
   (archive captures of 1998-01-26, SRC-DB05-ROTARYROCKET-SITE-1998) describes a December 1997 hot-fire of one
   combustor module and says the final engine 'will have groups of these around a rotating hub', with no count; the
   2000 site says the engine will be derived from Fastrac. The 192 still has no source.
+
+## Pass 2026-10-30: archived maker pages (SpaceX, Aerojet Rocketdyne, Launcher, NPO Energomash, KB Khimmash, Rocket Lab)
+
+Maker sites that are script-rendered or refuse access today were read from Internet Archive captures. Unresolved:
+64 → 56.
+- CF-DB05-E-R2_SCHEM-R2-1 (RS-68A chamber pressure) RESOLVED: the maker's March 2019 RS-68A data sheet (capture at
+  rocket.com, 2023-01-30) prints 1580 psia full power / 820 psia minimum, 800K / 705K lbf vacuum / sea level, 411 / 362 s.
+  The same sheet now backs CF-DB05-E-R2_SCHEM-R2-2, CF-DB05-E-US_HIST-04 and CF-DB05-RS68A-THRUST.
+- CF-DB05-W-R2_SCHEM-R2-15 (Raptor 2 230 tf) PARTIALLY_RESOLVED: SpaceX's Starship page of June 2025 (then
+  server-rendered) gives Raptor 230 tf / 507 klbf and RVac 258 tf / 568 klbf; no version or mass. R2-3 (Raptor 3
+  250 tf) stays open: later captures are a script shell, and fetching the site's data feed was refused by the
+  session's access policy (not retried).
+- CF-DB05-E-R2_SC_COMM-R2-15 (Launcher E-2 Isp) EXPLAINED, different_configuration: Launcher's 2019 Engine-2 page gives
+  365 s for the second-stage nozzle and 327 s vacuum / 290 s sea level for the first-stage one. The 2022 trade
+  article (capture) prints no Isp.
+- CF-DB05-W-USSR-5 (RD-191 sea-level Isp) RESOLVED: NPO Energomash's own RD-191 page (engine.space, capture of
+  2017-06-28) prints 310.7 / 337 s, 196 / 213 tf, 263.4 kgf/cm2.
+- CF-DB05-W-USSR-18 (RD-171MV thrust) PARTIALLY_RESOLVED: the same site's RD-170/171 page gives 740 / 806 tf for the
+  RD-170, RD-171 and RD-171M; no RD-171MV table. Its RD-180 page repeats Glavkosmos' 5480 / 5950 kg (added to
+  CF-DB05-RD180-MASS; owner decision still open) and gives no throttle figure or area ratio.
+- CF-DB05-E-R2_USSR-R2-18 and CF-DB05-E-R2_SC_COMM-R2-11 (S5.98M Isp) RESOLVED: KB Khimmash's 14D30 page (captures of
+  2013 and 2016) prints 328.6 s at 2000 kgf, mixture ratio 2.0, 100 kgf/cm2, 54,000 rpm.
+- CF-DB05-W-COMMERCIAL-COM-14 (Archimedes vacuum thrust) PARTIALLY_RESOLVED: both Rocket Lab texts read in captures;
+  the May 2024 release says 'capable of up to 202,300 lbf (900kN)', the 2025 Neutron page 890 kN (200,000 lbf).
+- Dead ends: Intuitive Machines' July 2024 VR900 qualification release (capture of 2024-07-16) gives no thrust, so
+  CF-DB05-W-R2_SC_COMM-R2-5 stays open. KB Khimmash's KVD1 page (captures 2014-2021) gives 7100 kgf, 462 s, mixture
+  ratio 6, 282 kg but no development period (CF-DB05-W-R2_USSR-R2-21 stays open). No capture exists of the RS-68A
+  data sheet's l3harris URL, the STS-104 FRR mirror, the mechanics-industry Aestus table or the techno-science Viking
+  page.

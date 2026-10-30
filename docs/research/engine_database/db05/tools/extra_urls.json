@@ -172,7 +172,7 @@
  "SRC-IAC03-LAE-CN": "https://dl.iafastro.directory/event/IAC-2003/paper/IAC_03_S_1_03/",
  "SRC-AIRPORTTECH-TERRAN1": "https://www.airport-technology.com/projects/terran-1-3d-printed-rocket/",
  "SRC-SFN-TERRAN1-2023": "https://spaceflightnow.com/2023/03/22/relativity-space-terran-1/",
- "SRC-CONTROL-E2-TEST": "https://control.com/news/launchers-3d-printed-e-2-engine-successfully-completes-test-fire/",
+ "SRC-CONTROL-E2-TEST": "https://web.archive.org/web/20220510034740id_/https://control.com/news/launchers-3d-printed-e-2-engine-successfully-completes-test-fire/",
  "SRC-MASTEN-ENGINES": "https://masten.aero/?p=2219",
  "SRC-SATNOW-BROADSWORD": "https://satnow.com/products/launch-vehicle-engines/masten-space-systems/109-1322-broadsword",
  "SRC-KOREASCI-AJ26": "https://www.koreascience.or.kr/article/JAKO201608361186758.pdf",
@@ -203,8 +203,8 @@
  "SRC-WCCF-RAPTOR-330": "https://wccftech.com/spacex-melts-new-rocket-engine-during-test-shows-fiery-video/amp/",
  "SRC-BLUE-ULA-PARTNERSHIP": "https://web.archive.org/web/20190727222445/https://www.blueorigin.com/news/ula-and-blue-origin-announce-partnership-to-develop-new-american-rocket-engine",
  "SRC-BLUE-NG-UPGRADE": "https://web.archive.org/web/20251205152358/https://www.blueorigin.com/news/new-glenn-upgraded-engines-subcooled-components-drive-enhanced-performance",
- "SRC-RL-NEUTRON-PAGE": "https://rocketlabcorp.com/launch/neutron/",
- "SRC-RL-ARCH-BUILD": "https://rocketlabcorp.com/updates/rocket-lab-completes-archimedes-engine-build-begins-engine-test-campaign/",
+ "SRC-RL-NEUTRON-PAGE": "https://web.archive.org/web/20250509111314id_/https://www.rocketlabusa.com/launch/neutron/",
+ "SRC-RL-ARCH-BUILD": "https://web.archive.org/web/20240507053149id_/https://www.rocketlabusa.com/updates/rocket-lab-completes-archimedes-engine-build-begins-engine-test-campaign/",
  "SRC-FIREFLY-MIRANDA-RR": "https://fireflyspace.com/news/firefly-aerospace-completes-risk-reduction-testing-for-critical-miranda-engine-components/",
  "SRC-RSW-RD191": "https://www.russianspaceweb.com/rd191.html",
  "SRC-GLAVKOSMOS-RD181": "https://trade.glavkosmos.com/rd-181/",
@@ -366,5 +366,12 @@
  "SRC-DB05-SPACEX-F9UG-R2-2015": "https://web.archive.org/web/20170314002928/http://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf",
  "SRC-DB05-MUSK-X-2016-05-06": "https://web.archive.org/web/20170205184532/https://twitter.com/elonmusk/status/728753234811060224",
  "SRC-WIKI-YF115": "https://en.wikipedia.org/wiki/YF-115",
- "SRC-DB05-ROTARYROCKET-SITE-1998": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm"
+ "SRC-DB05-ROTARYROCKET-SITE-1998": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+ "SRC-DB05-SPACEX-STARSHIP-PAGE-2025": "https://web.archive.org/web/20250602154249id_/https://www.spacex.com/vehicles/starship/",
+ "SRC-L3H-RS68A-DS": "https://web.archive.org/web/20230130163723id_/https://www.rocket.com/sites/default/files/documents/RS-68A_data_sheet.pdf",
+ "SRC-DB05-LAUNCHER-E2-PAGE-2019": "https://web.archive.org/web/20190920102132id_/https://launcherspace.com/engine-2",
+ "SRC-DB05-ENERGOMASH-RD191-2017": "https://web.archive.org/web/20170628073610id_/http://engine.space/dejatelnost/engines/rd-191/",
+ "SRC-DB05-ENERGOMASH-RD170-2017": "https://web.archive.org/web/20170628073555id_/http://engine.space/dejatelnost/engines/rd-170-171/",
+ "SRC-DB05-ENERGOMASH-RD180-2017": "https://web.archive.org/web/20170628073819id_/http://engine.space/dejatelnost/engines/rd-180/",
+ "SRC-DB05-KBKHM-14D30-2016": "https://web.archive.org/web/20160304054857id_/http://kbhmisaeva.ru/main.php?id=52"
 }

@@ -69,6 +69,9 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "NV2B": "NASM record A19790951000, description (archive capture 2025-04-02)",
         "CT310": "CaltechTHESIS record 310 (1947), abstract (archive capture 2025-07-08)",
         "NHWK": "NASM record A19771225000, description (archive capture 2025-04-05)",
+        "RS68D": "RS-68A data sheet (Aerojet Rocketdyne, March 2019), Specifications table (archive capture 2023-01-30)",
+        "LE2": "launcherspace.com/engine-2, performance list (archive capture 2019-09-20)",
+        "KBH14": "kbhmisaeva.ru main.php?id=52 (14D30), 'Характеристики' table (archive capture 2016-03-04)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -153,17 +156,18 @@ K("CF-R2_ASIA-R2A-13", "ENG-CN-YF-77", "performance.thrust_sl / pc / isp / burn_
   "x41861) print only 700 kN in vacuum at O/F 5.5 and 'a factor of 2.7 on pressure' over the YF-75, so none of these "
   "values is checked. No full paper was reached.")
 K("CF-R2_SCHEM-R2-1", "ENG-US-RS-68A", "performance.pc",
-  [("1580 psia", "SRC-L3H-RS68A-DS", "N"), ("Chamber pressure 1,488 psi (10.26 MPa)", "SRC-WIKI-RS68", "T")],
-  "UNRESOLVED", "different_variant",
-  "The encyclopedia gives one chamber pressure for RS-68 and RS-68A together; the manufacturer's datasheet URL and its "
-  "product page return 404, and the ULA Delta IV user's guide (2013) prints thrust, Isp and area ratio but no chamber "
-  "pressure. " + _PRIMARY)
+  [("Chamber Pressure: 1580 psia [full power] / 820 psia [minimum power]", "SRC-L3H-RS68A-DS", "RS68D"),
+   ("Chamber pressure 1,488 psi (10.26 MPa)", "SRC-WIKI-RS68", "T")],
+  "RESOLVED", "primary_value_found",
+  "The maker's RS-68A data sheet (March 2019, read from an archive capture at rocket.com) gives 1580 psia at full power "
+  "(10.89 MPa DERIVED) and 820 psia at minimum power. The encyclopedia's 1,488 psi, printed for RS-68 and RS-68A "
+  "together, is not the RS-68A rating; whether it is the flown RS-68's is CF-DB05-E-US_HIST-04.")
 K("CF-R2_SCHEM-R2-2", "ENG-US-RS-68A", "performance.isp_vac",
-  [("411 s", "SRC-L3H-RS68A-DS", "N"), ("RS-68A: 411.9 s", "SRC-WIKI-RS68", "T"),
+  [("Isp, Vacuum: 411 sec", "SRC-L3H-RS68A-DS", "RS68D"), ("RS-68A: 411.9 s", "SRC-WIKI-RS68", "T"),
    ("having a vacuum specific impulse of 411.9 sec", "SRC-DB05-ULA-DELTA4-UG-2013", "U15")],
   "EXPLAINED", "rating_or_rounding",
   "The launch provider's 2013 user's guide prints 411.9 s vacuum for the RS-68A, as the encyclopedia does. The 411 s "
-  "seen in a search summary of the 404 datasheet is the same figure without its decimal.")
+  "on the maker's data sheet (archive capture read 2026-10-30) is the same figure without its decimal.")
 K("CF-R2_SCHEM-R2-12", "ENG-SU-RD-170", "turbines.main.power",
   [("~200 MW", None, "X"), ("189.3 MW", None, "X")],
   "UNRESOLVED", None, "Neither claim carries a source id. " + _PRIMARY)
@@ -254,11 +258,17 @@ K("CF-TAXONOMY-TAX-4", "ENG-SU-RD-270", "history.cancellation",
   [("designed ... in 1960-1970", "SRC-WIKI-RD270", "T"), ("Date 1962-1968", "SRC-WIKI-RD270", "T")],
   "UNRESOLVED", "intra_document", "Same pair as CF-DB05-E-R2_USSR-R2-17.")
 K("CF-R2_USSR-R2-18", "ENG-RU-S5-98M", "performance.isp_vac",
-  [("Specific impulse, vacuum 328.6 seconds", "SRC-WIKI-S598M", "T"), ("326 s", None, "X")],
-  "UNRESOLVED", None, "The second value has no source. " + _PRIMARY)
+  [("Specific impulse, vacuum 328.6 seconds", "SRC-WIKI-S598M", "T"), ("326 s", None, "X"),
+   ("Тяга 2000 кгс ... Удельный импульс тяги 328,6 с", "SRC-DB05-KBKHM-14D30-2016", "KBH14")],
+  "RESOLVED", "primary_value_found",
+  "The maker's 14D30 page (KB Khimmash, archive captures of 2013 and 2016) prints 328.6 s at 2000 kgf, mixture ratio "
+  "2.0 and 100 kgf/cm2, the encyclopedia's figure. The 326 s has no source.")
 K("CF-R2_SC_COMM-R2-11", "ENG-RU-S5-98M", "performance.isp_vac",
-  [("Specific impulse, vacuum 328.6 seconds", "SRC-WIKI-S598M", "T"), ("328.1 s", None, "X"), ("~326 s (Briz-KM)", None, "X")],
-  "UNRESOLVED", None, "Only the encyclopedia value has a source. " + _PRIMARY)
+  [("Specific impulse, vacuum 328.6 seconds", "SRC-WIKI-S598M", "T"), ("328.1 s", None, "X"), ("~326 s (Briz-KM)", None, "X"),
+   ("Удельный импульс тяги 328,6 с", "SRC-DB05-KBKHM-14D30-2016", "KBH14")],
+  "RESOLVED", "primary_value_found",
+  "The maker's 14D30 page (archive captures of 2013 and 2016) prints 328.6 s. The 328.1 s and ~326 s have no source; "
+  "the Briz-KM figure may be a stage-level value but nothing opened says so.")
 K("CF-R2_USSR-R2-19", "ENG-SU-11D58M", "performance.thrust_vac / isp_vac",
   [("Thrust, vacuum 79.46 kN; 353 s (infobox)", "SRC-WIKI-RD58", "T"), ("Thrust (Vac) 83.4 kN (variant table)", "SRC-WIKI-RD58", "T"),
    ("83.40 kN, 349 s, 78 bar", "SRC-ASTRONAUTIX-RD58", "N")],
@@ -364,8 +374,14 @@ K("CF-R2_SC_COMM-R2-14", "ENG-US-ARROWAY", "cycle",
   [("fuel-rich staged combustion", None, "X"), ("ox-rich staged combustion", None, "X")],
   "UNRESOLVED", None, "Neither claim has a source. " + _PRIMARY)
 K("CF-R2_SC_COMM-R2-15", "ENG-US-E-2", "performance.isp_vac",
-  [("326 s ('Launcher says')", "SRC-CONTROL-E2-TEST", "N"), ("365 s", None, "X")],
-  "UNRESOLVED", None, "The trade page refused access (HTTP 403); 365 s has no source.")
+  [("326 s ('Launcher says')", "SRC-CONTROL-E2-TEST", "NF"), ("365 s", None, "X"),
+   ("Performance: 365s specific impulse (Second stage nozzle). First stage nozzle - 327s vacuum, 290s sea level",
+    "SRC-DB05-LAUNCHER-E2-PAGE-2019", "LE2")],
+  "EXPLAINED", "different_configuration",
+  "The maker's 2019 Engine-2 page (archive capture) gives 365 s for the second-stage (vacuum) nozzle and 327 s vacuum / "
+  "290 s sea level for the first-stage nozzle, so 365 s and the ~326 s describe two nozzles. The trade article, read "
+  "from an archive capture, prints no specific impulse; DB-0's 326 s is 1 s from the maker's 327 s. These are 2019 "
+  "design figures.")
 K("CF-R2_SC_COMM-R2-17", "ENG-NZ-CURIE", "propellants",
   [("In August 2020 Rocket Lab indicated that the kick stage uses an unspecified liquid bi-propellant", "SRC-WIKI-CURIE", "T"),
    ("Viscous liquid monopropellant ... [citation needed]", "SRC-WIKI-ELECTRON", "T")],
@@ -393,7 +409,7 @@ K("CF-R2_SCHEM-R2-10", "ENG-US-R-4D-11", "performance.isp_vac",
   "and 315.5 s at 300:1. The encyclopedia's 312 s names no area ratio and matches neither row; it has no maker source.")
 K("CF-US_HIST-04", "ENG-US-RS-68", "performance.thrust_sl / performance.pc",
   [("663,000 pounds-force (2,950 kN) at sea level (prose)", "SRC-WIKI-RS68", "T"), ("RS-68: 2,950 kN (660,000 lbf) (infobox)", "SRC-WIKI-RS68", "T"),
-   ("RS-68A Pc 1,580 psia", "SRC-L3H-RS68A-DS", "N")],
+   ("RS-68A Chamber Pressure: 1580 psia", "SRC-L3H-RS68A-DS", "RS68D")],
   "PARTIALLY_RESOLVED", "different_epoch",
   "The encyclopedia's 663,000 and 660,000 lbf are one 2,950 kN rounded two ways. Rocketdyne's 1999 baseline (NTRS "
   "20000025317, p.11) rates the RS-68 at 650 klbf sea level, 745 klbf vacuum and 1,410 psia before first flight, so the "
@@ -753,3 +769,15 @@ D("SRC-CALTECH-THESIS310", identifier='https://web.archive.org/web/2025070811384
 D("SRC-NASM-HWK109507", identifier='https://web.archive.org/web/20250405013608/https://si.edu/object/rocket-engine-walter-hwk-109-507:nasm_A19771225000', title='Rocket Engine, Walter HWK 109-507 (A19771225000)', tier="D",
   rights_checked="record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note='Fetched 2026-10-29. Smithsonian record nasm_A19771225000 (Walter HWK 109-507), archive capture of 2025-04-05: \'Hydrogen peroxide in 80% concentration (codenamed "T-Stoff") was mixed with a calcium permanganate catalyst ("Z-Stoff")\'; \'The initial thrust of 600 kg (1300 lb.) declined to 400 kg (900 lb.) during the 10 second duration of the engine due to dropping air pressure from bottles\'. Used as a conflict claim only.')
+
+D('SRC-L3H-RS68A-DS', identifier='https://web.archive.org/web/20230130163723/https://www.rocket.com/sites/default/files/documents/RS-68A_data_sheet.pdf', title='RS-68A data sheet', tier='A',
+  rights_checked="maker data sheet read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. Aerojet Rocketdyne RS-68A data sheet (cp0283 15 RS-68, REV 3-19, dated March 2019), read from the Internet Archive capture of 2023-01-30 at www.rocket.com (the l3harris supplier URL is 404). Specifications, full power / minimum power: 'Thrust (Vacuum): 800K lbf / 412K lbf'; 'Thrust (Sea Level): 705K lbf / 318K lbf'; 'Chamber Pressure: 1580 psia / 820 psia'; 'Engine Mixture Ratio: 5.97 / 5.99'; 'Isp, Vacuum: 411 sec / 411 sec'; 'Isp, Sea Level: 362 sec / 317 sec'; height 17.1 ft, weight 14,740 lbs, diameter 8 ft, expansion ratio 21.5 (column layout of the extracted text; values in the order of the labels). Used as a conflict claim only.")
+
+D('SRC-DB05-LAUNCHER-E2-PAGE-2019', identifier='https://web.archive.org/web/20190920102132/https://launcherspace.com/engine-2', title="Engine-2 (Launcher Inc. web page, captured 2019-09-20)", tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. Launcher Inc. 'Engine-2' web page, Internet Archive capture of 2019-09-20: 'Generating 10 tonne-force of thrust per engine (22,000 lbf)'; 'Optimal oxidizer / fuel mixture ratio (2.62)'; 'Performance: 365s specific impulse (Second stage nozzle). First stage nozzle - 327s vacuum, 290s sea level'. Design figures, before the 2022 full-scale test. The trade article of May 2022 (control.com, archive capture 2022-05-10) prints 22,046 lbf, mixture ratio 2.62 and 100 bar but no specific impulse. Used as a conflict claim only.")
+
+D('SRC-DB05-KBKHM-14D30-2016', identifier='https://web.archive.org/web/20160304054857/http://kbhmisaeva.ru/main.php?id=52', title='Двигатель 14Д30. Разгонный блок «Бриз-М» (KB Khimmash im. A.M. Isaeva web page, captured 2016-03-04)', tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. KB Khimmash (Isaev) page for the 14D30 (S5.98M) Briz-M main engine, Internet Archive capture of 2016-03-04 (same table in the 2013-04-23 capture; the page is gone from the 2021 site). 'Тяга 2000 кгс'; 'Массовое соотношение расходов компонентов топлива 2,0 ±0,04'; 'Удельный импульс тяги 328,6 с'; 'Давление в камере 100 кгс/см2'; 'Число оборотов ротора ТНА 54 000 об/мин'; dry mass 95 kg; 8 starts; 3,200 s total, 2,500 s longest single burn. Propellants AT/UDMH. No condition printed for the impulse (an upper-stage engine). Used as a conflict claim only.")

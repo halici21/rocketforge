@@ -108,11 +108,13 @@ C("CF-DB05-RD180-MASS", engine_id=RD, field_path="mechanical.mass", db0_conflict
   claims=[["Dry weight (lb) 11,675 (1995 estimate)", TM, L40], ["Total system dry weight 11,675 lbs. (2001)", GE, LG],
           ["Total system dry weight 11,889 lb (fact sheet, 2000)", SFN0, LS],
           ["Weight, dry / dipped, kg 5480/5950", GK, LK],
-          ["11,675 lb ('weight')", "SRC-PURDUE-RD180", "page table (fetched; small page)"]],
+          ["11,675 lb ('weight')", "SRC-PURDUE-RD180", "page table (fetched; small page)"],
+          ["Масса, сухая/залитая, кг 5480 / 5950 (maker page, 2017)", "SRC-DB05-ENERGOMASH-RD180-2017", "'Технические характеристики' table (archive capture 2017-06-28)"]],
   resolution="UNRESOLVED", kind="different_epoch",
   explanation="Three numbers: 11,675 lb (the 1995 NASA estimate, repeated in 2001 and by Purdue), 11,889 lb (the 2000 "
               "P&W/NPO fact sheet, 'total system dry') and 5,480 kg = 12,081 lb (Glavkosmos, 'dry'). The definitions "
-              "differ in wording only; which mass belongs to which build or scope is not stated.")
+              "differ in wording only; which mass belongs to which build or scope is not stated. NPO Energomash's "
+              "own page (archive capture of June 2017) prints the same 5480 / 5950 kg as Glavkosmos.")
 C("CF-DB05-RD180-THROTTLE", engine_id=RD, field_path="performance.throttle_range", db0_conflict_id="CF-ANCHOR_USSR-3",
   claims=[["Throttle range (%) 50 (1995 estimate)", TM, L40], ["50 – 100 % continuous throttling (2001)", GE, LG],
           ["Throttle range 40-100% (fact sheet, 2000 and 2002)", SFN0, LS], ["Thrust range,% 100-47", GK, LK]],

@@ -188,6 +188,10 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
         "RR98": "rotaryrocket.com engine.htm and freqaskquest.htm, 1998 (archive captures 1998-01-26)",
+        "SXS25": "spacex.com/vehicles/starship, Raptor engines panel (archive capture 2025-06-02)",
+        "EM17": "engine.space (NPO Energomash) engine page, 'Технические характеристики' table (archive capture 2017-06-28)",
+        "RLN25": "rocketlabusa.com/launch/neutron, Performance panel (archive capture 2025-05-09)",
+        "RLA24": "rocketlabusa.com update 'Rocket Lab Completes Archimedes Engine Build' (May 2024), text (archive capture 2024-05-07)",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -316,9 +320,11 @@ K("CF-R2_USSR-R2-21", "ENG-RU-KVD-1", "history.development_period",
   "The opened paper gives 1962-1974; the encyclopedia's 1965-1972 was not opened. The spans may count different phases "
   "(programme against engine development); neither says. The thrust part of the DB-0 conflict was not reached.")
 K("CF-USSR-5", "ENG-RU-RD-191", "performance.isp_sl",
-  [("310.7 s", "SRC-WIKI-RD191", "W"), ("311.2 s", "SRC-RSW-RD191", "T"), ("311 s (RD-181)", "SRC-GLAVKOSMOS-RD181", "T")],
-  "UNRESOLVED", "rating_or_rounding",
-  "0.2 percent apart. The Glavkosmos figure is for the RD-181, a variant. No manufacturer RD-191 table was opened.")
+  [("310.7 s", "SRC-WIKI-RD191", "W"), ("311.2 s", "SRC-RSW-RD191", "T"), ("311 s (RD-181)", "SRC-GLAVKOSMOS-RD181", "T"),
+   ("Удельный импульс, земной/пустотный, с 310,7 / 337", "SRC-DB05-ENERGOMASH-RD191-2017", "EM17")],
+  "RESOLVED", "primary_value_found",
+  "The manufacturer's RD-191 page (NPO Energomash, archive capture of June 2017) prints 310.7 s sea level and 337 s "
+  "vacuum, the encyclopedia's figure. The 311.2 s has no maker source; the Glavkosmos 311 s is for the RD-181.")
 K("CF-USSR-6", "ENG-RU-RD-0124MS", "performance.isp_vac",
   [("359 s", "SRC-WIKI-SOYUZ5", "W"), ("361 s", "SRC-WWW1-RD0124", "T"), ("361 s ('RD-124MV')", "SRC-FRONTIER-SOYUZ5", "NF"),
    ("РД0124МС: тяга в пустоте 60,34 тс; удельный импульс тяги в пустоте 361 с; давление в КС 155 кг/см2", "SRC-DB05-KBKHA-RD0124MS", "KB"),
@@ -357,10 +363,12 @@ K("CF-USSR-16", "ENG-SU-RD-0210", "performance.thrust_vac / performance.pc / ope
   "no document. KBKhA prints no burn time, so 220 against 230 s stays open.")
 K("CF-USSR-18", "ENG-RU-RD-171MV", "performance.thrust",
   [("7,887 kN vac (family)", "SRC-WIKI-RD170", "W"), ("7,257 kN SL (stage 1)", "SRC-WIKI-SOYUZ5", "W"),
-   ("'approximately 800 tons'", "SRC-FRONTIER-SOYUZ5", "T")],
-  "UNRESOLVED", "different_variant",
-  "The opened page gives only 'approximately 800 tons' without a condition; the other figures are encyclopedia values for "
-  "the family or the stage.")
+   ("'approximately 800 tons'", "SRC-FRONTIER-SOYUZ5", "T"),
+   ("RD-170 / RD-171 / RD-171M: Тяга, земная/пустотная, тс 740 / 806", "SRC-DB05-ENERGOMASH-RD170-2017", "EM17")],
+  "PARTIALLY_RESOLVED", "different_variant",
+  "The manufacturer's 2017 page gives the parent engines (RD-170, RD-171, RD-171M) 740 tf sea level / 806 tf vacuum "
+  "(7,257 / 7,904 kN DERIVED), so the 7,257 kN stage figure is the parent rating at sea level and 7,887 kN is close to "
+  "the vacuum one. No maker table for the RD-171MV itself was opened; 'approximately 800 tons' has no condition.")
 K("CF-ANCHOR_USSR-2", "ENG-SU-RD-170", "performance.pc",
   [("266.7 bar", "SRC-NAKEDSCI-RAPTOR", "NF"), ("> 280 bar (10 % margin)", "SRC-SNOB-172276", "T")],
   "EXPLAINED", "definition",
@@ -708,11 +716,19 @@ K("CF-R2_SC_COMM-R2-21", "ENG-US-AEON-R", "performance.thrust_sl",
   [("258,000 lbf (2023)", "SRC-RELATIVITY-PR-2023-04-12", "N"), ("269,000 lbf (2025)", "SRC-RELATIVITY-PR-2025-03-07", "T")],
   "EXPLAINED", "different_epoch", "Two dated maker releases; the 2025 figure is the later design value. Only the 2025 one was read.")
 K("CF-R2_SCHEM-R2-3", "ENG-US-RAPTOR-3", "performance.thrust_sl",
-  [("250 tf (551,000 lbf)", "SRC-SPACEX-UPDATES", "NF"), ("250 tf / 551 klbf", "SRC-SPACEX-STARSHIP-SPECS", "NF")],
-  "UNRESOLVED", None, "Both SpaceX pages are script-rendered and delivered no text.")
+  [("250 tf (551,000 lbf)", "SRC-SPACEX-UPDATES", "NF"), ("250 tf / 551 klbf", "SRC-SPACEX-STARSHIP-SPECS", "NF"),
+   ("Raptor ... THRUST 230 tf / 507 klbf (June 2025, no version named)", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25")],
+  "UNRESOLVED", None,
+  "Both SpaceX pages are script-rendered and delivered no text. The maker's Starship page of June 2025 (archive "
+  "capture, then server-rendered) gives the Raptor of that time 230 tf / 507 klbf, so the 250 tf is a later figure not "
+  "seen in any maker text read; later captures are a script shell and the page's data feed was not fetched.")
 K("CF-R2_SCHEM-R2-15", "ENG-US-RAPTOR-2", "identity.rating_attribution",
-  [("230 tf / 1,630 kg as 'from' values", "SRC-SPACEX-UPDATES", "NF")],
-  "UNRESOLVED", None, "The SpaceX page delivered no text.")
+  [("230 tf / 1,630 kg as 'from' values", "SRC-SPACEX-UPDATES", "NF"),
+   ("Raptor ... DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25")],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "SpaceX's own Starship page of June 2025 (archive capture), before Raptor 3 flew, gives the Raptor 230 tf / 507 klbf, "
+  "which supports 230 tf as the Raptor 2 figure. It prints no version number, no mass, and no 'from' wording; the "
+  "1,630 kg stays unseen in maker text.")
 K("CF-R2_SCHEM-R2-5", "ENG-US-BE-4", "performance.thrust_sl",
   [("550,000 lbf", "SRC-ULA-BE4-FACTSHEET", "T"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-NEWGLENN-PAGE", "N"),
    ("BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each", "SRC-DB05-ULA-VULCAN-UG-2023", "VUG"),
@@ -785,8 +801,12 @@ C("CF-DB05-W-COMMERCIAL-COM-13", engine_id="ENG-NZ-RUTHERFORD", field_path="perf
               "judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), "
               "not a second source; no document opened states the ambient condition of the 311 s.")
 K("CF-COMMERCIAL-COM-14", "ENG-NZ-ARCHIMEDES-VACUUM", "performance.thrust_vac",
-  [("200,000 lbf (890 kN)", "SRC-RL-NEUTRON-PAGE", "T"), ("202,300 lbf (900 kN)", "SRC-RL-ARCH-BUILD", "T")],
-  "UNRESOLVED", "rating_or_rounding", "Two maker pages, 1 percent apart; the 200,000 may be rounded. Neither names a rating.")
+  [("Vacuum Thrust: 890 kN (200,000 lbf)", "SRC-RL-NEUTRON-PAGE", "RLN25"),
+   ("The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)", "SRC-RL-ARCH-BUILD", "RLA24")],
+  "PARTIALLY_RESOLVED", "rating_or_rounding",
+  "Both read in archive captures. The May 2024 release gives the vacuum engine as 'capable of up to' 202,300 lbf, a "
+  "maximum; the 2025 Neutron page prints 890 kN (200,000 lbf) with no qualifier. 1 percent apart; the page's figure "
+  "reads as a rounding of the release's maximum, but neither names a rating.")
 K("CF-COMMERCIAL-COM-15", "ENG-US-REAVER", "performance.thrust",
   [("4x Reaver 801 kN (180,072 lbf) vac", "SRC-FIREFLY-ALPHA-PAGE", "T"), ("836.3 kN max for four", "SRC-FIREFLY-PUG-5.2", "N"),
    ("45,000 lbf per engine", "SRC-FIREFLY-MIRANDA-RR", "T"),
@@ -978,3 +998,27 @@ D("SRC-DB05-ROTARYROCKET-SITE-1998", identifier="https://web.archive.org/web/199
        "combustion can. The final Roton engine will have groups of these around a rotating hub'. freqaskquest.htm: "
        "'centrifugal pumping of propellant by spinning the rocket combustion chambers'. No combustor count. The 2000 site "
        "(tec/content.html) says the engine 'will be derived from the NASA Fastrac rocket engine'. Used as a conflict claim only.")
+
+D('SRC-DB05-SPACEX-STARSHIP-PAGE-2025', identifier='https://web.archive.org/web/20250602154249/https://www.spacex.com/vehicles/starship/', title="Starship (SpaceX web page, captured 2025-06-02)", tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. SpaceX Starship page, Internet Archive capture of 2025-06-02 (server-rendered then; later captures are a script shell). Raptor tab: 'DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf'; Raptor Vacuum tab: 'DIAMETER 2.3 m / 7.5 ft HEIGHT 4.6 m / 15.1 ft THRUST 258 tf / 568 klbf'. No mass, no condition, no version number. Super Heavy 'THRUST 7,590 tf / 16.7 Mlbf' with 33 Raptors. Used as a conflict claim only.")
+
+D('SRC-DB05-ENERGOMASH-RD191-2017', identifier='https://web.archive.org/web/20170628073610/http://engine.space/dejatelnost/engines/rd-191/', title='РД-191 (NPO Energomash web page, captured 2017-06-28)', tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. NPO Energomash RD-191 page (engine.space), Internet Archive capture of 2017-06-28 (the live site answers 403). 'Основные параметры двигателя РД-191': 'Тяга, земная/пустотная, тс 196 / 213'; 'Удельный импульс, земной/пустотный, с 310,7 / 337'; 'Давление в камере сгорания, кгс/см2 263,4'; 'Масса, сухая/залитая, кг 2290 / 2520'; height/diameter 4000 / 1450 mm; development 1999-2011; certification completed May 2011. Used as a conflict claim only.")
+
+D('SRC-DB05-ENERGOMASH-RD170-2017', identifier='https://web.archive.org/web/20170628073555/http://engine.space/dejatelnost/engines/rd-170-171/', title='РД-170/171 (NPO Energomash web page, captured 2017-06-28)', tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. NPO Energomash RD-170/171 page (engine.space), Internet Archive capture of 2017-06-28. Table of the base engines, three columns (RD-170, RD-171, and a third column dated 2003-2004 for Zenit-3SL, i.e. RD-171M by the page's certification note): thrust sea level/vacuum '740 / 806' tf in every column; Isp '309 / 337' s; chamber pressure 250 kgf/cm2; dry/wet mass 9750/10750, 9500/10500, 9300/10300 kg. 'Сертификация двигателя РД-171М завершена 5 июля 2004г'. No mixture ratio printed. Used as a conflict claim only.")
+
+D('SRC-DB05-ENERGOMASH-RD180-2017', identifier='https://web.archive.org/web/20170628073819/http://engine.space/dejatelnost/engines/rd-180/', title='РД-180 (NPO Energomash web page, captured 2017-06-28)', tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. NPO Energomash RD-180 page (engine.space), Internet Archive capture of 2017-06-28: thrust sea level/vacuum '390,2 / 423,2' tf; Isp '311,9 / 338,4' s; chamber pressure 261,7 kgf/cm2; dry/wet mass '5480 / 5950' kg; height/diameter 3600 / 3200 mm; development 1994-1999; 'возможность глубокого дросселирования тяги' with no figure; no area ratio. Used as a conflict claim only.")
+
+D('SRC-RL-NEUTRON-PAGE', identifier='https://web.archive.org/web/20250509111314/https://www.rocketlabusa.com/launch/neutron/', title='Rocket Lab Neutron', tier='A',
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. Neutron page, capture of 2025-05-09: 'Second Stage Single Vacuum Archimedes Engine Lox/Methane Oxidizer Rich Closed Cycle Vacuum Thrust: 890 kN (200,000 lbf)'; first stage 'Total Lift-off Thrust: 1,485,000 lbf'. Used as a conflict claim only.")
+
+D('SRC-RL-ARCH-BUILD', identifier='https://web.archive.org/web/20240507053149/https://www.rocketlabusa.com/updates/rocket-lab-completes-archimedes-engine-build-begins-engine-test-campaign/', title='Rocket Lab Completes Archimedes Engine Build, Begins Engine Test Campaign', tier='A',
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. Release of May 2024, capture of 2024-05-07: 'each Archimedes engine is capable of producing 165,000 lbf (733 kilonewtons) for a combined total of 1,450,000 million lbf'; 'The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)'. Used as a conflict claim only.")

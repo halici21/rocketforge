@@ -91,10 +91,10 @@ A(R68A, "gas_generator.igniter", None, "An improved gas generator igniter that h
   "text", "", {}, AR, "NTRS 20090014109 p.4, RS-68B Engine section", db0=None, note="Printed as expected, in 2009.")
 C("CF-DB05-RS68A-THRUST", engine_id=R68A, field_path="performance.thrust",
   claims=[["Each engine produces 702,000 pounds of thrust (environment not printed)", B, "NASA blog 2018-08-11"],
-          ["705,000 lbf sea level (DB-0 search-result excerpt; data sheet HTTP 404, never opened)", "SRC-L3H-RS68A-DS", "DB-0"],
+          ["Thrust (Sea Level): 705K lbf (data sheet, March 2019; archive capture read 2026-10-30)", "SRC-L3H-RS68A-DS", "Specifications table"],
           ["capable of delivering 3137kN (705,250 lbf) of sea level thrust", "SRC-DB05-ULA-DELTA4-UG-2013", "p.1-5, section 1.2.1"]],
   resolution="PARTIALLY_RESOLVED", kind="rating_or_rounding",
-  explanation="NASA's blog prints 702,000 lb with no environment. The launch provider's 2013 user's guide (opened 2026-10-29) prints 705,250 lbf at sea level, so the 705,000 lbf of the unopened datasheet is supported. What the blog's 702,000 lb is (another rounding, or an older rating) is still not established.")
+  explanation="NASA's blog prints 702,000 lb with no environment. The launch provider's 2013 user's guide (opened 2026-10-29) prints 705,250 lbf at sea level, and the maker's March 2019 data sheet (archive capture, read 2026-10-30) prints 705K lbf sea level and 800K lbf vacuum. What the blog's 702,000 lb is (another rounding, or an older rating) is still not established.")
 
 # ------------------------------------------------------------------ LR87AJ-11 (Titan IIIE stage I)
 G = "SRC-DB05-NTRS-19750004937"
