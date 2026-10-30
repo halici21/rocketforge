@@ -815,12 +815,23 @@ C("CF-DB05-W-COMMERCIAL-COM-13", engine_id="ENG-NZ-RUTHERFORD", field_path="perf
            "specific impulse of 311 s (3.05 km/s).", "SRC-RKLB-PAYLOAD-INCREASE", "release of 4 Aug 2020 (read in the Wave 2 pass)"],
           ["First Stage 9 Sea-level Rutherford Engines ... ISP: 311 seconds", "SRC-RL-ELECTRON-PAGE", "Electron page, 'Rutherford Engine' panel"],
           ["9X RUTHERFORD SEA LEVEL ENGINES THRUST 5500 LBF SEA LEVEL (PER ENGINE) ISP 311 SEC", "SRC-DB05-RL-PUG-6.3-2019",
-           "vehicle overview figure (archive capture 2019-05-06)"]],
-  resolution="UNRESOLVED", kind="definition",
+           "vehicle overview figure (archive capture 2019-05-06)"],
+          ["First Stage ... nine Rutherford engines. Lift Off Thrust 162 kN (34,500 lbf) Peak Thrust 192 kN (41,500 lbf) ISP 303 sec; "
+           "Second Stage ... Total Thrust 22 kN (5,000 lbf) ISP 333 sec", "SRC-DB05-RL-ELECTRON-PAGE-2017",
+           "'First Stage' and 'Second Stage' panels (archive capture 2017-05-26)"],
+          ["capable of 5,000 lbf thrust and with an ISP of 327 s", "SRC-DB05-RL-PROPULSION-PAGE-2015",
+           "propulsion page text (archive capture 2015-12-18)"]],
+  resolution="PARTIALLY_RESOLVED", kind="definition",
   explanation="Rocket Lab prints 311 s next to the sea-level engine in both places. DB-0's doubt is a plausibility "
               "judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), "
               "not a second source; no document opened states the ambient condition of the 311 s. The 2019 user's guide "
-              "(archive capture, read 2026-10-31) labels the thrust 'SEA LEVEL' but prints the 311 s without a condition.")
+              "(archive capture, read 2026-10-31) labels the thrust 'SEA LEVEL' but prints the 311 s without a condition. "
+              "Rocket Lab's own May 2017 Electron page gives the first stage 162 kN at lift-off and 192 kN peak with "
+              "'ISP 303 sec', and the vacuum second stage 333 s. The peak-to-lift-off thrust ratio is 1.185 DERIVED; were "
+              "303 s the sea-level Isp, the first-stage vacuum Isp would be about 359 s DERIVED, above the vacuum-nozzle "
+              "engine's 333 s, so the maker's first-stage Isp is not a sea-level figure. That supports DB-0's doubt about "
+              "the later 311 s, though no Rocket Lab document states its condition. A 2015 page gives one Rutherford Isp of "
+              "327 s with no condition.")
 K("CF-COMMERCIAL-COM-14", "ENG-NZ-ARCHIMEDES-VACUUM", "performance.thrust_vac",
   [("Vacuum Thrust: 890 kN (200,000 lbf)", "SRC-RL-NEUTRON-PAGE", "RLN25"),
    ("The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)", "SRC-RL-ARCH-BUILD", "RLA24")],
@@ -1058,3 +1069,11 @@ D('SRC-DB05-ENERGOMASH-ENCYCL-2016', identifier='https://web.archive.org/web/201
 D('SRC-SSAU-2587', identifier='https://journals.ssau.ru/vestnik/article/download/2587/2603', title='Experience in the development of 11Д58МФ liquid rocket engines (Vestnik SSAU, 2014)', tier='B',
   rights_checked="journal article (open access); values only", rights_class="RESTRICTED_REFERENCE",
   note="Re-read 2026-10-31. A.A. Smolentsev (RSC Energia), 'Об опыте разработки жидкостного ракетного двигателя 11Д58МФ', Vestnik SSAU, 2014; 11-page PDF re-read 2026-10-31 with a second text extractor (the first gave broken Cyrillic). 'тяга 5 тс'; chamber cooled by cryogenic oxygen; control scheme: 'изменение соотношения расходов компонентов топлива осуществляется полнорасходным дросселем, установленным в магистрали подачи газообразного кислорода в газогенератор на выходе из тракта охлаждения камеры'; 'регулирование тяги осуществляется изменением расхода горючего в газогенератор, и изменением работоспособности генераторного газа на турбине ТНА'. The word 'дожигание' (staged combustion) does not appear. Used as a conflict claim only.")
+
+D('SRC-DB05-RL-ELECTRON-PAGE-2017', identifier='https://web.archive.org/web/20170526234216/https://www.rocketlabusa.com/electron/', title='Electron (Rocket Lab web page, captured 2017-05-26)', tier="A",
+  rights_checked="maker page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Rocket Lab Electron page, Internet Archive capture of 2017-05-26, the month of the first flight. First Stage: 'Electron's first stage is powered by nine Rutherford engines. Lift Off Thrust 162 kN (34,500 lbf) Peak Thrust 192 kN (41,500 lbf) ISP 303 sec'. Second Stage: 'a variant of the Rutherford Engine providing improved performance in vacuum conditions. Total Thrust 22 kN (5,000 lbf) ISP 333 sec'. Used as a conflict claim only.")
+
+D('SRC-DB05-RL-PROPULSION-PAGE-2015', identifier='https://web.archive.org/web/20151218131601/http://www.rocketlabusa.com/about-us/propulsion/', title='Propulsion (Rocket Lab web page, captured 2015-12-18)', tier="A",
+  rights_checked="maker page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Rocket Lab propulsion page, Internet Archive capture of 2015-12-18: 'The Rutherford Engine is an electric turbo-pumped LOX/RP-1 engine specifically designed for the Electron launch vehicle, capable of 5,000 lbf thrust and with an ISP of 327 s.' 'Electron uses two variants of the Rutherford engine, a sea level and a vacuum engine. The vacuum variant differs only in nozzle shape'. No condition is given for the 327 s. Used as a conflict claim only.")

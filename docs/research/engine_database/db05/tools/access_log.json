@@ -7588,5 +7588,31 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-KISTLER-K1-SPECS-2001.html"
+ },
+ "SRC-DB05-RL-ELECTRON-PAGE-2017": {
+  "source_id": "SRC-DB05-RL-ELECTRON-PAGE-2017",
+  "url": "https://web.archive.org/web/20170526234216id_/https://www.rocketlabusa.com/electron/",
+  "time_utc": "2026-10-30T21:45:27Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://web.archive.org/web/20170526234216id_/https://www.rocketlabusa.com/electron/",
+  "bytes": 65340,
+  "sha256": "a94f675b59452e3ce52ef4b785844fc5f62561820b3346471f4c7c213834c96b",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-RL-ELECTRON-PAGE-2017.html"
+ },
+ "SRC-DB05-RL-PROPULSION-PAGE-2015": {
+  "source_id": "SRC-DB05-RL-PROPULSION-PAGE-2015",
+  "url": "https://web.archive.org/web/20151218131601id_/http://www.rocketlabusa.com/about-us/propulsion/",
+  "time_utc": "2026-10-30T21:45:29Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://web.archive.org/web/20151218131601id_/http://www.rocketlabusa.com/about-us/propulsion/",
+  "bytes": 14281,
+  "sha256": "67ff49050add58b9b31ddde3413b69bba7dd37e201b1e93b12eef175c8470f63",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-RL-PROPULSION-PAGE-2015.html"
  }
 }

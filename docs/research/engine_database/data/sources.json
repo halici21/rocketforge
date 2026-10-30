@@ -27218,6 +27218,54 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-RL-ELECTRON-PAGE-2017",
+   "title": "Electron (Rocket Lab web page, captured 2017-05-26)",
+   "authors": [],
+   "organization": "Rocket Lab USA, Inc.",
+   "year": 2017,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20170526234216/https://www.rocketlabusa.com/electron/",
+   "url": "https://web.archive.org/web/20170526234216/https://www.rocketlabusa.com/electron/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker page read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ],
+   "locators": "'First Stage' and 'Second Stage' panels",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Rocket Lab Electron page, Internet Archive capture of 2017-05-26, the month of the first flight. First Stage: 'Electron's first stage is powered by nine Rutherford engines. Lift Off Thrust 162 kN (34,500 lbf) Peak Thrust 192 kN (41,500 lbf) ISP 303 sec'. Second Stage: 'a variant of the Rutherford Engine providing improved performance in vacuum conditions. Total Thrust 22 kN (5,000 lbf) ISP 333 sec'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-RL-PROPULSION-PAGE-2015",
+   "title": "Propulsion (Rocket Lab web page, captured 2015-12-18)",
+   "authors": [],
+   "organization": "Rocket Lab USA, Inc.",
+   "year": 2015,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20151218131601/http://www.rocketlabusa.com/about-us/propulsion/",
+   "url": "https://web.archive.org/web/20151218131601/http://www.rocketlabusa.com/about-us/propulsion/",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker page read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-NZ-RUTHERFORD",
+    "ENG-NZ-RUTHERFORD-VACUUM"
+   ],
+   "locators": "page text",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Rocket Lab propulsion page, Internet Archive capture of 2015-12-18: 'The Rutherford Engine is an electric turbo-pumped LOX/RP-1 engine specifically designed for the Electron launch vehicle, capable of 5,000 lbf thrust and with an ISP of 327 s.' 'Electron uses two variants of the Rutherford engine, a sea level and a vacuum engine. The vacuum variant differs only in nozzle shape'. No condition is given for the 327 s.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
