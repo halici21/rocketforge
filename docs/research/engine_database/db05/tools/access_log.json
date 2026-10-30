@@ -7453,5 +7453,51 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-KBKHM-14D30-2016.html"
+ },
+ "SRC-DB05-ASTRIUM-AESTUS-BROCHURE": {
+  "source_id": "SRC-DB05-ASTRIUM-AESTUS-BROCHURE",
+  "url": "https://web.archive.org/web/20160430023049id_/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
+  "time_utc": "2026-10-30T20:53:44Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://web.archive.org/web/20160430023049id_/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
+  "bytes": 3440557,
+  "sha256": "4aee2872f8d38299edb5be9e864e819246452afac447aee4367442628700b972",
+  "is_pdf": true,
+  "pages": 4,
+  "text_chars": 6448,
+  "ok": true,
+  "file": "SRC-DB05-ASTRIUM-AESTUS-BROCHURE.pdf"
+ },
+ "SRC-DB05-NTRS-19790003958": {
+  "source_id": "SRC-DB05-NTRS-19790003958",
+  "url": "https://ntrs.nasa.gov/citations/19790003958",
+  "time_utc": "2026-10-30T20:57:10Z",
+  "ntrs_api_http": "200",
+  "ntrs_title": "Otrag rocket experiments in Africa",
+  "ntrs_copyright": "GOV_PUBLIC_USE_PERMITTED",
+  "ntrs_export": {
+   "isExportControl": "NO",
+   "submissionId": 19790003958,
+   "ear": "NO",
+   "id": "3cf5a935ad50478488d00bc466fb167e",
+   "itar": "NO"
+  },
+  "ntrs_distribution": "PUBLIC",
+  "ntrs_report_numbers": [
+   "NASA-TM-75376",
+   "Report Number: NASA-TM-75376"
+  ],
+  "download_url": "https://ntrs.nasa.gov/api/citations/19790003958/downloads/19790003958.pdf",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://ntrs.nasa.gov/api/citations/19790003958/downloads/19790003958.pdf",
+  "bytes": 10003491,
+  "sha256": "bf701407a344d2fb3603c3cda86f060bfdbd04708fd502e1336563449f2eb510",
+  "is_pdf": true,
+  "pages": 35,
+  "text_chars": 57377,
+  "ok": true,
+  "file": "SRC-DB05-NTRS-19790003958.pdf"
  }
 }

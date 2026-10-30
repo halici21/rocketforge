@@ -27023,6 +27023,52 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ASTRIUM-AESTUS-BROCHURE",
+   "title": "AESTUS: Upper Stage Engine (EADS Astrium Space Transportation brochure, space-propulsion.com)",
+   "authors": [],
+   "organization": "EADS Astrium Space Transportation",
+   "year": null,
+   "source_type": "manufacturer brochure",
+   "identifier": "https://web.archive.org/web/20160430023049/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
+   "url": "https://web.archive.org/web/20160430023049/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker brochure read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-DE-AESTUS"
+   ],
+   "locators": "p.1 operation text; p.2 development history and technical data",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): EADS Astrium brochure, 4 pages, read from the Internet Archive capture of 2016-04-30 (undated; mentions the first ATV launch of March 2008). Text: developed at Ottobrunn 1988-1995, first operational flight on 502 (30 October 1997); 'combustion temperature ... about 3000 K at a combustion pressure of 11 bar'; 'a delta-qualification programme was performed in 1999 - 2002. Here, the propellant mixture ratio of Aestus was adjusted from 2.05 to 1.9. Subsequently, the first operational flight of the performance enhanced Aestus was on Ariane 5 flight 518, launched on 26 February 2004.' Technical data (labels and values in order): N2O4/MMH; specific impulse vacuum 324 s; thrust vacuum 29.6 kN; propellant mass flow rate 9.3 kg/s; mixture ratio (TC) 1.9; engine feed pressure 17.7 bar; combustion chamber pressure 11 bar; overall engine length 2.2 m; thrust chamber mass 111 kg; nominal single firing 1100 s (the area-ratio and exit-diameter values did not extract).",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NTRS-19790003958",
+   "title": "Otrag rocket experiments in Africa (NASA TM-75376; Der Spiegel No. 33, 1978, pp. 52-65)",
+   "authors": [],
+   "organization": "NASA (NTRS); Der Spiegel",
+   "year": 1978,
+   "source_type": "translated press article",
+   "identifier": "NASA TM-75376; NTRS 19790003958",
+   "url": "https://ntrs.nasa.gov/citations/19790003958",
+   "tier": "B",
+   "primary": "secondary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Translation of a copyrighted magazine article; values only.",
+   "engines": [
+    "ENG-DE-OTRAG-CRPU-ENGINE"
+   ],
+   "locators": "translated text, history passage and design box",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): NASA Technical Memorandum TM-75376 (NTRS 19790003958, December 1978), 35-page translation of a Der Spiegel article of August 1978. It describes the idea of 'fueling rocket engines with commercial diesel oil and nitric acid instead of with expensive special fuels' and, in a box on the design, 'As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed'. A contemporary press account, not a design document; OCR is poor.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

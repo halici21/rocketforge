@@ -5474,11 +5474,16 @@
      "N2O4 (stage infobox)",
      "SRC-WIKI-OTRAG",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed (1978)",
+     "SRC-DB05-NTRS-19790003958",
+     "NASA TM-75376 (1978), translated text and design box"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": null,
-   "explanation": "Unsourced DB-0 claim(s): nitric acid. The article's infobox says N2O4; the nitric acid claim has no source. No primary document opened; the record stays open."
+   "explanation": "Unsourced DB-0 claim(s): nitric acid. A 1978 press account, translated by NASA as TM-75376, describes OTRAG's propellants as diesel oil and nitric acid, so the nitric acid claim has a contemporary source. It is a magazine article, not a design document, and does not say whether the acid was inhibited or fuming; the encyclopedia's N2O4 has no source opened."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-34",
@@ -6153,11 +6158,16 @@
      "The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)",
      "SRC-DB05-ESA-PR-1994-35-EPS",
      "ESA Press Release N° 35-1994 (14 October 1994), release text"
+    ],
+    [
+     "Thrust vacuum 29.6 kN; mixture ratio (TC) 1.9 [the 'performance enhanced Aestus', first flown on flight 518 in 2004]",
+     "SRC-DB05-ASTRIUM-AESTUS-BROCHURE",
+     "Astrium Aestus brochure, technical data and development history (archive capture 2016-04-30)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "ESA's EPS page, opened 2026-10-29 via www.esa.int, prints 2.7 tonnes vacuum thrust and more than 1000 s on a GTO mission. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives 27.5 kN, close to ESA's 2.7 t (26.5 kN). Thrust appears to have risen between the 1994 development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no document records the change. No Astrium/Airbus datasheet was reached."
+   "explanation": "ESA's EPS page, opened 2026-10-29 via www.esa.int, prints 2.7 tonnes vacuum thrust and more than 1000 s on a GTO mission. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives 27.5 kN, close to ESA's 2.7 t (26.5 kN). Thrust appears to have risen between the 1994 development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no document records the change. The maker's brochure (EADS Astrium, archive capture read 2026-10-30) gives 29.6 kN vacuum at mixture ratio 1.9 and records the 1999-2002 change from 2.05 to 1.9 first flown on flight 518, so 29.6 kN is the maker's figure for the later engine. It does not print a thrust for the 2.05 engine, so 27.5 kN and 2.7 t remain unconfirmed as the earlier rating."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-11",
@@ -6174,11 +6184,16 @@
      "10.0 bar",
      "SRC-MECAIND-2020-T1",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "about 3000 K at a combustion pressure of 11 bar; Combustion chamber pressure 11 bar",
+     "SRC-DB05-ASTRIUM-AESTUS-BROCHURE",
+     "Astrium Aestus brochure, technical data and development history (archive capture 2016-04-30)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The journal table refused access (HTTP 403). No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's brochure (EADS Astrium, archive capture) gives a combustion chamber pressure of 11 bar, the encyclopedia's value. The journal's 10.0 bar was never read (HTTP 403; no archive capture) and may describe the earlier engine; the brochure does not say the pressure changed."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-12",
@@ -6204,7 +6219,7 @@
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "The encyclopedia's own history section says the mixture ratio was changed from 2.05 to 1.90 in the 1999-2002 improvements, first flown on flight 518 (2004): two epochs, not two readings of one value. The journal table refused access (HTTP 403), and no Airbus or ESA document was opened to confirm the change."
+   "explanation": "The encyclopedia's own history section says the mixture ratio was changed from 2.05 to 1.90 in the 1999-2002 improvements, first flown on flight 518 (2004): two epochs, not two readings of one value. The maker's brochure (EADS Astrium, archive capture read 2026-10-30) states the same change: 'adjusted from 2.05 to 1.9', first flown on flight 518. The journal table refused access (HTTP 403)."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-23",

@@ -72,6 +72,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "RS68D": "RS-68A data sheet (Aerojet Rocketdyne, March 2019), Specifications table (archive capture 2023-01-30)",
         "LE2": "launcherspace.com/engine-2, performance list (archive capture 2019-09-20)",
         "KBH14": "kbhmisaeva.ru main.php?id=52 (14D30), 'Характеристики' table (archive capture 2016-03-04)",
+        "AEB": "Astrium Aestus brochure, technical data and development history (archive capture 2016-04-30)",
+        "OTR78": "NASA TM-75376 (1978), translated text and design box",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -346,8 +348,12 @@ K("CF-R2_ASIA-R2A-32", "ENG-FR-SEPR-841", "propellants.fuel",
    ("the TX2 fuel of the SEPR 841 was replaced with ... kerosene in the SEPR 844", "SRC-WIKI-SEPR84", "T")],
   "EXPLAINED", "different_variant", "The article gives TX2 for the SEPR 841 and kerosene for the later SEPR 844.")
 K("CF-R2_ASIA-R2A-33", "ENG-DE-OTRAG-CRPU-ENGINE", "propellants.oxidizer",
-  [("N2O4 (stage infobox)", "SRC-WIKI-OTRAG", "T"), ("nitric acid", None, "X")],
-  "UNRESOLVED", None, "The article's infobox says N2O4; the nitric acid claim has no source. " + _PRIMARY)
+  [("N2O4 (stage infobox)", "SRC-WIKI-OTRAG", "T"), ("nitric acid", None, "X"),
+   ("As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed (1978)", "SRC-DB05-NTRS-19790003958", "OTR78")],
+  "PARTIALLY_RESOLVED", None,
+  "A 1978 press account, translated by NASA as TM-75376, describes OTRAG's propellants as diesel oil and nitric acid, so "
+  "the nitric acid claim has a contemporary source. It is a magazine article, not a design document, and does not "
+  "say whether the acid was inhibited or fuming; the encyclopedia's N2O4 has no source opened.")
 K("CF-R2_ASIA-R2A-34", "ENG-JP-MB-60", "aliases.name",
   [("MARC-60 ... also known as MB-60, MB-XX, and RS-73", "SRC-WIKI-MARC60", "T"),
    ("MARC-60 (MB-60), same thrust class ... designed as a joint effort by Boeing and Mitsubishi", "SRC-WIKI-RL60", "T")],
@@ -525,25 +531,35 @@ K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
   [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"),
    ("The vacuum thrust of the Aestus engine was 2.7 tonnes (~26.5 kN DERIVED)", "SRC-ESA-EPS", "EPS"),
    ("avec 29 kN (2,9 tonnes) de poussée dans le vide", "SRC-DB05-CNES-A5-LANCEUR", "CN"),
-   ("The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)", "SRC-DB05-ESA-PR-1994-35-EPS", "PR94")],
-  "UNRESOLVED", "different_epoch",
+   ("The EPS stage ... is propelled by the Aestus engine (thrust = 27.5 kN) (October 1994)", "SRC-DB05-ESA-PR-1994-35-EPS", "PR94"),
+   ("Thrust vacuum 29.6 kN; mixture ratio (TC) 1.9 [the 'performance enhanced Aestus', first flown on flight 518 in 2004]",
+    "SRC-DB05-ASTRIUM-AESTUS-BROCHURE", "AEB")],
+  "PARTIALLY_RESOLVED", "different_epoch",
   "ESA's EPS page, opened 2026-10-29 via www.esa.int, prints 2.7 tonnes vacuum thrust and more than 1000 s on a GTO "
   "mission. CNES's Ariane 5 page prints 29 kN (2.9 t) in vacuum, which could be 29.6 kN "
   "rounded but is stated as a round figure. ESA's October 1994 release, from the development test campaign, gives "
   "27.5 kN, close to ESA's 2.7 t (26.5 kN). Thrust appears to have risen between the 1994 "
   "development engine and the flown engine (the encyclopedia ties a mixture-ratio change to flight 518), but no "
-  "document records the change. No Astrium/Airbus datasheet was reached.")
+  "document records the change. The maker's brochure (EADS Astrium, archive capture read 2026-10-30) gives 29.6 kN "
+  "vacuum at mixture ratio 1.9 and records the 1999-2002 change from 2.05 to 1.9 first flown on flight 518, so 29.6 kN "
+  "is the maker's figure for the later engine. It does not print a thrust for the 2.05 engine, so 27.5 kN and 2.7 t "
+  "remain unconfirmed as the earlier rating.")
 K("CF-EUROPE-11", "ENG-DE-AESTUS", "performance.pc",
-  [("chamber_pressure 11 bar", "SRC-WIKI-AESTUS", "T"), ("10.0 bar", "SRC-MECAIND-2020-T1", "N")],
-  "UNRESOLVED", None, "The journal table refused access (HTTP 403). " + _PRIMARY)
+  [("chamber_pressure 11 bar", "SRC-WIKI-AESTUS", "T"), ("10.0 bar", "SRC-MECAIND-2020-T1", "N"),
+   ("about 3000 K at a combustion pressure of 11 bar; Combustion chamber pressure 11 bar", "SRC-DB05-ASTRIUM-AESTUS-BROCHURE", "AEB")],
+  "RESOLVED", "primary_value_found",
+  "The maker's brochure (EADS Astrium, archive capture) gives a combustion chamber pressure of 11 bar, the "
+  "encyclopedia's value. The journal's 10.0 bar was never read (HTTP 403; no archive capture) and may describe the "
+  "earlier engine; the brochure does not say the pressure changed.")
 K("CF-EUROPE-12", "ENG-DE-AESTUS", "propellants.mixture_ratio",
   [("mixture_ratio 1.9", "SRC-WIKI-AESTUS", "T"), ("2.05", "SRC-MECAIND-2020-T1", "N"),
    ("adjusting propellant mixture ratio from 2.05 to 1.90 with a first flight on an Ariane 5 flight 518 on 26 February 2004",
     "SRC-WIKI-AESTUS", "T")],
   "PARTIALLY_RESOLVED", "different_epoch",
   "The encyclopedia's own history section says the mixture ratio was changed from 2.05 to 1.90 in the 1999-2002 "
-  "improvements, first flown on flight 518 (2004): two epochs, not two readings of one value. The journal table "
-  "refused access (HTTP 403), and no Airbus or ESA document was opened to confirm the change.")
+  "improvements, first flown on flight 518 (2004): two epochs, not two readings of one value. The maker's brochure "
+  "(EADS Astrium, archive capture read 2026-10-30) states the same change: 'adjusted from 2.05 to 1.9', first flown on "
+  "flight 518. The journal table refused access (HTTP 403).")
 K("CF-EUROPE-23", "ENG-DE-BMW-109-558", "performance.thrust",
   [("3.7 kN for 33 s, followed by 0.588 kN for 24 s", "SRC-WIKI-BMW109558", "T"), ("375 kg falling to 60 kg", "SRC-NASM-BMW109558", "N")],
   "EXPLAINED", "unit",
@@ -781,3 +797,11 @@ D('SRC-DB05-LAUNCHER-E2-PAGE-2019', identifier='https://web.archive.org/web/2019
 D('SRC-DB05-KBKHM-14D30-2016', identifier='https://web.archive.org/web/20160304054857/http://kbhmisaeva.ru/main.php?id=52', title='Двигатель 14Д30. Разгонный блок «Бриз-М» (KB Khimmash im. A.M. Isaeva web page, captured 2016-03-04)', tier="A",
   rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-30. KB Khimmash (Isaev) page for the 14D30 (S5.98M) Briz-M main engine, Internet Archive capture of 2016-03-04 (same table in the 2013-04-23 capture; the page is gone from the 2021 site). 'Тяга 2000 кгс'; 'Массовое соотношение расходов компонентов топлива 2,0 ±0,04'; 'Удельный импульс тяги 328,6 с'; 'Давление в камере 100 кгс/см2'; 'Число оборотов ротора ТНА 54 000 об/мин'; dry mass 95 kg; 8 starts; 3,200 s total, 2,500 s longest single burn. Propellants AT/UDMH. No condition printed for the impulse (an upper-stage engine). Used as a conflict claim only.")
+
+D('SRC-DB05-ASTRIUM-AESTUS-BROCHURE', identifier='https://web.archive.org/web/20160430023049/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf', title='AESTUS: Upper Stage Engine (EADS Astrium Space Transportation brochure, space-propulsion.com)', tier="A",
+  rights_checked="maker brochure read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. EADS Astrium brochure, 4 pages, read from the Internet Archive capture of 2016-04-30 (undated; mentions the first ATV launch of March 2008). Text: developed at Ottobrunn 1988-1995, first operational flight on 502 (30 October 1997); 'combustion temperature ... about 3000 K at a combustion pressure of 11 bar'; 'a delta-qualification programme was performed in 1999 - 2002. Here, the propellant mixture ratio of Aestus was adjusted from 2.05 to 1.9. Subsequently, the first operational flight of the performance enhanced Aestus was on Ariane 5 flight 518, launched on 26 February 2004.' Technical data (labels and values in order): N2O4/MMH; specific impulse vacuum 324 s; thrust vacuum 29.6 kN; propellant mass flow rate 9.3 kg/s; mixture ratio (TC) 1.9; engine feed pressure 17.7 bar; combustion chamber pressure 11 bar; overall engine length 2.2 m; thrust chamber mass 111 kg; nominal single firing 1100 s (the area-ratio and exit-diameter values did not extract). Used as a conflict claim only.")
+
+D('SRC-DB05-NTRS-19790003958', identifier="NASA TM-75376; NTRS 19790003958", title='Otrag rocket experiments in Africa (NASA TM-75376; Der Spiegel No. 33, 1978, pp. 52-65)', tier="B",
+  rights_checked="translation of a copyrighted magazine article; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. NASA Technical Memorandum TM-75376 (NTRS 19790003958, December 1978), 35-page translation of a Der Spiegel article of August 1978. It describes the idea of 'fueling rocket engines with commercial diesel oil and nitric acid instead of with expensive special fuels' and, in a box on the design, 'As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed'. A contemporary press account, not a design document; OCR is poor. Used as a conflict claim only.")

@@ -1132,3 +1132,10 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   ratio 6, 282 kg but no development period (CF-DB05-W-R2_USSR-R2-21 stays open). No capture exists of the RS-68A
   data sheet's l3harris URL, the STS-104 FRR mirror, the mechanics-industry Aestus table or the techno-science Viking
   page.
+- Aestus (2026-10-31): the maker's brochure (EADS Astrium, space-propulsion.com, archive capture 2016-04-30) gives
+  11 bar, 29.6 kN vacuum, 324 s, mixture ratio 1.9, and states the 1999-2002 change from 2.05 to 1.9 first flown on
+  flight 518. CF-DB05-E-EUROPE-11 (chamber pressure) RESOLVED; CF-DB05-E-EUROPE-10 (vacuum thrust) PARTIALLY_RESOLVED,
+  different_epoch; CF-DB05-E-EUROPE-12 (mixture ratio) keeps PARTIALLY_RESOLVED with the maker's statement added.
+- CF-DB05-E-R2_ASIA-R2A-33 (OTRAG oxidizer) PARTIALLY_RESOLVED: NASA TM-75376 (NTRS 19790003958), a 1978 translation
+  of a Der Spiegel article, describes diesel oil and nitric acid as the propellants. Press account, tier B.
+  Unresolved: 56 → 53.
