@@ -1840,9 +1840,9 @@
      "DB-0 search summary (encyclopedia; not evidence)"
     ],
     [
-     "5,900 lbf; 345 lb incl. turbopump",
+     "Thrust: 5,900 lbs. (1,475 lbs. in each of four chambers); Weight: 345 lbs. including turbopump [no RM designation]",
      "SRC-NMUSAF-XLR11",
-     "DB-0 search summary (never opened)"
+     "NMUSAF XLR11 fact sheet (archive capture 2020-12-03)"
     ],
     [
      "X-1 engine XLR-11-RM3",
@@ -1852,7 +1852,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "different_variant",
-   "explanation": "Opened: one popular history page names the X-1 engine XLR-11-RM3. The RM-5 and the thrust and mass figures were not opened. Different X-1 airframes may have carried different sub-variants; no document says which."
+   "explanation": "Opened: one popular history page names the X-1 engine XLR-11-RM3. The Air Force museum's fact sheet (archive capture, read 2026-10-31) gives 5,900 lb and 345 lb including turbopump but no RM designation; the RM-5 is still unseen. Different X-1 airframes may have carried different sub-variants; no document says which."
   },
   {
    "conflict_id": "CF-DB05-W-US_HIST-11",
@@ -4249,11 +4249,16 @@
      "First Stage 9 Sea-level Rutherford Engines ... ISP: 311 seconds",
      "SRC-RL-ELECTRON-PAGE",
      "Electron page, 'Rutherford Engine' panel"
+    ],
+    [
+     "9X RUTHERFORD SEA LEVEL ENGINES THRUST 5500 LBF SEA LEVEL (PER ENGINE) ISP 311 SEC",
+     "SRC-DB05-RL-PUG-6.3-2019",
+     "vehicle overview figure (archive capture 2019-05-06)"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": "definition",
-   "explanation": "Rocket Lab prints 311 s next to the sea-level engine in both places. DB-0's doubt is a plausibility judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), not a second source; no document opened states the ambient condition of the 311 s."
+   "explanation": "Rocket Lab prints 311 s next to the sea-level engine in both places. DB-0's doubt is a plausibility judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), not a second source; no document opened states the ambient condition of the 311 s. The 2019 user's guide (archive capture, read 2026-10-31) labels the thrust 'SEA LEVEL' but prints the 311 s without a condition."
   },
   {
    "conflict_id": "CF-DB05-W-COMMERCIAL-COM-14",
@@ -4486,19 +4491,19 @@
    "field_path": "turbines.HPFT.discharge_temperature",
    "claims": [
     [
-     "1,615 R (Block II row)",
+     "HPFT Discharge Temp (R), 104.5 % power level: Block II 1615",
      "SRC-NASA-HOPSON-STS104-FRR-2001",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Hopson STS-104 FRR charts (28 June 2001), p.3 'SSME Engine Comparison' table (govdocs1 673547)"
     ],
     [
-     "1,601 R (other row)",
+     "HPFT Discharge Temp (R), 104.5 % power level: Block IIA 1601",
      "SRC-NASA-HOPSON-STS104-FRR-2001",
-     "not opened (refused, 404, unreachable, or never fetched)"
+     "Hopson STS-104 FRR charts (28 June 2001), p.3 'SSME Engine Comparison' table (govdocs1 673547)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "Both values come from one flight-readiness chart that the mirror would not serve on retry (connection failed). No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "different_variant",
+   "explanation": "The flight-readiness chart (28 June 2001), read from another copy of the same government file, has a Block I / Block IIA / Block II comparison: at 104.5 % the HPFT discharge temperature is 1601 R for Block IIA and 1615 R for Block II, and the chart's Block II power-level table repeats 1615 R at 104.5 %. 1615 R is the Block II value; 1601 R belongs to Block IIA."
   },
   {
    "conflict_id": "CF-DB05-E-R2_US_CLASSIC-A42-1",

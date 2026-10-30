@@ -152,8 +152,8 @@ C("CF-DB05-RS25-HPFTSPEED", engine_id=E2, field_path="pumps.HPFTP.speed_rpm", db
   claims=[["34,311 rpm (Rocketdyne HPFTP, Block IIA, 104.5%)", "SRC-ENGINEHISTORY-SSMEORIENT-1998", "p.25"],
           ["operating at 35,000 rpm (original engine, 1971-1981)", "SRC-ENGINEHISTORY-SSME1", "p.3"]],
   resolution="UNRESOLVED", explanation="Primary value exists only for the Block IIA (Rocketdyne) HPFTP; the Block II P&W HPFTP speed remains secondary-only. Added 2026-10-28: Biggs (Tier B) gives 35,000 rpm for the original engine's HPFTP, operating point not stated.")
-BLOCK("SRC-NASA-HOPSON-STS104-FRR-2001", "connection failed (curl exit, HTTP 000) to corpora.tika.apache.org",
-      "Hopson STS-104 FRR table values (turbine temperatures) stay unverified.")
+# SRC-NASA-HOPSON-STS104-FRR-2001 was blocked here (tika mirror, connection failed) until 2026-10-31, when the same
+# govdocs1 file was read from the Digital Corpora archive; its D() record is in ledger_db0_wiki.py.
 
 D_ = __import__("ledger").D
 D_("SRC-NASA-SSME-NPL-DOC", identifier="HAER No. TX-116, Space Transportation System, Part III Space Shuttle Main Engine (page 248 ff.)",

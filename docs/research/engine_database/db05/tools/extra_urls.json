@@ -187,7 +187,7 @@
  "SRC-UC-OLLI-SPACEX": "https://uc.edu/content/dam/refresh/cont-ed-62/olli/fall-23-class-handouts/SpaceX%204%20Falcon%20rockets%20and%20Engines.pdf",
  "SRC-L3H-LHX-SPECSHEET-2024": "https://web.archive.org/web/20240305132343/https://www.l3harris.com/sites/default/files/2024-02/L24789-AJRD-LHX-Bipropellant-Rocket-Engines-SpecSheet-APPROVED-022224.pdf",
  "SRC-DESIGNSYS-RM81": "https://www.designation-systems.net/dusrm/app1/rm-81.html",
- "SRC-NMUSAF-XLR11": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
+ "SRC-NMUSAF-XLR11": "https://web.archive.org/web/20201203234619id_/https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
  "SRC-HISTORYOFWAR-X1": "https://www.historyofwar.org/articles/weapons_bell_X-1.html",
  "SRC-NMUSAF-XLR99": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197692/reaction-motors-xlr99-rocket/",
  "SRC-FLICKR-MB3": "https://www.flickr.com/photos/rocbolt/51178929835/",
@@ -375,5 +375,6 @@
  "SRC-DB05-ENERGOMASH-RD180-2017": "https://web.archive.org/web/20170628073819id_/http://engine.space/dejatelnost/engines/rd-180/",
  "SRC-DB05-KBKHM-14D30-2016": "https://web.archive.org/web/20160304054857id_/http://kbhmisaeva.ru/main.php?id=52",
  "SRC-DB05-ASTRIUM-AESTUS-BROCHURE": "https://web.archive.org/web/20160430023049id_/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
- "SRC-DB05-NTRS-19790003958": "https://ntrs.nasa.gov/citations/19790003958"
+ "SRC-DB05-NTRS-19790003958": "https://ntrs.nasa.gov/citations/19790003958",
+ "SRC-DB05-RL-PUG-6.3-2019": "https://web.archive.org/web/20190506030016id_/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf"
 }

@@ -1139,3 +1139,12 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - CF-DB05-E-R2_ASIA-R2A-33 (OTRAG oxidizer) PARTIALLY_RESOLVED: NASA TM-75376 (NTRS 19790003958), a 1978 translation
   of a Der Spiegel article, describes diesel oil and nitric acid as the propellants. Press account, tier B.
   Unresolved: 56 → 53.
+- CF-DB05-E-R2_US_CLASSIC-RS-7 (SSME HPFT discharge temperature) RESOLVED, different_variant (2026-10-31): the
+  Hopson STS-104 flight-readiness charts (28 June 2001) were read from the Digital Corpora copy of govdocs1 file
+  673/673547.pdf (HTTP range read of 673.zip; the tika mirror still refuses connections). At 104.5 %: Block IIA 1601 R,
+  Block II 1615 R. The source's BLOCK record in `tools/ledger_rs25b.py` is replaced by a comment. Unresolved: 53 → 52.
+- Read without changing a status (2026-10-31): Rocket Lab's Payload User's Guide 6.3 (April 2019, capture) prints
+  'ISP 311 SEC' under '9X RUTHERFORD SEA LEVEL ENGINES' with the thrust, not the Isp, labelled sea level
+  (CF-DB05-W-COMMERCIAL-COM-13 stays a definition question). The Air Force museum's XLR11 fact sheet (capture of
+  2020-12-03) gives 5,900 lb and 345 lb with turbopump but no RM designation (CF-DB05-W-US_HIST-08 stays open). No
+  archived Snecma HM7B or Vulcain data sheet was found.

@@ -463,13 +463,18 @@
  },
  "SRC-NASA-HOPSON-STS104-FRR-2001": {
   "source_id": "SRC-NASA-HOPSON-STS104-FRR-2001",
-  "url": "https://corpora.tika.apache.org/base/docs/govdocs1/673/673547.pdf",
-  "time_utc": "2026-10-29T17:57:13Z",
-  "http": "curl-exit-6/000",
-  "content_type": "",
-  "effective_url": "https://corpora.tika.apache.org/base/docs/govdocs1/673/673547.pdf",
-  "ok": false,
-  "file": "SRC-NASA-HOPSON-STS104-FRR-2001.pdf"
+  "url": "https://digitalcorpora.s3.amazonaws.com/corpora/files/govdocs1/zipfiles/673.zip#673/673547.pdf",
+  "time_utc": "2026-10-30T21:10:35Z",
+  "http": "206",
+  "content_type": "application/pdf",
+  "effective_url": "https://digitalcorpora.s3.amazonaws.com/corpora/files/govdocs1/zipfiles/673.zip",
+  "ok": true,
+  "file": "SRC-NASA-HOPSON-STS104-FRR-2001.pdf",
+  "bytes": 2576562,
+  "sha256": "ac92c8ea212f805286ae7abc24f0f6a885f057144f820530c3a41c2bc65b0ff7",
+  "is_pdf": true,
+  "pages": 6,
+  "retrieval_note": "The tika mirror refused connections (curl exit 7); the same govdocs1 file 673/673547.pdf was read from the Digital Corpora govdocs1 archive 673.zip by HTTP range requests (central directory, then the one member)."
  },
  "SRC-NASA-KSC-167449-SSMEPF06": {
   "source_id": "SRC-NASA-KSC-167449-SSMEPF06",
@@ -4778,15 +4783,15 @@
  },
  "SRC-NMUSAF-XLR11": {
   "source_id": "SRC-NMUSAF-XLR11",
-  "url": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
-  "time_utc": "2026-10-28T20:32:04Z",
-  "http": "403",
-  "content_type": "text/html",
-  "effective_url": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
-  "bytes": 515,
-  "sha256": "d28f6421878150706eb68dfd328c9d84b36ef99b179e08576a29c6873d8e33b0",
+  "url": "https://web.archive.org/web/20201203234619id_/https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
+  "time_utc": "2026-10-30T21:08:22Z",
+  "http": "200",
+  "content_type": "text/html; charset=utf-8",
+  "effective_url": "https://web.archive.org/web/20201203234619id_/https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/",
+  "bytes": 88183,
+  "sha256": "8245bb621170f45c6949ec98935774678e5fd2c25ab083ead64252c973d974e4",
   "is_pdf": false,
-  "ok": false,
+  "ok": true,
   "file": "SRC-NMUSAF-XLR11.html"
  },
  "SRC-HISTORYOFWAR-X1": {
@@ -7499,5 +7504,20 @@
   "text_chars": 57377,
   "ok": true,
   "file": "SRC-DB05-NTRS-19790003958.pdf"
+ },
+ "SRC-DB05-RL-PUG-6.3-2019": {
+  "source_id": "SRC-DB05-RL-PUG-6.3-2019",
+  "url": "https://web.archive.org/web/20190506030016id_/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf",
+  "time_utc": "2026-10-30T21:08:24Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://web.archive.org/web/20190506030016id_/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf",
+  "bytes": 10829738,
+  "sha256": "e8c34e8eda1ed43286ad3e9547a7ba32829ec8f03ad8a3148f886545a29269cb",
+  "is_pdf": true,
+  "pages": 57,
+  "text_chars": 45870,
+  "ok": true,
+  "file": "SRC-DB05-RL-PUG-6.3-2019.pdf"
  }
 }

@@ -9952,8 +9952,8 @@
     "ENG-US-SSME-BLOCK-II"
    ],
    "locators": "Block comparison table (slide number NOT_AUDITED)",
-   "access": "not_retrieved",
-   "notes": "Search summary quotes a Block I / Block IIA / Block II comparison table (MCC Pc, HPFT and HPOT discharge temperatures at 104.5% and 109%). Summary warns the text extraction is jumbled (two different Block IIA 104.5% HPFT values, 1601 R and 1615 R). Also a later STS-113 deck (Oct 2002) gives only sigma margins on pump speeds.",
+   "access": "fetched",
+   "notes": "Search summary quotes a Block I / Block IIA / Block II comparison table (MCC Pc, HPFT and HPOT discharge temperatures at 104.5% and 109%). Summary warns the text extraction is jumbled (two different Block IIA 104.5% HPFT values, 1601 R and 1615 R). Also a later STS-113 deck (Oct 2002) gives only sigma margins on pump speeds. DB-0.5 (2026-10-31): G. Hopson, 'Atlantis STS-104 ... SSME Block II' flight-readiness charts dated 28 June 2001 (file 104Prog.PPT), 6 pages, govdocs1 file 673/673547.pdf read 2026-10-31 from the Digital Corpora archive. Page 3 'SSME Engine Comparison': at 104 / 104.5 / 104.5 % for Block I / Block IIA / Block II, MCC Pc 3140 / 2870 / 2870 psia, HPFT discharge temperature 1694 / 1601 / 1615 R, HPOT discharge 1340 / 1215 / 1223 R; at 109 %, Pc 3291 / 2994 / 2994, HPFT 1718 / 1629 / 1638 R, HPOT 1374 / 1234 / 1246 R; Block II by power level 100-111 %: Pc 2747-3050 psia, HPFT 1594-1658 R.",
    "branches": [
     "r2_us_classic"
    ]
@@ -11661,8 +11661,8 @@
     "ENG-US-XLR11"
    ],
    "locators": "",
-   "access": "not_retrieved",
-   "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 5,900 lb (1,475 per chamber); early versions pressure-fed, later turbopumps; fuel-cooled chambers; 345 lb incl. turbopump.",
+   "access": "fetched",
+   "notes": "Values taken from search-engine result excerpts; page itself not fetched (egress blocked). Re-verify. 5,900 lb (1,475 per chamber); early versions pressure-fed, later turbopumps; fuel-cooled chambers; 345 lb incl. turbopump. DB-0.5 (2026-10-31): Fact sheet read from the Internet Archive capture of 2020-12-03 (the live page answers 403): 'delivered a total of 5,900 pounds of thrust'; 'Thrust: 5,900 lbs. (1,475 lbs. in each of four chambers)'; 'Weight: 345 lbs. including turbopump'; ethyl alcohol and water with liquid oxygen; 'An XLR11 engine powered ... the Bell X-1, in 1947'. No RM sub-variant designation.",
    "branches": [
     "us_hist"
    ]
@@ -27066,6 +27066,29 @@
    "locators": "translated text, history passage and design box",
    "access": "fetched",
    "notes": "Added in DB-0.5 (2026-10-30): NASA Technical Memorandum TM-75376 (NTRS 19790003958, December 1978), 35-page translation of a Der Spiegel article of August 1978. It describes the idea of 'fueling rocket engines with commercial diesel oil and nitric acid instead of with expensive special fuels' and, in a box on the design, 'As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed'. A contemporary press account, not a design document; OCR is poor.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-RL-PUG-6.3-2019",
+   "title": "Rocket Lab Payload User's Guide, Version 6.3 (April 2019)",
+   "authors": [],
+   "organization": "Rocket Lab USA, Inc.",
+   "year": 2019,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "https://web.archive.org/web/20190506030016/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf",
+   "url": "https://web.archive.org/web/20190506030016/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-NZ-RUTHERFORD"
+   ],
+   "locators": "vehicle overview figure",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Rocket Lab Payload User's Guide, version 6.3 (4 April 2019), 57 pages, read from the Internet Archive capture of 2019-05-06. Vehicle overview: 'STAGE 2 PROPULSION 1X RUTHERFORD VACUUM ENGINES THRUST 5500 LBF VACUUM ISP 343 SEC'; 'STAGE 1 PROPULSION 9X RUTHERFORD SEA LEVEL ENGINES THRUST 5500 LBF SEA LEVEL (PER ENGINE) ISP 311 SEC'. The thrust carries an ambient condition; the Isp does not.",
    "branches": [
     "db05"
    ]

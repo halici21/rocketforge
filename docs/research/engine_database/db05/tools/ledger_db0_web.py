@@ -192,6 +192,8 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "EM17": "engine.space (NPO Energomash) engine page, 'Технические характеристики' table (archive capture 2017-06-28)",
         "RLN25": "rocketlabusa.com/launch/neutron, Performance panel (archive capture 2025-05-09)",
         "RLA24": "rocketlabusa.com update 'Rocket Lab Completes Archimedes Engine Build' (May 2024), text (archive capture 2024-05-07)",
+        "RLPUG": "Rocket Lab Payload User's Guide v6.3 (April 2019), vehicle overview (archive capture 2019-05-06)",
+        "NMX": "NMUSAF XLR11 fact sheet (archive capture 2020-12-03)",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -233,11 +235,13 @@ K("CF-US_HIST-07", "ENG-US-BELL-8081", "performance.thrust",
   "The Agena B page prints 'Thrust 71.17 kN (15,999 lbf)' for the stage with the Bell 8081, not the 70.7 kN DB-0 cited; "
   "71.17 kN rounds to the encyclopedia's 71 kN. Both are tertiary.")
 K("CF-US_HIST-08", "ENG-US-XLR11", "identity.designation",
-  [("X-1 = XLR11-RM-5", "SRC-WIKI-XLR11", "W"), ("5,900 lbf; 345 lb incl. turbopump", "SRC-NMUSAF-XLR11", "N"),
+  [("X-1 = XLR11-RM-5", "SRC-WIKI-XLR11", "W"),
+   ("Thrust: 5,900 lbs. (1,475 lbs. in each of four chambers); Weight: 345 lbs. including turbopump [no RM designation]", "SRC-NMUSAF-XLR11", "NMX"),
    ("X-1 engine XLR-11-RM3", "SRC-HISTORYOFWAR-X1", "T")],
   "UNRESOLVED", "different_variant",
-  "Opened: one popular history page names the X-1 engine XLR-11-RM3. The RM-5 and the thrust and mass figures were not "
-  "opened. Different X-1 airframes may have carried different sub-variants; no document says which.")
+  "Opened: one popular history page names the X-1 engine XLR-11-RM3. The Air Force museum's fact sheet (archive "
+  "capture, read 2026-10-31) gives 5,900 lb and 345 lb including turbopump but no RM designation; the RM-5 is still "
+  "unseen. Different X-1 airframes may have carried different sub-variants; no document says which.")
 K("CF-US_HIST-11", "ENG-US-LR79-NA-9", "applications",
   [("Thor IRBM and Atlas E and F", "SRC-FLICKR-MB3", "T"), ("Atlas E/F used MA-3 (LR89/LR105)", "SRC-ENGINEHISTORY-RPE05", "T")],
   "EXPLAINED", "definition",
@@ -795,11 +799,14 @@ C("CF-DB05-W-COMMERCIAL-COM-13", engine_id="ENG-NZ-RUTHERFORD", field_path="perf
   db0_conflict_id="CF-COMMERCIAL-COM-13",
   claims=[["The sea level versions on Electron's first stage now produce 5,600 lbf of thrust (up from 5,500 lbf, with a "
            "specific impulse of 311 s (3.05 km/s).", "SRC-RKLB-PAYLOAD-INCREASE", "release of 4 Aug 2020 (read in the Wave 2 pass)"],
-          ["First Stage 9 Sea-level Rutherford Engines ... ISP: 311 seconds", "SRC-RL-ELECTRON-PAGE", "Electron page, 'Rutherford Engine' panel"]],
+          ["First Stage 9 Sea-level Rutherford Engines ... ISP: 311 seconds", "SRC-RL-ELECTRON-PAGE", "Electron page, 'Rutherford Engine' panel"],
+          ["9X RUTHERFORD SEA LEVEL ENGINES THRUST 5500 LBF SEA LEVEL (PER ENGINE) ISP 311 SEC", "SRC-DB05-RL-PUG-6.3-2019",
+           "vehicle overview figure (archive capture 2019-05-06)"]],
   resolution="UNRESOLVED", kind="definition",
   explanation="Rocket Lab prints 311 s next to the sea-level engine in both places. DB-0's doubt is a plausibility "
               "judgement (311 s is high for kerosene at sea level, so it may be the sea-level engine's vacuum Isp), "
-              "not a second source; no document opened states the ambient condition of the 311 s.")
+              "not a second source; no document opened states the ambient condition of the 311 s. The 2019 user's guide "
+              "(archive capture, read 2026-10-31) labels the thrust 'SEA LEVEL' but prints the 311 s without a condition.")
 K("CF-COMMERCIAL-COM-14", "ENG-NZ-ARCHIMEDES-VACUUM", "performance.thrust_vac",
   [("Vacuum Thrust: 890 kN (200,000 lbf)", "SRC-RL-NEUTRON-PAGE", "RLN25"),
    ("The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)", "SRC-RL-ARCH-BUILD", "RLA24")],
@@ -1022,3 +1029,10 @@ D('SRC-RL-NEUTRON-PAGE', identifier='https://web.archive.org/web/20250509111314/
 D('SRC-RL-ARCH-BUILD', identifier='https://web.archive.org/web/20240507053149/https://www.rocketlabusa.com/updates/rocket-lab-completes-archimedes-engine-build-begins-engine-test-campaign/', title='Rocket Lab Completes Archimedes Engine Build, Begins Engine Test Campaign', tier='A',
   rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-30. Release of May 2024, capture of 2024-05-07: 'each Archimedes engine is capable of producing 165,000 lbf (733 kilonewtons) for a combined total of 1,450,000 million lbf'; 'The single vacuum-optimized version of Archimedes ... is capable of up to 202,300 lbf (900kN)'. Used as a conflict claim only.")
+
+D('SRC-DB05-RL-PUG-6.3-2019', identifier='https://web.archive.org/web/20190506030016/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf', title="Rocket Lab Payload User's Guide, Version 6.3 (April 2019)", tier="A",
+  rights_checked="maker guide read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Rocket Lab Payload User's Guide, version 6.3 (4 April 2019), 57 pages, read from the Internet Archive capture of 2019-05-06. Vehicle overview: 'STAGE 2 PROPULSION 1X RUTHERFORD VACUUM ENGINES THRUST 5500 LBF VACUUM ISP 343 SEC'; 'STAGE 1 PROPULSION 9X RUTHERFORD SEA LEVEL ENGINES THRUST 5500 LBF SEA LEVEL (PER ENGINE) ISP 311 SEC'. The thrust carries an ambient condition; the Isp does not. Used as a conflict claim only.")
+D("SRC-NMUSAF-XLR11", identifier='https://web.archive.org/web/20201203234619/https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/', title='Reaction Motors XLR11 Rocket (fact sheet)', tier='D',
+  rights_checked="museum fact sheet read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Fact sheet read from the Internet Archive capture of 2020-12-03 (the live page answers 403): 'delivered a total of 5,900 pounds of thrust'; 'Thrust: 5,900 lbs. (1,475 lbs. in each of four chambers)'; 'Weight: 345 lbs. including turbopump'; ethyl alcohol and water with liquid oxygen; 'An XLR11 engine powered ... the Bell X-1, in 1947'. No RM sub-variant designation. Used as a conflict claim only.")

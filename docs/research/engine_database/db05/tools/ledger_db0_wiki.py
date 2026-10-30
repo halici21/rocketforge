@@ -74,6 +74,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "KBH14": "kbhmisaeva.ru main.php?id=52 (14D30), 'Характеристики' table (archive capture 2016-03-04)",
         "AEB": "Astrium Aestus brochure, technical data and development history (archive capture 2016-04-30)",
         "OTR78": "NASA TM-75376 (1978), translated text and design box",
+        "FRR3": "Hopson STS-104 FRR charts (28 June 2001), p.3 'SSME Engine Comparison' table (govdocs1 673547)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -96,10 +97,13 @@ NOT_FILED = {}  # DB-0 conflicts with nothing a ledger claim can cite
 
 # --- seed engines
 K("CF-R2_US_CLASSIC-RS-7", "ENG-US-SSME-BLOCK-II", "turbines.HPFT.discharge_temperature",
-  [("1,615 R (Block II row)", "SRC-NASA-HOPSON-STS104-FRR-2001", "N"), ("1,601 R (other row)", "SRC-NASA-HOPSON-STS104-FRR-2001", "N")],
-  "UNRESOLVED", "intra_document",
-  "Both values come from one flight-readiness chart that the mirror would not serve on retry (connection failed). "
-  + _PRIMARY)
+  [("HPFT Discharge Temp (R), 104.5 % power level: Block II 1615", "SRC-NASA-HOPSON-STS104-FRR-2001", "FRR3"),
+   ("HPFT Discharge Temp (R), 104.5 % power level: Block IIA 1601", "SRC-NASA-HOPSON-STS104-FRR-2001", "FRR3")],
+  "RESOLVED", "different_variant",
+  "The flight-readiness chart (28 June 2001), read from another copy of the same government file, has a Block I / "
+  "Block IIA / Block II comparison: at 104.5 % the HPFT discharge temperature is 1601 R for Block IIA and 1615 R for "
+  "Block II, and the chart's Block II power-level table repeats 1615 R at 104.5 %. 1615 R is the Block II value; "
+  "1601 R belongs to Block IIA.")
 K("CF-R2_US_CLASSIC-A42-1", "ENG-US-RL10A-4-2", "nozzle.area_ratio",
   [("85:1", "SRC-AIAA-VEHGUIDE-ATLAS", "N"), ("nozzle_ratio '84:1 or 280:1'", "SRC-WIKI-RL10", "T"),
    ("Nozzle area ratio 84:1 (RL10A-4-2 column)", "SRC-NAP-11780", "D4")],
@@ -805,3 +809,7 @@ D('SRC-DB05-ASTRIUM-AESTUS-BROCHURE', identifier='https://web.archive.org/web/20
 D('SRC-DB05-NTRS-19790003958', identifier="NASA TM-75376; NTRS 19790003958", title='Otrag rocket experiments in Africa (NASA TM-75376; Der Spiegel No. 33, 1978, pp. 52-65)', tier="B",
   rights_checked="translation of a copyrighted magazine article; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-30. NASA Technical Memorandum TM-75376 (NTRS 19790003958, December 1978), 35-page translation of a Der Spiegel article of August 1978. It describes the idea of 'fueling rocket engines with commercial diesel oil and nitric acid instead of with expensive special fuels' and, in a box on the design, 'As low cost fuel, a mixture of simple diesel oil and nitric acid is proposed'. A contemporary press account, not a design document; OCR is poor. Used as a conflict claim only.")
+
+D('SRC-NASA-HOPSON-STS104-FRR-2001', identifier='govdocs1 corpus 673547.pdf (also 675066 / 655318 hits)', title='STS-104 SSME Flight Readiness Review (Hopson), 28 June 2001', tier='A',
+  rights_checked="US government briefing charts in a public corpus; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Read 2026-10-31. G. Hopson, 'Atlantis STS-104 ... SSME Block II' flight-readiness charts dated 28 June 2001 (file 104Prog.PPT), 6 pages, govdocs1 file 673/673547.pdf read 2026-10-31 from the Digital Corpora archive. Page 3 'SSME Engine Comparison': at 104 / 104.5 / 104.5 % for Block I / Block IIA / Block II, MCC Pc 3140 / 2870 / 2870 psia, HPFT discharge temperature 1694 / 1601 / 1615 R, HPOT discharge 1340 / 1215 / 1223 R; at 109 %, Pc 3291 / 2994 / 2994, HPFT 1718 / 1629 / 1638 R, HPOT 1374 / 1234 / 1246 R; Block II by power level 100-111 %: Pc 2747-3050 psia, HPFT 1594-1658 R. Used as a conflict claim only.")
