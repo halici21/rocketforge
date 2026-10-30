@@ -967,6 +967,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+   "url_requested": "https://web.archive.org/web/20160109210127id_/http://www.npoenergomash.ru/encikloped/dvizki",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 519565,
+   "sha256": "b584c8ff9913a2f30dcc7aaf73104c618536c5c643313566e3e53881b14424b4",
+   "pdf_pages": null,
+   "retrieved_utc": "2026-10-30T21:16:51Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "https://web.archive.org/web/20160109210127/http://www.npoenergomash.ru/encikloped/dvizki",
+   "title_as_printed": "Двигатели (NPO Energomash web encyclopedia, engine table; captured 2016-01-09)",
+   "tier": "A",
+   "rights_statement_checked": "maker web page read from an Internet Archive capture; values only",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "Fetched 2026-10-31. NPO Energomash 'Энциклопедия - Двигатели' page (npoenergomash.ru/encikloped/dvizki), Internet Archive capture of 2016-01-09. One table of the bureau's engines with columns 'Двигатель (индекс) / Компоненты топлива / Тяга, тс з/п / Уд. импульс, с з/п / Давление в КС, кгс/см2 / Масса, кг, сух./залитого / Габариты / Годы разработки / Назначение'. Rows used: 'РД-100 (8Д51) кислород/75% С2Н5ОН 26,2/31 203/237 16,22 885/1063 ... 1946-1950 Сер. для Р-1'; 'РД-101 (8Д52) кислород/92% С2Н5ОН 37,0/41,2 210/237 21,62 888/1060 ... 1947-1951 Сер. для Р-2'; 'РД-216 (8Д514) азотная кислота/НДМГ 151/177,4 246/289 75 ... 1958-1960 Сер. для I ст. Р-14'; 'РД-216М (11Д614) ... 151,5/177,9 248/291,3 75 ... 1966-1968'; 'РД-270 (8Д420) азотный тетроксид/НДМГ 639,74/684,73 301/322 266 4770/5603 4850/3300 1962-1969 Проект для I ст. РН УР-700 по лунной программе; ОИ'. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-ENERGOMASH-RD170-2017",
    "url_requested": "https://web.archive.org/web/20170628073555id_/http://engine.space/dejatelnost/engines/rd-170-171/",
    "download_url": null,

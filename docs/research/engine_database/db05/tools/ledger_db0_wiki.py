@@ -75,6 +75,7 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "AEB": "Astrium Aestus brochure, technical data and development history (archive capture 2016-04-30)",
         "OTR78": "NASA TM-75376 (1978), translated text and design box",
         "FRR3": "Hopson STS-104 FRR charts (28 June 2001), p.3 'SSME Engine Comparison' table (govdocs1 673547)",
+        "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -239,8 +240,11 @@ K("CF-R2_USSR-R2-11", "ENG-SU-RD-107A", "performance.thrust_vac",
   [("vac: 1,021.3 kN", "SRC-WIKI-SOYUZFG", "T"), ("vac: 1,019.93 kN", "SRC-WIKI-SOYUZ-CSG", "T"), ("thrust(Vac) 1,020 kN", "SRC-WIKI-RD107", "T")],
   "EXPLAINED", "rating_or_rounding", "Three encyclopedia pages within 0.14 percent: one value at different precision.")
 K("CF-R2_USSR-R2-12", "ENG-SU-RD-216", "aliases.index",
-  [("RD-216 (GRAU index: 8D514)", "SRC-WIKI-RD215", "T"), ("11D614", None, "X")],
-  "UNRESOLVED", None, "The article gives 8D514 for the RD-216 module; 11D614 has no source. " + _PRIMARY)
+  [("RD-216 (GRAU index: 8D514)", "SRC-WIKI-RD215", "T"), ("11D614", None, "X"),
+   ("РД-216 (8Д514) ... 1958-1960 Сер. для I ст. Р-14; РД-216М (11Д614) ... 1966-1968", 'SRC-DB05-ENERGOMASH-ENCYCL-2016', "EMENC")],
+  "RESOLVED", "different_variant",
+  "The maker's engine table (NPO Energomash, archive capture of 2016) lists РД-216 as 8Д514 and РД-216М as 11Д614: "
+  "two variants, each index correct for its own engine.")
 K("CF-R2_USSR-R2-13", "ENG-SU-RD-263", "performance.thrust_vac",
   [("thrust(Vac) 1128 kN", "SRC-WIKI-RD263", "T"), ("1130 kN", "SRC-WIKI-RD263", "NF")],
   "EXPLAINED", "rating_or_rounding", "The current revision prints 1,128 kN; 1,130 kN is the same rounded.")
@@ -255,14 +259,22 @@ K("CF-R2_USSR-R2-15", "ENG-RU-S5-92", "aliases.index",
   "The design-bureau article uses 17D61 for the Ikar control module, not for an engine; the unsourced claim attaches it "
   "to the S5.92.")
 K("CF-R2_USSR-R2-17", "ENG-SU-RD-270", "history.end",
-  [("Date 1962-1968 (infobox)", "SRC-WIKI-RD270", "T"), ("designed ... in 1960-1970 (prose)", "SRC-WIKI-RD270", "T")],
-  "UNRESOLVED", "intra_document", "One article gives two spans, infobox against prose. " + _PRIMARY)
+  [("Date 1962-1968 (infobox)", "SRC-WIKI-RD270", "T"), ("designed ... in 1960-1970 (prose)", "SRC-WIKI-RD270", "T"),
+   ('РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ', 'SRC-DB05-ENERGOMASH-ENCYCL-2016', 'EMENC')],
+  "PARTIALLY_RESOLVED", "definition",
+  "The maker's engine table (NPO Energomash, archive capture of 2016) gives the RD-270's years of development as "
+  "1962-1969 and its status as a project for the UR-700 lunar rocket that reached fire tests. Neither encyclopedia span "
+  "matches: 1962 agrees with the infobox start, 1969 with neither end. The maker gives no cancellation date.")
 K("CF-USSR-17", "ENG-SU-RD-270", "history.period",
-  [("Date 1962-1968 (infobox)", "SRC-WIKI-RD270", "T"), ("designed ... in 1960-1970 (prose)", "SRC-WIKI-RD270", "T")],
-  "UNRESOLVED", "intra_document", "Same pair as CF-DB05-E-R2_USSR-R2-17.")
+  [("Date 1962-1968 (infobox)", "SRC-WIKI-RD270", "T"), ("designed ... in 1960-1970 (prose)", "SRC-WIKI-RD270", "T"),
+   ('РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ', 'SRC-DB05-ENERGOMASH-ENCYCL-2016', 'EMENC')],
+  "PARTIALLY_RESOLVED", "definition", "As CF-DB05-E-R2_USSR-R2-17: the maker's table gives 1962-1969.")
 K("CF-TAXONOMY-TAX-4", "ENG-SU-RD-270", "history.cancellation",
-  [("designed ... in 1960-1970", "SRC-WIKI-RD270", "T"), ("Date 1962-1968", "SRC-WIKI-RD270", "T")],
-  "UNRESOLVED", "intra_document", "Same pair as CF-DB05-E-R2_USSR-R2-17.")
+  [("designed ... in 1960-1970", "SRC-WIKI-RD270", "T"), ("Date 1962-1968", "SRC-WIKI-RD270", "T"),
+   ('РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ', 'SRC-DB05-ENERGOMASH-ENCYCL-2016', 'EMENC')],
+  "PARTIALLY_RESOLVED", "definition",
+  "As CF-DB05-E-R2_USSR-R2-17: the maker's table ends development in 1969 and records fire tests only; it prints no "
+  "cancellation date.")
 K("CF-R2_USSR-R2-18", "ENG-RU-S5-98M", "performance.isp_vac",
   [("Specific impulse, vacuum 328.6 seconds", "SRC-WIKI-S598M", "T"), ("326 s", None, "X"),
    ("Тяга 2000 кгс ... Удельный импульс тяги 328,6 с", "SRC-DB05-KBKHM-14D30-2016", "KBH14")],

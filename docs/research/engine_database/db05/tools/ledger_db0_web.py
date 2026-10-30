@@ -194,6 +194,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "RLA24": "rocketlabusa.com update 'Rocket Lab Completes Archimedes Engine Build' (May 2024), text (archive capture 2024-05-07)",
         "RLPUG": "Rocket Lab Payload User's Guide v6.3 (April 2019), vehicle overview (archive capture 2019-05-06)",
         "NMX": "NMUSAF XLR11 fact sheet (archive capture 2020-12-03)",
+        "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -343,16 +344,22 @@ K("CF-USSR-7", "ENG-SU-RD-117", "aliases.index",
   "GlobalSecurity attaches the family names RD-107 / RD-108 to the 11D511 / 11D512 indices used on Soyuz-U, which are "
   "the RD-117 / RD-118 builds; both pages name the same hardware at different levels of the family.")
 K("CF-USSR-8", "ENG-SU-RD-100", "performance.thrust_sl",
-  [("26 t", "SRC-KPI-GLUSHKO", "T"), ("33 t (+30 % over V-2)", "SRC-HISTORYRISE-GLUSHKO", "N")],
-  "UNRESOLVED", None, "Only the 26 t page was opened; 33 t stays a search-result claim.")
+  [("26 t", "SRC-KPI-GLUSHKO", "T"), ("33 t (+30 % over V-2)", "SRC-HISTORYRISE-GLUSHKO", "N"),
+   ("РД-100 (8Д51) кислород/75% С2Н5ОН, Тяга, тс з/п 26,2/31", "SRC-DB05-ENERGOMASH-ENCYCL-2016", "EMENC")],
+  "RESOLVED", "primary_value_found",
+  "The maker's engine table (NPO Energomash, archive capture of 2016) gives the RD-100 26.2 tf at sea level and 31 tf "
+  "in vacuum, so 26 t is the rounded sea-level rating. The 33 t has no source; it is near neither figure.")
 K("CF-USSR-9", "ENG-SU-RD-101", "performance.thrust",
   [("37,210 kgf SL / 41,208 kgf vac", "SRC-FAS-R2", "T"), ("37 t (ground)", "SRC-KPI-GLUSHKO", "T"), ("35 t (340 kN)", "SRC-PLANETARY-GLUSHKO", "T")],
   "PARTIALLY_RESOLVED", "rating_or_rounding",
   "FAS (37,210 kgf) and KPI (37 t) agree; the Planetary Society's 35 t is 6 percent lower and gives no source or "
   "condition.")
 K("CF-USSR-10", "ENG-SU-RD-101", "propellants.fuel",
-  [("methyl alcohol replaced ethyl alcohol", "SRC-FAS-R2", "T")],
-  "UNRESOLVED", None, "Only the FAS page was read; no second opened source confirms or contradicts the change.")
+  [("methyl alcohol replaced ethyl alcohol", "SRC-FAS-R2", "T"),
+   ("РД-100 (8Д51) кислород/75% С2Н5ОН; РД-101 (8Д52) кислород/92% С2Н5ОН", "SRC-DB05-ENERGOMASH-ENCYCL-2016", "EMENC")],
+  "RESOLVED", "primary_value_found",
+  "The maker's engine table (NPO Energomash, archive capture of 2016) gives ethyl alcohol (С2Н5ОН) for both engines: "
+  "75 percent for the RD-100 and 92 percent for the RD-101. The change was in concentration, not to methyl alcohol.")
 K("CF-USSR-15", "ENG-SU-RD-0110", "performance.pc / performance.isp_vac / operations.burn_time",
   [("6.8 MPa; 325 s; 250 s", "SRC-WIKI-RD0110", "W"), ("7 MPa; 3,195 m/s; 'Burn time 230 or 240 seconds'", "SRC-RSW-RD0110", "T")],
   "PARTIALLY_RESOLVED", "rating_or_rounding",
@@ -1036,3 +1043,7 @@ D('SRC-DB05-RL-PUG-6.3-2019', identifier='https://web.archive.org/web/2019050603
 D("SRC-NMUSAF-XLR11", identifier='https://web.archive.org/web/20201203234619/https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/197694/reaction-motors-xlr11-rocket/', title='Reaction Motors XLR11 Rocket (fact sheet)', tier='D',
   rights_checked="museum fact sheet read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. Fact sheet read from the Internet Archive capture of 2020-12-03 (the live page answers 403): 'delivered a total of 5,900 pounds of thrust'; 'Thrust: 5,900 lbs. (1,475 lbs. in each of four chambers)'; 'Weight: 345 lbs. including turbopump'; ethyl alcohol and water with liquid oxygen; 'An XLR11 engine powered ... the Bell X-1, in 1947'. No RM sub-variant designation. Used as a conflict claim only.")
+
+D('SRC-DB05-ENERGOMASH-ENCYCL-2016', identifier='https://web.archive.org/web/20160109210127/http://www.npoenergomash.ru/encikloped/dvizki', title='Двигатели (NPO Energomash web encyclopedia, engine table; captured 2016-01-09)', tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. NPO Energomash 'Энциклопедия - Двигатели' page (npoenergomash.ru/encikloped/dvizki), Internet Archive capture of 2016-01-09. One table of the bureau's engines with columns 'Двигатель (индекс) / Компоненты топлива / Тяга, тс з/п / Уд. импульс, с з/п / Давление в КС, кгс/см2 / Масса, кг, сух./залитого / Габариты / Годы разработки / Назначение'. Rows used: 'РД-100 (8Д51) кислород/75% С2Н5ОН 26,2/31 203/237 16,22 885/1063 ... 1946-1950 Сер. для Р-1'; 'РД-101 (8Д52) кислород/92% С2Н5ОН 37,0/41,2 210/237 21,62 888/1060 ... 1947-1951 Сер. для Р-2'; 'РД-216 (8Д514) азотная кислота/НДМГ 151/177,4 246/289 75 ... 1958-1960 Сер. для I ст. Р-14'; 'РД-216М (11Д614) ... 151,5/177,9 248/291,3 75 ... 1966-1968'; 'РД-270 (8Д420) азотный тетроксид/НДМГ 639,74/684,73 301/322 266 4770/5603 4850/3300 1962-1969 Проект для I ст. РН УР-700 по лунной программе; ОИ'. Used as a conflict claim only.")

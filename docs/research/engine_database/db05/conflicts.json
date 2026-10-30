@@ -2265,11 +2265,16 @@
      "33 t (+30 % over V-2)",
      "SRC-HISTORYRISE-GLUSHKO",
      "DB-0 search summary (never opened)"
+    ],
+    [
+     "РД-100 (8Д51) кислород/75% С2Н5ОН, Тяга, тс з/п 26,2/31",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Only the 26 t page was opened; 33 t stays a search-result claim."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's engine table (NPO Energomash, archive capture of 2016) gives the RD-100 26.2 tf at sea level and 31 tf in vacuum, so 26 t is the rounded sea-level rating. The 33 t has no source; it is near neither figure."
   },
   {
    "conflict_id": "CF-DB05-W-USSR-9",
@@ -2307,11 +2312,16 @@
      "methyl alcohol replaced ethyl alcohol",
      "SRC-FAS-R2",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "РД-100 (8Д51) кислород/75% С2Н5ОН; РД-101 (8Д52) кислород/92% С2Н5ОН",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Only the FAS page was read; no second opened source confirms or contradicts the change."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The maker's engine table (NPO Energomash, archive capture of 2016) gives ethyl alcohol (С2Н5ОН) for both engines: 75 percent for the RD-100 and 92 percent for the RD-101. The change was in concentration, not to methyl alcohol."
   },
   {
    "conflict_id": "CF-DB05-W-USSR-15",
@@ -4992,11 +5002,16 @@
      "RD-216 (GRAU index: 8D514)",
      "SRC-WIKI-RD215",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "РД-216 (8Д514) ... 1958-1960 Сер. для I ст. Р-14; РД-216М (11Д614) ... 1966-1968",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Unsourced DB-0 claim(s): 11D614. The article gives 8D514 for the RD-216 module; 11D614 has no source. No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "different_variant",
+   "explanation": "Unsourced DB-0 claim(s): 11D614. The maker's engine table (NPO Energomash, archive capture of 2016) lists РД-216 as 8Д514 and РД-216М as 11Д614: two variants, each index correct for its own engine."
   },
   {
    "conflict_id": "CF-DB05-E-R2_USSR-R2-13",
@@ -5066,11 +5081,16 @@
      "designed ... in 1960-1970 (prose)",
      "SRC-WIKI-RD270",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "One article gives two spans, infobox against prose. No primary document opened; the record stays open."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "The maker's engine table (NPO Energomash, archive capture of 2016) gives the RD-270's years of development as 1962-1969 and its status as a project for the UR-700 lunar rocket that reached fire tests. Neither encyclopedia span matches: 1962 agrees with the infobox start, 1969 with neither end. The maker gives no cancellation date."
   },
   {
    "conflict_id": "CF-DB05-E-USSR-17",
@@ -5087,11 +5107,16 @@
      "designed ... in 1960-1970 (prose)",
      "SRC-WIKI-RD270",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "Same pair as CF-DB05-E-R2_USSR-R2-17."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "As CF-DB05-E-R2_USSR-R2-17: the maker's table gives 1962-1969."
   },
   {
    "conflict_id": "CF-DB05-E-TAXONOMY-TAX-4",
@@ -5108,11 +5133,16 @@
      "Date 1962-1968",
      "SRC-WIKI-RD270",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "РД-270 (8Д420) ... Годы разработки 1962-1969; Проект для I ст. РН УР-700 по лунной программе; ОИ",
+     "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+     "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "Same pair as CF-DB05-E-R2_USSR-R2-17."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "As CF-DB05-E-R2_USSR-R2-17: the maker's table ends development in 1969 and records fire tests only; it prints no cancellation date."
   },
   {
    "conflict_id": "CF-DB05-E-R2_USSR-R2-18",

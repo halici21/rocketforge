@@ -7519,5 +7519,18 @@
   "text_chars": 45870,
   "ok": true,
   "file": "SRC-DB05-RL-PUG-6.3-2019.pdf"
+ },
+ "SRC-DB05-ENERGOMASH-ENCYCL-2016": {
+  "source_id": "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+  "url": "https://web.archive.org/web/20160109210127id_/http://www.npoenergomash.ru/encikloped/dvizki",
+  "time_utc": "2026-10-30T21:16:51Z",
+  "http": "200",
+  "content_type": "text/html; charset=windows-1251",
+  "effective_url": "https://web.archive.org/web/20160109210127id_/http://www.npoenergomash.ru/encikloped/dvizki",
+  "bytes": 519565,
+  "sha256": "b584c8ff9913a2f30dcc7aaf73104c618536c5c643313566e3e53881b14424b4",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ENERGOMASH-ENCYCL-2016.html"
  }
 }

@@ -1148,3 +1148,8 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   (CF-DB05-W-COMMERCIAL-COM-13 stays a definition question). The Air Force museum's XLR11 fact sheet (capture of
   2020-12-03) gives 5,900 lb and 345 lb with turbopump but no RM designation (CF-DB05-W-US_HIST-08 stays open). No
   archived Snecma HM7B or Vulcain data sheet was found.
+- NPO Energomash's engine encyclopedia table (npoenergomash.ru/encikloped/dvizki, capture of 2016-01-09) settles six
+  records (2026-10-31): CF-DB05-W-USSR-8 (RD-100 26.2 / 31 tf) RESOLVED; CF-DB05-W-USSR-10 (RD-101 fuel: 92 % ethyl
+  alcohol, the RD-100 75 %) RESOLVED; CF-DB05-E-R2_USSR-R2-12 (RD-216 8Д514, RD-216М 11Д614) RESOLVED,
+  different_variant; CF-DB05-E-R2_USSR-R2-17, CF-DB05-E-USSR-17 and CF-DB05-E-TAXONOMY-TAX-4 (RD-270 dates)
+  PARTIALLY_RESOLVED: the maker gives 1962-1969 and 'ОИ' (fire tests) with no cancellation date. Unresolved: 52 → 46.

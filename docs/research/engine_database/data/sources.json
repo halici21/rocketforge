@@ -27092,6 +27092,32 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ENERGOMASH-ENCYCL-2016",
+   "title": "Двигатели (NPO Energomash web encyclopedia, engine table; captured 2016-01-09)",
+   "authors": [],
+   "organization": "NPO Energomash",
+   "year": 2016,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20160109210127/http://www.npoenergomash.ru/encikloped/dvizki",
+   "url": "https://web.archive.org/web/20160109210127/http://www.npoenergomash.ru/encikloped/dvizki",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-SU-RD-100",
+    "ENG-SU-RD-101",
+    "ENG-SU-RD-216",
+    "ENG-SU-RD-270"
+   ],
+   "locators": "engine table rows",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): NPO Energomash 'Энциклопедия - Двигатели' page (npoenergomash.ru/encikloped/dvizki), Internet Archive capture of 2016-01-09. One table of the bureau's engines with columns 'Двигатель (индекс) / Компоненты топлива / Тяга, тс з/п / Уд. импульс, с з/п / Давление в КС, кгс/см2 / Масса, кг, сух./залитого / Габариты / Годы разработки / Назначение'. Rows used: 'РД-100 (8Д51) кислород/75% С2Н5ОН 26,2/31 203/237 16,22 885/1063 ... 1946-1950 Сер. для Р-1'; 'РД-101 (8Д52) кислород/92% С2Н5ОН 37,0/41,2 210/237 21,62 888/1060 ... 1947-1951 Сер. для Р-2'; 'РД-216 (8Д514) азотная кислота/НДМГ 151/177,4 246/289 75 ... 1958-1960 Сер. для I ст. Р-14'; 'РД-216М (11Д614) ... 151,5/177,9 248/291,3 75 ... 1966-1968'; 'РД-270 (8Д420) азотный тетроксид/НДМГ 639,74/684,73 301/322 266 4770/5603 4850/3300 1962-1969 Проект для I ст. РН УР-700 по лунной программе; ОИ'.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
