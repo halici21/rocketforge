@@ -7360,5 +7360,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-WIKI-YF115.html"
+ },
+ "SRC-DB05-ROTARYROCKET-SITE-1998": {
+  "source_id": "SRC-DB05-ROTARYROCKET-SITE-1998",
+  "url": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+  "time_utc": "2026-10-30T19:54:48Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+  "bytes": 4601,
+  "sha256": "4f49159c044bfa28d8050981ccc7cd611f18eea6d18cd0a0024ec0af93981b95",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ROTARYROCKET-SITE-1998.html"
  }
 }

@@ -130,7 +130,7 @@ operating point, no UNRESOLVED conflict on the fields used.
 | RL10A-3-3A nominal | thrust, Isp, Pc, O/F, ε | Pc station unstated |
 | J-2S nominal | thrust, Isp, Pc (nozzle stagnation), MR, ε | |
 | J-2 230K | thrust, Isp, Pc (nozzle stagnation), MR, ε | 225K rating also primary |
-| RS-25 SLS at 109% | vacuum thrust, Isp, Pc, MR, ε | sea-level thrust excluded (unresolved) |
+| RS-25 SLS at 109% | vacuum thrust, Isp, Pc, MR, ε | sea-level thrust excluded (unresolved; owner kept it withheld 2026-10-30) |
 | Apollo SPS Block I | thrust, Isp (average), Pc, O/F, ε | Block I only |
 
 Not candidates: F-1 (rating epoch unresolved), RL10B-2 (Pc/Isp conflict),
@@ -1093,3 +1093,13 @@ contacted again; only web.archive.org captures were read.
   retried). Current encyclopedia revisions of KVD-1, RD-58, RD-191, RD-216, RD-270 and S5.98M add nothing citable;
   the RD-58 article's 11D58MF reference (ecoruspace.me, an enthusiast database, archive capture 2021-12-29) gives
   5000 kgf / 372 s but no cycle wording, so CF-DB05-W-R2_USSR-R2-20 stays open.
+
+## Pass 2026-10-30: owner decision on RS-25 sea-level thrust; Roton maker site
+
+- Owner decision of 2026-10-30: CF-DB05-RS25-SLTHRUST stays withheld. The 418,000 lb at 109% (L3Harris sheet) is
+  not released; the RS-25 sea-level thrust stays excluded until a rated-thrust table by block is found. Resolution
+  unchanged (UNRESOLVED); recorded in `tools/ledger_rs25b.py`.
+- CF-DB05-W-TAXONOMY-TAX-7 (Roton combustor count) still UNRESOLVED: the Rotary Rocket Company's own 1998 site
+  (archive captures of 1998-01-26, SRC-DB05-ROTARYROCKET-SITE-1998) describes a December 1997 hot-fire of one
+  combustor module and says the final engine 'will have groups of these around a rotating hub', with no count; the
+  2000 site says the engine will be derived from Fastrac. The 192 still has no source.

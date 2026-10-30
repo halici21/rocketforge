@@ -26859,6 +26859,29 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ROTARYROCKET-SITE-1998",
+   "title": "Engine combustor hot fire test (Rotary Rocket Company web site, January 1998)",
+   "authors": [],
+   "organization": "Rotary Rocket Company",
+   "year": 1998,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+   "url": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-ROTON-ROTARY-ENGINE"
+   ],
+   "locators": "engine.htm text; freqaskquest.htm",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-30): Rotary Rocket Company site, captures of 1998-01-26. engine.htm describes a December 1997 hot-fire of 'a complete combustor module' and says 'The final Roton engine will have groups of these around a rotating hub'. No combustor count.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

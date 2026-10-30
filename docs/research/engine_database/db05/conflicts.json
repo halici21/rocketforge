@@ -258,7 +258,7 @@
    ],
    "resolution": "UNRESOLVED",
    "kind": "rounding_or_configuration",
-   "explanation": "All are approximations or single-configuration values; 1-1.5% spread. Not reconcilable without a rated-thrust table by block."
+   "explanation": "All are approximations or single-configuration values; 1-1.5% spread. Not reconcilable without a rated-thrust table by block. Owner decision of 2026-10-30: keep the sea-level thrust withheld (the 418,000 lb at 109% is not released)."
   },
   {
    "conflict_id": "CF-DB05-J2-PC",
@@ -4422,11 +4422,16 @@
      "192 (one summary)",
      "SRC-WIKI-ROTARYROCKET",
      "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "a complete combustor module ... The final Roton engine will have groups of these around a rotating hub (1998)",
+     "SRC-DB05-ROTARYROCKET-SITE-1998",
+     "rotaryrocket.com engine.htm and freqaskquest.htm, 1998 (archive captures 1998-01-26)"
     ]
    ],
    "resolution": "UNRESOLVED",
    "kind": null,
-   "explanation": "The opened article gives no number; 192 is unverified."
+   "explanation": "The maker's own 1998 site (archive captures) describes groups of combustor modules around a rotating hub but gives no count; its 2000 site has moved to a Fastrac-derived engine. The 192 remains unverified."
   },
   {
    "conflict_id": "CF-DB05-W-TAXONOMY-TAX-8",

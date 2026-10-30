@@ -2288,6 +2288,28 @@
    "assertions": 0
   },
   {
+   "source_id": "SRC-DB05-ROTARYROCKET-SITE-1998",
+   "url_requested": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+   "download_url": null,
+   "http_status": "200",
+   "bytes": 4601,
+   "sha256": "4f49159c044bfa28d8050981ccc7cd611f18eea6d18cd0a0024ec0af93981b95",
+   "pdf_pages": null,
+   "retrieved_utc": "2026-10-30T19:54:48Z",
+   "ntrs_copyright_determination": null,
+   "ntrs_title": null,
+   "ntrs_export_control": null,
+   "read_level": "IDENTITY_VERIFIED_ONLY",
+   "identifier_verified": "https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+   "title_as_printed": "Engine combustor hot fire test (Rotary Rocket Company web site, January 1998)",
+   "tier": "A",
+   "rights_statement_checked": "maker web page read from an Internet Archive capture; values only",
+   "rights_values": "RESTRICTED_REFERENCE",
+   "rights_figures": "RESTRICTED_REFERENCE",
+   "note": "Fetched 2026-10-30. Rotary Rocket Company site, captures of 1998-01-26. engine.htm: 'Rotary Rocketjet Combustor Hot-Fire Test in Progress, December 10, 1997 ... a complete combustor module, including ignitor, gas generator ... and combustion can. The final Roton engine will have groups of these around a rotating hub'. freqaskquest.htm: 'centrifugal pumping of propellant by spinning the rocket combustion chambers'. No combustor count. The 2000 site (tec/content.html) says the engine 'will be derived from the NASA Fastrac rocket engine'. Used as a conflict claim only.",
+   "assertions": 0
+  },
+  {
    "source_id": "SRC-DB05-SPACEX-F9-PAGE-2018",
    "url_requested": "https://web.archive.org/web/20180208031148/http://www.spacex.com/falcon9",
    "download_url": null,

@@ -170,7 +170,11 @@ C("CF-DB05-RS25-SLTHRUST", engine_id=E2, field_path="performance.thrust_sl",
   claims=[["approx. 380,000 / 390,000 / 420,000 lb at 100 / 104.5 / 109%", "SRC-NASA-SSME-NPL-DOC", "p.248"],
           ["approx. 375,000 lbs at RPL", "SRC-IBIBLIO-SSMEOVERVIEW", "p.1.1-1"], ["418,000 lb at 109%", "SRC-L3HARRIS-RS25-SPEC", "p.1"]],
   resolution="UNRESOLVED", kind="rounding_or_configuration",
-  explanation="All are approximations or single-configuration values; 1-1.5% spread. Not reconcilable without a rated-thrust table by block.")
+  explanation="All are approximations or single-configuration values; 1-1.5% spread. Not reconcilable without a rated-thrust table by block. "
+              "Owner decision of 2026-10-30: keep the sea-level thrust withheld (the 418,000 lb at 109% is not released).")
+# ------------------------------------------------------------------ owner decision of 2026-10-30
+# The owner chose "Keep withheld": RS-25 sea-level thrust stays out of the shipped data until a rated-thrust table by
+# block is found. The conflict stays UNRESOLVED.
 
 LT8 = "NTRS 19860012108 p.8 (PDF p.8)"
 A(E2, "nozzle.area_ratio", None, "reduces the nozzle expansion ratio from 77.5 to 69.5:1", 69.5, ":1", {"configuration": "Large Throat MCC (Block IIA onward)"},

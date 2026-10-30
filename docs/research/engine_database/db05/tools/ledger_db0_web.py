@@ -187,6 +187,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "MX16": "twitter.com/elonmusk status 728753234811060224, 2016-05-06 (archive capture 2017-02-05)",
         "BOU": "Blue Origin release 2025-11-20 on upgraded New Glenn engines (archive capture 2025-12-05)",
         "BOE": "blueorigin.com/engines, engine panels (archive capture 2026-07-14)",
+        "RR98": "rotaryrocket.com engine.htm and freqaskquest.htm, 1998 (archive captures 1998-01-26)",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -831,8 +832,12 @@ K("CF-TAXONOMY-TAX-3", "ENG-US-IPD", "history.test_dates",
    ("integrated engine testing to begin late 2004", "SRC-NTRS-IPD-WPB", "NX")],
   "EXPLAINED", "different_epoch", "A plan against what was achieved; not a conflict about hardware.")
 K("CF-TAXONOMY-TAX-7", "ENG-US-ROTON-ROTARY-ENGINE", "geometry.chamber_count",
-  [("'dozens of small combusters arranged in a ring'", "SRC-FLIGHTGLOBAL-ROTON", "T"), ("192 (one summary)", "SRC-WIKI-ROTARYROCKET", "W")],
-  "UNRESOLVED", None, "The opened article gives no number; 192 is unverified.")
+  [("'dozens of small combusters arranged in a ring'", "SRC-FLIGHTGLOBAL-ROTON", "T"), ("192 (one summary)", "SRC-WIKI-ROTARYROCKET", "W"),
+   ("a complete combustor module ... The final Roton engine will have groups of these around a rotating hub (1998)",
+    "SRC-DB05-ROTARYROCKET-SITE-1998", "RR98")],
+  "UNRESOLVED", None,
+  "The maker's own 1998 site (archive captures) describes groups of combustor modules around a rotating hub but gives "
+  "no count; its 2000 site has moved to a Fastrac-derived engine. The 192 remains unverified.")
 K("CF-TAXONOMY-TAX-8", "ENG-US-RAPTOR", "vehicle.tank_pressurization",
   [("original design pure autogenous; preburner exhaust question for IFT-2/3", "SRC-MANIFOLD-STARSHIP", "T"),
    ("'Prior to SN9, SpaceX used autogenous pressurization'", "SRC-WCCFTECH-SN10", "T")],
@@ -964,3 +969,12 @@ D("SRC-WIKI-YF115", identifier="https://en.wikipedia.org/wiki/YF-115", title="YF
   rights_class="VALUES_WITH_ATTRIBUTION",
   note="Encyclopedia page read from its text: infobox 'Thrust, vacuum 176.5 kN (39,700 lbf) [citation needed]', sea level "
        "147.1 kN [citation needed], chamber pressure 12 MPa, Isp vacuum 341.5 s. Not evidence of an engine value.")
+
+D("SRC-DB05-ROTARYROCKET-SITE-1998", identifier="https://web.archive.org/web/19980126205327/http://www.rotaryrocket.com/engine.htm",
+  title="Engine combustor hot fire test (Rotary Rocket Company web site, January 1998)", tier="A",
+  rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-30. Rotary Rocket Company site, captures of 1998-01-26. engine.htm: 'Rotary Rocketjet Combustor "
+       "Hot-Fire Test in Progress, December 10, 1997 ... a complete combustor module, including ignitor, gas generator ... and "
+       "combustion can. The final Roton engine will have groups of these around a rotating hub'. freqaskquest.htm: "
+       "'centrifugal pumping of propellant by spinning the rocket combustion chambers'. No combustor count. The 2000 site "
+       "(tec/content.html) says the engine 'will be derived from the NASA Fastrac rocket engine'. Used as a conflict claim only.")
