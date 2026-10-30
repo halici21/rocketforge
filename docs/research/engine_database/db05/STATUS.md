@@ -1153,3 +1153,12 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   alcohol, the RD-100 75 %) RESOLVED; CF-DB05-E-R2_USSR-R2-12 (RD-216 8Д514, RD-216М 11Д614) RESOLVED,
   different_variant; CF-DB05-E-R2_USSR-R2-17, CF-DB05-E-USSR-17 and CF-DB05-E-TAXONOMY-TAX-4 (RD-270 dates)
   PARTIALLY_RESOLVED: the maker gives 1962-1969 and 'ОИ' (fire tests) with no cancellation date. Unresolved: 52 → 46.
+- Dead ends (2026-10-31): NASA CP-2014 vol. 2 (NTRS 19770026104, IAA history symposia) has no V-2 peroxide
+  concentration, Walter catalyst or BMW 109-718 thrust. The French encyclopedia's Viking infobox (read directly,
+  fr.wikipedia.org) prints 58.5 bar for the whole family (690-805 kN), so CF-DB05-E-R2_ASIA-R2A-18 stays two
+  encyclopedia readings with no primary. NTRS search returns nothing on HM7, NK-43/AJ26, Coralie or ELDO; no archived
+  Snecma, Safran or ArianeGroup HM7B sheet was found. KB Khimmash's history page gives no KVD1 dates.
+- Where the 46 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+  RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
+  institute papers, wartime German documents, RSC Energia and KB Khimmash histories, Rotary Rocket, Intuitive
+  Machines, SpaceX's current script-rendered pages).
