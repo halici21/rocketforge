@@ -27289,6 +27289,30 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ELDO-EUROPA-CM-1971",
+   "title": "Europa I and II Customers' Manual, AL 0 (ELDO, 1 July 1971)",
+   "authors": [],
+   "organization": "European Launcher Development Organisation (ELDO)",
+   "year": 1971,
+   "source_type": "launch vehicle user's guide",
+   "identifier": "https://archive.org/details/europa-1and-2-customer-manual",
+   "url": "https://archive.org/details/europa-1and-2-customer-manual",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "ELDO manual read from an Internet Archive scan; values only.",
+   "engines": [
+    "ENG-DE-ASTRIS",
+    "ENG-FR-CORALIE-ENGINE"
+   ],
+   "locators": "sections 2.3.1-2.3.3 (pp. 2.8-2.9)",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): European Launcher Development Organisation customers' manual for Europa I and II, Amendment List 0, dated 1971-07-01, scan on the Internet Archive (item europa-1and-2-customer-manual, creator ELDO/ESA). Section 2.3.3 '3rd stage': 'Three motors designed for vacuum operation are provided for the 3rd stage : a main motor and two verniers. The thrust ratio between the main motor and the two verniers is : 2300 kg./80 kg.' Section 2.3.1: first stage two Rolls Royce RZ2/Mk III engines (RZ 12 system), nominal 1,334,000 N at sea level. Section 2.3.2: second stage four engines designed for vacuum, pressure fed; no thrust printed. Read from the OCR text.",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {

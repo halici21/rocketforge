@@ -1191,7 +1191,15 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   'hochprozentig' and does not use 'Triebwerk 39'.
 - Dead end: LandSpace's archived product page gives TQ-12A sea-level figures (720 kN, 2,840 m/s) and says it improves on
   TQ-12 by 40 m/s, but no vacuum Isp for either; ASIA_OTHER-13 stays open.
-- Where the 38 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+- EUROPE-18 (Astris thrust) EXPLAINED, different_configuration: ELDO's Europa I and II Customers' Manual (AL 0, July 1971;
+  Internet Archive scan) gives the third stage a vacuum main motor of 2,300 kgf and two verniers of 80 kgf together:
+  22.56 kN is the main motor, 23.3 kN main motor plus verniers (both DERIVED). The manual prints no Coralie thrust and
+  names no Astris engine maker, so EUROPE-17 and EUROPE-19 stay open.
+- Dead ends: no Smithsonian record (XLR-11 objects A19530051000, A19630363000, A19630362000 'XLR-11-RM-9', Bell X-1
+  A19510007000) names an RM-5; KB Khimmash's archived pages give KVD-1 data and its 1997 qualification but no 11D56
+  development span; archived spacex.com/updates captures are script shells; the IAF abstract PDFs for the YF-77
+  papers answer 'unauthorized' (not pursued further).
+- Where the 37 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
   current script-rendered pages).

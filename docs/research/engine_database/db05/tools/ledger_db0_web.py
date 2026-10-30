@@ -197,6 +197,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "SSAU14": "Vestnik SSAU 2014 (RSC Energia), control-scheme text (re-read 2026-10-31)",
         "BF5": "Report on Operation Backfire vol. V (1946), section 3 'Fuel Characteristics and Storage', paras. 63, 69, 71",
+        "ECM": "Europa I and II Customers' Manual (ELDO, 1971), section 2.3.3 '3rd stage', p. 2.9",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -622,8 +623,13 @@ K("CF-EUROPE-17", "ENG-FR-CORALIE-ENGINE", "performance.thrust",
   [("270 kN", "SRC-WIKI-EUROPA", "W"), ("262 kN", "SRC-DEUTSCHESMUSEUM-EUROPA", "T")],
   "UNRESOLVED", "rating_or_rounding", "3 percent apart; neither page names a condition.")
 K("CF-EUROPE-18", "ENG-DE-ASTRIS", "performance.thrust",
-  [("23.3 kN vac / 19.6 kN SL", "SRC-WIKI-ASTRIS-ENGINE", "W"), ("22.56 kN", "SRC-DEUTSCHESMUSEUM-EUROPA", "T")],
-  "UNRESOLVED", "different_operating_point", "The museum gives one figure without a condition; it lies between the two.")
+  [("23.3 kN vac / 19.6 kN SL", "SRC-WIKI-ASTRIS-ENGINE", "W"), ("22.56 kN", "SRC-DEUTSCHESMUSEUM-EUROPA", "T"),
+   ("Three motors designed for vacuum operation ... a main motor and two verniers. The thrust ratio between the main motor "
+    "and the two verniers is : 2300 kg./80 kg.", "SRC-DB05-ELDO-EUROPA-CM-1971", "ECM")],
+  "EXPLAINED", "different_configuration",
+  "ELDO's 1971 customers' manual gives the third stage a vacuum main motor of 2,300 kgf and two verniers of 80 kgf "
+  "together. 2,300 kgf is 22.56 kN DERIVED, the museum's figure for the main motor alone; 2,380 kgf is 23.34 kN DERIVED, "
+  "the encyclopedia's 23.3 kN, which matches main motor plus verniers. The 19.6 kN sea-level figure has no source here.")
 K("CF-EUROPE-19", "ENG-DE-ASTRIS", "identity.manufacturer",
   [("Snecma (manufacturer), ERNO (designer)", "SRC-WIKI-ASTRIS-ENGINE", "W"), ("MBB + ERNO", "SRC-DEUTSCHESMUSEUM-EUROPA", "T")],
   "UNRESOLVED", "definition", "The museum names MBB and ERNO for the stage; the engine maker is not named on the opened page.")
@@ -1087,3 +1093,7 @@ D('SRC-DB05-RL-PROPULSION-PAGE-2015', identifier='https://web.archive.org/web/20
 D('SRC-DB05-BACKFIRE-VOL5-1946', identifier='https://archive.org/details/Reportonoperati5Grea', title="Report on Operation 'Backfire', Volume V: Recording and Analysis (War Office, London, January 1946)", tier="A",
   rights_checked="1946 Crown report, scan marked public domain by Smithsonian Libraries; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. British War Office / Ministry of Supply report on the October 1945 Cuxhaven firings of captured A-4 (V-2) rockets, Volume V, January 1946; Smithsonian Libraries scan on the Internet Archive (item Reportonoperati5Grea, marked public domain by the library). Section 3 'Fuel Characteristics and Storage': para. 63 'LIQUID OXYGEN Quantity required per rocket = 5,000 kg. (10,930 lb.) Purity = 98 per cent.'; para. 69 alcohol 'Quantity required per rocket = 4 tons (8,150 lb. or 3700 kg. approx.), but varying according to range', concentration 75 per cent; para. 71 'HYDROGEN PEROXIDE Quantity required per rocket = 126 litres (370 lb.). Concentration by weight = 78-80 per cent. Specific gravity (A-4 Fuel) = 1.34'. Read from the OCR text. Used as a conflict claim only.")
+
+D('SRC-DB05-ELDO-EUROPA-CM-1971', identifier='https://archive.org/details/europa-1and-2-customer-manual', title="Europa I and II Customers' Manual, AL 0 (ELDO, 1 July 1971)", tier="A",
+  rights_checked="ELDO manual read from an Internet Archive scan; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. European Launcher Development Organisation customers' manual for Europa I and II, Amendment List 0, dated 1971-07-01, scan on the Internet Archive (item europa-1and-2-customer-manual, creator ELDO/ESA). Section 2.3.3 '3rd stage': 'Three motors designed for vacuum operation are provided for the 3rd stage : a main motor and two verniers. The thrust ratio between the main motor and the two verniers is : 2300 kg./80 kg.' Section 2.3.1: first stage two Rolls Royce RZ2/Mk III engines (RZ 12 system), nominal 1,334,000 N at sea level. Section 2.3.2: second stage four engines designed for vacuum, pressure fed; no thrust printed. Read from the OCR text. Used as a conflict claim only.")

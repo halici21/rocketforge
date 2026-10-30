@@ -7627,5 +7627,18 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-BACKFIRE-VOL5-1946.html"
+ },
+ "SRC-DB05-ELDO-EUROPA-CM-1971": {
+  "source_id": "SRC-DB05-ELDO-EUROPA-CM-1971",
+  "url": "https://archive.org/details/europa-1and-2-customer-manual",
+  "time_utc": "2026-10-30T22:02:39Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://archive.org/details/europa-1and-2-customer-manual",
+  "bytes": 213530,
+  "sha256": "166c34224c69780595952e7557ea778a3c6b029c153a33b52ec50ef9cc4b0b84",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ELDO-EUROPA-CM-1971.html"
  }
 }

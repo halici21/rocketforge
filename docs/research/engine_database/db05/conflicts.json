@@ -3430,11 +3430,16 @@
      "22.56 kN",
      "SRC-DEUTSCHESMUSEUM-EUROPA",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "Three motors designed for vacuum operation ... a main motor and two verniers. The thrust ratio between the main motor and the two verniers is : 2300 kg./80 kg.",
+     "SRC-DB05-ELDO-EUROPA-CM-1971",
+     "Europa I and II Customers' Manual (ELDO, 1971), section 2.3.3 '3rd stage', p. 2.9"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_operating_point",
-   "explanation": "The museum gives one figure without a condition; it lies between the two."
+   "resolution": "EXPLAINED",
+   "kind": "different_configuration",
+   "explanation": "ELDO's 1971 customers' manual gives the third stage a vacuum main motor of 2,300 kgf and two verniers of 80 kgf together. 2,300 kgf is 22.56 kN DERIVED, the museum's figure for the main motor alone; 2,380 kgf is 23.34 kN DERIVED, the encyclopedia's 23.3 kN, which matches main motor plus verniers. The 19.6 kN sea-level figure has no source here."
   },
   {
    "conflict_id": "CF-DB05-W-EUROPE-19",
