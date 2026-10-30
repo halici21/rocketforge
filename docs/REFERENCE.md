@@ -424,7 +424,18 @@ engine from a cycle template.
   already-solved points; the workspace itself runs no new solves beyond the
   study evaluation the user explicitly requests
 * Nozzle Lab — nozzle drawing, back-pressure control, operating-band scale
+* Liquid Engine — Engine Requirement, Propellant Trade, Thrust Chamber
+  Sizing, Combustion Chamber Geometry, Injector & Feed Pressure
+* Propulsion System — Propellant Inventory, Tank Geometry & Packaging,
+  Propellant Management, Tank Pressurization, Feed Network. Every page of
+  these two families shows its chain as a strip under the header (Done,
+  Stale or Not run per step), and a page blocked by an upstream result links
+  to it; neither solves anything
 * Equation Library — reference relations as static rich text
+* Propulsion Database — the shipped propellant-formulation records,
+  read-only, with Open in Thermochemistry
+* Reference Engines — the curated reference-engine corpus, read-only: values
+  as printed, five capabilities per configuration, topology drawings
 
 **Engine Design mode — a real topology editor, zero component physics**
 
@@ -517,8 +528,10 @@ Specifically:
 
 **Across both modes:**
 
-* **No unit conversion.** The unit indicator is fixed to SI and labelled as
-  future functionality.
+* **SI only.** The unit system is fixed to SI, and the top bar's indicator
+  says so. The one exception is pressure entry in Thermochemistry, Fluid
+  Properties and Line, which takes Pa, bar or MPa from one shared table and
+  still stores and solves in pascals.
 * **The command palette is engine-mode only.** `Ctrl+K` does nothing in
   Analysis mode.
 * Window minimum is 1120×700. Below roughly 800 px of height the dense analysis

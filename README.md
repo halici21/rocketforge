@@ -39,12 +39,14 @@ expansion only, not a solved contour.*
   over a sampled grid. Pareto membership is decided on every objective, not
   only the two plotted. It evaluates a sample and is not an optimiser.
 - **Fluids and Feed.** Fluid properties from CoolProp, and pressure drop in a
-  straight line with the Darcy friction factor stated as such.
+  straight line with the Darcy friction factor stated as such. Pressures are
+  entered in Pa, bar or MPa and solved in pascals.
 - **Liquid Engine.** The design chain starts from a requirement (thrust,
-  design environment, burn time). It goes through a propellant trade,
-  thrust-chamber and nozzle sizing, and chamber geometry, to injector orifice
-  hydraulics with a pressure ledger for each branch. The model is ideal: no
-  cooling, pump or cycle.
+  design environment, burn time). The design ambient is stated directly, or
+  taken from an altitude in the U.S. Standard Atmosphere 1976. The chain goes
+  through a propellant trade, thrust-chamber and nozzle sizing, and chamber
+  geometry, to injector orifice hydraulics with a pressure ledger for each
+  branch. The model is ideal: no cooling, pump or cycle.
 - **Propulsion System.** The stage around the engine, built on the liquid
   engine chain. Nothing is defaulted, and an unknown term stays unresolved
   rather than becoming zero.
@@ -60,6 +62,18 @@ expansion only, not a solved contour.*
   - *Feed network:* pressure losses from tank outlet to injector inlet,
     closed against the injector ledger without counting a loss twice. No
     cavitation, transients, pumps, turbopumps or engine cycles.
+
+  Every Liquid Engine and Propulsion System page shows its chain under the
+  header, each step marked Done, Stale or Not run. A page blocked by a
+  missing, stale or refused upstream result links to that page. Opening a
+  step or following a link only navigates; nothing is solved.
+- **Reference.** The Equation Library; the Propulsion Database of propellant
+  formulations, which opens a case in Thermochemistry; and Reference Engines,
+  a curated, source-backed set of liquid-engine configurations. It shows
+  values as printed with their conditions, what each record can support, and
+  a drawing of its topology. It is read-only: no record drives a design or a
+  solver, and a value whose source or rights are unsettled is withheld, not
+  filled in.
 - **Engine Design.** A topology editor for engine component networks with
   typed ports and structural checks. No physics is wired into it yet (see
   [Known limitations](#known-limitations)).
@@ -68,6 +82,7 @@ expansion only, not a solved contour.*
 | --- | --- |
 | ![Nozzle Lab 3D view: a converging-diverging nozzle at p_b/p0 = 0.70 with the quasi-1D normal-shock station at A/At = 1.51009 drawn as a faint plane between the throat and exit rings](docs/images/screenshots/nozzle-lab-3d.png) **Nozzle Lab.** An internal normal shock at A/Aₜ = 1.51009 for p_b/p₀ = 0.70, beside the shock station against back pressure. The shock is a quasi-1D station, not a resolved shock, and the flow cues show direction only. | ![Thermochemistry sweep: the chamber temperature plot lifted out of a four-plot overview and enlarged in place, with the pointer readout at O/F 3.000](docs/images/screenshots/thermochemistry-sweep-peek.png) **Thermochemistry sweep, hover peek.** A 41-point NASA CEA sweep. Hovering a plot enlarges it in place with its live readout, and one click opens it full size. |
 | ![Isentropic Flow relation: p0/p against Mach number on a logarithmic axis, with the solved state at M = 2 marked](docs/images/screenshots/isentropic-flow.png) **Isentropic Flow.** Every classic module opens on its relation. The solved state at M = 2 is marked on the generated curve, and the calculator and the reference-checked table are one tab away. | ![Trade Study design space: 328 evaluated designs, specific impulse against chamber temperature, with the Pareto-efficient points for maximum Isp and minimum chamber temperature marked](docs/images/screenshots/trade-study-design-space.png) **Trade Study.** 328 evaluated designs over O/F and Aₑ/Aₜ. For this capture, a second real objective, minimising chamber temperature, was added to the default maximise-Isp study, which gives a Pareto front. Every marker is an evaluated design, and the front is a sample of the grid. |
+| ![Thrust Chamber Sizing: a 100 kN LOX/LCH4 chamber at 10 MPa and Ae/At 40 in vacuum, with the design-chain strip above it showing the requirement stated, the trade and the sizing done, and the geometry and injector not run](docs/images/screenshots/thrust-chamber-sizing.png) **Thrust Chamber Sizing.** A 100 kN LOX/LCH₄ requirement in vacuum, traded at 10 MPa and sized at Aₑ/Aₜ 40: throat diameter 82.21 mm and Isp 353.04 s, with the thrust closed against the target. The strip above shows where the page sits in the chain. | ![Reference Engines: the J-2 at its 230,000 lb nominal vacuum thrust rating, with its five capabilities and its performance reference values as printed, each with its conditions](docs/images/screenshots/reference-engines.png) **Reference Engines.** The J-2 at its 230,000 lb vacuum rating: each value as printed, with the condition it was printed at, and the five capabilities the record supports. A regression candidate is eligibility only. |
 
 ## Interactive engineering analysis
 
@@ -95,10 +110,10 @@ because the jump between them is the result.*
 
 ## Scientific foundations
 
-- **Layered, frozen physics.** The layers are `core → physics → engineering →
-  engine → providers → application`. Qt lives only in `application`, and NASA
-  CEA and CoolProp only in `providers`. `tests/test_architecture.py` enforces
-  those boundaries.
+- **Layered, frozen physics.** The layers are `core → evidence → physics →
+  engineering → engine → providers → comparison → application`. Qt lives only
+  in `application`, and NASA CEA and CoolProp only in `providers`.
+  `tests/test_architecture.py` enforces those boundaries.
 - **Verified thermochemistry.** NASA CEA is the runtime provider. Cantera is a
   development-only independent oracle, and both are checked against published
   references
@@ -133,7 +148,9 @@ because the jump between them is the result.*
   connection, and every quantitative readout is an em-dash placeholder.
 - **Performance is the ideal-rocket model**, with no efficiency factors and no
   nozzle contour design.
-- **No unit conversion.** The unit indicator is fixed to SI.
+- **SI only.** The unit system is fixed to SI. The one exception is pressure
+  entry in Thermochemistry, Fluid Properties and Line, which takes Pa, bar or
+  MPa.
 - **Verified on Windows 11**, where the 3D view needs Qt Quick 3D and a 3D-capable
   renderer. Without them the 2D view stays and says why.
 
@@ -167,9 +184,11 @@ python main.py
 optional, additive profiles unlock the rest:
 
 - `requirements-thermochemistry.txt` installs NASA CEA, for Thermochemistry,
-  Rocket Performance and Trade Study. Cantera is deliberately not a runtime
-  dependency.
-- `requirements-fluids.txt` installs CoolProp, for Fluid Properties and Line.
+  Rocket Performance, Trade Study and the Liquid Engine chain from the
+  propellant trade on. Cantera is deliberately not a runtime dependency.
+- `requirements-fluids.txt` installs CoolProp, for Fluid Properties and Line,
+  and for the propellant densities the injector and tank pages can take
+  instead of a stated value.
 - `requirements-3d.txt` installs PySide6-Addons, for the Qt Quick 3D views.
 
 `run.bat` starts the source tree with the project environment, and its window
