@@ -4049,14 +4049,16 @@
  },
  "SRC-SSAU-2587": {
   "source_id": "SRC-SSAU-2587",
-  "url": "https://journals.ssau.ru/vestnik/article/view/2587",
-  "time_utc": "2026-10-28T20:30:11Z",
+  "url": "https://journals.ssau.ru/vestnik/article/download/2587/2603",
+  "time_utc": "2026-10-30T21:26:34Z",
   "http": "200",
-  "content_type": "text/html; charset=utf-8",
-  "effective_url": "https://journals.ssau.ru/vestnik/ru/article/view/2587",
-  "bytes": 67091,
-  "sha256": "a99b36cf7175194ed7dfe1279323e6d5902cc93f5011a904d5f5a098eb200169",
-  "is_pdf": false,
+  "content_type": "application/pdf",
+  "effective_url": "https://journals.ssau.ru/vestnik/ru/article/download/2587/2603",
+  "bytes": 345337,
+  "sha256": "1a7cb497f87eddd15411e552cee6978c96f9e5bd36675a5c3551a1c6ec01ae6f",
+  "is_pdf": true,
+  "pages": 11,
+  "text_chars": 36422,
   "ok": true,
   "file": "SRC-SSAU-2587.html"
  },
@@ -7532,5 +7534,33 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-ENERGOMASH-ENCYCL-2016.html"
+ },
+ "SRC-DB05-SSAU-420-2006": {
+  "source_id": "SRC-DB05-SSAU-420-2006",
+  "url": "https://journals.ssau.ru/vestnik/article/download/420/423",
+  "time_utc": "2026-10-30T21:27:21Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://journals.ssau.ru/vestnik/ru/article/download/420/423",
+  "bytes": 303589,
+  "sha256": "7918e711bd8bc49d3cd4ca764dbb709e3558a54f9972b99008f0409295116992",
+  "is_pdf": true,
+  "pages": 6,
+  "text_chars": 12696,
+  "ok": true,
+  "file": "SRC-DB05-SSAU-420-2006.html"
+ },
+ "SRC-DB05-NASM-A19771237000": {
+  "source_id": "SRC-DB05-NASM-A19771237000",
+  "url": "https://web.archive.org/web/20250420052236id_/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000",
+  "time_utc": "2026-10-30T21:28:35Z",
+  "http": "200",
+  "content_type": "text/html; charset=UTF-8",
+  "effective_url": "https://web.archive.org/web/20250420052236id_/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000",
+  "bytes": 99958,
+  "sha256": "539ca878e65c32891dbdfec704ac1d60e4f946ffa8ca38c4652c15ea6246dca2",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-NASM-A19771237000.html"
  }
 }

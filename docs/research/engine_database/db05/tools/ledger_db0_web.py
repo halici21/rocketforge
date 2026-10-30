@@ -195,6 +195,7 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "RLPUG": "Rocket Lab Payload User's Guide v6.3 (April 2019), vehicle overview (archive capture 2019-05-06)",
         "NMX": "NMUSAF XLR11 fact sheet (archive capture 2020-12-03)",
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
+        "SSAU14": "Vestnik SSAU 2014 (RSC Energia), control-scheme text (re-read 2026-10-31)",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
         "IACB": "IAC-16,C4,1,10,x32585 brief PDF (abstract document), title and text (fetched 2026-10-29)",
@@ -317,8 +318,14 @@ K("CF-R2_USSR-R2-16", "ENG-RU-S5-92", "performance.isp_vac / operations.starts",
   "Starsem's user manual gives up to 20 restarts; the 50 is encyclopedia-only. The two Isp pairs are tied to the engine's "
   "two thrust modes, but the opened RussianSpaceWeb page does not say which mode each Isp belongs to.")
 K("CF-R2_USSR-R2-20", "ENG-RU-11D58MF", "cycle",
-  [("'oxidizer gas generator' drives TPA", "SRC-SSAU-2587", "NF"), ("ox-rich staged combustion", "SRC-WIKI-RD58", "W")],
-  "UNRESOLVED", None, "The SSAU page's text did not contain the wording DB-0 cited; nothing settles the cycle.")
+  [("'oxidizer gas generator' drives TPA", "SRC-SSAU-2587", "NF"), ("ox-rich staged combustion", "SRC-WIKI-RD58", "W"),
+   ("полнорасходным дросселем, установленным в магистрали подачи газообразного кислорода в газогенератор на выходе из "
+    "тракта охлаждения камеры; регулирование тяги ... изменением расхода горючего в газогенератор", "SRC-SSAU-2587", "SSAU14")],
+  "PARTIALLY_RESOLVED", "definition",
+  "The developer's 2014 paper (RSC Energia), re-read with a working text extractor, puts a full-flow throttle in the "
+  "gaseous-oxygen line into the gas generator after the chamber cooling passage and sets thrust by the kerosene flow "
+  "into the gas generator: the whole oxygen flow passes an oxidizer-rich gas generator, which is the oxidizer-rich "
+  "staged arrangement. The paper never uses the word for staged combustion, and DB-0's quoted wording is not in it.")
 K("CF-R2_USSR-R2-21", "ENG-RU-KVD-1", "history.development_period",
   [("11D56 development 1965-1972", "SRC-WIKI-KVD1", "W"), ("KVD-1 (RD56) 1962-1974", "SRC-LPRE-NPOEM-RD0120UP", "T")],
   "UNRESOLVED", "definition",
@@ -1047,3 +1054,7 @@ D("SRC-NMUSAF-XLR11", identifier='https://web.archive.org/web/20201203234619/htt
 D('SRC-DB05-ENERGOMASH-ENCYCL-2016', identifier='https://web.archive.org/web/20160109210127/http://www.npoenergomash.ru/encikloped/dvizki', title='Двигатели (NPO Energomash web encyclopedia, engine table; captured 2016-01-09)', tier="A",
   rights_checked="maker web page read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. NPO Energomash 'Энциклопедия - Двигатели' page (npoenergomash.ru/encikloped/dvizki), Internet Archive capture of 2016-01-09. One table of the bureau's engines with columns 'Двигатель (индекс) / Компоненты топлива / Тяга, тс з/п / Уд. импульс, с з/п / Давление в КС, кгс/см2 / Масса, кг, сух./залитого / Габариты / Годы разработки / Назначение'. Rows used: 'РД-100 (8Д51) кислород/75% С2Н5ОН 26,2/31 203/237 16,22 885/1063 ... 1946-1950 Сер. для Р-1'; 'РД-101 (8Д52) кислород/92% С2Н5ОН 37,0/41,2 210/237 21,62 888/1060 ... 1947-1951 Сер. для Р-2'; 'РД-216 (8Д514) азотная кислота/НДМГ 151/177,4 246/289 75 ... 1958-1960 Сер. для I ст. Р-14'; 'РД-216М (11Д614) ... 151,5/177,9 248/291,3 75 ... 1966-1968'; 'РД-270 (8Д420) азотный тетроксид/НДМГ 639,74/684,73 301/322 266 4770/5603 4850/3300 1962-1969 Проект для I ст. РН УР-700 по лунной программе; ОИ'. Used as a conflict claim only.")
+
+D('SRC-SSAU-2587', identifier='https://journals.ssau.ru/vestnik/article/download/2587/2603', title='Experience in the development of 11Д58МФ liquid rocket engines (Vestnik SSAU, 2014)', tier='B',
+  rights_checked="journal article (open access); values only", rights_class="RESTRICTED_REFERENCE",
+  note="Re-read 2026-10-31. A.A. Smolentsev (RSC Energia), 'Об опыте разработки жидкостного ракетного двигателя 11Д58МФ', Vestnik SSAU, 2014; 11-page PDF re-read 2026-10-31 with a second text extractor (the first gave broken Cyrillic). 'тяга 5 тс'; chamber cooled by cryogenic oxygen; control scheme: 'изменение соотношения расходов компонентов топлива осуществляется полнорасходным дросселем, установленным в магистрали подачи газообразного кислорода в газогенератор на выходе из тракта охлаждения камеры'; 'регулирование тяги осуществляется изменением расхода горючего в газогенератор, и изменением работоспособности генераторного газа на турбине ТНА'. The word 'дожигание' (staged combustion) does not appear. Used as a conflict claim only.")

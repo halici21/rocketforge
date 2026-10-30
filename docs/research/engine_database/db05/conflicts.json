@@ -2135,11 +2135,16 @@
      "ox-rich staged combustion",
      "SRC-WIKI-RD58",
      "DB-0 search summary (encyclopedia; not evidence)"
+    ],
+    [
+     "полнорасходным дросселем, установленным в магистрали подачи газообразного кислорода в газогенератор на выходе из тракта охлаждения камеры; регулирование тяги ... изменением расхода горючего в газогенератор",
+     "SRC-SSAU-2587",
+     "Vestnik SSAU 2014 (RSC Energia), control-scheme text (re-read 2026-10-31)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The SSAU page's text did not contain the wording DB-0 cited; nothing settles the cycle."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "definition",
+   "explanation": "The developer's 2014 paper (RSC Energia), re-read with a working text extractor, puts a full-flow throttle in the gaseous-oxygen line into the gas generator after the chamber cooling passage and sets thrust by the kerosene flow into the gas generator: the whole oxygen flow passes an oxidizer-rich gas generator, which is the oxidizer-rich staged arrangement. The paper never uses the word for staged combustion, and DB-0's quoted wording is not in it."
   },
   {
    "conflict_id": "CF-DB05-W-R2_USSR-R2-21",
@@ -4944,11 +4949,16 @@
      "nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen ... during the 60-second burning time",
      "SRC-NASM-A19790951000",
      "NASM record A19790951000, description (archive capture 2025-04-02)"
+    ],
+    [
+     "approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time",
+     "SRC-DB05-NASM-A19771237000",
+     "NASM record A19771237000, description (archive capture 2025-04-20)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
-   "explanation": "Both Smithsonian records, read from archive captures, give a 60-second burn (not 62 s). They name different quantities: about 9,700 kg of liquid oxygen alone in one, nearly 9,000 kg of alcohol and oxygen together in the other. Read literally they contradict each other, since oxygen alone exceeds the combined total; neither cites a source. See CF-DB05-E-R2_SCHEM-R2-13."
+   "explanation": "Both Smithsonian records, read from archive captures, give a 60-second burn (not 62 s). They name different quantities: about 9,700 kg of liquid oxygen alone in one, nearly 9,000 kg of alcohol and oxygen together in the other. Read literally they contradict each other, since oxygen alone exceeds the combined total; neither cites a source. A third Smithsonian record (A19771237000, read 2026-10-31) splits the flow as about 4,200 kg water-alcohol and 5,500 kg liquid oxygen, which sums to the 9,700 kg the first record calls oxygen. See CF-DB05-E-R2_SCHEM-R2-13."
   },
   {
    "conflict_id": "CF-DB05-E-R2_SCHEM-R2-13",
@@ -4960,11 +4970,16 @@
      "approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time",
      "SRC-NASM-A19600013000",
      "NASM record A19600013000, description (archive capture 2025-04-05)"
+    ],
+    [
+     "approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time",
+     "SRC-DB05-NASM-A19771237000",
+     "NASM record A19771237000, description (archive capture 2025-04-20)"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
-   "explanation": "Unsourced DB-0 claim(s): ~9,700 kg LOX over 60 s; 4,200 kg water-alcohol + 5,500 kg LOX. 4,200 + 5,500 = 9,700 kg, so one claim is likely total propellant mislabelled as LOX. A Smithsonian record (read 2026-10-29) does call the 9,700 kg liquid oxygen, but another Smithsonian record puts both propellants at about 9,000 kg (CF-DB05-E-R2_USSR-R2-10). No primary document opened; the record stays open."
+   "explanation": "Unsourced DB-0 claim(s): ~9,700 kg LOX over 60 s; 4,200 kg water-alcohol + 5,500 kg LOX. 4,200 + 5,500 = 9,700 kg. A Smithsonian record (A19771237000, archive capture read 2026-10-31) gives exactly that split, about 4,200 kg water-alcohol and 5,500 kg liquid oxygen over 60 s, so the 9,700 kg another Smithsonian record calls liquid oxygen is the total of both propellants, mislabelled. A third record's 'nearly 9,000 kg' of both stays lower. All are museum descriptions, not German documents."
   },
   {
    "conflict_id": "CF-DB05-E-R2_USSR-R2-11",
@@ -5206,11 +5221,16 @@
      "83.40 kN, 349 s, 78 bar",
      "SRC-ASTRONAUTIX-RD58",
      "not opened (refused, 404, unreachable, or never fetched)"
+    ],
+    [
+     "Тяга, кН 85; Удельный импульс тяги, с 356; Давление в камере, МПа 7,9; степень расширения сопла 280 (2006)",
+     "SRC-DB05-SSAU-420-2006",
+     "Vestnik SSAU 2006 (RSC Energia), Table 1 'Основные характеристики ЖРД 11Д58М'"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "different_variant",
-   "explanation": "One article: an infobox value and a variant table whose columns are separate RD-58 versions. Which column is the 11D58M is not settled; the Astronautica mirror was unreachable."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_configuration",
+   "explanation": "The developer's 2006 paper (RSC Energia) gives the 11D58M 85 kN, 356 s and 7.9 MPa with the carbon-carbon nozzle extension of expansion ratio 280, which replaced a ratio-94 extension and added about 4.5 s in flight. So the Isp spread (349-356 s) follows the nozzle fitted; the 83.4 and 79.46 kN figures are not printed by the developer and their configuration is not stated."
   },
   {
    "conflict_id": "CF-DB05-E-USSR-11",

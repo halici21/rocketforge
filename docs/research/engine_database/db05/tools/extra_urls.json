@@ -134,7 +134,7 @@
  "SRC-STARSEM-ST07": "https://WWW.STARSEM.COM/news/images/ST07.pdf",
  "SRC-RSW-FREGAT": "https://www.russianspaceweb.com/fregat.html",
  "SRC-ASTRONAUTIX-RD58": "https://dcmpx.remotevs.com/com/astronautix/PL/r/rd-58.html",
- "SRC-SSAU-2587": "https://journals.ssau.ru/vestnik/article/view/2587",
+ "SRC-SSAU-2587": "https://journals.ssau.ru/vestnik/article/download/2587/2603",
  "SRC-LPRE-NPOEM-RD0120UP": "https://software.lpre.de/resources/articles/NPOEM_RD0120_up.pdf",
  "SRC-IHIFAN-LE9": "https://xn--29sob207cg49a.com/business/ihi-aerospace-le9-engine-2026/",
  "SRC-VAJIRAM-VIKAS": "https://vajiramandravi.com/upsc-exam/vikas-engine/",
@@ -377,5 +377,7 @@
  "SRC-DB05-ASTRIUM-AESTUS-BROCHURE": "https://web.archive.org/web/20160430023049id_/http://www.space-propulsion.com/brochures/launcher-propulsion/Aestus.pdf",
  "SRC-DB05-NTRS-19790003958": "https://ntrs.nasa.gov/citations/19790003958",
  "SRC-DB05-RL-PUG-6.3-2019": "https://web.archive.org/web/20190506030016id_/https://www.rocketlabusa.com/assets/Uploads/Rocket-Lab-Payload-Users-Guide-6.3.pdf",
- "SRC-DB05-ENERGOMASH-ENCYCL-2016": "https://web.archive.org/web/20160109210127id_/http://www.npoenergomash.ru/encikloped/dvizki"
+ "SRC-DB05-ENERGOMASH-ENCYCL-2016": "https://web.archive.org/web/20160109210127id_/http://www.npoenergomash.ru/encikloped/dvizki",
+ "SRC-DB05-SSAU-420-2006": "https://journals.ssau.ru/vestnik/article/download/420/423",
+ "SRC-DB05-NASM-A19771237000": "https://web.archive.org/web/20250420052236id_/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000"
 }

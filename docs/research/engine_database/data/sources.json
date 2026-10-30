@@ -18018,7 +18018,7 @@
    ],
    "locators": "URL-level only (search summary)",
    "access": "search_result_only",
-   "notes": "Summary: oxidizer-type gas generator drives TPA; GG pressure 170 kgf/cm2; ~40 years of 11D58M experience. PDF: /article/download/2587/2603.",
+   "notes": "Summary: oxidizer-type gas generator drives TPA; GG pressure 170 kgf/cm2; ~40 years of 11D58M experience. PDF: /article/download/2587/2603. DB-0.5 (2026-10-31): A.A. Smolentsev (RSC Energia), 'Об опыте разработки жидкостного ракетного двигателя 11Д58МФ', Vestnik SSAU, 2014; 11-page PDF re-read 2026-10-31 with a second text extractor (the first gave broken Cyrillic). 'тяга 5 тс'; chamber cooled by cryogenic oxygen; control scheme: 'изменение соотношения расходов компонентов топлива осуществляется полнорасходным дросселем, установленным в магистрали подачи газообразного кислорода в газогенератор на выходе из тракта охлаждения камеры'; 'регулирование тяги осуществляется изменением расхода горючего в газогенератор, и изменением работоспособности генераторного газа на турбине ТНА'. The word 'дожигание' (staged combustion) does not appear.",
    "branches": [
     "r2_ussr"
    ]
@@ -27115,6 +27115,58 @@
    "locators": "engine table rows",
    "access": "fetched",
    "notes": "Added in DB-0.5 (2026-10-31): NPO Energomash 'Энциклопедия - Двигатели' page (npoenergomash.ru/encikloped/dvizki), Internet Archive capture of 2016-01-09. One table of the bureau's engines with columns 'Двигатель (индекс) / Компоненты топлива / Тяга, тс з/п / Уд. импульс, с з/п / Давление в КС, кгс/см2 / Масса, кг, сух./залитого / Габариты / Годы разработки / Назначение'. Rows used: 'РД-100 (8Д51) кислород/75% С2Н5ОН 26,2/31 203/237 16,22 885/1063 ... 1946-1950 Сер. для Р-1'; 'РД-101 (8Д52) кислород/92% С2Н5ОН 37,0/41,2 210/237 21,62 888/1060 ... 1947-1951 Сер. для Р-2'; 'РД-216 (8Д514) азотная кислота/НДМГ 151/177,4 246/289 75 ... 1958-1960 Сер. для I ст. Р-14'; 'РД-216М (11Д614) ... 151,5/177,9 248/291,3 75 ... 1966-1968'; 'РД-270 (8Д420) азотный тетроксид/НДМГ 639,74/684,73 301/322 266 4770/5603 4850/3300 1962-1969 Проект для I ст. РН УР-700 по лунной программе; ОИ'.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-SSAU-420-2006",
+   "title": "Внедрение соплового насадка радиационного охлаждения из УУКМ на камеру маршевого двигателя 11Д58М разгонного блока ДМ-SL (Vestnik SSAU, 2006)",
+   "authors": [
+    "A.V. Mezhevov",
+    "V.I. Skoromnov",
+    "A.V. Kozlov",
+    "N.N. Tupitsyn",
+    "V.G. Khaspekov"
+   ],
+   "organization": "RSC Energia (Vestnik SSAU)",
+   "year": 2006,
+   "source_type": "journal article",
+   "identifier": "https://journals.ssau.ru/vestnik/article/download/420/423",
+   "url": "https://journals.ssau.ru/vestnik/article/download/420/423",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Open-access journal article by the developer; values only.",
+   "engines": [
+    "ENG-SU-11D58M"
+   ],
+   "locators": "Table 1; flight-test section",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): A.V. Mezhevov, V.I. Skoromnov, A.V. Kozlov, N.N. Tupitsyn, V.G. Khaspekov (RSC Energia), Vestnik SSAU 2006, 6 pages. 'Таблица 1. Основные характеристики ЖРД 11Д58М': РГ-1 / О2ж; 'Тяга, кН 85'; 'Удельный импульс тяги, с 356'; 'Давление в камере, МПа 7,9'; 'Соотношение компонентов топлива 2,82'; 'Геометрическая степень расширения сопла 280'; 7 starts; 1200 s total. The table is for the engine with the new carbon-carbon nozzle extension (НРО-М), which raised the geometric expansion ratio from 94 to 280; flight tests on DM-SL gave a mean Isp gain of 4.5 s (the English abstract says 4 s).",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-NASM-A19771237000",
+   "title": "Rocket Engine, Turbopump and Accessories, V-2 (Smithsonian NASM record A19771237000)",
+   "authors": [],
+   "organization": "Smithsonian National Air and Space Museum",
+   "year": null,
+   "source_type": "museum collection record",
+   "identifier": "https://web.archive.org/web/20250420052236/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000",
+   "url": "https://web.archive.org/web/20250420052236/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000",
+   "tier": "B",
+   "primary": "secondary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Museum record read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-DE-A4-ENGINE"
+   ],
+   "locators": "object description",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Smithsonian NASM record A19771237000, Internet Archive capture of 2025-04-20 (the live site refused the request): 'The turbopump moved approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen from the tanks to the engine during the 60-second burning time. Driving the turbopump was the steam generator, which used hydrogen peroxide mixed with a catalyst.' No peroxide concentration. Gift of Thiokol, from Reaction Motors.",
    "branches": [
     "db05"
    ]

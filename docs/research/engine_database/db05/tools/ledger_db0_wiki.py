@@ -76,6 +76,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "OTR78": "NASA TM-75376 (1978), translated text and design box",
         "FRR3": "Hopson STS-104 FRR charts (28 June 2001), p.3 'SSME Engine Comparison' table (govdocs1 673547)",
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
+        "SS06": "Vestnik SSAU 2006 (RSC Energia), Table 1 'Основные характеристики ЖРД 11Д58М'",
+        "NV2C": "NASM record A19771237000, description (archive capture 2025-04-20)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -223,19 +225,23 @@ K("CF-R2_USSR-R2-6", "ENG-SU-RD-0120", "performance.pc",
   "kgf/cm2 at 100 % is still unopened.")
 K("CF-R2_USSR-R2-10", "ENG-DE-A4-ENGINE", "propellants.consumed",
   [("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A"),
-   ("nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen ... during the 60-second burning time", "SRC-NASM-A19790951000", "NV2B")],
+   ("nearly 9,000 kg (20,000 lb) of alcohol and liquid oxygen ... during the 60-second burning time", "SRC-NASM-A19790951000", "NV2B"),
+   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C')],
   "PARTIALLY_RESOLVED", "definition",
   "Both Smithsonian records, read from archive captures, give a 60-second burn (not 62 s). They name different "
   "quantities: about 9,700 kg of liquid oxygen alone in one, nearly 9,000 kg of alcohol and oxygen together in the other. "
   "Read literally they contradict each other, since oxygen alone exceeds the combined total; neither cites a source. "
-  "See CF-DB05-E-R2_SCHEM-R2-13.")
+  "A third Smithsonian record (A19771237000, read 2026-10-31) splits the flow as about 4,200 kg water-alcohol and "
+  "5,500 kg liquid oxygen, which sums to the 9,700 kg the first record calls oxygen. See CF-DB05-E-R2_SCHEM-R2-13.")
 K("CF-R2_SCHEM-R2-13", "ENG-DE-A4-ENGINE", "propellants.load_mass",
   [("~9,700 kg LOX over 60 s", None, "X"), ("4,200 kg water-alcohol + 5,500 kg LOX", None, "X"),
-   ("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A")],
-  "UNRESOLVED", "definition",
-  "4,200 + 5,500 = 9,700 kg, so one claim is likely total propellant mislabelled as LOX. A Smithsonian record (read "
-  "2026-10-29) does call the 9,700 kg liquid oxygen, but another Smithsonian record puts both propellants at about "
-  "9,000 kg (CF-DB05-E-R2_USSR-R2-10). " + _PRIMARY)
+   ("approx. 9700 kg (21,400 lb.) of liquid oxygen ... during the sixty-second burning time", "SRC-NASM-A19600013000", "NV2A"),
+   ('approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen ... during the 60-second burning time', 'SRC-DB05-NASM-A19771237000', 'NV2C')],
+  "PARTIALLY_RESOLVED", "definition",
+  "4,200 + 5,500 = 9,700 kg. A Smithsonian record (A19771237000, archive capture read 2026-10-31) gives exactly that "
+  "split, about 4,200 kg water-alcohol and 5,500 kg liquid oxygen over 60 s, so the 9,700 kg another Smithsonian record "
+  "calls liquid oxygen is the total of both propellants, mislabelled. A third record's 'nearly 9,000 kg' of both stays "
+  "lower. All are museum descriptions, not German documents.")
 K("CF-R2_USSR-R2-11", "ENG-SU-RD-107A", "performance.thrust_vac",
   [("vac: 1,021.3 kN", "SRC-WIKI-SOYUZFG", "T"), ("vac: 1,019.93 kN", "SRC-WIKI-SOYUZ-CSG", "T"), ("thrust(Vac) 1,020 kN", "SRC-WIKI-RD107", "T")],
   "EXPLAINED", "rating_or_rounding", "Three encyclopedia pages within 0.14 percent: one value at different precision.")
@@ -289,10 +295,13 @@ K("CF-R2_SC_COMM-R2-11", "ENG-RU-S5-98M", "performance.isp_vac",
   "the Briz-KM figure may be a stage-level value but nothing opened says so.")
 K("CF-R2_USSR-R2-19", "ENG-SU-11D58M", "performance.thrust_vac / isp_vac",
   [("Thrust, vacuum 79.46 kN; 353 s (infobox)", "SRC-WIKI-RD58", "T"), ("Thrust (Vac) 83.4 kN (variant table)", "SRC-WIKI-RD58", "T"),
-   ("83.40 kN, 349 s, 78 bar", "SRC-ASTRONAUTIX-RD58", "N")],
-  "UNRESOLVED", "different_variant",
-  "One article: an infobox value and a variant table whose columns are separate RD-58 versions. Which column is the "
-  "11D58M is not settled; the Astronautica mirror was unreachable.")
+   ("83.40 kN, 349 s, 78 bar", "SRC-ASTRONAUTIX-RD58", "N"),
+   ("Тяга, кН 85; Удельный импульс тяги, с 356; Давление в камере, МПа 7,9; степень расширения сопла 280 (2006)", "SRC-DB05-SSAU-420-2006", "SS06")],
+  "PARTIALLY_RESOLVED", "different_configuration",
+  "The developer's 2006 paper (RSC Energia) gives the 11D58M 85 kN, 356 s and 7.9 MPa with the carbon-carbon nozzle "
+  "extension of expansion ratio 280, which replaced a ratio-94 extension and added about 4.5 s in flight. So the Isp "
+  "spread (349-356 s) follows the nozzle fitted; the 83.4 and 79.46 kN figures are not printed by the developer and "
+  "their configuration is not stated.")
 K("CF-USSR-11", "ENG-SU-NK-15", "performance.thrust_vac / pc / isp_vac",
   [("thrust(Vac) 1544 kN, 7.85 MPa, 318 s", "SRC-WIKI-NK15", "T"), ("1753 kN, 14.50 MPa, 331 s", "SRC-WIKI-NK15", "NF")],
   "EXPLAINED", "different_variant",
@@ -825,3 +834,11 @@ D('SRC-DB05-NTRS-19790003958', identifier="NASA TM-75376; NTRS 19790003958", tit
 D('SRC-NASA-HOPSON-STS104-FRR-2001', identifier='govdocs1 corpus 673547.pdf (also 675066 / 655318 hits)', title='STS-104 SSME Flight Readiness Review (Hopson), 28 June 2001', tier='A',
   rights_checked="US government briefing charts in a public corpus; values only", rights_class="RESTRICTED_REFERENCE",
   note="Read 2026-10-31. G. Hopson, 'Atlantis STS-104 ... SSME Block II' flight-readiness charts dated 28 June 2001 (file 104Prog.PPT), 6 pages, govdocs1 file 673/673547.pdf read 2026-10-31 from the Digital Corpora archive. Page 3 'SSME Engine Comparison': at 104 / 104.5 / 104.5 % for Block I / Block IIA / Block II, MCC Pc 3140 / 2870 / 2870 psia, HPFT discharge temperature 1694 / 1601 / 1615 R, HPOT discharge 1340 / 1215 / 1223 R; at 109 %, Pc 3291 / 2994 / 2994, HPFT 1718 / 1629 / 1638 R, HPOT 1374 / 1234 / 1246 R; Block II by power level 100-111 %: Pc 2747-3050 psia, HPFT 1594-1658 R. Used as a conflict claim only.")
+
+D('SRC-DB05-SSAU-420-2006', identifier='https://journals.ssau.ru/vestnik/article/download/420/423', title='Внедрение соплового насадка радиационного охлаждения из УУКМ на камеру маршевого двигателя 11Д58М разгонного блока ДМ-SL (Vestnik SSAU, 2006)', tier="A",
+  rights_checked="open-access journal article; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. A.V. Mezhevov, V.I. Skoromnov, A.V. Kozlov, N.N. Tupitsyn, V.G. Khaspekov (RSC Energia), Vestnik SSAU 2006, 6 pages. 'Таблица 1. Основные характеристики ЖРД 11Д58М': РГ-1 / О2ж; 'Тяга, кН 85'; 'Удельный импульс тяги, с 356'; 'Давление в камере, МПа 7,9'; 'Соотношение компонентов топлива 2,82'; 'Геометрическая степень расширения сопла 280'; 7 starts; 1200 s total. The table is for the engine with the new carbon-carbon nozzle extension (НРО-М), which raised the geometric expansion ratio from 94 to 280; flight tests on DM-SL gave a mean Isp gain of 4.5 s (the English abstract says 4 s). Used as a conflict claim only.")
+
+D('SRC-DB05-NASM-A19771237000', identifier='https://web.archive.org/web/20250420052236/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000', title='Rocket Engine, Turbopump and Accessories, V-2 (Smithsonian NASM record A19771237000)', tier="B",
+  rights_checked="museum record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Smithsonian NASM record A19771237000, Internet Archive capture of 2025-04-20 (the live site refused the request): 'The turbopump moved approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen from the tanks to the engine during the 60-second burning time. Driving the turbopump was the steam generator, which used hydrogen peroxide mixed with a catalyst.' No peroxide concentration. Gift of Thiokol, from Reaction Motors. Used as a conflict claim only.")

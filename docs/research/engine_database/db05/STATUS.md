@@ -1158,7 +1158,22 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   fr.wikipedia.org) prints 58.5 bar for the whole family (690-805 kN), so CF-DB05-E-R2_ASIA-R2A-18 stays two
   encyclopedia readings with no primary. NTRS search returns nothing on HM7, NK-43/AJ26, Coralie or ELDO; no archived
   Snecma, Safran or ArianeGroup HM7B sheet was found. KB Khimmash's history page gives no KVD1 dates.
-- Where the 46 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+- Where the 46 unresolved stood: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, RSC Energia and KB Khimmash histories, Rotary Rocket, Intuitive
   Machines, SpaceX's current script-rendered pages).
+
+## Pass 2026-10-31: RSC Energia 11D58M figures, 11D58MF cycle, V-2 propellant split
+
+- R2_USSR-R2-19 (11D58M) PARTIALLY_RESOLVED, different_configuration: an RSC Energia 2006 paper hosted by SSAU
+  (SRC-DB05-SSAU-420-2006) gives 85 kN, 356 s, 7.9 MPa, mixture ratio 2.82 and expansion ratio 280; raising the
+  expansion ratio from 94 to 280 is credited with about 4.5 s, so the differing Isp figures belong to different nozzles.
+- R2_USSR-R2-20 (11D58MF cycle) PARTIALLY_RESOLVED, definition: re-read of SSAU 2587.
+- R2_SCHEM-R2-13 (V-2 turbopump flow) PARTIALLY_RESOLVED, definition: Smithsonian record A19771237000 (archive
+  capture 2025-04-20) gives about 4,200 kg water-alcohol and 5,500 kg liquid oxygen over 60 s, which sums to the
+  9,700 kg another Smithsonian record calls liquid oxygen; that record mislabels total propellant. R2_USSR-R2-10
+  gains the same claim.
+- Where the 43 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+  RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
+  institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
+  current script-rendered pages).
