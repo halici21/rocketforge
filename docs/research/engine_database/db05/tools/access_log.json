@@ -7562,5 +7562,31 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-NASM-A19771237000.html"
+ },
+ "SRC-DB05-ASTRIUM-HM7B-PAGE": {
+  "source_id": "SRC-DB05-ASTRIUM-HM7B-PAGE",
+  "url": "https://web.archive.org/web/20160304030227id_/http://www.space-propulsion.com/launcher-propulsion/rocket-engines/hm7b-rocket-engine.html",
+  "time_utc": "2026-10-30T21:34:54Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://web.archive.org/web/20160304030227id_/http://www.space-propulsion.com/launcher-propulsion/rocket-engines/hm7b-rocket-engine.html",
+  "bytes": 23284,
+  "sha256": "cc545671a284a2616c6826b2af2c690ec4b521abee9d28764ad645f926865636",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-ASTRIUM-HM7B-PAGE.html"
+ },
+ "SRC-DB05-KISTLER-K1-SPECS-2001": {
+  "source_id": "SRC-DB05-KISTLER-K1-SPECS-2001",
+  "url": "https://web.archive.org/web/20011226074043id_/http://www.kistleraerospace.com/specs.html",
+  "time_utc": "2026-10-30T21:42:03Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://web.archive.org/web/20011226074043id_/http://www.kistleraerospace.com/specs.html",
+  "bytes": 5082,
+  "sha256": "ef3aa9a5efd78d78fbd1acc560277ef8ee3ec1763d95bba1a3feabe89f5e0968",
+  "is_pdf": false,
+  "ok": true,
+  "file": "SRC-DB05-KISTLER-K1-SPECS-2001.html"
  }
 }

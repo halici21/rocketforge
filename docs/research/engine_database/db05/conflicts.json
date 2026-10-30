@@ -5284,11 +5284,16 @@
      "NK-43 variant listed as AJ26-60",
      "SRC-WIKI-NK33",
      "fetched; not in the current revision's text"
+    ],
+    [
+     "First stage engines: Three Aerojet/AJ26-58/-59 (NK-33) ... Second stage engines: One Aerojet/AJ26-60 (NK-43)",
+     "SRC-DB05-KISTLER-K1-SPECS-2001",
+     "kistleraerospace.com/specs.html, K-1 Specifications list (archive capture 2001-12-26)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "The mirror refused access (401) and the NK-33 article's text does not carry the claim. No primary document opened; the record stays open."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "Kistler Aerospace, the K-1 vehicle maker, listed the first-stage engines as AJ26-58/-59 (NK-33) and the second-stage engine as AJ26-60 (NK-43) on its specifications page (archive capture 2001-12-26). The AJ26-60 is the NK-43 derivative; the 'NK-43 -> AJ26-59' lineage is wrong, the AJ26-59 being an NK-33 derivative."
   },
   {
    "conflict_id": "CF-DB05-E-R2_ASIA-R2A-8",
@@ -6161,11 +6166,21 @@
      "increasing the chamber pressure from 30 to 35 bar",
      "SRC-WIKI-HM7B",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "raising the combustion chamber pressure from 30 to 35 bar ... designated HM-7B and was qualified in 1983",
+     "SRC-DB05-ASTRIUM-HM7B-PAGE",
+     "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)"
+    ],
+    [
+     "HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec",
+     "SRC-DB05-ASTRIUM-HM7B-PAGE",
+     "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "One article: an infobox of 37 bar and a history line ending at 35 bar. No primary document opened; the record stays open."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "The thrust-chamber maker's own page (Airbus DS Ottobrunn, archive capture 2016-03-04) carries the same pair: its history says the HM-7B qualified in 1983 after chamber pressure was raised from 30 to 35 bar, and its current characteristics table (ESC-A era, 950 s burn) prints 37 bar. So 37 bar is the maker's tabulated HM7B value and 35 bar the 1983 qualification step; the page does not say when or why it became 37 bar."
   },
   {
    "conflict_id": "CF-DB05-E-ANCHOR_EU_ASIA-6",
@@ -6182,11 +6197,16 @@
      "Chamber pressure 35.3 bar",
      "SRC-LLMPEDIA-HM7B",
      "encyclopedia page text, current revision (fetched 2026-10-28)"
+    ],
+    [
+     "HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec",
+     "SRC-DB05-ASTRIUM-HM7B-PAGE",
+     "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "intra_document",
-   "explanation": "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything."
+   "resolution": "PARTIALLY_RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "As CF-DB05-E-EUROPE-8: the maker's characteristics table prints 37 bar, its history 35 bar for the 1983 HM-7B. The 35.3 bar comes from a machine-generated page and is not evidence of anything."
   },
   {
    "conflict_id": "CF-DB05-E-EUROPE-10",

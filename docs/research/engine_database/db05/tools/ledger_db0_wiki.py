@@ -78,6 +78,8 @@ _LOC = {"T": "encyclopedia page text, current revision (fetched 2026-10-28)",
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "SS06": "Vestnik SSAU 2006 (RSC Energia), Table 1 'Основные характеристики ЖРД 11Д58М'",
         "NV2C": "NASM record A19771237000, description (archive capture 2025-04-20)",
+        "HM7P": "space-propulsion.com HM-7B thrust-chamber page, history text and characteristics table (archive capture 2016-03-04)",
+        "KK1": "kistleraerospace.com/specs.html, K-1 Specifications list (archive capture 2001-12-26)",
         "IPV": "iprofesional.com article 181740 (2014-03-05), body text",
         "X61": "NTRS 19710070145 (XLR99 engine operating experience, 1961) p.2 data list and p.8 Table I"}
 
@@ -313,8 +315,13 @@ K("CF-USSR-12", "ENG-SU-NK-33", "aliases.index",
   "The English article does not print 14D15 (it cites 11D111 for the NK-33); the Russian news page in CF-DB05-W-R2_USSR-R2-5 "
   "does. Index assignment not settled from a primary.")
 K("CF-USSR-13", "ENG-US-AJ26-59", "lineage",
-  [("NK-43 -> AJ26-59", "SRC-WIKI-AJ26", "N"), ("NK-43 variant listed as AJ26-60", "SRC-WIKI-NK33", "NF")],
-  "UNRESOLVED", None, "The mirror refused access (401) and the NK-33 article's text does not carry the claim. " + _PRIMARY)
+  [("NK-43 -> AJ26-59", "SRC-WIKI-AJ26", "N"), ("NK-43 variant listed as AJ26-60", "SRC-WIKI-NK33", "NF"),
+   ("First stage engines: Three Aerojet/AJ26-58/-59 (NK-33) ... Second stage engines: One Aerojet/AJ26-60 (NK-43)",
+    "SRC-DB05-KISTLER-K1-SPECS-2001", "KK1")],
+  "RESOLVED", "primary_value_found",
+  "Kistler Aerospace, the K-1 vehicle maker, listed the first-stage engines as AJ26-58/-59 (NK-33) and the "
+  "second-stage engine as AJ26-60 (NK-43) on its specifications page (archive capture 2001-12-26). The AJ26-60 is the "
+  "NK-43 derivative; the 'NK-43 -> AJ26-59' lineage is wrong, the AJ26-59 being an NK-33 derivative.")
 K("CF-USSR-19", "ENG-SU-RD-253", "aliases.index", [], "UNRESOLVED", None,
   "DB-0 recorded the conflict without any claim; nothing to check.")
 
@@ -546,12 +553,17 @@ K("CF-COMMERCIAL-COM-17", "ENG-US-MERLIN-1D-BLOCK-5", "performance.isp",
   "EXPLAINED", "different_epoch",
   "The article itself marks 282 / 311 s as outdated; they are the c. 2013 figures, not Block 5 values.")
 K("CF-EUROPE-8", "ENG-FR-HM7B", "performance.pc",
-  [("Chamber pressure 3.7 MPa (37 bar)", "SRC-WIKI-HM7B", "T"), ("increasing the chamber pressure from 30 to 35 bar", "SRC-WIKI-HM7B", "T")],
-  "UNRESOLVED", "intra_document", "One article: an infobox of 37 bar and a history line ending at 35 bar. " + _PRIMARY)
+  [("Chamber pressure 3.7 MPa (37 bar)", "SRC-WIKI-HM7B", "T"), ("increasing the chamber pressure from 30 to 35 bar", "SRC-WIKI-HM7B", "T"),
+   ('raising the combustion chamber pressure from 30 to 35 bar ... designated HM-7B and was qualified in 1983', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P'),
+   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P')],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "The thrust-chamber maker's own page (Airbus DS Ottobrunn, archive capture 2016-03-04) carries the same pair: its history says the HM-7B qualified in 1983 after chamber pressure was raised from 30 to 35 bar, and its current characteristics table (ESC-A era, 950 s burn) prints 37 bar. So 37 bar is the maker's tabulated HM7B value and 35 bar the 1983 qualification step; the page does not say when or why it became 37 bar.")
 K("CF-ANCHOR_EU_ASIA-6", "ENG-FR-HM7B", "performance.pc",
-  [("Chamber pressure 3.7 MPa (37 bar); from 30 to 35 bar", "SRC-WIKI-HM7B", "T"), ("Chamber pressure 35.3 bar", "SRC-LLMPEDIA-HM7B", "T")],
-  "UNRESOLVED", "intra_document",
-  "As CF-DB05-E-EUROPE-8; the 35.3 bar comes from a machine-generated page and is not evidence of anything.")
+  [("Chamber pressure 3.7 MPa (37 bar); from 30 to 35 bar", "SRC-WIKI-HM7B", "T"), ("Chamber pressure 35.3 bar", "SRC-LLMPEDIA-HM7B", "T"),
+   ('HM 7B Rocket Engine Characteristics: Chamber pressure 37 bar; Thrust vac 64.8 kN; Specific Impulse vac. 446 sec', 'SRC-DB05-ASTRIUM-HM7B-PAGE', 'HM7P')],
+  "PARTIALLY_RESOLVED", "different_epoch",
+  "As CF-DB05-E-EUROPE-8: the maker's characteristics table prints 37 bar, its history 35 bar for the 1983 HM-7B. "
+  "The 35.3 bar comes from a machine-generated page and is not evidence of anything.")
 K("CF-EUROPE-10", "ENG-DE-AESTUS", "performance.thrust_vac",
   [("thrust(Vac) 29.6 kN", "SRC-WIKI-AESTUS", "T"),
    ("The vacuum thrust of the Aestus engine was 2.7 tonnes (~26.5 kN DERIVED)", "SRC-ESA-EPS", "EPS"),
@@ -842,3 +854,11 @@ D('SRC-DB05-SSAU-420-2006', identifier='https://journals.ssau.ru/vestnik/article
 D('SRC-DB05-NASM-A19771237000', identifier='https://web.archive.org/web/20250420052236/https://airandspace.si.edu/collection-objects/rocket-engine-turbopump-and-accessories-v-2/nasm_A19771237000', title='Rocket Engine, Turbopump and Accessories, V-2 (Smithsonian NASM record A19771237000)', tier="B",
   rights_checked="museum record read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. Smithsonian NASM record A19771237000, Internet Archive capture of 2025-04-20 (the live site refused the request): 'The turbopump moved approx. 4200 kg (9200 lb) of water alcohol and 5500 kg (12,200 lb) of liquid oxygen from the tanks to the engine during the 60-second burning time. Driving the turbopump was the steam generator, which used hydrogen peroxide mixed with a catalyst.' No peroxide concentration. Gift of Thiokol, from Reaction Motors. Used as a conflict claim only.")
+
+D('SRC-DB05-ASTRIUM-HM7B-PAGE', identifier='https://web.archive.org/web/20160304030227/http://www.space-propulsion.com/launcher-propulsion/rocket-engines/hm7b-rocket-engine.html', title='HM-7 and HM-7B Rocket Engine - Thrust Chamber (Airbus DS / Astrium web page, space-propulsion.com)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Thrust-chamber maker's page (Ottobrunn), Internet Archive capture of 2016-03-04. History: 'With the introduction of Ariane 2 and Ariane 3, it became necessary to increase the performance of the HM-7 engine. This was achieved by raising the combustion chamber pressure from 30 to 35 bar and extending the nozzle ... The upgraded engine was thus designated HM-7B and was qualified in 1983.' Table 'HM 7B Rocket Engine Characteristics': thrust vac 64.8 kN; specific impulse vac. 446 sec; propellant mass flow rate 14.8 kg/s; mixture ratio 5:0 [sic]; chamber pressure 37 bar; nozzle diameter 0.99 m; nozzle area ratio 83.1; overall length 2.01 m; mass 165kg. Burn time 950 s on Ariane 5 ESC-A. Used as a conflict claim only.")
+
+D('SRC-DB05-KISTLER-K1-SPECS-2001', identifier='https://web.archive.org/web/20011226074043/http://www.kistleraerospace.com/specs.html', title='K-1 Specifications and Performance (Kistler Aerospace web page, captured 2001-12-26)', tier="A",
+  rights_checked="maker material read from an Internet Archive capture; values only", rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-10-31. Kistler Aerospace K-1 specifications page, Internet Archive capture of 2001-12-26: 'First stage engines: Three Aerojet/AJ26-58/-59 (NK-33) LOX/kerosene engines with a total sea level thrust of 1,020,000 lbf.' 'Second stage engines: One Aerojet/AJ26-60 (NK-43) LOX/kerosene engine with a total vacuum thrust of 395,000 lbf.' Used as a conflict claim only.")

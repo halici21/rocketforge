@@ -1173,7 +1173,14 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   capture 2025-04-20) gives about 4,200 kg water-alcohol and 5,500 kg liquid oxygen over 60 s, which sums to the
   9,700 kg another Smithsonian record calls liquid oxygen; that record mislabels total propellant. R2_USSR-R2-10
   gains the same claim.
-- Where the 43 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
+- EUROPE-8 and ANCHOR_EU_ASIA-6 (HM7B Pc) PARTIALLY_RESOLVED, different_epoch: the thrust-chamber maker's page
+  (Airbus DS Ottobrunn, space-propulsion.com, archive capture 2016-03-04) prints both the 1983 step from 30 to 35 bar
+  and a characteristics table with 37 bar (64.8 kN, 446 s, area ratio 83.1, 165 kg); it does not say when 35 became 37.
+- USSR-13 (AJ26 lineage) RESOLVED: Kistler's K-1 specifications page (archive capture 2001-12-26) lists AJ26-58/-59
+  (NK-33) on the first stage and AJ26-60 (NK-43) on the second.
+- Dead ends: Intuitive Machines' VR900 release is 403 live and its only archived PDF is a 1 MB Common Crawl
+  truncation holding images only; no Viking 5C chamber pressure from a maker or Arianespace document was found.
+- Where the 40 unresolved stand: 15 wait on owner definition decisions or are deliberately open (RS-25 x4, F-1 x2,
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
   current script-rendered pages).

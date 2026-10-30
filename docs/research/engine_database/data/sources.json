@@ -27170,6 +27170,54 @@
    "branches": [
     "db05"
    ]
+  },
+  {
+   "source_id": "SRC-DB05-ASTRIUM-HM7B-PAGE",
+   "title": "HM-7 and HM-7B Rocket Engine - Thrust Chamber (Airbus DS / Astrium web page, space-propulsion.com)",
+   "authors": [],
+   "organization": "Airbus DS GmbH (formerly EADS Astrium), Ottobrunn",
+   "year": null,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20160304030227/http://www.space-propulsion.com/launcher-propulsion/rocket-engines/hm7b-rocket-engine.html",
+   "url": "https://web.archive.org/web/20160304030227/http://www.space-propulsion.com/launcher-propulsion/rocket-engines/hm7b-rocket-engine.html",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Maker material read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-FR-HM7B"
+   ],
+   "locators": "history text; 'HM 7B Rocket Engine Characteristics' table",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Thrust-chamber maker's page (Ottobrunn), Internet Archive capture of 2016-03-04. History: 'With the introduction of Ariane 2 and Ariane 3, it became necessary to increase the performance of the HM-7 engine. This was achieved by raising the combustion chamber pressure from 30 to 35 bar and extending the nozzle ... The upgraded engine was thus designated HM-7B and was qualified in 1983.' Table 'HM 7B Rocket Engine Characteristics': thrust vac 64.8 kN; specific impulse vac. 446 sec; propellant mass flow rate 14.8 kg/s; mixture ratio 5:0 [sic]; chamber pressure 37 bar; nozzle diameter 0.99 m; nozzle area ratio 83.1; overall length 2.01 m; mass 165kg. Burn time 950 s on Ariane 5 ESC-A.",
+   "branches": [
+    "db05"
+   ]
+  },
+  {
+   "source_id": "SRC-DB05-KISTLER-K1-SPECS-2001",
+   "title": "K-1 Specifications and Performance (Kistler Aerospace web page, captured 2001-12-26)",
+   "authors": [],
+   "organization": "Kistler Aerospace Corporation",
+   "year": 2001,
+   "source_type": "manufacturer web page",
+   "identifier": "https://web.archive.org/web/20011226074043/http://www.kistleraerospace.com/specs.html",
+   "url": "https://web.archive.org/web/20011226074043/http://www.kistleraerospace.com/specs.html",
+   "tier": "A",
+   "primary": "primary",
+   "rights": "RESTRICTED_REFERENCE",
+   "rights_basis": "Vehicle maker's page read from an Internet Archive capture; values only.",
+   "engines": [
+    "ENG-US-AJ26-58",
+    "ENG-US-AJ26-59",
+    "ENG-US-AJ26-60"
+   ],
+   "locators": "K-1 Specifications list",
+   "access": "fetched",
+   "notes": "Added in DB-0.5 (2026-10-31): Kistler Aerospace K-1 specifications page, Internet Archive capture of 2001-12-26: 'First stage engines: Three Aerojet/AJ26-58/-59 (NK-33) LOX/kerosene engines with a total sea level thrust of 1,020,000 lbf.' 'Second stage engines: One Aerojet/AJ26-60 (NK-43) LOX/kerosene engine with a total vacuum thrust of 395,000 lbf.'",
+   "branches": [
+    "db05"
+   ]
   }
  ],
  "source_id_aliases": {
