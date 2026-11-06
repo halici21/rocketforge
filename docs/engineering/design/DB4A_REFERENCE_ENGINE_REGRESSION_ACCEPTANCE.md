@@ -176,3 +176,24 @@ These would be needed before a real-engine delivered quantity could test RocketF
 - engine sizing from a printed thrust.
 
 LIQ-7 stays PAUSED.
+
+## 10. Later change to the capability (2026-11-06)
+
+§1 says the capability's definition is unchanged. That was true for DB-4A. One rule has changed since.
+
+The capability used to compare every thrust claim with every other, and every Isp claim likewise, so a vacuum and a
+sea-level value counted as a disagreement. They are now two statements when both environments are recorded. Any other
+or unknown environment is still compared with every claim, and other quantities are unaffected.
+
+This changes no status and no shipped record. Exactly two gaps disappear, and each of those configurations still has
+other gaps:
+
+| Configuration | Gap removed | Gaps that remain |
+|---|---|---|
+| `CFG-RS68-1999-BASELINE` | thrust | no mixture ratio; average Isp |
+| `CFG-F1` | specific impulse | no mixture ratio; not all at one operating point |
+
+The candidates stay `CFG-J2-230K` and `CFG-J2S`, and the totals at the top of this document stand. More candidates
+would not change them: the review gate cannot return a hard or validation result (§6), so what decides this is §7.
+
+Tests: `tests/evidence/test_reference_engine_claims_differ.py`.

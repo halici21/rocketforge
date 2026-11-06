@@ -38,8 +38,9 @@ slides, before first flight. It is not the flown rating.
 | Area ratio | 21.5 | `NOMINAL` |
 | Weight | the text 'Weight, lb < 15,000' | `OTHER` |
 
-`REGRESSION_CANDIDATE` is `NOT_SUPPORTED`: there is no mixture ratio, the Isp is an average, and the capability check
-reports 'thrust: the claims differ, so there is no single reference value'. `PERFORMANCE_REFERENCE` is `PARTIAL`, for
+`REGRESSION_CANDIDATE` is `NOT_SUPPORTED`: there is no mixture ratio and the Isp is an average. (At this wave the check
+also reported that the thrust claims differ. That was the rule's error, corrected afterwards: see DB-4A §10.)
+`PERFORMANCE_REFERENCE` is `PARTIAL`, for
 the missing mixture ratio. `ARCHITECTURE` and `TOPOLOGY` are `NOT_SUPPORTED`: no propellants, cycle or graph are
 recorded for this configuration.
 

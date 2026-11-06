@@ -86,6 +86,10 @@ PERFORMANCE_QUANTITIES: dict[str, tuple[str, ...]] = {
 #: Quantities stated at an operating point; the area ratio is geometry.
 _RUNNING = ("thrust", "specific_impulse", "chamber_pressure", "mixture_ratio")
 
+#: Quantities that depend on the ambient pressure, and the environments that make them separate statements.
+_AMBIENT = ("thrust", "specific_impulse")
+_SEPARATE_ENVIRONMENTS = (Environment.VACUUM, Environment.SEA_LEVEL)
+
 #: The architecture statements, by field path.
 ARCHITECTURE_FIELDS: dict[str, str] = {
     "oxidizer": "propellants.oxidizer",
@@ -230,9 +234,21 @@ def _performance(corpus, cfg):
     for quantity, claims in by_quantity.items():
         for a in claims:
             caveats += _condition_caveats(a)
-        if len({_magnitude(a) for a in claims}) > 1:
+        if _claims_differ(quantity, claims):
             caveats.append(f"{quantity}: the claims differ ({', '.join(a.assertion_id for a in claims)})")
     return by_quantity, caveats
+
+
+def _claims_differ(quantity: str, claims) -> bool:
+    """Whether a quantity's claims disagree.
+
+    A vacuum and a sea-level thrust or Isp are two statements, not a disagreement, when both environments are
+    recorded. Any other or unknown environment is compared with every claim.
+    """
+    if quantity not in _AMBIENT or any(a.conditions.environment not in _SEPARATE_ENVIRONMENTS for a in claims):
+        return len({_magnitude(a) for a in claims}) > 1
+    return any(len({_magnitude(a) for a in claims if a.conditions.environment is env}) > 1
+               for env in _SEPARATE_ENVIRONMENTS)
 
 
 def _magnitude(a: Assertion):
@@ -295,8 +311,7 @@ def _regression_candidate(corpus, cfg) -> CapabilityResult:
             for q in PERFORMANCE_QUANTITIES if not by_quantity.get(q)]
     ids = [a.assertion_id for q in PERFORMANCE_QUANTITIES for a in by_quantity.get(q, ())]
     for q in PERFORMANCE_QUANTITIES:
-        claims = by_quantity.get(q, ())
-        if len({_magnitude(a) for a in claims}) > 1:
+        if _claims_differ(q, by_quantity.get(q, ())):
             gaps.append(f"{q}: the claims differ, so there is no single reference value")
     points = {a.operating_point_id for q in _RUNNING for a in by_quantity.get(q, ())}
     if points and (len(points) != 1 or None in points):

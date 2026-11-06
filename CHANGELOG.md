@@ -22,6 +22,9 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   recorded as not printed: 18,616 lb for `CFG-F1` and 7,750 lb for `CFG-RS25-SLS`.
 
 ### Changed
+- Reference engines: the regression-candidate check no longer counts a recorded vacuum and a recorded sea-level thrust
+  or Isp as a disagreement. No configuration's status changes, and the candidates stay J-2 and J-2S. No hard regression
+  is accepted, as before.
 - Simplification R3 closed (R3-A to R3-F). R3-E measured start-up and test-suite performance and
   changed no code. Providers stay lazily loaded by owner decision: NASA CEA and CoolProp are loaded
   only when a workspace that needs them is first opened, as before.

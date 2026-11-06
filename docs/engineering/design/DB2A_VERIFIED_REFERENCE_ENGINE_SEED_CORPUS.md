@@ -216,7 +216,7 @@ combined into a score or a rank.
 | ARCHITECTURE | both propellants, and the cycle or the feed system, are stated for this configuration |
 | PERFORMANCE_REFERENCE | thrust, specific impulse, chamber pressure, mixture ratio and area ratio are stated for it as operating values |
 | TOPOLOGY | a graph of it (or of a unit containing it) has nothing stopping it counting as an original drawing; every graph's omissions are caveats |
-| REGRESSION_CANDIDATE | those five quantities, the running ones at one operating point, agree, have a stated environment for thrust and specific impulse, are not printed as averages or approximations, and pass `regression_blockers` |
+| REGRESSION_CANDIDATE | those five quantities, the running ones at one operating point, agree (a recorded vacuum and a recorded sea-level thrust or Isp are two statements, not a disagreement), have a stated environment for thrust and specific impulse, are not printed as averages or approximations, and pass `regression_blockers` |
 
 Only what is recorded for the configuration, its operating points and its
 components counts. A variant or family statement is reported as a caveat
