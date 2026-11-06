@@ -52,8 +52,9 @@ WAVE2 = {"CFG-RL10B-2-DIV", "CFG-RD-170", "CFG-IPD", "CFG-RS-68A", "CFG-LR87-AJ-
 WAVE3 = {"CFG-LE7-H2-1990-REVIEW"}
 #: The DB-2B Wave 4 configurations (tests/research/test_db2b_wave4_promotion.py holds them).
 WAVE4 = {"CFG-RL10A-3-3-FR1769", "CFG-LR91-AJ-11-T3E", "CFG-H1-200K-S-IB-4", "CFG-F1A-MSFC-2013"}
+WAVE5 = {"CFG-RS68-1999-BASELINE"}
 #: The DB-0.5 engines whose assertions may appear in production.
-ALLOWED_ENGINES = ("J-2-", "RL10A-3-3A-", "AJ10-137-", "J-2S-", "F-1-", "H-1-188K-", "LMDE-", "AJ10-190-",
+ALLOWED_ENGINES = ("RS-68-", "J-2-", "RL10A-3-3A-", "AJ10-137-", "J-2S-", "F-1-", "H-1-188K-", "LMDE-", "AJ10-190-",
                    "SSME-BLOCK-I-", "SSME-BLOCK-IIA-", "SSME-BLOCK-II-",
                    "RL10B-2-", "IPD-", "RS-68A-", "LR87-AJ-11-", "AS-DB05-SU-RD-170-",  # these five: Wave 2
                    "AS-DB05-JP-LE-7-",  # Wave 3: the LE-7 only (not the LE-7A)
@@ -81,12 +82,12 @@ def numbers(assertions):
 
 
 def test_only_the_seeds_and_the_wave_configurations_ship(corpus):
-    """Rescoped by Waves 2, 3 and 4: the seeds and Wave 1 stay; anything else is a later wave's target."""
-    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1 | WAVE2 | WAVE3 | WAVE4
+    """Rescoped by Waves 2, 3, 4 and 5: the seeds and Wave 1 stay; anything else is a later wave's target."""
+    assert {c.configuration_id for c in corpus.configurations} == SEEDS | WAVE1 | WAVE2 | WAVE3 | WAVE4 | WAVE5
     assert {v.designation for v in corpus.variants} == {
         "J-2", "RL10A-3-3A", "AJ10-137", "J-2S", "F-1", "H-1", "LM descent engine", "OMS engine", "RS-25",
         "RL10B-2", "RD-170", "IPD", "RS-68A", "LR87AJ-11", "LE-7",
-        "RL10A-3-3", "LR91AJ-11", "H-1, 200K rating", "F-1A"}
+        "RL10A-3-3", "LR91AJ-11", "H-1, 200K rating", "F-1A", "RS-68"}
 
 
 @pytest.mark.parametrize("name", ["RL10A-4-2", "Rutherford", "Merlin", "Raptor", "BE-3", "BE-4", "RD-180",
@@ -228,8 +229,9 @@ def test_wave1_rights_readings_record_the_owner_review(corpus):
     wave2_sources |= {"SRC-NTRS-19910018906"}  # the RD-170 graph's text source
     wave3_sources = {"SRC-DB05-NTRS-19910018905"}
     wave4_sources = {"SRC-DB05-NTRS-19670005471", "SRC-DB05-NTRS-19680003903", "SRC-DB05-NTRS-20140011656"}
+    wave5_sources = {"SRC-DB05-NTRS-20000025317"}
     wave1_sources = ({s.reference.source_id for s in corpus.sources} - SEED_SOURCES - wave2_sources - wave3_sources
-                     - wave4_sources)
+                     - wave4_sources - wave5_sources)
     assert len(wave1_sources) == 9
     for s in corpus.sources:
         if s.reference.source_id in wave1_sources:

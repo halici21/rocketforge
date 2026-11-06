@@ -2280,9 +2280,9 @@
    "identifier_verified": "NTRS 20000025317 (50th IAF Congress, Amsterdam, 11-12 October 1999)",
    "title_as_printed": "Liquid Rocket Propulsion: RS-68 & Linear Aerospike (Terry Murphy, Rocketdyne Propulsion & Power, The Boeing Company)",
    "tier": "B",
-   "rights_statement_checked": "NTRS determination GOV_PUBLIC_USE_PERMITTED, but the slides are Boeing-authored; not export controlled",
-   "rights_values": "RIGHTS_REVIEW_REQUIRED",
-   "rights_figures": "RIGHTS_REVIEW_REQUIRED",
+   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; the maker's slides, no copyright notice on pages read (all 64 slides viewed 2026-11-06)",
+   "rights_values": "VALUES_WITH_ATTRIBUTION",
+   "rights_figures": "VALUES_WITH_ATTRIBUTION",
    "note": "64 scanned slides without a text layer; the 'RS-68 Engine Performance Baseline' slide (PDF p.11) was rendered and read.",
    "assertions": 7
   },

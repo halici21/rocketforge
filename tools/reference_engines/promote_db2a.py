@@ -163,7 +163,7 @@ _DICTS = ("SEED_SUBJECTS", "SOURCES", "WITHHELD_SOURCES", "WITHHELD_CONTENT_TERM
 _TUPLES = ("SEED_ENGINES", "ACCOUNTED_ENGINES", "DISPOSITIONS", "FAMILIES", "VARIANTS", "CONFIGURATIONS",
            "OPERATING_POINTS", "UNITS", "ALIASES", "ASSERTIONS", "TOPOLOGIES")
 MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest", "db2b_wave2_manifest", "db2b_wave3_manifest",
-             "db2b_wave4_manifest")
+             "db2b_wave4_manifest", "db2b_wave5_manifest")
 
 
 def merge_manifests(*modules) -> types.SimpleNamespace:

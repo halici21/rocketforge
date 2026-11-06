@@ -11782,7 +11782,8 @@
    "unit_as_printed": "klbf",
    "conditions": {
     "configuration": "RS-68 baseline (1999, before first flight)",
-    "operating_point": "Rated"
+    "operating_point": "Rated",
+    "environment": "vacuum"
    },
    "status": "REPORTED",
    "evidence_status": "SOURCE_VERIFIED",
@@ -11803,7 +11804,8 @@
    "unit_as_printed": "klbf",
    "conditions": {
     "configuration": "RS-68 baseline (1999, before first flight)",
-    "operating_point": "Rated"
+    "operating_point": "Rated",
+    "environment": "sea_level"
    },
    "status": "REPORTED",
    "evidence_status": "SOURCE_VERIFIED",
@@ -11868,7 +11870,8 @@
    "conditions": {
     "configuration": "RS-68 baseline (1999, before first flight)",
     "operating_point": "Rated",
-    "basis": "average"
+    "basis": "average",
+    "environment": "vacuum"
    },
    "status": "REPORTED",
    "evidence_status": "SOURCE_VERIFIED",

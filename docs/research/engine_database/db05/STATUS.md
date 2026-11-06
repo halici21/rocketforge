@@ -1254,3 +1254,18 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   assertions 001-004, not 008 and 009. RD-180's three
   wait for Wave 5.
 - Unresolved now stands at 32.
+
+## Wave 5 and the end of the backlog (2026-11-06)
+
+- Every assertion in this research is now decided for the product: promoted, or recorded as not promoted with a reason.
+  That is a product decision, not a research result, and it resolves no conflict.
+- RS-68 1999 slides: the owner accepted the rights reading, so the record moves from RIGHTS_REVIEW_REQUIRED to
+  VALUES_WITH_ATTRIBUTION. All 64 slides were viewed as contact sheets, and two were zoomed. Thrust and Isp now read
+  the exact words vacuum and sea_level.
+- CF-DB05-E-US_HIST-04 stays PARTIALLY_RESOLVED. By owner decision, 650 klbf and 1,410 psia ship for
+  CFG-RS68-1999-BASELINE only; 836 psia does not.
+- Kept out: the NK-33 Aerojet slides (owner decision), and the ULA guide's 705,250 lbf, which prints 'All rights
+  reserved'.
+- RD-180 ships nothing, and its three unresolved conflicts (mass, throttle, area ratio) stay open. They need sources
+  whose rights allow shipping, not another decision.
+- No conflict moved. The unresolved count stays 32.

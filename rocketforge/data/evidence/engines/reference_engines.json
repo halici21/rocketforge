@@ -310,6 +310,49 @@
     },
     {
       "reference": {
+        "source_id": "SRC-DB05-NTRS-20000025317",
+        "organization": "Rocketdyne Propulsion & Power, The Boeing Company",
+        "authors": [
+          "Terry Murphy"
+        ],
+        "title": "Liquid Rocket Propulsion: RS-68 & Linear Aerospike",
+        "year": 1999,
+        "identifiers": {
+          "NTRS": "20000025317"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf",
+        "source_type": "conference presentation",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "B",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "6f6c22f2395a61a8068aaeac862973e2f954926953e468ff11cc991c75e0470b",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-28T21:05:52Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright notice on pages read (all 64 slides viewed 2026-11-06)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use, not export controlled; the maker's slides for the 50th IAF Congress, with the company's logo and no notice on them. Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination)."
+      },
+      "access_note": "downloaded 2026-10-28T21:05:52Z from https://ntrs.nasa.gov/api/citations/20000025317/downloads/20000025317.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
         "source_id": "SRC-DB05-NTRS-20050243602",
         "organization": "NASA",
         "authors": [
@@ -1283,6 +1326,12 @@
       "family_id": "FAM-F1",
       "designation": "F-1A",
       "notes": ""
+    },
+    {
+      "variant_id": "VAR-RS-68",
+      "family_id": "FAM-RS68",
+      "designation": "RS-68",
+      "notes": "Not the RS-68A, which is filed separately."
     }
   ],
   "configurations": [
@@ -1468,6 +1517,13 @@
         "note": "the slide names no build, test or date for the F-1A column"
       },
       "notes": "One column of 'Engine Comparison, F-1 vs. F-1A'. The slide does not define the weight, and its 'ns' on chamber pressure has no legend."
+    },
+    {
+      "configuration_id": "CFG-RS68-1999-BASELINE",
+      "variant_id": "VAR-RS-68",
+      "label": "RS-68, performance baseline in Rocketdyne's 1999 slides",
+      "effective": "The 'RS-68 Engine Performance Baseline' slide, October 1999, before first flight",
+      "notes": "The maker's baseline before first flight, not the flown rating. The Isp is printed as an average. The mixture ratio is withheld: 'Engine mixture ratio 6.0' prints no direction."
     }
   ],
   "operating_points": [
@@ -1524,6 +1580,12 @@
       "configuration_id": "CFG-RL10A-3-3-FR1769",
       "label": "15,000 lb, O/F 5.0, 200,000 ft",
       "notes": "The point of the report's introduction (15,000 lb at 200,000 ft, oxidizer-to-fuel 5.0:1) and of the 5.0 column of Table V-1 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "operating_point_id": "OP-RS68-1999-RATED",
+      "configuration_id": "CFG-RS68-1999-BASELINE",
+      "label": "Rated",
+      "notes": "The 'Rated' column of the 'RS-68 Engine Performance Baseline' slide."
     }
   ],
   "units": [
@@ -12192,6 +12254,234 @@
       "schematic_id": null,
       "derivation": null,
       "note": "The slide does not define the weight (dry, burnout or wet)."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 745.0
+      },
+      "value_as_printed": "Thrust, vac, klbf 745 (Rated) / 440 (Throttled)",
+      "unit_as_printed": "klbf",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "RATED",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RS68-1999-RATED",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "performance.thrust_sl",
+      "value": {
+        "type": "number",
+        "value": 650.0
+      },
+      "value_as_printed": "Thrust, s/l, klbf 650 (Rated) / N/A (Throttled)",
+      "unit_as_printed": "klbf",
+      "conditions": {
+        "environment": "SEA_LEVEL",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "RATED",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RS68-1999-RATED",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "In research conflict CF-DB05-E-US_HIST-04 (PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision, as the 1999 baseline and not the flown rating."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 1410.0
+      },
+      "value_as_printed": "Chamber pressure, psia 1410 (Rated) / 836 (Throttled)",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "UNKNOWN",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "RATED",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RS68-1999-RATED",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The station is not printed. In research conflict CF-DB05-E-US_HIST-04 (PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision, as the 1999 baseline and not the flown rating."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "performance.specific_impulse_vac",
+      "value": {
+        "type": "number",
+        "value": 410.0
+      },
+      "value_as_printed": "Isp, vacuum, sec 410 Avg",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "AVERAGE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RS68-1999-RATED",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Engine or thrust-chamber basis not stated. Read as: Printed '410 Avg'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 21.5
+      },
+      "value_as_printed": "Expansion ratio 21.5",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RS-68-007",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS68-1999-BASELINE"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "text",
+        "text": "Weight, lb < 15,000"
+      },
+      "value_as_printed": "Weight, lb < 15,000",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20000025317",
+      "locator": "PDF p.11 'RS-68 Engine Performance Baseline' table (rendered scan)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "An upper bound as printed ('< 15,000'), with no definition of the weight. It is not an engine mass."
     }
   ],
   "conflicts": []

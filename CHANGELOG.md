@@ -9,6 +9,11 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference engines, DB-2B Wave 5: the assertion backlog is closed. All 62 undecided assertions on 10 engines are now
+  decided: 6 ship and 56 are recorded with the reason they do not. The 6 are one new configuration, the RS-68's
+  1999 performance baseline from before first flight, taking the catalog from 21 to 22 and the assertions from 189
+  to 195. It is not a regression reference and ships no mixture ratio, because the slide prints no direction. The
+  owner reviewed the slides' rights reading and kept the NK-33 slides withheld.
 - Reference engines, DB-2B Wave 4: four configurations from US design and test documents (RL10A-3-3, LR91AJ-11,
   H-1 at the 200K rating, F-1A), taking the catalog from 17 to 21 and the assertions from 156 to 187. None is a
   regression reference. RL10A-3-3 ships two design-estimate chamber pressures, each at its printed station, and
