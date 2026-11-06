@@ -197,3 +197,10 @@ The candidates stay `CFG-J2-230K` and `CFG-J2S`, and the totals at the top of th
 would not change them: the review gate cannot return a hard or validation result (§6), so what decides this is §7.
 
 Tests: `tests/evidence/test_reference_engine_claims_differ.py`.
+
+## 11. The §7 decisions (2026-11-07)
+
+The owner accepted a non-locking comparison, the engine-level Isp ratio: see
+`DB4B_ENGINE_ISP_RATIO_COMPARISON.md`. It draws no verdict, so the hard and validation totals above stay 0. An engine
+mixture ratio still does not stand for a thrust chamber's for any cycle, J-2S included: the ratio declares that it uses
+the engine's. This review's results are unchanged. Only the wording of one blocker now names the new class.

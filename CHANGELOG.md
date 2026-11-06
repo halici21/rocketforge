@@ -9,6 +9,9 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference engines, DB-4B: an engine-level Isp ratio that puts a printed engine Isp beside RocketForge's ideal Isp under
+  both gamma bases. It is a report-only reading with no verdict or tolerance, and it is not a thrust-chamber efficiency.
+  J-2 and J-2S are the only eligible engines. No regression reference is added.
 - Reference engines, DB-2B Wave 5: the assertion backlog is closed. All 62 undecided assertions on 10 engines are now
   decided: 6 ship and 56 are recorded with the reason they do not. The 6 are one new configuration, the RS-68's
   1999 performance baseline from before first flight, taking the catalog from 21 to 22 and the assertions from 189

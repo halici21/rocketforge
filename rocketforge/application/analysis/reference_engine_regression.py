@@ -105,10 +105,10 @@ _KNOWN_ENVIRONMENTS = frozenset({Environment.VACUUM, Environment.SEA_LEVEL})
 
 _DELIVERED = ("the source prints an engine rating or measurement, a delivered quantity; the model's is ideal "
               "thrust-chamber performance with no efficiency, so the two do not mean the same thing")
-_NO_EFFICIENCY_CLASS = ("RocketForge's comparison layer has no accepted delivered/ideal efficiency class "
-                        "(rocketforge/comparison/cases.py: verdicts only against CEA_DIRECT or NASA_PUBLISHED "
-                        "thermochemistry; EXPERIMENT is reserved and draws no verdict); adding one is an owner "
-                        "decision")
+_NO_EFFICIENCY_CLASS = ("the only delivered/ideal comparison is the non-locking engine-level Isp ratio (DB-4B, "
+                        "rocketforge/comparison/engine_isp_ratio.py), which draws no verdict; verdicts are only "
+                        "against CEA_DIRECT or NASA_PUBLISHED thermochemistry (rocketforge/comparison/cases.py), and "
+                        "adding a locking class is an owner decision")
 
 
 @dataclass(frozen=True, slots=True)
