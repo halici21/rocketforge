@@ -10,7 +10,7 @@ R = "SRC-DB05-NTRS-19670005471"
 D(R, identifier="PWA FR-1769, 28 Feb 1966; NASA-CR-80920; contract NAS8-15494; NTRS 19670005471",
   title="Design Report for RL10A-3-3 Rocket Engine", tier="A",
   rights_checked="NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; "
-                 "no reproduction notice found in the extracted text",
+                 "no copyright notice on pages read (cover viewed; extracted text of every page checked 2026-11-06)",
   rights_class="VALUES_WITH_ATTRIBUTION",
   note="94 pages. Introduction (PDF p.10), Table IV-1 (PDF p.41) and Table V-1 (PDF pp.42-44) viewed as images; "
        "Section I read from text. Values are the contractor's design estimates, not test or flight data.")
@@ -63,7 +63,7 @@ A(R33, "performance.cstar", None, "c* (actual), ft/sec 7626", 7626, "ft/sec", di
   "PWA FR-1769 p.V-2 (PDF p.43) Table V-1 (continued)", db0=None)
 A(R33, "chamber.throat_diameter", None, "Chamber throat diameter, in. 5.14", 5.14, "in", {}, R, L5c, db0=None)
 A(R33, "chamber.lstar", None, "Characteristic length (L*), in. 38.7", 38.7, "in", {}, R, L5c, db0=None)
-A(R33, "nozzle.area_ratio", None, "Effective expansion ratio, A/A* 57.1", 57.1, "", {"definition": "effective"}, R, L5c, db0=None)
+A(R33, "nozzle.area_ratio", None, "Effective expansion ratio, A/A* 57.1", 57.1, "A/A*", {"definition": "effective"}, R, L5c, db0=None)
 
 C("CF-DB05-RL10A33-PC", engine_id=R33, field_path="performance.pc",
   claims=[["a nominal design chamber pressure of 400 psia", R, "p.ix"],

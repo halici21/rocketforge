@@ -1,8 +1,8 @@
 """Build the reference-engine corpus from DB-0.5 research, entry by entry, through the promotion gates.
 
 The corpus is one file built from the DB-2A seed manifest (``db2a_manifest.py``)
-and the DB-2B Wave 1 manifest (``db2b_wave1_manifest.py``), merged; every gate
-applies to both.
+and the DB-2B wave manifests (``db2b_wave*_manifest.py``), merged; every gate
+applies to all of them.
 
 Usage (from the repository root)::
 
@@ -162,7 +162,8 @@ _DICTS = ("SEED_SUBJECTS", "SOURCES", "WITHHELD_SOURCES", "WITHHELD_CONTENT_TERM
           "RESEARCH_CONFLICTS", "CARRIER_GENERALISATIONS", "SCHEMATICS", "OWNER_DECISIONS", "OWNER_REVIEWS")
 _TUPLES = ("SEED_ENGINES", "ACCOUNTED_ENGINES", "DISPOSITIONS", "FAMILIES", "VARIANTS", "CONFIGURATIONS",
            "OPERATING_POINTS", "UNITS", "ALIASES", "ASSERTIONS", "TOPOLOGIES")
-MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest", "db2b_wave2_manifest", "db2b_wave3_manifest")
+MANIFESTS = ("db2a_manifest", "db2b_wave1_manifest", "db2b_wave2_manifest", "db2b_wave3_manifest",
+             "db2b_wave4_manifest")
 
 
 def merge_manifests(*modules) -> types.SimpleNamespace:

@@ -4,6 +4,91 @@
   "sources": [
     {
       "reference": {
+        "source_id": "SRC-DB05-NTRS-19670005471",
+        "organization": "Pratt & Whitney Aircraft",
+        "authors": [],
+        "title": "Design Report for RL10A-3-3 Rocket Engine",
+        "year": 1966,
+        "identifiers": {
+          "NTRS": "19670005471",
+          "report": "PWA FR-1769",
+          "contract": "NAS8-15494"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19670005471/downloads/19670005471.pdf",
+        "source_type": "contractor report",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "3bf7ed58e021ac9ca6406399b3c9ee39a55dd27e32e0f9dcf7632c230d542768",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-28T17:24:42Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright notice on pages read (extracted text of every page checked 2026-11-06)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no notice on the cover or in the extracted text. The maker's design report under a NASA contract: its values are design estimates, not test or flight data."
+      },
+      "access_note": "downloaded 2026-10-28T17:24:42Z from https://ntrs.nasa.gov/api/citations/19670005471/downloads/19670005471.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-DB05-NTRS-19680003903",
+        "organization": "Chrysler Corporation Space Division",
+        "authors": [],
+        "title": "Final Flight Performance Prediction for Saturn AS-204 LM Propulsion System, S-IB-4 Stage",
+        "year": 1967,
+        "identifiers": {
+          "NTRS": "19680003903",
+          "report": "TR-P&VE-67-58"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/19680003903/downloads/19680003903.pdf",
+        "source_type": "contractor report",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "PRIMARY",
+      "access": "OPENED",
+      "content_sha256": "9d3e595b43ef2c4ad07009ce7b9495315e48eb29b52eaa5f7cf021809aefa99d",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-28T17:30:07Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright notice on pages read (extracted text of every page checked 2026-11-06)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no restrictive notice on the pages read. The stage contractor's report, whose Table 5 summarises Rocketdyne's engine logs."
+      },
+      "access_note": "downloaded 2026-10-28T17:30:07Z from https://ntrs.nasa.gov/api/citations/19680003903/downloads/19680003903.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
         "source_id": "SRC-DB05-NTRS-19750004937",
         "organization": "General Dynamics Convair Aerospace",
         "authors": [],
@@ -356,6 +441,49 @@
         "review_note": "NTRS permits public use; no notice on the pages. The viewgraphs are Rocketdyne's, so figures are not shipped; values and graph structure are, with attribution, as for the DB-2A J-2 record. Owner-reviewed 2026-10-09 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-08T18:19:12Z from https://ntrs.nasa.gov/api/citations/20100027316/downloads/20100027316.pdf; read in DB-0.5"
+    },
+    {
+      "reference": {
+        "source_id": "SRC-DB05-NTRS-20140011656",
+        "organization": "NASA Marshall Space Flight Center",
+        "authors": [
+          "Betts"
+        ],
+        "title": "F-1 engine presentation (NASA MSFC ER21)",
+        "year": 2013,
+        "identifiers": {
+          "NTRS": "20140011656"
+        },
+        "locator": "https://ntrs.nasa.gov/api/citations/20140011656/downloads/20140011656.pdf",
+        "source_type": "presentation",
+        "access_class": "PUBLIC_OPEN",
+        "rights_statement": "See the engine source rights record.",
+        "shipping": "VALUES_WITH_ATTRIBUTION",
+        "tier": 1
+      },
+      "authority": "A",
+      "primacy": "SECONDARY",
+      "access": "OPENED",
+      "content_sha256": "ee8d75e6e2546d72cb65817c4e2eb2c2f8f0ece99626e8b056b41e0b9e23470c",
+      "same_document_as": null,
+      "rights": {
+        "host_metadata": {
+          "statement": "NTRS copyright determination: GOV_PUBLIC_USE_PERMITTED",
+          "where": "NTRS citation API record (copyright.determinationType), retrieved 2026-10-28T19:34:02Z"
+        },
+        "printed_notice": {
+          "missing": "NOT_REPORTED",
+          "note": "no copyright notice on pages read (extracted text of every page checked 2026-11-06)"
+        },
+        "values": "VALUES_WITH_ATTRIBUTION",
+        "figures": "VALUES_WITH_ATTRIBUTION",
+        "tables": "RIGHTS_REVIEW_REQUIRED",
+        "text": "RIGHTS_REVIEW_REQUIRED",
+        "notices_disagree": false,
+        "review": "CONSISTENT",
+        "review_note": "NTRS government public use; no copyright notice on the slides read. A NASA comparison slide that names no underlying document, so it is secondary for the F-1A."
+      },
+      "access_note": "downloaded 2026-10-28T19:34:02Z from https://ntrs.nasa.gov/api/citations/20140011656/downloads/20140011656.pdf; read in DB-0.5"
     },
     {
       "reference": {
@@ -1034,6 +1162,11 @@
       "family_id": "FAM-LE7",
       "name": "LE-7",
       "notes": "NASDA/JAXA first-stage LOX/LH2 engines (LE-7, LE-7A); only the LE-7 is carried, and only its architecture."
+    },
+    {
+      "family_id": "FAM-LR91",
+      "name": "LR91",
+      "notes": "Aerojet Titan second-stage engines; only the LR91AJ-11 is supported by an opened document here."
     }
   ],
   "variants": [
@@ -1126,6 +1259,30 @@
       "family_id": "FAM-LE7",
       "designation": "LE-7",
       "notes": "The H-II first-stage engine. Not the LE-7A: no LE-7A statement is filed here."
+    },
+    {
+      "variant_id": "VAR-RL10A-3-3",
+      "family_id": "FAM-RL10",
+      "designation": "RL10A-3-3",
+      "notes": "Not the RL10A-3-3A, which is filed separately."
+    },
+    {
+      "variant_id": "VAR-LR91-AJ-11",
+      "family_id": "FAM-LR91",
+      "designation": "LR91AJ-11",
+      "notes": ""
+    },
+    {
+      "variant_id": "VAR-H1-200K",
+      "family_id": "FAM-H1",
+      "designation": "H-1, 200K rating",
+      "notes": "Named by its rating; the document prints no separate model name."
+    },
+    {
+      "variant_id": "VAR-F1A",
+      "family_id": "FAM-F1",
+      "designation": "F-1A",
+      "notes": ""
     }
   ],
   "configurations": [
@@ -1277,6 +1434,40 @@
         "note": "described during H-II development (June 1990 review); the flight effectivity of the statement is not established"
       },
       "notes": "Architecture only, from the review's H-II overview slide (NTRS 19910018905 p.16). The same review's LE-7 figures (p.18) sit in the open epoch conflict CF-DB05-LE7-EPOCH and are a panel's summary of NASDA's numbers, so none ships; NASDA's own 1997 table is withheld pending a rights review."
+    },
+    {
+      "configuration_id": "CFG-RL10A-3-3-FR1769",
+      "variant_id": "VAR-RL10A-3-3",
+      "label": "RL10A-3-3, as estimated in Pratt & Whitney's design report (PWA FR-1769, 1966)",
+      "effective": {
+        "missing": "NOT_AUDITED",
+        "note": "a design report printed before the engine's service; no flight effectivity is stated"
+      },
+      "notes": "The maker's estimates at 15,000 lb and mixture ratio 5.0, not test or flight data. The chamber pressures are withheld by CF-DB05-RL10A33-PC: the introduction's 400 psia names no station against the table's 385.2 and 394.6 psia."
+    },
+    {
+      "configuration_id": "CFG-LR91-AJ-11-T3E",
+      "variant_id": "VAR-LR91-AJ-11",
+      "label": "LR91AJ-11, Titan IIIE stage II engine (General Dynamics Convair CASD-LVP73-007)",
+      "effective": "Titan IIIE stage II, as of the September 1973 systems summary",
+      "notes": "Thrust and Isp include the roll nozzle. No other LR91 variant is carried: none was read from a shippable document."
+    },
+    {
+      "configuration_id": "CFG-H1-200K-S-IB-4",
+      "variant_id": "VAR-H1-200K",
+      "label": "H-1, 200K rating, average engine of Saturn IB stage S-IB-4 (AS-204)",
+      "effective": "Saturn IB stage S-IB-4, flown on AS-204",
+      "notes": "An average of eight engines' sea-level logs, not a rating: the 200K rating itself is printed only as an acceptance band in a report this configuration does not use. Not the 188,000 lb H-1 of SA-10."
+    },
+    {
+      "configuration_id": "CFG-F1A-MSFC-2013",
+      "variant_id": "VAR-F1A",
+      "label": "F-1A, as NASA MSFC's 2013 comparison slide prints it",
+      "effective": {
+        "missing": "NOT_AUDITED",
+        "note": "the slide names no build, test or date for the F-1A column"
+      },
+      "notes": "One column of 'Engine Comparison, F-1 vs. F-1A'. The slide does not define the weight, and its 'ns' on chamber pressure has no legend."
     }
   ],
   "operating_points": [
@@ -1327,6 +1518,12 @@
       "configuration_id": "CFG-RS25-SLS",
       "label": "109% (SLS operational thrust)",
       "notes": ""
+    },
+    {
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "configuration_id": "CFG-RL10A-3-3-FR1769",
+      "label": "15,000 lb, O/F 5.0, 200,000 ft",
+      "notes": "The point of the report's introduction (15,000 lb at 200,000 ft, oxidizer-to-fuel 5.0:1) and of the 5.0 column of Table V-1 'Estimated RL10A-3-3 Engine Design Data'."
     }
   ],
   "units": [
@@ -10741,6 +10938,1108 @@
       "schematic_id": null,
       "derivation": null,
       "note": "Printed 'Staged Combustion' (secondary). No rich side is printed and none is inferred."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 15000.0
+      },
+      "value_as_printed": "a rated thrust of 15,000 lb at an altitude of 200,000 ft",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": "UNKNOWN",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "RATED",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'at an altitude of 200,000 ft'; the report does not call it vacuum."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.specific_impulse",
+      "value": {
+        "type": "number",
+        "value": 444.0
+      },
+      "value_as_printed": "a nominal specific impulse of 444 sec",
+      "unit_as_printed": "sec",
+      "conditions": {
+        "environment": "UNKNOWN",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "propellants.mixture_ratio",
+      "value": {
+        "type": "number",
+        "value": 5.0
+      },
+      "value_as_printed": "a nominal oxidizer-to-fuel mixture ratio of 5.0:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": "OXIDIZER_TO_FUEL",
+        "mixture_ratio_basis": "UNKNOWN",
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 57.0
+      },
+      "value_as_printed": "a nominal nozzle area ratio of 57:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "life.starts_and_duration",
+      "value": {
+        "type": "text",
+        "text": "capable of making at least three starts during a single mission with a nominal running time of 450 sec during a single firing"
+      },
+      "value_as_printed": "capable of making at least three starts during a single mission with a nominal running time of 450 sec during a single firing",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "OTHER",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-007",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "life.spec",
+      "value": {
+        "type": "number",
+        "value": 4000.0
+      },
+      "value_as_printed": "The service life of the engine shall be an accumulated running time of 4000 sec",
+      "unit_as_printed": "sec",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Printed 'shall be': the report's specified service life, not a demonstrated one."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-008",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "architecture.feed",
+      "value": {
+        "type": "enum",
+        "token": "PUMP_FED"
+      },
+      "value_as_printed": "a regeneratively cooled, turbopump-fed engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-009",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "cooling.thrust_chamber",
+      "value": {
+        "type": "enum",
+        "token": "REGENERATIVE"
+      },
+      "value_as_printed": "a regeneratively cooled, turbopump-fed engine",
+      "unit_as_printed": "",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.ix (PDF p.10) 'Introduction' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-011",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "mechanical.mass_dry_basic",
+      "value": {
+        "type": "number",
+        "value": 289.79
+      },
+      "value_as_printed": "Total basic engine weight (based on 3σ maximum) 289.79",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "MAXIMUM",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.IV-1 (PDF p.41) Table IV-1 'RL10A-3-3 Assembly Weight Breakdown' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "A 3-sigma maximum estimate; the specification is 290.00 lb."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-012",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "number",
+        "value": 301.19
+      },
+      "value_as_printed": "Total engine weight 301.19",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.IV-1 (PDF p.41) Table IV-1 'RL10A-3-3 Assembly Weight Breakdown' (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Basic engine plus nonchargeable instrumentation, brackets and nonflight items."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-015",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.mass_flow_fuel",
+      "value": {
+        "type": "number",
+        "value": 5.63
+      },
+      "value_as_printed": "Fuel flow, lb/sec 5.63",
+      "unit_as_printed": "lb/sec",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-1 (PDF p.42) Table V-1 'Estimated RL10A-3-3 Engine Design Data', column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-016",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.mass_flow_oxidizer",
+      "value": {
+        "type": "number",
+        "value": 28.16
+      },
+      "value_as_printed": "Oxidizer flow, lb/sec 28.16",
+      "unit_as_printed": "lb/sec",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-1 (PDF p.42) Table V-1 'Estimated RL10A-3-3 Engine Design Data', column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-017",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "pumps.fuel.speed_rpm",
+      "value": {
+        "type": "number",
+        "value": 30250.0
+      },
+      "value_as_printed": "Fuel Pump ... Speed, rpm 30,250",
+      "unit_as_printed": "rpm",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-2 (PDF p.43) Table V-1 (continued)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-018",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "pumps.lox.speed_rpm",
+      "value": {
+        "type": "number",
+        "value": 12100.0
+      },
+      "value_as_printed": "Oxidizer Pump ... Speed, rpm 12,100",
+      "unit_as_printed": "rpm",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-1 (PDF p.42) Table V-1 'Estimated RL10A-3-3 Engine Design Data', column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-019",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.cstar",
+      "value": {
+        "type": "number",
+        "value": 7626.0
+      },
+      "value_as_printed": "c* (actual), ft/sec 7626",
+      "unit_as_printed": "ft/sec",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-2 (PDF p.43) Table V-1 (continued)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as c* (actual), 98.6 percent of shifting. Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-020",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "chamber.throat_diameter",
+      "value": {
+        "type": "number",
+        "value": 5.14
+      },
+      "value_as_printed": "Chamber throat diameter, in. 5.14",
+      "unit_as_printed": "in",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-3 (PDF p.44) Table V-1 (continued), Thrust Chamber Assembly, column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-021",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "chamber.lstar",
+      "value": {
+        "type": "number",
+        "value": 38.7
+      },
+      "value_as_printed": "Characteristic length (L*), in. 38.7",
+      "unit_as_printed": "in",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-3 (PDF p.44) Table V-1 (continued), Thrust Chamber Assembly, column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-022",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 57.1
+      },
+      "value_as_printed": "Effective expansion ratio, A/A* 57.1",
+      "unit_as_printed": "A/A*",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-3 (PDF p.44) Table V-1 (continued), Thrust Chamber Assembly, column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as the effective expansion ratio; the introduction's nominal figure is 57:1. Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-LR91-AJ-11-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LR91-AJ-11-T3E"
+      },
+      "field_path": "performance.thrust_vac",
+      "value": {
+        "type": "number",
+        "value": 101000.0
+      },
+      "value_as_printed": "Vacuum Thrust, lb (including Roll Nozzle) 101,000",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19750004937",
+      "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as including the roll nozzle."
+    },
+    {
+      "assertion_id": "AS-DB05-US-LR91-AJ-11-004",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LR91-AJ-11-T3E"
+      },
+      "field_path": "performance.specific_impulse_vac",
+      "value": {
+        "type": "number",
+        "value": 318.7
+      },
+      "value_as_printed": "Vacuum Specific Impulse, sec (including Roll Nozzle) 318.7",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "VACUUM",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19750004937",
+      "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed as including the roll nozzle."
+    },
+    {
+      "assertion_id": "AS-DB05-US-LR91-AJ-11-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LR91-AJ-11-T3E"
+      },
+      "field_path": "performance.mass_flow_total",
+      "value": {
+        "type": "number",
+        "value": 317.0
+      },
+      "value_as_printed": "Total Flow Rate, lb/sec 317",
+      "unit_as_printed": "lb/s",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19750004937",
+      "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-LR91-AJ-11-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-LR91-AJ-11-T3E"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 49.2
+      },
+      "value_as_printed": "Expansion Ratio 49.2:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19750004937",
+      "locator": "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-H-1-200K-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-H1-200K-S-IB-4"
+      },
+      "field_path": "performance.thrust_sl",
+      "value": {
+        "type": "number",
+        "value": 200.53
+      },
+      "value_as_printed": "200.53",
+      "unit_as_printed": "Kips",
+      "conditions": {
+        "environment": "SEA_LEVEL",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "AVERAGE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19680003903",
+      "locator": "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "An average of eight engines' logs, not the 200K rating."
+    },
+    {
+      "assertion_id": "AS-DB05-US-H-1-200K-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-H1-200K-S-IB-4"
+      },
+      "field_path": "performance.specific_impulse_sl",
+      "value": {
+        "type": "number",
+        "value": 262.6
+      },
+      "value_as_printed": "262.60",
+      "unit_as_printed": "sec",
+      "conditions": {
+        "environment": "SEA_LEVEL",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "AVERAGE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19680003903",
+      "locator": "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-F-1A-001",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1A-MSFC-2013"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 1161.0
+      },
+      "value_as_printed": "Chamber Pressure, ns (psia) ... F-1A 1,161",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "UNKNOWN",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20140011656",
+      "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The slide's 'ns' has no legend, so the station stays unknown."
+    },
+    {
+      "assertion_id": "AS-DB05-US-F-1A-002",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1A-MSFC-2013"
+      },
+      "field_path": "performance.thrust_sl",
+      "value": {
+        "type": "number",
+        "value": 1800000.0
+      },
+      "value_as_printed": "Thrust, Sea Level (lbf) ... F-1A 1,800,000",
+      "unit_as_printed": "lbf",
+      "conditions": {
+        "environment": "SEA_LEVEL",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20140011656",
+      "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-F-1A-003",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1A-MSFC-2013"
+      },
+      "field_path": "performance.specific_impulse_sl",
+      "value": {
+        "type": "number",
+        "value": 269.7
+      },
+      "value_as_printed": "Specific Impulse, Sea Level (s) ... F-1A 269.7",
+      "unit_as_printed": "s",
+      "conditions": {
+        "environment": "SEA_LEVEL",
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": "UNKNOWN",
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20140011656",
+      "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-F-1A-005",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1A-MSFC-2013"
+      },
+      "field_path": "nozzle.area_ratio",
+      "value": {
+        "type": "number",
+        "value": 16.0
+      },
+      "value_as_printed": "Expansion Ratio ... F-1A 16:1",
+      "unit_as_printed": ":1",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20140011656",
+      "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": ""
+    },
+    {
+      "assertion_id": "AS-DB05-US-F-1A-006",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1A-MSFC-2013"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "number",
+        "value": 19000.0
+      },
+      "value_as_printed": "Weight (lb) ... F-1A 19,000",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20140011656",
+      "locator": "slide 13 'Engine Comparison, F-1 vs. F-1A' (PDF p.13, viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The slide does not define the weight (dry, burnout or wet)."
     }
   ],
   "conflicts": []

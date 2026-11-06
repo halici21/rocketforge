@@ -8,6 +8,12 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 
 ## [Unreleased]
 
+### Added
+- Reference engines, DB-2B Wave 4: four configurations from US design and test documents (RL10A-3-3, LR91AJ-11,
+  H-1 at the 200K rating, F-1A), taking the catalog from 17 to 21 and the assertions from 156 to 185. None is a
+  regression reference. RL10A-3-3 ships no chamber pressure because its three values wait on an owner decision, and
+  no mixture ratio ships without a printed direction.
+
 ### Changed
 - Simplification R3 closed (R3-A to R3-F). R3-E measured start-up and test-suite performance and
   changed no code. Providers stay lazily loaded by owner decision: NASA CEA and CoolProp are loaded

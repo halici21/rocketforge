@@ -142,7 +142,8 @@ def test_wave3_adds_only_its_records_and_changes_nothing_shipped(research):
     upto = names.index("db2b_wave3_manifest")
     earlier = promote_db2a.merge_manifests(*(importlib.import_module(n) for n in names[:upto]))
     before = corpus_to_dict(promote_db2a.build_corpus(research, earlier))
-    after = corpus_to_dict(promote_db2a.build_corpus(research, manifest()))
+    through = promote_db2a.merge_manifests(*(importlib.import_module(n) for n in names[:upto + 1]))
+    after = corpus_to_dict(promote_db2a.build_corpus(research, through))
     for kind, items in before.items():
         if isinstance(items, list):
             new = {json.dumps(x, sort_keys=True) for x in after[kind]}

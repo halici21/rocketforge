@@ -135,7 +135,7 @@ A(LR91_11, "propellants.mixture_ratio", None, "Mixture Ratio 1.78:1", 1.78, "(-)
        "storables, ground tested with LOX/LH2', so the row may mix variants.")
 GD = "SRC-DB05-NTRS-19750004937"
 LG = "NTRS 19750004937 PDF p.215 (report p.6-27) Stage II engine performance summary (text layer)"
-_G = {"configuration": "Titan IIIE Stage II (LR91AJ-11)", "environment": "vacuum (including roll nozzle)"}
+_G = {"configuration": "Titan IIIE Stage II (LR91AJ-11)", "environment": "vacuum", "nozzle": "including roll nozzle"}
 A(LR91_11, "propellants.mixture_ratio", None, "Mixture Ratio 1.79", 1.79, "(-)", _G, GD, LG, db0=None,
   note="Same table: oxidizer 203 lb/sec and fuel 114 lb/sec, a ratio of 1.78 DERIVED.")
 A(LR91_11, "performance.thrust_vac", None, "Vacuum Thrust, lb (including Roll Nozzle) 101,000", 101000, "lb", _G, GD, LG, db0=None)

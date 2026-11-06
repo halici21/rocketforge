@@ -1818,7 +1818,7 @@
    "identifier_verified": "PWA FR-1769, 28 Feb 1966; NASA-CR-80920; contract NAS8-15494; NTRS 19670005471",
    "title_as_printed": "Design Report for RL10A-3-3 Rocket Engine",
    "tier": "A",
-   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; no reproduction notice found in the extracted text",
+   "rights_statement_checked": "NTRS GOV_PUBLIC_USE_PERMITTED; export control NO; contractor report under NASA contract; no copyright notice on pages read (cover viewed; extracted text of every page checked 2026-11-06)",
    "rights_values": "VALUES_WITH_ATTRIBUTION",
    "rights_figures": "VALUES_WITH_ATTRIBUTION",
    "note": "94 pages. Introduction (PDF p.10), Table IV-1 (PDF p.41) and Table V-1 (PDF pp.42-44) viewed as images; Section I read from text. Values are the contractor's design estimates, not test or flight data.",
@@ -2548,7 +2548,7 @@
    "rights_values": "PUBLIC_DOMAIN_GOV",
    "rights_figures": "PUBLIC_DOMAIN_GOV",
    "note": "28 slides; slides 1, 8 and 13 viewed as images. A 2013 summary by MSFC engineers restoring F-1 hardware; its F-1 column repeats the 2006 Rocketdyne slide's thrust, Isp and 18,616 lb, but prints the chamber pressure differently.",
-   "assertions": 4
+   "assertions": 9
   },
   {
    "source_id": "SRC-DB05-NTRS-20170008949",

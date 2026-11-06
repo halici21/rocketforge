@@ -1223,3 +1223,14 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   2,200 lb in Table I that name no engine, so it does not support the 9.8 kN.
 - Where the 34 unresolved stand: 15 wait on owner definition decisions or are deliberately open; the rest need sources not
   reached so far.
+
+## Pass 2026-11-06: corrections made while preparing DB-2B Wave 4
+
+- FR-1769 rights statement reworded after the cover was viewed and the extracted text of every page checked: no copyright
+  notice on pages read. Its effective expansion ratio now carries the unit A/A*.
+- F-1A: the other five cells of the MSFC comparison column (slide 13, viewed) are now recorded: sea-level thrust,
+  sea-level Isp, engine mixture ratio, area ratio and weight. The mixture ratio prints no direction and the weight no
+  definition.
+- H-1 200K average thrust corrected to the printed 200.53 Kips (it was recorded as 200530 under that unit). Its
+  environment is now the exact word sea_level. LR91AJ-11 thrust and Isp now read vacuum, with the roll nozzle in its own key.
+- No conflict moved. The unresolved count stays 34.

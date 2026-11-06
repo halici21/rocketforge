@@ -28,9 +28,9 @@ A(H200, "performance.thrust_sl", None, "All engines produced thrust values withi
 
 # ------------------------------------------------------------------ AS-204 prediction, Table 5 (p.13, PDF p.19)
 L5 = "TR-P&VE-67-58 p.13 (PDF p.19) Table 5 'Summary of Sea Level Test Data for the AS-204 Stage Engines', Average Engine row (viewed as image)"
-_C = {"environment": "sea level", "stage": "S-IB-4 (eight engines, H-4058..H-4062, H-7062..H-7065)",
+_C = {"environment": "sea_level", "stage": "S-IB-4 (eight engines, H-4058..H-4062, H-7062..H-7065)",
       "basis": "Rocketdyne engine logs (Past-76 program), average engine"}
-A(H200, "performance.thrust_sl", None, "200.53", 200530, "Kips", _C, PR, L5, db0=None,
+A(H200, "performance.thrust_sl", None, "200.53", 200.53, "Kips", _C, PR, L5, db0=None,
   note="Same row: static test analysis 201.57 (SA-32) and 201.36 (SA-33) kips; flight prediction 201.98 kips.")
 A(H200, "performance.isp_sl", None, "262.60", 262.60, "sec", _C, PR, L5, db0=None)
 A(H200, "propellants.mixture_ratio", None, "2.2168", 2.2168, "(-)", dict(_C, mr_basis="UNSTATED"), PR, L5, db0=None)

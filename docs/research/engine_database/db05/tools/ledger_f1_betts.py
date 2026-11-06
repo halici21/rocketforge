@@ -23,6 +23,11 @@ A(F1, "mechanical.mass", None, "Weight (lb) 18,616", 18616, "lb", {"definition":
 A(F1, "performance.mass_flow_total", None, "Engine Propellant Flow Rate: 5,737 lb/s", 5737, "lb/s", {}, WG, L8, db0=None)
 A(F1A, "performance.pc", None, "Chamber Pressure, ns (psia) ... F-1A 1,161", 1161, "psia", {"pc_station": "printed 'ns'"}, WG, L13, db0=None,
   note="Same column: 1,800,000 lbf sea level, 269.7 s sea level, MR 2.27, 16:1, 19,000 lb.")
+A(F1A, "performance.thrust_sl", None, "Thrust, Sea Level (lbf) ... F-1A 1,800,000", 1800000, "lbf", {"environment": "sea_level"}, WG, L13, db0=None)
+A(F1A, "performance.isp_sl", None, "Specific Impulse, Sea Level (s) ... F-1A 269.7", 269.7, "s", {"environment": "sea_level"}, WG, L13, db0=None)
+A(F1A, "propellants.mixture_ratio", None, "Engine Mixture Ratio ... F-1A 2.27", 2.27, "(-)", {"mr_basis": "engine"}, WG, L13, db0=None)
+A(F1A, "nozzle.area_ratio", None, "Expansion Ratio ... F-1A 16:1", 16, ":1", {}, WG, L13, db0=None)
+A(F1A, "mechanical.mass", None, "Weight (lb) ... F-1A 19,000", 19000, "lb", {"definition": "UNSTATED"}, WG, L13, db0=None)
 
 A(F1, "mechanical.mass", None, "weighed approximately 18,500 lb dry", 18500, "lb", {"definition": "dry"}, RPE,
   "AEHS RPE08.12 engine description (page text)", db0=None,
