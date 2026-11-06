@@ -7368,6 +7368,44 @@
       "note": "Qualification-life information from the 'F-1 Engine Characteristics' table, admitted for this configuration only by owner decision (2026-10-10). Not a nominal operating life, a demonstrated flight life, an operating-point performance datum, a family or variant value, or a regression quantity. The cell's printed mission duration is not admitted; the printed text is kept verbatim as provenance."
     },
     {
+      "assertion_id": "AS-DB05-US-F-1-007",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-F1"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "number",
+        "value": 18616.0
+      },
+      "value_as_printed": "18,616",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-20100027316",
+      "locator": "NTRS 20100027316 PDF p.16, slide 'F-1 Engine Characteristics' (CP6_0450_Apollo 11 F1-6.ppt)",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The slide does not define the weight (dry, burnout or wet). In research conflict CF-DB05-F1-MASS (PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision."
+    },
+    {
       "assertion_id": "AS-DB05-US-F-1-008",
       "subject": {
         "kind": "CONFIGURATION",

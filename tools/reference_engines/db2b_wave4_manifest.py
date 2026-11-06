@@ -8,9 +8,10 @@ Targets: RL10A-3-3, LR91AJ-11, H-1 at the 200K rating, and F-1A. Each is one sou
 not a flight record: the RL10A-3-3 values are Pratt & Whitney's 1966 design estimates, the H-1 values are the
 average engine of one stage's logs, and the F-1A values are NASA MSFC's 2013 comparison slide.
 
-No gate was added or loosened. The owner's review of 2026-11-06 is recorded as text in ``OWNER_REVIEWS`` and covers
-the rights readings only. It releases no value: ``OWNER_DECISIONS`` stays empty, so the RL10A-3-3 chamber pressures
-stay withheld by the open conflict CF-DB05-RL10A33-PC.
+No gate was added or loosened. The owner's decisions of 2026-11-06 are recorded as text in ``OWNER_REVIEWS``. None of
+them releases a value: ``OWNER_DECISIONS`` stays empty here. The RL10A-3-3 chamber pressures stay withheld by the open
+conflict CF-DB05-RL10A33-PC: the owner chose to ship two of them at their printed stations, and the frozen station gate
+recognises only nozzle stagnation.
 """
 
 from __future__ import annotations
@@ -191,8 +192,8 @@ CONFIGURATION_MAP = {("ENG-US-LR91-AJ-11", "Titan IIIE Stage II (LR91AJ-11)"): _
 # ------------------------------------------------------------------ not promoted
 
 _NO_DIRECTION = "without a direction (O/F or F/O); deriving it is not print"
-_PC = ("WITHHELD_CONFLICT", "chamber pressure in PARTIALLY_RESOLVED CF-DB05-RL10A33-PC; every value on the field waits "
-                            "for the owner")
+_PC = ("WITHHELD_CONFLICT", "chamber pressure in PARTIALLY_RESOLVED CF-DB05-RL10A33-PC; see OWNER_REVIEWS "
+                            "2026-11-06-RL10A33-PC")
 
 NOT_PROMOTED = {
     "AS-DB05-US-RL10A-3-3-004": _PC, "AS-DB05-US-RL10A-3-3-013": _PC, "AS-DB05-US-RL10A-3-3-014": _PC,
@@ -213,6 +214,31 @@ NOT_PROMOTED = {
 OWNER_DECISIONS = {}
 
 OWNER_REVIEWS = {
+    "2026-11-06-RL10A33-PC": dict(
+        decision="owner (Cemil Eray), 2026-11-06: RL10A-3-3 chamber pressure: 385.2 psia (throat total) and 394.6 psia "
+                 "(injector face static) are to ship at their own stations for this configuration; 400 psia stays "
+                 "withheld. Not shipped yet: the frozen station gate recognises only nozzle stagnation.",
+        sources=()),
+    "2026-11-06-RS68A-THRUST": dict(
+        decision="owner (Cemil Eray), 2026-11-06: RS-68A thrust: the NASA blog's 702,000 lb stays withheld. The ULA "
+                 "guide's 705,250 lbf sea-level value goes to Wave 5, subject to that guide's rights reading.",
+        sources=()),
+    "2026-11-06-F1-MR": dict(
+        decision="owner (Cemil Eray), 2026-11-06: F-1 mixture ratio: a direction printed in one document is not carried "
+                 "to a value in another. 2.27 stays withheld for CFG-F1.",
+        sources=()),
+    "2026-11-06-F1-SL-THRUST": dict(
+        decision="owner (Cemil Eray), 2026-11-06: F-1 sea-level thrust stays withheld: the documents do not establish "
+                 "which flights carried which rating.",
+        sources=()),
+    "2026-11-06-RS25-PUMPPOWER": dict(
+        decision="owner (Cemil Eray), 2026-11-06: RS-25 pump power stays withheld until a document prints its power "
+                 "level.",
+        sources=()),
+    "2026-11-06-LMDE-LM10": dict(
+        decision="owner (Cemil Eray), 2026-11-06: LMDE LM-10 area ratio: confirm the decision of 2026-10-28. 54.0:1 stays "
+                 "a note and no conflict is filed.",
+        sources=()),
     "WAVE4-NTRS-RIGHTS": dict(
         decision="owner (Cemil Eray), 2026-11-06: Rights readings of the three new NTRS sources: ACCEPT as "
                  "Owner-reviewed 2026-11-06. This is a RocketForge shipping-policy review, not a legal determination. "

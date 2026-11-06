@@ -185,12 +185,16 @@ def test_f1_ships_the_owner_admitted_table_values_and_no_rating(corpus):
                for x in a.values() if x.field_path.startswith("performance."))
     pc = next(x for x in a.values() if x.field_path == "performance.chamber_pressure")
     assert pc.conditions.pressure_station.value == "UNKNOWN"
-    # no sea-level thrust, no canonical rating, no F-1A, no mass (Wave 4 files the F-1A under its own configuration)
-    assert numbers(a.values()).isdisjoint({1522000, 1530000, 1500000, 1800000, 18616})
-    assert numbers(corpus.assertions).isdisjoint({1522000, 1530000, 1500000, 18616})
+    # no sea-level thrust, no canonical rating, no F-1A (Wave 4 files the F-1A under its own configuration)
+    assert numbers(a.values()).isdisjoint({1522000, 1530000, 1500000, 1800000})
+    assert numbers(corpus.assertions).isdisjoint({1522000, 1530000, 1500000})
+    # the owner's 18,616 lb of 2026-11-06 ships for this configuration only, with no printed definition
+    mass = a["AS-DB05-US-F-1-007"]
+    assert mass.field_path == "mechanical.mass" and mass.value.value == 18616
+    assert "does not define" in mass.note
     assert not any(x.field_path == "performance.thrust_sl" for x in a.values())
-    # the rest of the table waits for the owner (mass, mixture ratio)
-    assert not any(x.field_path.startswith(("mechanical.mass", "propellants.mixture_ratio")) for x in a.values())
+    # the mixture ratio stays withheld by the decision of 2026-11-06
+    assert not any(x.field_path.startswith("propellants.mixture_ratio") for x in a.values())
     # admitted for CFG-F1 only, never inherited by the variant or family
     for subject in ("VAR-F1", "FAM-F1"):
         assert not [x for x in corpus.assertions if x.subject.id == subject and x.field_path.startswith("performance.")]

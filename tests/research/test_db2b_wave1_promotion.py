@@ -71,7 +71,7 @@ def test_every_wave1_assertion_is_decided_once_with_a_disposition(research):
 def test_accounting_totals(research):
     """The audit the design note reports, recomputed from the manifest."""
     totals = collections.Counter(v[0] for v in wave1.NOT_PROMOTED.values())
-    assert len(wave1.ASSERTIONS) == 75
+    assert len(wave1.ASSERTIONS) == 76  # 75, plus the owner's F-1 mass of 2026-11-06
     # the F-1 rating-epoch research pass (2026-10-28) added six F-1 assertions, none promoted:
     # one WITHHELD_RIGHTS, three WITHHELD_CONFLICT, one DUPLICATE, one OWNER_DECISION_REQUIRED;
     # the SSME unread-download pass (2026-10-28) added seven, none promoted: five WITHHELD_RIGHTS
@@ -81,17 +81,19 @@ def test_accounting_totals(research):
     # backlog pass added four F-1 values from the AEHS 'One Second' page, all WITHHELD_RIGHTS
     assert dict(totals) == {"WITHHELD_RIGHTS": 57, "WITHHELD_CONFLICT": 22, "MISSING_REQUIRED_SEMANTICS": 10,
                             "NOT_NEEDED": 15, "SOURCE_SCOPE_TOO_BROAD": 10, "WRONG_CONFIGURATION": 12,
-                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 2, "OWNER_DECISION_REQUIRED": 1}
+                            "WRONG_OPERATING_POINT": 1, "DUPLICATE": 2}
     assert len(wave1.ASSERTIONS) + sum(totals.values()) == sum(
         1 for r in research.assertions.values() if r["engine_id"] in wave1.SEED_ENGINES)
 
 
 def test_wave1_records_exactly_the_owners_f1_decisions():
     assert {c for c, d in wave1.RESEARCH_CONFLICTS.items() if "owner_accepted" in d} == {
-        "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
-    assert set(wave1.OWNER_DECISIONS) == {"CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
+        "CF-DB05-F1-RATING", "CF-DB05-F1-PC", "CF-DB05-F1-MASS"}
+    assert set(wave1.OWNER_DECISIONS) == {"CF-DB05-F1-RATING", "CF-DB05-F1-PC", "CF-DB05-F1-MASS"}
+    assert wave1.OWNER_DECISIONS["CF-DB05-F1-MASS"].startswith("owner (Cemil Eray), 2026-11-06")
+    assert wave1.OWNER_DECISIONS["CF-DB05-F1-RATING"][2] == wave1.OWNER_DECISIONS["CF-DB05-F1-MASS"]
     assert wave1.OWNER_DECISIONS["CF-DB05-F1-PC"].startswith("owner (Cemil Eray), 2026-10-09")
-    first, second = wave1.OWNER_DECISIONS["CF-DB05-F1-RATING"]
+    first, second, _mass = wave1.OWNER_DECISIONS["CF-DB05-F1-RATING"]
     assert first.startswith("owner (Cemil Eray), 2026-10-09") and second.startswith("owner (Cemil Eray), 2026-10-10")
     assert "ACCEPT F-1-010 for CFG-F1 only" in second and "Starts: 20; Duration: 2,250 seconds" in second
     assert set(wave1.OWNER_REVIEWS) == {"DB2A-RIGHTS", "WAVE1-RIGHTS", "DB2A-MANIFEST-METADATA",
@@ -101,7 +103,7 @@ def test_wave1_records_exactly_the_owners_f1_decisions():
     assert set(wave1.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"]) == set(wave1.SOURCES)
     merged = promote_db2a.load_manifest().RESEARCH_CONFLICTS
     assert {c for c, d in merged.items() if "owner_accepted" in d} == {
-        "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC"}
+        "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC", "CF-DB05-F1-MASS"}
     # the sea-level rating stays withheld; the DB-0.5 conflicts are not rewritten
     assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {"AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"}
 
@@ -619,8 +621,10 @@ def test_another_engines_owner_decision_cannot_authorise_the_f1(research):
 
 def test_a_released_value_keeps_its_own_conflict(research):
     m = manifest()
-    m = promote(m, db2a_manifest.P("AS-DB05-US-F-1-007", "CFG-F1", "mechanical.mass", ("number", 18616), "NOMINAL"))
-    _rating(m)["owner_released"] += ("AS-DB05-US-F-1-007",)
+    # the table-mate release alone does not ship the mass: its own conflict must decide it too
+    m.RESEARCH_CONFLICTS["CF-DB05-F1-MASS"] = dict(decision="WITHHOLD", argument="held",
+        withhold=("AS-DB05-US-F-1-007", "AS-DB05-US-F-1-040", "AS-DB05-US-F-1-042"))
+    del m.OWNER_DECISIONS["CF-DB05-F1-MASS"]
     refused(research, m, "CF-DB05-F1-MASS: withholds AS-DB05-US-F-1-007, which is promoted")
 
 

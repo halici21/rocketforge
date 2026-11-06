@@ -494,9 +494,9 @@
      "slide 13"
     ]
    ],
-   "resolution": "UNRESOLVED",
+   "resolution": "PARTIALLY_RESOLVED",
    "kind": "definition",
-   "explanation": "18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. Added 2026-10-28: MSFC's 2013 deck repeats 18,616 lb, again undefined; the AEHS page (opened, Tier D) says 'approximately 18,500 lb dry'. No primary document names the definition."
+   "explanation": "18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. Added 2026-10-28: MSFC's 2013 deck repeats 18,616 lb, again undefined; the AEHS page (opened, Tier D) says 'approximately 18,500 lb dry'. No primary document names the definition. Owner decision of 2026-11-06: 18,616 lb ships for CFG-F1 only, with its definition recorded as not printed; the definition itself stays open."
   },
   {
    "conflict_id": "CF-DB05-H1-THRUST",
@@ -1110,7 +1110,7 @@
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
-   "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so."
+   "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so. Owner decision of 2026-11-06: the two table values are to ship at their own stations and 400 psia stays withheld; they wait on the station gate."
   },
   {
    "conflict_id": "CF-DB05-J2-ISP",

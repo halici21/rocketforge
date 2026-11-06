@@ -89,10 +89,13 @@ def test_wave4_adds_only_its_records_and_changes_nothing_shipped(research):
     assert len(after["topologies"]) == len(before["topologies"])
 
 
-def test_the_owner_review_covers_rights_only_and_releases_nothing():
-    assert wave4.OWNER_DECISIONS == {} and set(wave4.OWNER_REVIEWS) == {"WAVE4-NTRS-RIGHTS"}
+def test_the_owner_reviews_are_recorded_and_release_nothing():
+    assert wave4.OWNER_DECISIONS == {} and set(wave4.OWNER_REVIEWS) == {
+        "WAVE4-NTRS-RIGHTS", "2026-11-06-RL10A33-PC", "2026-11-06-RS68A-THRUST", "2026-11-06-F1-MR",
+        "2026-11-06-F1-SL-THRUST", "2026-11-06-RS25-PUMPPOWER", "2026-11-06-LMDE-LM10"}
+    assert all(r["decision"].startswith("owner (Cemil Eray), 2026-11-06: ") for r in wave4.OWNER_REVIEWS.values())
+    assert {k for k, r in wave4.OWNER_REVIEWS.items() if r["sources"]} == {"WAVE4-NTRS-RIGHTS"}
     review = wave4.OWNER_REVIEWS["WAVE4-NTRS-RIGHTS"]
-    assert review["decision"].startswith("owner (Cemil Eray), 2026-11-06: ")
     assert set(review["sources"]) == set(wave4.SOURCES)
     for spec in wave4.SOURCES.values():
         assert spec["review_note"].endswith(
@@ -175,3 +178,18 @@ def test_gate_refuses_a_value_the_source_does_not_print(research):
 
 def test_the_shipped_file_is_what_the_manifests_build():
     assert promote_db2a.main(["--check"]) == 0
+
+
+def test_the_station_gate_refuses_the_rl10a33_table_stations_for_now(research):
+    m = manifest()
+    d = m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"]
+    m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"] = dict(
+        d, decision="CARRIED_NOT", touches=("AS-DB05-US-RL10A-3-3-013",),
+        withhold=("AS-DB05-US-RL10A-3-3-004", "AS-DB05-US-RL10A-3-3-014"),
+        owner_accepted="owner (Cemil Eray), 2026-11-06: 385.2 for CFG-RL10A-3-3-FR1769", owner_scope=RL)
+    m.OWNER_DECISIONS["CF-DB05-RL10A33-PC"] = m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"]["owner_accepted"]
+    m = promote(m, P("AS-DB05-US-RL10A-3-3-013", RL, "performance.chamber_pressure", ("number", 385.2),
+                     "DESIGN_VALUE", op=RLOP, op_basis="AS-DB05-US-RL10A-3-3-015",
+                     cond=dict(pressure_basis="ABSOLUTE", pressure_station="THROAT"),
+                     reading="Table V-1 is headed 'Estimated'"))
+    refused(research, m, "DB-0.5 station 'throat total' must be UNKNOWN, not THROAT")

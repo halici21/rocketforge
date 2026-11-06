@@ -311,6 +311,10 @@ ASSERTIONS = (
            "configuration only by owner decision (2026-10-10). Not a nominal operating life, a demonstrated flight "
            "life, an operating-point performance datum, a family or variant value, or a regression quantity. The "
            "cell's printed mission duration is not admitted; the printed text is kept verbatim as provenance."),
+    # owner decision of 2026-11-06 (CF-DB05-F1-MASS)
+    P("AS-DB05-US-F-1-007", _F1, "mechanical.mass", ("number", 18616), "NOMINAL",
+      note="The slide does not define the weight (dry, burnout or wet). In research conflict CF-DB05-F1-MASS "
+           "(PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision."),
     P("AS-DB05-US-F-1-008", _F1, "mechanical.dimensions", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-012", _F1, "pumps.configuration", ("text",), "OTHER"),
     P("AS-DB05-US-F-1-015", _F1, "ignition_start.method", ("text",), "OTHER"),
@@ -451,7 +455,6 @@ NOT_PROMOTED = {
        for i in (29, 30, 31, 32)},
     "AS-DB05-US-F-1-006": ("MISSING_REQUIRED_SEMANTICS",
                            "printed 'Engine mixture ratio 2.27' without a direction (O/F or F/O)"),
-    "AS-DB05-US-F-1-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
     "AS-DB05-US-F-1-009": ("NOT_NEEDED", "production deliveries, not an engine property"),
     "AS-DB05-US-F-1-017": ("WRONG_CONFIGURATION", "1.8 million lb is the F-1A (footnote 4: 'F-1A was rated at 1.8 "
                                                   "million pounds force')"),
@@ -507,8 +510,8 @@ NOT_PROMOTED = {
     "AS-DB05-US-F-1-036": ("DUPLICATE", "the same 16:1 the shipped AS-DB05-US-F-1-011 gives, from another primary document"),
     "AS-DB05-US-F-1-038": ("WITHHELD_CONFLICT", "chamber pressure 1105 psia, a competing claim in CF-DB05-F1-PC; "
                                                 "the owner kept 1,125 psia (2026-10-28)"),
-    "AS-DB05-US-F-1-037": ("OWNER_DECISION_REQUIRED", "prints the direction -006 lacked ('LOX : RP-1 2.27:1'); "
-                                                      "whether it supplies -006's missing semantics is the owner's call"),
+    "AS-DB05-US-F-1-037": ("WITHHELD_CONFLICT", "prints the direction -006 lacked ('LOX : RP-1 2.27:1'); the owner "
+                                                "kept the direction in its own document (2026-11-06)"),
     # SSME unread-download pass (2026-10-28), recorded after the wave; nothing here is shipped
     **{f"AS-DB05-US-SSME-BLOCK-I-00{i}": ("WITHHELD_RIGHTS", "AIAA 97-2685: AIAA reprint notice on the cover against NTRS "
                                                             "public use, unresolved") for i in (3, 4, 5, 6, 8)},
@@ -518,14 +521,16 @@ NOT_PROMOTED = {
     **{f"AS-DB05-US-LMDE-0{i}": ("WRONG_CONFIGURATION", "Apollo 15 evaluation: one flight engine (LM-10, S/N 1046), "
                                                         "not the design the seed ships") for i in range(15, 21)},
     "AS-DB05-US-LMDE-021": ("WRONG_CONFIGURATION", "LM-10's approximate 54.0:1, unexplained against the design's "
-                                                   "47.5:1 skirt; not the design the seed ships"),
+                                                   "47.5:1 skirt; not the design the seed ships (owner confirmed "
+                                                   "2026-11-06)"),
     # F-1 'Waking a Giant' pass (2026-10-28), recorded after the wave
     "AS-DB05-US-F-1-039": ("WITHHELD_CONFLICT", "982 psia printed 'ns', a competing claim in CF-DB05-F1-PC; the owner kept "
                                                 "1,125 psia"),
-    "AS-DB05-US-F-1-040": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-F1-MASS"),
+    "AS-DB05-US-F-1-040": ("WITHHELD_CONFLICT", "the same 18,616 lb in MSFC's 2013 deck, outside CFG-F1's source; "
+                                                "withheld in CF-DB05-F1-MASS"),
     "AS-DB05-US-F-1-041": ("NOT_NEEDED", "total propellant flow, a field the CFG-F1 record does not carry"),
     "AS-DB05-US-F-1-042": ("WITHHELD_RIGHTS", "AEHS RPE08.12: Tier D page under the society's copyright; also a mass "
-                                              "claim in UNRESOLVED conflict CF-DB05-F1-MASS"),
+                                              "claim in PARTIALLY_RESOLVED conflict CF-DB05-F1-MASS"),
     # DB-0 conflict backlog pass (2026-10-28): AEHS 'One Second' page, recorded after the wave
     "AS-DB05-US-F-1-043": ("WITHHELD_RIGHTS", "AEHS 'One Second': Tier D page under the society's copyright; also a pump "
                                               "flow claim in PARTIALLY_RESOLVED conflict CF-DB05-F1-PUMPFLOW"),
@@ -552,6 +557,9 @@ _F1_PC = ("owner (Cemil Eray), 2026-10-09: accept F-1 chamber pressure 1,125 psi
           "owner (Cemil Eray), 2026-10-28: keep 1,125 psia for CFG-F1; MSFC's 1105 psia (AS-504 summary, "
           "Figure 19) is recorded as a competing claim and not shipped.")
 
+_F1_MASS = ("owner (Cemil Eray), 2026-11-06: ship F-1 weight 18,616 lb for CFG-F1 only, with its definition recorded as "
+            "not printed. 18,000 lb is a design weight and approximately 18,500 lb dry is a Tier D page; neither ships. "
+            "No family, variant or general F-1 inheritance. The research conflict stays PARTIALLY_RESOLVED.")
 _F1_QUAL = ("owner (Cemil Eray), 2026-10-10: ACCEPT F-1-010 for CFG-F1 only. Ship the source-reported "
             "qualification-life characteristic: Starts: 20; Duration: 2,250 seconds. Preserve it specifically as "
             "qualification-life information. It must NOT be interpreted as: nominal operating life, demonstrated "
@@ -562,8 +570,9 @@ _F1_QUAL = ("owner (Cemil Eray), 2026-10-10: ACCEPT F-1-010 for CFG-F1 only. Shi
 
 #: A conflict the owner decided more than once carries every decision, each as written.
 OWNER_DECISIONS = {
-    "CF-DB05-F1-RATING": (_F1_RATING, _F1_QUAL),
+    "CF-DB05-F1-RATING": (_F1_RATING, _F1_QUAL, _F1_MASS),
     "CF-DB05-F1-PC": _F1_PC,
+    "CF-DB05-F1-MASS": _F1_MASS,
 }
 
 OWNER_REVIEWS = {
@@ -600,8 +609,9 @@ RESEARCH_CONFLICTS = {
                               argument="RESOLVED in DB-0.5: tap-off, Tier A."),
     "CF-DB05-F1-RATING": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"),
-        owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004", "AS-DB05-US-F-1-010"),
-        owner_accepted=(_F1_RATING, _F1_QUAL), owner_scope="CFG-F1",
+        owner_released=("AS-DB05-US-F-1-002", "AS-DB05-US-F-1-003", "AS-DB05-US-F-1-004", "AS-DB05-US-F-1-010",
+                        "AS-DB05-US-F-1-007"),
+        owner_accepted=(_F1_RATING, _F1_QUAL, _F1_MASS), owner_scope="CFG-F1",
                               argument="UNRESOLVED: three primary sea-level ratings with no established epochs; "
                                        "they stay withheld. The same table's vacuum thrust and sea-level and "
                                        "vacuum Isp are released by the owner's decision for CFG-F1 only."),
@@ -628,9 +638,14 @@ RESEARCH_CONFLICTS = {
                                     argument="RESOLVED in DB-0.5 (2026-10-28): the AS-504 summary prints LOX : RP-1 "
                                              "2.27:1. Shipping a mixture ratio for CFG-F1 is an owner decision; "
                                              "until then it is withheld."),
-    "CF-DB05-F1-MASS": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-F-1-007", "AS-DB05-US-F-1-040", "AS-DB05-US-F-1-042"),
-                            argument="UNRESOLVED: 18,616 lb has no printed definition."),
+    "CF-DB05-F1-MASS": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-F-1-007",),
+        withhold=("AS-DB05-US-F-1-040", "AS-DB05-US-F-1-042"),
+        owner_accepted=_F1_MASS, owner_scope="CFG-F1",
+        competing={"text p.4, 18,000 lb": "a design weight, not the engine's weight",
+                   "AS-DB05-US-F-1-040": "MSFC 2013 deck, the same 18,616 lb, also undefined; withheld",
+                   "AS-DB05-US-F-1-042": "AEHS (Tier D), approximately 18,500 lb dry; withheld"},
+                            argument="PARTIALLY_RESOLVED in DB-0.5: 18,616 lb has no printed definition. Shipped for "
+                                     "CFG-F1 only, by owner decision, with the definition recorded as not printed."),
     "CF-DB05-F1-PUMPFLOW": dict(decision="WITHHOLD", withhold=("AS-DB05-US-F-1-043", "AS-DB05-US-F-1-044"),
                                 argument="PARTIALLY_RESOLVED (DB-0 backlog pass 2026-10-28): the encyclopedia and AEHS "
                                          "flows are one figure; the Smithsonian 42,500 gpm could not be opened. CFG-F1 "

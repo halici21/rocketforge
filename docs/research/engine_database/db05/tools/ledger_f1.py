@@ -142,6 +142,7 @@ C("CF-DB05-F1-MASS", engine_id=F1, field_path="mechanical.mass", db0_conflict_id
   claims=[["18,616 lb", "SRC-DB05-NTRS-20100027316", "slide F1-6"], ["designed ... with a weight of 18,000 pounds", "SRC-DB05-NTRS-20100027316", "text p.4"],
           ["approximately 18,500 lb dry", "SRC-ENGINEHISTORY-RPE0812", "engine description"],
           ["Weight (lb) 18,616 (2013 MSFC presentation)", "SRC-DB05-NTRS-20140011656", "slide 13"]],
-  resolution="UNRESOLVED", kind="definition", explanation="18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. "
+  resolution="PARTIALLY_RESOLVED", kind="definition", explanation="18,616 lb is primary but its definition (dry/burnout) is not printed; 18,000 lb is a design weight. "
               "Added 2026-10-28: MSFC's 2013 deck repeats 18,616 lb, again undefined; the AEHS page (opened, Tier D) says 'approximately "
-              "18,500 lb dry'. No primary document names the definition.")
+              "18,500 lb dry'. No primary document names the definition. Owner decision of 2026-11-06: 18,616 lb ships for CFG-F1 only, "
+              "with its definition recorded as not printed; the definition itself stays open.")

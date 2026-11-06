@@ -1234,3 +1234,21 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - H-1 200K average thrust corrected to the printed 200.53 Kips (it was recorded as 200530 under that unit). Its
   environment is now the exact word sea_level. LR91AJ-11 thrust and Isp now read vacuum, with the roll nozzle in its own key.
 - No conflict moved. The unresolved count stays 34.
+
+## Owner decisions of 2026-11-06
+
+- CF-DB05-F1-MASS moves from UNRESOLVED to PARTIALLY_RESOLVED: 18,000 lb is a design weight and 18,500 lb a Tier D page,
+  so what stays open is the definition of 18,616 lb. That value ships for CFG-F1 only, with the definition recorded as
+  not printed.
+- Kept withheld: F-1 sea-level thrust, F-1 mixture ratio 2.27 (a direction printed in another document is not carried),
+  RS-25 pump power, the RS-68A blog's 702,000 lb. The ULA guide's 705,250 lbf goes to Wave 5, subject to its rights reading.
+- LM-10's 54.0:1 stays a note: the owner confirmed the decision of 2026-10-28.
+- RL10A-3-3 chamber pressure: 385.2 and 394.6 psia are to ship at their own stations and 400 psia stays withheld. Not
+  shipped: the station gate accepts only nozzle stagnation.
+- RS-25 mass is still open. The proposed 7,774 lb 'Weight Dry' is on the L3Harris sheet, whose printed copyright and
+  missing reuse licence keep it withheld for rights.
+- Correction to the earlier count: 14 conflicts are named as waiting on the owner, not 15. RS-25 sea-level thrust, LE-7,
+  LE-7A and both Vulcain conflicts are already decided as withheld. RS-25 HPFTP speed needs a source, not a decision.
+  RD-170 mixture ratio is open: the decision of 2026-10-10 covers assertions 001-004, not 008 and 009. RD-180's three
+  wait for Wave 5.
+- Unresolved now stands at 33.
