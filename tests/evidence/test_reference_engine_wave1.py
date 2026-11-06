@@ -352,7 +352,7 @@ def test_rs25_configurations_stay_distinct_through_a_round_trip(corpus):
     assert set(configs) == {"CFG-RS25-SMALL-THROAT", "CFG-RS25-BLOCK-II", "CFG-RS25-SLS"}
     assert own(again, "CFG-RS25-SMALL-THROAT")["AS-DB05-US-SSME-BLOCK-I-001"].value == NumberValue(77.5)
     assert numbers(own(again, "CFG-RS25-BLOCK-II").values()) == {2870, 2747, 470000}
-    assert numbers(own(again, "CFG-RS25-SLS").values()) == {512300}
+    assert numbers(own(again, "CFG-RS25-SLS").values()) == {512300, 7750}
     assert "Operational Thrust 109%" not in own(again, "CFG-RS25-SLS")["AS-DB05-US-SSME-BLOCK-II-016"].note
 
 
@@ -377,9 +377,14 @@ def test_rs25_rights_restricted_sources_and_figures_do_not_ship(corpus):
 def test_rs25_open_conflicts_block_only_their_fields(corpus):
     sls = own(corpus, "CFG-RS25-SLS")
     assert any(x.field_path == "performance.thrust_vac" for x in sls.values())  # unaffected
-    assert not any(x.field_path.startswith(("performance.thrust_sl", "mechanical.mass")) for x in sls.values())
+    assert not any(x.field_path == "performance.thrust_sl" for x in sls.values())
+    # the owner's 7,750 lb of 2026-11-06 is the only mass, on this configuration only, with no printed definition
+    mass = sls["AS-DB05-US-SSME-BLOCK-II-018"]
+    assert [x.assertion_id for x in sls.values() if x.field_path.startswith("mechanical.mass")] == [mass.assertion_id]
+    assert mass.value == NumberValue(7750) and "does not define" in mass.note
     block_ii = own(corpus, "CFG-RS25-BLOCK-II")
-    assert not any(x.field_path == "performance.thrust_sl" for x in block_ii.values())
+    assert not any(x.field_path == "performance.thrust_sl" or x.field_path.startswith("mechanical.mass")
+               for x in block_ii.values())
     assert {x.operating_point_id for x in block_ii.values() if x.is_quantity} == {"OP-RS25-BII-RPL", "OP-RS25-BII-104"}
 
 

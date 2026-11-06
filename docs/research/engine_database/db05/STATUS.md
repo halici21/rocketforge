@@ -1245,10 +1245,12 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - LM-10's 54.0:1 stays a note: the owner confirmed the decision of 2026-10-28.
 - RL10A-3-3 chamber pressure: 385.2 and 394.6 psia ship at their own stations and 400 psia stays withheld. The owner
   widened the station gate for this: it also accepts the recorded words 'throat total' and 'injector face static'.
-- RS-25 mass is still open. The proposed 7,774 lb 'Weight Dry' is on the L3Harris sheet, whose printed copyright and
-  missing reuse licence keep it withheld for rights.
+- CF-DB05-RS25-MASS moves from UNRESOLVED to PARTIALLY_RESOLVED: the SLS-era and Shuttle-era values are told apart, and
+  what stays open is the definition. NASA's 2025 sheet's 7,750 lb ships for CFG-RS25-SLS only, with the definition recorded
+  as not printed. The L3Harris sheet's 7,774 lb 'Weight Dry' stays withheld for rights: printed copyright, no reuse licence.
 - Correction to the earlier count: 14 conflicts are named as waiting on the owner, not 15. RS-25 sea-level thrust, LE-7,
   LE-7A and both Vulcain conflicts are already decided as withheld. RS-25 HPFTP speed needs a source, not a decision.
-  RD-170 mixture ratio is open: the decision of 2026-10-10 covers assertions 001-004, not 008 and 009. RD-180's three
+  RD-170 mixture ratio stays withheld by its own decision of 2026-11-06, because the decision of 2026-10-10 covers
+  assertions 001-004, not 008 and 009. RD-180's three
   wait for Wave 5.
-- Unresolved now stands at 33.
+- Unresolved now stands at 32.

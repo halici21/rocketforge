@@ -13,8 +13,8 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   H-1 at the 200K rating, F-1A), taking the catalog from 17 to 21 and the assertions from 156 to 187. None is a
   regression reference. RL10A-3-3 ships two design-estimate chamber pressures, each at its printed station, and
   no mixture ratio ships without a printed direction. The owner reviewed the three new sources' rights readings.
-- Reference engines: the F-1 weight of 18,616 lb now ships for `CFG-F1` only, by owner decision, with its definition
-  recorded as not printed.
+- Reference engines: two weights now ship by owner decision, each for one configuration and with its definition
+  recorded as not printed: 18,616 lb for `CFG-F1` and 7,750 lb for `CFG-RS25-SLS`.
 
 ### Changed
 - Simplification R3 closed (R3-A to R3-F). R3-E measured start-up and test-suite performance and

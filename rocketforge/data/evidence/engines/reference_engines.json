@@ -9534,6 +9534,44 @@
       "note": "DB-0.5 places it at 109%, the SLS operational thrust level of the same fact sheet."
     },
     {
+      "assertion_id": "AS-DB05-US-SSME-BLOCK-II-018",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RS25-SLS"
+      },
+      "field_path": "mechanical.mass",
+      "value": {
+        "type": "number",
+        "value": 7750.0
+      },
+      "value_as_printed": "3,515 kg (7,750 lbs.)",
+      "unit_as_printed": "lb",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": null,
+        "pressure_station": null,
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "NOMINAL",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-NASA-RS25-FS2025",
+      "locator": "p.1 'RS-25 Engine Facts: Weight'",
+      "access": "OPENED",
+      "operating_point_id": null,
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "The fact sheet does not define the weight (dry, burnout or wet). In research conflict CF-DB05-RS25-MASS (PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision."
+    },
+    {
       "assertion_id": "AS-DB05-US-RL10B-2-009",
       "subject": {
         "kind": "CONFIGURATION",

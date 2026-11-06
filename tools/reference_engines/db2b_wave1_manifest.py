@@ -413,6 +413,10 @@ ASSERTIONS = (
     P("AS-DB05-US-SSME-BLOCK-II-016", _SLS, "performance.thrust_vac", ("number", 512300), "NOMINAL",
       op="OP-RS25-SLS-109", cond=dict(environment="VACUUM"),
       note="DB-0.5 places it at 109%, the SLS operational thrust level of the same fact sheet."),
+    # owner decision of 2026-11-06 (CF-DB05-RS25-MASS)
+    P("AS-DB05-US-SSME-BLOCK-II-018", _SLS, "mechanical.mass", ("number", 7750), "NOMINAL",
+      note="The fact sheet does not define the weight (dry, burnout or wet). In research conflict CF-DB05-RS25-MASS "
+           "(PARTIALLY_RESOLVED); shipped for this configuration only, by owner decision."),
 )
 
 FIELD_RENAMES = {
@@ -480,9 +484,9 @@ NOT_PROMOTED = {
     **{f"AS-DB05-US-SSME-BLOCK-II-0{i:02d}": _L3H for i in range(1, 14)},
     "AS-DB05-US-SSME-BLOCK-II-014": ("DUPLICATE", "FS-2015's rounded '512,000 pounds' of the 109% vacuum rating "
                                                   "FS-2025 prints as 512,300 lb"),
-    "AS-DB05-US-SSME-BLOCK-II-015": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
+    "AS-DB05-US-SSME-BLOCK-II-015": ("WITHHELD_CONFLICT", "the 2015 sheet's 7,775 lbs; the owner shipped the 2025 sheet's "
+                                                          "value (2026-11-06)"),
     "AS-DB05-US-SSME-BLOCK-II-017": ("WITHHELD_CONFLICT", "sea-level thrust in UNRESOLVED conflict CF-DB05-RS25-SLTHRUST"),
-    "AS-DB05-US-SSME-BLOCK-II-018": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
     "AS-DB05-US-SSME-BLOCK-II-019": ("SOURCE_SCOPE_TOO_BROAD", "the shuttle fleet in flight at 104.5%; no block"),
     "AS-DB05-US-SSME-BLOCK-II-020": ("SOURCE_SCOPE_TOO_BROAD", "the shuttle fleet tested up to 111%; no block"),
     "AS-DB05-US-SSME-BLOCK-II-021": ("WITHHELD_CONFLICT", "pump power in UNRESOLVED conflict CF-DB05-RS25-PUMPPOWER"),
@@ -515,8 +519,8 @@ NOT_PROMOTED = {
     # SSME unread-download pass (2026-10-28), recorded after the wave; nothing here is shipped
     **{f"AS-DB05-US-SSME-BLOCK-I-00{i}": ("WITHHELD_RIGHTS", "AIAA 97-2685: AIAA reprint notice on the cover against NTRS "
                                                             "public use, unresolved") for i in (3, 4, 5, 6, 8)},
-    "AS-DB05-US-SSME-BLOCK-I-007": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
-    "AS-DB05-US-SSME-BLOCK-II-045": ("WITHHELD_CONFLICT", "mass in UNRESOLVED conflict CF-DB05-RS25-MASS"),
+    "AS-DB05-US-SSME-BLOCK-I-007": ("WITHHELD_CONFLICT", "Shuttle-era mass in PARTIALLY_RESOLVED conflict CF-DB05-RS25-MASS"),
+    "AS-DB05-US-SSME-BLOCK-II-045": ("WITHHELD_CONFLICT", "Shuttle-era mass in PARTIALLY_RESOLVED conflict CF-DB05-RS25-MASS"),
     # Apollo 15 DPS pass (2026-10-28): one flight engine (LM-10, S/N 1046), recorded after the wave
     **{f"AS-DB05-US-LMDE-0{i}": ("WRONG_CONFIGURATION", "Apollo 15 evaluation: one flight engine (LM-10, S/N 1046), "
                                                         "not the design the seed ships") for i in range(15, 21)},
@@ -560,6 +564,9 @@ _F1_PC = ("owner (Cemil Eray), 2026-10-09: accept F-1 chamber pressure 1,125 psi
 _F1_MASS = ("owner (Cemil Eray), 2026-11-06: ship F-1 weight 18,616 lb for CFG-F1 only, with its definition recorded as "
             "not printed. 18,000 lb is a design weight and approximately 18,500 lb dry is a Tier D page; neither ships. "
             "No family, variant or general F-1 inheritance. The research conflict stays PARTIALLY_RESOLVED.")
+_RS25_MASS = ("owner (Cemil Eray), 2026-11-06: ship RS-25 weight 3,515 kg (7,750 lbs.) for CFG-RS25-SLS only, with its "
+              "definition recorded as not printed. The 2015 sheet's 7,775 lbs, the L3Harris sheet's 7,774 lb and the "
+              "Shuttle-era values do not ship. The research conflict stays PARTIALLY_RESOLVED.")
 _F1_QUAL = ("owner (Cemil Eray), 2026-10-10: ACCEPT F-1-010 for CFG-F1 only. Ship the source-reported "
             "qualification-life characteristic: Starts: 20; Duration: 2,250 seconds. Preserve it specifically as "
             "qualification-life information. It must NOT be interpreted as: nominal operating life, demonstrated "
@@ -573,6 +580,7 @@ OWNER_DECISIONS = {
     "CF-DB05-F1-RATING": (_F1_RATING, _F1_QUAL, _F1_MASS),
     "CF-DB05-F1-PC": _F1_PC,
     "CF-DB05-F1-MASS": _F1_MASS,
+    "CF-DB05-RS25-MASS": _RS25_MASS,
 }
 
 OWNER_REVIEWS = {
@@ -671,9 +679,16 @@ RESEARCH_CONFLICTS = {
                                    touches=("AS-DB05-US-SSME-BLOCK-II-016", "AS-DB05-US-SSME-BLOCK-II-034"),
                                    competing={},
                                    argument="EXPLAINED: the values differ by power level (RPL, 104.5%, 109%)."),
-    "CF-DB05-RS25-MASS": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-SSME-BLOCK-II-012", "AS-DB05-US-SSME-BLOCK-II-015", "AS-DB05-US-SSME-BLOCK-II-018",
-                  "AS-DB05-US-SSME-BLOCK-I-007", "AS-DB05-US-SSME-BLOCK-II-045",), argument="UNRESOLVED: definitions not printed."),
+    "CF-DB05-RS25-MASS": dict(decision="CARRIED_NOT", touches=("AS-DB05-US-SSME-BLOCK-II-018",),
+        withhold=("AS-DB05-US-SSME-BLOCK-II-012", "AS-DB05-US-SSME-BLOCK-II-015",
+                  "AS-DB05-US-SSME-BLOCK-I-007", "AS-DB05-US-SSME-BLOCK-II-045",),
+        owner_accepted=_RS25_MASS, owner_scope=_SLS,
+        competing={"AS-DB05-US-SSME-BLOCK-II-012": "L3Harris sheet, 7,774 lb 'Weight Dry'; withheld for rights",
+                   "AS-DB05-US-SSME-BLOCK-II-015": "NASA 2015 sheet, 7,775 lbs, undefined; withheld",
+                   "AS-DB05-US-SSME-BLOCK-I-007": "Shuttle-era 7,000 lbs; withheld",
+                   "AS-DB05-US-SSME-BLOCK-II-045": "Shuttle-era approximately 7,000 pounds; withheld"},
+        argument="PARTIALLY_RESOLVED in DB-0.5: the SLS-era and Shuttle-era values are told apart, but no NASA sheet "
+                 "prints a definition. Shipped for CFG-RS25-SLS only, by owner decision."),
     "CF-DB05-RS25-PUMPPOWER": dict(decision="WITHHOLD",
         withhold=("AS-DB05-US-SSME-BLOCK-II-007", "AS-DB05-US-SSME-BLOCK-II-008", "AS-DB05-US-SSME-BLOCK-II-021", "AS-DB05-US-SSME-BLOCK-II-022",), argument="UNRESOLVED: no power level printed."),
     "CF-DB05-RS25-HPOTPSPEED": dict(decision="WITHHOLD",

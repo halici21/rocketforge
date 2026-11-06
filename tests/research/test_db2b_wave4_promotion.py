@@ -92,7 +92,7 @@ def test_wave4_adds_only_its_records_and_changes_nothing_shipped(research):
 def test_the_owner_reviews_are_recorded_and_release_nothing():
     assert set(wave4.OWNER_DECISIONS) == {"CF-DB05-RL10A33-PC"}
     assert set(wave4.OWNER_REVIEWS) == {
-        "WAVE4-NTRS-RIGHTS", "2026-11-06-STATION-GATE", "2026-11-06-RS68A-THRUST", "2026-11-06-F1-MR",
+        "WAVE4-NTRS-RIGHTS", "2026-11-06-RD170-MR", "2026-11-06-STATION-GATE", "2026-11-06-RS68A-THRUST", "2026-11-06-F1-MR",
         "2026-11-06-F1-SL-THRUST", "2026-11-06-RS25-PUMPPOWER", "2026-11-06-LMDE-LM10"}
     assert all(r["decision"].startswith("owner (Cemil Eray), 2026-11-06: ") for r in wave4.OWNER_REVIEWS.values())
     assert {k for k, r in wave4.OWNER_REVIEWS.items() if r["sources"]} == {"WAVE4-NTRS-RIGHTS"}

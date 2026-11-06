@@ -224,6 +224,10 @@ _RL_PC = ("owner (Cemil Eray), 2026-11-06: ship chamber pressure 385.2 psia (thr
 OWNER_DECISIONS = {"CF-DB05-RL10A33-PC": _RL_PC}
 
 OWNER_REVIEWS = {
+    "2026-11-06-RD170-MR": dict(
+        decision="owner (Cemil Eray), 2026-11-06: RD-170 mixture ratio stays withheld: one document prints two values and "
+                 "attributes neither to the manufacturer.",
+        sources=()),
     "2026-11-06-STATION-GATE": dict(
         decision="owner (Cemil Eray), 2026-11-06: widen the chamber-pressure station gate: besides nozzle stagnation it "
                  "accepts the recorded words 'throat total' as THROAT and 'injector face static' as INJECTOR_FACE. Every "

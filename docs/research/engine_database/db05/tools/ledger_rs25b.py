@@ -135,9 +135,10 @@ C("CF-DB05-RS25-MASS", engine_id=E2, field_path="mechanical.mass", db0_conflict_
           ["Weight 7000 lbs (1997, pre-large-throat engine)", "SRC-AIAA-97-2685", "Figure 2"],
           ["approximately 7,000 pounds (3,150 kilograms)", "SRC-NASA-KSC-167449-SSMEPF06", "p.1 (2006)"],
           ["Weight: 7,775 lb", "SRC-L3HARRIS-RS25-WEB", "specification box"]],
-  resolution="UNRESOLVED", explanation="7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents. "
+  resolution="PARTIALLY_RESOLVED", explanation="7,774/7,775/7,750 describe the SLS-adapted engine (insulation, new controller per FS-2015); 7,400 is a 2003 Shuttle-era approximation. Definitions are not printed. Wikipedia 7,004 lb has no primary support among opened documents. "
               "Added 2026-10-28: two more Shuttle-era sources print about 7,000 lb (Rocketdyne 1997, KSC 2006), so the Shuttle-era figures already span 7,000-7,400 lb with no definition; "
-              "L3Harris's web page prints 7,775 lb against its own spec sheet's 7,774 lb.")
+              "L3Harris's web page prints 7,775 lb against its own spec sheet's 7,774 lb. Owner decision of 2026-11-06: 7,750 lb (FS-2025) "
+              "ships for CFG-RS25-SLS only, with its definition recorded as not printed; the definition itself stays open.")
 C("CF-DB05-RS25-PUMPPOWER", engine_id=E2, field_path="pumps.HPFTP.power / pumps.HPOTP.power",
   claims=[["71,140 hp / 23,260 hp", "SRC-L3HARRIS-RS25-SPEC", "p.1"], ["69,000 hp / 25,000 hp", "SRC-NTRS-20180006338", "p.2"]],
   resolution="UNRESOLVED", explanation="Neither prints a power level. DB-0 news values 76,000 / 26,800 hp have no primary support.")
