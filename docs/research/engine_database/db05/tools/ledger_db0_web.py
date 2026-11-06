@@ -197,6 +197,10 @@ _LOC = {"T": "page text (fetched 2026-10-28)", "NF": "fetched; value not in its 
         "EMENC": "npoenergomash.ru/encikloped/dvizki, engine table row (archive capture 2016-01-09)",
         "SSAU14": "Vestnik SSAU 2014 (RSC Energia), control-scheme text (re-read 2026-10-31)",
         "BF5": "Report on Operation Backfire vol. V (1946), section 3 'Fuel Characteristics and Storage', paras. 63, 69, 71",
+        "SXU26": "spacex.com/updates, entry of May 12, 2026, 'Raptor 3 change highlights' (read rendered, 2026-11-06)",
+        "SXS26": "spacex.com/vehicles/starship, Raptor tab (read rendered, 2026-11-06)",
+        "CIO12": "Gas Turbine Development by B.M.W. (CIOS, 1945), report p.12 'B.M.W. Rockets' table",
+        "CIO20": "Gas Turbine Development by B.M.W. (CIOS, 1945), report p.20 '003.R engine'",
         "ECM": "Europa I and II Customers' Manual (ELDO, 1971), section 2.3.3 '3rd stage', p. 2.9",
         "WYF": "en.wikipedia.org YF-115, current revision infobox (fetched 2026-10-29)",
         "SF15": "spaceflight101.com/?p=1295 (2015), second-stage paragraph (archive capture 2016-03-15)",
@@ -644,9 +648,12 @@ K("CF-EUROPE-21", "ENG-DE-HWK-109-509", "turbines.steam_generator.catalyst",
   "encyclopedia's wire-mesh sentence cites Botho Stuewe, Peene Muende West (1998), pp.221-222, which was not opened. "
   "Builds may have differed.")
 K("CF-EUROPE-22", "ENG-DE-BMW-109-718", "performance.thrust",
-  [("1,250 kg", "SRC-WIKI-BMW109718", "W"), ("a single 9.8 kN (2,200 lbf) thrust BMW 109-718", "SRC-WARBIRDS-ME262", "T")],
-  "UNRESOLVED", "rating_or_rounding",
-  "1,250 kgf is 12.3 kN DERIVED, 25 percent above 9.8 kN (1,000 kgf). Neither page cites a source.")
+  [("1,250 kg", "SRC-WIKI-BMW109718", "W"), ("a single 9.8 kN (2,200 lbf) thrust BMW 109-718", "SRC-WARBIRDS-ME262", "T"),
+   ("109-718 Rocket motor for 109-003R engine. 1250 kg. thrust. Fuels:- Tonka and Salbei", "SRC-DB05-CIOS-XXVI-30-BMW", "CIO12"),
+   ("The rocket motor gives an additional 1250 kg. (2750 lbs.) thrust", "SRC-DB05-CIOS-XXVI-30-BMW", "CIO20")],
+  "RESOLVED", "primary_value_found",
+  "The Allied intelligence report of 1945 (CIOS), based on interrogating BMW staff, gives the 109-718 1,250 kg "
+  "(2,750 lb) twice; that is 12.3 kN DERIVED. No opened document supports the 9.8 kN (1,000 kgf).")
 K("CF-EUROPE-25", "ENG-GB-STENTOR", "performance.thrust",
   [("24,000 lbf (first chamber)", "SRC-BCAR-BLUESTEEL", "T"), ("20,000 lbf", "SRC-WIKI-STENTOR", "W")],
   "EXPLAINED", "definition",
@@ -747,18 +754,21 @@ K("CF-R2_SC_COMM-R2-21", "ENG-US-AEON-R", "performance.thrust_sl",
   "EXPLAINED", "different_epoch", "Two dated maker releases; the 2025 figure is the later design value. Only the 2025 one was read.")
 K("CF-R2_SCHEM-R2-3", "ENG-US-RAPTOR-3", "performance.thrust_sl",
   [("250 tf (551,000 lbf)", "SRC-SPACEX-UPDATES", "NF"), ("250 tf / 551 klbf", "SRC-SPACEX-STARSHIP-SPECS", "NF"),
-   ("Raptor ... THRUST 230 tf / 507 klbf (June 2025, no version named)", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25")],
-  "UNRESOLVED", None,
-  "Both SpaceX pages are script-rendered and delivered no text. The maker's Starship page of June 2025 (archive "
-  "capture, then server-rendered) gives the Raptor of that time 230 tf / 507 klbf, so the 250 tf is a later figure not "
-  "seen in any maker text read; later captures are a script shell and the page's data feed was not fetched.")
+   ("Raptor ... THRUST 230 tf / 507 klbf (June 2025, no version named)", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25"),
+   ("Raptor 3 engines deliver increased thrust, with sea-level variants now producing 250 tf (551,000 lbf) up from 230 tf (507,000 lbf)", "SRC-DB05-SPACEX-UPDATES-2026", "SXU26"),
+   ("Raptor ... THRUST 250 tf / 551 klbf (November 2026, no version named)", "SRC-DB05-SPACEX-STARSHIP-PAGE-2026", "SXS26")],
+  "RESOLVED", "different_epoch",
+  "SpaceX's update of 12 May 2026, read in a rendering browser, says Raptor 3 sea-level engines now produce 250 tf "
+  "(551,000 lbf), up from 230 tf (507,000 lbf). The current Starship page prints the same 250 tf; the June 2025 page's "
+  "230 tf is the engine before Raptor 3.")
 K("CF-R2_SCHEM-R2-15", "ENG-US-RAPTOR-2", "identity.rating_attribution",
   [("230 tf / 1,630 kg as 'from' values", "SRC-SPACEX-UPDATES", "NF"),
-   ("Raptor ... DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25")],
+   ("Raptor ... DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf", "SRC-DB05-SPACEX-STARSHIP-PAGE-2025", "SXS25"),
+   ("sea-level variants now producing 250 tf (551,000 lbf) up from 230 tf (507,000 lbf) ... Mass of the Raptor sea-level engines has been reduced to 1,525 kg from 1,630 kg", "SRC-DB05-SPACEX-UPDATES-2026", "SXU26")],
   "PARTIALLY_RESOLVED", "different_epoch",
-  "SpaceX's own Starship page of June 2025 (archive capture), before Raptor 3 flew, gives the Raptor 230 tf / 507 klbf, "
-  "which supports 230 tf as the Raptor 2 figure. It prints no version number, no mass, and no 'from' wording; the "
-  "1,630 kg stays unseen in maker text.")
+  "SpaceX's update of 12 May 2026 prints both 'from' values, 230 tf and 1,630 kg, against Raptor 3. It does not label "
+  "them Raptor 2; the June 2025 page, before Raptor 3 flew, gives the Raptor 230 tf with no version number, which "
+  "supports the attribution without stating it.")
 K("CF-R2_SCHEM-R2-5", "ENG-US-BE-4", "performance.thrust_sl",
   [("550,000 lbf", "SRC-ULA-BE4-FACTSHEET", "T"), ("640,000 lbf (2,846 kN)", "SRC-BLUE-NEWGLENN-PAGE", "N"),
    ("BE-4 Main Engines: 2446.5 kN (550k-lbf) thrust (Sea Level) each", "SRC-DB05-ULA-VULCAN-UG-2023", "VUG"),
@@ -1097,3 +1107,15 @@ D('SRC-DB05-BACKFIRE-VOL5-1946', identifier='https://archive.org/details/Reporto
 D('SRC-DB05-ELDO-EUROPA-CM-1971', identifier='https://archive.org/details/europa-1and-2-customer-manual', title="Europa I and II Customers' Manual, AL 0 (ELDO, 1 July 1971)", tier="A",
   rights_checked="ELDO manual read from an Internet Archive scan; values only", rights_class="RESTRICTED_REFERENCE",
   note="Fetched 2026-10-31. European Launcher Development Organisation customers' manual for Europa I and II, Amendment List 0, dated 1971-07-01, scan on the Internet Archive (item europa-1and-2-customer-manual, creator ELDO/ESA). Section 2.3.3 '3rd stage': 'Three motors designed for vacuum operation are provided for the 3rd stage : a main motor and two verniers. The thrust ratio between the main motor and the two verniers is : 2300 kg./80 kg.' Section 2.3.1: first stage two Rolls Royce RZ2/Mk III engines (RZ 12 system), nominal 1,334,000 N at sea level. Section 2.3.2: second stage four engines designed for vacuum, pressure fed; no thrust printed. Read from the OCR text. Used as a conflict claim only.")
+
+D('SRC-DB05-SPACEX-UPDATES-2026', identifier='https://www.spacex.com/updates/', title="SpaceX updates page, entry 'Introducing Starship V3' (12 May 2026)", tier="A",
+  rights_checked='Maker web page read after script rendering; values only', rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-11-06. SpaceX updates page, read in a rendering browser on 2026-11-06 (plain fetches get a script shell). Entry of May 12, 2026, 'Raptor 3 change highlights': 'Raptor 3 engines deliver increased thrust, with sea-level variants now producing 250 tf (551,000 lbf) up from 230 tf (507,000 lbf), while vacuum engines produce 275 tf (606,000 lbf) up from 258 tf (568,000 lbf).' 'Mass of the Raptor sea-level engines has been reduced to 1,525 kg from 1,630 kg.' The earlier values are not labelled Raptor 2. No chamber pressure on the page. Used as a conflict claim only.")
+
+D('SRC-DB05-SPACEX-STARSHIP-PAGE-2026', identifier='https://www.spacex.com/vehicles/starship/', title='Starship (SpaceX web page, as read 2026-11-06)', tier="A",
+  rights_checked='Maker web page read after script rendering; values only', rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-11-06. SpaceX Starship page, read in a rendering browser on 2026-11-06. Raptor tab: 'DIAMETER 1.3 m / 4.2 ft HEIGHT 2.9 m / 9.5 ft THRUST 250 tf / 551 klbf'. No version number, condition or mass. Used as a conflict claim only.")
+
+D('SRC-DB05-CIOS-XXVI-30-BMW', identifier='http://www.cdvandt.org/CIOS-XXVI-30.pdf', title='Gas Turbine Development by B.M.W. (F/Lt P. R. Price, CIOS target nos. 5/2 and 5/74, 1945)', tier="A",
+  rights_checked='Allied intelligence report read from a scan on cdvandt.org; values only', rights_class="RESTRICTED_REFERENCE",
+  note="Fetched 2026-11-06. CIOS report 'Gas Turbine Development by B.M.W.' (file name CIOS-XXVI-30), scan on cdvandt.org, read as page images. Its note says it is based on interrogating the people listed; the investigator's dates are 25.4.45 to 30.5.45. P.12 table 'B.M.W. Rockets': '109-718 Rocket motor for 109-003R engine. 1250 kg. thrust. Fuels:- Tonka and Salbei'. P.20 '003.R engine': 'The rocket motor gives an additional 1250 kg. (2750 lbs.) thrust. The endurance is 100 to 120 seconds'; bench tests of fifty 3-minute periods; one flight test in Me.262; 'in experimental production at Allach and Bruckmuhl'. P.23 (partly obscured on the scan): design calculations for a development of the 718 rated at 2,000 kg. Used as a conflict claim only.")

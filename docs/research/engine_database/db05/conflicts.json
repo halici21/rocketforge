@@ -3519,11 +3519,21 @@
      "a single 9.8 kN (2,200 lbf) thrust BMW 109-718",
      "SRC-WARBIRDS-ME262",
      "page text (fetched 2026-10-28)"
+    ],
+    [
+     "109-718 Rocket motor for 109-003R engine. 1250 kg. thrust. Fuels:- Tonka and Salbei",
+     "SRC-DB05-CIOS-XXVI-30-BMW",
+     "Gas Turbine Development by B.M.W. (CIOS, 1945), report p.12 'B.M.W. Rockets' table"
+    ],
+    [
+     "The rocket motor gives an additional 1250 kg. (2750 lbs.) thrust",
+     "SRC-DB05-CIOS-XXVI-30-BMW",
+     "Gas Turbine Development by B.M.W. (CIOS, 1945), report p.20 '003.R engine'"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": "rating_or_rounding",
-   "explanation": "1,250 kgf is 12.3 kN DERIVED, 25 percent above 9.8 kN (1,000 kgf). Neither page cites a source."
+   "resolution": "RESOLVED",
+   "kind": "primary_value_found",
+   "explanation": "The Allied intelligence report of 1945 (CIOS), based on interrogating BMW staff, gives the 109-718 1,250 kg (2,750 lb) twice; that is 12.3 kN DERIVED. No opened document supports the 9.8 kN (1,000 kgf)."
   },
   {
    "conflict_id": "CF-DB05-W-EUROPE-25",
@@ -3957,11 +3967,21 @@
      "Raptor ... THRUST 230 tf / 507 klbf (June 2025, no version named)",
      "SRC-DB05-SPACEX-STARSHIP-PAGE-2025",
      "spacex.com/vehicles/starship, Raptor engines panel (archive capture 2025-06-02)"
+    ],
+    [
+     "Raptor 3 engines deliver increased thrust, with sea-level variants now producing 250 tf (551,000 lbf) up from 230 tf (507,000 lbf)",
+     "SRC-DB05-SPACEX-UPDATES-2026",
+     "spacex.com/updates, entry of May 12, 2026, 'Raptor 3 change highlights' (read rendered, 2026-11-06)"
+    ],
+    [
+     "Raptor ... THRUST 250 tf / 551 klbf (November 2026, no version named)",
+     "SRC-DB05-SPACEX-STARSHIP-PAGE-2026",
+     "spacex.com/vehicles/starship, Raptor tab (read rendered, 2026-11-06)"
     ]
    ],
-   "resolution": "UNRESOLVED",
-   "kind": null,
-   "explanation": "Both SpaceX pages are script-rendered and delivered no text. The maker's Starship page of June 2025 (archive capture, then server-rendered) gives the Raptor of that time 230 tf / 507 klbf, so the 250 tf is a later figure not seen in any maker text read; later captures are a script shell and the page's data feed was not fetched."
+   "resolution": "RESOLVED",
+   "kind": "different_epoch",
+   "explanation": "SpaceX's update of 12 May 2026, read in a rendering browser, says Raptor 3 sea-level engines now produce 250 tf (551,000 lbf), up from 230 tf (507,000 lbf). The current Starship page prints the same 250 tf; the June 2025 page's 230 tf is the engine before Raptor 3."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SCHEM-R2-15",
@@ -3978,11 +3998,16 @@
      "Raptor ... DIAMETER 1.3 m / 4.2 ft HEIGHT 3.1 m / 10.2 ft THRUST 230 tf / 507 klbf",
      "SRC-DB05-SPACEX-STARSHIP-PAGE-2025",
      "spacex.com/vehicles/starship, Raptor engines panel (archive capture 2025-06-02)"
+    ],
+    [
+     "sea-level variants now producing 250 tf (551,000 lbf) up from 230 tf (507,000 lbf) ... Mass of the Raptor sea-level engines has been reduced to 1,525 kg from 1,630 kg",
+     "SRC-DB05-SPACEX-UPDATES-2026",
+     "spacex.com/updates, entry of May 12, 2026, 'Raptor 3 change highlights' (read rendered, 2026-11-06)"
     ]
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "different_epoch",
-   "explanation": "SpaceX's own Starship page of June 2025 (archive capture), before Raptor 3 flew, gives the Raptor 230 tf / 507 klbf, which supports 230 tf as the Raptor 2 figure. It prints no version number, no mass, and no 'from' wording; the 1,630 kg stays unseen in maker text."
+   "explanation": "SpaceX's update of 12 May 2026 prints both 'from' values, 230 tf and 1,630 kg, against Raptor 3. It does not label them Raptor 2; the June 2025 page, before Raptor 3 flew, gives the Raptor 230 tf with no version number, which supports the attribution without stating it."
   },
   {
    "conflict_id": "CF-DB05-W-R2_SCHEM-R2-5",

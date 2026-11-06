@@ -7653,5 +7653,48 @@
   "is_pdf": false,
   "ok": true,
   "file": "SRC-DB05-ARIANE4-UM-I2-1999.html"
+ },
+ "SRC-DB05-CIOS-XXVI-30-BMW": {
+  "source_id": "SRC-DB05-CIOS-XXVI-30-BMW",
+  "url": "http://www.cdvandt.org/CIOS-XXVI-30.pdf",
+  "time_utc": "2026-11-06T12:01:18Z",
+  "http": "200",
+  "content_type": "application/pdf",
+  "effective_url": "https://www.cdvandt.org/CIOS-XXVI-30.pdf",
+  "bytes": 986444,
+  "sha256": "e76b4a4ec6d2d72cb33061e407ca2eeb571a201a0df260ebe4beef37903ef363",
+  "is_pdf": true,
+  "pages": 37,
+  "text_chars": 0,
+  "ok": true,
+  "file": "SRC-DB05-CIOS-XXVI-30-BMW.pdf"
+ },
+ "SRC-DB05-SPACEX-UPDATES-2026": {
+  "source_id": "SRC-DB05-SPACEX-UPDATES-2026",
+  "url": "https://www.spacex.com/updates",
+  "time_utc": "2026-11-06T12:01:38Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://www.spacex.com/updates",
+  "bytes": 214071,
+  "sha256": "9357fcf86123dfafb3ff89e1179f71223e47786d663f87e534dc21686c8a8cf6",
+  "is_pdf": false,
+  "ok": true,
+  "file": null,
+  "method": "read in the desktop app's browser; curl gets a script shell. bytes and sha256 are of the page's rendered text (document.body.innerText, UTF-8), not the HTML; the text was not saved"
+ },
+ "SRC-DB05-SPACEX-STARSHIP-PAGE-2026": {
+  "source_id": "SRC-DB05-SPACEX-STARSHIP-PAGE-2026",
+  "url": "https://www.spacex.com/vehicles/starship",
+  "time_utc": "2026-11-06T12:01:38Z",
+  "http": "200",
+  "content_type": "text/html",
+  "effective_url": "https://www.spacex.com/vehicles/starship",
+  "bytes": 5270,
+  "sha256": "67f3abedf666bd7242e2683648ffef94354fa0934334fffced7c9c897b7b1845",
+  "is_pdf": false,
+  "ok": true,
+  "file": null,
+  "method": "read in the desktop app's browser; curl gets a script shell. bytes and sha256 are of the page's rendered text (document.body.innerText, UTF-8), not the HTML; the text was not saved"
  }
 }

@@ -1207,3 +1207,19 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   RD-170 MR, RD-180 x3, LE-7/LE-7A, Vulcain x2); the rest need sources not reached in any pass so far (Chinese
   institute papers, wartime German documents, KB Khimmash histories, Rotary Rocket, Intuitive Machines, SpaceX's
   current script-rendered pages).
+
+## Pass 2026-11-06: rendered SpaceX pages and the CIOS BMW report
+
+- R2_SCHEM-R2-3 (Raptor 3 sea-level thrust) RESOLVED, different_epoch: the desktop app's browser renders the script-only
+  SpaceX pages. The update of 12 May 2026 gives Raptor 3 sea-level 250 tf (551,000 lbf) up from 230 tf (507,000 lbf),
+  vacuum 275 tf up from 258 tf, and sea-level mass 1,525 kg from 1,630 kg; the current Starship page prints 250 tf. The
+  access log's size and hash for these two pages are of the rendered text, not the HTML, and the text was not saved.
+- R2_SCHEM-R2-15 (Raptor 2 attribution) stays PARTIALLY_RESOLVED: the same update now shows both 'from' values in maker
+  text (230 tf, 1,630 kg), but does not label them Raptor 2. The updates page prints no chamber pressure, so
+  R2_SCHEM-R2-4 stays open.
+- EUROPE-22 (BMW 109-718 thrust) RESOLVED: the CIOS report 'Gas Turbine Development by B.M.W.' (1945, F/Lt Price; scan on
+  cdvandt.org, read as page images) gives 1,250 kg (2,750 lb) on pp.12 and 20. BMW Rocket-Engine Development (Singelmann
+  and Mueller, USAF translation F-TR-2201-HD, 1948; DTIC ADA402594 on the Internet Archive) has film-cooling tests at
+  2,200 lb in Table I that name no engine, so it does not support the 9.8 kN.
+- Where the 34 unresolved stand: 15 wait on owner definition decisions or are deliberately open; the rest need sources not
+  reached so far.
