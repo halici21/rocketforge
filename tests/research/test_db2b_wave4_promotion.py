@@ -89,9 +89,22 @@ def test_wave4_adds_only_its_records_and_changes_nothing_shipped(research):
     assert len(after["topologies"]) == len(before["topologies"])
 
 
-def test_wave4_records_no_owner_decision():
-    assert not getattr(wave4, "OWNER_DECISIONS", {}) and not getattr(wave4, "OWNER_REVIEWS", {})
+def test_the_owner_review_covers_rights_only_and_releases_nothing():
+    assert wave4.OWNER_DECISIONS == {} and set(wave4.OWNER_REVIEWS) == {"WAVE4-NTRS-RIGHTS"}
+    review = wave4.OWNER_REVIEWS["WAVE4-NTRS-RIGHTS"]
+    assert review["decision"].startswith("owner (Cemil Eray), 2026-11-06: ")
+    assert set(review["sources"]) == set(wave4.SOURCES)
+    for spec in wave4.SOURCES.values():
+        assert spec["review_note"].endswith(
+            "Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination).")
+    assert wave4.SOURCES["SRC-DB05-NTRS-20140011656"]["primacy"] == "SECONDARY"
     assert not any("owner_accepted" in d or "owner_released" in d for d in wave4.RESEARCH_CONFLICTS.values())
+
+
+def test_gate_refuses_an_owner_review_word_no_review_lists(research):
+    m = manifest()
+    m.OWNER_REVIEWS = {k: v for k, v in m.OWNER_REVIEWS.items() if k != "WAVE4-NTRS-RIGHTS"}
+    refused(research, m, "the rights note says owner-reviewed, but no OWNER_REVIEWS entry lists the source")
 
 
 # ------------------------------------------------------------------ what ships

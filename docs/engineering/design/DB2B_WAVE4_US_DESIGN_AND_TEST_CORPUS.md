@@ -1,14 +1,13 @@
 # DB-2B Wave 4 — US design and test documents
 
-Status: PARTIAL. Four configurations ship, none of them a regression reference. The three new sources'
-rights readings have not had the owner review that every earlier shipped source has, so this wave is
-not ready to merge until the owner has reviewed them.
+Status: PARTIAL. Four configurations ship, none of them a regression reference. The owner reviewed the
+three new sources' rights readings on 2026-11-06. The RL10A-3-3 chamber pressure remains an open owner question.
 Baseline: `5841361`. Branch `feat/db2b-wave4-us-design-corpus`.
 
 Frozen and unchanged: the DB-1 schema; source, rights and conflict admission; value-kind and Missing
 semantics; the text-basis, excerpt and mixture-ratio gates; the owner mechanisms; and the number matcher.
-No gate was added or loosened. Wave 4 made no owner decision: `OWNER_DECISIONS` and `OWNER_REVIEWS` are
-empty in its manifest, and no conflict carries `owner_accepted` or `owner_released`.
+No gate was added or loosened. The owner's one decision is the rights review in `OWNER_REVIEWS`, which
+releases no value: `OWNER_DECISIONS` is empty and no conflict carries `owner_accepted` or `owner_released`.
 
 ## Why these four
 
@@ -52,13 +51,17 @@ The wave corrected four research records. Each was checked against the document,
 
 The F-1A column's other five cells were transcribed from slide 13, which was viewed as an image on 2026-11-06.
 
+## Owner decisions
+
+**Rights readings, accepted 2026-11-06** (a RocketForge shipping-policy review, not a legal determination):
+`SRC-DB05-NTRS-19670005471`, `SRC-DB05-NTRS-19680003903`, `SRC-DB05-NTRS-20140011656`. Source tiers are unchanged, so
+the F-1A slide stays `SECONDARY`.
+
 ## Owner questions
 
-1. **Rights readings.** Every earlier shipped source's rights reading is owner-reviewed. The three new ones are not:
-   `SRC-DB05-NTRS-19670005471`, `SRC-DB05-NTRS-19680003903`, `SRC-DB05-NTRS-20140011656`.
-2. **RL10A-3-3 chamber pressure.** Which of 400, 385.2 (throat total) and 394.6 psia (injector face static) ships?
-   Until then the configuration cannot be reviewed as a regression reference. A release would not make it one: its
-   values are design estimates.
+**RL10A-3-3 chamber pressure.** Which of 400, 385.2 (throat total) and 394.6 psia (injector face static) ships?
+Until then the field stays empty. A release would not make this configuration a regression reference: its values
+are design estimates.
 
 ## Boundaries
 

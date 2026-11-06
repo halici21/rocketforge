@@ -8,8 +8,9 @@ Targets: RL10A-3-3, LR91AJ-11, H-1 at the 200K rating, and F-1A. Each is one sou
 not a flight record: the RL10A-3-3 values are Pratt & Whitney's 1966 design estimates, the H-1 values are the
 average engine of one stage's logs, and the F-1A values are NASA MSFC's 2013 comparison slide.
 
-No gate was added or loosened, and Wave 4 made no owner decision: ``OWNER_DECISIONS`` and ``OWNER_REVIEWS`` stay
-empty here, so the RL10A-3-3 chamber pressures stay withheld by the open conflict CF-DB05-RL10A33-PC.
+No gate was added or loosened. The owner's review of 2026-11-06 is recorded as text in ``OWNER_REVIEWS`` and covers
+the rights readings only. It releases no value: ``OWNER_DECISIONS`` stays empty, so the RL10A-3-3 chamber pressures
+stay withheld by the open conflict CF-DB05-RL10A33-PC.
 """
 
 from __future__ import annotations
@@ -42,6 +43,8 @@ CONFIGURATION_SOURCES = {_RL: (_FR1769,), _LR: (_TITAN,), _H200: (_AS204,), _F1A
 # ------------------------------------------------------------------ sources
 
 _NO_NOTICE = "no copyright notice on pages read (extracted text of every page checked 2026-11-06)"
+#: Appended to every Wave 4 rights reading under the owner's review (OWNER_REVIEWS["WAVE4-NTRS-RIGHTS"]).
+_OWNER_REVIEWED = " Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination)."
 
 SOURCES = {
     _FR1769: dict(
@@ -50,7 +53,7 @@ SOURCES = {
         source_type="contractor report", authority="A", primacy="PRIMARY", host="GOV_PUBLIC_USE_PERMITTED",
         printed=_NO_NOTICE, review="CONSISTENT", figures="VALUES_WITH_ATTRIBUTION",
         review_note="NTRS government public use; no notice on the cover or in the extracted text. The maker's design "
-                    "report under a NASA contract: its values are design estimates, not test or flight data."),
+                    "report under a NASA contract: its values are design estimates, not test or flight data." + _OWNER_REVIEWED),
     _AS204: dict(
         organization="Chrysler Corporation Space Division", authors=(),
         title="Final Flight Performance Prediction for Saturn AS-204 LM Propulsion System, S-IB-4 Stage", year=1967,
@@ -58,14 +61,14 @@ SOURCES = {
         authority="A", primacy="PRIMARY", host="GOV_PUBLIC_USE_PERMITTED", printed=_NO_NOTICE, review="CONSISTENT",
         figures="VALUES_WITH_ATTRIBUTION",
         review_note="NTRS government public use; no restrictive notice on the pages read. The stage contractor's "
-                    "report, whose Table 5 summarises Rocketdyne's engine logs."),
+                    "report, whose Table 5 summarises Rocketdyne's engine logs." + _OWNER_REVIEWED),
     _BETTS: dict(
         organization="NASA Marshall Space Flight Center", authors=("Betts",),
         title="F-1 engine presentation (NASA MSFC ER21)", year=2013, identifiers={"NTRS": "20140011656"},
         source_type="presentation", authority="A", primacy="SECONDARY", host="GOV_PUBLIC_USE_PERMITTED",
         printed=_NO_NOTICE, review="CONSISTENT", figures="VALUES_WITH_ATTRIBUTION",
         review_note="NTRS government public use; no copyright notice on the slides read. A NASA comparison slide "
-                    "that names no underlying document, so it is secondary for the F-1A."),
+                    "that names no underlying document, so it is secondary for the F-1A." + _OWNER_REVIEWED),
 }
 
 WITHHELD_SOURCES = {}
@@ -206,6 +209,16 @@ NOT_PROMOTED = {
 }
 
 # ------------------------------------------------------------------ research conflicts (none is decided by owner)
+
+OWNER_DECISIONS = {}
+
+OWNER_REVIEWS = {
+    "WAVE4-NTRS-RIGHTS": dict(
+        decision="owner (Cemil Eray), 2026-11-06: Rights readings of the three new NTRS sources: ACCEPT as "
+                 "Owner-reviewed 2026-11-06. This is a RocketForge shipping-policy review, not a legal determination. "
+                 "It releases no withheld value and changes no source tier.",
+        sources=(_FR1769, _AS204, _BETTS)),
+}
 
 RESEARCH_CONFLICTS = {
     "CF-DB05-RL10A33-PC": dict(decision="WITHHOLD",

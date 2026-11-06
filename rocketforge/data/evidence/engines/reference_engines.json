@@ -41,7 +41,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no notice on the cover or in the extracted text. The maker's design report under a NASA contract: its values are design estimates, not test or flight data."
+        "review_note": "NTRS government public use; no notice on the cover or in the extracted text. The maker's design report under a NASA contract: its values are design estimates, not test or flight data. Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-28T17:24:42Z from https://ntrs.nasa.gov/api/citations/19670005471/downloads/19670005471.pdf; read in DB-0.5"
     },
@@ -83,7 +83,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no restrictive notice on the pages read. The stage contractor's report, whose Table 5 summarises Rocketdyne's engine logs."
+        "review_note": "NTRS government public use; no restrictive notice on the pages read. The stage contractor's report, whose Table 5 summarises Rocketdyne's engine logs. Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-28T17:30:07Z from https://ntrs.nasa.gov/api/citations/19680003903/downloads/19680003903.pdf; read in DB-0.5"
     },
@@ -481,7 +481,7 @@
         "text": "RIGHTS_REVIEW_REQUIRED",
         "notices_disagree": false,
         "review": "CONSISTENT",
-        "review_note": "NTRS government public use; no copyright notice on the slides read. A NASA comparison slide that names no underlying document, so it is secondary for the F-1A."
+        "review_note": "NTRS government public use; no copyright notice on the slides read. A NASA comparison slide that names no underlying document, so it is secondary for the F-1A. Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination)."
       },
       "access_note": "downloaded 2026-10-28T19:34:02Z from https://ntrs.nasa.gov/api/citations/20140011656/downloads/20140011656.pdf; read in DB-0.5"
     },
