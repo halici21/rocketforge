@@ -36,7 +36,7 @@ from rocketforge.evidence.engines.assertions import Qualifier
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SHIPPED = ROOT / "rocketforge" / "data" / "evidence" / "engines" / "reference_engines.json"
 #: The accepted corpus after DB-2B Wave 4 (670e2c6 plus its records). DB-4A changes no evidence.
-SHIPPED_SHA256 = "60cd81e175788d0f62a920f3f476c53dd58f947ffbf35ad880bccfa8d0f4e2a7"
+SHIPPED_SHA256 = "08a7f8f1d3e6cd6e31babf5353df39217275714989b88037711511ae28696ec5"
 J2, J2S = "CFG-J2-230K", "CFG-J2S"
 
 

@@ -69,7 +69,7 @@ def test_every_wave4_assertion_is_decided_once(research):
     promoted = {e["db05_id"] for e in wave4.ASSERTIONS}
     held = set(wave4.NOT_PROMOTED)
     assert promoted | held == ids and not promoted & held
-    assert (len(promoted), len(held)) == (29, 9)
+    assert (len(promoted), len(held)) == (31, 7)
 
 
 def test_wave4_adds_only_its_records_and_changes_nothing_shipped(research):
@@ -90,8 +90,9 @@ def test_wave4_adds_only_its_records_and_changes_nothing_shipped(research):
 
 
 def test_the_owner_reviews_are_recorded_and_release_nothing():
-    assert wave4.OWNER_DECISIONS == {} and set(wave4.OWNER_REVIEWS) == {
-        "WAVE4-NTRS-RIGHTS", "2026-11-06-RL10A33-PC", "2026-11-06-RS68A-THRUST", "2026-11-06-F1-MR",
+    assert set(wave4.OWNER_DECISIONS) == {"CF-DB05-RL10A33-PC"}
+    assert set(wave4.OWNER_REVIEWS) == {
+        "WAVE4-NTRS-RIGHTS", "2026-11-06-STATION-GATE", "2026-11-06-RS68A-THRUST", "2026-11-06-F1-MR",
         "2026-11-06-F1-SL-THRUST", "2026-11-06-RS25-PUMPPOWER", "2026-11-06-LMDE-LM10"}
     assert all(r["decision"].startswith("owner (Cemil Eray), 2026-11-06: ") for r in wave4.OWNER_REVIEWS.values())
     assert {k for k, r in wave4.OWNER_REVIEWS.items() if r["sources"]} == {"WAVE4-NTRS-RIGHTS"}
@@ -101,7 +102,8 @@ def test_the_owner_reviews_are_recorded_and_release_nothing():
         assert spec["review_note"].endswith(
             "Owner-reviewed 2026-11-06 (a RocketForge shipping-policy review, not a legal determination).")
     assert wave4.SOURCES["SRC-DB05-NTRS-20140011656"]["primacy"] == "SECONDARY"
-    assert not any("owner_accepted" in d or "owner_released" in d for d in wave4.RESEARCH_CONFLICTS.values())
+    assert {c for c, d in wave4.RESEARCH_CONFLICTS.items() if "owner_accepted" in d} == {"CF-DB05-RL10A33-PC"}
+    assert not any("owner_released" in d for d in wave4.RESEARCH_CONFLICTS.values())
 
 
 def test_gate_refuses_an_owner_review_word_no_review_lists(research):
@@ -113,13 +115,14 @@ def test_gate_refuses_an_owner_review_word_no_review_lists(research):
 # ------------------------------------------------------------------ what ships
 
 
-def test_rl10a33_ships_design_estimates_without_a_chamber_pressure(corpus):
+def test_rl10a33_ships_design_estimates_with_two_stationed_chamber_pressures(corpus):
     got = numbers(corpus, RL)
     assert got["performance.thrust_vac"] == 15000 and got["performance.specific_impulse"] == 444
     assert got["chamber.throat_diameter"] == 5.14 and got["performance.cstar"] == 7626
-    assert "performance.chamber_pressure" not in got
-    assert not {a.assertion_id for a in configuration_assertions(corpus, RL)} & {
-        "AS-DB05-US-RL10A-3-3-004", "AS-DB05-US-RL10A-3-3-013", "AS-DB05-US-RL10A-3-3-014"}
+    stations = {a.conditions.pressure_station.value: (a.value.value, a.value_kind.value)
+                for a in configuration_assertions(corpus, RL) if a.field_path == "performance.chamber_pressure"}
+    assert stations == {"THROAT": (385.2, "DESIGN_VALUE"), "INJECTOR_FACE": (394.6, "DESIGN_VALUE")}
+    assert "AS-DB05-US-RL10A-3-3-004" not in {a.assertion_id for a in configuration_assertions(corpus, RL)}
 
 
 def test_h1_200k_is_an_average_not_a_rating(corpus):
@@ -142,12 +145,29 @@ def test_no_wave4_configuration_is_a_regression_candidate_or_has_a_graph(corpus,
 # ------------------------------------------------------------------ the gates still refuse
 
 
-def test_gate_refuses_a_chamber_pressure_held_by_the_open_conflict(research):
-    m = promote(manifest(), P("AS-DB05-US-RL10A-3-3-013", RL, "performance.chamber_pressure", ("number", 385.2),
-                              "DESIGN_VALUE", op=RLOP, op_basis="AS-DB05-US-RL10A-3-3-015",
-                              cond=dict(pressure_basis="ABSOLUTE", pressure_station="UNKNOWN"),
-                              reading="Table V-1 is headed 'Estimated'"))
-    refused(research, m, "withholds AS-DB05-US-RL10A-3-3-013, which is promoted")
+def test_gate_refuses_the_chamber_pressure_the_owner_kept_withheld(research):
+    m = promote(manifest(), P("AS-DB05-US-RL10A-3-3-004", RL, "performance.chamber_pressure", ("number", 400),
+                              "DESIGN_VALUE", op=RLOP, op_basis="AS-DB05-US-RL10A-3-3-001",
+                              cond=dict(pressure_basis="ABSOLUTE", pressure_station="UNKNOWN")))
+    refused(research, m, "promoted claim assertion AS-DB05-US-RL10A-3-3-004 is not listed in touches")
+
+
+@pytest.mark.parametrize("aid, wrong, printed, right", [
+    ("AS-DB05-US-RL10A-3-3-013", "INJECTOR_FACE", "throat total", "THROAT"),
+    ("AS-DB05-US-RL10A-3-3-013", "UNKNOWN", "throat total", "THROAT"),
+    ("AS-DB05-US-RL10A-3-3-014", "NOZZLE_STAGNATION", "injector face static", "INJECTOR_FACE"),
+])
+def test_the_station_gate_takes_only_the_recorded_station(research, aid, wrong, printed, right):
+    m = manifest()
+    m.ASSERTIONS = tuple(
+        dict(e, conditions={**e["conditions"], "pressure_station": wrong}) if e["db05_id"] == aid else e
+        for e in m.ASSERTIONS)
+    refused(research, m, f"DB-0.5 station {printed!r} must be {right}, not {wrong}")
+
+
+def test_the_station_gate_keeps_every_other_word_unknown():
+    assert promote_db2a._PRINTED_STATIONS == {"nozzle stagnation": "NOZZLE_STAGNATION", "throat total": "THROAT",
+                                              "injector face static": "INJECTOR_FACE"}
 
 
 def test_gate_refuses_a_guessed_mixture_ratio_direction(research):
@@ -178,18 +198,3 @@ def test_gate_refuses_a_value_the_source_does_not_print(research):
 
 def test_the_shipped_file_is_what_the_manifests_build():
     assert promote_db2a.main(["--check"]) == 0
-
-
-def test_the_station_gate_refuses_the_rl10a33_table_stations_for_now(research):
-    m = manifest()
-    d = m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"]
-    m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"] = dict(
-        d, decision="CARRIED_NOT", touches=("AS-DB05-US-RL10A-3-3-013",),
-        withhold=("AS-DB05-US-RL10A-3-3-004", "AS-DB05-US-RL10A-3-3-014"),
-        owner_accepted="owner (Cemil Eray), 2026-11-06: 385.2 for CFG-RL10A-3-3-FR1769", owner_scope=RL)
-    m.OWNER_DECISIONS["CF-DB05-RL10A33-PC"] = m.RESEARCH_CONFLICTS["CF-DB05-RL10A33-PC"]["owner_accepted"]
-    m = promote(m, P("AS-DB05-US-RL10A-3-3-013", RL, "performance.chamber_pressure", ("number", 385.2),
-                     "DESIGN_VALUE", op=RLOP, op_basis="AS-DB05-US-RL10A-3-3-015",
-                     cond=dict(pressure_basis="ABSOLUTE", pressure_station="THROAT"),
-                     reading="Table V-1 is headed 'Estimated'"))
-    refused(research, m, "DB-0.5 station 'throat total' must be UNKNOWN, not THROAT")

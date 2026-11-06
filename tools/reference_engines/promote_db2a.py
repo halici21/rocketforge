@@ -202,6 +202,10 @@ def _subject(ref: str) -> SubjectRef:
 
 
 #: Wording that claims the owner reviewed, approved or accepted something.
+#: The station words a chamber pressure may carry from DB-0.5, exactly as recorded; anything else is UNKNOWN.
+#: The two beyond nozzle stagnation are the owner's decision of 2026-11-06 (OWNER_REVIEWS "2026-11-06-STATION-GATE").
+_PRINTED_STATIONS = {"nozzle stagnation": "NOZZLE_STAGNATION", "throat total": "THROAT",
+                     "injector face static": "INJECTOR_FACE"}
 _OWNER_REVIEW_WORDS = re.compile(r"(?i)\bowner[- ]?(review|approv|accept)|\b(reviewed|approved|accepted) by the owner")
 
 
@@ -525,7 +529,7 @@ def _condition_problems(aid, entry, record) -> list[str]:
     out, cond, db05 = [], entry["conditions"], record["conditions"]
     final = entry["field_path"].rsplit(".", 1)[-1]
     if final.startswith("chamber_pressure"):
-        station = "NOZZLE_STAGNATION" if db05.get("pc_station") == "nozzle stagnation" else "UNKNOWN"
+        station = _PRINTED_STATIONS.get(db05.get("pc_station"), "UNKNOWN")
         if cond.get("pressure_station") != station:
             out.append(f"{aid}: DB-0.5 station {db05.get('pc_station')!r} must be {station}, "
                        f"not {cond.get('pressure_station')}")

@@ -10,8 +10,8 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 
 ### Added
 - Reference engines, DB-2B Wave 4: four configurations from US design and test documents (RL10A-3-3, LR91AJ-11,
-  H-1 at the 200K rating, F-1A), taking the catalog from 17 to 21 and the assertions from 156 to 185. None is a
-  regression reference. RL10A-3-3 ships no chamber pressure because its three values wait on an owner decision, and
+  H-1 at the 200K rating, F-1A), taking the catalog from 17 to 21 and the assertions from 156 to 187. None is a
+  regression reference. RL10A-3-3 ships two design-estimate chamber pressures, each at its printed station, and
   no mixture ratio ships without a printed direction. The owner reviewed the three new sources' rights readings.
 - Reference engines: the F-1 weight of 18,616 lb now ships for `CFG-F1` only, by owner decision, with its definition
   recorded as not printed.

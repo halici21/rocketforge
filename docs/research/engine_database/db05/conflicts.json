@@ -1110,7 +1110,7 @@
    ],
    "resolution": "PARTIALLY_RESOLVED",
    "kind": "intra_document",
-   "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so. Owner decision of 2026-11-06: the two table values are to ship at their own stations and 400 psia stays withheld; they wait on the station gate."
+   "explanation": "The introduction's 'nominal design chamber pressure' of 400 psia names no station; the estimate table gives 385.2 psia throat total and 394.6 psia injector face static at the same 15,000 lb, 5.0:1 rating. 400 psia may be a rounded specification value, but the report does not say so. Owner decision of 2026-11-06: the two table values ship at their own stations; 400 psia stays withheld."
   },
   {
    "conflict_id": "CF-DB05-J2-ISP",

@@ -1443,7 +1443,7 @@
         "missing": "NOT_AUDITED",
         "note": "a design report printed before the engine's service; no flight effectivity is stated"
       },
-      "notes": "The maker's estimates at 15,000 lb and mixture ratio 5.0, not test or flight data. The chamber pressures are withheld by CF-DB05-RL10A33-PC: the introduction's 400 psia names no station against the table's 385.2 and 394.6 psia."
+      "notes": "The maker's estimates at 15,000 lb and mixture ratio 5.0, not test or flight data. The chamber pressures are withheld by CF-DB05-RL10A33-PC: the introduction's 400 psia names no station, and the table's 385.2 and 394.6 psia ship at their own stations by owner decision."
     },
     {
       "configuration_id": "CFG-LR91-AJ-11-T3E",
@@ -11356,6 +11356,82 @@
       "schematic_id": null,
       "derivation": null,
       "note": "Basic engine plus nonchargeable instrumentation, brackets and nonflight items."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-013",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 385.2
+      },
+      "value_as_printed": "Chamber pressure (throat total), psia 385.2",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "THROAT",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-1 (PDF p.42) Table V-1 'Estimated RL10A-3-3 Engine Design Data', column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'throat total'. Shipped for this configuration only, by owner decision. Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
+    },
+    {
+      "assertion_id": "AS-DB05-US-RL10A-3-3-014",
+      "subject": {
+        "kind": "CONFIGURATION",
+        "id": "CFG-RL10A-3-3-FR1769"
+      },
+      "field_path": "performance.chamber_pressure",
+      "value": {
+        "type": "number",
+        "value": 394.6
+      },
+      "value_as_printed": "Chamber pressure (injector face static), psia 394.6",
+      "unit_as_printed": "psia",
+      "conditions": {
+        "environment": null,
+        "power_level": null,
+        "mixture_ratio": null,
+        "mixture_ratio_form": null,
+        "mixture_ratio_basis": null,
+        "pressure_basis": "ABSOLUTE",
+        "pressure_station": "INJECTOR_FACE",
+        "isp_basis": null,
+        "qualifiers": []
+      },
+      "value_kind": "DESIGN_VALUE",
+      "status": "REPORTED",
+      "admissibility": "ADMITTED",
+      "source_id": "SRC-DB05-NTRS-19670005471",
+      "locator": "PWA FR-1769 p.V-1 (PDF p.42) Table V-1 'Estimated RL10A-3-3 Engine Design Data', column 5.0 (viewed as image)",
+      "access": "OPENED",
+      "operating_point_id": "OP-RL10A-3-3-FR1769-OF5",
+      "epoch": null,
+      "normalized": null,
+      "first_stated_by": null,
+      "schematic_id": null,
+      "derivation": null,
+      "note": "Printed 'injector face static'. Shipped for this configuration only, by owner decision. Read as: Table V-1 is headed 'Estimated RL10A-3-3 Engine Design Data'."
     },
     {
       "assertion_id": "AS-DB05-US-RL10A-3-3-015",

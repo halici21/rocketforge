@@ -103,7 +103,8 @@ def test_wave1_records_exactly_the_owners_f1_decisions():
     assert set(wave1.OWNER_REVIEWS["WAVE1-RIGHTS"]["sources"]) == set(wave1.SOURCES)
     merged = promote_db2a.load_manifest().RESEARCH_CONFLICTS
     assert {c for c, d in merged.items() if "owner_accepted" in d} == {
-        "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC", "CF-DB05-F1-MASS"}
+        "CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC", "CF-DB05-F1-MASS",
+        "CF-DB05-RL10A33-PC"}
     # the sea-level rating stays withheld; the DB-0.5 conflicts are not rewritten
     assert set(wave1.RESEARCH_CONFLICTS["CF-DB05-F1-RATING"]["withhold"]) == {"AS-DB05-US-F-1-001", "AS-DB05-US-F-1-018"}
 

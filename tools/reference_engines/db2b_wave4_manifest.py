@@ -8,10 +8,9 @@ Targets: RL10A-3-3, LR91AJ-11, H-1 at the 200K rating, and F-1A. Each is one sou
 not a flight record: the RL10A-3-3 values are Pratt & Whitney's 1966 design estimates, the H-1 values are the
 average engine of one stage's logs, and the F-1A values are NASA MSFC's 2013 comparison slide.
 
-No gate was added or loosened. The owner's decisions of 2026-11-06 are recorded as text in ``OWNER_REVIEWS``. None of
-them releases a value: ``OWNER_DECISIONS`` stays empty here. The RL10A-3-3 chamber pressures stay withheld by the open
-conflict CF-DB05-RL10A33-PC: the owner chose to ship two of them at their printed stations, and the frozen station gate
-recognises only nozzle stagnation.
+The owner's decisions of 2026-11-06 are recorded as text. ``OWNER_DECISIONS`` ships the RL10A-3-3 table's two chamber
+pressures, each at its printed station, and the introduction's 400 psia stays withheld. ``OWNER_REVIEWS`` holds the
+rights review, the station gate's two added words, and the decisions from the same list that release nothing.
 """
 
 from __future__ import annotations
@@ -93,8 +92,8 @@ CONFIGURATIONS = (
     (_RL, "VAR-RL10A-3-3", "RL10A-3-3, as estimated in Pratt & Whitney's design report (PWA FR-1769, 1966)",
      ("MISSING", "NOT_AUDITED", "a design report printed before the engine's service; no flight effectivity is stated"),
      "The maker's estimates at 15,000 lb and mixture ratio 5.0, not test or flight data. The chamber pressures are "
-     "withheld by CF-DB05-RL10A33-PC: the introduction's 400 psia names no station against the table's 385.2 and "
-     "394.6 psia."),
+     "withheld by CF-DB05-RL10A33-PC: the introduction's 400 psia names no station, and the table's 385.2 and 394.6 "
+     "psia ship at their own stations by owner decision."),
     (_LR, "VAR-LR91-AJ-11", "LR91AJ-11, Titan IIIE stage II engine (General Dynamics Convair CASD-LVP73-007)",
      "Titan IIIE stage II, as of the September 1973 systems summary",
      "Thrust and Isp include the roll nozzle. No other LR91 variant is carried: none was read from a shippable "
@@ -145,6 +144,13 @@ ASSERTIONS = (
     P("AS-DB05-US-RL10A-3-3-012", _RL, "mechanical.mass", ("number", 301.19), "NOMINAL",
       note="Basic engine plus nonchargeable instrumentation, brackets and nonflight items."),
     # Table V-1, the 5.0 column
+    # owner decision of 2026-11-06 (CF-DB05-RL10A33-PC)
+    P("AS-DB05-US-RL10A-3-3-013", _RL, "performance.chamber_pressure", ("number", 385.2), "DESIGN_VALUE", op=_RLOP,
+      op_basis=_FLOWS, cond=dict(pressure_basis="ABSOLUTE", pressure_station="THROAT"), reading=_ESTIMATE,
+      note="Printed 'throat total'. Shipped for this configuration only, by owner decision."),
+    P("AS-DB05-US-RL10A-3-3-014", _RL, "performance.chamber_pressure", ("number", 394.6), "DESIGN_VALUE", op=_RLOP,
+      op_basis=_FLOWS, cond=dict(pressure_basis="ABSOLUTE", pressure_station="INJECTOR_FACE"), reading=_ESTIMATE,
+      note="Printed 'injector face static'. Shipped for this configuration only, by owner decision."),
     P("AS-DB05-US-RL10A-3-3-015", _RL, "performance.mass_flow_fuel", ("number", 5.63), "DESIGN_VALUE", op=_RLOP,
       op_basis="AS-DB05-US-RL10A-3-3-016 (the same column's oxidizer flow)", reading=_ESTIMATE),
     P("AS-DB05-US-RL10A-3-3-016", _RL, "performance.mass_flow_oxidizer", ("number", 28.16), "DESIGN_VALUE", op=_RLOP,
@@ -192,11 +198,11 @@ CONFIGURATION_MAP = {("ENG-US-LR91-AJ-11", "Titan IIIE Stage II (LR91AJ-11)"): _
 # ------------------------------------------------------------------ not promoted
 
 _NO_DIRECTION = "without a direction (O/F or F/O); deriving it is not print"
-_PC = ("WITHHELD_CONFLICT", "chamber pressure in PARTIALLY_RESOLVED CF-DB05-RL10A33-PC; see OWNER_REVIEWS "
-                            "2026-11-06-RL10A33-PC")
+_PC = ("WITHHELD_CONFLICT", "400 psia names no station; the owner kept it withheld and shipped the table's two values "
+                            "(2026-11-06)")
 
 NOT_PROMOTED = {
-    "AS-DB05-US-RL10A-3-3-004": _PC, "AS-DB05-US-RL10A-3-3-013": _PC, "AS-DB05-US-RL10A-3-3-014": _PC,
+    "AS-DB05-US-RL10A-3-3-004": _PC,
     "AS-DB05-US-RL10A-3-3-010": ("INFERRED_ONLY", "the report never prints 'expander': DB-0.5 read the closed cycle "
                                                   "from the function list and the piping list"),
     "AS-DB05-US-LR91-AJ-11-001": ("DISCOVERY_ONLY_SOURCE", "a Purdue table with no source and no rating name; the "
@@ -211,13 +217,17 @@ NOT_PROMOTED = {
 
 # ------------------------------------------------------------------ research conflicts (none is decided by owner)
 
-OWNER_DECISIONS = {}
+_RL_PC = ("owner (Cemil Eray), 2026-11-06: ship chamber pressure 385.2 psia (throat total) and 394.6 psia (injector face "
+          "static) for CFG-RL10A-3-3-FR1769 only, as the design estimates Table V-1 prints. The introduction's 400 psia "
+          "stays withheld. The research conflict stays PARTIALLY_RESOLVED.")
+
+OWNER_DECISIONS = {"CF-DB05-RL10A33-PC": _RL_PC}
 
 OWNER_REVIEWS = {
-    "2026-11-06-RL10A33-PC": dict(
-        decision="owner (Cemil Eray), 2026-11-06: RL10A-3-3 chamber pressure: 385.2 psia (throat total) and 394.6 psia "
-                 "(injector face static) are to ship at their own stations for this configuration; 400 psia stays "
-                 "withheld. Not shipped yet: the frozen station gate recognises only nozzle stagnation.",
+    "2026-11-06-STATION-GATE": dict(
+        decision="owner (Cemil Eray), 2026-11-06: widen the chamber-pressure station gate: besides nozzle stagnation it "
+                 "accepts the recorded words 'throat total' as THROAT and 'injector face static' as INJECTOR_FACE. Every "
+                 "other word stays UNKNOWN.",
         sources=()),
     "2026-11-06-RS68A-THRUST": dict(
         decision="owner (Cemil Eray), 2026-11-06: RS-68A thrust: the NASA blog's 702,000 lb stays withheld. The ULA "
@@ -247,8 +257,10 @@ OWNER_REVIEWS = {
 }
 
 RESEARCH_CONFLICTS = {
-    "CF-DB05-RL10A33-PC": dict(decision="WITHHOLD",
-        withhold=("AS-DB05-US-RL10A-3-3-004", "AS-DB05-US-RL10A-3-3-013", "AS-DB05-US-RL10A-3-3-014"),
+    "CF-DB05-RL10A33-PC": dict(decision="CARRIED_NOT",
+        touches=("AS-DB05-US-RL10A-3-3-013", "AS-DB05-US-RL10A-3-3-014"),
+        withhold=("AS-DB05-US-RL10A-3-3-004",), owner_accepted=_RL_PC, owner_scope=_RL,
+        competing={"AS-DB05-US-RL10A-3-3-004": "the introduction's 400 psia, no station; withheld"},
         argument="PARTIALLY_RESOLVED: the introduction's 400 psia names no station; Table V-1's 385.2 and 394.6 psia "
                  "name theirs. Which one is the engine's chamber pressure is the owner's call."),
     "CF-DB05-LR91-AJ11-MR": dict(decision="WITHHOLD",

@@ -101,7 +101,7 @@ def test_wave2_owner_decisions_are_recorded_and_release_nothing():
     assert not [c for c, d in wave2.RESEARCH_CONFLICTS.items() if {"owner_accepted", "owner_released", "owner_scope"} & set(d)]
     merged = promote_db2a.load_manifest()
     assert set(merged.OWNER_DECISIONS) == {"CF-DB05-J2-THRUST", "CF-DB05-SPS-THRUST", "CF-DB05-F1-RATING", "CF-DB05-F1-PC",
-                                           "CF-DB05-F1-MASS"}
+                                           "CF-DB05-F1-MASS", "CF-DB05-RL10A33-PC"}
     assert set(wave2.OWNER_REVIEWS["WAVE2-RIGHTS"]["sources"]) == set(wave2.SOURCES)
     for spec in wave2.SOURCES.values():
         assert spec["review_note"].endswith(

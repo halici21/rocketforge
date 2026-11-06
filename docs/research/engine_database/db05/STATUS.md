@@ -1243,8 +1243,8 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - Kept withheld: F-1 sea-level thrust, F-1 mixture ratio 2.27 (a direction printed in another document is not carried),
   RS-25 pump power, the RS-68A blog's 702,000 lb. The ULA guide's 705,250 lbf goes to Wave 5, subject to its rights reading.
 - LM-10's 54.0:1 stays a note: the owner confirmed the decision of 2026-10-28.
-- RL10A-3-3 chamber pressure: 385.2 and 394.6 psia are to ship at their own stations and 400 psia stays withheld. Not
-  shipped: the station gate accepts only nozzle stagnation.
+- RL10A-3-3 chamber pressure: 385.2 and 394.6 psia ship at their own stations and 400 psia stays withheld. The owner
+  widened the station gate for this: it also accepts the recorded words 'throat total' and 'injector face static'.
 - RS-25 mass is still open. The proposed 7,774 lb 'Weight Dry' is on the L3Harris sheet, whose printed copyright and
   missing reuse licence keep it withheld for rights.
 - Correction to the earlier count: 14 conflicts are named as waiting on the owner, not 15. RS-25 sea-level thrust, LE-7,

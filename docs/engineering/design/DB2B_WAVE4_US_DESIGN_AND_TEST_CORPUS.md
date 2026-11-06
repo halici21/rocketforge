@@ -1,14 +1,14 @@
 # DB-2B Wave 4 — US design and test documents
 
 Status: PARTIAL. Four configurations ship, none of them a regression reference. The owner reviewed the
-three new sources' rights readings on 2026-11-06. The owner also decided the RL10A-3-3 chamber pressure, which does
-not ship yet because of the station gate below.
+three new sources' rights readings and decided the RL10A-3-3 chamber pressure on 2026-11-06.
 Baseline: `5841361`. Branch `feat/db2b-wave4-us-design-corpus`.
 
 Frozen and unchanged: the DB-1 schema; source, rights and conflict admission; value-kind and Missing
 semantics; the text-basis, excerpt and mixture-ratio gates; the owner mechanisms; and the number matcher.
-No gate was added or loosened. The owner's decisions in `OWNER_REVIEWS` release no Wave 4 value: `OWNER_DECISIONS`
-is empty in this manifest and no Wave 4 conflict carries `owner_accepted` or `owner_released`.
+One gate changed, by owner decision: the chamber-pressure station gate also accepts the recorded words `throat total`
+and `injector face static`. Every other word still reads `UNKNOWN`. The one Wave 4 conflict the owner decided is
+`CF-DB05-RL10A33-PC`.
 
 ## Why these four
 
@@ -20,13 +20,13 @@ The other 62, on 10 engines, stay undecided. This wave did not assess their sour
 
 | Target | Configuration | Promoted | Withheld | Why withheld |
 |---|---|---|---|---|
-| RL10A-3-3 | `CFG-RL10A-3-3-FR1769` | 18 | 4 | Three chamber pressures in `CF-DB05-RL10A33-PC`; the cycle is inferred, the report never prints "expander" |
+| RL10A-3-3 | `CFG-RL10A-3-3-FR1769` | 20 | 2 | The 400 psia names no station; the cycle is inferred, the report never prints "expander" |
 | LR91AJ-11 | `CFG-LR91-AJ-11-T3E` | 4 | 2 | Mixture ratio has no printed direction; the Purdue row has no source |
 | H-1, 200K rating | `CFG-H1-200K-S-IB-4` | 2 | 2 | The 200K is an acceptance band with no environment; mixture ratio has no printed direction |
 | F-1A | `CFG-F1A-MSFC-2013` | 5 | 1 | Mixture ratio has no printed direction |
 
-The promoted total is 29 and the withheld total is 9. The shipped corpus goes from 17 to 21 configurations and
-from 156 to 185 assertions. Nothing already shipped changes.
+The promoted total is 31 and the withheld total is 7. The shipped corpus goes from 17 to 21 configurations and
+from 156 to 187 assertions. Nothing already shipped changes.
 
 ## What each configuration is, and is not
 
@@ -59,13 +59,7 @@ The F-1A column's other five cells were transcribed from slide 13, which was vie
 the F-1A slide stays `SECONDARY`.
 
 **Chamber pressure, decided 2026-11-06.** 385.2 psia (throat total) and 394.6 psia (injector face static) are to ship
-at their own stations, and 400 psia stays withheld. The field stays empty for now: the station gate accepts only
-`nozzle stagnation` as a named station, so these two would have to read `UNKNOWN`, which is not what the owner chose.
-
-## Owner questions
-
-**Station gate.** Should the gate also accept `throat total` as `THROAT` and `injector face static` as `INJECTOR_FACE`?
-A yes ships the two values. They would still be design estimates, not a regression reference.
+at their own stations, and 400 psia stays withheld. They are design estimates, not a regression reference.
 
 ## Boundaries
 
