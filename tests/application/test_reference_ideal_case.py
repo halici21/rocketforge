@@ -1,4 +1,4 @@
-"""DB-4C: the SSME ideal reference case runner.
+"""DB-4C: the SSME ideal reference case runner, at both points.
 
 The rules are tested with injected solvers and made-up numbers. The CEA-gated tests assert structure and finiteness
 only: no computed difference is pinned anywhere, and no rule may change in response to one.
@@ -25,10 +25,14 @@ from rocketforge.application.analysis.reference_engine_catalog import load_refer
 from rocketforge.comparison.compare import COMPARED
 from rocketforge.comparison.ssme_tdk_1985 import (
     AREA_RATIO,
+    CURRENT_DESIGN,
     KEY_CHAMBER_TEMPERATURE,
     KEY_VACUUM_ISP_EQUILIBRIUM,
     KEY_VACUUM_ISP_FROZEN,
+    LARGE_THROAT,
+    POINTS,
 )
+from rocketforge.comparison.units import to_canonical
 from rocketforge.core.constants import STANDARD_GRAVITY
 from rocketforge.physics.thermochemistry import CompositionBasis
 from rocketforge.physics.thermochemistry.types import GammaStrategy
@@ -36,6 +40,8 @@ from rocketforge.physics.thermochemistry.types import GammaStrategy
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 _STATUS = gateway.availability()
 requires_cea = pytest.mark.skipif(not _STATUS.usable, reason=f"NASA CEA provider unavailable ({_STATUS.status})")
+EACH_POINT = pytest.mark.parametrize("point", POINTS, ids=lambda p: p.case.case_id)
+PSIA = 0.45359237 * 9.80665 / 0.0254 ** 2
 
 # made-up numbers, chosen only to be distinguishable from one another
 TC_K = 3000.0
@@ -72,16 +78,30 @@ def fake_oracle(values=None):
     return run
 
 
-def run(**overrides):
+def solvers(**overrides):
     kwargs = dict(solve_chamber=fake_chamber, solve_expansion=fake_expansion(), oracle=fake_oracle())
     kwargs.update(overrides)
-    return ideal.run_ideal_case(**kwargs)
+    return kwargs
 
 
-# ------------------------------------------------------------------ the one operating point
+def run(point=None, **overrides):
+    if point is None:
+        return ideal.run_ideal_case(**solvers(**overrides))
+    return ideal.run_ideal_case(point, **solvers(**overrides))
 
 
-def test_one_point_is_solved_once_and_used_by_every_computation():
+# ------------------------------------------------------------------ one operating point per case
+
+
+def test_without_a_point_the_current_design_runs():
+    out = run()
+    assert out.point is CURRENT_DESIGN and out.case is CURRENT_DESIGN.case
+    assert out.chamber_case.chamber_pressure == pytest.approx(3285.0 * PSIA, rel=1e-15)
+    assert AREA_RATIO == 77.5
+
+
+@EACH_POINT
+def test_one_point_is_solved_once_and_used_by_every_computation(point):
     calls = {"chamber": [], "expansion": [], "oracle": []}
 
     def chamber(case):
@@ -96,27 +116,38 @@ def test_one_point_is_solved_once_and_used_by_every_computation():
         calls["oracle"].append((case, area_ratio, mode))
         return fake_oracle()(case, area_ratio, mode)
 
-    out = run(solve_chamber=chamber, solve_expansion=expansion, oracle=oracle)
+    out = run(point, solve_chamber=chamber, solve_expansion=expansion, oracle=oracle)
     assert out.kind == ideal.KIND_OK, out.message
-    (point,) = calls["chamber"]
-    assert (point.fuel, point.fuel_temperature, point.oxidiser, point.oxidiser_temperature) == ("LH2", 20.27, "LOX", 90.17)
-    assert point.oxidiser_fuel_ratio == 6.05485
-    assert point.chamber_pressure == pytest.approx(3285.0 * 0.45359237 * 9.80665 / 0.0254 ** 2, rel=1e-15)
+    assert out.point is point and out.case is point.case
+    (solved,) = calls["chamber"]
+    assert (solved.fuel, solved.fuel_temperature, solved.oxidiser, solved.oxidiser_temperature) == ("LH2", 20.27, "LOX", 90.17)
+    assert solved.oxidiser_fuel_ratio == point.oxidiser_fuel_ratio == 6.05485
+    assert solved.chamber_pressure == pytest.approx(point.chamber_pressure_psia * PSIA, rel=1e-15)
     assert sorted(mode for _, _, mode in calls["oracle"]) == ["equilibrium", "frozen"]
-    assert all(case is point and area == AREA_RATIO == 77.5 for case, area, _ in calls["oracle"])
+    assert all(case is solved and area == point.area_ratio for case, area, _ in calls["oracle"])
     assert sorted(c.gamma_basis.value for _, c in calls["expansion"]) == ["equilibrium", "frozen"]
     for state, c in calls["expansion"]:
-        assert state.case is point
-        assert c.gamma_strategy is GammaStrategy.CHAMBER and c.area_ratio == AREA_RATIO
+        assert state.case is solved
+        assert c.gamma_strategy is GammaStrategy.CHAMBER and c.area_ratio == point.area_ratio
         assert c.ambient.mode is AmbientMode.VACUUM
+
+
+def test_the_points_are_run_at_their_own_pressures_and_area_ratios():
+    pressures = [ideal.chamber_case(p).chamber_pressure for p in POINTS]
+    assert pressures == pytest.approx([3285.0 * PSIA, 3010.0 * PSIA], rel=1e-15)
+    seen = []
+    ideal.run_ideal_cases(**solvers(oracle=lambda case, area, mode: seen.append(area) or fake_oracle()(case, area, mode)))
+    assert sorted(set(seen)) == [69.5, 77.5]
 
 
 # ------------------------------------------------------------------ step A: compared, never judged
 
 
-def test_step_a_compares_every_quantity_and_judges_none():
-    out = run()
+@EACH_POINT
+def test_step_a_compares_every_quantity_and_judges_none(point):
+    out = run(point)
     assert out.step_a.verdict == COMPARED and not out.step_a.not_observed
+    assert out.step_a.case is point.case
     assert [r.verdict for r in out.step_a.rows] == [COMPARED] * 3
     assert all(r.bound is None for r in out.step_a.rows)
 
@@ -137,8 +168,9 @@ def test_step_a_uses_the_vacuum_figure_not_the_optimum_one():
 # ------------------------------------------------------------------ step B: a model difference, the printout absent
 
 
-def test_step_b_pairs_each_gamma_basis_with_its_expansion():
-    rows = run().step_b
+@EACH_POINT
+def test_step_b_pairs_each_gamma_basis_with_its_expansion(point):
+    rows = run(point).step_b
     assert [(r.gamma_basis, r.oracle_mode) for r in rows] == [("frozen", "frozen"), ("equilibrium", "equilibrium")]
     for r in rows:
         assert r.rocketforge_isp_s == REDUCED_ISP[r.gamma_basis]
@@ -147,13 +179,22 @@ def test_step_b_pairs_each_gamma_basis_with_its_expansion():
         assert r.kind == "model difference" and "vacuum" in r.reference
 
 
-def test_no_row_puts_rocketforge_beside_the_printout():
-    out = run()
+@EACH_POINT
+def test_no_row_puts_rocketforge_beside_the_printout(point):
+    out = run(point)
     step_a_values = {r.observed for r in out.step_a.rows}
     assert not step_a_values & {v * STANDARD_GRAVITY for v in REDUCED_ISP.values()}
     printed = {q.value for q in out.case.quantities}
     assert not printed & {v for r in out.step_b for v in (r.rocketforge_isp_s, r.cea_isp_s)}
     assert "no row compares RocketForge with the printout directly" in out.declarations
+
+
+def test_no_row_puts_one_point_beside_the_other():
+    """Each point's rows hold its own printed values and nothing else."""
+    for out in ideal.run_ideal_cases(**solvers()):
+        assert out.step_a.case is out.case
+        own = {q.key: to_canonical(q.value, q.unit)[0] for q in out.case.quantities}
+        assert {r.key: r.reference for r in out.step_a.rows} == pytest.approx(own, rel=1e-15)
 
 
 @pytest.mark.parametrize("record", [ideal.ReductionRow, ideal.IdealCaseOutcome])
@@ -162,24 +203,46 @@ def test_no_record_can_carry_a_verdict_or_a_tolerance(record):
     assert not names & {"verdict", "passed", "tolerance", "bound", "total", "combined"}
 
 
-def test_the_input_differences_are_declared():
+# ------------------------------------------------------------------ declarations
+
+
+def test_the_current_design_declares_its_input_differences():
     text = " | ".join(run().declarations)
-    for needed in ("90.180", "90.17", "-3102.000", "-3102.055", "-2154.000", "-2153.920", "77.50022", "species",
-                   "AS-DB05-US-SSME-BLOCK-I-002", "sample run"):
+    for needed in ("90.180", "90.17", "-3102.000", "-3102.055", "-2154.000", "-2153.920", "77.5 as scheduled",
+                   "77.50022", "species", "3285 psia", "AS-DB05-US-SSME-BLOCK-I-002", "sample run"):
         assert needed in text, needed
 
 
-# ------------------------------------------------------------------ all or nothing, never raises
+def test_the_large_throat_declares_its_own_area_ratio_and_no_engine_assertion():
+    text = " | ".join(run(LARGE_THROAT).declarations)
+    for needed in ("90.180", "-3102.055", "-2153.920", "69.5 as scheduled", "69.48698", "species", "3010 psia",
+                   "linked to no catalog configuration", "sample run"):
+        assert needed in text, needed
+    assert "AS-DB05" not in text and "77.5" not in text and "3285" not in text
+
+
+def test_the_points_share_every_declaration_but_their_inputs():
+    current, large = (ideal.declarations(p) for p in POINTS)
+    assert len(current) == len(large) == 10
+    differing = [i for i, (a, b) in enumerate(zip(current, large, strict=True)) if a != b]
+    assert [current[i].split(":")[0] for i in differing] == ["area ratio", "chamber pressure"]
+    assert ideal.declarations() == current
+
+
+# ------------------------------------------------------------------ all or nothing per point, never raises
 
 
 def test_no_provider_is_reported_and_nothing_is_substituted():
     out = run(solve_chamber=lambda case: SimpleNamespace(state=None, kind="unavailable", diagnostics=(), message="x"))
     assert out.kind == ideal.KIND_UNAVAILABLE and out.step_a is None and out.step_b == ()
+    assert out.declarations == ideal.declarations(CURRENT_DESIGN)
 
 
 def test_a_refused_chamber_is_a_refusal():
-    out = run(solve_chamber=lambda case: SimpleNamespace(state=None, kind="no_solution", diagnostics=(), message="no"))
+    out = run(LARGE_THROAT,
+              solve_chamber=lambda case: SimpleNamespace(state=None, kind="no_solution", diagnostics=(), message="no"))
     assert out.kind == ideal.KIND_REFUSED and out.step_a is None and out.step_b == ()
+    assert out.point is LARGE_THROAT and out.declarations == ideal.declarations(LARGE_THROAT)
 
 
 @pytest.mark.parametrize("kind, expected", [(ORACLE_UNAVAILABLE, ideal.KIND_UNAVAILABLE),
@@ -206,6 +269,20 @@ def test_one_refused_basis_leaves_nothing(failing):
     out = run(solve_expansion=expansion)
     assert out.kind == ideal.KIND_REFUSED and failing in out.message
     assert out.step_a is None and out.step_b == ()
+
+
+@pytest.mark.parametrize("failing_area, kept", [(69.5, 0), (77.5, 1)])
+def test_one_points_failure_does_not_hide_the_others_result(failing_area, kept):
+    good = fake_oracle()
+
+    def oracle(case, area_ratio, mode):
+        return OracleOutcome(kind=ORACLE_FAILED, message="no") if area_ratio == failing_area else good(case, area_ratio, mode)
+
+    outcomes = ideal.run_ideal_cases(**solvers(oracle=oracle))
+    assert [o.point for o in outcomes] == list(POINTS)
+    assert outcomes[kept].kind == ideal.KIND_OK and len(outcomes[kept].step_a.rows) == 3
+    failed = outcomes[1 - kept]
+    assert failed.kind == ideal.KIND_REFUSED and failed.step_a is None and failed.step_b == ()
 
 
 def test_warnings_are_carried_once():
@@ -243,13 +320,15 @@ def test_importing_the_runner_loads_no_performance_chain_or_provider():
 
 
 @requires_cea
-def test_a_real_run_is_complete_and_unjudged():
-    out = ideal.run_ideal_case()
-    assert out.kind == ideal.KIND_OK, out.message
-    assert out.step_a.verdict == COMPARED and not out.step_a.not_observed
-    assert all(r.verdict == COMPARED and math.isfinite(r.observed) and r.observed > 0.0 for r in out.step_a.rows)
-    assert [(r.gamma_basis, r.oracle_mode) for r in out.step_b] == list(ideal.PAIRINGS)
-    assert all(math.isfinite(r.rocketforge_isp_s) and math.isfinite(r.cea_isp_s) for r in out.step_b)
+def test_a_real_run_of_every_point_is_complete_and_unjudged():
+    outcomes = ideal.run_ideal_cases()
+    assert [o.point for o in outcomes] == list(POINTS)
+    for out in outcomes:
+        assert out.kind == ideal.KIND_OK, out.message
+        assert out.step_a.verdict == COMPARED and not out.step_a.not_observed
+        assert all(r.verdict == COMPARED and math.isfinite(r.observed) and r.observed > 0.0 for r in out.step_a.rows)
+        assert [(r.gamma_basis, r.oracle_mode) for r in out.step_b] == list(ideal.PAIRINGS)
+        assert all(math.isfinite(r.rocketforge_isp_s) and math.isfinite(r.cea_isp_s) for r in out.step_b)
 
 
 @requires_cea

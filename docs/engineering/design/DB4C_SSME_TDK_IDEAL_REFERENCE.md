@@ -2,7 +2,8 @@
 
 Status: IMPLEMENTED (2026-11-07). The owner accepted the six decisions in §1 as recommended. The rules in §8 were
 fixed, and the tests written, before any RocketForge or CEA value was computed for this case. §11 records the first
-run as readings only.
+run as readings only. §12 adds a second point from the same report, the enlarged throat of Figure 7, under the same
+decisions and rules, and §13 records its first run.
 
 The source and its reading are in `docs/research/engine_database/db05/IDEAL_VALUE_SOURCES.md`. This document answers
 that page's §7.
@@ -183,6 +184,8 @@ printed -422.3787. That is arithmetic on the printed and CEA constants, not a co
 | `tests/comparison/test_ssme_tdk_1985.py` | the transcription (source values, which are data), the kind, no verdict, the keys, and the two unit factors |
 | `tests/application/test_reference_ideal_case.py` | the pairings, the vacuum reference, no combined row, no verdict or tolerance field, and the refusal and unavailable paths with injected solvers. One CEA-gated run asserts structure and finiteness only |
 
+§12 extends the case module and the runner to a second point.
+
 `units.py` is a shared contract. When it changes, both full suites and `tests/test_architecture.py` run. The layering
 is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. The runner sits in
 `application/analysis` and reaches CEA only through `performance_oracle` and `thermochemistry_service`.
@@ -198,7 +201,7 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 
 ## 9. Limits
 
-- One operating point, one 1985 program, vacuum only.
+- Two operating points of one 1985 report (§12), one program, vacuum only.
 - It does not validate CEA: it is no verdict. The Phase 5E printout (`rocketforge/data/reference/performance_nasa_cea_2002_lox_lh2.json`)
   stays the oracle's validation.
 - It says nothing about delivered SSME performance. The measured 452.6 s and the report's own efficiencies are not part
@@ -207,7 +210,7 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 
 ## 10. Possible later additions (not decided)
 
-- The large-throat first solution (Figure 7) as a second point under the same rules.
+- The large-throat first solution (Figure 7) as a second point under the same rules. Taken up in §12.
 - The manual's RL-10 OTV sample (Table 7-3), likewise; not a catalog configuration.
 - A display, after a scientific-UI review.
 
@@ -244,3 +247,87 @@ What these readings do not say:
 - Step B is the reduction alone. It is not an error against TDK, and the two steps are not added in this record.
 - The first run changes no engine evidence, catalog entry, DB-4A gate rule or regression total. Regression references
   stay 0.
+
+## 12. A second point: the enlarged throat, Figure 7 (2026-11-07)
+
+Taken up from §10, which listed it before the first run, after the owner's go-ahead to continue. It adds no decision:
+the six in §1 and the rules in §8 apply unchanged. Its transcription, rules and tests are fixed here before any value is
+computed for it.
+
+The same report runs TDK on a "Large Throat" design: the main combustion chamber is modified for a larger throat and
+the nozzle assembly is unchanged. In the report's words, this "reduces the nozzle expansion ratio from 77.5 to 69.5:1",
+and the chamber pressure falls "from 3285 (109% power level) to 3010 psia" (printed p.2, PDF p.8). Figure 4 (printed
+p.18, PDF p.24) is the TDK input for this design. Figure 7 (printed p.21, PDF p.27) is its summary.
+
+It is a 1985 design study, not a catalog configuration. The catalog records `CFG-RS25-SMALL-THROAT` as the baseline this
+study starts from, "Not Block IIA or Block II". This case is linked to no configuration, `CFG-RS25-BLOCK-II` included.
+
+Inputs, as Figure 4 states them:
+
+| Input | Value | Current design |
+|---|---|---|
+| Chamber pressure | 3010 psia, the stagnation pressure of the rocket problem (`P = 3010.`, `PSIA = T`, `DELH = 0`) | 3285 psia |
+| Mixture ratio | 6.05485 (`OFSKED`); Figure 7 prints 6.054850 | same |
+| Area ratio | 69.5 (`ASUP` schedule and `$ODK EP`); Figure 7 prints EP (NOZZLE) 69.48698, recorded, not used | 77.5 |
+| Fuel | H2(L), -2154. cal/mol, 20.27 K | same card |
+| Oxidiser | O2(L), -3102. cal/mol, 90.180 K | same card |
+| Expansion | one-dimensional, isentropic, vacuum; as §2 | same |
+
+Quantities, from Figure 7's first TDK/BLM solution:
+
+| Key | Value | Unit | Printed decimals |
+|---|---|---|---|
+| `chamber_temperature` | 6526.882 | R | 3 |
+| `vacuum_specific_impulse:equilibrium` | 463.2604 | lbf*s/lbm | 4 |
+| `vacuum_specific_impulse:frozen` | 444.7228 | lbf*s/lbm | 4 |
+
+Not recorded, for the reasons in §4: ISP (ODK) 463.0793; the two-dimensional and boundary-layer values; the whole
+second solution (DELH1 116.6856 BTU/lb); and HCHAM (ODE) -422.3749, one side of the research page's §3.7 inconsistency.
+
+`missing` is as in §4, with 69.5 against the printed 69.48698. That gap is 1.9e-4 of the area ratio, against 2.8e-6 for
+the current design, and it is declared on the result like every other input difference. It is not estimated: an
+estimate would need the expansion model, which is a computed result.
+
+Declarations: §6's reactant and species lines apply unchanged. The area ratio line reads 69.5 against 69.48698. The
+chamber pressure line says the design is a 1985 study linked to no catalog configuration, in place of the engine
+assertion the current design names.
+
+Code. The case is `SSME_TDK_1985_LARGE_THROAT` in `ssme_tdk_1985.py`. A `TdkPoint` pairs each case with its numeric
+inputs, and `POINTS` holds the current design first and the enlarged throat second. `run_ideal_case(point)` runs one
+point; without a point it runs the current design, as before. `run_ideal_cases()` runs each point on its own. Each
+point is all or nothing by itself, and one point's failure does not hide the other's result. The hand-run report prints
+both.
+
+No row compares the two points. Their difference is a design change inside one program; each point is set beside CEA,
+never beside the other.
+
+## 13. Second point, first run (2026-11-07)
+
+Run by hand with the same report, which now prints both points. The enlarged throat ran at LH2 20.27 K, LOX 90.17 K,
+O/F 6.05485, 20 753 219.452 Pa (3010 psia) and area ratio 69.5. All five computations succeeded and the provider raised
+no warning. The current design's rows were identical to §11. These are readings: no test pins them, and nothing in §12
+was changed after seeing them.
+
+Step A, the 1985 TDK printout against the same model class in CEA. Every row is `compared`; none is judged:
+
+| Quantity | TDK 1985 | Computed | Difference |
+|---|---|---|---|
+| Chamber temperature | 3626.046 K (6526.882 R) | 3608.797 K, RocketForge's chamber (a CEA HP solve) | -17.249 K (-0.48 %) |
+| Vacuum Isp, equilibrium | 463.2604 s | 462.7992 s, CEA | -0.461 s (-0.100 %) |
+| Vacuum Isp, frozen at the chamber | 444.7228 s | 444.9810 s, CEA | +0.258 s (+0.058 %) |
+
+Step B, RocketForge's constant-gamma reduction against CEA at the same point. The printout takes no part. Both rows are
+a model difference, both in vacuum:
+
+| Gamma basis | RocketForge | CEA, matching expansion | Difference |
+|---|---|---|---|
+| frozen | 452.0964 s | 444.9810 s (frozen) | +1.599 % |
+| equilibrium | 472.8420 s | 462.7992 s (equilibrium) | +2.170 % |
+
+What these readings do not say:
+
+- At both points, each step A difference has the same sign and nearly the same size: -17.5 and -17.2 K, -0.096 and
+  -0.100 %, +0.059 and +0.058 %. That is recorded, not explained. It does not separate code from data, and it is not a
+  row between the points.
+- Everything §11 says it does not say holds here too. Step B is the reduction alone, and the two steps are not added.
+- Engine evidence, the catalog, the DB-4A gate and the regression totals are unchanged. Regression references stay 0.

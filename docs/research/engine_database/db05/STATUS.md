@@ -1286,4 +1286,6 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - The owner accepted DB-4C (`docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md`), and it is implemented: the 1985
   TDK printout of the SSME current design as an `INDEPENDENT_CODE` case, with three quantities, compared without a
   verdict.
+- A second point from the same report, the enlarged-throat design study (Figure 7, 3010 psia, area ratio 69.5), is
+  compared under the same rules. It is linked to no catalog configuration.
 - No engine record, assertion or conflict moved. The unresolved count stays 32, and regression references stay 0.

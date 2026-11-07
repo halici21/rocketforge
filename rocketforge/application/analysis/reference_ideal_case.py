@@ -1,7 +1,10 @@
-"""DB-4C: the SSME ideal reference case, run in two separate steps. Report only.
+"""DB-4C: the SSME ideal reference cases, each run in two separate steps. Report only.
 
-**Step A** compares the 1985 TDK printout (:mod:`rocketforge.comparison.ssme_tdk_1985`)
-with the same model class:
+There are two points, both from the 1985 TDK report
+(:mod:`rocketforge.comparison.ssme_tdk_1985`): the current design and the
+enlarged-throat design study. Each is run on its own.
+
+**Step A** compares the TDK printout with the same model class:
 
 - the chamber temperature with RocketForge's chamber result, a CEA HP solve;
 - the vacuum Isp, shifting and frozen at the chamber, with CEA's own rocket
@@ -17,11 +20,14 @@ part. A difference is the reduction alone, labelled a model difference.
 
 There is deliberately no row of RocketForge against the printout. That one number
 would mix code, data and reduction, and would read as an error against a NASA
-source. A reader who wants it adds the two steps and keeps the attribution.
+source. A reader who wants it adds the two steps and keeps the attribution. Nor
+is there a row between the two points: each is set beside CEA, never beside the
+other.
 
-All or nothing: if any of the five computations fails, only the reason is
-returned. Never raises. Writes nothing. No test pins a computed difference, and
-no rule may change in response to one (DB4C_SSME_TDK_IDEAL_REFERENCE.md §8).
+All or nothing, per point: if any of a point's five computations fails, only the
+reason is returned for that point. Never raises. Writes nothing. No test pins a
+computed difference, and no rule may change in response to one
+(DB4C_SSME_TDK_IDEAL_REFERENCE.md §8, §12).
 """
 
 from __future__ import annotations
@@ -33,26 +39,26 @@ from typing import Any
 from rocketforge.comparison.cases import ReferenceCase
 from rocketforge.comparison.compare import CaseComparison, ObservedQuantity, compare
 from rocketforge.comparison.ssme_tdk_1985 import (
-    AREA_RATIO,
-    CHAMBER_PRESSURE_PSIA,
+    CURRENT_DESIGN,
     KEY_CHAMBER_TEMPERATURE,
     KEY_VACUUM_ISP_EQUILIBRIUM,
     KEY_VACUUM_ISP_FROZEN,
-    OXIDISER_FUEL_RATIO,
-    SSME_TDK_1985_CURRENT_DESIGN,
+    POINTS,
+    TdkPoint,
 )
 from rocketforge.comparison.units import to_canonical
 from rocketforge.core.constants import STANDARD_GRAVITY
 
 __all__ = ["KIND_OK", "KIND_REFUSED", "KIND_UNAVAILABLE", "FUEL", "OXIDISER", "PAIRINGS", "STEP_A_ORACLE_MODES",
-           "DECLARATIONS", "ReductionRow", "IdealCaseOutcome", "chamber_case", "run_ideal_case"]
+           "declarations", "ReductionRow", "IdealCaseOutcome", "chamber_case", "run_ideal_case", "run_ideal_cases"]
 
 KIND_OK = "ok"
 KIND_REFUSED = "refused"
 KIND_UNAVAILABLE = "unavailable"
 
 #: (model definition, inlet temperature in K). Both are CEA's reference temperatures for H2(L) and O2(L), where
-#: RocketForge's enthalpy coupling adds exactly no increment, so CEA's assigned enthalpies are used (DB-4C §6).
+#: RocketForge's enthalpy coupling adds exactly no increment, so CEA's assigned enthalpies are used (DB-4C §6). Both
+#: points print the same reactant cards, so both run with these.
 FUEL: tuple[str, float] = ("LH2", 20.27)
 OXIDISER: tuple[str, float] = ("LOX", 90.17)
 
@@ -65,7 +71,8 @@ STEP_A_ORACLE_MODES: dict[str, str] = {
 #: Step B: (RocketForge gamma basis, oracle expansion mode). Each basis with its matching expansion, both always.
 PAIRINGS: tuple[tuple[str, str], ...] = (("frozen", "frozen"), ("equilibrium", "equilibrium"))
 
-DECLARATIONS: tuple[str, ...] = (
+#: Declared on every point: what the case is, and the input differences both figures share (DB-4C §6, §12).
+_SHARED: tuple[str, ...] = (
     "source: independent code (TDK, 1985); every step A row is compared, none is judged",
     "step A differences are code and thermodynamic data (TDK 1985 against NASA CEA), plus the input differences "
     "below; never a RocketForge defect",
@@ -75,12 +82,23 @@ DECLARATIONS: tuple[str, ...] = (
     "O2(L): the source prints -3102.000 cal/mol at 90.180 K; run at 90.17 K with CEA's assigned -12979 J/mol "
     "(-3102.055 cal/mol)",
     "H2(L): the source prints -2154.000 cal/mol at 20.27 K; run with CEA's assigned -9012 J/mol (-2153.920 cal/mol)",
-    "area ratio: 77.5 as scheduled; the source prints 77.50022 for the nozzle",
-    "product species: the source does not print TDK's; CEA runs with the provider's H/O set",
-    "chamber pressure: 3285 psia, the stagnation pressure of TDK's rocket problem; the engine assertion "
-    "AS-DB05-US-SSME-BLOCK-I-002 is not reinterpreted",
-    "vacuum and frozen-at-chamber conventions: read from the 1985 TDK manual's sample run, not from the SSME pages",
 )
+_SPECIES = "product species: the source does not print TDK's; CEA runs with the provider's H/O set"
+_CONVENTIONS = ("vacuum and frozen-at-chamber conventions: read from the 1985 TDK manual's sample run, not from the "
+                "SSME pages")
+
+
+def declarations(point: TdkPoint = CURRENT_DESIGN) -> tuple[str, ...]:
+    """Everything a point's result carries, in a fixed order. Nothing is corrected or estimated away."""
+    return (
+        *_SHARED,
+        f"area ratio: {point.area_ratio:g} as scheduled; the source prints {point.printed_nozzle_area_ratio} "
+        "for the nozzle",
+        _SPECIES,
+        f"chamber pressure: {point.chamber_pressure_psia:g} psia, the stagnation pressure of TDK's rocket problem; "
+        f"{point.catalog_link}",
+        _CONVENTIONS,
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -98,24 +116,28 @@ class ReductionRow:
 
 @dataclass(frozen=True, slots=True)
 class IdealCaseOutcome:
-    """Both steps, or what stopped them. ``kind`` says which; nothing is substituted."""
+    """Both steps for one point, or what stopped them. ``kind`` says which; nothing is substituted."""
 
     kind: str
-    case: ReferenceCase
+    point: TdkPoint
     chamber_case: Any = None
     step_a: CaseComparison | None = None
     step_b: tuple[ReductionRow, ...] = ()
-    declarations: tuple[str, ...] = DECLARATIONS
+    declarations: tuple[str, ...] = ()
     message: str = ""
     warnings: tuple[str, ...] = ()
 
+    @property
+    def case(self) -> ReferenceCase:
+        return self.point.case
 
-def chamber_case() -> Any:
+
+def chamber_case(point: TdkPoint = CURRENT_DESIGN) -> Any:
     """The one operating point both steps use, in SI."""
     from .thermochemistry_service import ChamberCase
 
-    pressure_pa = to_canonical(CHAMBER_PRESSURE_PSIA, "psia")[0]
-    return ChamberCase(fuel=FUEL[0], oxidiser=OXIDISER[0], oxidiser_fuel_ratio=OXIDISER_FUEL_RATIO,
+    pressure_pa = to_canonical(point.chamber_pressure_psia, "psia")[0]
+    return ChamberCase(fuel=FUEL[0], oxidiser=OXIDISER[0], oxidiser_fuel_ratio=point.oxidiser_fuel_ratio,
                        chamber_pressure=pressure_pa, fuel_temperature=FUEL[1], oxidiser_temperature=OXIDISER[1])
 
 
@@ -123,10 +145,10 @@ def _warnings(diagnostics: tuple[Any, ...]) -> tuple[str, ...]:
     return tuple(str(d.message) for d in diagnostics if str(getattr(d, "severity", "")) == "warning")
 
 
-def run_ideal_case(*, solve_chamber: Callable[[Any], Any] | None = None,
+def run_ideal_case(point: TdkPoint = CURRENT_DESIGN, *, solve_chamber: Callable[[Any], Any] | None = None,
                    solve_expansion: Callable[[Any, Any], Any] | None = None,
                    oracle: Callable[[Any, float, str], Any] | None = None) -> IdealCaseOutcome:
-    """Solve the point once and report both steps. The three solvers can be injected so the rules are tested
+    """Solve one point once and report both steps. The three solvers can be injected so the rules are tested
     with no provider and no real value."""
     # Local on purpose: importing this module must not load the performance chain or a provider.
     from rocketforge.comparison.extract import observed_from_chamber
@@ -137,37 +159,40 @@ def run_ideal_case(*, solve_chamber: Callable[[Any], Any] | None = None,
     from .performance_service import AmbientCondition, AmbientMode, PerformanceCase, solve_performance
     from .thermochemistry_service import OUTCOME_UNAVAILABLE, solve_case
 
-    case = SSME_TDK_1985_CURRENT_DESIGN
-    point = chamber_case()
+    run = chamber_case(point)
+    declared = declarations(point)
 
-    chamber = (solve_chamber or solve_case)(point)
+    def stopped(kind: str, message: str) -> IdealCaseOutcome:
+        return IdealCaseOutcome(kind, point, run, declarations=declared, message=message)
+
+    chamber = (solve_chamber or solve_case)(run)
     if chamber.state is None:
-        kind = KIND_UNAVAILABLE if chamber.kind == OUTCOME_UNAVAILABLE else KIND_REFUSED
-        return IdealCaseOutcome(kind, case, point, message=f"chamber: {chamber.message}")
+        return stopped(KIND_UNAVAILABLE if chamber.kind == OUTCOME_UNAVAILABLE else KIND_REFUSED,
+                       f"chamber: {chamber.message}")
     warnings = list(_warnings(tuple(chamber.diagnostics)))
 
     oracles: dict[str, Any] = {}
     for mode in sorted({m for _, m in PAIRINGS} | set(STEP_A_ORACLE_MODES.values())):
-        outcome = (oracle or run_oracle)(point, AREA_RATIO, mode)
+        outcome = (oracle or run_oracle)(run, point.area_ratio, mode)
         if not outcome.ok:
-            kind = KIND_UNAVAILABLE if outcome.kind == ORACLE_UNAVAILABLE else KIND_REFUSED
-            return IdealCaseOutcome(kind, case, point, message=f"CEA {mode} expansion: {outcome.message}")
+            return stopped(KIND_UNAVAILABLE if outcome.kind == ORACLE_UNAVAILABLE else KIND_REFUSED,
+                           f"CEA {mode} expansion: {outcome.message}")
         oracles[mode] = outcome
 
     reduced: dict[str, float] = {}
     for basis, _ in PAIRINGS:
         outcome = (solve_expansion or solve_performance)(chamber, PerformanceCase(
             gamma_strategy=GammaStrategy.CHAMBER, gamma_basis=ChamberGammaBasis(basis),
-            area_ratio=AREA_RATIO, ambient=AmbientCondition(mode=AmbientMode.VACUUM)))
+            area_ratio=point.area_ratio, ambient=AmbientCondition(mode=AmbientMode.VACUUM)))
         if outcome.result is None:
-            return IdealCaseOutcome(KIND_REFUSED, case, point, message=f"{basis} basis: {outcome.message}")
+            return stopped(KIND_REFUSED, f"{basis} basis: {outcome.message}")
         reduced[basis] = outcome.result.specific_impulse
         warnings += [w for w in _warnings(tuple(outcome.diagnostics)) if w not in warnings]
 
     observed = {KEY_CHAMBER_TEMPERATURE: observed_from_chamber(chamber.state)[KEY_CHAMBER_TEMPERATURE]}
     for key, mode in STEP_A_ORACLE_MODES.items():
         observed[key] = ObservedQuantity(key, oracles[mode].specific_impulse_vacuum * STANDARD_GRAVITY, "N*s/kg")
-    step_a = compare(case, observed)
+    step_a = compare(point.case, observed)
 
     step_b = []
     for basis, mode in PAIRINGS:
@@ -175,4 +200,14 @@ def run_ideal_case(*, solve_chamber: Callable[[Any], Any] | None = None,
                    if r["key"] == "isp_vacuum")
         step_b.append(ReductionRow(basis, mode, float(row["rocketforge"]), float(row["provider"]),
                                    row["difference"], row["reference"], row["kind"]))
-    return IdealCaseOutcome(KIND_OK, case, point, step_a=step_a, step_b=tuple(step_b), warnings=tuple(warnings))
+    return IdealCaseOutcome(KIND_OK, point, run, step_a=step_a, step_b=tuple(step_b), declarations=declared,
+                            warnings=tuple(warnings))
+
+
+def run_ideal_cases(*, solve_chamber: Callable[[Any], Any] | None = None,
+                    solve_expansion: Callable[[Any, Any], Any] | None = None,
+                    oracle: Callable[[Any, float, str], Any] | None = None) -> tuple[IdealCaseOutcome, ...]:
+    """Every point, in :data:`~rocketforge.comparison.ssme_tdk_1985.POINTS` order, each on its own: one point's
+    failure does not hide another's result."""
+    return tuple(run_ideal_case(point, solve_chamber=solve_chamber, solve_expansion=solve_expansion, oracle=oracle)
+                 for point in POINTS)

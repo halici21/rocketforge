@@ -106,9 +106,10 @@ case.
 
 ### 3.5 Large-throat design: Figure 7 (printed p.21, PDF p.27)
 
-Not a catalog configuration (the enlarged-throat main combustion chamber), recorded for completeness. First
-solution: Pc 3010.000 psia, Tc 6526.882 R, MR 6.054850, same reactant enthalpies, HCHAM -422.3749 BTU/lb,
-EP 69.48698, ISP (ODE) 463.2604, ISP (ODK) 463.0793, ISP (ODF) 444.7228, ISP (TDK) 457.2597, ISP (TC) 450.4516 s.
+Not a catalog configuration (the enlarged-throat main combustion chamber). It is now the second DB-4C point,
+under the same rules (DB-4C §12, §13). First solution: Pc 3010.000 psia, Tc 6526.882 R, MR 6.054850, same
+reactant enthalpies, HCHAM -422.3749 BTU/lb, EP 69.48698, ISP (ODE) 463.2604, ISP (ODK) 463.0793, ISP (ODF)
+444.7228, ISP (TDK) 457.2597, ISP (TC) 450.4516 s.
 
 ### 3.6 What the report itself derives (printed p.4, PDF p.10)
 
@@ -184,7 +185,8 @@ value with its inlet state, or describe programs and methods only.
 
 None is made here. The design that answers each is
 `docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md`. The owner accepted it on 2026-11-07 and it is
-implemented: an `INDEPENDENT_CODE` case with three quantities, compared without a verdict (its §11 is the first run).
+implemented: an `INDEPENDENT_CODE` case with three quantities, compared without a verdict. Its §11 is the first
+run, and §12 and §13 add the enlarged-throat point.
 
 1. **Classification.** `INDEPENDENT_CODE` (recommended, by the `rp1311_historical.py` precedent: no verdict)
    or `NASA_PUBLISHED` (a verdict at printed precision, which §3.7 shows the source cannot support).
