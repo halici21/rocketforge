@@ -39,9 +39,14 @@ CANONICAL_UNIT = {
 #: unit -> (dimension, factor to the canonical unit). Sources of the exact
 #: values: the international foot (0.3048 m, 1959); the standard atmosphere
 #: (101325 Pa); the avoirdupois pound and standard gravity defining psi; the
-#: thermochemical calorie (4.184 J), which is the one NASA CEA uses.
+#: thermochemical calorie (4.184 J), which is the one NASA CEA uses; the
+#: rankine (5/9 K, both scales absolute, so no offset); and the pound-force
+#: (one pound-mass times standard gravity, 9.80665 m/s^2), which makes a
+#: specific impulse printed in lbf*s/lbm worth exactly 9.80665 m/s per unit.
 _FACTORS: dict[str, tuple[str, float]] = {
     "K": ("temperature", 1.0),
+    "R": ("temperature", 5.0 / 9.0),     # degrees Rankine, absolute
+    "lbf*s/lbm": ("velocity", 9.80665),  # specific impulse as an English-unit program prints it
     "Pa": ("pressure", 1.0),
     "kPa": ("pressure", 1.0e3),
     "MPa": ("pressure", 1.0e6),

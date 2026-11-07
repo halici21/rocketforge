@@ -182,8 +182,9 @@ value with its inlet state, or describe programs and methods only.
 
 ## 7. Owner decisions this would need
 
-None is made here. A design that proposes an answer to each is
-`docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md` (proposed, not implemented).
+None is made here. The design that answers each is
+`docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md`. The owner accepted it on 2026-11-07 and it is
+implemented: an `INDEPENDENT_CODE` case with three quantities, compared without a verdict (its §11 is the first run).
 
 1. **Classification.** `INDEPENDENT_CODE` (recommended, by the `rp1311_historical.py` precedent: no verdict)
    or `NASA_PUBLISHED` (a verdict at printed precision, which §3.7 shows the source cannot support).

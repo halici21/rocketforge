@@ -9,6 +9,12 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference cases, DB-4C: the SSME current design at 109% as the 1985 TDK program printed it (NASA-CR-178740), held as
+  an independent code. Three quantities are recorded: the chamber temperature and the vacuum Isp, shifting and frozen
+  at the chamber. A hand-run report compares them with CEA at the same point without a verdict, and separately shows
+  RocketForge's constant-gamma reduction against CEA as a model difference. No row compares RocketForge with the
+  printout directly. The comparison units gain degrees Rankine and lbf·s/lbm, both exact. No regression reference is
+  added, and no engine evidence or catalog entry changes.
 - Reference engines, DB-4B: an engine-level Isp ratio that puts a printed engine Isp beside RocketForge's ideal Isp under
   both gamma bases. It is a report-only reading with no verdict or tolerance, and it is not a thrust-chamber efficiency.
   J-2 and J-2S are the only eligible engines. No regression reference is added.

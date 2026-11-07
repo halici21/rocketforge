@@ -1280,3 +1280,10 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - It comes from the 1985 TDK program and the thermodynamic data of that time, so by the `rp1311_historical.py`
   precedent it would be an independent code: no verdict. Regression references stay 0.
 - No value was computed against it. The classification, storage and quantities are owner decisions.
+
+## The SSME ideal reference case (2026-11-07)
+
+- The owner accepted DB-4C (`docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md`), and it is implemented: the 1985
+  TDK printout of the SSME current design as an `INDEPENDENT_CODE` case, with three quantities, compared without a
+  verdict.
+- No engine record, assertion or conflict moved. The unresolved count stays 32, and regression references stay 0.

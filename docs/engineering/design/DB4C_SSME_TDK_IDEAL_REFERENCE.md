@@ -1,7 +1,8 @@
 # DB-4C — SSME ideal reference case from the 1985 TDK printout: compared, never judged
 
-Status: PROPOSED. Nothing is implemented. No RocketForge or CEA value has been computed for this case, so none of
-the rules below could be fitted to a result. The owner decides §1 before any code is written.
+Status: IMPLEMENTED (2026-11-07). The owner accepted the six decisions in §1 as recommended. The rules in §8 were
+fixed, and the tests written, before any RocketForge or CEA value was computed for this case. §11 records the first
+run as readings only.
 
 The source and its reading are in `docs/research/engine_database/db05/IDEAL_VALUE_SOURCES.md`. This document answers
 that page's §7.
@@ -19,6 +20,8 @@ engine evidence, catalog entry or DB-4A gate rule. No result here can pass, fail
 | 4 | Report two separate steps: A, the source against the same model class in CEA; B, RocketForge's constant-gamma reduction against CEA. Print no combined source-to-RocketForge row | Yes (§5) |
 | 5 | The case carries its own chamber pressure: the stagnation pressure of TDK's rocket problem. The engine assertion `AS-DB05-US-SSME-BLOCK-I-002` (3285 psia, station UNKNOWN) is not reinterpreted | Yes (§4) |
 | 6 | Report only, with no workspace display, as DB-4B | Yes (§8) |
+
+All six were accepted by the owner on 2026-11-07, as recommended.
 
 With decision 1 refused (held as `NASA_PUBLISHED`), every row would carry a verdict at half the last printed digit,
 0.00005 s. The source cannot meet that against itself: two of its figures print -422.3787 and -422.3749 BTU/lb for the
@@ -169,12 +172,12 @@ From those reactant enthalpies alone, the chamber enthalpy at O/F 6.05485 moves 
 printed -422.3787. That is arithmetic on the printed and CEA constants, not a computed result. It is smaller than the
 0.0038 BTU/lb by which the source's two figures disagree with each other.
 
-## 7. Where the code would go
+## 7. Where the code goes
 
 | File | Change |
 |---|---|
 | `rocketforge/comparison/units.py` | add `"R"` (temperature, 5/9 exactly) and `"lbf*s/lbm"` (velocity, 9.80665 m/s exactly: a pound-force is a pound-mass times standard gravity) |
-| `rocketforge/comparison/ssme_tdk_1985.py` | new: the `ReferenceCase` above, with page citations and the source id; exported from `comparison/__init__.py` |
+| `rocketforge/comparison/ssme_tdk_1985.py` | new: the `ReferenceCase` above, with page citations and the source id. Imported by its module path and not re-exported from `comparison/__init__.py`, as the `rp1311` modules are |
 | `rocketforge/application/analysis/reference_ideal_case.py` | new: `run_ideal_case(*, solve_chamber=None, solve_expansion=None, oracle=None)`. It never raises and returns kind ok, unavailable or refused, with step A, step B, the declarations and the provider warnings. The solvers are injectable, as in DB-4B, so the rules are tested without a provider. All or nothing: if any of the five computations fails, nothing is reported but the reason |
 | `tools/reference_engines/report_ideal_case.py` | new: the hand-run report, run in `.venv-cea` |
 | `tests/comparison/test_ssme_tdk_1985.py` | the transcription (source values, which are data), the kind, no verdict, the keys, and the two unit factors |
@@ -207,3 +210,37 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 - The large-throat first solution (Figure 7) as a second point under the same rules.
 - The manual's RL-10 OTV sample (Table 7-3), likewise; not a catalog configuration.
 - A display, after a scientific-UI review.
+
+## 11. First run (2026-11-07)
+
+Run by hand: `.venv-cea\Scripts\python.exe tools\reference_engines\report_ideal_case.py`, NASA CEA through the
+provider, at one point: LH2 20.27 K, LOX 90.17 K, O/F 6.05485, 22 649 277.708 Pa, area ratio 77.5. All five
+computations succeeded and the provider raised no warning. These are readings. No test pins them, and no rule, input,
+pairing or declaration was changed after seeing them (§8).
+
+Step A, the 1985 TDK printout against the same model class in CEA. Every row is `compared`; none is judged:
+
+| Quantity | TDK 1985 | Computed | Difference |
+|---|---|---|---|
+| Chamber temperature | 3635.107 K (6543.192 R) | 3617.574 K, RocketForge's chamber (a CEA HP solve) | -17.533 K (-0.48 %) |
+| Vacuum Isp, equilibrium | 465.1311 s | 464.6838 s, CEA | -0.447 s (-0.096 %) |
+| Vacuum Isp, frozen at the chamber | 446.7661 s | 447.0315 s, CEA | +0.265 s (+0.059 %) |
+
+Step B, RocketForge's constant-gamma reduction against CEA at the same point. The printout takes no part. Both rows are
+a model difference, both in vacuum:
+
+| Gamma basis | RocketForge | CEA, matching expansion | Difference |
+|---|---|---|---|
+| frozen | 454.4515 s | 447.0315 s (frozen) | +1.660 % |
+| equilibrium | 475.2373 s | 464.6838 s (equilibrium) | +2.271 % |
+
+What these readings do not say:
+
+- The step A differences are not attributed. They contain the two codes, their thermodynamic data and the §6 input
+  differences together. The reactant enthalpies alone move the chamber enthalpy by 1.8e-5 (§6), so they are not what
+  separates the chamber temperatures, but nothing here separates code from data. The species list TDK used is not
+  printed. This was not investigated further, and the case does not ask for it.
+- The chamber temperature row differs by more, relatively, than either Isp row. That is recorded, not explained.
+- Step B is the reduction alone. It is not an error against TDK, and the two steps are not added in this record.
+- The first run changes no engine evidence, catalog entry, DB-4A gate rule or regression total. Regression references
+  stay 0.

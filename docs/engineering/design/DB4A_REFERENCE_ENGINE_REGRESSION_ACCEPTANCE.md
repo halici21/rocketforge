@@ -204,3 +204,9 @@ The owner accepted a non-locking comparison, the engine-level Isp ratio: see
 `DB4B_ENGINE_ISP_RATIO_COMPARISON.md`. It draws no verdict, so the hard and validation totals above stay 0. An engine
 mixture ratio still does not stand for a thrust chamber's for any cycle, J-2S included: the ratio declares that it uses
 the engine's. This review's results are unchanged. Only the wording of one blocker now names the new class.
+
+## 12. An ideal reference case (2026-11-07)
+
+The owner also accepted `DB4C_SSME_TDK_IDEAL_REFERENCE.md`: the SSME current design as the 1985 TDK program printed it,
+held as an independent code. It is a comparison-layer case with a report-only runner, and it draws no verdict. This
+review's gate, its results and the hard and validation totals above are unchanged, and regression references stay 0.
