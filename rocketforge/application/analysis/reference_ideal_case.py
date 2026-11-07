@@ -1,8 +1,10 @@
-"""DB-4C: the SSME ideal reference cases, each run in two separate steps. Report only.
+"""DB-4C: the ideal reference cases from 1985 TDK printouts, each run in two separate steps. Report only.
 
-There are two points, both from the 1985 TDK report
-(:mod:`rocketforge.comparison.ssme_tdk_1985`): the current design and the
-enlarged-throat design study. Each is run on its own.
+There are three points from two documents of one program: the SSME current
+design and enlarged-throat design study from the 1985 TDK report
+(:mod:`rocketforge.comparison.ssme_tdk_1985`), and the RL-10 OTV test engine from
+the TDK manual's own sample (:mod:`rocketforge.comparison.tdk_manual_1985`).
+Each is run on its own.
 
 **Step A** compares the TDK printout with the same model class:
 
@@ -21,13 +23,13 @@ part. A difference is the reduction alone, labelled a model difference.
 There is deliberately no row of RocketForge against the printout. That one number
 would mix code, data and reduction, and would read as an error against a NASA
 source. A reader who wants it adds the two steps and keeps the attribution. Nor
-is there a row between the two points: each is set beside CEA, never beside the
-other.
+is there a row between any two points: each is set beside CEA, never beside
+another.
 
 All or nothing, per point: if any of a point's five computations fails, only the
 reason is returned for that point. Never raises. Writes nothing. No test pins a
 computed difference, and no rule may change in response to one
-(DB4C_SSME_TDK_IDEAL_REFERENCE.md §8, §12).
+(DB4C_SSME_TDK_IDEAL_REFERENCE.md §8, §12, §14).
 """
 
 from __future__ import annotations
@@ -38,27 +40,31 @@ from typing import Any
 
 from rocketforge.comparison.cases import ReferenceCase
 from rocketforge.comparison.compare import CaseComparison, ObservedQuantity, compare
-from rocketforge.comparison.ssme_tdk_1985 import (
-    CURRENT_DESIGN,
+from rocketforge.comparison import ssme_tdk_1985, tdk_manual_1985
+from rocketforge.comparison.ssme_tdk_1985 import CURRENT_DESIGN
+from rocketforge.comparison.tdk_1985 import (
     KEY_CHAMBER_TEMPERATURE,
     KEY_VACUUM_ISP_EQUILIBRIUM,
     KEY_VACUUM_ISP_FROZEN,
-    POINTS,
     TdkPoint,
 )
 from rocketforge.comparison.units import to_canonical
 from rocketforge.core.constants import STANDARD_GRAVITY
 
 __all__ = ["KIND_OK", "KIND_REFUSED", "KIND_UNAVAILABLE", "FUEL", "OXIDISER", "PAIRINGS", "STEP_A_ORACLE_MODES",
-           "declarations", "ReductionRow", "IdealCaseOutcome", "chamber_case", "run_ideal_case", "run_ideal_cases"]
+           "POINTS", "declarations", "ReductionRow", "IdealCaseOutcome", "chamber_case", "run_ideal_case",
+           "run_ideal_cases"]
+
+#: Every point, in report order: the SSME report's two, then the manual's sample. No row compares any two.
+POINTS: tuple[TdkPoint, ...] = (*ssme_tdk_1985.POINTS, *tdk_manual_1985.POINTS)
 
 KIND_OK = "ok"
 KIND_REFUSED = "refused"
 KIND_UNAVAILABLE = "unavailable"
 
 #: (model definition, inlet temperature in K). Both are CEA's reference temperatures for H2(L) and O2(L), where
-#: RocketForge's enthalpy coupling adds exactly no increment, so CEA's assigned enthalpies are used (DB-4C §6). Both
-#: points print the same reactant cards, so both run with these.
+#: RocketForge's enthalpy coupling adds exactly no increment, so CEA's assigned enthalpies are used (DB-4C §6). Every
+#: point's summary prints the same reactant enthalpies, whatever its card temperatures, so all run with these (§14).
 FUEL: tuple[str, float] = ("LH2", 20.27)
 OXIDISER: tuple[str, float] = ("LOX", 90.17)
 
@@ -71,7 +77,7 @@ STEP_A_ORACLE_MODES: dict[str, str] = {
 #: Step B: (RocketForge gamma basis, oracle expansion mode). Each basis with its matching expansion, both always.
 PAIRINGS: tuple[tuple[str, str], ...] = (("frozen", "frozen"), ("equilibrium", "equilibrium"))
 
-#: Declared on every point: what the case is, and the input differences both figures share (DB-4C §6, §12).
+#: Declared on every point: what the case is and what its two steps mean (DB-4C §5).
 _SHARED: tuple[str, ...] = (
     "source: independent code (TDK, 1985); every step A row is compared, none is judged",
     "step A differences are code and thermodynamic data (TDK 1985 against NASA CEA), plus the input differences "
@@ -79,25 +85,24 @@ _SHARED: tuple[str, ...] = (
     "step B differences are RocketForge's constant-gamma, calorically perfect reduction against CEA at the same "
     "point; a model difference, not an error",
     "no row compares RocketForge with the printout directly",
-    "O2(L): the source prints -3102.000 cal/mol at 90.180 K; run at 90.17 K with CEA's assigned -12979 J/mol "
-    "(-3102.055 cal/mol)",
-    "H2(L): the source prints -2154.000 cal/mol at 20.27 K; run with CEA's assigned -9012 J/mol (-2153.920 cal/mol)",
 )
 _SPECIES = "product species: the source does not print TDK's; CEA runs with the provider's H/O set"
-_CONVENTIONS = ("vacuum and frozen-at-chamber conventions: read from the 1985 TDK manual's sample run, not from the "
-                "SSME pages")
 
 
 def declarations(point: TdkPoint = CURRENT_DESIGN) -> tuple[str, ...]:
     """Everything a point's result carries, in a fixed order. Nothing is corrected or estimated away."""
     return (
         *_SHARED,
+        f"O2(L): the source prints -3102.000 cal/mol at {point.oxidiser_card_temperature} K; run at "
+        f"{OXIDISER[1]:g} K with CEA's assigned -12979 J/mol (-3102.055 cal/mol)",
+        f"H2(L): the source prints -2154.000 cal/mol at {point.fuel_card_temperature} K; run at {FUEL[1]:g} K "
+        "with CEA's assigned -9012 J/mol (-2153.920 cal/mol)",
         f"area ratio: {point.area_ratio:g} as scheduled; the source prints {point.printed_nozzle_area_ratio} "
         "for the nozzle",
         _SPECIES,
         f"chamber pressure: {point.chamber_pressure_psia:g} psia, the stagnation pressure of TDK's rocket problem; "
         f"{point.catalog_link}",
-        _CONVENTIONS,
+        f"vacuum and frozen-at-chamber conventions: {point.conventions_source}",
     )
 
 
@@ -207,7 +212,6 @@ def run_ideal_case(point: TdkPoint = CURRENT_DESIGN, *, solve_chamber: Callable[
 def run_ideal_cases(*, solve_chamber: Callable[[Any], Any] | None = None,
                     solve_expansion: Callable[[Any, Any], Any] | None = None,
                     oracle: Callable[[Any, float, str], Any] | None = None) -> tuple[IdealCaseOutcome, ...]:
-    """Every point, in :data:`~rocketforge.comparison.ssme_tdk_1985.POINTS` order, each on its own: one point's
-    failure does not hide another's result."""
+    """Every point, in :data:`POINTS` order, each on its own: one point's failure does not hide another's result."""
     return tuple(run_ideal_case(point, solve_chamber=solve_chamber, solve_expansion=solve_expansion, oracle=oracle)
                  for point in POINTS)

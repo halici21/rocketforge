@@ -3,7 +3,8 @@
 Status: IMPLEMENTED (2026-11-07). The owner accepted the six decisions in §1 as recommended. The rules in §8 were
 fixed, and the tests written, before any RocketForge or CEA value was computed for this case. §11 records the first
 run as readings only. §12 adds a second point from the same report, the enlarged throat of Figure 7, under the same
-decisions and rules, and §13 records its first run.
+decisions and rules, and §13 records its first run. §14 adds a third point, the RL-10 OTV test engine from the TDK
+manual's own sample, likewise, and §15 records its first run.
 
 The source and its reading are in `docs/research/engine_database/db05/IDEAL_VALUE_SOURCES.md`. This document answers
 that page's §7.
@@ -184,7 +185,7 @@ printed -422.3787. That is arithmetic on the printed and CEA constants, not a co
 | `tests/comparison/test_ssme_tdk_1985.py` | the transcription (source values, which are data), the kind, no verdict, the keys, and the two unit factors |
 | `tests/application/test_reference_ideal_case.py` | the pairings, the vacuum reference, no combined row, no verdict or tolerance field, and the refusal and unavailable paths with injected solvers. One CEA-gated run asserts structure and finiteness only |
 
-§12 extends the case module and the runner to a second point.
+§12 extends the case module and the runner to a second point, and §14 to a third from a second document.
 
 `units.py` is a shared contract. When it changes, both full suites and `tests/test_architecture.py` run. The layering
 is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. The runner sits in
@@ -201,7 +202,7 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 
 ## 9. Limits
 
-- Two operating points of one 1985 report (§12), one program, vacuum only.
+- Three operating points from two 1985 documents of one program (§12, §14), vacuum only.
 - It does not validate CEA: it is no verdict. The Phase 5E printout (`rocketforge/data/reference/performance_nasa_cea_2002_lox_lh2.json`)
   stays the oracle's validation.
 - It says nothing about delivered SSME performance. The measured 452.6 s and the report's own efficiencies are not part
@@ -211,7 +212,10 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 ## 10. Possible later additions (not decided)
 
 - The large-throat first solution (Figure 7) as a second point under the same rules. Taken up in §12.
-- The manual's RL-10 OTV sample (Table 7-3), likewise; not a catalog configuration.
+- The manual's RL-10 OTV sample (Table 7-3), likewise; not a catalog configuration. Taken up in §14.
+- The manual's next sample, §7.3 (printed p.7-59, PDF p.451): Rocketdyne's prototype Advanced Space Engine for
+  OTV propulsion, 2300 psia and 400:1, input in Table 7-4 and summary in Table 7-5. Found while reading §7.2 and
+  not read yet.
 - A display, after a scientific-UI review.
 
 ## 11. First run (2026-11-07)
@@ -330,4 +334,101 @@ What these readings do not say:
   -0.100 %, +0.059 and +0.058 %. That is recorded, not explained. It does not separate code from data, and it is not a
   row between the points.
 - Everything §11 says it does not say holds here too. Step B is the reduction alone, and the two steps are not added.
+- Engine evidence, the catalog, the DB-4A gate and the regression totals are unchanged. Regression references stay 0.
+
+## 14. A third point: the RL-10 OTV test engine, TDK manual Table 7-3 (2026-11-07)
+
+Taken up from §10, which listed it before the first run, after the owner's next go-ahead to continue. It adds no
+decision: the six in §1 and the rules in §8 apply unchanged. Its transcription, rules and tests are fixed here before
+any value is computed for it.
+
+The source is the TDK engineering manual itself (NASA-CR-178628, NTRS 19860007470; G. R. Nickerson, L. D. Dang and
+D. E. Coats, Software and Engineering Associates, April 1985), the manual §2 reads the conventions from. NTRS lists it
+as public, `GOV_PUBLIC_USE_PERMITTED`, and not export controlled. Its §7.2 (printed p.7-53, PDF p.445) runs TDK on the
+"Pratt and Whitney test engine for RL-10 OTV propulsion", an expander cycle "sized to produce a nominal vacuum thrust
+of 15,500 pounds when operated at a chamber pressure of 394 psia and an expansion ratio of 205:1". The input was
+"prepared by SEA, Inc. from data provided by NASA MSFC". The first ODE calculation is made "with the system enthalpy
+set at the propellant tank values, i.e., liquid oxygen and liquid hydrogen at their normal boiling points". Table 7-2
+(printed p.7-56, PDF p.448) is the input and Table 7-3 (printed p.7-58, PDF p.450) the summary. Both are printed
+sideways and were read from pages rendered upright.
+
+It is an RL10 test engine at area ratio 205, not a catalog configuration, and is linked to none.
+
+Inputs, as Table 7-2 states them:
+
+| Input | Value |
+|---|---|
+| Chamber pressure | 394.3 psia: `RKT=.TRUE.`, `P(1)=394.3`, `PSIA=.TRUE.` in `$ODE`, the stagnation pressure of the rocket problem as in §2 |
+| Mixture ratio | 5.035244 (`OFSKED(1)`); Table 7-3 prints 5.035244 |
+| Area ratio | 205.03, the last `ASUP` entry. `EPS=205.03376` sets the contour's exit, and Table 7-3 prints EP (NOZZLE) 205.0338, recorded, not used. The `$ODK` card is too faded to read beyond "205," |
+| Fuel | H2(L), -2154. cal/mol, printed at 20.56 K (the SSME cards print 20.27 K) |
+| Oxidiser | O2(L), -3102. cal/mol, printed at 90.110 K (the SSME cards print 90.180 K) |
+| Expansion | as §2. Here the conventions come from the same manual's three-zone sample (§7.1), not from Table 7-3 |
+
+Quantities, from Table 7-3's first TDK/BLM solution, where DELH and DELH1 are both 0:
+
+| Key | Value | Unit | Printed decimals |
+|---|---|---|---|
+| `chamber_temperature` | 5815.918 | R | 3 |
+| `vacuum_specific_impulse:equilibrium` | 477.5184 | lbf*s/lbm | 4 |
+| `vacuum_specific_impulse:frozen` | 456.1371 | lbf*s/lbm | 4 |
+
+Not recorded, for the reasons in §4: ISP (ODK) 474.4465; ISP (TDK) 469.6459 and every other two-dimensional and
+boundary-layer value; the whole second solution (DELH1 156.3460 BTU/lb, EP (NOZZLE) 194.0614); and HCHAM (ODE)
+-464.2563, which the printed inputs put at -464.264 (research page).
+
+The inlet state is the SSME points'. A card's temperature is not what sets it: Table 7-3 prints H (FUEL) -2154.000 and
+H (OXID) -3102.000 cal/mol, exactly what the SSME figures print for cards at 20.27 K and 90.180 K. So this point runs,
+like the others, with CEA's assigned enthalpies at 20.27 K and 90.17 K, where RocketForge's enthalpy coupling adds no
+increment. The card temperatures are declared, not used.
+
+Thermodynamic data. The manual's §6.1 (printed pp.6-4 and 6-5, PDF pp.304-305) gives the data format, "identical to
+the THERMO DATA described in Appendix D of NASA SP-273", and says coefficients "for many chemical species are supplied
+with the computer program". It does not say which data file the sample used, so the case's database version stays not
+stated, with that context.
+
+Declarations differ from the SSME points' in five lines: both reactant lines (the card temperatures), the area ratio
+(205.03 against 205.0338), the chamber pressure (394.3 psia, linked to no catalog configuration), and the conventions
+line (the same manual's sample, not Table 7-3).
+
+Code. A new module `rocketforge/comparison/tdk_1985.py` holds what every TDK case shares: the three keys, `TdkPoint`,
+the code description and the quantity layout. `ssme_tdk_1985.py` keeps the report's two points. The new
+`tdk_manual_1985.py` holds the manual's case, `TDK_MANUAL_1985_RL10_OTV`. `TdkPoint` gains the two printed card
+temperatures and the conventions source. The runner's `POINTS` lists the SSME points, then this one. No row compares
+any two points.
+
+## 15. Third point, first run (2026-11-07)
+
+Run by hand with the same report, which now prints three points. The RL-10 OTV point ran at LH2 20.27 K, LOX 90.17 K,
+O/F 5.035244, 2 718 602.801 Pa (394.3 psia) and area ratio 205.03. All five computations succeeded and the provider
+raised no warning. Both SSME points' rows were identical to §11 and §13. These are readings: no test pins them, and
+nothing in §14 was changed after seeing them. One fault in the report's printout was fixed after this run: it printed
+the mixture ratio to six significant figures, so 5.035244 showed as 5.03524. The run itself used 5.035244, which a test
+pins, and no rule, input, pairing or declaration changed.
+
+Step A, the TDK manual's printout against the same model class in CEA. Every row is `compared`; none is judged:
+
+| Quantity | TDK 1985 | Computed | Difference |
+|---|---|---|---|
+| Chamber temperature | 3231.066 K (5815.918 R) | 3218.049 K, RocketForge's chamber (a CEA HP solve) | -13.016 K (-0.40 %) |
+| Vacuum Isp, equilibrium | 477.5184 s | 477.3326 s, CEA | -0.186 s (-0.039 %) |
+| Vacuum Isp, frozen at the chamber | 456.1371 s | 456.4435 s, CEA | +0.306 s (+0.067 %) |
+
+Step B, RocketForge's constant-gamma reduction against CEA at the same point. The printout takes no part. Both rows are
+a model difference, both in vacuum:
+
+| Gamma basis | RocketForge | CEA, matching expansion | Difference |
+|---|---|---|---|
+| frozen | 469.6190 s | 456.4435 s (frozen) | +2.887 % |
+| equilibrium | 501.2026 s | 477.3326 s (equilibrium) | +5.001 % |
+
+What these readings do not say:
+
+- At all three points, each step A difference has the same sign: CEA's chamber temperature is lower by 13.0 to 17.5 K,
+  its equilibrium Isp lower by 0.04 to 0.10 %, its frozen Isp higher by 0.06 to 0.07 %. That is recorded, not
+  explained, and it does not separate code from data.
+- Step B is larger here than at either SSME point: +2.9 and +5.0 %, against +1.6 to 1.7 and +2.2 to 2.3 %. This point
+  differs from those in chamber pressure, area ratio and mixture ratio at once, and the record does not separate them.
+  It is the reduction's difference alone, never an error against the manual.
+- Everything §11 says it does not say holds here too, and no row compares any two points.
 - Engine evidence, the catalog, the DB-4A gate and the regression totals are unchanged. Regression references stay 0.

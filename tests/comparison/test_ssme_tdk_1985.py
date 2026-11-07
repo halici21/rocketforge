@@ -12,6 +12,7 @@ import pytest
 
 from rocketforge.comparison import COMPARED, ObservedQuantity, SourceKind, compare, to_canonical
 from rocketforge.comparison import ssme_tdk_1985 as module
+from rocketforge.comparison import tdk_1985 as shared
 from rocketforge.comparison.cases import VERDICT_KINDS, CaseOrigin
 from rocketforge.core.constants import STANDARD_GRAVITY
 from rocketforge.physics.thermochemistry import ExpansionMode
@@ -92,15 +93,15 @@ def test_each_point_pairs_its_case_with_the_inputs_its_figure_states():
 
 
 def test_the_expansion_model_is_part_of_the_key():
-    assert module.KEY_VACUUM_ISP_EQUILIBRIUM == f"vacuum_specific_impulse:{ExpansionMode.EQUILIBRIUM.value}"
-    assert module.KEY_VACUUM_ISP_FROZEN == f"vacuum_specific_impulse:{ExpansionMode.FROZEN.value}"
-    assert module.KEY_VACUUM_ISP_EQUILIBRIUM != module.KEY_VACUUM_ISP_FROZEN
+    assert shared.KEY_VACUUM_ISP_EQUILIBRIUM == f"vacuum_specific_impulse:{ExpansionMode.EQUILIBRIUM.value}"
+    assert shared.KEY_VACUUM_ISP_FROZEN == f"vacuum_specific_impulse:{ExpansionMode.FROZEN.value}"
+    assert shared.KEY_VACUUM_ISP_EQUILIBRIUM != shared.KEY_VACUUM_ISP_FROZEN
 
 
 @CASES
 def test_only_the_three_ideal_quantities_are_recorded(case):
     keys = {q.key for q in case.quantities}
-    assert keys == {module.KEY_CHAMBER_TEMPERATURE, module.KEY_VACUUM_ISP_EQUILIBRIUM, module.KEY_VACUUM_ISP_FROZEN}
+    assert keys == {shared.KEY_CHAMBER_TEMPERATURE, shared.KEY_VACUUM_ISP_EQUILIBRIUM, shared.KEY_VACUUM_ISP_FROZEN}
     for kept_out in ("ISP (ODK)", "ISP (TDK)", "ISP (TC)", "second-solution", "HCHAM (ODE)"):
         assert kept_out in case.notes, kept_out
 
@@ -125,21 +126,21 @@ def test_every_row_is_compared_whatever_the_numbers(case, scale):
 
 
 def test_a_shifting_value_cannot_stand_for_a_frozen_one():
-    observed = {module.KEY_VACUUM_ISP_EQUILIBRIUM: ObservedQuantity(module.KEY_VACUUM_ISP_EQUILIBRIUM, 4500.0, "m/s")}
+    observed = {shared.KEY_VACUUM_ISP_EQUILIBRIUM: ObservedQuantity(shared.KEY_VACUUM_ISP_EQUILIBRIUM, 4500.0, "m/s")}
     result = compare(CASE, observed)
-    assert [r.key for r in result.rows] == [module.KEY_VACUUM_ISP_EQUILIBRIUM]
-    assert set(result.not_observed) == {module.KEY_CHAMBER_TEMPERATURE, module.KEY_VACUUM_ISP_FROZEN}
+    assert [r.key for r in result.rows] == [shared.KEY_VACUUM_ISP_EQUILIBRIUM]
+    assert set(result.not_observed) == {shared.KEY_CHAMBER_TEMPERATURE, shared.KEY_VACUUM_ISP_FROZEN}
 
 
 def test_rows_are_in_si_with_the_printed_values_converted_exactly():
     rows = {r.key: r for r in compare(CASE, _observed(CASE)).rows}
     assert rows["chamber_temperature"].unit == "K"
     assert rows["chamber_temperature"].reference == pytest.approx(6543.192 * 5.0 / 9.0, rel=1e-15)
-    assert rows[module.KEY_VACUUM_ISP_FROZEN].unit == "m/s"
-    assert rows[module.KEY_VACUUM_ISP_FROZEN].reference == pytest.approx(446.7661 * 9.80665, rel=1e-15)
+    assert rows[shared.KEY_VACUUM_ISP_FROZEN].unit == "m/s"
+    assert rows[shared.KEY_VACUUM_ISP_FROZEN].reference == pytest.approx(446.7661 * 9.80665, rel=1e-15)
     rows = {r.key: r for r in compare(LARGE, _observed(LARGE)).rows}
     assert rows["chamber_temperature"].reference == pytest.approx(6526.882 * 5.0 / 9.0, rel=1e-15)
-    assert rows[module.KEY_VACUUM_ISP_EQUILIBRIUM].reference == pytest.approx(463.2604 * 9.80665, rel=1e-15)
+    assert rows[shared.KEY_VACUUM_ISP_EQUILIBRIUM].reference == pytest.approx(463.2604 * 9.80665, rel=1e-15)
 
 
 def test_the_case_module_reaches_no_solver():

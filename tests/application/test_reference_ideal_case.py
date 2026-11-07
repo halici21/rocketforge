@@ -1,4 +1,4 @@
-"""DB-4C: the SSME ideal reference case runner, at both points.
+"""DB-4C: the ideal reference case runner, at every point.
 
 The rules are tested with injected solvers and made-up numbers. The CEA-gated tests assert structure and finiteness
 only: no computed difference is pinned anywhere, and no rule may change in response to one.
@@ -23,15 +23,9 @@ from rocketforge.application.analysis.performance_oracle import ORACLE_FAILED, O
 from rocketforge.application.analysis.performance_service import AmbientMode
 from rocketforge.application.analysis.reference_engine_catalog import load_reference_engines
 from rocketforge.comparison.compare import COMPARED
-from rocketforge.comparison.ssme_tdk_1985 import (
-    AREA_RATIO,
-    CURRENT_DESIGN,
-    KEY_CHAMBER_TEMPERATURE,
-    KEY_VACUUM_ISP_EQUILIBRIUM,
-    KEY_VACUUM_ISP_FROZEN,
-    LARGE_THROAT,
-    POINTS,
-)
+from rocketforge.comparison.ssme_tdk_1985 import AREA_RATIO, CURRENT_DESIGN, LARGE_THROAT
+from rocketforge.comparison.tdk_1985 import KEY_CHAMBER_TEMPERATURE, KEY_VACUUM_ISP_EQUILIBRIUM, KEY_VACUUM_ISP_FROZEN
+from rocketforge.comparison.tdk_manual_1985 import RL10_OTV
 from rocketforge.comparison.units import to_canonical
 from rocketforge.core.constants import STANDARD_GRAVITY
 from rocketforge.physics.thermochemistry import CompositionBasis
@@ -40,6 +34,7 @@ from rocketforge.physics.thermochemistry.types import GammaStrategy
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 _STATUS = gateway.availability()
 requires_cea = pytest.mark.skipif(not _STATUS.usable, reason=f"NASA CEA provider unavailable ({_STATUS.status})")
+POINTS = ideal.POINTS
 EACH_POINT = pytest.mark.parametrize("point", POINTS, ids=lambda p: p.case.case_id)
 PSIA = 0.45359237 * 9.80665 / 0.0254 ** 2
 
@@ -121,7 +116,7 @@ def test_one_point_is_solved_once_and_used_by_every_computation(point):
     assert out.point is point and out.case is point.case
     (solved,) = calls["chamber"]
     assert (solved.fuel, solved.fuel_temperature, solved.oxidiser, solved.oxidiser_temperature) == ("LH2", 20.27, "LOX", 90.17)
-    assert solved.oxidiser_fuel_ratio == point.oxidiser_fuel_ratio == 6.05485
+    assert solved.oxidiser_fuel_ratio == point.oxidiser_fuel_ratio
     assert solved.chamber_pressure == pytest.approx(point.chamber_pressure_psia * PSIA, rel=1e-15)
     assert sorted(mode for _, _, mode in calls["oracle"]) == ["equilibrium", "frozen"]
     assert all(case is solved and area == point.area_ratio for case, area, _ in calls["oracle"])
@@ -132,12 +127,18 @@ def test_one_point_is_solved_once_and_used_by_every_computation(point):
         assert c.ambient.mode is AmbientMode.VACUUM
 
 
-def test_the_points_are_run_at_their_own_pressures_and_area_ratios():
-    pressures = [ideal.chamber_case(p).chamber_pressure for p in POINTS]
-    assert pressures == pytest.approx([3285.0 * PSIA, 3010.0 * PSIA], rel=1e-15)
+def test_the_points_are_the_ssme_reports_two_then_the_manuals_sample():
+    assert POINTS == (CURRENT_DESIGN, LARGE_THROAT, RL10_OTV)
+
+
+def test_the_points_are_run_at_their_own_inputs():
+    runs = [ideal.chamber_case(p) for p in POINTS]
+    assert [r.chamber_pressure for r in runs] == pytest.approx([3285.0 * PSIA, 3010.0 * PSIA, 394.3 * PSIA], rel=1e-15)
+    assert [r.oxidiser_fuel_ratio for r in runs] == [6.05485, 6.05485, 5.035244]
+    assert {(r.fuel_temperature, r.oxidiser_temperature) for r in runs} == {(20.27, 90.17)}
     seen = []
     ideal.run_ideal_cases(**solvers(oracle=lambda case, area, mode: seen.append(area) or fake_oracle()(case, area, mode)))
-    assert sorted(set(seen)) == [69.5, 77.5]
+    assert sorted(set(seen)) == [69.5, 77.5, 205.03]
 
 
 # ------------------------------------------------------------------ step A: compared, never judged
@@ -221,11 +222,26 @@ def test_the_large_throat_declares_its_own_area_ratio_and_no_engine_assertion():
     assert "AS-DB05" not in text and "77.5" not in text and "3285" not in text
 
 
-def test_the_points_share_every_declaration_but_their_inputs():
-    current, large = (ideal.declarations(p) for p in POINTS)
-    assert len(current) == len(large) == 10
-    differing = [i for i, (a, b) in enumerate(zip(current, large, strict=True)) if a != b]
-    assert [current[i].split(":")[0] for i in differing] == ["area ratio", "chamber pressure"]
+def test_the_rl10_otv_declares_its_own_cards_inputs_and_conventions():
+    text = " | ".join(run(RL10_OTV).declarations)
+    for needed in ("-3102.000 cal/mol at 90.110 K", "run at 90.17 K", "-3102.055", "-2154.000 cal/mol at 20.56 K",
+                   "run at 20.27 K", "-2153.920", "205.03 as scheduled", "205.0338", "species", "394.3 psia",
+                   "an RL10 test engine, linked to no catalog configuration", "three-zone sample", "not from Table 7-3"):
+        assert needed in text, needed
+    for absent in ("AS-DB05", "SSME", "90.180", "77.5", "69.5", "3285", "3010"):
+        assert absent not in text, absent
+
+
+def _differing(a: tuple[str, ...], b: tuple[str, ...]) -> list[str]:
+    return [x.split(":")[0] for x, y in zip(a, b, strict=True) if x != y]
+
+
+def test_the_points_differ_only_in_their_own_inputs():
+    current, large, otv = (ideal.declarations(p) for p in POINTS)
+    assert len(current) == len(large) == len(otv) == 10
+    assert _differing(current, large) == ["area ratio", "chamber pressure"]
+    assert _differing(current, otv) == ["O2(L)", "H2(L)", "area ratio", "chamber pressure",
+                                        "vacuum and frozen-at-chamber conventions"]
     assert ideal.declarations() == current
 
 
@@ -271,18 +287,21 @@ def test_one_refused_basis_leaves_nothing(failing):
     assert out.step_a is None and out.step_b == ()
 
 
-@pytest.mark.parametrize("failing_area, kept", [(69.5, 0), (77.5, 1)])
-def test_one_points_failure_does_not_hide_the_others_result(failing_area, kept):
+@pytest.mark.parametrize("failing", range(3))
+def test_one_points_failure_does_not_hide_the_others_results(failing):
     good = fake_oracle()
+    failing_area = POINTS[failing].area_ratio
 
     def oracle(case, area_ratio, mode):
         return OracleOutcome(kind=ORACLE_FAILED, message="no") if area_ratio == failing_area else good(case, area_ratio, mode)
 
     outcomes = ideal.run_ideal_cases(**solvers(oracle=oracle))
     assert [o.point for o in outcomes] == list(POINTS)
-    assert outcomes[kept].kind == ideal.KIND_OK and len(outcomes[kept].step_a.rows) == 3
-    failed = outcomes[1 - kept]
-    assert failed.kind == ideal.KIND_REFUSED and failed.step_a is None and failed.step_b == ()
+    for i, out in enumerate(outcomes):
+        if i == failing:
+            assert out.kind == ideal.KIND_REFUSED and out.step_a is None and out.step_b == ()
+        else:
+            assert out.kind == ideal.KIND_OK and len(out.step_a.rows) == 3
 
 
 def test_warnings_are_carried_once():
@@ -301,7 +320,8 @@ def test_the_hard_and_validation_totals_stay_zero():
 
 
 def test_no_write_path():
-    for module in (ideal, sys.modules["rocketforge.comparison.ssme_tdk_1985"]):
+    names = ("ssme_tdk_1985", "tdk_1985", "tdk_manual_1985")
+    for module in (ideal, *(sys.modules[f"rocketforge.comparison.{name}"] for name in names)):
         source = inspect.getsource(module)
         for forbidden in ("open(", "write_text", "write_bytes", "json.dump", "unlink", "shutil"):
             assert forbidden not in source, (module.__name__, forbidden)

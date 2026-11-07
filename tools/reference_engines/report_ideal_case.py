@@ -1,4 +1,4 @@
-"""Print the DB-4C SSME ideal reference cases, one point after the other. Run by hand, in the CEA environment:
+"""Print the DB-4C ideal reference cases, one point after the other. Run by hand, in the CEA environment:
 
     .venv-cea\\Scripts\\python.exe tools\\reference_engines\\report_ideal_case.py
 
@@ -29,8 +29,9 @@ def _shown(key: str, value_si: float) -> tuple[float, str]:
 def _report(out: IdealCaseOutcome) -> None:
     case, point, run = out.case, out.point, out.chamber_case
     print(f"\n=== {case.title} ({case.case_id})")
+    print(f"  source: {case.source}")
     print(f"  run: {run.fuel} {run.fuel_temperature:g} K, {run.oxidiser} {run.oxidiser_temperature:g} K, "
-          f"O/F {run.oxidiser_fuel_ratio:g}, Pc {run.chamber_pressure:.3f} Pa ({point.chamber_pressure_psia:g} psia), "
+          f"O/F {run.oxidiser_fuel_ratio}, Pc {run.chamber_pressure:.3f} Pa ({point.chamber_pressure_psia:g} psia), "
           f"area ratio {point.area_ratio:g}")
     if out.kind != KIND_OK:
         print(f"  {out.kind}: {out.message}")
@@ -61,8 +62,8 @@ def _report(out: IdealCaseOutcome) -> None:
 def main() -> int:
     outcomes = run_ideal_cases()
     first = outcomes[0].case
-    print(f"source: {first.source}\ncode: {first.code}; {first.code_version}")
-    print("Each point is set beside CEA on its own; no row compares the two points.")
+    print(f"DB-4C ideal reference cases, {len(outcomes)} points\ncode: {first.code}; {first.code_version}")
+    print("Each point is set beside CEA on its own; no row compares any two points.")
     for out in outcomes:
         _report(out)
     return 0 if all(out.kind == KIND_OK for out in outcomes) else 2

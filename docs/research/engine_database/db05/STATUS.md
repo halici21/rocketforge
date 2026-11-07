@@ -1288,4 +1288,7 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   verdict.
 - A second point from the same report, the enlarged-throat design study (Figure 7, 3010 psia, area ratio 69.5), is
   compared under the same rules. It is linked to no catalog configuration.
+- A third point, the RL-10 OTV test engine from the TDK manual's own sample (NTRS 19860007470, Table 7-3), is
+  compared under the same rules and linked to no catalog configuration. The manual's next sample, Rocketdyne's
+  Advanced Space Engine (§7.3), was found while reading it and is not read yet.
 - No engine record, assertion or conflict moved. The unresolved count stays 32, and regression references stay 0.

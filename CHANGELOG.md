@@ -14,8 +14,9 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   at the chamber. A hand-run report compares them with CEA at the same point without a verdict, and separately shows
   RocketForge's constant-gamma reduction against CEA as a model difference. No row compares RocketForge with the
   printout directly. A second point from the same report, its enlarged-throat design study at 3010 psia and area
-  ratio 69.5, is compared the same way and is linked to no catalog configuration. The comparison units gain degrees
-  Rankine and lbf·s/lbm, both exact. No regression reference is
+  ratio 69.5, is compared the same way and is linked to no catalog configuration, and so is a third, the RL-10 OTV
+  test engine from the TDK manual's own sample (NASA-CR-178628) at 394.3 psia and area ratio 205.03. The comparison
+  units gain degrees Rankine and lbf·s/lbm, both exact. No regression reference is
   added, and no engine evidence or catalog entry changes.
 - Reference engines, DB-4B: an engine-level Isp ratio that puts a printed engine Isp beside RocketForge's ideal Isp under
   both gamma bases. It is a report-only reading with no verdict or tolerance, and it is not a thrust-chamber efficiency.

@@ -34,15 +34,15 @@ The enlarged throat is a 1985 design study and is linked to no catalog
 configuration. These cases change no engine evidence. The current design's
 chamber pressure is the case's own model input and does not reinterpret
 ``AS-DB05-US-SSME-BLOCK-I-002``.
+
+The keys, the point record and the code description are shared with every TDK
+case and live in :mod:`.tdk_1985`.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-
-from rocketforge.physics.thermochemistry import ExpansionMode
-
-from .cases import CaseOrigin, ReferenceCase, ReferenceQuantity, SourceKind
+from .cases import CaseOrigin, ReferenceCase, SourceKind
+from .tdk_1985 import CODE, CODE_VERSION, EXPANSION, FIRST_SOLUTION, TdkPoint, not_recorded, tdk_quantities
 
 __all__ = [
     "CHAMBER_PRESSURE_PSIA",
@@ -50,12 +50,8 @@ __all__ = [
     "AREA_RATIO",
     "LARGE_THROAT_CHAMBER_PRESSURE_PSIA",
     "LARGE_THROAT_AREA_RATIO",
-    "KEY_CHAMBER_TEMPERATURE",
-    "KEY_VACUUM_ISP_EQUILIBRIUM",
-    "KEY_VACUUM_ISP_FROZEN",
     "SSME_TDK_1985_CURRENT_DESIGN",
     "SSME_TDK_1985_LARGE_THROAT",
-    "TdkPoint",
     "CURRENT_DESIGN",
     "LARGE_THROAT",
     "POINTS",
@@ -77,39 +73,12 @@ LARGE_THROAT_CHAMBER_PRESSURE_PSIA = 3010.0
 #: Figure 7 prints EP (NOZZLE) 69.48698 for the nozzle; recorded, not used.
 LARGE_THROAT_AREA_RATIO = 69.5
 
-KEY_CHAMBER_TEMPERATURE = "chamber_temperature"
-#: The expansion model is part of the key, as a composition basis is part of a
-#: fraction's: a shifting value can never be compared with a frozen one.
-KEY_VACUUM_ISP_EQUILIBRIUM = f"vacuum_specific_impulse:{ExpansionMode.EQUILIBRIUM.value}"
-KEY_VACUUM_ISP_FROZEN = f"vacuum_specific_impulse:{ExpansionMode.FROZEN.value}"
-
 _SOURCE = ("G. R. Nickerson and L. D. Dang, 'Performance Predictions for an SSME Configuration with an Enlarged "
            "Throat', NASA-CR-178740, Software and Engineering Associates for NASA MSFC, November 1985; "
            "NTRS 19860012108 (engine record SRC-NTRS-19860012108)")
-_CODE = "TDK (Two-Dimensional Kinetics), ODE module; Software and Engineering Associates"
-_CODE_VERSION = "not stated (the 1985 program with the shock option)"
 _DATABASE_VERSION = "not stated (the thermodynamic data of that program; the report does not identify them)"
-_EXPANSION = ("one-dimensional, isentropic, vacuum; ODE in equilibrium, ODF frozen at the chamber "
-              "composition (DB-4C §2)")
-_FIRST_SOLUTION = "the first TDK/BLM solution: no heat added to the propellant (DELH = 0, DELH1 = 0)"
-_CONVENTIONS_MISSING = ("the vacuum and frozen-at-chamber conventions are read from the 1985 TDK manual's sample run, "
-                        "not from the SSME pages")
-_NOT_RECORDED = ("Not recorded: ISP (ODK) (kinetics); ISP (TDK), ISP (TC), CSTAR (TDK), CF (TDK) and CD "
-                 "(two-dimensional flow and boundary layer); every second-solution value (regenerative heat added "
-                 "to the propellant, DELH1 {delh1} BTU/lb); HCHAM (ODE), an input consequence.")
-
-
-def _quantities(figure: str, temperature_r: float, isp_equilibrium: float, isp_frozen: float,
-                ) -> tuple[ReferenceQuantity, ...]:
-    return (
-        ReferenceQuantity(KEY_CHAMBER_TEMPERATURE, temperature_r, "R", decimals=3,
-                          note=figure + "; CHAMBER TEMP [R]"),
-        ReferenceQuantity(KEY_VACUUM_ISP_EQUILIBRIUM, isp_equilibrium, "lbf*s/lbm", decimals=4,
-                          note=figure + "; ISP (ODE) [SECONDS], a vacuum value (DB-4C §2)"),
-        ReferenceQuantity(KEY_VACUUM_ISP_FROZEN, isp_frozen, "lbf*s/lbm", decimals=4,
-                          note=figure + "; ISP (ODF) [SECONDS], a vacuum value, frozen at the chamber (DB-4C §2)"),
-    )
-
+_CONVENTIONS = "read from the 1985 TDK manual's sample run, not from the SSME pages"
+_CONVENTIONS_MISSING = f"the vacuum and frozen-at-chamber conventions are {_CONVENTIONS}"
 
 SSME_TDK_1985_CURRENT_DESIGN = ReferenceCase(
     case_id="ssme-tdk-1985-current-design",
@@ -117,8 +86,8 @@ SSME_TDK_1985_CURRENT_DESIGN = ReferenceCase(
     source_kind=SourceKind.INDEPENDENT_CODE,
     benchmark_class="B",
     source=_SOURCE,
-    code=_CODE,
-    code_version=_CODE_VERSION,
+    code=CODE,
+    code_version=CODE_VERSION,
     database_version=_DATABASE_VERSION,
     origin=CaseOrigin.IMPORTED,
     inputs={
@@ -127,17 +96,18 @@ SSME_TDK_1985_CURRENT_DESIGN = ReferenceCase(
         "area_ratio": "77.5 (Figure 3 ASUP and $ODK EP; Figure 6 prints EP (NOZZLE) 77.50022)",
         "fuel": "H2(L), -2154. cal/mol, 20.27 K ('Tank Conditions CPIA 246', Figure 3)",
         "oxidiser": "O2(L), -3102. cal/mol, 90.180 K (Figure 3)",
-        "expansion": _EXPANSION,
-        "solution": _FIRST_SOLUTION,
+        "expansion": EXPANSION,
+        "solution": FIRST_SOLUTION,
     },
-    quantities=_quantities("Figure 6 (printed p.20, PDF p.26), first TDK/BLM solution", 6543.192, 465.1311, 446.7661),
+    quantities=tdk_quantities("Figure 6 (printed p.20, PDF p.26), first TDK/BLM solution", 6543.192, 465.1311,
+                              446.7661),
     missing=(
         "the program version and its thermodynamic data are not stated",
         "the ODE product species list is not printed",
         "whether ISP (ODE) and ISP (ODF) were evaluated at the scheduled 77.5 or at the nozzle's printed 77.50022",
         _CONVENTIONS_MISSING,
     ),
-    notes=("Independent code, compared without a verdict (DB-4C). " + _NOT_RECORDED.format(delh1="118.7092")
+    notes=("Independent code, compared without a verdict (DB-4C). " + not_recorded("118.7092")
            + " Figure 7, the enlarged-throat design, is its own case (DB-4C §12)."),
 )
 
@@ -147,8 +117,8 @@ SSME_TDK_1985_LARGE_THROAT = ReferenceCase(
     source_kind=SourceKind.INDEPENDENT_CODE,
     benchmark_class="B",
     source=_SOURCE,
-    code=_CODE,
-    code_version=_CODE_VERSION,
+    code=CODE,
+    code_version=CODE_VERSION,
     database_version=_DATABASE_VERSION,
     origin=CaseOrigin.IMPORTED,
     inputs={
@@ -157,39 +127,22 @@ SSME_TDK_1985_LARGE_THROAT = ReferenceCase(
         "area_ratio": "69.5 (Figure 4 ASUP and $ODK EP; Figure 7 prints EP (NOZZLE) 69.48698)",
         "fuel": "H2(L), -2154. cal/mol, 20.27 K (Figure 4, the current design's card)",
         "oxidiser": "O2(L), -3102. cal/mol, 90.180 K (Figure 4)",
-        "expansion": _EXPANSION,
-        "solution": _FIRST_SOLUTION,
+        "expansion": EXPANSION,
+        "solution": FIRST_SOLUTION,
         "design": ("the report's 'Large Throat' design: the combustion chamber modified for a larger throat, the "
                    "nozzle assembly unchanged (printed p.2, PDF p.8); a 1985 design study, linked to no catalog "
                    "configuration"),
     },
-    quantities=_quantities("Figure 7 (printed p.21, PDF p.27), first TDK/BLM solution", 6526.882, 463.2604, 444.7228),
+    quantities=tdk_quantities("Figure 7 (printed p.21, PDF p.27), first TDK/BLM solution", 6526.882, 463.2604,
+                              444.7228),
     missing=(
         "the program version and its thermodynamic data are not stated",
         "the ODE product species list is not printed",
         "whether ISP (ODE) and ISP (ODF) were evaluated at the scheduled 69.5 or at the nozzle's printed 69.48698",
         _CONVENTIONS_MISSING,
     ),
-    notes="Independent code, compared without a verdict (DB-4C §12). " + _NOT_RECORDED.format(delh1="116.6856"),
+    notes="Independent code, compared without a verdict (DB-4C §12). " + not_recorded("116.6856"),
 )
-
-
-@dataclass(frozen=True, slots=True)
-class TdkPoint:
-    """A case with the model inputs its figure was run at, in the source's units.
-
-    ``printed_nozzle_area_ratio`` is the figure's EP (NOZZLE): recorded and
-    declared, never used. ``catalog_link`` says what the point is, or is not, in
-    the engine catalog.
-    """
-
-    case: ReferenceCase
-    chamber_pressure_psia: float
-    oxidiser_fuel_ratio: float
-    area_ratio: float
-    printed_nozzle_area_ratio: float
-    catalog_link: str
-
 
 CURRENT_DESIGN = TdkPoint(
     case=SSME_TDK_1985_CURRENT_DESIGN,
@@ -197,7 +150,10 @@ CURRENT_DESIGN = TdkPoint(
     oxidiser_fuel_ratio=OXIDISER_FUEL_RATIO,
     area_ratio=AREA_RATIO,
     printed_nozzle_area_ratio=77.50022,
+    fuel_card_temperature="20.27",
+    oxidiser_card_temperature="90.180",
     catalog_link="the engine assertion AS-DB05-US-SSME-BLOCK-I-002 is not reinterpreted",
+    conventions_source=_CONVENTIONS,
 )
 
 LARGE_THROAT = TdkPoint(
@@ -206,7 +162,10 @@ LARGE_THROAT = TdkPoint(
     oxidiser_fuel_ratio=OXIDISER_FUEL_RATIO,
     area_ratio=LARGE_THROAT_AREA_RATIO,
     printed_nozzle_area_ratio=69.48698,
+    fuel_card_temperature="20.27",
+    oxidiser_card_temperature="90.180",
     catalog_link="a 1985 design study, linked to no catalog configuration",
+    conventions_source=_CONVENTIONS,
 )
 
 #: The current design first, then the enlarged throat. Each is set beside CEA on its own, never beside the other.
