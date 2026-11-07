@@ -1269,3 +1269,14 @@ Maker sites that are script-rendered or refuse access today were read from Inter
 - RD-180 ships nothing, and its three unresolved conflicts (mass, throttle, area ratio) stay open. They need sources
   whose rights allow shipping, not another decision.
 - No conflict moved. The unresolved count stays 32.
+
+## Search for ideal-value sources (2026-11-07)
+
+- Research only; nothing promoted. Findings: [IDEAL_VALUE_SOURCES.md](IDEAL_VALUE_SOURCES.md).
+- NTRS 19860012108 (NASA-CR-178740, already `SRC-NTRS-19860012108`) prints, for the SSME current design at 109%,
+  one-dimensional equilibrium, kinetic and frozen Isp with the chamber pressure, mixture ratio, area ratio and the
+  reactant enthalpies (tank conditions). It is the only source found that meets all three requirements for a
+  catalog configuration (`CFG-RS25-SMALL-THROAT`).
+- It comes from the 1985 TDK program and the thermodynamic data of that time, so by the `rp1311_historical.py`
+  precedent it would be an independent code: no verdict. Regression references stay 0.
+- No value was computed against it. The classification, storage and quantities are owner decisions.
