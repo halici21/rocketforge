@@ -54,6 +54,9 @@ No other source found prints (a), (b) and (c) for a catalog configuration (§5).
 - PDF p.5 (nomenclature): the theoretical specific impulse is the one "for an isentropic equilibrium expansion".
 - The TDK engineering manual (NTRS 19860007470, NASA-CR-178628, April 1985, PDF pp.334-335) states that for a rocket problem the input
   `P` is the stagnation pressure, with printout "for the chamber pressure condition (i.e. stagnation)".
+- Settled after this search (DB-4C §2): the summary's ISP (ODE) and ISP (ODF) are **vacuum** values, and ODF is
+  frozen at the chamber composition. Both are read from the manual's complete sample run, whose zone IVAC columns
+  mass-average to the summary's printed values; the exit-pressure-equals-ambient columns are about 60 s lower.
 
 ### 3.3 Inputs: Figure 3, "TDK Input for SSME Current Design Analysis" (printed p.17, PDF p.23)
 
@@ -179,7 +182,8 @@ value with its inlet state, or describe programs and methods only.
 
 ## 7. Owner decisions this would need
 
-None is made here.
+None is made here. A design that proposes an answer to each is
+`docs/engineering/design/DB4C_SSME_TDK_IDEAL_REFERENCE.md` (proposed, not implemented).
 
 1. **Classification.** `INDEPENDENT_CODE` (recommended, by the `rp1311_historical.py` precedent: no verdict)
    or `NASA_PUBLISHED` (a verdict at printed precision, which §3.7 shows the source cannot support).
