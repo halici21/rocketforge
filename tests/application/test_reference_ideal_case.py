@@ -25,7 +25,7 @@ from rocketforge.application.analysis.reference_engine_catalog import load_refer
 from rocketforge.comparison.compare import COMPARED
 from rocketforge.comparison.ssme_tdk_1985 import AREA_RATIO, CURRENT_DESIGN, LARGE_THROAT
 from rocketforge.comparison.tdk_1985 import KEY_CHAMBER_TEMPERATURE, KEY_VACUUM_ISP_EQUILIBRIUM, KEY_VACUUM_ISP_FROZEN
-from rocketforge.comparison.tdk_manual_1985 import RL10_OTV
+from rocketforge.comparison.tdk_manual_1985 import ASE, RL10_OTV
 from rocketforge.comparison.units import to_canonical
 from rocketforge.core.constants import STANDARD_GRAVITY
 from rocketforge.physics.thermochemistry import CompositionBasis
@@ -127,18 +127,19 @@ def test_one_point_is_solved_once_and_used_by_every_computation(point):
         assert c.ambient.mode is AmbientMode.VACUUM
 
 
-def test_the_points_are_the_ssme_reports_two_then_the_manuals_sample():
-    assert POINTS == (CURRENT_DESIGN, LARGE_THROAT, RL10_OTV)
+def test_the_points_are_the_ssme_reports_two_then_the_manuals_two_samples():
+    assert POINTS == (CURRENT_DESIGN, LARGE_THROAT, RL10_OTV, ASE)
 
 
 def test_the_points_are_run_at_their_own_inputs():
     runs = [ideal.chamber_case(p) for p in POINTS]
-    assert [r.chamber_pressure for r in runs] == pytest.approx([3285.0 * PSIA, 3010.0 * PSIA, 394.3 * PSIA], rel=1e-15)
-    assert [r.oxidiser_fuel_ratio for r in runs] == [6.05485, 6.05485, 5.035244]
+    assert [r.chamber_pressure for r in runs] == pytest.approx(
+        [3285.0 * PSIA, 3010.0 * PSIA, 394.3 * PSIA, 2287.0 * PSIA], rel=1e-15)
+    assert [r.oxidiser_fuel_ratio for r in runs] == [6.05485, 6.05485, 5.035244, 6.378]
     assert {(r.fuel_temperature, r.oxidiser_temperature) for r in runs} == {(20.27, 90.17)}
     seen = []
     ideal.run_ideal_cases(**solvers(oracle=lambda case, area, mode: seen.append(area) or fake_oracle()(case, area, mode)))
-    assert sorted(set(seen)) == [69.5, 77.5, 205.03]
+    assert sorted(set(seen)) == [69.5, 77.5, 205.03, 400.7148]
 
 
 # ------------------------------------------------------------------ step A: compared, never judged
@@ -232,16 +233,27 @@ def test_the_rl10_otv_declares_its_own_cards_inputs_and_conventions():
         assert absent not in text, absent
 
 
+def test_the_ase_declares_its_own_inputs_and_conventions_and_the_unrounded_area_ratio():
+    text = " | ".join(run(ASE).declarations)
+    for needed in ("-3102.000 cal/mol at 90.180 K", "run at 90.17 K", "-3102.055", "-2154.000 cal/mol at 20.27 K",
+                   "run at 20.27 K", "-2153.920", "400.7148 as scheduled", "400.7248", "species", "2287 psia",
+                   "a prototype engine, linked to no catalog configuration", "three-zone sample", "not from Table 7-5"):
+        assert needed in text, needed
+    for absent in ("AS-DB05", "SSME", "400.715 ", "2300", "77.5", "205.03", "3285"):
+        assert absent not in text, absent
+
+
 def _differing(a: tuple[str, ...], b: tuple[str, ...]) -> list[str]:
     return [x.split(":")[0] for x, y in zip(a, b, strict=True) if x != y]
 
 
 def test_the_points_differ_only_in_their_own_inputs():
-    current, large, otv = (ideal.declarations(p) for p in POINTS)
-    assert len(current) == len(large) == len(otv) == 10
+    current, large, otv, ase = (ideal.declarations(p) for p in POINTS)
+    assert len(current) == len(large) == len(otv) == len(ase) == 10
     assert _differing(current, large) == ["area ratio", "chamber pressure"]
     assert _differing(current, otv) == ["O2(L)", "H2(L)", "area ratio", "chamber pressure",
                                         "vacuum and frozen-at-chamber conventions"]
+    assert _differing(current, ase) == ["area ratio", "chamber pressure", "vacuum and frozen-at-chamber conventions"]
     assert ideal.declarations() == current
 
 
@@ -287,7 +299,7 @@ def test_one_refused_basis_leaves_nothing(failing):
     assert out.step_a is None and out.step_b == ()
 
 
-@pytest.mark.parametrize("failing", range(3))
+@pytest.mark.parametrize("failing", range(4))
 def test_one_points_failure_does_not_hide_the_others_results(failing):
     good = fake_oracle()
     failing_area = POINTS[failing].area_ratio

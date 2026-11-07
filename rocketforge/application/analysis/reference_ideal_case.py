@@ -1,10 +1,10 @@
 """DB-4C: the ideal reference cases from 1985 TDK printouts, each run in two separate steps. Report only.
 
-There are three points from two documents of one program: the SSME current
+There are four points from two documents of one program: the SSME current
 design and enlarged-throat design study from the 1985 TDK report
-(:mod:`rocketforge.comparison.ssme_tdk_1985`), and the RL-10 OTV test engine from
-the TDK manual's own sample (:mod:`rocketforge.comparison.tdk_manual_1985`).
-Each is run on its own.
+(:mod:`rocketforge.comparison.ssme_tdk_1985`), and the RL-10 OTV test engine and
+Rocketdyne's prototype Advanced Space Engine from the TDK manual's own samples
+(:mod:`rocketforge.comparison.tdk_manual_1985`). Each is run on its own.
 
 **Step A** compares the TDK printout with the same model class:
 
@@ -29,7 +29,7 @@ another.
 All or nothing, per point: if any of a point's five computations fails, only the
 reason is returned for that point. Never raises. Writes nothing. No test pins a
 computed difference, and no rule may change in response to one
-(DB4C_SSME_TDK_IDEAL_REFERENCE.md §8, §12, §14).
+(DB4C_SSME_TDK_IDEAL_REFERENCE.md §8, §12, §14, §16).
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ __all__ = ["KIND_OK", "KIND_REFUSED", "KIND_UNAVAILABLE", "FUEL", "OXIDISER", "P
            "POINTS", "declarations", "ReductionRow", "IdealCaseOutcome", "chamber_case", "run_ideal_case",
            "run_ideal_cases"]
 
-#: Every point, in report order: the SSME report's two, then the manual's sample. No row compares any two.
+#: Every point, in report order: the SSME report's two, then the manual's two samples. No row compares any two.
 POINTS: tuple[TdkPoint, ...] = (*ssme_tdk_1985.POINTS, *tdk_manual_1985.POINTS)
 
 KIND_OK = "ok"
@@ -97,7 +97,7 @@ def declarations(point: TdkPoint = CURRENT_DESIGN) -> tuple[str, ...]:
         f"{OXIDISER[1]:g} K with CEA's assigned -12979 J/mol (-3102.055 cal/mol)",
         f"H2(L): the source prints -2154.000 cal/mol at {point.fuel_card_temperature} K; run at {FUEL[1]:g} K "
         "with CEA's assigned -9012 J/mol (-2153.920 cal/mol)",
-        f"area ratio: {point.area_ratio:g} as scheduled; the source prints {point.printed_nozzle_area_ratio} "
+        f"area ratio: {point.area_ratio} as scheduled; the source prints {point.printed_nozzle_area_ratio} "
         "for the nozzle",
         _SPECIES,
         f"chamber pressure: {point.chamber_pressure_psia:g} psia, the stagnation pressure of TDK's rocket problem; "

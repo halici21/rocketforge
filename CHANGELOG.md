@@ -15,7 +15,8 @@ is not feature-complete, so a 1.0.0 would overstate it — see
   RocketForge's constant-gamma reduction against CEA as a model difference. No row compares RocketForge with the
   printout directly. A second point from the same report, its enlarged-throat design study at 3010 psia and area
   ratio 69.5, is compared the same way and is linked to no catalog configuration, and so is a third, the RL-10 OTV
-  test engine from the TDK manual's own sample (NASA-CR-178628) at 394.3 psia and area ratio 205.03. The comparison
+  test engine from the TDK manual's own sample (NASA-CR-178628) at 394.3 psia and area ratio 205.03, and a fourth,
+  the manual's second sample, Rocketdyne's prototype Advanced Space Engine at 2287 psia and area ratio 400.7148. The comparison
   units gain degrees Rankine and lbf·s/lbm, both exact. No regression reference is
   added, and no engine evidence or catalog entry changes.
 - Reference engines, DB-4B: an engine-level Isp ratio that puts a printed engine Isp beside RocketForge's ideal Isp under

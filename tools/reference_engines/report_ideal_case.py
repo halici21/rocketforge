@@ -32,7 +32,7 @@ def _report(out: IdealCaseOutcome) -> None:
     print(f"  source: {case.source}")
     print(f"  run: {run.fuel} {run.fuel_temperature:g} K, {run.oxidiser} {run.oxidiser_temperature:g} K, "
           f"O/F {run.oxidiser_fuel_ratio}, Pc {run.chamber_pressure:.3f} Pa ({point.chamber_pressure_psia:g} psia), "
-          f"area ratio {point.area_ratio:g}")
+          f"area ratio {point.area_ratio}")
     if out.kind != KIND_OK:
         print(f"  {out.kind}: {out.message}")
         return

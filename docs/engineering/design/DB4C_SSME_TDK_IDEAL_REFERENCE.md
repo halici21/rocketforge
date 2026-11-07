@@ -4,7 +4,8 @@ Status: IMPLEMENTED (2026-11-07). The owner accepted the six decisions in §1 as
 fixed, and the tests written, before any RocketForge or CEA value was computed for this case. §11 records the first
 run as readings only. §12 adds a second point from the same report, the enlarged throat of Figure 7, under the same
 decisions and rules, and §13 records its first run. §14 adds a third point, the RL-10 OTV test engine from the TDK
-manual's own sample, likewise, and §15 records its first run.
+manual's own sample, likewise, and §15 records its first run. §16 adds a fourth, the manual's second sample,
+Rocketdyne's prototype Advanced Space Engine, likewise, and §17 records its first run.
 
 The source and its reading are in `docs/research/engine_database/db05/IDEAL_VALUE_SOURCES.md`. This document answers
 that page's §7.
@@ -185,7 +186,8 @@ printed -422.3787. That is arithmetic on the printed and CEA constants, not a co
 | `tests/comparison/test_ssme_tdk_1985.py` | the transcription (source values, which are data), the kind, no verdict, the keys, and the two unit factors |
 | `tests/application/test_reference_ideal_case.py` | the pairings, the vacuum reference, no combined row, no verdict or tolerance field, and the refusal and unavailable paths with injected solvers. One CEA-gated run asserts structure and finiteness only |
 
-§12 extends the case module and the runner to a second point, and §14 to a third from a second document.
+§12 extends the case module and the runner to a second point, §14 to a third from a second document, and §16 to
+a fourth from that document.
 
 `units.py` is a shared contract. When it changes, both full suites and `tests/test_architecture.py` run. The layering
 is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. The runner sits in
@@ -202,7 +204,7 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 
 ## 9. Limits
 
-- Three operating points from two 1985 documents of one program (§12, §14), vacuum only.
+- Four operating points from two 1985 documents of one program (§12, §14, §16), vacuum only.
 - It does not validate CEA: it is no verdict. The Phase 5E printout (`rocketforge/data/reference/performance_nasa_cea_2002_lox_lh2.json`)
   stays the oracle's validation.
 - It says nothing about delivered SSME performance. The measured 452.6 s and the report's own efficiencies are not part
@@ -214,8 +216,8 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 - The large-throat first solution (Figure 7) as a second point under the same rules. Taken up in §12.
 - The manual's RL-10 OTV sample (Table 7-3), likewise; not a catalog configuration. Taken up in §14.
 - The manual's next sample, §7.3 (printed p.7-59, PDF p.451): Rocketdyne's prototype Advanced Space Engine for
-  OTV propulsion, 2300 psia and 400:1, input in Table 7-4 and summary in Table 7-5. Found while reading §7.2 and
-  not read yet.
+  OTV propulsion, 2300 psia and 400:1, input in Table 7-4 and summary in Table 7-5. Found while reading §7.2;
+  taken up in §16.
 - A display, after a scientific-UI review.
 
 ## 11. First run (2026-11-07)
@@ -430,5 +432,107 @@ What these readings do not say:
 - Step B is larger here than at either SSME point: +2.9 and +5.0 %, against +1.6 to 1.7 and +2.2 to 2.3 %. This point
   differs from those in chamber pressure, area ratio and mixture ratio at once, and the record does not separate them.
   It is the reduction's difference alone, never an error against the manual.
+- Everything §11 says it does not say holds here too, and no row compares any two points.
+- Engine evidence, the catalog, the DB-4A gate and the regression totals are unchanged. Regression references stay 0.
+
+## 16. A fourth point: Rocketdyne's prototype Advanced Space Engine, TDK manual Table 7-5 (2026-11-08)
+
+Taken up from §10 after the owner's next go-ahead to continue. It adds no decision: the six in §1 and the rules in §8
+apply unchanged, and so does §14's account of the manual, its rights and its data. Its transcription, rules and tests
+are fixed here before any value is computed for it.
+
+The manual's §7.3 (printed p.7-59, PDF p.451) runs TDK on the "Rocketdyne prototype advanced space engine for OTV
+propulsion". This is a hydrogen expander cycle with oxygen preheating and a nozzle regeneratively cooled with hydrogen,
+"sized to produce a nominal vacuum thrust of 22,500 pounds when operated at a chamber pressure of 2300 psia and an
+expansion ratio of 400:1". As for the RL-10, the input was prepared by SEA from data provided by NASA MSFC and the run
+used the shock option. The text adds that "the sequence of calculations is the same as given in subsection 7.1", whose
+first ODE calculation is made at the propellant tank enthalpy. Table 7-4 (PDF pp.454-455) is the input and Table 7-5
+(printed p.7-64, PDF p.456) the summary. Both are printed sideways and were read from pages rendered upright.
+
+It is a prototype engine, not a catalog configuration (the catalog has no Advanced Space Engine), and is linked to none.
+
+Inputs, as Table 7-4 states them:
+
+| Input | Value |
+|---|---|
+| Chamber pressure | 2287 psia: `RKT=.TRUE.`, `P(1)=2287`, `PSIA=.TRUE.` in `$ODE`, the stagnation pressure of the rocket problem as in §2. Table 7-5 prints 2287.000. The text's 2300 psia is the nominal design and is not used |
+| Mixture ratio | 6.378 (`OFSKED(1)=6.3780`); Table 7-5 prints 6.378000 |
+| Area ratio | 400.7148: the last `ASUP` entry and the `$ODK` card's `EP`. `EPS=400.7248` sets the contour's exit, and Table 7-5 prints EP (NOZZLE) 400.7248, recorded, not used. The two differ in the fifth significant figure, and the source does not say why |
+| Fuel | H2(L), -2154. cal/mol, printed at 20.27 K, the SSME cards' temperature |
+| Oxidiser | O2(L), -3102. cal/mol, printed at 90.180 K, the SSME cards' temperature |
+| Expansion | as §2. As in §14, the conventions come from the same manual's three-zone sample (§7.1), not from Table 7-5 |
+
+Quantities, from Table 7-5's first TDK/BLM solution, where DELH and DELH1 are both 0:
+
+| Key | Value | Unit | Printed decimals |
+|---|---|---|---|
+| `chamber_temperature` | 6556.935 | R | 3 |
+| `vacuum_specific_impulse:equilibrium` | 485.5364 | lbf*s/lbm | 4 |
+| `vacuum_specific_impulse:frozen` | 457.5597 | lbf*s/lbm | 4 |
+
+The manual prints these three values a second time. Table 7-8 (printed p.7-67, PDF p.459) summarises a second run of
+the same engine with the TDE option (two-dimensional equilibrium, no shocks; input in Table 7-6). Its first solution
+prints the same chamber pressure, mixture ratio, EP (NOZZLE) and reactant enthalpies, and CHAMBER TEMP 6556.935,
+ISP (ODE) 485.5364 and ISP (ODF) 457.5597. The source agrees with itself here. The case cites Table 7-5 and records
+Table 7-8's agreement in its notes. It is the same operating point, so it is not a further point.
+
+Not recorded, for the reasons in §4:
+- ISP (ODK) 484.1301.
+- ISP (TDK) 481.4474, and every other two-dimensional and boundary-layer value.
+- The whole second solution (DELH1 174.5418 BTU/lb, EP (NOZZLE) 384.4752).
+- HCHAM (ODE) -411.5210, which the printed inputs put at -411.528 (computed as in §14).
+- Table 7-7 (printed p.7-66, PDF p.458), the TDE gas table. It lists molecular weight and gamma along the equilibrium
+  expansion, prepared for the two-dimensional calculation.
+- Every value of Table 7-8 beyond the three it repeats.
+
+The inlet state is the other points'. The reactant cards are the SSME cards, at 20.27 K and 90.180 K, and Table 7-5
+prints H (FUEL) -2154.000 and H (OXID) -3102.000 cal/mol. So this point runs with CEA's assigned enthalpies at 20.27 K
+and 90.17 K, as §6 and §14 set out.
+
+Declarations differ from the SSME current design's in three lines: the area ratio (400.7148 against 400.7248), the
+chamber pressure (2287 psia, linked to no catalog configuration) and the conventions line (the same manual's sample, not
+Table 7-5). The two reactant lines are the SSME points'.
+
+One change to how values are printed is made before this point is computed, with a reason of its own. The declarations
+and the report printed the area ratio to six significant figures (`:g`), which would show 400.7148 as 400.715. They now
+print it as given, the fault §15 found and fixed for the mixture ratio. The three earlier points print identically
+either way (77.5, 69.5, 205.03), so their declarations do not change.
+
+Code. `tdk_manual_1985.py` gains the case `TDK_MANUAL_1985_ASE` and its point. The module's `POINTS` lists the RL-10
+OTV, then the ASE, and the runner's `POINTS` lists the SSME points, then the manual's. No row compares any two points.
+
+## 17. Fourth point, first run (2026-11-08)
+
+Run by hand with the same report, which now prints four points. The ASE point ran at LH2 20.27 K, LOX 90.17 K,
+O/F 6.378, 15 768 309.929 Pa (2287 psia) and area ratio 400.7148. All five computations succeeded and the provider
+raised no warning. The other three points' rows were identical to §11, §13 and §15. These are readings: no test pins
+them, and nothing in §16 was changed after seeing them.
+
+Step A, the TDK manual's printout against the same model class in CEA. Every row is `compared`; none is judged:
+
+| Quantity | TDK 1985 | Computed | Difference |
+|---|---|---|---|
+| Chamber temperature | 3642.742 K (6556.935 R) | 3627.197 K, RocketForge's chamber (a CEA HP solve) | -15.545 K (-0.43 %) |
+| Vacuum Isp, equilibrium | 485.5364 s | 485.2367 s, CEA | -0.300 s (-0.062 %) |
+| Vacuum Isp, frozen at the chamber | 457.5597 s | 458.1936 s, CEA | +0.634 s (+0.139 %) |
+
+Step B, RocketForge's constant-gamma reduction against CEA at the same point. The printout takes no part. Both rows are
+a model difference, both in vacuum:
+
+| Gamma basis | RocketForge | CEA, matching expansion | Difference |
+|---|---|---|---|
+| frozen | 470.9337 s | 458.1936 s (frozen) | +2.780 % |
+| equilibrium | 501.4522 s | 485.2367 s (equilibrium) | +3.342 % |
+
+What these readings do not say:
+
+- At all four points, each step A difference has the same sign. CEA's chamber temperature is lower by 13.0 to 17.5 K
+  and its equilibrium Isp lower by 0.04 to 0.10 %. Its frozen Isp is higher, by 0.06 to 0.07 % at the first three
+  points and by 0.14 % here. That is recorded, not explained. It does not separate code from data, and it says nothing
+  about the scheduled 400.7148 against the printed 400.7248.
+- Step B lies between the SSME points' and the RL-10's: +2.8 % frozen (RL-10 +2.9 %) and +3.3 % equilibrium (SSME
+  +2.2 to 2.3 %, RL-10 +5.0 %). The points differ in chamber pressure, area ratio and mixture ratio at once, and the
+  record does not separate them. It is the reduction's difference alone, never an error against the manual.
+- Table 7-8 printing the same three values says only that the source agrees with itself; it is not a second reading.
 - Everything §11 says it does not say holds here too, and no row compares any two points.
 - Engine evidence, the catalog, the DB-4A gate and the regression totals are unchanged. Regression references stay 0.

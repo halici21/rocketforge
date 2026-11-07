@@ -1290,5 +1290,8 @@ Maker sites that are script-rendered or refuse access today were read from Inter
   compared under the same rules. It is linked to no catalog configuration.
 - A third point, the RL-10 OTV test engine from the TDK manual's own sample (NTRS 19860007470, Table 7-3), is
   compared under the same rules and linked to no catalog configuration. The manual's next sample, Rocketdyne's
-  Advanced Space Engine (§7.3), was found while reading it and is not read yet.
+  Advanced Space Engine (§7.3), was found while reading it.
+- A fourth point, that Advanced Space Engine (Tables 7-4 and 7-5: 2287 psia, MR 6.378, area ratio 400.7148), is
+  compared under the same rules and linked to no catalog configuration. The manual's TDE run of the same engine
+  (Table 7-8) prints the same three first-solution values (DB-4C §16, §17).
 - No engine record, assertion or conflict moved. The unresolved count stays 32, and regression references stay 0.
