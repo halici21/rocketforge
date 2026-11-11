@@ -302,7 +302,7 @@ CONTROLLER_SINGLETONS = {
     "AnalysisSession", "Viewport3D", "PropulsionEvidence", "EngineRequirement",
     "PropellantTrade", "ChamberSizing", "ChamberGeometry", "Injector",
     "PropellantInventory", "PropellantTanks", "PropellantManagement", "TankPressurization", "FeedNetwork",
-    "ReferenceEngines",
+    "ReferenceEngines", "ReferenceCases",
 }
 
 

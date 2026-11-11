@@ -9,6 +9,11 @@ is not feature-complete, so a 1.0.0 would overstate it — see
 ## [Unreleased]
 
 ### Added
+- Reference Cases workspace (Reference family): DB-4C's four 1985 TDK points, each with its printout, run
+  inputs, step A (the printout beside NASA CEA) and step B (RocketForge's constant-gamma reduction beside CEA) in
+  separate panels, one point at a time, with every declaration visible. It computes only on an explicit Run.
+  Differences are signed and name their operands; none is styled or judged. See
+  [docs/engineering/design/DB4C_IDEAL_REFERENCE_DISPLAY.md](docs/engineering/design/DB4C_IDEAL_REFERENCE_DISPLAY.md).
 - Reference cases, DB-4C: the SSME current design at 109% as the 1985 TDK program printed it (NASA-CR-178740), held as
   an independent code. Three quantities are recorded: the chamber temperature and the vacuum Isp, shifting and frozen
   at the chamber. A hand-run report compares them with CEA at the same point without a verdict, and separately shows

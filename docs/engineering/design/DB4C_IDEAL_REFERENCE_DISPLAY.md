@@ -1,8 +1,8 @@
 # DB-4C display — the ideal reference cases in the application, compared, never judged
 
-Status: PROPOSED (2026-11-10). Nothing is implemented. The eight decisions in §1 wait for the owner; each has a
-recommendation. This is the scientific-UI review that DB-4C §8 and §10 require before any display. It changes no
-computation: `reference_ideal_case.py`, the four cases and every rule in DB-4C stay as they are.
+Status: IMPLEMENTED (2026-11-11). The owner accepted the eight decisions in §1 as recommended (2026-11-10), and
+§12 records what was built. This is the scientific-UI review that DB-4C §8 and §10 require before any display. It changes
+no computation: `reference_ideal_case.py`, the four cases and every rule in DB-4C stay as they are.
 
 DB-4C (`DB4C_SSME_TDK_IDEAL_REFERENCE.md`) holds four points from two 1985 TDK documents: the SSME current design and
 enlarged throat (NASA-CR-178740), and the TDK manual's RL-10 OTV and Advanced Space Engine samples (NASA-CR-178628).
@@ -197,3 +197,30 @@ No case module, runner, rule or test of DB-4C changes.
 - No display change may be made in response to a reading. A change needs its own reason, stated without reference to
   the numbers.
 - Regression references stay 0, and engine evidence and the catalog are untouched.
+
+## 12. Implementation (2026-11-11)
+
+Built as §3 to §9 describe, with no decision changed:
+
+- `rocketforge/application/analysis/reference_case_view.py` is the one place a number becomes text.
+- `rocketforge/application/analysis/reference_case_controller.py` is `ReferenceCaseController`, the QML singleton
+  `ReferenceCases`.
+- The page is `ui/pages/ReferenceCasesPage.qml` and `ui/pages/referencecases/` (the point list, the record and a small
+  fixed table). Its navigation key is `referencecases`, the fourth item of the Reference family.
+
+The controller reads the provider's availability the first time the page asks for it, and reads it again after each
+Run. Choosing a point recomputes nothing.
+
+Tests:
+
+- `tests/application/test_reference_case_view.py`: texts, signs, decimals and their parity with the comparison, with a
+  negative control; judging words; and both step B bases.
+- `tests/application/test_reference_case_controller.py`: computing only on Run, nothing kept between runs, a refused
+  point in each position, an unavailable provider, the lazy availability read, and one CEA-gated real run that checks
+  structure only.
+- `tests/application/test_reference_cases_runtime.py`: the real shell. Browsing, themes, sizes and re-entry make zero
+  runs. The real Run button makes one, and is disabled without CEA. There is no QML warning, no judging word, and no
+  accumulating page.
+
+The not run, ok, refused and unavailable states were captured at 2560, 1920 and 1366 px, light and dark, and read: no
+difference is styled, and each state is carried in words. No computed value is pinned by any test.

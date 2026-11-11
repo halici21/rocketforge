@@ -130,7 +130,13 @@ QtObject {
         // Reference (DB-3A): the shipped reference-engine corpus, read-only.
         { key: "engines", label: "Reference Engines", page: "ReferenceEnginesPage.qml",
           computed: true, solverNote: "Shipped reference-engine records, read-only",
-          computedNote: "Values as printed, capabilities, topology and sources; nothing is solved" }
+          computedNote: "Values as printed, capabilities, topology and sources; nothing is solved" },
+        // Reference Cases (DB-4C display): published 1985 TDK printouts beside
+        // NASA CEA, and RocketForge's reduction beside CEA. Computes only on its
+        // explicit Run; compared, never judged.
+        { key: "referencecases", label: "Reference Cases", page: "ReferenceCasesPage.qml",
+          computed: true, solverNote: "NASA CEA · RocketForge ideal performance, run on request",
+          computedNote: "Published code printouts beside NASA CEA; compared, never judged" }
     ]
 
     // ---- Analysis Experience R2: progressive-disclosure families --------
@@ -191,7 +197,7 @@ QtObject {
         {
             key: "reference", label: "Reference", short: "REF", icon: "reference",
             hasStatus: false,
-            groups: [ { label: "", items: keys(["equations", "evidence", "engines"]) } ]
+            groups: [ { label: "", items: keys(["equations", "evidence", "engines", "referencecases"]) } ]
         }
     ]
 

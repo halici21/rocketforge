@@ -85,6 +85,9 @@ from rocketforge.application.analysis.line_controller import LineController
 from rocketforge.application.analysis.propulsion_evidence_controller import (
     PropulsionEvidenceController,
 )
+from rocketforge.application.analysis.reference_case_controller import (
+    ReferenceCaseController,
+)
 from rocketforge.application.analysis.reference_engine_controller import (
     ReferenceEngineController,
 )
@@ -376,6 +379,14 @@ def build_engine(parent: QObject | None = None) -> tuple[QQmlApplicationEngine, 
     reference_engines = ReferenceEngineController(parent)
     qmlRegisterSingletonInstance(ReferenceEngineController, QML_URI, 1, 0,
                                  "ReferenceEngines", reference_engines)
+
+    # Reference Cases (DB-4C display): the four 1985 TDK ideal reference points.
+    # The printed values need nothing; step A and step B are computed only on
+    # the page's explicit Run, through the DB-4C runner, and kept until the next
+    # Run. The provider's availability is read when the page first asks for it.
+    reference_cases = ReferenceCaseController(parent)
+    qmlRegisterSingletonInstance(ReferenceCaseController, QML_URI, 1, 0,
+                                 "ReferenceCases", reference_cases)
 
     # The liquid-engine requirement (LIQ-2): design intent, not a calculation.
     # It references the LIQ-1 propellant catalogue by key and calls no

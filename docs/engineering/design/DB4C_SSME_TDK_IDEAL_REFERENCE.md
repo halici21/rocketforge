@@ -218,8 +218,8 @@ is DB-4B's: the case sits in `comparison` and imports nothing from `providers`. 
 - The manual's next sample, §7.3 (printed p.7-59, PDF p.451): Rocketdyne's prototype Advanced Space Engine for
   OTV propulsion, 2300 psia and 400:1, input in Table 7-4 and summary in Table 7-5. Found while reading §7.2;
   taken up in §16.
-- A display, after a scientific-UI review. That review is proposed in `DB4C_IDEAL_REFERENCE_DISPLAY.md`
-  (2026-11-10), awaiting the owner's decisions.
+- A display, after a scientific-UI review. That review is `DB4C_IDEAL_REFERENCE_DISPLAY.md`; the owner
+  accepted it, and the Reference Cases workspace shows the four points (2026-11-11).
 
 ## 11. First run (2026-11-07)
 
